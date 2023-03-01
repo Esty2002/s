@@ -24,8 +24,17 @@ async function newPouringType(obj) {
     return result;
 }
 
+async function selectAllTable(TableName){
+    await connect()
+    const result = await getConnection().request().query(`select * from ${TableName} `)
+    console.log(result)
+    disconnect()
+}
+
+
 module.exports = {
     createNewLead,
     newOrderer,
-    newPouringType
+    newPouringType,
+    selectAllTable
 }

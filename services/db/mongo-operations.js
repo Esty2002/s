@@ -17,4 +17,4 @@ class MongoDBOperations {
 }
 
 const mongo_collection_leads=new MongoDBOperations();
-module.exports = { mongo_collection_leads }
+module.exports = mongo_collection_leads 
