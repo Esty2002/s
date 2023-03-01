@@ -1,7 +1,7 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { createNewLead,newOrderer,newPouringType } = require('../../modules/leads/create_m')
+const { createNewLead,newOrderer,newPouringType } = require('../modules/leads/create_m')
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     const result = await createNewLead(req.body)

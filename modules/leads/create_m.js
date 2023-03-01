@@ -1,14 +1,21 @@
 require('dotenv').config()
-const  MongoDBOperations = require('../../services/db/mongo-operations')
+const MongoDBOperations = require('../../services/db/mongo-operations')
 
-const { MONGO_COLLECTION_LEADS,MONGO_COLLECTION_ORDERERS,MONGO_COLLECTION_POURING_TYPES } = process.env
-const mongo_collection_leads=MongoDBOperations;
+const { MONGO_COLLECTION_LEADS, MONGO_COLLECTION_ORDERERS, MONGO_COLLECTION_POURING_TYPES } = process.env
+const mongo_collection_leads = MongoDBOperations;
 mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
 // const mongo_collection_orderers = new MongoDBOperations(MONGO_COLLECTION_ORDERERS)
 // const mongo_collection_pouring_types = new MongoDBOperations(MONGO_COLLECTION_POURING_TYPES)
 
-async function createNewLead(obj) {
-    const result = await mongo_collection_leads.insertOne(obj)
+async function createNewLead(obj = null) {
+   
+    if ( obj ) {
+        result = await mongo_collection_leads.insertOne(obj);
+    }
+
+    else {
+        result = false;
+    }
     return result;
 }
 
