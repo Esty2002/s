@@ -1,8 +1,8 @@
 require('dotenv').config()
-const  mongo = require('../../services/db/mongo-operations')
+const  mongoOperations = require('../../services/db/mongo-operations')
 
 const { MONGO_COLLECTION_LEADS,MONGO_COLLECTION_ORDERERS,MONGO_COLLECTION_POURING_TYPES } = process.env
-const mongo_collection_leads=mongo;
+const mongo_collection_leads=mongoOperations;
  mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
 // const mongo_collection_orderers = new MongoDBOperations(MONGO_COLLECTION_ORDERERS)
 // const mongo_collection_pouring_types = new MongoDBOperations(MONGO_COLLECTION_POURING_TYPES)

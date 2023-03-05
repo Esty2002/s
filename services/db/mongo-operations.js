@@ -5,16 +5,23 @@ const { MONGO_DB } = process.env
 
 
 class MongoDBOperations {
-    constructor(collectionName="leads", dbName = MONGO_DB) {
+    constructor(collectionName = "", dbName = MONGO_DB) {
         this.collectionName = collectionName
         this.dbName = dbName
     }
 
-    async insertOne(obj) {
-        const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
-        return result.insertedId;
-    }   
+    async insertOne(obj = null) {
+        let result;
+        if (obj) {
+            result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
+            result = result.insertedId;
+        }
+        else {
+            result = false;
+        }
+        return result;
+    }
 }
 
-const mongo_collection_leads=new MongoDBOperations();
-module.exports = { mongo_collection_leads }
+const mongoOperations = new MongoDBOperations();
+module.exports = { mongoOperations }
