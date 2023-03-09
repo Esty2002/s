@@ -11,6 +11,7 @@ router.get('/isExist', async (req, res) => {
     console.log("into isExist");
     console.log(req.query);
     const { phone } = req.query
+    console.log(phone);
     const result = await findSupplierOrClient(phone)
     res.status(200).send(result)
 })
