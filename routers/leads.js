@@ -1,7 +1,7 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { createNewLead,newOrderer,newPouringType,selectAllTable, addNewLead, selectRecordByPhoneNumber } = require('../modules/leads/sql/create_sql')
+const { newOrderer,newPouringType,selectAllTable, selectRecordByPhoneNumber } = require('../modules/leads/sql/create_sql')
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     const result = await addNewLead(req.body)
