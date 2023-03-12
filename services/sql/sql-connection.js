@@ -1,17 +1,19 @@
-const sql = require('mssql')
+require('dotenv').config();
+const sql=require('mssql')
 
-
+const {SQL_SERVER,SQL_PORT,SQL_USERNAME,SQL_PASSWORD,SQL_DATABASE}=process.env;
 let myconfig = {  
-    server: 'TB1-100\\NEW_SQL',  //update me
-    port:1433,
-    user: 'javaLogin', //update me
-    password: '1234',  //update me
-    database: 'Products',
+    server: "TB6-23\\MSSQLSERVER",  //update me
+    port: SQL_PORT,
+    user: SQL_USERNAME, //update me
+    password: SQL_PASSWORD,  //update me
+    database: SQL_DATABASE,
     options: {
         
       
        trustServerCertificate: true
           //update me
+          
     }
 };
 
@@ -28,4 +30,4 @@ const disconnect  = ()=>{
 
 const getConnection =()=>connection
 
-module.exports = {connect, disconnect, getConnection}
+module.exports = {connect, disconnect, getConnection,myconfig}

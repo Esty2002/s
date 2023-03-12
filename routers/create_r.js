@@ -1,10 +1,10 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { createNewLead,newOrderer,newPouringType,selectAllTable } = require('../../modules/leads/create_m')
+const { createNewLead,newOrderer,newPouringType,selectAllTable, addNewLead, selectRecordByPhoneNumber } = require('../modules/leads/sql/create_sql')
 
 router.post('/createnewlead', express.json(), async (req, res) => {
-    const result = await createNewLead(req.body)
+    const result = await addNewLead(req.body)
     res.send(result)
 })
 
@@ -17,14 +17,16 @@ router.post('/newpouringtype', express.json(), async (req, res) => {
     const result = await newPouringType(req.body)
     res.send(result)
 })
-router.get('/getAllTable',async(req,res)=>{
-      const result= await selectAllTable(req.body)
+router.get('/getalltable',async(req,res)=>{
+    console.log(req.query.name);
+      const result= await selectAllTable(req.query.name)
       res.send(result)
       
 })
 
 router.get('/getRowAccordingToPhone',async(req,res)=>{
-    const result= await selectColumn(req.query.phoneNumber,req.query.tableName)
+    console.log(req.query.phone,req.query.tableName);
+    const result= await selectRecordByPhoneNumber(req.query.phone,req.query.tableName)
     res.send(result)
     
 })
