@@ -11,7 +11,7 @@ jest.mock('../../../services/db/mongo-operations', () => {
     }
 })
 
-const { createNewLead } = require('../../../modules/leads/create_m');
+const { createNewLead } = require('../../../modules/leads/mongo/create_m');
 
 describe('CHECK FUNCTION CREATENEWLEAD', () => {
     it('should return inserted id when succeded',async ()=>{

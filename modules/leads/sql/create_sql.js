@@ -9,28 +9,52 @@ async function selectAllTable(tableName) {
     const result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
     console.log(result)
     await disconnect()
+    return result;
 }
 
 // take the row according to poneNumber and TableName
 async function selectRecordByPhoneNumber(phoneNumber, tableName) {
     await connect()
     const result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`)
-    console.log(result)
     await disconnect()
-}
-
-async function newOrderer(obj) {
-    //send to sql insted of mongodb
-    // const result = await mongo_collection_orderers.insertOne(obj)
     return result;
 }
-async function newPouringType(obj) {
+
+
+// פונקציה שמכניסה מזמין חדש לטבלת מזמינים
+async function newOrderer(obj = null) {
     //send to sql insted of mongodb
-    // const result = await mongo_collection_pouring_types.insertOne(obj)
+    let result
+    if (obj) {
+        obj.addedDate = new Date().toLocaleDateString();
+        await connect();
+        result = await getConnection().request().query(`INSERT INTO orderers VALUES('${obj.name}','${obj.phone}','${obj.addedDate}',0,NULL)`);
+        await disconnect();
+    }
+    else {
+        result = false;
+    }
+    return result;
+}
+
+
+// פונקציה שמכניסה סוג יציקת בטון לטבלת יציקות
+async function newPouringType(obj = null) {
+    //send to sql insted of mongodb
+    let result;
+    if (obj) {
+        await connect();
+        result = await getConnection().request().query(`INSERT INTO puringsTypes VALUES('${obj.name}')`);
+        await disconnect();
+    }
+    else {
+        result = false;
+    }
+
     return result;
 }
 
 
 module.exports = {
-    selectAllTable,selectRecordByPhoneNumber ,newOrderer,newPouringType
-}
+    selectAllTable, selectRecordByPhoneNumber, newOrderer, newPouringType
+}                      
