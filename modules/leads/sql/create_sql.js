@@ -3,20 +3,33 @@ require('dotenv').config()
 const { connect, disconnect, getConnection } = require('../../../services/sql/sql-connection')
 //take the Alltable according to TableName
 async function selectAllTable(tableName) {
-    console.log(tableName);
+    console.log(tableName)
+    let result
+    try {
+        await connect()
+        result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
+        await disconnect()
+    }
+    catch {
+        result="the table name is not defiend"
+    }
 
-    await connect()
-    const result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
-    console.log(result)
-    await disconnect()
+    return result;
 }
 
 // take the row according to poneNumber and TableName
 async function selectRecordByPhoneNumber(phoneNumber, tableName) {
-    await connect()
-    const result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`)
-    console.log(result)
-    await disconnect()
+    let result
+    try{
+        await connect()
+         result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`)
+        await disconnect()
+    }
+    catch{
+       result="the tableName or phoneNumber dont defined"
+    }
+    return result;
+
 }
 
 
@@ -27,5 +40,5 @@ async function selectRecordByPhoneNumber(phoneNumber, tableName) {
 // }
 
 module.exports = {
-    selectAllTable,selectRecordByPhoneNumber 
+    selectAllTable, selectRecordByPhoneNumber
 }
