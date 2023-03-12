@@ -19,7 +19,6 @@ let connection = null
 
 const connect =async (config = myconfig)=>{
    connection =  await sql.connect(config)
-  console.log({connection})
 }
 
 const disconnect  = ()=>{
