@@ -13,11 +13,13 @@ router.post('/addPriceList', express.json(), async (req, res) => {
     res.send(result)
 })
 router.post('/updatePriceList', express.json(), async (req, res) => {
+    // id - מצפה לקבל אוביקט של תאריך שבו הרשומה תקפה וכן את ה 
     const result = await updatePriceList(req.body.date, req.body.id)
     res.send(result)
 })
 
 router.post('/deletePriceList', express.json(), async (req, res) => {
+    // id - מצפה לקבל אוביקט שמכיל את ה 
     const result = await dletePriceList(req.body.id)
     res.send(result)
 })
