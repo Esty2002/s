@@ -1,11 +1,8 @@
 require('dotenv').config()
-
 const http = require('http')
 const { app } = require('./app')
 
 
-const host = process.env.HOST || '127.0.0.1'
-const port = process.env.PORT || 3800
 
 
 const { connect } = require('./services/db/mongo-connection')
