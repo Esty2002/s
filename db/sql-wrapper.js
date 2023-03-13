@@ -67,7 +67,7 @@ async function connectToSql() {
         Notes nvarchar(1000) NULL,
         CreationDate nvarchar(20)NOT NULL,
         Disabled BIT  NULL,
-        DisabledDate nvarchar(20) NULL,
+        DisabledDate nvarchar(40) NULL,
         DisableUser nvarchar(20) NULL
         )`);
 
