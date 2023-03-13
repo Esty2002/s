@@ -27,20 +27,23 @@ router.get('/findProductAndPricesByAreaName/:itemCode', async (req, res) => {
 router.get('/findProductByAreaName', async (req, res) => {
     console.log("in router3");
     const areaName = 'ashdod'//req.query
-    selectProductByAreaName(areaName)
+    const ans=selectProductByAreaName(areaName)
+    res.send(ans)
 
 })
 
 router.get('/findAreaByClientOrSupplyCode', async (req, res) => {
     console.log("in router4");
     const code = 100//req.query
-    selectAreaByClientOrSupplyCode(code)
+    const ans=selectAreaByClientOrSupplyCode(code)
+    res.send(ans)
 
 })
 
 router.get('/findAllAreas', async (req, res) => {
     console.log("in router5");
-    selectAllAreas()
+    const ans=selectAllAreas()
+    res.send(ans)
 })
 
 module.exports = router

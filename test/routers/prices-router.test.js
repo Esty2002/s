@@ -18,7 +18,6 @@ jest.mock('../../modules/sql/prices', () => {
     }
 })
 
-
 const request = require('supertest')
 const { app } = require('../../app')
 const expenses = require('../../routers/sql/prices-router')

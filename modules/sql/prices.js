@@ -29,12 +29,15 @@ async function selectProductByAreaName(areaName) {
     const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE areaName='${areaName}'`)
     console.log(result.recordset);
     disconnect()
+    return result.recordset
+    
 }
 async function selectAreaByClientOrSupplyCode(code) {
     await connect()
     const result = await getConnection().request().query(`SELECT areaName FROM priceList WHERE priceListCode=${code}`)
     console.log(result.recordset);
     disconnect()
+    return result.recordset
 }
 
 
@@ -43,6 +46,7 @@ async function selectAllAreas(){
     const result = await getConnection().request().query('SELECT areaName FROM priceList')
     console.log(result.recordset);
     disconnect()
+    return result.recordset
 }
 
 module.exports = { createTable, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode,selectAllAreas }
