@@ -14,4 +14,5 @@ const createNewLead = async (obj = null) => {
     }
     return result;
 }
+
 module.exports = { createNewLead }
