@@ -79,7 +79,7 @@ describe('SQL OPERATIONS', () => {
         })
     })
 
-     describe('deletePriceList', () => {
+    describe('deletePriceList', () => {
         it('it should update the value age to be 0', async () => {
             const result = await getConnection().request().query(`UPDATE TESTS SET age=0 where city='ashdod'`)
             expect(result).toBeDefined()
