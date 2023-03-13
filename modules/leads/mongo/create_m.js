@@ -15,4 +15,12 @@ const createNewLead = async (obj = null) => {
     return result;
 }
 
-module.exports = { createNewLead }
+
+const updateLead = async (obj) => {
+   const  result = await mongo_collection_leads.updateOne(obj ,obj.serialNumber)
+    return result
+}
+
+
+
+module.exports = { createNewLead, updateLead }

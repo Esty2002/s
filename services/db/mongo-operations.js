@@ -14,6 +14,12 @@ class MongoDBOperations {
         const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
         return result.insertedId;
     }   
+
+    async updateOne(obj , id) {
+        const result = await  getClient().db(this.dbName).collection(this.collectionName).updateOne({serialNumber: id} , { $set: obj })
+        return result
+        // .matchedCount
+    }
 }
 
 const mongo=new MongoDBOperations();
