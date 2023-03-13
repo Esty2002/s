@@ -2,7 +2,7 @@ require('dotenv').config()
 const http = require('http')
 
 const { app } = require('./app')
-const { createTables } = require('./services/sql-operation')
+const { createTables } = require('./db/sql-operation')
 
 
 const host = process.env.HOST || "localhost"

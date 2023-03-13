@@ -1,7 +1,7 @@
 const sql = require('mssql')
 
 let myconfig={
-    server:'TB1-19\\NEW_SQL',
+    server:'TB1-14\\NEW_SQL',
     port:1433,
     user:"project",
     password:"1234",
