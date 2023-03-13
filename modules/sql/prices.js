@@ -10,28 +10,39 @@ async function createTable() {
 
 async function selectAreaAndPriceByItemCode(itemCode) {
     await connect()
-    const result = await getConnection().request().query(`SELECT areaName,price FROM price_list WHERE itemCode=${itemCode}`)
+    const result = await getConnection().request().query(`SELECT areaName,price FROM priceList WHERE itemCode=${itemCode}`)
     console.log(result.recordset);
     disconnect()
+    return result.recordset
+    
 }
 
 async function selectProductAndPricesByAreaName(areaName) {
     await connect()
-    const result = await getConnection().request().query(`SELECT itemCode,price FROM price_list WHERE areaName='${areaName}'`)
+    const result = await getConnection().request().query(`SELECT itemCode,price FROM priceList WHERE areaName='${areaName}'`)
     console.log(result.recordset);
     disconnect()
+    return result.recordset
 }
 async function selectProductByAreaName(areaName) {
     await connect()
-    const result = await getConnection().request().query(`SELECT itemCode FROM price_list WHERE areaName='${areaName}'`)
+    const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE areaName='${areaName}'`)
     console.log(result.recordset);
     disconnect()
 }
 async function selectAreaByClientOrSupplyCode(code) {
     await connect()
-    const result = await getConnection().request().query(`SELECT areaName FROM price_list WHERE priceListCode=${code}`)
+    const result = await getConnection().request().query(`SELECT areaName FROM priceList WHERE priceListCode=${code}`)
     console.log(result.recordset);
     disconnect()
 }
 
-module.exports = { createTable, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode }
+
+async function selectAllAreas(){
+    await connect()
+    const result = await getConnection().request().query('SELECT areaName FROM priceList')
+    console.log(result.recordset);
+    disconnect()
+}
+
+module.exports = { createTable, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode,selectAllAreas }
