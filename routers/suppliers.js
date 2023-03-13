@@ -3,10 +3,10 @@ const router = express.Router()
 
 const { getallsuppliers,insertsuppliers } = require('../modules/suppliers')
 
-// router.get('/getallsuppliers', async (req, res) => {
-//     const result = await getallsuppliers()
-//     // console.log({ result });
-// })
+router.get('/getallsuppliers', async (req, res) => {
+    const result = await getallsuppliers()
+    // console.log({ result });
+})
 router.post('/insertsuppliers',express.json(), async (req, res) => {
     console.log("insert_supliers________________");
     console.log(req.body);
@@ -14,6 +14,7 @@ router.post('/insertsuppliers',express.json(), async (req, res) => {
     const result = await insertsuppliers(req.body)
     console.log({ result });
 })
+
 
 
 module.exports = router;
