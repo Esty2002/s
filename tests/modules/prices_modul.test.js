@@ -1,5 +1,4 @@
 const res = require("express/lib/response");
-const { INET } = require("sequelize");
 const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
 
 
@@ -96,19 +95,6 @@ describe('SQL OPERATIONS', () => {
                 expect(error).toBeInstanceOf(Error);
             }
         })
-
-      
-
-
     })
-
 })
 
-// const result =await getConnection().request().query(`update priceList set disable='0' where id='${id}'`)
-
- // it('check ',async()=>{
-    //     await connect(testconfig)
-    //     const result = await getConnection().request().query("CREATE TABLE TESTS(name varchar(255),age int ,city varchar(255))")
-    //     await disconnect(testconfig)
-    // (`update priceList set date='${date}' where id='${id}'`)
-    // })
