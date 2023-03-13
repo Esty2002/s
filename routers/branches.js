@@ -5,7 +5,7 @@ const {getallbranches}=require('../modules/branches')
 
 router.get('/getallbranches',async(req,res)=>{
     const result = await getallbranches()
-    console.log({result});
+    // console.log({result});
 })
 
 module.exports=router;
