@@ -1,13 +1,13 @@
+require('dotenv').config()
 const http = require('http')
 const { app } = require('./app')
+const { HOST, PORT } = process.env
+// const host = '127.0.0.1'
+// const port = 5000
 
 
-const host = '127.0.0.1'
-const port = 5000
-
-
-app.listen(port, host, () => {
-    console.log(`http://${host}:${port}`);
+app.listen(PORT, HOST, () => {
+    console.log(`http://${HOST}:${PORT}`);
 })
 
 
