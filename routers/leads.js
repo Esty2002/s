@@ -5,6 +5,7 @@ const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber } 
 const {createNewLead} = require('../modules/leads/mongo/create_m')
 
 
+
 router.post('/createnewlead', express.json(), async (req, res) => {
     const result = await createNewLead(req.body)
     res.status(200).send(result)
@@ -30,6 +31,8 @@ router.get('/getRowAccordingToPhone', async (req, res) => {
     res.status(200).send(result)
 
 })
+
+
 
 
 module.exports = router
