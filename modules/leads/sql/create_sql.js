@@ -3,20 +3,29 @@ require('dotenv').config()
 const { connect, disconnect, getConnection } = require('../../../services/sql/sql-connection')
 //take the Alltable according to TableName
 async function selectAllTable(tableName) {
-    console.log(tableName);
-
-    await connect()
-    const result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
-    console.log(result)
-    await disconnect()
+    let result
+    try {
+        await connect()
+        result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
+        await disconnect()
+    }
+    catch {
+        result="the table name is not defiend"
+    }
     return result;
 }
 
 // take the row according to poneNumber and TableName
 async function selectRecordByPhoneNumber(phoneNumber, tableName) {
-    await connect()
-    const result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`)
-    await disconnect()
+    let result
+    try{
+        await connect()
+         result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`)
+        await disconnect()
+    }
+    catch{
+       result="the tableName or phoneNumber dont defined"
+    }
     return result;
 }
 
@@ -26,15 +35,19 @@ async function newOrderer(obj = null) {
     //send to sql insted of mongodb
     let result
     if (obj) {
-        obj.addedDate = new Date().toLocaleDateString();
+        console.log("before problem");
+
+        console.log("after problem");
         await connect();
-        result = await getConnection().request().query(`INSERT INTO orderers VALUES('${obj.name}','${obj.phone}','${obj.addedDate}',0,NULL)`);
+        result = await getConnection().request().query(`INSERT INTO orderers VALUES('${obj.name}','${obj.phone}',GETDATE(),0,NULL)`);
         await disconnect();
     }
     else {
         result = false;
     }
     return result;
+    
+
 }
 
 
