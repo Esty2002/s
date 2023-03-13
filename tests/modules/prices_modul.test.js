@@ -80,7 +80,7 @@ describe('SQL OPERATIONS', () => {
         })
     })
 
-     describe('deletePriceList', () => {
+    describe('deletePriceList', () => {
         it('it should update the value age to be 0', async () => {
             const result = await getConnection().request().query(`UPDATE TESTS SET age=0 where city='ashdod'`)
             expect(result).toBeDefined()
@@ -97,18 +97,10 @@ describe('SQL OPERATIONS', () => {
             }
         })
 
-      
+
 
 
     })
 
 })
 
-// const result =await getConnection().request().query(`update priceList set disable='0' where id='${id}'`)
-
- // it('check ',async()=>{
-    //     await connect(testconfig)
-    //     const result = await getConnection().request().query("CREATE TABLE TESTS(name varchar(255),age int ,city varchar(255))")
-    //     await disconnect(testconfig)
-    // (`update priceList set date='${date}' where id='${id}'`)
-    // })
