@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
     res.send('priceList')
 })
 
+
 router.post('/addPriceList', express.json(), async (req, res) => {
     //צריך לקבל פה אוביקט של כל פרטי ההוספה 
     const result = await addPriceList(req.body)
