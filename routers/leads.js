@@ -2,7 +2,8 @@ const express = require('express')
 const router = require('express').Router()
 
 const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber } = require('../modules/leads/sql/create_sql')
-const {createNewLead} = require('../modules/leads/mongo/create_m')
+
+const {createNewLead,AllLeadsDetails} = require('../modules/leads/mongo/create_m')
 
 
 
@@ -30,6 +31,10 @@ router.get('/getRowAccordingToPhone', async (req, res) => {
     const result = await selectRecordByPhoneNumber(req.query.phone, req.query.tableName)
     res.status(200).send(result)
 
+})
+router.get('/getAllLeadsDatails ',async(req,res)=>{
+    const result=await AllLeadsDetails(req.body)
+    res.send(result)
 })
 
 

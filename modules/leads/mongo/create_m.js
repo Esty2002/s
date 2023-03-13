@@ -14,5 +14,9 @@ const createNewLead = async (obj = null) => {
     }
     return result;
 }
+async function AllLeadsDetails (){
+    const result= await mongo_collection_leads.find()
+    return result
 
-module.exports = { createNewLead }
+}
+module.exports = { createNewLead ,AllLeadsDetails}
