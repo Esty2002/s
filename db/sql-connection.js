@@ -1,16 +1,16 @@
-const sql = require('mssql')
+const sql = require('mssql');
+const {SQL_SERVER,SQL_PORT, SQL_SERVER_DATABASE, SQL_PASSWORD, SQL_USERNAME } = process.env;
 
 let myconfig={
-    server:'TB1-14\\NEW_SQL',
-    port:1433,
-    user:"project",
-    password:"1234",
-    database:"Buyton",
+    server:SQL_SERVER,
+    port:SQL_PORT,
+    user:SQL_USERNAME,
+    password:SQL_PASSWORD,
+    database:SQL_SERVER_DATABASE,
     options:{
         trustServerCertificate:true
     }
 }
-
 let connection = null;
 
 const connect = async (config=myconfig) => {
