@@ -1,7 +1,7 @@
-const sql = require('mssql')
+const sql = require('mssql');
 
 let myconfig={
-    server:'TB1-19\\NEW_SQL',
+    server:'TB1-12\\NEW_SQL',
     port:1433,
     user:"project",
     password:"1234",
@@ -10,7 +10,6 @@ let myconfig={
         trustServerCertificate:true
     }
 }
-
 let connection = null;
 
 const connect = async (config=myconfig) => {
