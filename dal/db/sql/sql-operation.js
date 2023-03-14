@@ -13,12 +13,11 @@ async function getClient(clientCode) {
 
 async function deleteClient(clientCode, userName) {
     await connect();
-    const date = new Date().getFullYear();
     const result = await getConnection().request()
         .query(`update CLIENTS
         set disabled = 'true',
         userThatDelete = '${userName}',
-        deletionDate = '${date}'
+        deletionDate = GETDATE()
         where clientCode = '${clientCode}'`);
     // console.log(result, 'deleteClient in sql');
     disconnect();
