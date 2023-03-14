@@ -7,11 +7,41 @@ jest.mock('../../../services/db/mongo-operations', () => {
 
             }
             return false;
+        }),
+        find:jest.fn((filter={},project={})=>{
+            if(filter=false){
+                return [{phone:'3333',Adrees:'ssss'}]
+
+            }
+            else{
+                return false
+            }
         })
     }
 })
 
 const { createNewLead } = require('../../../modules/leads/mongo/create_m');
+const {AllLeadsDetails}=require('../../../modules/leads/mongo/create_m')
+
+describe('CHECK FUNCTION AllLeadsDetails', () => {
+    it('should return inserted id when succeded',async ()=>{
+        let result=await AllLeadsDetails();
+        expect(result).toBeDefined();
+        console.log(result,'result');
+        // expect(result.text).toBe('[{"phone":"3333","Adrees":"ssss"}]');
+    })
+    // it('should return false the object is empty', async () => {
+    //     const result = await createNewLead();
+    //     expect(result).toBeDefined();
+    //     expect(result).toBeFalsy();
+    //     expect(result.date).toBe(undefined);
+    // })
+})
+
+
+
+
+
 
 describe('CHECK FUNCTION CREATENEWLEAD', () => {
     it('should return inserted id when succeded',async ()=>{

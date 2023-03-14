@@ -6,7 +6,7 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
             return '123456'
         }),
         AllLeadsDetails:jest.fn(()=>{
-            return "hellow to function"
+            return [{phone:'0583286577',supplyAddress:'chisda'},{phone:'5555555555',supplyAddress:'sss'}]
         })
     }
    
@@ -14,16 +14,9 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
 jest.mock('../../modules/leads/mongo_and_sql/mongo_and_sql', () => {
     return {
         getDataSynchronised: jest.fn((sql,mongo) => {
-            return "huhu"
+            return [{name:'sari',phone:'0583286577',supplyAddress:'chisda'},{name:'ccc',phone:'5555555555',supplyAddress:'sss'}]
         }),
-        // nameAndphone:jest.fn(()=>{
-        //     return 'nameAndphone'
-        // })
        
-
-
-        
-
     }
    
 })
@@ -53,7 +46,7 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
             return 'insertType'
         }),
         nameAndphone:jest.fn(()=>{
-            return ({name:'sari',phone:'0583286577'})
+            return ([{name:"sari",phone:"0583286577"},{name:"ccc",phone:"5555555555"}])
         })
 
    
@@ -61,16 +54,38 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
 })
 
 describe('getAllLeadsDatails',()=>{
-    it('should the request successful ',async()=>{
-        const response=await request(app).get('/leads/getAllLeadsDatails')
-        expect(response).toBeDefined()
-        console.log(response,"response");
-        expect(response.text).toBe('{"name":"sari","phone":"0583286577"}')
-
+    it('should get all the leads datails', async () => {
+        const response = await request(app).get('/leads/getAllLeadsDatails')
         expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
 
+    it('should call nameAndphone', async () => {
+        const { nameAndphone } = jest.requireMock('../../modules/leads/sql/create_sql')
+        const response = await request(app).get('/leads/getAllLeadsDatails')
+        expect(nameAndphone).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        // expect(nameAndphone.text).toBe('[{"name":"sari","phone":"0583286577"},{"name":"ccc","phone":"5555555555"}]');
+    })
+
+    it('should call AllLeadsDetails', async () => {
+        const { AllLeadsDetails } = jest.requireMock('../../modules/leads/mongo/create_m')
+        const response = await request(app).get('/leads/getAllLeadsDatails')
+        expect(AllLeadsDetails).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        // expect(nameAndphone.text).toBe('[{"name":"sari","phone":"0583286577"},{"name":"ccc","phone":"5555555555"}]');
+    })
+
+    it('should call  getDataSynchronised', async () => {
+        const { getDataSynchronised } = jest.requireMock('../../modules/leads/mongo_and_sql/mongo_and_sql')
+        const response = await request(app).get('/leads/getAllLeadsDatails')
+        expect(getDataSynchronised).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        expect(response.text).toBe('[{"name":"sari","phone":"0583286577","supplyAddress":"chisda"},{"name":"ccc","phone":"5555555555","supplyAddress":"sss"}]');
     })
 })
+
 describe('/getalltable', () => {
     it('should get the all table whith the name wich are givven', async () => {
         const response = await request(app).get('/leads/getalltable?name=test')
@@ -129,7 +144,6 @@ describe('/getRowAccordingToPhone', () => {
 describe('/createnewlead', () => {
 
     it('should create a new lead with the details wich are givven', async () => {
-
         const response = await request(app).post('/leads/createnewlead', { "name": "test" })
         expect(response).toBeTruthy();
         expect(response.statusCode).toBe(200);
@@ -142,7 +156,6 @@ describe('/createnewlead', () => {
         expect(createNewLead).toHaveBeenCalled()
         expect(response).toBeDefined()
         expect(response.text).toBe('123456');
-
     })
     it('should the request good without parmeters sended ', async () => {
         const response = await request(app).post('/leads/createnewlead');
