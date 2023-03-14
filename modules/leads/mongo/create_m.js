@@ -9,6 +9,7 @@ const createNewLead = async (obj = null) => {
 
     let result;
     if (obj) {
+        obj.serialNumber=
         result = await mongo_collection_leads.insertOne(obj);
     }
     else {
@@ -16,13 +17,12 @@ const createNewLead = async (obj = null) => {
     }
     return result;
 }
-const getTheMastConcretItem = async () => {
+const getTheMustConcretItem = async () => {
     mongo_collection_products.collectionName = MONGO_COLLECTION_PRODUCTS
-
     const filter = { must: true };
     const project = { _id: 0, traitName: 1, values: 1 }
     let result = await mongo_collection_products.find(filter, project);
     return result;
 }
 
-module.exports = { createNewLead, getTheMastConcretItem }
+module.exports = { createNewLead, getTheMustConcretItem }

@@ -19,9 +19,14 @@ class MongoDBOperations {
         else {
             result = false;
         }
+        return result;
     }
-    async find(filter,project){
+    async find(filter={},project={}){
         const result=await getClient().db(this.dbName).collection(this.collectionName).find(filter,project).toArray();
+        return result;
+    }
+    async countDocuments(){
+        const result=await getClient().db(this.dbName).collection(this.collectionName).countDocuments();
         return result;
     }
 }
