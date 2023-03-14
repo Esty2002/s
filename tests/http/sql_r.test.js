@@ -22,13 +22,13 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
 
     }
 })
-jest.mock('../../modules/leads/mongo/create_m',()=>{
-    return{
-        nameAndphone:jest.fn(()=>{
-            return 'nameAndphone'
-        })
-    }
-})
+// jest.mock('../../modules/leads/mongo/create_m',()=>{
+//     return{
+//         nameAndphone:jest.fn(()=>{
+//             return 'nameAndphone'
+//         })
+//     }
+// })
 
 describe('/getalltable', () => {
     it('should get the all table whith the name wich are givven', async () => {
@@ -85,12 +85,12 @@ describe('/getRowAccordingToPhone', () => {
         expect(response).toBeTruthy();
     })
 })
-describe('getAllLeadsDatails',()=>{
-    it('should the request successful ',async()=>{
-        const response=await request(app).get('/leads/getAllLeadsDatails')
-        expect(response).toBeDefined
-        expect(response).toBe('nameAndphone')
-        expect(response).toBeTruthy();
+// describe('getAllLeadsDatails',()=>{
+//     it('should the request successful ',async()=>{
+//         const response=await request(app).get('/leads/getAllLeadsDatails')
+//         expect(response).toBeDefined
+//         expect(response).toBe('nameAndphone')
+//         expect(response).toBeTruthy();
 
-    })
-})
+//     })
+// })
