@@ -10,7 +10,7 @@ async function selectAllTable(tableName) {
         await disconnect()
     }
     catch {
-        result="the table name is not defiend"
+        result = "the table name is not defiend"
     }
     return result;
 }
@@ -18,13 +18,19 @@ async function selectAllTable(tableName) {
 // take the row according to poneNumber and TableName
 async function selectRecordByPhoneNumber(phoneNumber, tableName) {
     let result
-    try{
-        await connect()
-         result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`)
-        await disconnect()
+    try {
+        await connect();
+        result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`);
+        await disconnect();
     }
-    catch{
-       result="the tableName or phoneNumber dont defined"
+    catch {
+        result = "the tableName or phoneNumber dont defined"
+    }
+    console.log(result);
+    if (result.recordset.length > 0)
+        result = true;
+    else {
+        result = false;
     }
     return result;
 }
@@ -46,7 +52,7 @@ async function newOrderer(obj = null) {
         result = false;
     }
     return result;
-    
+
 
 }
 
