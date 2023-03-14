@@ -5,7 +5,7 @@ const { MONGO_DB } = process.env
 
 
 class MongoDBOperations {
-    constructor(collectionName = "", dbName = MONGO_DB) {
+    constructor(collectionName, dbName = MONGO_DB) {
         this.collectionName = collectionName
         this.dbName = dbName
     }
@@ -19,9 +19,12 @@ class MongoDBOperations {
         else {
             result = false;
         }
+    }
+    async find(filter,project){
+        const result=await getClient().db(this.dbName).collection(this.collectionName).find(filter,project).toArray();
         return result;
     }
 }
 
-const mongoOperations = new MongoDBOperations();
-module.exports = { mongoOperations }
+const mongo=new MongoDBOperations();
+module.exports =  mongo 
