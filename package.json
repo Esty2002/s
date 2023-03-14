@@ -24,7 +24,7 @@
     "dev": "nodemon server",
     "mongo": "node services/db/mongo",
     "test": "jest",
-    "test:coverage": "npm test -- -- coverage"
+    "test:coverage": "npm test -- --coverage"
   },
   "repository": {
     "type": "git",

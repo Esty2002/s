@@ -9,6 +9,8 @@ const createNewLead = async (obj = null) => {
 
     let result;
     if (obj) {
+        // obj.serialNumber=await mongo_collection_leads.countDocuments();
+        // obj.serialNumber+=1;
         result = await mongo_collection_leads.insertOne(obj);
     }
     else {
