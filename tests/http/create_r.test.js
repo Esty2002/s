@@ -5,6 +5,7 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
         createNewLead: jest.fn((obj) => {
             return '123456'
         }),
+<<<<<<< HEAD
         AllLeadsDetails:jest.fn(()=>{
             return "hellow to function"
         })
@@ -16,6 +17,15 @@ jest.mock('../../modules/leads/mongo_and_sql/mongo_and_sql', () => {
         getDataSynchronised: jest.fn((sql,mongo) => {
             return "huhu"
         }),
+=======
+        // nameAndphone:jest.fn(()=>{
+        //     return 'nameAndphone'
+        // })
+       
+
+
+        
+>>>>>>> 493ee8bcbb4ca14393fe0c155318b4f5617fbd79
 
     }
    
@@ -49,6 +59,9 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
             return ({name:'sari',phone:'0583286577'})
         })
 
+        // AllLeadsDetails:jest.fn(()=>{
+        //     return 'leads'
+        //  })
     }
 })
 
