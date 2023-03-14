@@ -14,9 +14,9 @@ async function insert(table, columns, values) {
     return result;
 }
 //פונקציה שמחזירה שדות לפי תנאי
-async function getByValues(table, column, code, title) {
+async function getByValues(table, column, code) {
     await connect()
-    const result = await getConnection().request().query(`SELECT ${title} FROM ${table} WHERE ${column} = ${code}`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column} = '${code}'`)
     await disconnect()
     return result;
 }
@@ -51,4 +51,20 @@ async function setDate() {
 
 
 
-module.exports = { getAll, insert, getByValues, del, changeDisabele,changeDisabledDate,setDate }
+//פונקציה המחזירה האם לקוח מסוים קיים עדדין
+async function getIsDisabled(table, column, code) {
+    await connect()
+    const result = await getConnection().request().query(`SELECT Disabled FROM ${table} WHERE ${column} = '${code}'`)
+    await disconnect()
+    return result;
+}
+//פונקצית עדכון
+async function update(title,field,value, code) {
+    console.log(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`);
+    await connect()
+    const result = await getConnection().request().query(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`)
+    await disconnect()
+    return result;
+}
+
+module.exports = { getAll, insert, getByValues, del, changeDisabele,changeDisabledDate, getIsDisabled, setDate,update }

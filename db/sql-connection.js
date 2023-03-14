@@ -15,7 +15,6 @@ let connection = null;
 
 const connect = async (config=myconfig) => {
     connection = await sql.connect(config);
-    console.log({ connection });
 }
 
 const disconnect = async() => {
@@ -25,3 +24,5 @@ const disconnect = async() => {
 const getConnection = () => connection;
 
 module.exports = { connect, disconnect, getConnection };
+
+
