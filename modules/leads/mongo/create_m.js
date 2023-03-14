@@ -16,9 +16,11 @@ const createNewLead = async (obj = null) => {
 }
 
 
-const updateLead = async (obj) => {
+const updateLead = async (obj = {}) => {
+   console.log(obj, "obj dfdfd");
+   console.log(obj.serialNumber ,"serial");
    const  result = await mongo_collection_leads.updateOne(obj ,obj.serialNumber)
-    return result
+   return result
 }
 
 

@@ -32,7 +32,7 @@ router.get('/getRowAccordingToPhone', async (req, res) => {
 })
 
 router.post('/updateLeadsDetails' ,express.json(), async(req,res)=>{
-    const result = await updateLead(req.body.serialNumber ,req.body)
+    const result = await updateLead(req.body)
     res.status(200).send(result)
      
 })
