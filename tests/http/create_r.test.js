@@ -5,7 +5,8 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
     return {
         createNewLead: jest.fn((obj) => {
             return '123456'
-        })
+        }),
+       
 
     }
 })

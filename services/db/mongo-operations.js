@@ -10,12 +10,23 @@ class MongoDBOperations {
         this.dbName = dbName
     }
 
-    async insertOne(obj) {
-        const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj);
-        return result.insertedId;
-    }   
-    async find(filter,project){
+    async insertOne(obj = null) {
+        let result;
+        if (obj) {
+            result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
+            result = result.insertedId;
+        }
+        else {
+            result = false;
+        }
+        return result;
+    }
+    async find(filter={},project={}){
         const result=await getClient().db(this.dbName).collection(this.collectionName).find(filter,project).toArray();
+        return result;
+    }
+    async countDocuments(){
+        const result=await getClient().db(this.dbName).collection(this.collectionName).countDocuments();
         return result;
     }
 }
