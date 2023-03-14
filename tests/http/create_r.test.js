@@ -5,9 +5,17 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
     return {
         createNewLead: jest.fn((obj) => {
             return '123456'
+        }),
+        nameAndphone:jest.fn(()=>{
+            return 'nameAndphone'
         })
+       
+
+
+        
 
     }
+   
 })
 jest.mock('../../modules/leads/sql/create_sql', () => {
     return {
@@ -16,9 +24,13 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
         }),
         newPouringType:jest.fn((obj =null)=>{
             return 'insertType'
-        })
+        }),
+        AllLeadsDetails:jest.fn(()=>{
+            return 'leads'
+         })
     }
 })
+
 
 describe('/createnewlead', () => {
 
@@ -101,3 +113,4 @@ describe('check function newpouringtype',()=>{
 
     })
 })
+
