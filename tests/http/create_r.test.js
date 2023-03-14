@@ -1,37 +1,123 @@
 const request = require('supertest')
 const { app } = require('../../app')
-
 jest.mock('../../modules/leads/mongo/create_m', () => {
     return {
         createNewLead: jest.fn((obj) => {
             return '123456'
         }),
-        nameAndphone:jest.fn(()=>{
-            return 'nameAndphone'
+        AllLeadsDetails:jest.fn(()=>{
+            return "hellow to function"
         })
-       
-
-
-        
+    }
+   
+})
+jest.mock('../../modules/leads/mongo_and_sql/mongo_and_sql', () => {
+    return {
+        getDataSynchronised: jest.fn((sql,mongo) => {
+            return "huhu"
+        }),
 
     }
    
 })
 jest.mock('../../modules/leads/sql/create_sql', () => {
     return {
+        selectAllTable: jest.fn((tablename) => {
+            return 'test'
+        }),
+        selectRecordByPhoneNumber: jest.fn((phone, tablename) => {
+            if (phone === undefined) {
+                return ({ tablename:"test" })
+            }
+            if (tablename === undefined) {
+                return ({ phone: '0583288477' })
+
+            }
+
+            return ({ phone: '0583288477', tablename: 'test' })
+
+
+
+        }),
         newOrderer: jest.fn((obj=null) => {
             return 'insert'
         }),
         newPouringType:jest.fn((obj =null)=>{
             return 'insertType'
         }),
-        AllLeadsDetails:jest.fn(()=>{
-            return 'leads'
-         })
+        nameAndphone:jest.fn(()=>{
+            return ({name:'sari',phone:'0583286577'})
+        })
+
     }
 })
 
+describe('getAllLeadsDatails',()=>{
+    it('should the request successful ',async()=>{
+        const response=await request(app).get('/leads/getAllLeadsDatails')
+        expect(response).toBeDefined()
+        console.log(response,"response");
+        expect(response).toBe('{"name":"sari","phone":"0583286577"}')
 
+        expect(response).toBeTruthy();
+
+    })
+})
+describe('/getalltable', () => {
+    it('should get the all table whith the name wich are givven', async () => {
+        const response = await request(app).get('/leads/getalltable?name=test')
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should the request successful without sends the deteils', async () => {
+        const response = await request(app).get('/leads/getalltable')
+        // console.log(response,"respnse");
+        expect(response).toBeDefined();
+        expect(response.text).toBe('test');
+        expect(response.statusCode).toBe(200);
+
+        expect(response.serverError).toBeFalsy();
+    })
+})
+
+
+describe('/getRowAccordingToPhone', () => {
+    it('should getRowAccordingToPhone whith the deteils wich are givven', async () => {
+        const response = await request(app).get('/leads/getRowAccordingToPhone?name=test?phone=0583286477')
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+
+    })
+
+    it('should the request successful without sends the deteils', async () => {
+        const response = await request(app).get('/leads/getRowAccordingToPhone')
+        expect(response).toBeDefined();
+        expect(response.text).toBe('{"tablename":"test"}');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should the request successful only whith the name ', async () => {
+        const response = await request(app).get('/leads/getRowAccordingToPhone?name=test')
+
+        expect(response).toBeDefined();
+        expect(response.text).toBe('{"tablename":"test"}');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response).toBeTruthy();
+    })
+    it('should the request successful only whith the phone ', async () => {
+        const response = await request(app).get('/leads/getRowAccordingToPhone?phone=0583288477')
+
+        expect(response).toBeDefined();
+        expect(response.text).toBe('{"phone":"0583288477"}');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response).toBeTruthy();
+    })
+})
 describe('/createnewlead', () => {
 
     it('should create a new lead with the details wich are givven', async () => {

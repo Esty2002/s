@@ -39,6 +39,8 @@ router.get('/getAllLeadsDatails', async (req, res) => {
     if (mongo && sql) {
         arr = await getDataSynchronised(sql, mongo)
     }
+   
+    
     res.status(200).send(arr)
 })
 
