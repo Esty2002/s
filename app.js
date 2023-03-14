@@ -10,7 +10,6 @@ const manage_suppliers_router = require('./routers/suppliers');
 app.use('/branches',manage_branches_router);
 
 app.get('/',(req,res)=>{
-    console.log("welcome!!!");
     res.send('hello');
 })
 
