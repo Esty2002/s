@@ -46,7 +46,7 @@ async function connectToSql() {
 
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_SUPPLIERS}') CREATE TABLE [dbo].[${SQL_DB_SUPPLIERS}](
         Id int Identity (1000,1) NOT NULL,
-        SupplierCode int NOT NULL,
+        SupplierCode nvarchar(50) NOT NULL,
         SupplierName nvarchar(50)NOT NULL,
         licensedDealerNumber nvarchar(20)NOT NULL,
         BokkeepingNumber nvarchar(20) NULL,
