@@ -1,40 +1,7 @@
 const {getConnection,connect,disconnect}=require('./sql-connection')
 
 
-async function createTable(){
-    await connect()
-    _=await getConnection().request().query(`CREATE TABLE CLIENTS(
-        serialNumber int Identity (200,1) NOT NULL,
-        clientCode nvarchar(50) NOT NULL,
-        clientName nvarchar(50)NOT NULL,
-        privaetCompanyNumber nvarchar(50) NOT NULL,
-        bookkeepingNumber nvarchar(50),
-        destinationBank nvarchar(50) ,
-        paymentTermsFluent nvarchar(10) ,
-        preferredPaymentDate int ,
-        ovligo int ,
-        receiptIssueTerm nvarchar(20) ,
-        receiptCentralism nvarchar(20) ,
-        accountantClassifiedCode int ,
-        status int NOT NULL,
-        description nvarchar(20) ,
-        street nvarchar(20) NOT NULL,
-        house int NOT NULL,
-        city nvarchar(20) NOT NULL,
-        zipCode nvarchar(20) ,
-        telephone1 nvarchar(20) NOT NULL,
-        telephone2 nvarchar(20) ,
-        mobilePhone nvarchar(20) ,
-        fax nvarchar(20) ,
-        email nvarchar(20) ,
-        comments nvarchar(20) ,
-        creationDate nvarchar(20) NOT NULL,
-        userThatAdd nvarchar(20) NOT NULL,
-        disabled bit NOT NULL,
-        deletionDate nvarchar(50) NOT NULL,
-        userThatDelete nvarchar(20) NOT NULL
-        )`)
-}
+
 
 async function getAll(){
     await connect()
@@ -57,6 +24,63 @@ async function getClientByField(field ,value){
     return result
 }
 
+// async function deleteOne(clientCode) {
+    //     await connect();
+    //     const result = await getConnection().request()
+    //         .query(`delete from CLIENTS where clientCode=${clientCode}`)
+    //     console.log(result);
+    //     disconnect()
+    //     return result;
+    // }
+    
+    async function update(obj) {
+        console.log(obj,' obj');
+        await connect();
+        const result = await getConnection().request().query(`UPDATE clients  
+        SET [clientName]='${obj.clientName}',
+        [privaetCompanyNumber]='${obj.privaetCompanyNumber}',
+        [bookkeepingNumber]='${obj.bookkeepingNumber}',
+        [destinationBank]='${obj.destinationBank}',
+        [paymentTermsFluent]='${obj.paymentTermsFluent}',
+        [preferredPaymentDate]=${obj.preferredPaymentDate},
+        [ovligo]=${obj.ovligo},
+        [receiptIssueTerm]='${obj.receiptIssueTerm}',
+        [receiptCentralism]='${obj.receiptCentralism}',
+        [accountantClassifiedCode]=${obj.accountantClassifiedCode},
+        [status]=${obj.status},
+        [description]='${obj.description}',
+        [street]='${obj.street}',
+        [house]=${obj.house},
+        [city]='${obj.city}',
+        [zipCode]='${obj.zipCode}',
+        [telephone1]='${obj.telephone1}',
+        [telephone2]='${obj.telephone2}',
+        [mobilePhone]='${obj.mobilePhone}',
+        [fax]='${obj.fax}',
+        [email]='${obj.email}',
+        [comments]='${obj.comments}',
+        [creationDate]='${obj.creationDate}',
+        [userThatAdd]='${obj.userThatAdd}'
+        WHERE [clientCode]=${obj.clientCode}`);
+        disconnect();
+        console.log(result);
+        // return result;
+        
+    }
+ 
+    
+    async function deleteClient(clientCode, userName) {
+        await connect();
+        const result = await getConnection().request()
+        .query(`update CLIENTS
+        set disabled = 'true',
+        userThatDelete = '${userName}',
+        deletionDate = GETDATE()
+        where clientCode = '${clientCode}'`);
+        // console.log(result, 'deleteClient in sql');
+        disconnect();
+        return result;
+    }
+    
 
-module.exports={getAll,getClientByField,getClientById,createTable}
-
+module.exports={  update, deleteClient ,getAll,getClientByField,getClientById}
