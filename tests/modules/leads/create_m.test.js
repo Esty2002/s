@@ -40,6 +40,16 @@ describe('check the function updateLead', () => {
 
     })
 
+    it('should return when the function succsed with many elements', async () => {
+        const result = await updateLead({ name: "testes", serialNumber: "123" },{name:"test2" ,serialNumber:"333"});
+        expect(result).toBeDefined();
+        expect(result).toBe("successUpdatelead");
+        expect(result).toBeTruthy()
+
+    })
+
+    
+
     it('should return when the function dont get arguments', async () => {
         const result = await updateLead();
         expect(result).toBeDefined();
