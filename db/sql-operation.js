@@ -2,7 +2,7 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table}`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='1'`)
     await disconnect()
     return result;
 }
@@ -67,4 +67,10 @@ async function update(title,field,value, code) {
     return result;
 }
 
-module.exports = { getAll, insert, getByValues, del, changeDisabele,changeDisabledDate, getIsDisabled, setDate,update }
+async function allTheOption(table,column,code){
+    await connect()
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='1'`)
+    await disconnect()
+    return result;
+}
+module.exports = {allTheOption, getAll, insert, getByValues, del, changeDisabele,changeDisabledDate, getIsDisabled, setDate,update }
