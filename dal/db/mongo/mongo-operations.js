@@ -30,7 +30,7 @@ class MongoDBOperations {
         const result = await getClient().db(this.dbName).collection(this.collectionName).find(query).toArray();
         return result;
     }
-
+    
     async findByThing(field,value) {
         let change={}
         change[field]=value
