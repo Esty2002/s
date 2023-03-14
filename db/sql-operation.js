@@ -37,7 +37,7 @@ async function changeDisabele(title, code) {
 // פונקציה המעדכנת את תאריך המחיקה
 async function changeDisabledDate(title, code, date) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisabledDate=${date} WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisabledDate='${date}' WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }

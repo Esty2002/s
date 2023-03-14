@@ -9,9 +9,9 @@ async function deletesupplier(object) {
   
     console.log(newDate);
     //////////////////////////להוסיף משתנה גלובלי
-    const resultSupplierCode = await del(SQL_DB_SUPPLIERS, '453', Object.values(object)[0])
-    const resultSupplierCode2 = await changeDisabele(SQL_DB_SUPPLIERS, '453')
-    const resultSupplierCode3 = await changeDisabledDate(SQL_DB_SUPPLIERS, '453', newDate)
+    const resultSupplierCode = await del(SQL_DB_SUPPLIERS, '36', Object.values(object)[0])
+    const resultSupplierCode2 = await changeDisabele(SQL_DB_SUPPLIERS, '36')
+    const resultSupplierCode3 = await changeDisabledDate(SQL_DB_SUPPLIERS, '36', newDate)
     return resultSupplierCode
 
 }
