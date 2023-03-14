@@ -21,6 +21,7 @@ async function connectToSql() {
     await connect(myconfig);
     _ = await getConnection().request().query(`IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '${SQL_SERVER_DATABASE}') CREATE DATABASE [${SQL_SERVER_DATABASE}];`)
     await disconnect();
+
     await connect();
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_BRANCHES}') CREATE TABLE [dbo].[${SQL_DB_BRANCHES}](
         Id int Identity (1000,1) NOT NULL,
@@ -36,8 +37,8 @@ async function connectToSql() {
         Mobile nvarchar(20) NULL,
         Fax nvarchar(20) NULL,
         Mail nvarchar(20) NULL,
-        Notes nvarchar(1000) NULL,
-        CreationDate nvarchar(20)NOT NULL,
+        Notes nvarchar(MAX) NULL,
+        CreationDate nvarchar(20) NULL,
         UserThatInsert nvarchar(20)NOT NULL,
         Disabled BIT  NULL,
         DisabledDate nvarchar(20) NULL,
@@ -64,8 +65,8 @@ async function connectToSql() {
         Mobile nvarchar(20) NULL,
         Fax nvarchar(20) NULL,
         Mail nvarchar(20) NULL,
-        Notes nvarchar(1000) NULL,
-        CreationDate nvarchar(20)NOT NULL,
+        Notes nvarchar(MAX) NULL,
+        CreationDate nvarchar(20) NULL,
         Disabled BIT  NULL,
         DisabledDate nvarchar(20) NULL,
         DisableUser nvarchar(20) NULL

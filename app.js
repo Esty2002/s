@@ -11,7 +11,6 @@ app.use('/branches',manage_branches_router);
 app.use('/suppliers',manage_suppliers_router);
 
 app.get('/',(req,res)=>{
-    console.log("welcome!!!");
     res.send('hello');
 })
 
