@@ -1,5 +1,6 @@
 const { connect, getConnection, disconnect } = require('./sql-connection')
 
+
 async function getClient(clientCode) {
     await connect();
     const result = await getConnection().request()
