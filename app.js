@@ -9,11 +9,6 @@ const manage_suppliers_router = require('./routers/suppliers');
 
 app.use('/branches',manage_branches_router);
 app.use('/suppliers',manage_suppliers_router);
-<<<<<<< HEAD
-=======
-
-
->>>>>>> TzipiChusid
 
 app.get('/',(req,res)=>{
     res.send('hello');

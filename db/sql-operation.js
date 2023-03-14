@@ -20,27 +20,14 @@ async function getByValues(table, column, code) {
     await disconnect()
     return result;
 }
-// פונקציה המעדכנת את שם המוחק
-async function del(title, code, name) {
+// פונקצית מחיקה
+async function del(title, code, name, date) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}'  WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='0',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
-// פונקציה המעדכנת אפשרי למחוק
-async function changeDisabele(title, code) {
-    await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET Disabled='0'  WHERE SupplierCode = '${code}'`)
-    await disconnect()
-    return result;
-}
-// פונקציה המעדכנת את תאריך המחיקה
-async function changeDisabledDate(title, code, date) {
-    await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisabledDate='${date}' WHERE SupplierCode = '${code}'`)
-    await disconnect()
-    return result;
-}
+
 // פונקציה המחזירה תאריך נוכחי
 async function setDate() {
     await connect()
@@ -48,9 +35,6 @@ async function setDate() {
     await disconnect()
     return result;
 }
-
-
-
 //פונקציה המחזירה האם לקוח מסוים קיים עדדין
 async function getIsDisabled(table, column, code) {
     await connect()
@@ -59,7 +43,7 @@ async function getIsDisabled(table, column, code) {
     return result;
 }
 //פונקצית עדכון
-async function update(title,field,value, code) {
+async function update(title, field, value, code) {
     console.log(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`);
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`)
@@ -73,4 +57,24 @@ async function allTheOption(table,column,code){
     await disconnect()
     return result;
 }
-module.exports = {allTheOption, getAll, insert, getByValues, del, changeDisabele,changeDisabledDate, getIsDisabled, setDate,update }
+// async function insertSupplier(objectSupplier) {
+//     await connect();
+//     console.log("..................");
+//     console.log(objectSupplier);
+//     console.log("..................");
+//     const result = await getConnection().request()
+//     .input('SupplierCode', req.query.SupplierCode )
+//     // .input('size', req.query.size ||NULL)
+//     // .input('search', req.query.search || '')
+//     // .input('orderBy', req.query.orderBy || 'Id')
+//     // .input('orderDir', req.query.orderDir || 'DESC')
+    
+//     .execute(`usp_insertSupplier`);
+//     await disconnect()
+//     return result;
+    
+// }
+
+module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update,insertSupplier }
+
+// changeDisabele,changeDisabledDate,
