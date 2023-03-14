@@ -1,11 +1,11 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber } = require('../modules/leads/sql/create_sql')
+const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber, nameAndphone } = require('../modules/leads/sql/create_sql')
 
-const {createNewLead,AllLeadsDetails} = require('../modules/leads/mongo/create_m')
+const { createNewLead, AllLeadsDetails } = require('../modules/leads/mongo/create_m')
 
-
+const { getDataSynchronised } = require('../modules/leads/mongo_and_sql/mongo_and_sql')
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     const result = await createNewLead(req.body)
@@ -32,9 +32,14 @@ router.get('/getRowAccordingToPhone', async (req, res) => {
     res.status(200).send(result)
 
 })
-router.get('/getAllLeadsDatails ',async(req,res)=>{
-    const result=await AllLeadsDetails(req.body)
-    res.send(result)
+router.get('/getAllLeadsDatails', async (req, res) => {
+    const sql = await nameAndphone()
+    const mongo = await AllLeadsDetails();
+    let arr = []
+    if (mongo && sql) {
+        arr = await getDataSynchronised(sql, mongo)
+    }
+    res.status(200).send(arr)
 })
 
 

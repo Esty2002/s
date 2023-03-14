@@ -29,6 +29,12 @@ async function selectRecordByPhoneNumber(phoneNumber, tableName) {
     return result;
 }
 
+async function nameAndphone() {
+    await connect()
+    let result = await getConnection().request().query(`select name,phone from orderers`)
+    await disconnect()
+    return result.recordset
+}
 
 // פונקציה שמכניסה מזמין חדש לטבלת מזמינים
 async function newOrderer(obj = null) {
@@ -69,5 +75,5 @@ async function newPouringType(obj = null) {
 
 
 module.exports = {
-    selectAllTable, selectRecordByPhoneNumber, newOrderer, newPouringType
+    selectAllTable, selectRecordByPhoneNumber, newOrderer, newPouringType,nameAndphone
 }                      
