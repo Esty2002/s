@@ -12,20 +12,9 @@ async function createNewLead(obj) {
     return result;
 }
 
-async function newOrderer(obj) {
-    //send to sql insted of mongodb
-    // const result = await mongo_collection_orderers.insertOne(obj)
-    return result;
-}
 
-async function newPouringType(obj) {
-    //send to sql insted of mongodb
-    // const result = await mongo_collection_pouring_types.insertOne(obj)
-    return result;
-}
 
 module.exports = {
     createNewLead,
-    newOrderer,
-    newPouringType
+    
 }
