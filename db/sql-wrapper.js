@@ -38,7 +38,7 @@ async function connectToSql() {
         Fax nvarchar(20) NULL,
         Mail nvarchar(20) NULL,
         Notes nvarchar(MAX) NULL,
-        CreationDate nvarchar(20) NULL,
+        CreationDate nvarchar(20)NOT NULL,
         UserThatInsert nvarchar(20)NOT NULL,
         Disabled BIT  NULL,
         DisabledDate nvarchar(20) NULL,
@@ -66,7 +66,7 @@ async function connectToSql() {
         Fax nvarchar(20) NULL,
         Mail nvarchar(20) NULL,
         Notes nvarchar(MAX) NULL,
-        CreationDate nvarchar(20) NULL,
+        CreationDate nvarchar(20)NOT NULL,
         Disabled BIT  NULL,
         DisabledDate nvarchar(20) NULL,
         DisableUser nvarchar(20) NULL
