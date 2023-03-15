@@ -6,7 +6,7 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-// SQL   פונקציה  שמכניסה נתונים 
+// SQL פונקציה  שמכניסה נתונים ל
 async function insert(table, columns, values) {
     await connect()
     const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
@@ -75,6 +75,6 @@ async function allTheOption(table,column,code){
     
 // }
 
-module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update,insertSupplier }
+module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update }
 
 // changeDisabele,changeDisabledDate,

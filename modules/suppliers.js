@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { getAll,insertSupplierinsert,allTheOption, getByValues, del ,setDate} = require('../db/sql-operation');
+const { getAll,insertSupplier,insert,allTheOption, getByValues, del ,setDate} = require('../db/sql-operation');
 const {SQL_DB_SUPPLIERS } = process.env;
 
 // פונקציה ששולחת לפונקציות מחיקה

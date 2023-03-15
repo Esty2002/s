@@ -1,6 +1,5 @@
 const express = require('express')
 const router = express.Router()
-
 const { deletesupplier, getallSuppliers,insertsuppliers, getSupplier} = require('../modules/suppliers')
 
 // פונקציה ששולחת לפונקציות מחיקה במודול
@@ -12,6 +11,7 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
 
 router.post('/insertsuppliers',express.json(), async (req, res) => {
     const result = await insertsuppliers(req.body)
+    res.status(200).send(result)
 })
 
 router.get('/getallSuppliers', async (req, res) => {
