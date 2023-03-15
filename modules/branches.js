@@ -7,13 +7,11 @@ async function getallbranches() {
 }
 //insert branch
 async function insertbranch(object) {
-    console.log(JSON.stringify(Object.values(object)));
-    let newVals = JSON.stringify(Object.values(object))
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate()
             object['CreationDate'] = Object.values(date.recordset[0])
-            const result = await insert("Branches", Object.keys(object).join(','), newVals)
+            const result = await insert("Branches", Object.keys(object).join(','), Object.values(object).join(','))
             console.log('vvvvvvvvvvvvvvvvvvvvvv');
             return result;
         }
