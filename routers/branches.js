@@ -1,11 +1,17 @@
 const express=require('express')
 const router=express.Router()
 
-const {getallbranches,insertbranch,updateDetail,deletebranches,checkUnique}=require('../modules/branches')
+const {getallbranches,insertbranch,updateDetail,deletebranches,checkUnique,getBranchesByCondition}=require('../modules/branches')
 
 router.get('/getallbranches',async(req,res)=>{
     const result = await getallbranches()
     // console.log({result});
+    res.status(200).send(result);
+})
+
+router.get('/getBranchesWithCondition/:condition/:value' ,async(req,res)=>{
+    const result = await getBranchesByCondition(req.params.condition,req.params.value);
+    res.status(200).send(result);
 })
 
 router.post('/insertbranch',express.json(),async(req,res)=>{

@@ -6,13 +6,7 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-// SQL פונקציה  שמכניסה נתונים ל
-async function insert(table, columns, values) {
-    await connect()
-    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
-    await disconnect()
-    return result;
-}
+
 //פונקציה שמחזירה שדות לפי תנאי
 async function getByValues(table, column, code) {
     await connect()
@@ -118,4 +112,4 @@ async function insertBranch(objectBranch) {
 
 }
 
-module.exports = {  insert, getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
+module.exports = {  getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
