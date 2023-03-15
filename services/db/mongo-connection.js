@@ -1,10 +1,11 @@
-// require('dotenv').config()
-
+require('dotenv').config()
 const { MongoClient } = require('mongodb')
+const { MONGO_CONNECTION } = process.env
+
 let client = null
 
-const connect = async (server_url = 'mongodb://127.0.0.1:27017') => {
-    if (server_url.indexOf('mongodb') != 0) {
+const connect = async (server_url = MONGO_CONNECTION) => {
+    if (server_url.trim().indexOf('mongodb') != 0) {
         throw new Error('connection string is not in the right format.')
     }
     client = new MongoClient(server_url.trim())
@@ -23,5 +24,7 @@ const getClient = () => {
 }
 
 module.exports = {
-    connect, disconnect, getClient
+    connect,
+    disconnect,
+    getClient
 }

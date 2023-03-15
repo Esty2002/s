@@ -1,20 +1,25 @@
-const { MongoDBOperations } = require('../services/db/mongo-operations')
-const mongo_collection_areas = new MongoDBOperations('areas')
+require('dotenv').config()
+const {MongoDBOperations  } = require('../services/db/mongo-operation')
 
-async function insertArea(obj) {
-    const result = await mongo_collection_areas.insertOne(obj)
-    return result
-}
 
-async function findSupplierOrClient(phone) {
-    const result = await mongo_collection_areas.findOne(phone)
-    return result
-}
+
+const mongo_collection_areas = new MongoDBOperations('Areas')
+
+// async function insertArea(obj) {
+//     const result = await mongo_collection_areas.insertOne(obj)
+//     return result
+// }
+
+// async function findSupplierOrClient(phone) {
+//     const result = await mongo_collection_areas.findItem(phone)
+//     return result
+// }
 
 
 async function findAreaByCode(code){
-    const result=await mongo_collection_areas.findOne(code)
+    const result=await mongo_collection_areas.findItem({SupperlierOrClientCode:code},{_id:0,areasList:1})
+    console.log(JSON.stringify(result)+"------rrrrrrrrrrr");
     return result
 }
 
-module.exports = { insertArea, findSupplierOrClient ,findAreaByCode}
+module.exports = { findAreaByCode}

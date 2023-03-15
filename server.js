@@ -4,7 +4,7 @@ const { app } = require('./app')
 const { connect } = require('./services/db/mongo-connection')
 
 const host = '127.0.0.1'
-const port = 5555
+const port = 4444
 
 connect().then(_ => {
     console.log('connect to mongo');
