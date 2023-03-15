@@ -110,7 +110,7 @@ describe('check function countDocuments', () => {
 })
 describe('MongoDb Operation update', () => {
     beforeAll(async () => {
-        testDB = MongoDBOperations;
+        testDB = mongoOperations;
         testDB.collectionName = "lead";
         testDB.dbName = "tests";
         await connect(MONGO_CONNECTION)

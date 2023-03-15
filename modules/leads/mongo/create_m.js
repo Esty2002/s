@@ -28,12 +28,18 @@ const getTheMustConcretItem = async () => {
 
 
 const updateLead = async (obj = {}) => {
-   console.log(obj, "obj dfdfd");
-   console.log(obj.serialNumber ,"serial");
+    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
+
    const  result = await mongo_collection_leads.updateOne(obj ,obj.serialNumber)
    return result
 }
 
 
 
-module.exports = { createNewLead, updateLead, getTheMustConcretItem}
+async function AllLeadsDetails (){
+    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
+
+    const result= await mongo_collection_leads.find({disable:false},{_id:0,phoneOrderer:1,supplyAdress:1,supplyDate:1,serialNumber:1})
+    return result
+}
+module.exports = { createNewLead ,AllLeadsDetails,getTheMustConcretItem,updateLead}
