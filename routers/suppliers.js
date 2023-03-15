@@ -17,7 +17,7 @@ router.post('/insertsuppliers',express.json(), async (req, res) => {
 router.get('/getallSuppliers', async (req, res) => {
     console.log('res');
     const result = await getallSuppliers()
-    console.log({ result });
+    console.log('ssssssssssssss',{ result });
     res.send(result)
 })
 
