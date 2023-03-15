@@ -1,4 +1,4 @@
-const { addClient, getStatus, getCodeClient } = require('../dal/db/sql/sql-operation')
+const { addClient, getStatus, getCodeClient } = require('../dal/db/sql/sql-operations')
 
 async function addAllClient(obj) {
     console.log('i in addAllClient');

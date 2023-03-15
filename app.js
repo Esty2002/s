@@ -20,5 +20,4 @@ app.get('/', async (req, res) => {
     console.log('Hellllo');
 })
 
-
 module.exports = { app }
