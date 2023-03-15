@@ -1,5 +1,4 @@
 require('dotenv').config();
-const { getAll,insertSupplier,insert,allTheOption, getByValues, del ,setDate} = require('../db/sql-operation');
 const {SQL_DB_SUPPLIERS } = process.env;
 const { insert,getAll,allTheOption, getByValues, del, insertSupplier,insertBranch,getIsDisabled, setDate, update}=require('../db/sql-operation');
 
@@ -64,9 +63,6 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    console.log(';');
-    console.log(object);
-    console.log(';');
     const resultSupplierCode = await getByValues('Suppliers', 'SupplierCode', object.SupplierCode)
     const resultSuppliersName = await getByValues('Suppliers', 'SupplierName', object.SupplierName)
     return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);

@@ -1,4 +1,4 @@
-const {  insert, getByValues, del, changeDisabele, setDate,insertBranch, changeDisabledDate, getIsDisabled, update } = require('../db/sql-operation');
+const {  insert, getByValues, del, setDate,insertBranch,  getIsDisabled, update } = require('../db/sql-operation');
 
 //return all the branches
 async function getallbranches() {
@@ -75,9 +75,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await getByValues('Branches', 'SupplierCode', object.SupplierCode)
     const resultBranchName = await getByValues('Branches', 'BranchName', object.BranchName)
-    return (resultSupplierCode.recordset.length === 0 && resultBranchName.recordset.length === 0);
+    return (resultBranchName.recordset.length === 0);
 }
 
 //check if the supplier disabled

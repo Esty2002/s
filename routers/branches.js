@@ -32,13 +32,10 @@ router.post('/deletebranches', express.json(), async (req, res) => {
 })
 
 router.get('/checkUnique/:suppliercode/:branchname',async(req,res)=>{
-    const data={
-        SupplierCode:req.params.suppliercode,
-        BranchName:req.params.branchname
-    }
-    const result = await checkUnique(data)
+    const result = await checkUnique({BranchName:req.params.branchname})
     console.log(result);
     res.status(200).send(result)
 })
+
 
 module.exports=router;
