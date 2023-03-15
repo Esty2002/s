@@ -6,13 +6,7 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-// SQL פונקציה  שמכניסה נתונים ל
-async function insert(table, columns, values) {
-    await connect()
-    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
-    await disconnect()
-    return result;
-}
+
 //פונקציה שמחזירה שדות לפי תנאי
 async function getByValues(table, column, code) {
     await connect()
@@ -23,7 +17,7 @@ async function getByValues(table, column, code) {
 // פונקצית מחיקה
 async function del(title, code, name, date) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='0',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
@@ -53,7 +47,7 @@ async function update(title, field, value, code) {
 //פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table,column,code){
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='1'`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
     await disconnect()
     return result;
 }
@@ -119,4 +113,4 @@ async function insertBranch(objectBranch) {
 }
 
 
-module.exports = {  insert, getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
+module.exports = {  getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
