@@ -1,7 +1,7 @@
 const express=require('express')
 const router=express.Router()
 
-const {getallbranches,insertbranch,updateDetail,deletebranches}=require('../modules/branches')
+const {getallbranches,insertbranch,updateDetail,deletebranches,checkUnique}=require('../modules/branches')
 
 router.get('/getallbranches',async(req,res)=>{
     const result = await getallbranches()
@@ -31,6 +31,14 @@ router.post('/deletebranches', express.json(), async (req, res) => {
     res.status(200).send(true);
 })
 
-
+router.get('/checkUnique/:suppliercode/:branchname',async(req,res)=>{
+    const data={
+        SupplierCode:req.params.suppliercode,
+        BranchName:req.params.branchname
+    }
+    const result = await checkUnique(data)
+    console.log(result);
+    res.status(200).send(result)
+})
 
 module.exports=router;
