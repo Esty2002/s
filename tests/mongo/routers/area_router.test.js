@@ -15,22 +15,25 @@ const areas=require('../../../routers/areas-router')
 
 
 
-
 describe('GET APIs',()=>{
     it('/findAreasByCode',async ()=>{
-        const response=await request(app).get('/areas_router/findAreasByCode')
+
+
+        // const response = await request(app).get('/areas/findAreasByCode/1')
+        // console.log(response);
         // const method = jest.requireMock('../../../modules/areas')
-        // expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalled()
-        // expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalledTimes(1)
+        // expect(method.findAreaByCode).toHaveBeenCalled()
+        // expect(method.findAreaByCode).toHaveBeenCalledTimes(1)
         // expect(response).toBeDefined();
+        const response=await request(app).get('/areas/findAreasByCode/1')
+        const method = jest.requireMock('../../../modules/areas')
+        expect(method.findAreasByCode).toHaveBeenCalled()
+        expect(method.findAreasByCode).toHaveBeenCalledTimes(1)
+        expect(response).toBeDefined();
         expect(response.notFound).toBeTruthy()
         expect(response.statusCode).toBe(404)
         expect(response.headers['content-type']).toBe('text/html; charset=utf-8')
 
-        // const method = jest.requireMock('../../../modules/areas')
-        // expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalled()
-        // expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalledTimes(1)
-        // expect(response).toBeDefined();
     })
 
    

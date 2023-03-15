@@ -1,10 +1,10 @@
-const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
-async function createTable() {
-    await connect()
-    const result = await getConnection().request().query("CREATE TABLE try (name VARCHAR(255), age VARCHAR(255))")
-    disconnect()
+const { getConnection, connect, disconnect } = require("../services/sql/sql-connection");
+// async function createTable() {
+//     await connect()
+//     const result = await getConnection().request().query("CREATE TABLE try (name VARCHAR(255), age VARCHAR(255))")
+//     disconnect()
 
-}
+// }
 
 
 async function selectAreaAndPriceByItemCode(itemCode) {
@@ -13,7 +13,7 @@ async function selectAreaAndPriceByItemCode(itemCode) {
     console.log(result.recordset);
     disconnect()
     return result.recordset
-    
+
 }
 
 async function selectProductAndPricesByAreaName(areaName) {
@@ -29,7 +29,7 @@ async function selectProductByAreaName(areaName) {
     console.log(result.recordset);
     disconnect()
     return result.recordset
-    
+
 }
 async function selectAreaByClientOrSupplyCode(code) {
     await connect()
@@ -40,7 +40,7 @@ async function selectAreaByClientOrSupplyCode(code) {
 }
 
 
-async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode,areaName,itemCode){
+async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode, areaName, itemCode) {
     await connect()
     const result = await getConnection().request().query(`SELECT date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode=${priceListCode} AND areaName='${areaName}' AND itemCode=${itemCode}`)
     console.log(result.recordset);
@@ -48,4 +48,4 @@ async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode
     return result.recordset
 }
 
-module.exports = { createTable, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode,selectAllAreasByPriceListCodeAndAreaNameAndItemCode }
+module.exports = { selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode }

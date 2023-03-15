@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient ,findAreaByCode} = require('../../modules/areas')
+const { insertArea, findSupplierOrClient ,findAreaByCode} = require('../modules/areas')
 // router.get('/', async (req, res) => {
 //     const result = await insertArea({'phone':req.body})
 //     res.send(result)
@@ -14,6 +14,11 @@ const { insertArea, findSupplierOrClient ,findAreaByCode} = require('../../modul
 // })
 
 // /:code
+
+router.get('/',async(req,res)=>{
+    console.log("in areas");
+    res.send("in area")
+})
 router.get('/findAreasByCode/:code',async(req,res)=>{
 
     console.log("in router");

@@ -1,9 +1,9 @@
 
 const express = require('express')
 const app = express()
-const router_prices = require('./routers/sql/prices-router')
+const router_prices = require('./routers/prices-router')
 
-const router_areas = require('./routers/mongoDB/areas-router')
+const router_areas = require('./routers/areas-router')
 const cors = require('cors')
 
 
