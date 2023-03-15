@@ -5,10 +5,8 @@ const { connect, disconnect } = require('../../services/db/mongo-connection');
 const { MONGO_CONNECTION } = process.env;
 const  MongoDBOperations  = require('../../services/db/mongo-operations');
 
-
 let testDB;
  
-
 describe('MongoDb Operation update', () => {
     beforeAll(async () => {
         testDB = MongoDBOperations;

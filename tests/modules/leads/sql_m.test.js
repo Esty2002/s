@@ -111,11 +111,6 @@ describe('check function newPouringType' ,()=>{
 })
 
 
-
-    
-
-
-
 afterAll(()=>{
     myconfig.database=SQL_DATABASE;
 
