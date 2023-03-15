@@ -57,23 +57,23 @@ async function allTheOption(table,column,code){
     await disconnect()
     return result;
 }
-// async function insertSupplier(objectSupplier) {
-//     await connect();
-//     console.log("..................");
-//     console.log(objectSupplier);
-//     console.log("..................");
-//     const result = await getConnection().request()
-//         .input('SupplierCode', req.query.SupplierCode )
-//         // .input('size', req.query.size ||NULL)
-//         // .input('search', req.query.search || '')
-//         // .input('orderBy', req.query.orderBy || 'Id')
-//         // .input('orderDir', req.query.orderDir || 'DESC')
+async function insertSupplier(objectSupplier) {
+    // await connect();
+    // console.log("..................");
+    // console.log(objectSupplier);
+    // console.log("..................");
+    // const result = await getConnection().request()
+    //     .input('SupplierCode', req.query.SupplierCode )
+    //     // .input('size', req.query.size ||NULL)
+    //     // .input('search', req.query.search || '')
+    //     // .input('orderBy', req.query.orderBy || 'Id')
+    //     // .input('orderDir', req.query.orderDir || 'DESC')
 
-//         .execute(`usp_insertSupplier`);
-//     await disconnect()
-//     return result;
+    //     .execute(`usp_insertSupplier`);
+    // await disconnect()
+    // return result;
 
-// }
+}
 
-module.exports = { getAll, insert, getByValues, del, getIsDisabled, setDate, update }
+module.exports = {insertsuppliers, getAll, insert, getByValues, del, getIsDisabled, setDate, update }
 
