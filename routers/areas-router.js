@@ -14,10 +14,12 @@ const { insertArea, findSupplierOrClient ,findAreaByCode} = require('../modules/
 // })
 
 // /:code
-router.get('/findAreasByCode',async(req,res)=>{
+router.get('/findAreasByCode/:code',async(req,res)=>{
+
     console.log("in router");
-    const code=1234
-    // const code=req.params.code
+    // const code=1234
+    let code=req.params.code
+    code=parseInt(code)
     const result =await findAreaByCode(code)
     res.send(result)
 })

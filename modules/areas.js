@@ -17,7 +17,7 @@ const mongo_collection_areas = new MongoDBOperations('Areas')
 
 
 async function findAreaByCode(code){
-    const result=await mongo_collection_areas.findItem({SupperlierOrClientCode:code},{_id:0,areasList:1})
+    const result=await mongo_collection_areas.findItem({SupperlierOrClientCode:code})
     console.log(JSON.stringify(result)+"------rrrrrrrrrrr");
     return result
 }

@@ -12,8 +12,8 @@ class MongoDBOperations {
         const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
         return result
     }
-    async findItem(filter={},project={}){
-        const result=await getClient().db(this.dbName).collection(this.collectionName).findOne(filter,{projection:project})
+    async findItem(filter={}){
+        const result=await getClient().db(this.dbName).collection(this.collectionName).findOne(filter)
         return result
     }
 
