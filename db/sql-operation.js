@@ -76,7 +76,7 @@ async function insertSupplier(objectSupplier) {
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
         .input('CreationDate',objectSupplier.CreationDate||'NULL')
-        .input('Disabled',objectSupplier.Disabled||'1')
+        .input('Disabled',objectSupplier.Disabled||'0')
         .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
         .input('DisableUser',objectSupplier.DisableUser||'NULL')
         .execute(`usp_insertSupplier`);
@@ -103,7 +103,7 @@ async function insertBranch(objectBranch) {
         .input('Notes', objectBranch.Notes)
         .input('CreationDate',objectBranch.CreationDate||'NULL')
         .input('UserThatInsert',objectBranch.UserThatInsert||'NULL')
-        .input('Disabled',objectBranch.Disabled||'1')
+        .input('Disabled',objectBranch.Disabled||'0')
         .input('DisabledDate',objectBranch.DisabledDate||'NULL')
         .input('DisableUser',objectBranch.DisableUser||'NULL')
         .execute(`usp_insertBranch`);
