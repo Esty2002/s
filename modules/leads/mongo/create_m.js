@@ -26,4 +26,14 @@ const getTheMustConcretItem = async () => {
     return result;
 }
 
-module.exports = { createNewLead, getTheMustConcretItem }
+
+const updateLead = async (obj = {}) => {
+   console.log(obj, "obj dfdfd");
+   console.log(obj.serialNumber ,"serial");
+   const  result = await mongo_collection_leads.updateOne(obj ,obj.serialNumber)
+   return result
+}
+
+
+
+module.exports = { createNewLead, updateLead, getTheMustConcretItem}

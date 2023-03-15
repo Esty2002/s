@@ -27,9 +27,15 @@ class MongoDBOperations {
     }
     async countDocuments(){
         const result=await getClient().db(this.dbName).collection(this.collectionName).countDocuments();
-        return result;
     }
+
+    async updateOne(obj = {}, id = {}) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne({ serialNumber: id }, { $set: obj })
+        return result
+    }
+
+   
 }
 
-const mongo=new MongoDBOperations();
-module.exports =  mongo 
+const mongo = new MongoDBOperations();
+module.exports = mongo 

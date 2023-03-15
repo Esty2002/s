@@ -108,3 +108,38 @@ describe('check function countDocuments', () => {
         await disconnect();
     })
 })
+describe('MongoDb Operation update', () => {
+    beforeAll(async () => {
+        testDB = MongoDBOperations;
+        testDB.collectionName = "lead";
+        testDB.dbName = "tests";
+        await connect(MONGO_CONNECTION)
+    })
+
+    it('check update the obj in the data', async () => {
+        
+        const response = await testDB.updateOne({ serialNumber: "123", name: "test" })
+        expect(response).toBeDefined()
+        expect(response).toBeInstanceOf(Object)
+        expect(response).not.toBeNull()
+
+    })
+
+    it('check update obj with out argument empty', async()=>{
+        const response = await testDB.updateOne({})
+        expect(response).toBeDefined()
+        expect(response).toBeInstanceOf(Object)
+        expect(response).not.toBeNull()
+    })
+
+    it('check update obj with out arguments', async()=>{
+        const response = await testDB.updateOne()
+        expect(response).toBeDefined()
+        expect(response).toBeInstanceOf(Object)
+        expect(response).not.toBeNull()
+    })
+
+    afterAll(async () => {
+        await disconnect()
+    })
+})

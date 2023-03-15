@@ -2,7 +2,7 @@ const express = require('express')
 const router = require('express').Router()
 
 const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber } = require('../modules/leads/sql/create_sql')
-const {createNewLead,getTheMustConcretItem} = require('../modules/leads/mongo/create_m')
+const {createNewLead,getTheMustConcretItem,updateLead} = require('../modules/leads/mongo/create_m')
 
 
 router.post('/createnewlead', express.json(), async (req, res) => {
@@ -39,5 +39,10 @@ router.get('/getconcrettype',async(req,res)=>{
     res.status(200).send(result);
 })
 
+router.post('/updateLeadsDetails' ,express.json(), async(req,res)=>{
+    const result = await updateLead(req.body)
+    res.status(200).send(result)
+     
+})
 
 module.exports = router

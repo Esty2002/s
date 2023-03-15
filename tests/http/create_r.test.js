@@ -6,16 +6,17 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
         createNewLead: jest.fn((obj) => {
             return '123456'
         }),
-       
-
+        updateLead: jest.fn((obj) => {
+            return 'updateTheLead'
+        })
     }
 })
 jest.mock('../../modules/leads/sql/create_sql', () => {
     return {
-        newOrderer: jest.fn((obj=null) => {
+        newOrderer: jest.fn((obj = null) => {
             return 'insert'
         }),
-        newPouringType:jest.fn((obj =null)=>{
+        newPouringType: jest.fn((obj = null) => {
             return 'insertType'
         })
     }
@@ -59,24 +60,24 @@ describe('check the function /neworderer', () => {
         expect(response.text).toBe('insert');
 
     })
-    it("should return that the function come to the path even the arguments not recived",async()=>{
+    it("should return that the function come to the path even the arguments not recived", async () => {
         const response = await request(app).post('/leads/neworderer');
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
         expect(response.text).toBe('insert');
     })
-    it("should return that the function come to the path even the arguments not recived",async()=>{
-        const response = await request(app).post('/leads/neworderer',{name:"test"});
+    it("should return that the function come to the path even the arguments not recived", async () => {
+        const response = await request(app).post('/leads/neworderer', { name: "test" });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
         expect(response.text).toBe('insert');
     })
 })
-describe('check function newpouringtype',()=>{
-    it('should return the function insert if the arguments is exist ',async()=>{
-        const response = await request(app).post('/leads/newpouringtype' ,{name:"byton"});
+describe('check function newpouringtype', () => {
+    it('should return the function insert if the arguments is exist ', async () => {
+        const response = await request(app).post('/leads/newpouringtype', { name: "byton" });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(200)
         expect(response.serverError).toBeFalsy()
@@ -84,7 +85,7 @@ describe('check function newpouringtype',()=>{
 
     })
 
-    it('should return the function insert if the arguments is not exist ',async()=>{
+    it('should return the function insert if the arguments is not exist ', async () => {
         const response = await request(app).post('/leads/newpouringtype');
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(200)
@@ -93,12 +94,40 @@ describe('check function newpouringtype',()=>{
 
     })
 
-    it('should return the function insert if the arguments is not empty ',async()=>{
-        const response = await request(app).post('/leads/newpouringtype' ,{});
+    it('should return the function insert if the arguments is not empty ', async () => {
+        const response = await request(app).post('/leads/newpouringtype', {});
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(200)
         expect(response.serverError).toBeFalsy()
         expect(response.text).toBe('insertType');
+
+    })
+})
+
+describe('check function updeatLead', () => {
+    it('should the function updeteOne update if it get arguments', async () => {
+        const response = await request(app).post('/leads/updateLeadsDetails' ,{name :"test"  , serialNumber:'333'});
+        expect(response).toBeDefined()
+        expect(response.statusCode).toBe(200)
+        expect(response.text).toBe('updateTheLead')
+
+    })
+
+    it('should the function dont faill if the arguments is empty' , async()=>{
+        const response = await request(app).post('/leads/updateLeadsDetails' , {})
+        expect(response).toBeDefined()
+        expect(response.statusCode).toBe(200)
+        expect(response.text).toBe('updateTheLead')
+        expect(response.serverError).toBeFalsy()
+
+    })
+
+    it('should the function dont faill if the arguments isnt exist' , async()=>{
+        const response = await request(app).post('/leads/updateLeadsDetails')
+        expect(response).toBeDefined()
+        expect(response.statusCode).toBe(200)
+        expect(response.text).toBe('updateTheLead')
+        expect(response.serverError).toBeFalsy()
 
     })
 })
