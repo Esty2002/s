@@ -1,8 +1,19 @@
+<<<<<<< HEAD
 const {  insert, getByValues, del, changeDisabele, setDate,insertBranch, changeDisabledDate, getIsDisabled, update } = require('../db/sql-operation');
+=======
+const { getAll, insert, getByValues, del, setDate, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
+
+>>>>>>> kozlik
 
 //return all the branches
 async function getallbranches() {
-    const result = await getAll('Branches')
+    const result = await getAll('Branches');
+    return result;
+}
+
+//return all the branches that the condition for it and not disabled.
+async function getBranchesByCondition(column,code){
+    const result = await allTheOption('Branches',column,code);
     return result;
 }
 //insert branch
@@ -86,4 +97,4 @@ async function checkDisabled(code) {
     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
-module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,checkUnique}
+module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,getBranchesByCondition,checkUnique}
