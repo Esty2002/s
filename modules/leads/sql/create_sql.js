@@ -30,9 +30,15 @@ async function selectRecordByPhoneNumber(phoneNumber, tableName) {
 }
 
 async function nameAndphone() {
-    await connect()
-    let result = await getConnection().request().query(`select name,phone from orderers`)
-    await disconnect()
+    let result
+    try{
+        await connect()
+        result = await getConnection().request().query(`select name,phone from orderers`)
+        await disconnect()
+    }
+    catch{
+        result="the name or phone dont defined"
+    }
     return result.recordset
 }
 

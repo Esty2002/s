@@ -15,7 +15,7 @@ const createNewLead = async (obj = null) => {
     return result;
 }
 async function AllLeadsDetails (){
-    const result= await mongo_collection_leads.find({disable:false},{id:0,phoneOrderer:1,supplyAdress:1,supplyDate:1,disable:0})
+    const result= await mongo_collection_leads.find({disable:false},{_id:0,phoneOrderer:1,supplyAdress:1,supplyDate:1,disable:0,serialNumber:1})
     console.log('```````````````````````````````````');
     console.log(result[0]);
     return result

@@ -9,7 +9,7 @@ jest.mock('../../../services/db/mongo-operations', () => {
             return false;
         }),
         find:jest.fn((filter={},project={})=>{
-            if(filter=false){
+            if(filter && project){
                 return [{phone:'3333',Adrees:'ssss'}]
 
             }
@@ -27,8 +27,12 @@ describe('CHECK FUNCTION AllLeadsDetails', () => {
     it('should return inserted id when succeded',async ()=>{
         let result=await AllLeadsDetails();
         expect(result).toBeDefined();
-        console.log(result,'result');
-        // expect(result.text).toBe('[{"phone":"3333","Adrees":"ssss"}]');
+        // console.log(result,'result.texttttt');
+        // expect(result).toBe([{"phone":"3333","Adrees":"ssss"}]);
+        expect(result).toBeInstanceOf(Array)
+        // expect(result).toBeFalsy()
+
+
     })
     // it('should return false the object is empty', async () => {
     //     const result = await createNewLead();

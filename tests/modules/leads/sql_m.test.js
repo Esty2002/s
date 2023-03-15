@@ -1,12 +1,37 @@
 require('dotenv').config();
 const { SQL_DATABASE_TEST, SQL_DATABASE } = process.env;
 
-const { selectAllTable, newOrderer,newPouringType,selectRecordByPhoneNumber } = require('../../../modules/leads/sql/create_sql');
+const { selectAllTable, newOrderer,newPouringType,selectRecordByPhoneNumber,nameAndphone } = require('../../../modules/leads/sql/create_sql');
 const { connect, myconfig, disconnect } = require('../../../services/sql/sql-connection');
 beforeAll(() => {
     myconfig.database = SQL_DATABASE_TEST;
 });
 
+
+describe('CHECK FUNCTION nameAndphone', () => {
+   
+    it('should return name and phone is exist in the tablename', async () => {
+        await connect();
+        let result = await nameAndphone('test');
+        await disconnect();
+        expect(result).toBeDefined();
+        console.log(result,"rrrrrrrrrrreeeeee");
+        expect(result).toBeInstanceOf(Array);
+        // expect(result.recordsets).toBeInstanceOf(Array);
+    })
+    // it('should return the tablename is not defiend', async () => {
+
+    //     await connect();
+
+    //     let result=await nameAndphone();
+    //     expect(result).toBeDefined();
+
+    //     // expect(result).toBe("the name or phone dont defined")
+    //     await disconnect();
+
+    // })
+
+})
 
 describe('CHECK FUNCTION selectAllTable', () => {
    
