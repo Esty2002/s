@@ -50,7 +50,7 @@ async function update(title, field, value, code) {
     await disconnect()
     return result;
 }
-
+//פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table,column,code){
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='1'`)
@@ -69,6 +69,7 @@ async function insertSupplier(objectSupplier) {
     //     // .input('orderBy', req.query.orderBy || 'Id')
     //     // .input('orderDir', req.query.orderDir || 'DESC')
 
+<<<<<<< HEAD
     //     .execute(`usp_insertSupplier`);
     // await disconnect()
     // return result;
@@ -76,4 +77,7 @@ async function insertSupplier(objectSupplier) {
 }
 
 module.exports = {insertsuppliers, getAll, insert, getByValues, del, getIsDisabled, setDate, update }
+=======
+module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update }
+>>>>>>> c844b7c94ce7ca7fdc230a8efcca182059c05b17
 
