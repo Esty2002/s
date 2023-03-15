@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-const {  insert, getByValues, del, changeDisabele, setDate,insertBranch, changeDisabledDate, getIsDisabled, update } = require('../db/sql-operation');
-=======
-const { getAll, insert, getByValues, del, setDate, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
+const { getAll, getByValues, del, setDate,insertBranch, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
 
->>>>>>> kozlik
 
 //return all the branches
 async function getallbranches() {
