@@ -81,6 +81,55 @@ async function getClientByField(field ,value){
         disconnect();
         return result;
     }
+
+
+    async function addClient(obj) {
+        await connect();
+        const result = await getConnection().request().query(`insert into CLIENTS values( 
+        '${obj.clientCode}',
+        '${obj.clientName}',
+        '${obj.privaetCompanyNumber}',
+        '${obj.bookkeepingNumber}',
+        '${obj.destinationBank}',
+        '${obj.paymentTermsFluent}',
+        '${obj.preferredPaymentDate}',
+        '${obj.ovligo}',
+        '${obj.receiptIssueTerm}',
+        '${obj.receiptCentralism}',
+        '${obj.accountantClassifiedCode}',
+        '${obj.status}',
+        '${obj.description}',
+       '${obj.street}',
+        '${obj.house}',
+        '${obj.city}',
+        '${obj.zipCode}',
+        '${obj.telephone1}',
+        '${obj.telephone2}',
+        '${obj.mobilePhone}',
+        '${obj.fax}',
+        '${obj.email}',
+        '${obj.comments}',
+       '${obj.creationDate}',
+        '${obj.userThatAdd}',
+       '${obj.disabled}',
+        '${obj.deletionDate}',
+        '${obj.userThatDelete}') `)
+        disconnect()
+    }
+    async function getStatus(status) {
+        await connect()
+        const result = await getConnection().request().query(`
+        select serialNumber from status where  status='${status}'`)
+        disconnect()
+        return result.recordset[0].serialNumber;
+    }
+    
+    async function getCodeClient(){
+        await connect()
+        const result=await getConnection().request().query(`SELECT CLIENTCODE FROM CLIENTS`)
+        disconnect()
+        return result
+    }
     
 
-module.exports={  update, deleteClient ,getAll,getClientByField,getClientById}
+module.exports={  update, deleteClient ,getAll,getClientByField,getClientById,addClient ,getStatus,getCodeClient}
