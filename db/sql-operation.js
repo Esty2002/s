@@ -50,7 +50,7 @@ async function update(title, field, value, code) {
     await disconnect()
     return result;
 }
-
+//פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table,column,code){
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='1'`)
@@ -75,6 +75,5 @@ async function allTheOption(table,column,code){
     
 // }
 
-module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update,insertSupplier }
+module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update }
 
-// changeDisabele,changeDisabledDate,
