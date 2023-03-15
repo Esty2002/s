@@ -17,21 +17,23 @@ async function selectAllTable(tableName) {
 
 // take the row according to poneNumber and TableName
 async function selectRecordByPhoneNumber(phoneNumber, tableName) {
+    
     let result
     try {
         await connect();
-        result = await getConnection().request().query(`select * from ${tableName} where phone= '${phoneNumber}'`);
+        result = await getConnection().request().query(`select * from ${tableName} where phone='${phoneNumber}'`);
         await disconnect();
+        console.log(result);
+        if (result.recordsets.length > 0)
+            result = true;
+        else {
+            result = false;
+        }
     }
     catch {
-        result = "the tableName or phoneNumber dont defined"
+        result = "the tableName or phoneNumber not defined"
     }
-    console.log(result);
-    if (result.recordset.length > 0)
-        result = true;
-    else {
-        result = false;
-    }
+   
     return result;
 }
 

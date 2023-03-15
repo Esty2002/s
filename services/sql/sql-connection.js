@@ -3,7 +3,7 @@ const sql=require('mssql')
 
 const {SQL_SERVER,SQL_PORT,SQL_USERNAME,SQL_PASSWORD,SQL_DATABASE}=process.env;
 let myconfig = {  
-    server: "TB6-24\\MSSQLSERVER",  //update me
+    server: "TB6-25\\MSSQLSERVER",  //update me
     port: SQL_PORT,
     user: SQL_USERNAME, //update me
     password: SQL_PASSWORD,  //update me

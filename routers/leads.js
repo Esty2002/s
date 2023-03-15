@@ -27,7 +27,10 @@ router.get('/getalltable', async (req, res) => {
 })
 
 router.get('/getRowAccordingToPhone', async (req, res) => {
+    console.log("hello");
+
     const result = await selectRecordByPhoneNumber(req.query.phone, req.query.tableName);
+    console.log(result);
     res.status(200).send({result:result});
 
 })
