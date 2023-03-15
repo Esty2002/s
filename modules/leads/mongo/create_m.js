@@ -11,6 +11,8 @@ const createNewLead = async (obj = null) => {
     if (obj) {
         obj.serialNumber=await mongo_collection_leads.countDocuments();
         obj.serialNumber+=1;
+        console.log('serialNum:'+obj.serialNumber);
+        obj.disable=false;
         result = await mongo_collection_leads.insertOne(obj);
     }
     else {
@@ -42,4 +44,11 @@ async function AllLeadsDetails (){
     const result= await mongo_collection_leads.find({disable:false},{_id:0,phoneOrderer:1,supplyAdress:1,supplyDate:1,serialNumber:1})
     return result
 }
-module.exports = { createNewLead ,AllLeadsDetails,getTheMustConcretItem,updateLead}
+async function leadsbyserialnumber(serialNumber1){
+    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
+    
+    const  result = await mongo_collection_leads.find({disable:false,serialNumber:parseInt(serialNumber1)},{})
+    return result
+}
+
+module.exports = { createNewLead ,AllLeadsDetails,getTheMustConcretItem,updateLead,leadsbyserialnumber}

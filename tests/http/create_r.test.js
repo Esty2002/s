@@ -1,3 +1,5 @@
+const { default: expect } = require('expect')
+const { response } = require('express')
 const request = require('supertest')
 const { app } = require('../../app')
 jest.mock('../../modules/leads/mongo/create_m', () => {
@@ -11,6 +13,7 @@ jest.mock('../../modules/leads/mongo/create_m', () => {
         AllLeadsDetails: jest.fn(() => {
             return [{ phone: '0583286577', supplyAddress: 'chisda' }, { phone: '5555555555', supplyAddress: 'sss' }]
         })
+
     }
 
 })
@@ -30,7 +33,7 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
         }),
         selectRecordByPhoneNumber: jest.fn((phone, tablename) => {
             if (phone === undefined) {
-                return ({ tablename:"test" })
+                return ({ tablename: "test" })
             }
             if (tablename === undefined) {
                 return ({ phone: '0583288477' })
@@ -42,7 +45,7 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
 
 
         }),
-        newOrderer: jest.fn((obj=null) => {
+        newOrderer: jest.fn((obj = null) => {
             return 'insert'
         }),
         newPouringType: jest.fn((obj = null) => {
@@ -55,10 +58,59 @@ jest.mock('../../modules/leads/sql/create_sql', () => {
 
     }
 })
+describe('/deletelead', () => {
+    it('the function will change the lead to disable=true and insert the deletingDate by sending the serialNumber of the lead', async () => {
+        const responseCreate = await request(app).post('/leads/createnewlead', { name: 'aaa', phone: '088776765' })
+        const responseDelete = await request(app).post('/leads/deletelead', { serialNumber: responseCreate.text })
+        expect(responseDelete).toBeDefined();
+        expect(responseDelete.statusCode).toBe(200);
+        expect(responseDelete.text).toBe('updateTheLead');
+    })
+    it('the function should not fail when not recieved the serialNumber of the lead', async () => {
+        const response = await request(app).post('/leads/deletelead');
+        expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response.text).toBe('updateTheLead')
+    })
+})
+
+describe('/updatestatuslead', () => {
+    it('the function should not fail if the object is empty', async () => {
+        const response = await request(app).post('/leads/updatestatuslead');
+        expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response.text).toBe('updateTheLead')
+    })
+    it('the function should update the status of the lead by sending the serialNumber of the lead and the other status', async () => {
+        const response = await request(app).post('/leads/updatestatuslead', { serialNumber: 111, status: 'ממתין' });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        expect(response.text).toBe('updateTheLead');
+    })
+})
+
+describe('/getstatuseslead', () => {
+    it('the function should get all the status leads details', async () => {
+        const response = await request(app).get('/leads/getstatuseslead');
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+    it('the function should call to selectAllTable', async () => {
+        const { selectAllTable } = jest.requireMock('../../modules/leads/sql/create_sql')
+        const response = await request(app).get('/leads/getAllLeadsDatails')
+        expect(selectAllTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+    })
+})
 
 describe('getAllLeadsDatails', () => {
     it('should get all the leads datails', async () => {
-        const response = await request(app).get('/leads/getAllLeadsDatails')
+        const response = await request(app).get('/leads/getAllLeadsDatails');
         expect(response).toBeTruthy();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
