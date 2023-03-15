@@ -7,7 +7,6 @@ async function createTable() {
 }
 
 
-
 async function selectAreaAndPriceByItemCode(itemCode) {
     await connect()
     const result = await getConnection().request().query(`SELECT areaName,price FROM priceList WHERE itemCode=${itemCode}`)
@@ -41,12 +40,12 @@ async function selectAreaByClientOrSupplyCode(code) {
 }
 
 
-async function selectAllAreas(){
+async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode,areaName,itemCode){
     await connect()
-    const result = await getConnection().request().query('SELECT areaName FROM priceList')
+    const result = await getConnection().request().query(`SELECT date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode=${priceListCode} AND areaName='${areaName}' AND itemCode=${itemCode}`)
     console.log(result.recordset);
     disconnect()
     return result.recordset
 }
 
-module.exports = { createTable, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode,selectAllAreas }
+module.exports = { createTable, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode,selectAllAreasByPriceListCodeAndAreaNameAndItemCode }

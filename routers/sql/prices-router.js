@@ -1,6 +1,6 @@
 const router = require('express').Router()
 const express = require('express')
-const { selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreas } = require('../../modules/sql/prices')
+const { selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode } = require('../../modules/sql/prices')
 
 router.get('/', async (req, res) => {
     console.log("in router");
@@ -40,9 +40,9 @@ router.get('/findAreaByClientOrSupplyCode', async (req, res) => {
 
 })
 
-router.get('/findAllAreas', async (req, res) => {
+router.get('/findAllAreasByPriceListCodeAndAreaNameAndItemCode/:code/:area/:productCode', async (req, res) => {
     console.log("in router5");
-    const ans=selectAllAreas()
+    const ans=selectAllAreasByPriceListCodeAndAreaNameAndItemCode(req.params.code,req.params.area,req.params.productCode)
     res.send(ans)
 })
 
