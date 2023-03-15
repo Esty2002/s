@@ -1,10 +1,4 @@
 const { getConnection, connect, disconnect } = require("../services/sql/sql-connection");
-// async function createTable() {
-//     await connect()
-//     const result = await getConnection().request().query("CREATE TABLE try (name VARCHAR(255), age VARCHAR(255))")
-//     disconnect()
-
-// }
 
 
 async function selectAreaAndPriceByItemCode(itemCode) {
