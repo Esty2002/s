@@ -1,19 +1,27 @@
-const { getAll, insert, getByValues, del, changeDisabele, setDate, changeDisabledDate, getIsDisabled, update } = require('../db/sql-operation');
+const { getAll, getByValues, del, setDate,insertBranch, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
+
 
 //return all the branches
 async function getallbranches() {
-    const result = await getAll('Branches')
+    const result = await getAll('Branches');
+    return result;
+}
+
+//return all the branches that the condition for it and not disabled.
+async function getBranchesByCondition(column,code){
+    const result = await allTheOption('Branches',column,code);
     return result;
 }
 //insert branch
 async function insertbranch(object) {
-    console.log(JSON.stringify(Object.values(object)));
-    let newVals = JSON.stringify(Object.values(object))
     try {
         if (await checkValid(object) && await checkUnique(object)) {
-            const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])
-            const result = await insert("Branches", Object.keys(object).join(','), newVals)
+            const date = await setDate();
+            object['CreationDate'] = (Object.values(date.recordset[0]))[0];
+            console.log(object['CreationDate'][0]);
+            console.log(object);
+            // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
+            const result = await insertBranch(object);
             console.log('vvvvvvvvvvvvvvvvvvvvvv');
             return result;
         }
@@ -58,8 +66,11 @@ async function deletebranches(object) {
     return resultSupplierCode
 
 }
-//check if must keys not empty
+//check if must keys not empty and content
 async function checkValid(object) {
+    //לבדוק שהאותיות אותיות והמספרים מספרים
+    //לבדוק את מספר הטלפון שהוא תקין
+    //לבדוק את תקינות המייל
     let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1", "UserThatInsert"]
     let array = Object.keys(object)
     for (let i = 0; i < mustKeys.length; i++) {
@@ -75,10 +86,11 @@ async function checkUnique(object) {
     const resultBranchName = await getByValues('Branches', 'BranchName', object.BranchName)
     return (resultSupplierCode.recordset.length === 0 && resultBranchName.recordset.length === 0);
 }
+
 //check if the supplier disabled
 async function checkDisabled(code) {
     const result = await getIsDisabled('Branches', 'SupplierCode', code)
     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
-module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches}
+module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,getBranchesByCondition,checkUnique}
