@@ -13,7 +13,7 @@ class MongoDBOperations {
         return result
     }
     async findOne(filter = {}, elemMatch = {}, project = {}) {
-        // console.log('filter  ', filter);
+        console.log('filter  ', filter);
         // console.log('elemath  ', elemMatch);
         const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, elemMatch)
         // console.log('mongo---', result);

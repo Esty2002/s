@@ -24,7 +24,7 @@ router.get('/findProductsOfSupplierOrClientByAreaName/:code/:areaName', async (r
 })
 
 router.get('/findAreaByClientOrSupplyCode/:code', async (req, res) => {
-    // const code = 100
+    console.log('find');
     const code = req.params.code
     const ans = await selectAreaByClientOrSupplyCode(code)
     res.status(200).send(ans)
@@ -37,7 +37,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
 })
 router.post('/updatePriceList', express.json(), async (req, res) => {
     // id - מצפה לקבל אוביקט של תאריך שבו הרשומה תקפה וכן את ה 
-    const result = await updatePriceList(req.body.date, req.body.id)
+    const result = await updatePriceList(req.body)
     res.send(result)
 })
 

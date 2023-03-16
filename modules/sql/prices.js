@@ -14,9 +14,9 @@ async function addPriceList(data) {
     return result
 }
 
-async function updatePriceList(date, id) {
+async function updatePriceList(data) {
     await connect()
-    const result = await getConnection().request().query(`update priceList set date='${date}' where id='${id}'`)
+    const result = await getConnection().request().query(`update priceList set date='${data.date}' where id='${data.id}'`)
     disconnect()
     return result.recordset
 }
@@ -31,7 +31,9 @@ async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode
     console.log('code-', parseInt( priceListCode), '  area', areaName, '  product',  parseInt( itemCode))
     priceListCode = parseInt(priceListCode)
     await connect()
-    const result = await getConnection().request().query(`SELECT id,priceListCode,areaName,itemCode,price FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${parseInt(itemCode)}'`)
+    const result = await getConnection().request().query(`SELECT id,date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${parseInt(itemCode)}'`)
+	
+    	
     console.log('sql----', result.recordset);
     disconnect()
     return (result.recordset)

@@ -2,13 +2,13 @@ const sql = require('mssql')
 
 
 let myconfig = {  
-    server: 'TB6-17\\MSSQLSERVER',  //update me 
+    server: 'TB6-15\\MSSQLSERVER',  //update me 
     port:1433,
     user: 'project', //update me
     password: '1234',  //update me
     database: 'Byton',
     options: {
-        
+        // TB6-17\MSSQLSERVER
       
        trustServerCertificate: true
           //update me

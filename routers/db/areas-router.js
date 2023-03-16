@@ -9,8 +9,10 @@ router.get('/', (req, res) => {
 
 
 router.get('/isExist/:code', async (req, res) => {
+    console.log('isExist');
     const phone = parseInt(req.params.code)
     const result = await findSupplierOrClient(phone)
+    console.log(result);
     res.status(200).send(result)
 })
 router.get('/findAreaOfSupplierOrClient', async (req, res) => {
