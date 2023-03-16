@@ -3,6 +3,16 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 async function getAll(table) {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='0'`)
+<<<<<<< HEAD
+=======
+    await disconnect()
+    return result;
+}
+// SQL פונקציה  שמכניסה נתונים ל
+async function insert(table, columns, values) {
+    await connect()
+    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
+>>>>>>> SariMorgenshtern
     await disconnect()
     return result;
 }
@@ -14,13 +24,26 @@ async function getByValues(table, column, code) {
     await disconnect()
     return result;
 }
-// פונקצית מחיקה
-async function del(title, code, name, date) {
+// פונקצית מחיקת ספק  
+async function delSupllier(title, code, name, date) {
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
+// פונקצית מחיקת סניף  
+async function delBranches(title, code, name, date) {
+    console.log('title',title);
+    console.log('code',code);
+    console.log('name',name);
+    console.log('date',date);
+
+    await connect()
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'`)
+    await disconnect()
+    return result;
+}
+
 
 // פונקציה המחזירה תאריך נוכחי
 async function setDate() {
@@ -46,8 +69,10 @@ async function update(title, field, value, code) {
 }
 //פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table,column,code){
+    console.log(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`);
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
+<<<<<<< HEAD
     await disconnect()
     return result;
 }
@@ -80,10 +105,13 @@ async function insertSupplier(objectSupplier) {
         .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
         .input('DisableUser',objectSupplier.DisableUser||'NULL')
         .execute(`usp_insertSupplier`);
+=======
+>>>>>>> SariMorgenshtern
     await disconnect()
     return result;
 
 }
+<<<<<<< HEAD
 // פונקצית הוספת סניף ע"י פרוצדורה
 async function insertBranch(objectBranch) {
     await connect();
@@ -138,5 +166,26 @@ module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled,
 =======
 
 >>>>>>> 66900a0bd721531d05a65422a9372d37dd21aa65
+=======
+// async function insertSupplier(objectSupplier) {
+//     await connect();
+//     console.log("..................");
+//     console.log(objectSupplier);
+//     console.log("..................");
+//     const result = await getConnection().request()
+//     .input('SupplierCode', req.query.SupplierCode )
+//     // .input('size', req.query.size ||NULL)
+//     // .input('search', req.query.search || '')
+//     // .input('orderBy', req.query.orderBy || 'Id')
+//     // .input('orderDir', req.query.orderDir || 'DESC')
+    
+//     .execute(`usp_insertSupplier`);
+//     await disconnect()
+//     return result;
+    
+// }
+
+module.exports = {allTheOption, getAll, insert, getByValues, delSupllier, getIsDisabled, setDate,update,delBranches }
+>>>>>>> SariMorgenshtern
 
 module.exports = {  getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }

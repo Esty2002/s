@@ -47,4 +47,6 @@ router.get('/checkUnique/:suppliercode/:branchname',async(req,res)=>{
     res.status(200).send(result)
 })
 
+
+
 module.exports=router;

@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 const { getAll, getByValues, del, setDate,insertBranch, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
 
+=======
+const { getAll, insert, getByValues, delBranches, setDate, getIsDisabled, update } = require('../db/sql-operation');
+>>>>>>> SariMorgenshtern
 
 //return all the branches
 async function getallbranches() {
@@ -16,6 +20,7 @@ async function getBranchesByCondition(column,code){
 async function insertbranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
+<<<<<<< HEAD
             const date = await setDate();
             object['CreationDate'] = (Object.values(date.recordset[0]))[0];
             console.log(object['CreationDate'][0]);
@@ -23,10 +28,14 @@ async function insertbranch(object) {
             // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
             const result = await insertBranch(object);
             console.log('vvvvvvvvvvvvvvvvvvvvvv');
+=======
+            const date = await setDate()
+            object['CreationDate'] = Object.values(date.recordset[0])
+            const result = await insert("Branches", Object.keys(object).join(','), newVals)
+>>>>>>> SariMorgenshtern
             return result;
         }
         else {
-            console.log('xxxxxxxxxxxxxxxxxxxxxx');
             return false;
         }
     }
@@ -42,10 +51,8 @@ async function updateDetail(code, object) {
             console.log('before');
             const result = await update('Branches', object['field'], object['data'], code)
             console.log({ result });
-            console.log('vvvvvvvvvvvvvvvvvvvvvv');
         }
         else {
-            console.log('xxxxxxxxxxxxxxxxxxxxxxx');
             return false;
         }
     }
@@ -54,19 +61,25 @@ async function updateDetail(code, object) {
         throw error;
     }
 }
-//delete branch
-async function deletebranches(object) {
-    const date = await setDate()
-    const newDate = date.recordset[0].Today
-    console.log(newDate);
-    //////////////////////////להוסיף משתנה גלובלי
-    const resultSupplierCode = await del(SQL_DB_SUPPLIERS, '453', Object.values(object)[0])
-    const resultSupplierCode2 = await changeDisabele(SQL_DB_SUPPLIERS, '453')
-    const resultSupplierCode3 = await changeDisabledDate(SQL_DB_SUPPLIERS, '453', newDate)
-    return resultSupplierCode
 
+// פונקציה ששולחת לפונקציות מחיקה
+async function deletebranches(object) {
+    const date=await setDate()
+    const newDate=date.recordset[0].Today
+    console.log('===========================');
+    console.log('object.DisableUser',object.DisableUser);
+    console.log('===========================');
+    console.log('object.BranchName',object.BranchName);
+    console.log('===========================');
+    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
+    return (resultSupplierCode,resultBranchCode)
 }
+<<<<<<< HEAD
 //check if must keys not empty and content
+=======
+
+//check if must keys not empty
+>>>>>>> SariMorgenshtern
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
     //לבדוק את מספר הטלפון שהוא תקין

@@ -3,11 +3,10 @@ const router = express.Router()
 
 const { deletesupplier, getallSuppliers,insertsuppliers, getSupplier,checkUnique} = require('../modules/suppliers')
 
-// פונקציה ששולחת לפונקציות מחיקה במודול
+// פונקציה ששולחת לפונקציות מחיקה ספק במודול
 router.post('/deletesupplier', express.json(), async (req, res) => {
     const result = await deletesupplier(req.body)
     res.status(200).send(true);
-
 })
 
 router.post('/insertsuppliers',express.json(), async (req, res) => {
@@ -39,12 +38,13 @@ router.get('/getallSuppliers', async (req, res) => {
 })
 
 router.get('/getSuppliers/:option/:text', async (req, res) => {
-    console.log('jhvcxdfv');
-    console.log(req.params.option, 'req.boffffffffffffffffffffdy');
+    console.log(req.params.option);
+    console.log(req.params.text);
     const result = await getSupplier({option:req.params.option,text:req.params.text})
     console.log({ result });
-    res.send(result)
+    res.status(200).send(result)
 })
+
 // router.post('/insertSupplier', express.json(), async (req, res) => {
 //     let columns = Object.keys(req.body).join(',')
 //     let values = Object.values(req.body).join(',')
