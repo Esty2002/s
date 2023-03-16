@@ -8,7 +8,6 @@ async function createTable() {
 
 
 async function addPriceList(data) {
-    console.log("into insert");
     await connect()
     const result = await getConnection().request().query(`INSERT INTO priceList VALUES ('${data.date}','${data.priceListCode}','${data.areaName}','${data.itemCode}','${data.price}','${data.reduction}','${data.primaryAmount}','${data.unitOfMeasure}','${data.additionDate}','${data.disable}','${data.deleteDate}') `)
     disconnect()
@@ -17,14 +16,11 @@ async function addPriceList(data) {
 
 async function updatePriceList(date, id) {
     await connect()
-    console.log('module  date--', date, 'id--', id);
     const result = await getConnection().request().query(`update priceList set date='${date}' where id='${id}'`)
-    console.log("moudle", result.recordset);
     disconnect()
     return result.recordset
 }
 async function dletePriceList(id) {
-    console.log("into update");
     await connect()
     const result = await getConnection().request().query(`update priceList set disable='0' where id='${id}'`)
     disconnect()
@@ -32,19 +28,25 @@ async function dletePriceList(id) {
 }
 
 async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode, areaName, itemCode) {
+    console.log('code-', parseInt( priceListCode), '  area', areaName, '  product',  parseInt( itemCode))
     priceListCode = parseInt(priceListCode)
     await connect()
-    const result = await getConnection().request().query(`SELECT id,date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${itemCode}'`)
+    const result = await getConnection().request().query(`SELECT id,priceListCode,areaName,itemCode,price FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${parseInt(itemCode)}'`)
     console.log('sql----', result.recordset);
     disconnect()
     return (result.recordset)
 }
 
 async function selectAreaByClientOrSupplyCode(code) {
-    console.log('sql--');
     await connect()
-    const result = await getConnection().request().query(`SELECT areaName FROM priceList WHERE priceListCode=${code}`)
-    console.log(result.recordset);
+    const result = await getConnection().request().query(`SELECT distinct areaName FROM priceList WHERE priceListCode=${code}`)
+    disconnect()
+    return result.recordset
+}
+
+async function selectProductsOfSupplierOrClientByAreaName(code, areaName) {
+    await connect()
+    const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE priceListCode=${code} AND areaName='${areaName}'`)
     disconnect()
     return result.recordset
 }
@@ -54,5 +56,6 @@ module.exports = {
     updatePriceList,
     dletePriceList,
     selectAllAreasByPriceListCodeAndAreaNameAndItemCode,
-    selectAreaByClientOrSupplyCode
+    selectAreaByClientOrSupplyCode,
+    selectProductsOfSupplierOrClientByAreaName
 }
