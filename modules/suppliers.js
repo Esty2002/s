@@ -1,7 +1,6 @@
 require('dotenv').config();
-const { getAll,insertSupplier,insert,allTheOption, getByValues, del ,setDate} = require('../db/sql-operation');
 const {SQL_DB_SUPPLIERS } = process.env;
-const { insert,getAll,allTheOption, getByValues, del, insertSupplier,insertBranch,getIsDisabled, setDate, update}=require('../db/sql-operation');
+const { getAll,allTheOption, getByValues, del, insertSupplier,insertBranch,getIsDisabled, setDate, update}=require('../db/sql-operation');
 
 
 // פונקציה ששולחת לפונקציות מחיקה

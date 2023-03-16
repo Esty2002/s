@@ -1,4 +1,4 @@
-const { getAll, getByValues, del, setDate,insertBranch, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
+const { getAll, del, setDate,insertBranch, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
 
 
 //return all the branches
@@ -18,9 +18,6 @@ async function insertbranch(object) {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate();
             object['CreationDate'] = (Object.values(date.recordset[0]))[0];
-            console.log(object['CreationDate'][0]);
-            console.log(object);
-            // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
             const result = await insertBranch(object);
             console.log('vvvvvvvvvvvvvvvvvvvvvv');
             return result;
@@ -58,11 +55,8 @@ async function updateDetail(code, object) {
 async function deletebranches(object) {
     const date = await setDate()
     const newDate = date.recordset[0].Today
-    console.log(newDate);
     //////////////////////////להוסיף משתנה גלובלי
     const resultSupplierCode = await del(SQL_DB_SUPPLIERS, '453', Object.values(object)[0])
-    const resultSupplierCode2 = await changeDisabele(SQL_DB_SUPPLIERS, '453')
-    const resultSupplierCode3 = await changeDisabledDate(SQL_DB_SUPPLIERS, '453', newDate)
     return resultSupplierCode
 
 }
@@ -82,9 +76,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await getByValues('Branches', 'SupplierCode', object.SupplierCode)
-    const resultBranchName = await getByValues('Branches', 'BranchName', object.BranchName)
-    return (resultSupplierCode.recordset.length === 0 && resultBranchName.recordset.length === 0);
+    const resultBranchName = await allTheOption('Branches', 'BranchName', object.BranchName)
+    return (resultBranchName.recordset.length === 0);
 }
 
 //check if the supplier disabled

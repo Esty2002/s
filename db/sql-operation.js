@@ -7,13 +7,6 @@ async function getAll(table) {
     return result;
 }
 
-//פונקציה שמחזירה שדות לפי תנאי
-async function getByValues(table, column, code) {
-    await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column} = '${code}'`)
-    await disconnect()
-    return result;
-}
 // פונקצית מחיקה
 async function del(title, code, name, date) {
     await connect()
@@ -76,7 +69,7 @@ async function insertSupplier(objectSupplier) {
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
         .input('CreationDate',objectSupplier.CreationDate||'NULL')
-        .input('Disabled',objectSupplier.Disabled||'1')
+        .input('Disabled',objectSupplier.Disabled||'0')
         .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
         .input('DisableUser',objectSupplier.DisableUser||'NULL')
         .execute(`usp_insertSupplier`);
@@ -103,7 +96,7 @@ async function insertBranch(objectBranch) {
         .input('Notes', objectBranch.Notes)
         .input('CreationDate',objectBranch.CreationDate||'NULL')
         .input('UserThatInsert',objectBranch.UserThatInsert||'NULL')
-        .input('Disabled',objectBranch.Disabled||'1')
+        .input('Disabled',objectBranch.Disabled||'0')
         .input('DisabledDate',objectBranch.DisabledDate||'NULL')
         .input('DisableUser',objectBranch.DisableUser||'NULL')
         .execute(`usp_insertBranch`);
@@ -113,4 +106,4 @@ async function insertBranch(objectBranch) {
 }
 
 
-module.exports = {  getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
+module.exports = {  del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }

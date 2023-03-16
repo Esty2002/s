@@ -7,7 +7,6 @@ const { deletesupplier, getallSuppliers,insertsuppliers, getSupplier,checkUnique
 router.post('/deletesupplier', express.json(), async (req, res) => {
     const result = await deletesupplier(req.body)
     res.status(200).send(true);
-
 })
 
 router.post('/insertsuppliers',express.json(), async (req, res) => {
@@ -22,27 +21,17 @@ router.post('/insertsuppliers',express.json(), async (req, res) => {
 })
 
 router.get('/checkUnique/:suppliercode/:suppliername',async(req,res)=>{
-    const data={
-        SupplierCode:req.params.suppliercode,
-        SupplierName:req.params.suppliername
-    }
-    const result = await checkUnique(data)
-    console.log(result);
+    const result = await checkUnique({ SupplierName:req.params.suppliername})
     res.status(200).send(result)
 })
 
 router.get('/getallSuppliers', async (req, res) => {
-    console.log('res');
     const result = await getallSuppliers()
-    console.log('ssssssssssssss',{ result });
     res.send(result)
 })
 
 router.get('/getSuppliers/:option/:text', async (req, res) => {
-    console.log('jhvcxdfv');
-    console.log(req.params.option, 'req.boffffffffffffffffffffdy');
     const result = await getSupplier({option:req.params.option,text:req.params.text})
-    console.log({ result });
     res.send(result)
 })
 // router.post('/insertSupplier', express.json(), async (req, res) => {
