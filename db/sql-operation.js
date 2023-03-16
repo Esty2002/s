@@ -2,19 +2,31 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='1'`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='0'`)
     await disconnect()
     return result;
 }
-
-// פונקצית מחיקה
-async function del(title, code, name, date) {
+// SQL פונקציה  שמכניסה נתונים ל
+async function insert(table, columns, values) {
+    await connect()
+    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
+    await disconnect()
+    return result;
+}
+// פונקצית מחיקת ספק  
+async function delSupllier(title, code, name, date) {
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
-
+// פונקצית מחיקת סניף  
+async function delBranches(title, code, name, date) {
+    await connect()
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'`)
+    await disconnect()
+    return result;
+}
 // פונקציה המחזירה תאריך נוכחי
 async function setDate() {
     await connect()
@@ -44,7 +56,13 @@ async function allTheOption(table,column,code){
     await disconnect()
     return result;
 }
-
+// //פונקציה שמחזירה שדות לפי תנאי
+// async function getByValues(table, column, code) {
+//     await connect()
+//     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column} = '${code}'`)
+//     await disconnect()
+//     return result;
+// }
 // פונקצית הוספת ספק ע"י פרוצדורה
 async function insertSupplier(objectSupplier) {
     await connect();
@@ -105,5 +123,4 @@ async function insertBranch(objectBranch) {
 
 }
 
-
-module.exports = {  del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
+module.exports = {allTheOption, getAll, insert,insertSupplier, delSupllier, getIsDisabled, setDate,update,delBranches  ,insertBranch}

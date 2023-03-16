@@ -1,16 +1,17 @@
 require('dotenv').config();
-const {SQL_DB_SUPPLIERS } = process.env;
-const { getAll,allTheOption, getByValues, del, insertSupplier,insertBranch,getIsDisabled, setDate, update}=require('../db/sql-operation');
+const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate, update, delSupllier,delBranches}=require('../db/sql-operation');
 
+const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
 
 // פונקציה ששולחת לפונקציות מחיקה
 async function deletesupplier(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
-    const resultSupplierCode = await del(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
-    return resultSupplierCode
-
+    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
+    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
+    return (resultSupplierCode,resultBranchCode)
 }
+
 //פונקציה שמקבלת נתוני כל הספקים
 async function getallSuppliers() {
     const result = await getAll('suppliers')
@@ -18,9 +19,6 @@ async function getallSuppliers() {
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
-    console.log("obj.option");
-    console.log(obj.text);
-    console.log("obj.option");
     const result = await allTheOption("Suppliers",obj.option,obj.text)
     return result;
 }
@@ -29,17 +27,11 @@ async function insertsuppliers(object) {
         // await checkValid(object) && 
         if (await checkUnique(object)) {
             const date = await setDate();
-            console.log('date');
             object['CreationDate'] = (Object.values(date.recordset[0]))[0];
-            console.log(object['CreationDate'][0]);
-            console.log('object');
-            // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
             const result = await insertSupplier(object)
-            console.log('vvvvvvvvvvvvvvvvvvvvvv');
             return result;
         }
         else {
-            console.log('xxxxxxxxxxxxxxxxxxxxxx');
             return false;
         }
     }
@@ -63,9 +55,6 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    console.log(';');
-    console.log(object);
-    console.log(';');
     const resultSupplierCode = await getByValues('Suppliers', 'SupplierCode', object.SupplierCode)
     const resultSuppliersName = await getByValues('Suppliers', 'SupplierName', object.SupplierName)
     return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);
