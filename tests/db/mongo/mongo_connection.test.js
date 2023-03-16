@@ -1,5 +1,5 @@
-const { connect, disconnect, getClient } = require('../../services/db/mongo_connection')
-const { isConnected } = require('../helpers/mongo_helpers')
+const { connect, disconnect, getClient } = require('../../../services/db/mongo/mongo_connection')
+const { isConnected } = require('../../helpers/mongo-helpers')
 
 describe(' GET CLIENT', () => {
     it('should return a defined object', () => {
