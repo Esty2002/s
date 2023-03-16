@@ -19,4 +19,9 @@ async function updateArea(phone, area) {
         , { $set: { 'areasList.$[u].delate': true } }, { arrayFilters: [{ 'u.areaName': area }] })
     return result
 }
-module.exports = { insertArea, findSupplierOrClient, updateSupplierOrClient, updateArea }
+async function findAreaBySupplierOrClientCode(code, filter) {
+    const result = await mongo_collection_areas.findOne(code, filter)
+    return result
+}
+
+module.exports = { insertArea, findSupplierOrClient, findAreaBySupplierOrClientCode, updateSupplierOrClient, updateArea }

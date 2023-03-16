@@ -1,7 +1,9 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, updateSupplierOrClient, updateArea } = require('../modules/areas')
+const { insertArea, findSupplierOrClient,
+    updateSupplierOrClient, updateArea,
+    findAreaBySupplierOrClientCode } = require('../modules/areas')
 router.get('/', async (req, res) => {
     const result = await insertArea({ name: 'aaa', age: 12, disable: true })
     res.send(result)
@@ -16,19 +18,30 @@ router.get('/isExist', async (req, res) => {
     res.status(200).send(result)
 })
 
+router.get('/findAllAreas/:code', async (req, res) => {
+    let suplierOrClientCode = { SuplierOrClientCode: parseInt(req.params.code) }
+    const result = await findAreaBySupplierOrClientCode(suplierOrClientCode, { "areasList.areaName": 1, _id: 0 })
+    if (result) {
+        res.status(200).send(result)
+    }
+    else {
+        console.log("!!!!!!!!!!!!!!!");
+    }
+})
+
 router.post('/insertArea', express.json(), async (req, res) => {
     console.log("into insert Area");
     const result = await insertArea(req.body)
 })
 
-router.post('/delateArea', express.json(), async (req, res) => {
+router.post('/deleteAreaDetail', express.json(), async (req, res) => {
     //req.body צריך לקבל מס' {טלפון,שם אזור} ב
-    let {phone} = req.body.phone
+    let { phone } = req.body.phone
     let nameArea = req.body.areaName
     const result = await updateArea(phone, nameArea)
 })
 
-router.post('/delateSupplierOrClient', express.json(), async (req, res) => {
+router.post('/deleteArea', express.json(), async (req, res) => {
     //req.body צריך לקבל מס' {טלפון} ב
     const result = await updateSupplierOrClient(req.body)
 })

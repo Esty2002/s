@@ -12,16 +12,24 @@ class MongoDBOperations {
         const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
         return result
     }
-    async findOne(filter){
-        const result=await getClient().db(this.dbName).collection(this.collectionName).findOne(filter)
+    async findOne(filter, project) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, { projection: project })
         return result
     }
+    async find(filter, project) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).find(filter, project)
+        return result
+    }
+    async findItems(filter = {}, project = {}, skip = 0) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).toArray()
+        return result;
+    }
 
-    async updateOne(obj){
+    async updateOne(obj) {
         const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(obj)
         return result
 
     }
 }
 
-module.exports={MongoDBOperations}
+module.exports = { MongoDBOperations }
