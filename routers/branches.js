@@ -5,7 +5,6 @@ const {getallbranches,insertbranch,updateDetail,deletebranches,checkUnique,getBr
 
 router.get('/getallbranches',async(req,res)=>{
     const result = await getallbranches()
-    // console.log({result});
     res.status(200).send(result);
 })
 
@@ -26,7 +25,6 @@ router.post('/insertbranch',express.json(),async(req,res)=>{
 })
 
 router.post('/updatebranch',express.json(),async(req,res)=>{
-    console.log(req.body);
     const result = await updateDetail(1111,req.body);
     res.status(200).send(result)
 })
@@ -39,7 +37,6 @@ router.post('/deletebranches', express.json(), async (req, res) => {
 
 router.get('/checkUnique/:suppliercode/:branchname',async(req,res)=>{
     const result = await checkUnique({BranchName:req.params.branchname})
-    console.log(result);
     res.status(200).send(result)
 })
 

@@ -6,22 +6,27 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-
-//פונקציה שמחזירה שדות לפי תנאי
-async function getByValues(table, column, code) {
+// SQL פונקציה  שמכניסה נתונים ל
+async function insert(table, columns, values) {
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column} = '${code}'`)
+    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
     await disconnect()
     return result;
 }
-// פונקצית מחיקה
-async function del(title, code, name, date) {
+// פונקצית מחיקת ספק  
+async function delSupllier(title, code, name, date) {
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
-
+// פונקצית מחיקת סניף  
+async function delBranches(title, code, name, date) {
+    await connect()
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'`)
+    await disconnect()
+    return result;
+}
 // פונקציה המחזירה תאריך נוכחי
 async function setDate() {
     await connect()
@@ -51,7 +56,13 @@ async function allTheOption(table,column,code){
     await disconnect()
     return result;
 }
-
+// //פונקציה שמחזירה שדות לפי תנאי
+// async function getByValues(table, column, code) {
+//     await connect()
+//     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column} = '${code}'`)
+//     await disconnect()
+//     return result;
+// }
 // פונקצית הוספת ספק ע"י פרוצדורה
 async function insertSupplier(objectSupplier) {
     await connect();
@@ -76,7 +87,7 @@ async function insertSupplier(objectSupplier) {
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
         .input('CreationDate',objectSupplier.CreationDate||'NULL')
-        .input('Disabled',objectSupplier.Disabled||'1')
+        .input('Disabled',objectSupplier.Disabled||'0')
         .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
         .input('DisableUser',objectSupplier.DisableUser||'NULL')
         .execute(`usp_insertSupplier`);
@@ -103,7 +114,7 @@ async function insertBranch(objectBranch) {
         .input('Notes', objectBranch.Notes)
         .input('CreationDate',objectBranch.CreationDate||'NULL')
         .input('UserThatInsert',objectBranch.UserThatInsert||'NULL')
-        .input('Disabled',objectBranch.Disabled||'1')
+        .input('Disabled',objectBranch.Disabled||'0')
         .input('DisabledDate',objectBranch.DisabledDate||'NULL')
         .input('DisableUser',objectBranch.DisableUser||'NULL')
         .execute(`usp_insertBranch`);
@@ -112,4 +123,4 @@ async function insertBranch(objectBranch) {
 
 }
 
-module.exports = {  getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }
+module.exports = {allTheOption, getAll, insert,insertSupplier, delSupllier, getIsDisabled, setDate,update,delBranches  ,insertBranch}
