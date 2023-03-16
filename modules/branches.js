@@ -74,12 +74,7 @@ async function deletebranches(object) {
     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
     return (resultSupplierCode,resultBranchCode)
 }
-<<<<<<< HEAD
 //check if must keys not empty and content
-=======
-
-//check if must keys not empty
->>>>>>> SariMorgenshtern
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
     //לבדוק את מספר הטלפון שהוא תקין
