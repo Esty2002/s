@@ -21,14 +21,14 @@ router.post('/insertArea', express.json(), async (req, res) => {
     const result = await insertArea(req.body)
 })
 
-router.post('/delateArea', express.json(), async (req, res) => {
+router.post('/deleteAreaDetail', express.json(), async (req, res) => {
     //req.body צריך לקבל מס' {טלפון,שם אזור} ב
     let {phone} = req.body.phone
     let nameArea = req.body.areaName
     const result = await updateArea(phone, nameArea)
 })
 
-router.post('/delateSupplierOrClient', express.json(), async (req, res) => {
+router.post('/deleteArea', express.json(), async (req, res) => {
     //req.body צריך לקבל מס' {טלפון} ב
     const result = await updateSupplierOrClient(req.body)
 })
