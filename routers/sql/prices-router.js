@@ -7,20 +7,18 @@ router.get('/', (req, res) => {
     res.send('priceList')
 })
 
-
+//  הוספת מחירון -מקבל אוביקט של הנתוהים ומכניס ל__ ומחזיר כמה שורות הושפעו בתוך מערך
 router.post('/addPriceList', express.json(), async (req, res) => {
-    //צריך לקבל פה אוביקט של כל פרטי ההוספה 
     const result = await addPriceList(req.body)
     res.send(result)
 })
+//  עדכון תאריך של מחירון מקבל את התאריך החדש ואת ה יד ומחזיר כמה שורות עודכנו בתוך מערך
 router.post('/updatePriceList', express.json(), async (req, res) => {
-    // id - מצפה לקבל אוביקט של תאריך שבו הרשומה תקפה וכן את ה 
-    const result = await updatePriceList(req.body.date, req.body.id)
+    const result = await updatePriceList(req.body)
     res.send(result)
 })
-
+// מחיקרת מחירון-מצפה לקבל אוביקט שמכיל את ה "יד" ומחזיר כמה שורות הושפעו בתוך מערך                   
 router.post('/deletePriceList', express.json(), async (req, res) => {
-    // id - מצפה לקבל אוביקט שמכיל את ה 
     const result = await dletePriceList(req.body.id)
     res.send(result)
 })
