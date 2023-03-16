@@ -2,11 +2,11 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='1'`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='0'`)
     await disconnect()
     return result;
 }
-// SQL   פונקציה  שמכניסה נתונים 
+// SQL פונקציה  שמכניסה נתונים ל
 async function insert(table, columns, values) {
     await connect()
     const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
@@ -20,13 +20,26 @@ async function getByValues(table, column, code) {
     await disconnect()
     return result;
 }
-// פונקצית מחיקה
-async function del(title, code, name, date) {
+// פונקצית מחיקת ספק  
+async function delSupllier(title, code, name, date) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='0',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
+// פונקצית מחיקת סניף  
+async function delBranches(title, code, name, date) {
+    console.log('title',title);
+    console.log('code',code);
+    console.log('name',name);
+    console.log('date',date);
+
+    await connect()
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'`)
+    await disconnect()
+    return result;
+}
+
 
 // פונקציה המחזירה תאריך נוכחי
 async function setDate() {
@@ -52,32 +65,29 @@ async function update(title, field, value, code) {
 }
 //פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table,column,code){
+    console.log(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`);
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='1'`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
     await disconnect()
     return result;
 }
-async function insertSupplier(objectSupplier) {
-    // await connect();
-    // console.log("..................");
-    // console.log(objectSupplier);
-    // console.log("..................");
-    // const result = await getConnection().request()
-    //     .input('SupplierCode', req.query.SupplierCode )
-    //     // .input('size', req.query.size ||NULL)
-    //     // .input('search', req.query.search || '')
-    //     // .input('orderBy', req.query.orderBy || 'Id')
-    //     // .input('orderDir', req.query.orderDir || 'DESC')
+// async function insertSupplier(objectSupplier) {
+//     await connect();
+//     console.log("..................");
+//     console.log(objectSupplier);
+//     console.log("..................");
+//     const result = await getConnection().request()
+//     .input('SupplierCode', req.query.SupplierCode )
+//     // .input('size', req.query.size ||NULL)
+//     // .input('search', req.query.search || '')
+//     // .input('orderBy', req.query.orderBy || 'Id')
+//     // .input('orderDir', req.query.orderDir || 'DESC')
+    
+//     .execute(`usp_insertSupplier`);
+//     await disconnect()
+//     return result;
+    
+// }
 
-<<<<<<< HEAD
-    //     .execute(`usp_insertSupplier`);
-    // await disconnect()
-    // return result;
-
-}
-
-module.exports = {insertsuppliers, getAll, insert, getByValues, del, getIsDisabled, setDate, update }
-=======
-module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update }
->>>>>>> c844b7c94ce7ca7fdc230a8efcca182059c05b17
+module.exports = {allTheOption, getAll, insert, getByValues, delSupllier, getIsDisabled, setDate,update,delBranches }
 
