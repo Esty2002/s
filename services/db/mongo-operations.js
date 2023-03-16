@@ -13,18 +13,19 @@ class MongoDBOperations {
         return result
     }
     async findOne(filter = {}, elemMatch = {}, project = {}) {
-        console.log('filter  ', filter);
-        console.log('elemath  ', elemMatch);
+        // console.log('filter  ', filter);
+        // console.log('elemath  ', elemMatch);
         const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, elemMatch)
-        console.log('mongo---', result);
+        // console.log('mongo---', result);
         return result
     }
     async updateOne(filter, what) {
-        console.log('filter  ', filter, '  what   ', what);
-        const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, what)
-        
+        const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, { $addToSet: { areas: what } })
         return result
     }
 }
+// {
+//     '$addToSet': { areas: { areaName: 'bbbb', point: {x:10,y:50}, radius: '0' } }
+//   }
 
 module.exports = { MongoDBOperations }

@@ -19,11 +19,11 @@ router.get('/findAreaOfSupplierOrClient', async (req, res) => {
 })
 
 router.post('/insertArea', express.json(), async (req, res) => {
+
     // מקבל את כל האובייקט שצריך להכניס למונגו
     // let p = { suplierOrClientCode: '1234', areas: { areaName: 'dsd', point: { x: 20, y: 50 }, radius: '0' } }
     // let g={suplierOrClientCode: '1234', areas: { areaName: 'fdssd', pointsList: [Array] }}
 
-    console.log(req.body,"hjddddddddddddddddddddddddddfs");
     const result = await insertArea(req.body)
     res.send(result)
 })
