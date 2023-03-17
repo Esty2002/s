@@ -1,4 +1,5 @@
 const { connect, disconnect, getConnection } = require('./sql-connection')
+
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
     await connect()
@@ -6,10 +7,17 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-// SQL פונקציה  שמכניסה נתונים ל
-async function insert(table, columns, values) {
+// פונקציה המחזירה תאריך נוכחי
+async function setDate() {
     await connect()
-    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
+    const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
+    await disconnect()
+    return result;
+}
+//פונקציה המחזירה האם לקוח מסוים קיים עדין
+async function getIsDisabled(table, column, code) {
+    await connect()
+    const result = await getConnection().request().query(`SELECT Disabled FROM ${table} WHERE ${column} = '${code}'`)
     await disconnect()
     return result;
 }
@@ -27,47 +35,33 @@ async function delBranches(title, code, name, date) {
     await disconnect()
     return result;
 }
-// פונקציה המחזירה תאריך נוכחי
-async function setDate() {
-    await connect()
-    const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
-    await disconnect()
-    return result;
-}
-//פונקציה המחזירה האם לקוח מסוים קיים עדדין
-async function getIsDisabled(table, column, code) {
-    await connect()
-    const result = await getConnection().request().query(`SELECT Disabled FROM ${table} WHERE ${column} = '${code}'`)
-    await disconnect()
-    return result;
-}
 //פונקצית עדכון
-async function update(title, field, value, code) {
-    console.log(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`);
+async function update(title, setting, code) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
 //פונקצית מציאת ספק לפי נתוני חיפוש
-async function allTheOption(table,column,code){
+async function allTheOption(table, column, code) {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
     await disconnect()
     return result;
 }
-// //פונקציה שמחזירה שדות לפי תנאי
-// async function getByValues(table, column, code) {
-//     await connect()
-//     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column} = '${code}'`)
-//     await disconnect()
-//     return result;
-// }
+//פונקציה שבודקת עבור סניף האם הוא יחודי לספק שלו
+async function checkUniqueBranch(code, branchname) {
+    await connect()
+    const result = await getConnection().request().query(`
+    SELECT * FROM (SELECT * FROM Branches WHERE SupplierCode='${code}' AND Disabled='0' )ss WHERE ss.BranchName ='${branchname}'`)
+    await disconnect()
+    return result;
+}
 // פונקצית הוספת ספק ע"י פרוצדורה
 async function insertSupplier(objectSupplier) {
     await connect();
     const result = await getConnection().request()
-        .input('SupplierCode',objectSupplier.SupplierCode)
+        .input('SupplierCode', objectSupplier.SupplierCode)
         .input('SupplierName', objectSupplier.SupplierName)
         .input('licensedDealerNumber', objectSupplier.licensedDealerNumber)
         .input('BokkeepingNumber', objectSupplier.BokkeepingNumber)
@@ -86,10 +80,10 @@ async function insertSupplier(objectSupplier) {
         .input('Fax', objectSupplier.Fax)
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
-        .input('CreationDate',objectSupplier.CreationDate||'NULL')
-        .input('Disabled',objectSupplier.Disabled||'0')
-        .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
-        .input('DisableUser',objectSupplier.DisableUser||'NULL')
+        .input('CreationDate', objectSupplier.CreationDate || 'NULL')
+        .input('Disabled', objectSupplier.Disabled || '0')
+        .input('DisabledDate', objectSupplier.DisabledDate || 'NULL')
+        .input('DisableUser', objectSupplier.DisableUser || 'NULL')
         .execute(`usp_insertSupplier`);
     await disconnect()
     return result;
@@ -99,7 +93,7 @@ async function insertSupplier(objectSupplier) {
 async function insertBranch(objectBranch) {
     await connect();
     const result = await getConnection().request()
-        .input('SupplierCode',objectBranch.SupplierCode)
+        .input('SupplierCode', objectBranch.SupplierCode)
         .input('BranchName', objectBranch.BranchName)
         .input('Status', objectBranch.Status)
         .input('Street', objectBranch.Street)
@@ -112,15 +106,15 @@ async function insertBranch(objectBranch) {
         .input('Fax', objectBranch.Fax)
         .input('Mail', objectBranch.Mail)
         .input('Notes', objectBranch.Notes)
-        .input('CreationDate',objectBranch.CreationDate||'NULL')
-        .input('UserThatInsert',objectBranch.UserThatInsert||'NULL')
-        .input('Disabled',objectBranch.Disabled||'0')
-        .input('DisabledDate',objectBranch.DisabledDate||'NULL')
-        .input('DisableUser',objectBranch.DisableUser||'NULL')
+        .input('CreationDate', objectBranch.CreationDate || 'NULL')
+        .input('UserThatInsert', objectBranch.UserThatInsert || 'NULL')
+        .input('Disabled', objectBranch.Disabled || '0')
+        .input('DisabledDate', objectBranch.DisabledDate || 'NULL')
+        .input('DisableUser', objectBranch.DisableUser || 'NULL')
         .execute(`usp_insertBranch`);
     await disconnect()
     return result;
 
 }
 
-module.exports = {allTheOption, getAll, insert,insertSupplier, delSupllier, getIsDisabled, setDate,update,delBranches  ,insertBranch}
+module.exports = { allTheOption, getAll, insertSupplier, delSupllier, getIsDisabled, setDate, update, delBranches, insertBranch, checkUniqueBranch }

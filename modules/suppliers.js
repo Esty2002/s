@@ -55,8 +55,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await getByValues('Suppliers', 'SupplierCode', object.SupplierCode)
-    const resultSuppliersName = await getByValues('Suppliers', 'SupplierName', object.SupplierName)
+    const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode)
+    const resultSuppliersName = await allTheOption('Suppliers', 'SupplierName', object.SupplierName)
     return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);
 }
 
