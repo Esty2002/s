@@ -11,6 +11,11 @@ async function deleteSupplier(object) {
     return (resultSupplierCode,resultBranchCode)
 }
 
+//return all the Supplier that the condition for it and not disabled.
+async function getBranchesByCondition(column, code) {
+    const result = await allTheOption('Supplier', column, code);
+    return result;
+}
 
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
@@ -63,4 +68,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier};
+module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier,getBranchesByCondition};

@@ -32,7 +32,10 @@ router.post('/updatebranch',express.json(),async(req,res)=>{
 
 // פונקציה ששולחת לפונקציות מחיקה במודול
 router.post('/deletebranches', express.json(), async (req, res) => {
+    console.log('1111111111111111111111');
+    console.log(req.body);
     const result = await deleteBranches(req.body)
+    console.log('5555555555555555555555');
     res.status(200).send(true);
 })
 

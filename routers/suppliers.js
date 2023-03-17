@@ -1,12 +1,17 @@
 const express = require('express')
 const router = express.Router()
 
-const { deleteSupplier, getAllSuppliers,insertOneSupplier, getSupplier,checkUnique} = require('../modules/suppliers')
+const { deleteSupplier, getAllSuppliers,insertOneSupplier, getSupplier,checkUnique,getSupplierByCondition} = require('../modules/suppliers')
 
 // פונקציה ששולחת לפונקציות מחיקה ספק במודול
 router.post('/deletesupplier', express.json(), async (req, res) => {
     const result = await deleteSupplier(req.body);
     res.status(200).send(true);
+})
+
+router.get('/getSupplierWithCondition/:condition/:value', async (req, res) => {
+    const result = await getSupplierByCondition(req.params.condition, req.params.value);
+    res.status(200).send(result);
 })
 
 router.post('/insertsupplier',express.json(), async (req, res) => {

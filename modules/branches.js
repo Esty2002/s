@@ -56,7 +56,7 @@ async function updateDetail(code, object) {
 async function deleteBranches(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
+    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate,object.BranchName)
     return (resultBranchCode)
 }
 //check if must keys not empty and content
