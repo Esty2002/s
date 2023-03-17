@@ -2,7 +2,7 @@ const { getAll, setDate,insertBranch,delBranches ,getIsDisabled, update,allTheOp
 
 
 //return all the branches
-async function getallbranches() {
+async function getAllBranches() {
     const result = await getAll('Branches');
     return result;
 }
@@ -13,7 +13,7 @@ async function getBranchesByCondition(column,code){
     return result;
 }
 //insert branch
-async function insertbranch(object) {
+async function insertOneBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate()
@@ -49,11 +49,11 @@ async function updateDetail(code, object) {
 }
 
 // פונקציה ששולחת לפונקציות מחיקה
-async function deletebranches(object) {
+async function deleteBranches(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
-    return (resultSupplierCode,resultBranchCode)
+    return (resultBranchCode)
 }
 //check if must keys not empty and content
 async function checkValid(object) {
@@ -81,4 +81,4 @@ async function checkDisabled(code) {
     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
-module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,getBranchesByCondition,checkUnique}
+module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};
