@@ -6,13 +6,6 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-// SQL פונקציה  שמכניסה נתונים ל
-async function insert(table, columns, values) {
-    await connect()
-    const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
-    await disconnect()
-    return result;
-}
 
 //פונקציה שמחזירה שדות לפי תנאי
 async function getByValues(table, column, code) {
@@ -30,11 +23,6 @@ async function delSupllier(title, code, name, date) {
 }
 // פונקצית מחיקת סניף  
 async function delBranches(title, code, name, date) {
-    console.log('title',title);
-    console.log('code',code);
-    console.log('name',name);
-    console.log('date',date);
-
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'`)
     await disconnect()
@@ -134,23 +122,5 @@ async function insertBranch(objectBranch) {
 
 }
 
-async function insertSupplier(objectSupplier) {
-    // await connect();
-    // console.log("..................");
-    // console.log(objectSupplier);
-    // console.log("..................");
-    // const result = await getConnection().request()
-    //     .input('SupplierCode', req.query.SupplierCode )
-    //     // .input('size', req.query.size ||NULL)
-    //     // .input('search', req.query.search || '')
-    //     // .input('orderBy', req.query.orderBy || 'Id')
-    //     // .input('orderDir', req.query.orderDir || 'DESC')
-
-    //     .execute(`usp_insertSupplier`);
-    // await disconnect()
-    // return result;
-
-}
-
-module.exports = {allTheOption, getAll, insert, getByValues, delSupllier, getIsDisabled, setDate,update,delBranches }
+module.exports = {allTheOption, getAll, getByValues, delSupllier, getIsDisabled, setDate,update,delBranches,insertSupplier,insertBranch };
 
