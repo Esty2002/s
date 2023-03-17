@@ -21,12 +21,29 @@ async function getIsDisabled(table, column, code) {
     await disconnect()
     return result;
 }
+
+
+
+// Begin tran
+// UPDATE Suppliers 
+// SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
+// WHERE SupplierCode = '22'
+// UPDATE Branches 
+// SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
+// WHERE SupplierCode = '22'
+// commit
+
+
 // פונקצית מחיקת ספק  
-async function delSupllier(title, code, name, date) {
+async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
+    // const result = await getConnection().request().query(`BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} 
+    // UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'  commit rollback`)
+    const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} `)
+    const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} `)
+
     await disconnect()
-    return result;
+    return result,result1;
 }
 // פונקצית מחיקת סניף  
 async function delBranches(title, code, name, date) {
@@ -80,10 +97,10 @@ async function insertSupplier(objectSupplier) {
         .input('Fax', objectSupplier.Fax)
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
-        .input('CreationDate', objectSupplier.CreationDate || 'NULL')
-        .input('Disabled', objectSupplier.Disabled || '0')
-        .input('DisabledDate', objectSupplier.DisabledDate || 'NULL')
-        .input('DisableUser', objectSupplier.DisableUser || 'NULL')
+        .input('CreationDate',objectSupplier.CreationDate||null)
+        .input('Disabled',objectSupplier.Disabled||'0')
+        .input('DisabledDate',objectSupplier.DisabledDate||null)
+        .input('DisableUser',objectSupplier.DisableUser||null)
         .execute(`usp_insertSupplier`);
     await disconnect()
     return result;
@@ -106,11 +123,11 @@ async function insertBranch(objectBranch) {
         .input('Fax', objectBranch.Fax)
         .input('Mail', objectBranch.Mail)
         .input('Notes', objectBranch.Notes)
-        .input('CreationDate', objectBranch.CreationDate || 'NULL')
-        .input('UserThatInsert', objectBranch.UserThatInsert || 'NULL')
-        .input('Disabled', objectBranch.Disabled || '0')
-        .input('DisabledDate', objectBranch.DisabledDate || 'NULL')
-        .input('DisableUser', objectBranch.DisableUser || 'NULL')
+        .input('CreationDate',objectBranch.CreationDate||null)
+        .input('UserThatInsert',objectBranch.UserThatInsert||null)
+        .input('Disabled',objectBranch.Disabled||'0')
+        .input('DisabledDate',objectBranch.DisabledDate||null)
+        .input('DisableUser',objectBranch.DisableUser||null)
         .execute(`usp_insertBranch`);
     await disconnect()
     return result;
@@ -118,3 +135,5 @@ async function insertBranch(objectBranch) {
 }
 
 module.exports = { allTheOption, getAll, insertSupplier, delSupllier, getIsDisabled, setDate, update, delBranches, insertBranch, checkUniqueBranch }
+
+

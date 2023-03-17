@@ -1,8 +1,9 @@
 const { getAll, setDate, insertBranch, delBranches, getIsDisabled, update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+require('dotenv').config();
+const {SQL_DB_BRANCHES}=process.env;
 
 async function updateDetail(code, setting) {
     try {
-        //האם אפשר לוותר על CHECKDISABLED אם בבדיקת יחודיות בודקים זאת כבר?
         if (await checkUniqueBranch(setting)) {
             // setting.map(f=>{
             //     console.log('f');
@@ -40,7 +41,7 @@ async function updateDetail(code, setting) {
 //     }
 // }
 //return all the branches
-async function getallbranches() {
+async function getAllBranches() {
     const result = await getAll('Branches');
     return result;
 }
@@ -50,12 +51,15 @@ async function getBranchesByCondition(column, code) {
     return result;
 }
 //insert branch
-async function insertBranch(object) {
+async function insertOneBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
-            const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])[0]
-            const result = await insertBranch(object)
+            const date = await setDate();
+            object['CreationDate'] = (Object.values(date.recordset[0]))[0];
+            console.log(object['CreationDate'][0]);
+            console.log(object);
+            // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
+            const result = await insertBranch(object);
             return result;
         }
         else {
@@ -76,11 +80,11 @@ async function deletebranches(object) {
     return resultSupplierCode
 }
 // פונקציה ששולחת לפונקציות מחיקה
-async function deletebranches(object) {
-    const date = await setDate()
-    const newDate = date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
-    return (resultSupplierCode, resultBranchCode)
+async function deleteBranches(object) {
+    const date=await setDate()
+    const newDate=date.recordset[0].Today
+    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
+    return (resultBranchCode)
 }
 //check if must keys not empty and content
 async function checkValid(object) {
@@ -107,4 +111,4 @@ async function checkUnique(object) {
 //     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 // }
 
-module.exports = { getallbranches, insertBranch, updateDetail, deletebranches, getBranchesByCondition, checkUnique }
+module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};

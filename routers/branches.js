@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
 
-const { getallbranches, insertBranch, updateDetail, deletebranches, checkUnique, getBranchesByCondition } = require('../modules/branches')
+const {getAllBranches,insertOneBranch,updateDetail,deleteBranches,checkUnique,getBranchesByCondition}=require('../modules/branches')
 
-router.get('/getallbranches', async (req, res) => {
-    const result = await getallbranches()
+router.get('/getallbranches',async(req,res)=>{
+    const result = await getAllBranches();
     res.status(200).send(result);
 })
 
@@ -13,9 +13,9 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
     res.status(200).send(result);
 })
 
-router.post('/insertbranch', express.json(), async (req, res) => {
-    try {
-        const result = await insertBranch(req.body)
+router.post('/insertbranch',express.json(),async(req,res)=>{
+    try{
+        const result=await insertOneBranch(req.body);
         res.status(200).send(result);
     }
     catch (error) {
@@ -37,7 +37,7 @@ router.post('/updatebranch', express.json(), async (req, res) => {
 
 // פונקציה ששולחת לפונקציות מחיקה במודול
 router.post('/deletebranches', express.json(), async (req, res) => {
-    const result = await deletebranches(req.body)
+    const result = await deleteBranches(req.body)
     res.status(200).send(true);
 })
 

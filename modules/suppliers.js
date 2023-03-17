@@ -4,7 +4,7 @@ const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate,
 const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
 
 // פונקציה ששולחת לפונקציות מחיקה
-async function deletesupplier(object) {
+async function deleteSupplier(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
     const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
@@ -13,7 +13,7 @@ async function deletesupplier(object) {
 }
 
 //פונקציה שמקבלת נתוני כל הספקים
-async function getallSuppliers() {
+async function getAllSuppliers() {
     const result = await getAll('suppliers')
     return result;
 }
@@ -22,7 +22,7 @@ async function getSupplier(obj) {
     const result = await allTheOption("Suppliers",obj.option,obj.text)
     return result;
 }
-async function insertsuppliers(object) {
+async function insertOneSupplier(object) {
     try {
         // await checkValid(object) && 
         if (await checkUnique(object)) {
@@ -36,7 +36,6 @@ async function insertsuppliers(object) {
         }
     }
     catch (error) {
-        console.log('error');
         throw error;
     }
 }
@@ -61,4 +60,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { getallSuppliers ,insertsuppliers,checkValid,checkUnique,getSupplier,deletesupplier}
+module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier};
