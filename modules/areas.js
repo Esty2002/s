@@ -1,5 +1,10 @@
-const { MongoDBOperations } = require('../services/db/mongo-operations')
-const mongo_collection_areas = new MongoDBOperations('areas')
+require('dotenv').config()
+
+const MongoDBOperations = require('../services/db/mongo-operations')
+const {MONGO_COLLECTION_AREAS} = process.env
+
+const mongo_collection_areas = MongoDBOperations
+mongo_collection_areas.collectionName = MONGO_COLLECTION_AREAS
 
 async function insertArea(obj) {
     const result = await mongo_collection_areas.insertOne(obj)

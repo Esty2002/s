@@ -3,13 +3,13 @@ const { app } = require('./app')
 
 const { connect } = require('./services/db/mongo-connection')
 
-const host = '127.0.0.1'
-const port = 5000
+const HOST =process.env|| '127.0.0.1'
+const PORT =process.env || 5000
 
 connect().then(_ => {
     console.log('connect to mongo');
-    app.listen(port, host, () => {
-        console.log(`http://${host}:${port}`);
+    app.listen(HOST, PORT, () => {
+        console.log(`http://${HOST}:${PORT}`);
     })
 })
 
