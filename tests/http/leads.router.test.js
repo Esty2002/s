@@ -1,92 +1,69 @@
 const request = require('supertest')
 const { app } = require('../../app')
-jest.mock('../../modules/leads/mongo/create_m', () => {
+jest.mock('../../modules/leads/leads-options', () => {
     return {
         createNewLead: jest.fn((obj) => {
-            return '123456'
+            return '123456';
         }),
         updateLead: jest.fn((obj) => {
-            return 'updateTheLead'
+            return 'updateTheLead';
         }),
-        AllLeadsDetails: jest.fn(() => {
-            return [{ phone: '0583286577', supplyAddress: 'chisda' }, { phone: '5555555555', supplyAddress: 'sss' }]
+        allLeadsDetails: jest.fn(() => {
+            return [{ phone: '0583286577', supplyAddress: 'chisda' }, { phone: '5555555555', supplyAddress: 'sss' }];
         })
     }
 
 })
-jest.mock('../../modules/leads/mongo_and_sql/mongo_and_sql', () => {
-    return {
-        getDataSynchronised: jest.fn((sql, mongo) => {
-            return [{ name: 'sari', phone: '0583286577', supplyAddress: 'chisda' }, { name: 'ccc', phone: '5555555555', supplyAddress: 'sss' }]
-        }),
 
-    }
-
-})
-jest.mock('../../modules/leads/sql/create_sql', () => {
+jest.mock('../../modules/leads/more-tables', () => {
     return {
         selectAllTable: jest.fn((tablename) => {
-            return 'test'
+            return 'test';
         }),
         selectRecordByPhoneNumber: jest.fn((phone, tablename) => {
             if (phone === undefined) {
-                return ({ tablename:"test" })
+                return ({ tablename:"test" });
             }
             if (tablename === undefined) {
-                return ({ phone: '0583288477' })
+                return ({ phone: '0583288477' });
 
             }
 
-            return ({ phone: '0583288477', tablename: 'test' })
+            return ({ phone: '0583288477', tablename: 'test' });
 
 
 
         }),
         newOrderer: jest.fn((obj=null) => {
-            return 'insert'
+            return 'insert';
         }),
         newPouringType: jest.fn((obj = null) => {
-            return 'insertType'
+            return 'insertType';
         }),
         nameAndphone: jest.fn(() => {
-            return ([{ name: "sari", phone: "0583286577" }, { name: "ccc", phone: "5555555555" }])
+            return ([{ name: "sari", phone: "0583286577" }, { name: "ccc", phone: "5555555555" }]);
         })
 
 
     }
 })
 
-describe('getAllLeadsDatails', () => {
+describe('getleadsdetails', () => {
     it('should get all the leads datails', async () => {
-        const response = await request(app).get('/leads/getAllLeadsDatails')
+        const response = await request(app).post('/leads/getleadsdetails');
         expect(response).toBeTruthy();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
     })
 
-    it('should call nameAndphone', async () => {
-        const { nameAndphone } = jest.requireMock('../../modules/leads/sql/create_sql')
-        const response = await request(app).get('/leads/getAllLeadsDatails')
-        expect(nameAndphone).toHaveBeenCalled()
-        expect(response).toBeDefined()
-        // expect(nameAndphone.text).toBe('[{"name":"sari","phone":"0583286577"},{"name":"ccc","phone":"5555555555"}]');
+    it('should call allLeadsdetails', async () => {
+        const { allLeadsDetails } = jest.requireMock('../../modules/leads/leads-options');
+        const response = await request(app).post('/leads/getleadsdetails');
+        expect(allLeadsDetails).toHaveBeenCalled();
+        expect(response).toBeDefined();
     })
 
-    it('should call AllLeadsDetails', async () => {
-        const { AllLeadsDetails } = jest.requireMock('../../modules/leads/mongo/create_m')
-        const response = await request(app).get('/leads/getAllLeadsDatails')
-        expect(AllLeadsDetails).toHaveBeenCalled()
-        expect(response).toBeDefined()
-        // expect(nameAndphone.text).toBe('[{"name":"sari","phone":"0583286577"},{"name":"ccc","phone":"5555555555"}]');
-    })
-
-    it('should call  getDataSynchronised', async () => {
-        const { getDataSynchronised } = jest.requireMock('../../modules/leads/mongo_and_sql/mongo_and_sql')
-        const response = await request(app).get('/leads/getAllLeadsDatails')
-        expect(getDataSynchronised).toHaveBeenCalled()
-        expect(response).toBeDefined()
-        expect(response.text).toBe('[{"name":"sari","phone":"0583286577","supplyAddress":"chisda"},{"name":"ccc","phone":"5555555555","supplyAddress":"sss"}]');
-    })
+    
 })
 
 describe('/getalltable', () => {
@@ -99,7 +76,6 @@ describe('/getalltable', () => {
 
     it('should the request successful without sends the deteils', async () => {
         const response = await request(app).get('/leads/getalltable')
-        // console.log(response,"respnse");
         expect(response).toBeDefined();
         expect(response.text).toBe('test');
         expect(response.statusCode).toBe(200);
@@ -109,9 +85,9 @@ describe('/getalltable', () => {
 })
 
 
-describe('/getRowAccordingToPhone', () => {
+describe('/getrowaccordingtophone', () => {
     it('should getRowAccordingToPhone whith the deteils wich are givven', async () => {
-        const response = await request(app).get('/leads/getRowAccordingToPhone?name=test?phone=0583286477')
+        const response = await request(app).get('/leads/getrowaccordingtophone?name=test?phone=0583286477')
         expect(response).toBeTruthy();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
@@ -119,14 +95,14 @@ describe('/getRowAccordingToPhone', () => {
     })
 
     it('should the request successful without sends the deteils', async () => {
-        const response = await request(app).get('/leads/getRowAccordingToPhone')
+        const response = await request(app).get('/leads/getrowaccordingtophone')
         expect(response).toBeDefined();
         expect(response.text).toBe('{"result":{"tablename":"test"}}');
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
     })
     it('should the request successful only whith the name ', async () => {
-        const response = await request(app).get('/leads/getRowAccordingToPhone?name=test')
+        const response = await request(app).get('/leads/getrowaccordingtophone?name=test')
 
         expect(response).toBeDefined();
         expect(response.text).toBe('{"result":{"tablename":"test"}}');
@@ -135,7 +111,7 @@ describe('/getRowAccordingToPhone', () => {
         expect(response).toBeTruthy();
     })
     it('should the request successful only whith the phone ', async () => {
-        const response = await request(app).get('/leads/getRowAccordingToPhone?phone=0583288477')
+        const response = await request(app).get('/leads/getrowaccordingtophone?phone=0583288477')
 
         expect(response).toBeDefined();
         expect(response.text).toBe('{"result":{"phone":"0583288477"}}');
@@ -154,7 +130,7 @@ describe('/createnewlead', () => {
     })
 
     it('should call createNewLead', async () => {
-        const { createNewLead } = jest.requireMock('../../modules/leads/mongo/create_m.js')
+        const { createNewLead } = jest.requireMock('../../modules/leads/leads-options')
         const response = await request(app).post('/leads/createnewlead', { "name": "test" })
         expect(createNewLead).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -226,7 +202,7 @@ describe('check function newpouringtype', () => {
 
 describe('check function updeatLead', () => {
     it('should the function updeteOne update if it get arguments', async () => {
-        const response = await request(app).post('/leads/updateLeadsDetails', { name: "test", serialNumber: '333' });
+        const response = await request(app).post('/leads/updateleadsdetails', { name: "test", serialNumber: '333' });
         expect(response).toBeDefined()
         expect(response.statusCode).toBe(200)
         expect(response.text).toBe('updateTheLead')
@@ -234,7 +210,7 @@ describe('check function updeatLead', () => {
     })
 
     it('should the function dont faill if the arguments is empty', async () => {
-        const response = await request(app).post('/leads/updateLeadsDetails', {})
+        const response = await request(app).post('/leads/updateleadsdetails', {})
         expect(response).toBeDefined()
         expect(response.statusCode).toBe(200)
         expect(response.text).toBe('updateTheLead')
@@ -243,7 +219,7 @@ describe('check function updeatLead', () => {
     })
 
     it('should the function dont faill if the arguments isnt exist', async () => {
-        const response = await request(app).post('/leads/updateLeadsDetails')
+        const response = await request(app).post('/leads/updateleadsdetails')
         expect(response).toBeDefined()
         expect(response.statusCode).toBe(200)
         expect(response.text).toBe('updateTheLead')

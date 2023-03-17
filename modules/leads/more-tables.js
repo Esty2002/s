@@ -1,53 +1,51 @@
-require('dotenv').config()
+require('dotenv').config();
 
-const { connect, disconnect, getConnection } = require('../../../services/sql/sql-connection')
+const { connect, disconnect, getConnection } = require('../../services/sql/sql-connection');
 //take the Alltable according to TableName
 async function selectAllTable(tableName) {
-    let result
+    let result;
     try {
-        await connect()
-        result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
-        await disconnect()
+        await connect();
+        result = await getConnection().request().query(`SELECT * FROM  ${tableName}`);
+        await disconnect();
+        result=result.recordset;
     }
     catch {
-        result = "the table name is not defiend"
+        result = "the table name is not defiend";
     }
     return result;
 }
 
 // take the row according to poneNumber and TableName
 async function selectRecordByPhoneNumber(phoneNumber, tableName) {
-    
+
     let result
     try {
         await connect();
         result = await getConnection().request().query(`select * from ${tableName} where phone='${phoneNumber}'`);
         await disconnect();
-        console.log(result);
-        if (result.recordsets.length > 0)
-            result = true;
-        else {
-            result = false;
-        }
+        result=result.recordset;
+
     }
     catch {
-        result = "the tableName or phoneNumber not defined"
+        result = "the tableName or phoneNumber not defined";
     }
-   
+
     return result;
 }
 
 async function nameAndphone() {
-    let result
-    try{
-        await connect()
-        result = await getConnection().request().query(`select name,phone from orderers`)
-        await disconnect()
+    let result;
+    try {
+        await connect();
+        result = await getConnection().request().query(`select name,phone from orderers`);
+        await disconnect();
+        result=result.recordset;
     }
-    catch{
-        result="the name or phone dont defined"
+    catch {
+        result = "the name or phone are not defined";
     }
-    return result.recordset
+    return result;
 }
 
 // פונקציה שמכניסה מזמין חדש לטבלת מזמינים
@@ -55,12 +53,10 @@ async function newOrderer(obj = null) {
     //send to sql insted of mongodb
     let result
     if (obj) {
-        console.log("before problem");
-
-        console.log("after problem");
         await connect();
         result = await getConnection().request().query(`INSERT INTO orderers VALUES('${obj.name}','${obj.phone}',GETDATE(),0,NULL)`);
         await disconnect();
+        result=result.rowsAffected;
     }
     else {
         result = false;
@@ -79,6 +75,7 @@ async function newPouringType(obj = null) {
         await connect();
         result = await getConnection().request().query(`INSERT INTO puringsTypes VALUES('${obj.name}')`);
         await disconnect();
+        result=result.rowsAffected;
     }
     else {
         result = false;
@@ -88,6 +85,4 @@ async function newPouringType(obj = null) {
 }
 
 
-module.exports = {
-    selectAllTable, selectRecordByPhoneNumber, newOrderer, newPouringType,nameAndphone
-}                      
+module.exports = {selectAllTable, selectRecordByPhoneNumber, newOrderer, newPouringType, nameAndphone};                    

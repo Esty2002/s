@@ -10,9 +10,15 @@ jest.mock('../../../services/db/mongo-operations', () => {
         }),
         find: jest.fn((obj) => {
             if (obj)
-                return [{ test: "success" }]
+                return [{ test: "success" }];
             else
-                return [{ test: "not success" }]
+                return [{ test: "not success" }];
+        }),
+        aggregate:jest.fn((obj)=>{
+            if (obj)
+                return [{ test: "success" }];
+            else
+                return [{ test: "not success" }];
         }),
         countDocuments: jest.fn(() => {
             return 10;
@@ -23,24 +29,17 @@ jest.mock('../../../services/db/mongo-operations', () => {
         })
     }})
 
-const { createNewLead, getTheMustConcretItem, updateLead,AllLeadsDetails } = require('../../../modules/leads/mongo/create_m');
+const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../../../modules/leads/leads-options');
     describe('CHECK FUNCTION AllLeadsDetails', () => {
         it('should return inserted id when succeded', async () => {
-            let result = await AllLeadsDetails();
+            let result = await allLeadsDetails();
             expect(result).toBeDefined();
-            // console.log(result,'result.texttttt');
-            // expect(result).toBe([{"phone":"3333","Adrees":"ssss"}]);
+            
             expect(result).toBeInstanceOf(Array)
-            // expect(result).toBeFalsy()
 
 
         })
-        // it('should return false the object is empty', async () => {
-        //     const result = await createNewLead();
-        //     expect(result).toBeDefined();
-        //     expect(result).toBeFalsy();
-        //     expect(result.date).toBe(undefined);
-        // })
+        
     })
 
 
@@ -53,6 +52,12 @@ const { createNewLead, getTheMustConcretItem, updateLead,AllLeadsDetails } = req
             let result = await createNewLead({ phone: "088659365", date: new Date() });
             expect(result).toBeDefined();
             expect(result).toBe("123456");
+        })
+        it('should return false the object is empty', async () => {
+            const result = await createNewLead();
+            expect(result).toBeDefined();
+            expect(result).toBeFalsy();
+            expect(result.date).toBe(undefined);
         })
         it('should return false the object is empty', async () => {
             const result = await createNewLead();

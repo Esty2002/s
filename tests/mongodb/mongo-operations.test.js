@@ -16,7 +16,6 @@ describe('MongoDb Operation InsertOne', () => {
         testDB = mongoOperations;
         testDB.collectionName = "leads";
         testDB.dbName = "tests";
-        console.log(testDB);
 
         await connect(MONGO_CONNECTION);
 
@@ -25,7 +24,6 @@ describe('MongoDb Operation InsertOne', () => {
         let num = await testDB.countDocuments();
         num += 1;
         const response = await testDB.insertOne({ name: "test", leadStatus: "new ", serialNumber: num, disable: false });
-        console.log(response);
         expect(response).toBeDefined();
         expect(response).not.toBeNull();
         expect(response).toBeInstanceOf(ObjectID);
@@ -53,7 +51,6 @@ describe('check function find', () => {
         testDB = mongoOperations;
         testDB.collectionName = "leads";
         testDB.dbName = "tests";
-        console.log(testDB);
         await connect(MONGO_CONNECTION);
 
     })
@@ -91,7 +88,6 @@ describe('check function countDocuments', () => {
         testDB = mongoOperations;
         testDB.collectionName = "leads";
         testDB.dbName = "tests";
-        console.log(testDB);
         await connect(MONGO_CONNECTION);
     })
     it("should function return the number of the documents", async () => {
@@ -139,6 +135,38 @@ describe('MongoDb Operation update', () => {
         expect(response).not.toBeNull()
     })
 
+    afterAll(async () => {
+        await disconnect()
+    })
+})
+describe('check function aggregate',()=>{
+    beforeAll(async () => {
+        testDB = mongoOperations;
+        testDB.collectionName = "leads";
+        testDB.dbName = "tests";
+        await connect(MONGO_CONNECTION)
+    })
+    it('check that the function return the array of the correct data',async()=>{
+        const result=await testDB.aggregate({name:"test"},{name:1},0,5,{_id:0,name:1});
+        expect(result).toBeDefined();
+        expect(result).toBeInstanceOf(Array);
+        expect(result.length).toBeLessThanOrEqual(5);
+        expect(result[0]).toBeInstanceOf(Object);
+    })
+    it('check that the function return an empty array',async()=>{
+        const result=await testDB.aggregate({statusLead:"old",name:"test"},{_id:1},15,15,{_id:0,name:1});
+        expect(result).toBeDefined();
+        expect(result).toBeInstanceOf(Array);
+        expect(result.length).toBe(0);
+        expect(result[0]).not.toBeDefined();
+    })
+    it('check that the function return an empty array',async()=>{
+        const result=await testDB.aggregate({leadStatus:"new ",name:"test"},{_id:1},0,20);
+        expect(result).toBeDefined();
+        expect(result).toBeInstanceOf(Array);
+        expect(result.length).toBe(20);
+        expect(result[0]._id).toBeDefined();
+    })
     afterAll(async () => {
         await disconnect()
     })

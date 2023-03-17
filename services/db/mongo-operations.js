@@ -30,9 +30,13 @@ class MongoDBOperations {
         return result;
     }
 
-    async updateOne(obj = {}, id = {}) {
-        const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne({ serialNumber: id }, { $set: obj })
-        return result
+    async updateOne(obj = {}, filter = {}) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, { $set: obj });
+        return result;
+    }
+    async aggregate(filter={},sort={_id:1},skip=0,limit=0,project={_id:1}){
+        const result=await getClient().db(this.dbName).collection(this.collectionName).aggregate([{$match:filter},{$sort:sort},{$skip:skip},{$limit:limit},{$project:project}]).toArray();
+        return result;
     }
     
 }

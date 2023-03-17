@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { SQL_DATABASE_TEST, SQL_DATABASE } = process.env;
 
-const { selectAllTable, newOrderer,newPouringType,selectRecordByPhoneNumber,nameAndphone } = require('../../../modules/leads/sql/create_sql');
+const { selectAllTable, newOrderer,newPouringType,selectRecordByPhoneNumber,nameAndphone } = require('../../../modules/leads/more-tables');
 const { connect, myconfig, disconnect } = require('../../../services/sql/sql-connection');
 beforeAll(() => {
     myconfig.database = SQL_DATABASE_TEST;
@@ -15,21 +15,10 @@ describe('CHECK FUNCTION nameAndphone', () => {
         let result = await nameAndphone('test');
         await disconnect();
         expect(result).toBeDefined();
-        console.log(result,"rrrrrrrrrrreeeeee");
         expect(result).toBeInstanceOf(Array);
-        // expect(result.recordsets).toBeInstanceOf(Array);
+       
     })
-    // it('should return the tablename is not defiend', async () => {
-
-    //     await connect();
-
-    //     let result=await nameAndphone();
-    //     expect(result).toBeDefined();
-
-    //     // expect(result).toBe("the name or phone dont defined")
-    //     await disconnect();
-
-    // })
+    
 
 })
 
@@ -40,8 +29,8 @@ describe('CHECK FUNCTION selectAllTable', () => {
         let result = await selectAllTable('test');
         await disconnect();
         expect(result).toBeDefined();
-        expect(result).toBeInstanceOf(Object);
-        expect(result.recordsets).toBeInstanceOf(Array);
+        expect(result).toBeInstanceOf(Array);
+        expect(result[0]).toBeInstanceOf(Object);
     })
     it('should return the tablename is not defiend', async () => {
 
@@ -74,8 +63,7 @@ describe('check function newOrderer', () => {
         await disconnect();
         expect(result).toBeDefined();
         expect(result).toBeInstanceOf(Object);
-        expect(result.recordsets).toBeInstanceOf(Array);   
-        expect(result.rowsAffected[0]).toBeGreaterThanOrEqual(1);
+        expect(result).toBeInstanceOf(Array);   
      
 
     })
@@ -116,10 +104,9 @@ describe('check function newPouringType' ,()=>{
         const result = await newPouringType({name:"fence"});
         await disconnect();
         expect(result).toBeDefined();
-        expect(result.rowsAffected[0]).toBeGreaterThanOrEqual(1);
-        expect(result).toBeInstanceOf(Object);
+        expect(result[0]).toBeGreaterThanOrEqual(1);
         expect(result.recordset).not.toBeDefined();
-        expect(result.recordsets).toBeInstanceOf(Array);
+        expect(result).toBeInstanceOf(Array);
        
     })
     it('should the function can get null and dont to fall' , async()=>{

@@ -23,30 +23,30 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>30/33</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">80% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>4/4</span>
+                <span class='fraction'>4/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">100% </span>
+                <span class="strong">90.9% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>27/27</span>
+                <span class='fraction'>30/33</span>
             </div>
         
             
@@ -108,7 +108,13 @@
 <a name='L43'></a><a href='#L43'>43</a>
 <a name='L44'></a><a href='#L44'>44</a>
 <a name='L45'></a><a href='#L45'>45</a>
-<a name='L46'></a><a href='#L46'>46</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L46'></a><a href='#L46'>46</a>
+<a name='L47'></a><a href='#L47'>47</a>
+<a name='L48'></a><a href='#L48'>48</a>
+<a name='L49'></a><a href='#L49'>49</a>
+<a name='L50'></a><a href='#L50'>50</a>
+<a name='L51'></a><a href='#L51'>51</a>
+<a name='L52'></a><a href='#L52'>52</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
@@ -117,8 +123,8 @@
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">2x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">2x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
@@ -146,11 +152,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">require('dotenv').config()
@@ -161,11 +173,11 @@ const mongo_collection_leads = MongoDBOperations;
 const mongo_collection_products = MongoDBOperations;
 const createNewLead = async (obj = null) =&gt; {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-&nbsp;
     let result;
     if (obj) {
-        obj.serialNumber=await mongo_collection_leads.countDocuments();
-        obj.serialNumber+=1;
+        obj.serialNumber = await mongo_collection_leads.countDocuments();
+        obj.serialNumber += 1;
+        obj.disable = false;
         result = await mongo_collection_leads.insertOne(obj);
     }
     else {
@@ -174,30 +186,36 @@ const createNewLead = async (obj = null) =&gt; {
     return result;
 }
 const getTheMustConcretItem = async () =&gt; {
-    mongo_collection_products.collectionName = MONGO_COLLECTION_PRODUCTS
+    mongo_collection_products.collectionName = MONGO_COLLECTION_PRODUCTS;
     const filter = { must: true };
-    const project = { _id: 0, traitName: 1, values: 1 }
+    const project = { _id: 0, traitName: 1, values: 1 };
     let result = await mongo_collection_products.find(filter, project);
     return result;
 }
 &nbsp;
 &nbsp;
-const updateLead = async (obj = {}) =&gt; {
+const updateLead = async (obj = {}, filter = {}) =&gt; {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
 &nbsp;
-   const  result = await mongo_collection_leads.updateOne(obj ,obj.serialNumber)
-   return result
+    const result = await mongo_collection_leads.updateOne(obj, filter);
+    return result;
 }
 &nbsp;
 &nbsp;
 &nbsp;
-async function AllLeadsDetails (){
+const AllLeadsDetails=async() =&gt;{
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
 &nbsp;
-    const result= await mongo_collection_leads.find({disable:false},{_id:0,phoneOrderer:1,supplyAdress:1,supplyDate:1,serialNumber:1})
-    return result
+    const result = await mongo_collection_leads.find({ disable: false }, { _id: 0, phoneOrderer: 1, supplyAdress: 1, supplyDate: 1, serialNumber: 1 });
+    return result;
 }
-module.exports = { createNewLead ,AllLeadsDetails,getTheMustConcretItem,updateLead}
+const findLeads=<span class="fstat-no" title="function not covered" >as</span>ync({filter,sort,skip,limit})=&gt;{
+<span class="cstat-no" title="statement not covered" >    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;</span>
+    const result=<span class="cstat-no" title="statement not covered" >await mongo_collection_leads.aggregate(filter,sort,skip,limit);</span>
+<span class="cstat-no" title="statement not covered" >    return result;</span>
+&nbsp;
+}
+module.exports = { createNewLead, AllLeadsDetails, getTheMustConcretItem, updateLead ,findLeads}
 &nbsp;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
@@ -205,7 +223,7 @@ module.exports = { createNewLead ,AllLeadsDetails,getTheMustConcretItem,updateLe
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-15T12:51:08.028Z
+                at 2023-03-15T17:09:53.811Z
             </div>
         <script src="../../../../prettify.js"></script>
         <script>
