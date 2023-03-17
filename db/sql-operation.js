@@ -96,10 +96,10 @@ async function insertSupplier(objectSupplier) {
         .input('Fax', objectSupplier.Fax)
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
-        .input('CreationDate',objectSupplier.CreationDate||'NULL')
+        .input('CreationDate',objectSupplier.CreationDate||null)
         .input('Disabled',objectSupplier.Disabled||'0')
-        .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
-        .input('DisableUser',objectSupplier.DisableUser||'NULL')
+        .input('DisabledDate',objectSupplier.DisabledDate||null)
+        .input('DisableUser',objectSupplier.DisableUser||null)
         .execute(`usp_insertSupplier`);
     await disconnect()
     return result;
@@ -123,11 +123,11 @@ async function insertBranch(objectBranch) {
         .input('Fax', objectBranch.Fax)
         .input('Mail', objectBranch.Mail)
         .input('Notes', objectBranch.Notes)
-        .input('CreationDate',objectBranch.CreationDate||'NULL')
-        .input('UserThatInsert',objectBranch.UserThatInsert||'NULL')
+        .input('CreationDate',objectBranch.CreationDate||null)
+        .input('UserThatInsert',objectBranch.UserThatInsert||null)
         .input('Disabled',objectBranch.Disabled||'0')
-        .input('DisabledDate',objectBranch.DisabledDate||'NULL')
-        .input('DisableUser',objectBranch.DisableUser||'NULL')
+        .input('DisabledDate',objectBranch.DisabledDate||null)
+        .input('DisableUser',objectBranch.DisableUser||null)
         .execute(`usp_insertBranch`);
     await disconnect()
     return result;
