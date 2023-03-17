@@ -2,7 +2,7 @@ require('dotenv').config();
 const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
 const { insertSupplier,allTheOption, getAll, getByValues, delBranches,delSupllier, setDate }=require('../db/sql-operation');
 
-// פונקציה ששולחת לפונקציות מחיקה
+//delet the supplier and update the fields
 async function deleteSupplier(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today

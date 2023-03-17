@@ -52,7 +52,7 @@ async function updateDetail(code, object) {
     }
 }
 
-// פונקציה ששולחת לפונקציות מחיקה
+//delet the branch and update the fields
 async function deleteBranches(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today

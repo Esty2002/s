@@ -3,7 +3,7 @@ const router = express.Router()
 
 const { deleteSupplier, getAllSuppliers,insertOneSupplier, getSupplier,checkUnique,getSupplierByCondition} = require('../modules/suppliers')
 
-// פונקציה ששולחת לפונקציות מחיקה ספק במודול
+//sent to modules to delet supplier 
 router.post('/deletesupplier', express.json(), async (req, res) => {
     const result = await deleteSupplier(req.body);
     res.status(200).send(true);

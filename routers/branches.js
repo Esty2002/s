@@ -30,10 +30,10 @@ router.post('/updatebranch',express.json(),async(req,res)=>{
     res.status(200).send(result)
 })
 
-// פונקציה ששולחת לפונקציות מחיקה במודול
+//sent to modules to delet branch 
 router.post('/deletebranches', express.json(), async (req, res) => {
     console.log('1111111111111111111111');
-    console.log(req.body);
+    console.log();
     const result = await deleteBranches(req.body)
     console.log('5555555555555555555555');
     res.status(200).send(true);
@@ -48,7 +48,5 @@ router.get('/checkUnique/:suppliercode/:branchname',async(req,res)=>{
     console.log(result);
     res.status(200).send(result)
 })
-
-
 
 module.exports=router;
