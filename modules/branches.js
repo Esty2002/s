@@ -50,7 +50,7 @@ async function getBranchesByCondition(column, code) {
     return result;
 }
 //insert branch
-async function insertbranch(object) {
+async function insertBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate()
@@ -107,4 +107,4 @@ async function checkUnique(object) {
 //     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 // }
 
-module.exports = { getallbranches, insertbranch, updateDetail, deletebranches, getBranchesByCondition, checkUnique }
+module.exports = { getallbranches, insertBranch, updateDetail, deletebranches, getBranchesByCondition, checkUnique }

@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { getallbranches, insertbranch, updateDetail, deletebranches, checkUnique, getBranchesByCondition } = require('../modules/branches')
+const { getallbranches, insertBranch, updateDetail, deletebranches, checkUnique, getBranchesByCondition } = require('../modules/branches')
 
 router.get('/getallbranches', async (req, res) => {
     const result = await getallbranches()
@@ -15,7 +15,7 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 
 router.post('/insertbranch', express.json(), async (req, res) => {
     try {
-        const result = await insertbranch(req.body)
+        const result = await insertBranch(req.body)
         res.status(200).send(result);
     }
     catch (error) {
