@@ -21,20 +21,32 @@ async function getByValues(table, column, code) {
     await disconnect()
     return result;
 }
+
+
+
+// Begin tran
+// UPDATE Suppliers 
+// SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
+// WHERE SupplierCode = '22'
+// UPDATE Branches 
+// SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
+// WHERE SupplierCode = '22'
+// commit
+
+
 // פונקצית מחיקת ספק  
-async function delSupllier(title, code, name, date) {
+async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
+    // const result = await getConnection().request().query(`BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} 
+    // UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'  commit rollback`)
+    const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} `)
+    const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} `)
+
     await disconnect()
-    return result;
+    return result,result1;
 }
 // פונקצית מחיקת סניף  
 async function delBranches(title, code, name, date) {
-    console.log('title',title);
-    console.log('code',code);
-    console.log('name',name);
-    console.log('date',date);
-
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'`)
     await disconnect()
@@ -65,7 +77,7 @@ async function update(title, field, value, code) {
     return result;
 }
 //פונקצית מציאת ספק לפי נתוני חיפוש
-async function allTheOption(table,column,code){
+async function allTheOption(table, column, code) {
     console.log(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`);
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
@@ -77,7 +89,7 @@ async function allTheOption(table,column,code){
 async function insertSupplier(objectSupplier) {
     await connect();
     const result = await getConnection().request()
-        .input('SupplierCode',objectSupplier.SupplierCode)
+        .input('SupplierCode', objectSupplier.SupplierCode)
         .input('SupplierName', objectSupplier.SupplierName)
         .input('licensedDealerNumber', objectSupplier.licensedDealerNumber)
         .input('BokkeepingNumber', objectSupplier.BokkeepingNumber)
@@ -96,10 +108,10 @@ async function insertSupplier(objectSupplier) {
         .input('Fax', objectSupplier.Fax)
         .input('Mail', objectSupplier.Mail)
         .input('Notes', objectSupplier.Notes)
-        .input('CreationDate',objectSupplier.CreationDate||'NULL')
-        .input('Disabled',objectSupplier.Disabled||'0')
-        .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
-        .input('DisableUser',objectSupplier.DisableUser||'NULL')
+        .input('CreationDate', objectSupplier.CreationDate || 'NULL')
+        .input('Disabled', objectSupplier.Disabled || '0')
+        .input('DisabledDate', objectSupplier.DisabledDate || 'NULL')
+        .input('DisableUser', objectSupplier.DisableUser || 'NULL')
         .execute(`usp_insertSupplier`);
     await disconnect()
     return result;
@@ -110,7 +122,7 @@ async function insertSupplier(objectSupplier) {
 async function insertBranch(objectBranch) {
     await connect();
     const result = await getConnection().request()
-        .input('SupplierCode',objectBranch.SupplierCode)
+        .input('SupplierCode', objectBranch.SupplierCode)
         .input('BranchName', objectBranch.BranchName)
         .input('Status', objectBranch.Status)
         .input('Street', objectBranch.Street)
@@ -123,11 +135,11 @@ async function insertBranch(objectBranch) {
         .input('Fax', objectBranch.Fax)
         .input('Mail', objectBranch.Mail)
         .input('Notes', objectBranch.Notes)
-        .input('CreationDate',objectBranch.CreationDate||'NULL')
-        .input('UserThatInsert',objectBranch.UserThatInsert||'NULL')
-        .input('Disabled',objectBranch.Disabled||'0')
-        .input('DisabledDate',objectBranch.DisabledDate||'NULL')
-        .input('DisableUser',objectBranch.DisableUser||'NULL')
+        .input('CreationDate', objectBranch.CreationDate || 'NULL')
+        .input('UserThatInsert', objectBranch.UserThatInsert || 'NULL')
+        .input('Disabled', objectBranch.Disabled || '0')
+        .input('DisabledDate', objectBranch.DisabledDate || 'NULL')
+        .input('DisableUser', objectBranch.DisableUser || 'NULL')
         .execute(`usp_insertBranch`);
     await disconnect()
     return result;
@@ -135,22 +147,22 @@ async function insertBranch(objectBranch) {
 }
 
 // async function insertSupplier(objectSupplier) {
-    // await connect();
-    // console.log("..................");
-    // console.log(objectSupplier);
-    // console.log("..................");
-    // const result = await getConnection().request()
-    //     .input('SupplierCode', req.query.SupplierCode )
-    //     // .input('size', req.query.size ||NULL)
-    //     // .input('search', req.query.search || '')
-    //     // .input('orderBy', req.query.orderBy || 'Id')
-    //     // .input('orderDir', req.query.orderDir || 'DESC')
+// await connect();
+// console.log("..................");
+// console.log(objectSupplier);
+// console.log("..................");
+// const result = await getConnection().request()
+//     .input('SupplierCode', req.query.SupplierCode )
+//     // .input('size', req.query.size ||NULL)
+//     // .input('search', req.query.search || '')
+//     // .input('orderBy', req.query.orderBy || 'Id')
+//     // .input('orderDir', req.query.orderDir || 'DESC')
 
-    //     .execute(`usp_insertSupplier`);
-    // await disconnect()
-    // return result;
+//     .execute(`usp_insertSupplier`);
+// await disconnect()
+// return result;
 
 // }
 
-module.exports = {insertBranch,insertSupplier,allTheOption, getAll, insert, getByValues, delBranches,delSupllier, getIsDisabled, setDate,update }
+module.exports = { insertBranch, insertSupplier, allTheOption, getAll, insert, getByValues, delBranches, delSupllier, getIsDisabled, setDate, update }
 

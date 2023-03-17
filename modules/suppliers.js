@@ -1,14 +1,16 @@
 require('dotenv').config();
-const {SQL_DB_SUPPLIERS } = process.env;
+const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
 const { insertSupplier,allTheOption, getAll, getByValues, delBranches,delSupllier, setDate }=require('../db/sql-operation');
 
 // פונקציה ששולחת לפונקציות מחיקה
 async function deletesupplier(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
-    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
-    return (resultSupplierCode,resultBranchCode)
+    console.log('berore deleteSup Bran------------------------------------');
+    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS,SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
+    console.log('after deleteSup Bran------------------------------------');
+    // const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
+    return (resultSupplierCode)
 }
 
 // async function insertsuppliers(Obj){
