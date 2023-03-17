@@ -2,7 +2,7 @@ const express = require('express')
 const router = require('express').Router()
 
 const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber, nameAndphone } = require('../modules/leads/sql/create_sql')
-const { createNewLead, getTheMustConcretItem, updateLead, AllLeadsDetails,leadsbyserialnumber } = require('../modules/leads/mongo/create_m')
+const { createNewLead, getTheMustConcretItem, updateLead, AllLeadsDetails } = require('../modules/leads/mongo/create_m')
 
 
 const { getDataSynchronised } = require('../modules/leads/mongo_and_sql/mongo_and_sql')
@@ -58,8 +58,10 @@ router.post('/updateLeadsDetails', express.json(), async (req, res) => {
     res.status(200).send(result)
 
 })
-router.get('/getstatuseslead', async (req, res) => {
+router.get('/getstatuseslead',async (req, res) => {
     const result = await selectAllTable('statusesLead');
+    console.log("ressql");
+    console.log(result.recordset);
     res.status(200).send(result.recordset);
 })
 router.post('/updatestatuslead', express.json(), async (req, res) => {

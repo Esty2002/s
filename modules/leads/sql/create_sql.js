@@ -7,6 +7,8 @@ async function selectAllTable(tableName) {
     try {
         await connect()
         result = await getConnection().request().query(`SELECT * FROM  ${tableName}`)
+        console.log("sqlresult");
+        console.log(result);
         await disconnect()
     }
     catch {
@@ -23,6 +25,7 @@ async function selectRecordByPhoneNumber(phoneNumber, tableName) {
         await connect();
         result = await getConnection().request().query(`select * from ${tableName} where phone='${phoneNumber}'`);
         await disconnect();
+        console.log("resultsql");
         console.log(result);
         if (result.recordsets.length > 0)
             result = true;
