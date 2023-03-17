@@ -3,8 +3,6 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 async function getAll(table) {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='0'`)
-<<<<<<< HEAD
-=======
     await disconnect()
     return result;
 }
@@ -12,7 +10,6 @@ async function getAll(table) {
 async function insert(table, columns, values) {
     await connect()
     const result = await getConnection().request().query(`INSERT INTO ${table}(${columns}) VALUES (${values})`)
->>>>>>> SariMorgenshtern
     await disconnect()
     return result;
 }
@@ -72,7 +69,6 @@ async function allTheOption(table,column,code){
     console.log(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`);
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
-<<<<<<< HEAD
     await disconnect()
     return result;
 }
@@ -105,13 +101,11 @@ async function insertSupplier(objectSupplier) {
         .input('DisabledDate',objectSupplier.DisabledDate||'NULL')
         .input('DisableUser',objectSupplier.DisableUser||'NULL')
         .execute(`usp_insertSupplier`);
-=======
->>>>>>> SariMorgenshtern
     await disconnect()
     return result;
 
 }
-<<<<<<< HEAD
+
 // פונקצית הוספת סניף ע"י פרוצדורה
 async function insertBranch(objectBranch) {
     await connect();
@@ -139,7 +133,7 @@ async function insertBranch(objectBranch) {
     return result;
 
 }
-<<<<<<< HEAD
+
 async function insertSupplier(objectSupplier) {
     // await connect();
     // console.log("..................");
@@ -152,40 +146,11 @@ async function insertSupplier(objectSupplier) {
     //     // .input('orderBy', req.query.orderBy || 'Id')
     //     // .input('orderDir', req.query.orderDir || 'DESC')
 
-<<<<<<< HEAD
     //     .execute(`usp_insertSupplier`);
     // await disconnect()
     // return result;
 
 }
 
-module.exports = {insertsuppliers, getAll, insert, getByValues, del, getIsDisabled, setDate, update }
-=======
-module.exports = {allTheOption, getAll, insert, getByValues, del, getIsDisabled, setDate,update }
->>>>>>> c844b7c94ce7ca7fdc230a8efcca182059c05b17
-=======
-
->>>>>>> 66900a0bd721531d05a65422a9372d37dd21aa65
-=======
-// async function insertSupplier(objectSupplier) {
-//     await connect();
-//     console.log("..................");
-//     console.log(objectSupplier);
-//     console.log("..................");
-//     const result = await getConnection().request()
-//     .input('SupplierCode', req.query.SupplierCode )
-//     // .input('size', req.query.size ||NULL)
-//     // .input('search', req.query.search || '')
-//     // .input('orderBy', req.query.orderBy || 'Id')
-//     // .input('orderDir', req.query.orderDir || 'DESC')
-    
-//     .execute(`usp_insertSupplier`);
-//     await disconnect()
-//     return result;
-    
-// }
-
 module.exports = {allTheOption, getAll, insert, getByValues, delSupllier, getIsDisabled, setDate,update,delBranches }
->>>>>>> SariMorgenshtern
 
-module.exports = {  getByValues, del,getAll,allTheOption, insertSupplier,insertBranch, getIsDisabled, setDate, update }

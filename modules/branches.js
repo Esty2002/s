@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-const { getAll, getByValues, del, setDate,insertBranch, getIsDisabled, update,allTheOption } = require('../db/sql-operation');
+const {allTheOption, getAll,getByValues, getIsDisabled, setDate,update,delBranches  } = require('../db/sql-operation');
 
-=======
-const { getAll, insert, getByValues, delBranches, setDate, getIsDisabled, update } = require('../db/sql-operation');
->>>>>>> SariMorgenshtern
 
 //return all the branches
 async function getallbranches() {
@@ -20,7 +16,6 @@ async function getBranchesByCondition(column,code){
 async function insertbranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
-<<<<<<< HEAD
             const date = await setDate();
             object['CreationDate'] = (Object.values(date.recordset[0]))[0];
             console.log(object['CreationDate'][0]);
@@ -28,11 +23,6 @@ async function insertbranch(object) {
             // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
             const result = await insertBranch(object);
             console.log('vvvvvvvvvvvvvvvvvvvvvv');
-=======
-            const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])
-            const result = await insert("Branches", Object.keys(object).join(','), newVals)
->>>>>>> SariMorgenshtern
             return result;
         }
         else {
@@ -74,12 +64,7 @@ async function deletebranches(object) {
     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
     return (resultSupplierCode,resultBranchCode)
 }
-<<<<<<< HEAD
 //check if must keys not empty and content
-=======
-
-//check if must keys not empty
->>>>>>> SariMorgenshtern
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
     //לבדוק את מספר הטלפון שהוא תקין
