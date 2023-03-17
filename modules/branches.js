@@ -1,15 +1,36 @@
-const { getAll, setDate,insertBranch,delBranches ,getIsDisabled, update,allTheOption } = require('../db/sql-operation');
+const { getAll, setDate, insertBranch, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+require('dotenv').config();
+const {SQL_DB_BRANCHES}=process.env;
 
-
+async function updateDetail(code, setting) {
+    try {
+        if (await checkUniqueBranch(setting)) {
+            // setting.map(f=>{
+            //     console.log('f');
+            //     replace(f, ':','-')
+            // })
+            // REPLACE (f, ':','-')
+            const result = await update('Branches',`SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
+            Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
+            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`,code)
+        }
+        else {
+            return false;
+        }
+    }
+    catch {
+        console.log('error');
+        throw error;
+    }
+}
 //return all the branches
 async function getAllBranches() {
     const result = await getAll('Branches');
     return result;
 }
-
 //return all the branches that the condition for it and not disabled.
-async function getBranchesByCondition(column,code){
-    const result = await allTheOption('Branches',column,code);
+async function getBranchesByCondition(column, code) {
+    const result = await allTheOption('Branches', column, code);
     return result;
 }
 //insert branch
@@ -27,24 +48,7 @@ async function insertOneBranch(object) {
     }
     catch (error) {
         console.log('error');
-        throw error;
-    }
-}
-//update branch
-async function updateDetail(code, object) {
-    try {
-        if (await checkDisabled(code)) {
-            console.log('before');
-            const result = await update('Branches', object['field'], object['data'], code)
-            console.log({ result });
-        }
-        else {
-            return false;
-        }
-    }
-    catch {
-        console.log('error');
-        throw error;
+        throw new Error('can not insert branch');
     }
 }
 
@@ -71,14 +75,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultBranchName = await getByValues('Branches', 'BranchName', object.BranchName)
+    const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName)
     return (resultBranchName.recordset.length === 0);
-}
-
-//check if the supplier disabled
-async function checkDisabled(code) {
-    const result = await getIsDisabled('Branches', 'SupplierCode', code)
-    return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
 module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};

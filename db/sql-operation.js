@@ -1,8 +1,16 @@
 const { connect, disconnect, getConnection } = require('./sql-connection')
+
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='0'`)
+    await disconnect()
+    return result;
+}
+// פונקציה המחזירה תאריך נוכחי
+async function setDate() {
+    await connect()
+    const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
     await disconnect()
     return result;
 }
@@ -36,25 +44,10 @@ async function delBranches(title, code, name, date) {
     await disconnect()
     return result;
 }
-// פונקציה המחזירה תאריך נוכחי
-async function setDate() {
-    await connect()
-    const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
-    await disconnect()
-    return result;
-}
-//פונקציה המחזירה האם לקוח מסוים קיים עדדין
-async function getIsDisabled(table, column, code) {
-    await connect()
-    const result = await getConnection().request().query(`SELECT Disabled FROM ${table} WHERE ${column} = '${code}'`)
-    await disconnect()
-    return result;
-}
 //פונקצית עדכון
-async function update(title, field, value, code) {
-    console.log(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`);
+async function update(title, setting, code) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET ${field}='${value}' WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
@@ -62,6 +55,14 @@ async function update(title, field, value, code) {
 async function allTheOption(table,column,code){
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
+    await disconnect()
+    return result;
+}
+//פונקציה שבודקת עבור סניף האם הוא יחודי לספק שלו
+async function checkUniqueBranch(code, branchname) {
+    await connect()
+    const result = await getConnection().request().query(`
+    SELECT * FROM (SELECT * FROM Branches WHERE SupplierCode='${code}' AND Disabled='0' )ss WHERE ss.BranchName ='${branchname}'`)
     await disconnect()
     return result;
 }
@@ -125,5 +126,6 @@ async function insertBranch(objectBranch) {
 
 }
 
-module.exports = {allTheOption, getAll, delSupllier, getIsDisabled, setDate,update,delBranches,insertSupplier,insertBranch };
+module.exports = { allTheOption, getAll, insertSupplier, delSupllier, setDate, update, delBranches, insertBranch, checkUniqueBranch }
+
 

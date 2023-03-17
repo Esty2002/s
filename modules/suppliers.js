@@ -1,6 +1,7 @@
 require('dotenv').config();
+const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate, update, delSupllier,delBranches}=require('../db/sql-operation');
+
 const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
-const { insertSupplier,allTheOption, getAll, getByValues, delBranches,delSupllier, setDate }=require('../db/sql-operation');
 
 // פונקציה ששולחת לפונקציות מחיקה
 async function deleteSupplier(object) {
@@ -53,8 +54,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await getByValues('Suppliers', 'SupplierCode', object.SupplierCode)
-    const resultSuppliersName = await getByValues('Suppliers', 'SupplierName', object.SupplierName)
+    const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode)
+    const resultSuppliersName = await allTheOption('Suppliers', 'SupplierName', object.SupplierName)
     return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);
 }
 

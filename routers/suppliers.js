@@ -20,11 +20,7 @@ router.post('/insertsupplier',express.json(), async (req, res) => {
 })
 
 router.get('/checkUnique/:suppliercode/:suppliername',async(req,res)=>{
-    const data={
-        SupplierCode:req.params.suppliercode,
-        SupplierName:req.params.suppliername
-    }
-    const result = await checkUnique(data)
+    const result = await checkUnique({ SupplierName:req.params.suppliername})
     res.status(200).send(result)
 })
 
@@ -34,10 +30,7 @@ router.get('/getallSuppliers', async (req, res) => {
 })
 
 router.get('/getSuppliers/:option/:text', async (req, res) => {
-    console.log(req.params.option);
-    console.log(req.params.text);
     const result = await getSupplier({option:req.params.option,text:req.params.text})
-    console.log({ result });
     res.status(200).send(result)
 })
 
