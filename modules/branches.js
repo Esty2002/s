@@ -1,8 +1,9 @@
-const {allTheOption, getAll,getByValues, getIsDisabled, setDate,update,delBranches  } = require('../db/sql-operation');
-
+const {allTheOption, getAll,getByValues, getIsDisabled, setDate,update,delBranches ,insertBranch } = require('../db/sql-operation');
+require('dotenv').config();
+const {SQL_DB_BRANCHES}=process.env;
 
 //return all the branches
-async function getallbranches() {
+async function getAllBranches() {
     const result = await getAll('Branches');
     return result;
 }
@@ -13,7 +14,7 @@ async function getBranchesByCondition(column,code){
     return result;
 }
 //insert branch
-async function insertbranch(object) {
+async function insertOneBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate();
@@ -22,7 +23,6 @@ async function insertbranch(object) {
             console.log(object);
             // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
             const result = await insertBranch(object);
-            console.log('vvvvvvvvvvvvvvvvvvvvvv');
             return result;
         }
         else {
@@ -53,16 +53,11 @@ async function updateDetail(code, object) {
 }
 
 // פונקציה ששולחת לפונקציות מחיקה
-async function deletebranches(object) {
+async function deleteBranches(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
-    console.log('===========================');
-    console.log('object.DisableUser',object.DisableUser);
-    console.log('===========================');
-    console.log('object.BranchName',object.BranchName);
-    console.log('===========================');
     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
-    return (resultSupplierCode,resultBranchCode)
+    return (resultBranchCode)
 }
 //check if must keys not empty and content
 async function checkValid(object) {
@@ -91,4 +86,4 @@ async function checkDisabled(code) {
     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
-module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,getBranchesByCondition,checkUnique}
+module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};
