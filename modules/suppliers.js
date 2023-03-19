@@ -13,13 +13,23 @@ async function deleteSupplier(object) {
 }
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
-    const result = await getAll('suppliers')
+    try{
+         const result = await getAll('suppliers')
     return result;
+    }
+   catch(error){
+       throw error;
+   }
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
-    const result = await allTheOption("Suppliers",obj.option,obj.text)
+    try{
+        const result = await allTheOption("Suppliers",obj.option,obj.text)
     return result;
+    }
+    catch(error){
+        throw error;
+    }
 }
 async function insertOneSupplier(object) {
     try {

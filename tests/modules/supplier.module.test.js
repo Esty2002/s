@@ -8,30 +8,30 @@ jest.mock('../../db/sql-operation', () => {
         }),
     }
 })
-const { getSupplier,getallSuppliers} = require('../../modules/suppliers');
+const { getSupplier,getAllSuppliers} = require('../../modules/suppliers');
 describe('GETSUPPLIER', () => {
 
     it('should return defined object from sql', async () => {
-        const response = await getSupplier({ table:'supplier',option: 'SupplierCode',text:1}, "try");
+        const response = await getallSuppliers({ option: 'SupplierCode',text:1});
         expect(response).toBeDefined();
     })
 
-    it('should execute insertOne twice', async () => {
-        _ = await getSupplier({table:'supplier',option: 'SupplierCode',text:1}, "try");
-        const methods = jest.requireMock('../../db/sql-operation')
-        expect(methods.allTheOption).toHaveBeenCalled();
-        expect(methods.allTheOption).toHaveBeenCalledTimes(2);
-    })
-    it('should return defined objrct from sql', async () => {
-        const response = await getallSuppliers({ table:'supplier'}, "try");
-        expect(response).toBeDefined();
-    })
-
-    it('should execute insertOne twice', async () => {
-        _ = await getallSuppliers({table:'supplier'}, "try");
+    it('if you can to connect sql', async () => {
+        _ = await getallSuppliers({table:'supplier',option: 'SupplierCode',text:1});
         const methods = jest.requireMock('../../db/sql-operation')
         expect(methods.getAll).toHaveBeenCalled();
         expect(methods.getAll).toHaveBeenCalledTimes(2);
+    })
+    it('should return defined objrct from sql', async () => {
+        const response = await getSupplier({ table:'supplier'});
+        expect(response).toBeDefined();
+    })
+
+    it('if you can to connect sql', async () => {
+        _ = await getSupplier({table:'supplier'}, "try");
+        const methods = jest.requireMock('../../db/sql-operation')
+        expect(methods.allTheOption).toHaveBeenCalled();
+        expect(methods.allTheOption).toHaveBeenCalledTimes(2);
     })
     
 })
