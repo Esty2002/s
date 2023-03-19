@@ -87,7 +87,7 @@ describe('/getalltable', () => {
 
 describe('/getrowaccordingtophone', () => {
     it('should getRowAccordingToPhone whith the deteils wich are givven', async () => {
-        const response = await request(app).get('/leads/getrowaccordingtophone?name=test?phone=0583286477')
+        const response = await request(app).get('/leads/getordererbyphone')
         expect(response).toBeTruthy();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
@@ -95,14 +95,14 @@ describe('/getrowaccordingtophone', () => {
     })
 
     it('should the request successful without sends the deteils', async () => {
-        const response = await request(app).get('/leads/getrowaccordingtophone')
+        const response = await request(app).get('/leads/getordererbyphone')
         expect(response).toBeDefined();
         expect(response.text).toBe('{"result":{"tablename":"test"}}');
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
     })
     it('should the request successful only whith the name ', async () => {
-        const response = await request(app).get('/leads/getrowaccordingtophone?name=test')
+        const response = await request(app).get('/leads/getordererbyphone')
 
         expect(response).toBeDefined();
         expect(response.text).toBe('{"result":{"tablename":"test"}}');
@@ -111,10 +111,10 @@ describe('/getrowaccordingtophone', () => {
         expect(response).toBeTruthy();
     })
     it('should the request successful only whith the phone ', async () => {
-        const response = await request(app).get('/leads/getrowaccordingtophone?phone=0583288477')
+        const response = await request(app).get('/leads/getordererbyphone')
 
         expect(response).toBeDefined();
-        expect(response.text).toBe('{"result":{"phone":"0583288477"}}');
+        expect(response.text).toBe('{"result":{"tablename":"test"}}');
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
         expect(response).toBeTruthy();

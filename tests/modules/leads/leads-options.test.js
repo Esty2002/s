@@ -32,9 +32,19 @@ jest.mock('../../../services/db/mongo-operations', () => {
 const { createNewLead, getTheMustConcretItem, updateLead,allLeadsDetails } = require('../../../modules/leads/leads-options');
     describe('CHECK FUNCTION AllLeadsDetails', () => {
         it('should return inserted id when succeded', async () => {
-            let result = await allLeadsDetails();
+            let result = await allLeadsDetails({filetr:{name:"test"},sort:{name:1},skip:0,limit:0,project:{_id:0,name:1}});
             expect(result).toBeDefined();
-            expect(result).toBeInstanceOf(Array)
+            expect(result).toBeInstanceOf(Array);
+            expect(result.length).toBeGreaterThanOrEqual(1);
+
+
+        })
+        it('should return inserted id when succeded', async () => {
+            let result = await allLeadsDetails({filetr:{},sort:{name:1},skip:0,limit:0,project:{_id:0,name:1}});
+            expect(result).toBeDefined();
+            expect(result).toBeInstanceOf(Array);
+            expect(result.length).toBeGreaterThanOrEqual(1);
+
 
 
         })
