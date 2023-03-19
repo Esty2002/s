@@ -19,6 +19,7 @@ async function insertbranch(object) {
             return result;
         }
         else {
+            console.log(object);
             console.log('xxxxxxxxxxxxxxxxxxxxxx');
             return false;
         }
@@ -86,4 +87,4 @@ async function checkDisabled(code) {
     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
-module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,checkUnique}
+module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,checkUnique,checkValid}
