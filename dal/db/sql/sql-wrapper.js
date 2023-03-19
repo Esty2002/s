@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { SQL_SERVER, SQL_PORT, SQL_DB_CLIENTS, SQL_SERVER_DATABASE, SQL_PASSWORD, SQL_USERNAME } = process.env;
+const { SQL_SERVER, SQL_PORT, SQL_TABLE_CLIENTS, SQL_SERVER_DATABASE, SQL_PASSWORD, SQL_USERNAME ,SQL_TABLE_STATUS} = process.env;
 const { connect, disconnect, getConnection } = require('./sql-connection')
 
 let myConfig = {
@@ -23,7 +23,7 @@ async function connectToSql() {
     disconnect()
 
     await connect()
-    _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_CLIENTS}') CREATE TABLE [dbo].[${SQL_DB_CLIENTS}]
+    _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_TABLE_CLIENTS}') CREATE TABLE [dbo].[${SQL_TABLE_CLIENTS}]
     (serialNumber int Identity (100,1) NOT NULL,
     clientCode nvarchar(50) NOT NULL,
     clientName nvarchar(50)NOT NULL,
@@ -54,6 +54,13 @@ async function connectToSql() {
     deletionDate nvarchar(50) NOT NULL,
     userThatDelete nvarchar(20) NOT NULL)`)
     disconnect()
+
+    await connect()
+    _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_TABLE_STATUS}') CREATE TABLE [dbo].[${SQL_TABLE_STATUS}]
+    (serialNumber int Identity (1,1) NOT NULL,
+    statusName nvarchar(50) NOT NULL)`)
+    disconnect()
+
 }
 
 module.exports={connectToSql}

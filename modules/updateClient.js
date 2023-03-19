@@ -1,20 +1,20 @@
-const { getClientById, update } = require('../dal/db/sql/sql-operations');
+const { getClientById, update, getStatus } = require('../dal/db/sql/sql-operations');
 
 async function getClientByClientCode(clientCode) {
-    console.log('in module');
     const result = await getClientById(clientCode);
-    if (result.rowsAffected == 1) {
-        console.log(result, ' in module afterrrrr');
+    if (result.rowsAffected == 1)
         return result;
-    }
-    else{
-        console.log('this password not exists');
-        return null
-    }
+    return null
+
 }
 async function updateClient(obj) {
-    console.log(' i in module');
-        await update(obj);
+    const res = await update(obj);
+    return res;
 }
 
-module.exports = { updateClient, getClientByClientCode }
+async function getStatusNumber() {
+    const result = await getStatus();
+    return result;
+}
+
+module.exports = { updateClient, getClientByClientCode, getStatusNumber }

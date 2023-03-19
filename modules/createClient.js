@@ -1,16 +1,10 @@
-const { addClient, getStatus, getCodeClient } = require('../dal/db/sql/sql-operations')
+const { addClient, getCodeClient } = require('../dal/db/sql/sql-operations')
 
-async function addAllClient(obj) {
-    let unique = await getCodeClient()
-    for(let item of unique.recordset){
-        if(item.CLIENTCODE==obj.clientCode)
-        {
-            return false
-        }
-    }
-    const statusId = await getStatus(obj.status)
-    obj.status = statusId
+async function addOneClient(obj) {
+    let unique = await getCodeClient(obj.clientCode)
+    if (unique.rowsAffected > 0)
+        return false;
     const result = await addClient(obj)
     return result
 }
-module.exports = { addAllClient }
+module.exports = { addOneClient }

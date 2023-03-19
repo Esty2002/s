@@ -4,7 +4,6 @@ const { getAllClient, getClientsByField, getClientsById } = require('../modules/
 
 router.get('/getAll', async (req, res) => {
     const allClients = await getAllClient();
-    console.log(allClients);
     if (allClients.length > 0)
         res.status(200).send(allClients)
     else
@@ -14,9 +13,6 @@ router.get('/getAll', async (req, res) => {
 
 router.get('/findClient/:id', async (req, res) => {
     const getClientByid = await getClientsById(req.params.id)
-    console.log('------------------------------');
-    console.log(getClientByid);
-    console.log('------------------------------');
     if (getClientByid != false && getClientByid.length > 0)
         res.status(200).send(getClientByid)
     else

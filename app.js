@@ -14,8 +14,6 @@ app.use('/createClient', createClient_router)
 app.use('/delete', delete_client_router);
 app.use('/readClient', readClient_router)
 
-
-
 app.get('/', async (req, res) => {
     console.log('Hellllo');
 })
