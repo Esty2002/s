@@ -1,4 +1,4 @@
-const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
+const { getConnection, connect, disconnect } = require("../services/sql/sql-connection");
 async function createTable() {
     await connect()
     const result = await getConnection().request().query("CREATE TABLE priceList (id int IDENTITY(100,1),date date, priceListCode int,areaName varchar(255),itemCode varchar(255),price int,reduction int,primaryAmount int,unitOfMeasure varchar(255),additionDate date, disable int,deleteDate date)")
@@ -28,12 +28,12 @@ async function dletePriceList(id) {
 }
 
 async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode, areaName, itemCode) {
-    console.log('code-', parseInt( priceListCode), '  area', areaName, '  product',  parseInt( itemCode))
+    console.log('code-', parseInt(priceListCode), '  area', areaName, '  product', parseInt(itemCode))
     priceListCode = parseInt(priceListCode)
     await connect()
     const result = await getConnection().request().query(`SELECT id,date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${parseInt(itemCode)}'`)
-	
-    	
+
+
     console.log('sql----', result.recordset);
     disconnect()
     return (result.recordset)
@@ -41,14 +41,18 @@ async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode
 
 async function selectAreaByClientOrSupplyCode(code) {
     await connect()
+    code=parseInt(code)
     const result = await getConnection().request().query(`SELECT distinct areaName FROM priceList WHERE priceListCode=${code}`)
+    console.log('code----', code, '  result---', result.recordset);
     disconnect()
     return result.recordset
 }
 
 async function selectProductsOfSupplierOrClientByAreaName(code, areaName) {
+    console.log('sql');
     await connect()
     const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE priceListCode=${code} AND areaName='${areaName}'`)
+    console.log(result.recordset);
     disconnect()
     return result.recordset
 }

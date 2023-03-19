@@ -2,8 +2,8 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 
-const router_areas = require('./routers/db/areas-router')
-const router_prices = require('./routers/sql/prices-router')
+const router_areas = require('./routers/areas-router')
+const router_prices = require('./routers/prices-router')
 
 
 app.use(cors())

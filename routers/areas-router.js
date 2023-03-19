@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, updateSupplierOrClient, updateArea, findAreaOfSupplierOrClient } = require('../../modules/db/areas')
+const { insertArea, findSupplierOrClient, updateSupplierOrClient, updateArea, findAreaOfSupplierOrClient } = require('../modules/areas')
 
 router.get('/', (req, res) => {
     res.send('hhhhhhhhh')
@@ -12,7 +12,7 @@ router.get('/isExist/:code', async (req, res) => {
     console.log('isExist');
     const phone = parseInt(req.params.code)
     const result = await findSupplierOrClient(phone)
-    console.log(result);
+    console.log('result',result);
     res.status(200).send(result)
 })
 router.get('/findAreaOfSupplierOrClient', async (req, res) => {
