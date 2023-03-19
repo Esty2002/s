@@ -3,7 +3,6 @@ const router = require('express').Router()
 
 const { newOrderer, newPouringType, selectAllTable, selectRecordByPhoneNumber, nameAndphone, newLeadStatus, deleteFromTable, updateStatus, updateTable } = require('../modules/leads/more-tables')
 const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../modules/leads/leads-options')
-const { resolveObjectURL } = require('buffer')
 
 router.get('/getpouringtypes',async(req,res)=>{
     const result = await selectAllTable(req.query.name);
