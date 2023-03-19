@@ -1,5 +1,5 @@
-const { connect, disconnect, getClient } = require('../../services/db/mongo_connection')
-const { isConnected } = require('../helpers/mongo_helpers')
+const { connect, disconnect, getClient } = require('../../../services/db/mongo/mongo_connection')
+const { isConnected } = require('../../helpers/db_helpers/mongo_helpers')
 
 describe(' GET CLIENT', () => {
     it('should return a defined object', () => {
@@ -40,6 +40,17 @@ describe('CONNECTION', () => {
             expect(error).toBeDefined()
             expect(error).toBeInstanceOf(Error)
             expect(error.message).toBe('connection string not in the right format.')
+        }
+    })
+
+    it("should throw error when url hasn't 'mongodb'",async()=>{
+        try{
+            await connect('127.0.0.1:27017')
+        }
+        catch(error){
+            expect(error).toBeDefined()
+            expect(error).toBeInstanceOf(Error)
+            expect(error.message).toBe('connection string not in the rigth format.')
         }
     })
 })
