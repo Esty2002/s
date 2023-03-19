@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { MongoDBOperations } = require('../services/db/mongo-operations')
 const mongo_collection_areas = new MongoDBOperations('areas')
 
@@ -19,4 +20,11 @@ async function updateArea(phone, area) {
         , { $set: { 'areasList.$[u].delate': true } }, { arrayFilters: [{ 'u.areaName': area }] })
     return result
 }
-module.exports = { insertArea, findSupplierOrClient, updateSupplierOrClient, updateArea }
+
+async function findAreaByCode(code) {
+    const result = await mongo_collection_areas.findItems({ suplierOrClientCode: code })
+    console.log(JSON.stringify(result) + "------rrrrrrrrrrr");
+    return result
+}
+module.exports = { insertArea, findSupplierOrClient, updateSupplierOrClient, updateArea, findAreaByCode }
+

@@ -1,6 +1,5 @@
 const { getClient } = require('./mongo-connection')
-
-const MONGO_DB = 'PRICE_LIST'
+const { MONGO_DB } = process.env
 
 class MongoDBOperations {
     constructor(collectionName, dbName = MONGO_DB) {
@@ -22,6 +21,19 @@ class MongoDBOperations {
         return result
 
     }
+    async findItems(filter = {}, project = {}) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).toArray()
+        return result;
+    }
+
 }
 
 module.exports={MongoDBOperations}
+
+
+
+
+
+
+
+

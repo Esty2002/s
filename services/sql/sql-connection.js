@@ -2,7 +2,7 @@ const sql = require('mssql')
 
 
 let myconfig = {  
-    server: 'TB6-19\\MSSQLSERVER',  //update me 
+    server: 'TB6-18\\MSSQLSERVER',  //update me 
     port:1433,
     user: 'project', //update me
     password: '1234',  //update me
