@@ -1,22 +1,18 @@
 require('dotenv').config();
+const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate, update, delSupllier,delBranches}=require('../db/sql-operation');
+
 const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
-const { getAll,allTheOption, getByValues, insertSupplier ,delSupllier,delBranches,getIsDisabled, setDate, update}=require('../db/sql-operation');
 
 // פונקציה ששולחת לפונקציות מחיקה
-async function deletesupplier(object) {
+async function deleteSupplier(object) {
     const date=await setDate()
     const newDate=date.recordset[0].Today
     const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
     return (resultSupplierCode,resultBranchCode)
 }
-// async function insertsuppliers(Obj){
-//     // const result = await insert(SQL_DB_SUPPLIERS,Object.keys(Obj).join(","),Object.values(Obj).join(","))
-//        const result = await insertSupplier(Obj)
-//        return result;
-// }
 //פונקציה שמקבלת נתוני כל הספקים
-async function getallSuppliers() {
+async function getAllSuppliers() {
     const result = await getAll('suppliers')
     return result;
 }
@@ -25,27 +21,20 @@ async function getSupplier(obj) {
     const result = await allTheOption("Suppliers",obj.option,obj.text)
     return result;
 }
-async function insertsuppliers(object) {
+async function insertOneSupplier(object) {
     try {
         // await checkValid(object) && 
         if (await checkUnique(object)) {
             const date = await setDate();
-            console.log('date');
             object['CreationDate'] = (Object.values(date.recordset[0]))[0];
-            console.log(object['CreationDate'][0]);
-            console.log('object');
-            // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
             const result = await insertSupplier(object)
-            console.log('vvvvvvvvvvvvvvvvvvvvvv');
             return result;
         }
         else {
-            console.log('xxxxxxxxxxxxxxxxxxxxxx');
             return false;
         }
     }
     catch (error) {
-        console.log('error');
         throw error;
     }
 }
@@ -64,13 +53,10 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    console.log(';');
-    console.log(object);
-    console.log(';');
-    const resultSupplierCode = await getByValues('Suppliers', 'SupplierCode', object.SupplierCode)
-    const resultSuppliersName = await getByValues('Suppliers', 'SupplierName', object.SupplierName)
+    const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode)
+    const resultSuppliersName = await allTheOption('Suppliers', 'SupplierName', object.SupplierName)
     return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);
 }
 
 
-module.exports = { getallSuppliers ,insertsuppliers,checkValid,checkUnique,getSupplier,deletesupplier}
+module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier};
