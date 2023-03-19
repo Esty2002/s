@@ -10,7 +10,6 @@ async function deletesupplier(object) {
     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
     return (resultSupplierCode,resultBranchCode)
 }
-
 // async function insertsuppliers(Obj){
 //     // const result = await insert(SQL_DB_SUPPLIERS,Object.keys(Obj).join(","),Object.values(Obj).join(","))
 //        const result = await insertSupplier(Obj)

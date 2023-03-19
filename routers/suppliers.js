@@ -29,14 +29,14 @@ router.get('/checkUnique/:suppliercode/:suppliername',async(req,res)=>{
     console.log(result);
     res.status(200).send(result)
 })
-
+//פונקציה שמביא את כל נתוני הספקים
 router.get('/getallSuppliers', async (req, res) => {
     console.log('res');
     const result = await getallSuppliers()
     console.log('ssssssssssssss',{ result });
     res.send(result)
 })
-
+//פונקציה שמביא ספק לפי תור ונתון
 router.get('/getSuppliers/:option/:text', async (req, res) => {
     console.log(req.params.option);
     console.log(req.params.text);

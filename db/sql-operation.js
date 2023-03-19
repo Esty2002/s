@@ -1,8 +1,9 @@
 const { connect, disconnect, getConnection } = require('./sql-connection')
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
+
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE Disabled='0'`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE  Disabled='0'`)
     await disconnect()
     return result;
 }
@@ -59,9 +60,8 @@ async function update(title, field, value, code) {
 }
 //פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table,column,code){
-    console.log(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`);
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND Disabled='0'`)
+    const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND  Disabled='0'`)
     await disconnect()
     return result;
 }
