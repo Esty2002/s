@@ -1,5 +1,3 @@
-const { default: expect } = require('expect')
-const { response } = require('express')
 const request = require('supertest')
 const { app } = require('../../app')
 jest.mock('../../modules/leads/leads-options', () => {
