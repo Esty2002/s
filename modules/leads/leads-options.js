@@ -43,4 +43,11 @@ const allLeadsDetails=async({filter,sort,skip,limit,project}) =>{
     return result;
 }
 
+    
+
+
+
+
+
+
 module.exports = { createNewLead, allLeadsDetails, getTheMustConcretItem, updateLead }

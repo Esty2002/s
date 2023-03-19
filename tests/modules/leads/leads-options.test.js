@@ -29,12 +29,11 @@ jest.mock('../../../services/db/mongo-operations', () => {
         })
     }})
 
-const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../../../modules/leads/leads-options');
+const { createNewLead, getTheMustConcretItem, updateLead,allLeadsDetails } = require('../../../modules/leads/leads-options');
     describe('CHECK FUNCTION AllLeadsDetails', () => {
         it('should return inserted id when succeded', async () => {
             let result = await allLeadsDetails();
             expect(result).toBeDefined();
-            
             expect(result).toBeInstanceOf(Array)
 
 
