@@ -1,45 +1,34 @@
-const {  insert, getByValues, del, changeDisabele, setDate,insertBranch, changeDisabledDate, getIsDisabled, update } = require('../db/sql-operation');
+const { getAll, setDate, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+require('dotenv').config();
+const { SQL_DB_BRANCHES } = process.env;
 
-//return all the branches
-async function getallbranches() {
-    const result = await getAll('Branches')
-    return result;
-}
-//insert branch
-async function insertbranch(object) {
+//delet the branch and update the fields
+async function deleteBranches(object) {
     try {
-        if (await checkValid(object) && await checkUnique(object)) {
-            const date = await setDate();
-            object['CreationDate'] = (Object.values(date.recordset[0]))[0];
-            console.log(object['CreationDate'][0]);
-            console.log(object);
-            // const result = await insert("Branches", Object.keys(object).join(','),Object.values(object).join(','))
-            const result = await insertBranch(object);
-            console.log('vvvvvvvvvvvvvvvvvvvvvv');
-            return result;
-        }
-        else {
-            console.log(object);
-            console.log('xxxxxxxxxxxxxxxxxxxxxx');
-            return false;
-        }
+        const date = await setDate()
+        const newDate = date.recordset[0].Today
+        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
+        return (resultBranchCode)
     }
     catch (error) {
         console.log('error');
-        throw error;
+        throw new Error('can not delete branch');
     }
 }
-//update branch
-async function updateDetail(code, object) {
+
+async function updateDetail(code, setting) {
     try {
-        if (await checkDisabled(code)) {
-            console.log('before');
-            const result = await update('Branches', object['field'], object['data'], code)
-            console.log({ result });
-            console.log('vvvvvvvvvvvvvvvvvvvvvv');
+        if (await checkUniqueBranch(setting)) {
+            // setting.map(f=>{
+            //     console.log('f');
+            //     replace(f, ':','-')
+            // })
+            // REPLACE (f, ':','-')
+            const result = await update('Branches',`SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
+            Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
+            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`,code)
         }
         else {
-            console.log('xxxxxxxxxxxxxxxxxxxxxxx');
             return false;
         }
     }
@@ -48,18 +37,36 @@ async function updateDetail(code, object) {
         throw error;
     }
 }
-//delete branch
-async function deletebranches(object) {
-    const date = await setDate()
-    const newDate = date.recordset[0].Today
-    console.log(newDate);
-    //////////////////////////להוסיף משתנה גלובלי
-    const resultSupplierCode = await del(SQL_DB_SUPPLIERS, '453', Object.values(object)[0])
-    const resultSupplierCode2 = await changeDisabele(SQL_DB_SUPPLIERS, '453')
-    const resultSupplierCode3 = await changeDisabledDate(SQL_DB_SUPPLIERS, '453', newDate)
-    return resultSupplierCode
-
+//return all the branches
+async function getAllBranches() {
+    const result = await getAll('Branches');
+    return result;
 }
+//return all the branches that the condition for it and not disabled.
+async function getBranchesByCondition(column, code) {
+    const result = await allTheOption('Branches', column, code);
+    return result;
+}
+//insert branch
+async function insertOneBranch(object) {
+    try {
+        if (await checkValid(object) && await checkUnique(object)) {
+            const date = await setDate()
+            object['CreationDate'] = Object.values(date.recordset[0])
+            const result = await insert("Branches", Object.keys(object).join(','), newVals)
+            return result;
+        }
+        else {
+            return false;
+        }
+    }
+    catch (error) {
+        console.log('error');
+        throw new Error('can not insert branch');
+    }
+}
+
+
 //check if must keys not empty and content
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
@@ -76,15 +83,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await getByValues('Branches', 'SupplierCode', object.SupplierCode)
-    const resultBranchName = await getByValues('Branches', 'BranchName', object.BranchName)
-    return (resultSupplierCode.recordset.length === 0 && resultBranchName.recordset.length === 0);
+    const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName)
+    return (resultBranchName.recordset.length === 0);
 }
 
-//check if the supplier disabled
-async function checkDisabled(code) {
-    const result = await getIsDisabled('Branches', 'SupplierCode', code)
-    return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
-}
-
-module.exports = { getallbranches, insertbranch, updateDetail ,deletebranches,checkUnique,checkValid}
+module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };

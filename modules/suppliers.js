@@ -1,30 +1,44 @@
 require('dotenv').config();
-const { SQL_DB_SUPPLIERS } = process.env;
-const { insert, getAll, allTheOption, getByValues, del, insertSupplier, insertBranch, getIsDisabled, setDate, update,insertSupplierAndBranch } = require('../db/sql-operation');
+const { getAll,allTheOption, insertSupplier,insertBranch, setDate, update, delSupllier,delBranches,insertSupplierAndBranch}=require('../db/sql-operation');
 const branchModule = require('./branches');
 
-// פונקציה ששולחת לפונקציות מחיקה
-async function deletesupplier(object) {
-    const date = await setDate()
-    const newDate = date.recordset[0].Today
-    const resultSupplierCode = await del(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser, newDate)
-    return resultSupplierCode
+const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
 
+//delet the supplier and update the fields
+async function deleteSupplier(object) {
+    try{
+         const date=await setDate()
+    const newDate=date.recordset[0].Today
+    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS,SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
+    return (resultSupplierCode)
+    }
+    catch(error){
+        console.log('error');
+        throw new Error('can not delete supplier');
+    }
+   
 }
 //פונקציה שמקבלת נתוני כל הספקים
-async function getallSuppliers() {
-    const result = await getAll('suppliers')
+async function getAllSuppliers() {
+    try{
+         const result = await getAll('suppliers')
     return result;
+    }
+   catch(error){
+       throw error;
+   }
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
-    console.log("obj.option");
-    console.log(obj.text);
-    console.log("obj.option");
-    const result = await allTheOption("Suppliers", obj.option, obj.text)
+    try{
+        const result = await allTheOption("Suppliers",obj.option,obj.text)
     return result;
+    }
+    catch(error){
+        throw error;
+    }
 }
-async function insertsuppliers(object) {
+async function insertOneSupplier(object) {
     try {
         if (Object.keys(object).length===2) {
             if (await checkValid(object.supplier) && await checkUnique(object.supplier)) {
@@ -60,7 +74,6 @@ async function insertsuppliers(object) {
 
     }
     catch (error) {
-        console.log('error');
         throw error;
     }
 }
@@ -79,12 +92,10 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await getByValues('Suppliers', 'SupplierCode', object.SupplierCode)
-    const resultSuppliersName = await getByValues('Suppliers', 'SupplierName', object.SupplierName)
+    const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode)
+    const resultSuppliersName = await allTheOption('Suppliers', 'SupplierName', object.SupplierName)
     return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);
 }
 
 
-
-
-module.exports = { getallSuppliers, insertsuppliers, checkValid, checkUnique, getSupplier, deletesupplier }
+module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier,insertOneSupplier};
