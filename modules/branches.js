@@ -1,6 +1,20 @@
-const { getAll, setDate, insertBranch, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+const { getAll, setDate, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
 require('dotenv').config();
-const {SQL_DB_BRANCHES}=process.env;
+const { SQL_DB_BRANCHES } = process.env;
+
+//delet the branch and update the fields
+async function deleteBranches(object) {
+    try {
+        const date = await setDate()
+        const newDate = date.recordset[0].Today
+        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
+        return (resultBranchCode)
+    }
+    catch (error) {
+        console.log('error');
+        throw new Error('can not delete branch');
+    }
+}
 
 async function updateDetail(code, setting) {
     try {
@@ -52,13 +66,7 @@ async function insertOneBranch(object) {
     }
 }
 
-// פונקציה ששולחת לפונקציות מחיקה
-async function deleteBranches(object) {
-    const date=await setDate()
-    const newDate=date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
-    return (resultBranchCode)
-}
+
 //check if must keys not empty and content
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
@@ -79,4 +87,4 @@ async function checkUnique(object) {
     return (resultBranchName.recordset.length === 0);
 }
 
-module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};
+module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };

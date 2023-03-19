@@ -22,3 +22,4 @@ describe('insert branch to sql',()=>{
         // expect(response).toBe('Branches');
     })
 })
+//test to deleteBranch

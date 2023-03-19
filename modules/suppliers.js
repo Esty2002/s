@@ -3,13 +3,19 @@ const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate,
 
 const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
 
-// פונקציה ששולחת לפונקציות מחיקה
+//delet the supplier and update the fields
 async function deleteSupplier(object) {
-    const date=await setDate()
+    try{
+         const date=await setDate()
     const newDate=date.recordset[0].Today
-    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
-    return (resultSupplierCode,resultBranchCode)
+    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS,SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
+    return (resultSupplierCode)
+    }
+    catch(error){
+        console.log('error');
+        throw new Error('can not delete supplier');
+    }
+   
 }
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
@@ -69,4 +75,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier};
+module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier,getBranchesByCondition};

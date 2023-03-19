@@ -1,26 +1,41 @@
 const express = require('express')
 const router = express.Router()
 
-const { deleteSupplier, getAllSuppliers,insertOneSupplier, getSupplier,checkUnique} = require('../modules/suppliers')
+const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUnique, getSupplierByCondition } = require('../modules/suppliers')
 
-// פונקציה ששולחת לפונקציות מחיקה ספק במודול
+//sent to modules to delet supplier 
 router.post('/deletesupplier', express.json(), async (req, res) => {
-    const result = await deleteSupplier(req.body);
-    res.status(200).send(true);
-})
-
-router.post('/insertsupplier',express.json(), async (req, res) => {
-    try{
-        const result = await insertOneSupplier(req.body);
-        res.status(200).send(result);
+    try {
+        const result = await deleteSupplier(req.body);
+        res.status(200).send(true);
     }
-    catch(error){
+    catch (error) {
+        console.log('error');
         res.status(500).send(error);
     }
 })
 
-router.get('/checkUnique/:suppliercode/:suppliername',async(req,res)=>{
-    const result = await checkUnique({ SupplierName:req.params.suppliername})
+router.get('/getSupplierWithCondition/:condition/:value', async (req, res) => {
+    const result = await getSupplierByCondition(req.params.condition, req.params.value);
+    res.status(200).send(result);
+})
+
+router.post('/insertsupplier', express.json(), async (req, res) => {
+    try {
+        const result = await insertOneSupplier(req.body);
+        res.status(200).send(result);
+    }
+    catch (error) {
+        res.status(500).send(error);
+    }
+})
+
+router.get('/checkUnique/:suppliercode/:suppliername', async (req, res) => {
+    const data = {
+        SupplierCode: req.params.suppliercode,
+        SupplierName: req.params.suppliername
+    }
+    const result = await checkUnique(data)
     res.status(200).send(result)
 })
 //פונקציה שמביא את כל נתוני הספקים
