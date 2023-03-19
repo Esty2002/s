@@ -1,4 +1,4 @@
-const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
+const { getConnection, connect, disconnect } = require("../services/sql/sql-connection");
 
 //  sql-פונקציה שיוצרת את הטבלה של המחירונים ב
 async function createTable() {
