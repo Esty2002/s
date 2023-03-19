@@ -3,9 +3,8 @@ const router = express.Router();
 const {deleteByReceiptNumber} = require('../modules/delete')
 
 router.post('/:receiptNumber', async (req, res) => {
-    const response = await deleteByReceiptNumber(req.params.receiptNumber)
-    console.log(response);
-    res.status(200).send(`client ${req.params.receiptNumber} was deleted`)
+    const _ = await deleteByReceiptNumber(req.params.receiptNumber)
+    res.status(200).send(`recepit ${req.params.receiptNumber} was deleted`)
 })
 
 
