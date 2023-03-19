@@ -7,17 +7,7 @@ async function getAllClient() {
     return resultUser
 }
 async function getClientsById(id) {
-    const result = await getAll()
-    let resultUser = result.recordset
-    let isExsist = false
-    for (let item of resultUser) {
-        if (item.clientCode == id && item.disabled!=true)
-            isExsist = true
-    }
-    if (resultUser.disabled == true || !isExsist)
-        return false
     resultUser=await getClientById(id)
-   
     return resultUser.recordset
 }
 
