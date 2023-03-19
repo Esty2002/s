@@ -18,23 +18,12 @@ async function getByValues(table, column, code) {
 //function that delete supplier and all her branches  
 async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()
-
-    // Begin tran
-    // UPDATE Suppliers 
-    // SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
-    // WHERE SupplierCode = '22'
-    // UPDATE Branches 
-    // SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
-    // WHERE SupplierCode = '22'
-    // commit
-    //rollback
-
-    // const result = await getConnection().request().query(`BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}' 
-    // UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'  commit rollback`)
-    const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}' `)
-    const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'; 
+    UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'; commit`)
+    // const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}' `)
+    // const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
-    return result, result1;
+    return result;
 }
 //function that delete branch  
 async function delBranches(title, code, name, date, Bname) {
@@ -43,8 +32,6 @@ async function delBranches(title, code, name, date, Bname) {
     await disconnect()
     return result;
 }
-
-
 // פונקציה המחזירה תאריך נוכחי
 async function setDate() {
     await connect()

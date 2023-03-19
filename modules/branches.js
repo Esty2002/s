@@ -1,6 +1,20 @@
-const {allTheOption, getAll,getByValues, getIsDisabled, setDate,update,delBranches ,insertBranch } = require('../db/sql-operation');
+const { allTheOption, getAll, getByValues, getIsDisabled, setDate, update, delBranches, insertBranch } = require('../db/sql-operation');
 require('dotenv').config();
-const {SQL_DB_BRANCHES}=process.env;
+const { SQL_DB_BRANCHES } = process.env;
+
+//delet the branch and update the fields
+async function deleteBranches(object) {
+    try {
+        const date = await setDate()
+        const newDate = date.recordset[0].Today
+        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
+        return (resultBranchCode)
+    }
+    catch (error) {
+        console.log('error');
+        throw new Error('can not delete branch');
+    }
+}
 
 //return all the branches
 async function getAllBranches() {
@@ -9,8 +23,8 @@ async function getAllBranches() {
 }
 
 //return all the branches that the condition for it and not disabled.
-async function getBranchesByCondition(column,code){
-    const result = await allTheOption('Branches',column,code);
+async function getBranchesByCondition(column, code) {
+    const result = await allTheOption('Branches', column, code);
     return result;
 }
 //insert branch
@@ -52,13 +66,7 @@ async function updateDetail(code, object) {
     }
 }
 
-//delet the branch and update the fields
-async function deleteBranches(object) {
-    const date=await setDate()
-    const newDate=date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate,object.BranchName)
-    return (resultBranchCode)
-}
+
 //check if must keys not empty and content
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
@@ -86,4 +94,4 @@ async function checkDisabled(code) {
     return (result.recordset.length > 0 && Object.values(result.recordset[0])[0] === true);
 }
 
-module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};
+module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };

@@ -4,11 +4,17 @@ const { insertSupplier,allTheOption, getAll, getByValues, delBranches,delSupllie
 
 //delet the supplier and update the fields
 async function deleteSupplier(object) {
-    const date=await setDate()
+    try{
+         const date=await setDate()
     const newDate=date.recordset[0].Today
-    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
-    return (resultSupplierCode,resultBranchCode)
+    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS,SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
+    return (resultSupplierCode)
+    }
+    catch(error){
+        console.log('error');
+        throw new Error('can not delete supplier');
+    }
+   
 }
 
 //return all the Supplier that the condition for it and not disabled.

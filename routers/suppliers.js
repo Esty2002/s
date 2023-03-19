@@ -1,12 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-const { deleteSupplier, getAllSuppliers,insertOneSupplier, getSupplier,checkUnique,getSupplierByCondition} = require('../modules/suppliers')
+const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUnique, getSupplierByCondition } = require('../modules/suppliers')
 
 //sent to modules to delet supplier 
 router.post('/deletesupplier', express.json(), async (req, res) => {
-    const result = await deleteSupplier(req.body);
-    res.status(200).send(true);
+    try {
+        const result = await deleteSupplier(req.body);
+        res.status(200).send(true);
+    }
+    catch (error) {
+        console.log('error');
+        res.status(500).send(error);
+    }
 })
 
 router.get('/getSupplierWithCondition/:condition/:value', async (req, res) => {
@@ -14,20 +20,20 @@ router.get('/getSupplierWithCondition/:condition/:value', async (req, res) => {
     res.status(200).send(result);
 })
 
-router.post('/insertsupplier',express.json(), async (req, res) => {
-    try{
+router.post('/insertsupplier', express.json(), async (req, res) => {
+    try {
         const result = await insertOneSupplier(req.body);
         res.status(200).send(result);
     }
-    catch(error){
+    catch (error) {
         res.status(500).send(error);
     }
 })
 
-router.get('/checkUnique/:suppliercode/:suppliername',async(req,res)=>{
-    const data={
-        SupplierCode:req.params.suppliercode,
-        SupplierName:req.params.suppliername
+router.get('/checkUnique/:suppliercode/:suppliername', async (req, res) => {
+    const data = {
+        SupplierCode: req.params.suppliercode,
+        SupplierName: req.params.suppliername
     }
     const result = await checkUnique(data)
     res.status(200).send(result)
@@ -41,7 +47,7 @@ router.get('/getallSuppliers', async (req, res) => {
 router.get('/getSuppliers/:option/:text', async (req, res) => {
     console.log(req.params.option);
     console.log(req.params.text);
-    const result = await getSupplier({option:req.params.option,text:req.params.text})
+    const result = await getSupplier({ option: req.params.option, text: req.params.text })
     console.log({ result });
     res.status(200).send(result)
 })
