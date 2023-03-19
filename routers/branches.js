@@ -47,7 +47,7 @@ router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
         res.status(200).send(result)
     }
     catch(error){
-        console.log('error');
+        console.log(error);
         res.status(500).send(error);
     }
 })

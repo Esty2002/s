@@ -1,6 +1,7 @@
-const { getAll, setDate, insertBranch, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+const { getAll, setDate, insertBranch, delBranches, update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+const { getSupplier } = require('../modules/suppliers')
 require('dotenv').config();
-const {SQL_DB_BRANCHES}=process.env;
+const { SQL_DB_BRANCHES } = process.env;
 
 async function updateDetail(code, setting) {
     try {
@@ -10,9 +11,9 @@ async function updateDetail(code, setting) {
             //     replace(f, ':','-')
             // })
             // REPLACE (f, ':','-')
-            const result = await update('Branches',`SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
+            const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
-            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`,code)
+            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code,{'BranchName':setting.OldBranchName})
         }
         else {
             return false;
@@ -39,7 +40,7 @@ async function insertOneBranch(object) {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate()
             object['CreationDate'] = Object.values(date.recordset[0])
-            const result = await insert("Branches", Object.keys(object).join(','), newVals)
+            const result = await insertBranch(object)
             return result;
         }
         else {
@@ -54,9 +55,9 @@ async function insertOneBranch(object) {
 
 // פונקציה ששולחת לפונקציות מחיקה
 async function deleteBranches(object) {
-    const date=await setDate()
-    const newDate=date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser,newDate)
+    const date = await setDate()
+    const newDate = date.recordset[0].Today
+    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
     return (resultBranchCode)
 }
 //check if must keys not empty and content
@@ -75,8 +76,10 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
+    const resultSupplierExist = await getSupplier({ optin: 'SupplierCode', text: object.SupplierCode })
     const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName)
-    return (resultBranchName.recordset.length === 0);
+    console.log (resultBranchName.recordset.length === 0 && (resultSupplierExist.data.recordset.length !== 0));
+    // return (resultBranchName.recordset.length === 0 && (resultSupplierExist.data.recordset.length !== 0));
 }
 
-module.exports = { getAllBranches, insertOneBranch, updateDetail ,deleteBranches,getBranchesByCondition,checkUnique};
+module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };

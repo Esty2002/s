@@ -31,8 +31,8 @@ async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()
     // const result = await getConnection().request().query(`BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} 
     // UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'  commit rollback`)
-    const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} `)
-    const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code} `)
+    const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}' `)
+    const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}' `)
 
     await disconnect()
     return result,result1;
@@ -45,9 +45,9 @@ async function delBranches(title, code, name, date) {
     return result;
 }
 //פונקצית עדכון
-async function update(title, setting, code) {
+async function update(title, setting, code,other) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}' AND ${Object.keys(other)}='${Object.values(other)}'`)
     await disconnect()
     return result;
 }
