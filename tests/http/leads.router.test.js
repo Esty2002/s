@@ -204,32 +204,6 @@ describe('/deletelead', () => {
         expect(response.text).toBe('updateTheLead')
     })
 })
-describe('/updateorderer', () => {
-
-    it('should the function update the status name by the obj that recived', async () => {
-        const response = await request(app).post('/leads/updateorderer', {"serialNumber":1, "name": "test" })
-        expect(response).toBeTruthy();
-        expect(response.statusCode).toBe(200);
-        expect(response.serverError).toBeFalsy();
-    })
-
-    it('should call updateStatus', async () => {
-        const { updateTable } = jest.requireMock('../../modules/leads/more-tables')
-        const response = await request(app).post('/leads/updateorderer', {"serialNumber":1, "name": "test" })
-        expect(updateTable).toHaveBeenCalled()
-        expect(response).toBeDefined()
-        expect(response.text).toBe('update');
-    })
-    it('should the request good without parmeters sended ', async () => {
-        const response = await request(app).post('/leads/updateorderer');
-        expect(response).toBeDefined();
-        expect(response.text).toBe('update');
-        expect(response.statusCode).toBe(200);
-        expect(response.serverError).toBeFalsy();
-    })
-
-})
-
 describe('/updatepouringtype', () => {
 
     it('should the function update the status name by the obj that recived', async () => {
@@ -287,6 +261,33 @@ describe('/getpouringtypes', () => {
         expect(response).toBeDefined()
     })
 })
+describe('/updateorderer', () => {
+
+    it('should the function update the status name by the obj that recived', async () => {
+        const response = await request(app).post('/leads/updateorderer', {"serialNumber":1, "name": "test" })
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should call updateStatus', async () => {
+        const { updateTable } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).post('/leads/updateorderer', {"serialNumber":1, "name": "test" })
+        expect(updateTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        expect(response.text).toBe('update');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/updateorderer');
+        expect(response).toBeDefined();
+        expect(response.text).toBe('update');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+})
+
+
 
 describe('/getstatuseslead', () => {
     it('the function should get all the status leads details', async () => {
