@@ -34,7 +34,7 @@ async function connectToSql() {
         BokkeepingNumber nvarchar(20) NULL,
         ObjectiveBank nvarchar(20) NULL,
         ConditionGushyPayment nvarchar(20) NULL,
-        PreferredPaymentDate int  NULL,
+        PreferredPaymentDate nvarchar(20)  NULL,
         Ovligo int  NULL,
         Status int NOT NULL,
         Street nvarchar(20)NOT NULL,
