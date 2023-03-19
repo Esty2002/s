@@ -1,5 +1,5 @@
 const express = require('express')
-const { addOneStatus ,deleteStatus} = require('../modules/status')
+const { addOneStatus ,deleteOneStatus, getStatusNumber } = require('../modules/status')
 
 const router = express.Router()
 
@@ -10,8 +10,14 @@ router.post('/addStatus',express.json(),(req,res)=>{
 })
 
 router.post('/deleteOneStatus',express.json(),(req,res)=>{
-    _=deleteStatus(req.body)
+    _=deleteOneStatus(req.body)
     res.status(200).send(true)
 
 })
+
+router.get('/status', async (req, res) => {
+    const result = await getStatusNumber()
+    res.send(result)
+});
+
 module.exports = router

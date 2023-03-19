@@ -1,4 +1,4 @@
-const { getClientById, update, getStatus } = require('../dal/db/sql/sql-operations');
+const { getClientById, update } = require('../dal/db/sql/sql-operations');
 
 async function getClientByClientCode(clientCode) {
     const result = await getClientById(clientCode);
@@ -12,9 +12,4 @@ async function updateClient(obj) {
     return res;
 }
 
-async function getStatusNumber() {
-    const result = await getStatus();
-    return result;
-}
-
-module.exports = { updateClient, getClientByClientCode, getStatusNumber }
+module.exports = { updateClient, getClientByClientCode }

@@ -3,14 +3,11 @@ const { getClientById, deleteClient } = require('../dal/db/sql/sql-operations');
 async function deletedClientByCode(clientCode, userName) {
     const exist = await getClientById(clientCode);
     let result;
-    if (exist.rowsAffected != 0 && exist.recordset.disabled != true) {
+    if (exist.rowsAffected != 0) {
         result = await deleteClient(clientCode, userName);
+        return result;
     }
-    else {
-        console.log('client code not exist');
-    }
-    console.log(result , '   in module');
-    return result;
+    return false
 }
 
 

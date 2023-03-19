@@ -9,9 +9,8 @@ async function getAll() {
 }
 
 async function getClientById(id) {
-    console.log(id);
     await connect()
-    const result = await getConnection().request().query(`SELECT * FROM CLIENTS WHERE CLIENTCODE=${id}`)
+    const result = await getConnection().request().query(`SELECT * FROM CLIENTS WHERE CLIENTCODE=${id} AND DISABLED='False'`)
     disconnect()
     return result
 }
@@ -24,7 +23,6 @@ async function getClientByField(field, value) {
 }
 
 async function update(obj) {
-    console.log(obj, ' obj');
     await connect();
     const result = await getConnection().request().query(`UPDATE clients  
     SET [clientName]='${obj.clientName}',
@@ -47,13 +45,12 @@ async function update(obj) {
     [telephone2]='${obj.telephone2}',
     [mobilePhone]='${obj.mobilePhone}',
     [fax]='${obj.fax}',
-        [email]='${obj.email}',
-        [comments]='${obj.comments}',
-        [creationDate]='${obj.creationDate}',
-        [userThatAdd]='${obj.userThatAdd}'
-        WHERE [clientCode]=${obj.clientCode}`);
+    [email]='${obj.email}',
+    [comments]='${obj.comments}',
+    [creationDate]='${obj.creationDate}',
+    [userThatAdd]='${obj.userThatAdd}'
+    WHERE [clientCode]=${obj.clientCode}`);
     disconnect();
-    console.log(result);
     return result;
 
 }
@@ -62,7 +59,6 @@ async function deleteStatus(statusCode) {
     await connect();
     const result = await getConnection().request()
         .query(`delete from STATUS where statusName=${statusCode}`)
-    console.log(result);
     disconnect()
     return result;
 }
@@ -75,14 +71,13 @@ async function deleteClient(clientCode, userName) {
         userThatDelete = '${userName}',
         deletionDate = GETDATE()
         where clientCode = '${clientCode}'`);
-    console.log(result, 'deleteClient in sql');
     disconnect();
     return result;
 }
 
 async function addClient(obj) {
     await connect();
-    const result = await getConnection().request().query(`insert into CLIENTS values( 
+    _ = await getConnection().request().query(`insert into CLIENTS values( 
         '${obj.clientCode}',
         '${obj.clientName}',
         '${obj.privaetCompanyNumber}',
@@ -116,16 +111,16 @@ async function addClient(obj) {
 
 async function addStatus(statusName) {
     await connect();
-    const result = await getConnection().request().query(`insert into STATUS values( 
-        '${statusName}')`)
+    _ = await getConnection().request().query(`insert into STATUS values( '${statusName}')`)
     disconnect()
+    
 }
 
 async function getStatus() {
     await connect()
     const result = await getConnection().request().query(`select * from status`)
     disconnect()
-    return result.recordset[0].serialNumber;
+    return result.recordset;
 
 }
 
@@ -135,5 +130,7 @@ async function getCodeClient(clientCode) {
     disconnect()
     return result
 }
+
+
 
 module.exports = { update, deleteClient, getAll, getClientByField, getClientById, addClient, getStatus, getCodeClient, deleteStatus, addStatus }
