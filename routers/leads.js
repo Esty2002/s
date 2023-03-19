@@ -13,10 +13,7 @@ router.get('/getorderers',async(req,res)=>{
     res.status(200).send(result);
 })
 
-router.get('/getalltable', async (req, res) => {
-    const result = await selectAllTable(req.query.name);
-    res.status(200).send(result);
-})
+
 
 router.get('/getordererbyphone', async (req, res) => {
     const result = await selectRecordByPhoneNumber(req.query.phone, req.query.tableName);

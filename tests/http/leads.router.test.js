@@ -42,7 +42,19 @@ jest.mock('../../modules/leads/more-tables', () => {
         }),
         nameAndphone: jest.fn(() => {
             return ([{ name: "sari", phone: "0583286577" }, { name: "ccc", phone: "5555555555" }]);
-        })
+        }),
+        updateTable :jest.fn((obj=null)=>{
+            return 'update';
+        }),
+        deleteFromTable: jest.fn((tableName,serialNum) => {
+            return 'delete';
+        }),
+        newLeadStatus: jest.fn((obj = null) => {
+            return 'insert';
+        }),
+
+
+
 
 
     }
@@ -51,38 +63,231 @@ jest.mock('../../modules/leads/more-tables', () => {
 describe('getleadsdetails', () => {
     it('should get all the leads datails', async () => {
         const response = await request(app).post('/leads/getleadsdetails');
-        expect(response).toBeTruthy();
-        expect(response.statusCode).toBe(200);
-        expect(response.serverError).toBeFalsy();
     })
-
     it('should call allLeadsdetails', async () => {
         const { allLeadsDetails } = jest.requireMock('../../modules/leads/leads-options');
         const response = await request(app).post('/leads/getleadsdetails');
         expect(allLeadsDetails).toHaveBeenCalled();
         expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        
     })
-
-    
 })
 
-describe('/getalltable', () => {
-    it('should get the all table whith the name wich are givven', async () => {
-        const response = await request(app).get('/leads/getalltable?name=test')
+describe('/newstatus', () => {
+
+    it('should the function create new status by the obj that recived', async () => {
+        const response = await request(app).post('/leads/newstatus', {"name": "test" })
         expect(response).toBeTruthy();
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
     })
 
-    it('should the request successful without sends the deteils', async () => {
-        const response = await request(app).get('/leads/getalltable')
+    it('should call newLeadStatus', async () => {
+        const { newLeadStatus } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).post('/leads/newstatus', {"name": "test" })
+        expect(newLeadStatus).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        expect(response.text).toBe('insert');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/newstatus');
         expect(response).toBeDefined();
-        expect(response.text).toBe('test');
+        expect(response.text).toBe('insert');
         expect(response.statusCode).toBe(200);
-
         expect(response.serverError).toBeFalsy();
     })
+
 })
+
+describe('/updatestatus', () => {
+
+    it('should the function update the status name by the obj that recived', async () => {
+        const response = await request(app).post('/leads/updatestatus', {"serialNumber":1, "name": "test" })
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should call updateStatus', async () => {
+        const { updateTable } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).post('/leads/updatestatus', {"serialNumber":1, "name": "test" })
+        expect(updateTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        expect(response.text).toBe('update');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/updatestatus');
+        expect(response).toBeDefined();
+        expect(response.text).toBe('update');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+})
+// deleteorderer
+describe('/deleteorderer', () => {
+
+    it('should the function update the status ', async () => {
+        const response = await request(app).post('/leads/deleteorderer',1);
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should call deleteFromTable', async () => {
+        const { deleteFromTable } = jest.requireMock('../../modules/leads/more-tables');
+        const response = await request(app).post('/leads/deleteorderer', 1);
+        expect(deleteFromTable).toHaveBeenCalled();
+        expect(response).toBeDefined();
+        expect(response.text).toBe('delete');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/deleteorderer');
+        expect(response).toBeDefined();
+        expect(response.text).toBe('delete');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+})
+
+
+describe('/deletepouringtype', () => {
+
+    it('should the function update the status ', async () => {
+        const response = await request(app).post('/leads/deletepouringtype',1);
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should call deleteFromTable', async () => {
+        const { deleteFromTable } = jest.requireMock('../../modules/leads/more-tables');
+        const response = await request(app).post('/leads/deletepouringtype', 1);
+        expect(deleteFromTable).toHaveBeenCalled();
+        expect(response).toBeDefined();
+        expect(response.text).toBe('delete');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/deletepouringtype');
+        expect(response).toBeDefined();
+        expect(response.text).toBe('delete');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+})
+
+describe('/deletestatus', () => {
+
+    it('should the function update the status ', async () => {
+        const response = await request(app).post('/leads/deletestatus', 1)
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should call deleteFromTable', async () => {
+        const { deleteFromTable } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).post('/leads/deletestatus', 1)
+        expect(deleteFromTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        expect(response.text).toBe('delete');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/deletestatus');
+        expect(response).toBeDefined();
+        expect(response.text).toBe('delete');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+})
+
+describe('/deletelead', () => {
+    it('the function will change the lead to disable=true and insert the deletingDate by sending the serialNumber of the lead', async () => {
+        const responseCreate = await request(app).post('/leads/createnewlead', { name: 'aaa', phone: '088776765' })
+        const responseDelete = await request(app).post('/leads/deletelead', { serialNumber: responseCreate.text })
+        expect(responseDelete).toBeDefined();
+        expect(responseDelete.statusCode).toBe(200);
+        expect(responseDelete.text).toBe('updateTheLead');
+    })
+    it('the function should not fail when not recieved the serialNumber of the lead', async () => {
+        const response = await request(app).post('/leads/deletelead');
+        expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response.text).toBe('updateTheLead')
+    })
+})
+describe('/updatepouringtype', () => {
+
+    it('should the function update the status name by the obj that recived', async () => {
+        const response = await request(app).post('/leads/updatepouringtype', {"serialNumber":1, "name": "test" })
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    
+})
+
+describe('/getpouringtypes', () => {
+    it('the function should get all the status leads details', async () => {
+        const response = await request(app).get('/leads/getpouringtypes');
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+    it('the function should call to selectAllTable', async () => {
+        const { selectAllTable } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).get('/leads/getpouringtypes')
+        expect(selectAllTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+    })
+})
+describe('/updateorderer', () => {
+
+    it('should the function update the status name by the obj that recived', async () => {
+        const response = await request(app).post('/leads/updateorderer', {"serialNumber":1, "name": "test" })
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    it('should call updateStatus', async () => {
+        const { updateTable } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).post('/leads/updateorderer', {"serialNumber":1, "name": "test" })
+        expect(updateTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+        expect(response.text).toBe('update');
+    })
+    it('should the request good without parmeters sended ', async () => {
+        const response = await request(app).post('/leads/updateorderer');
+        expect(response).toBeDefined();
+        expect(response.text).toBe('update');
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+})
+
+
+
+describe('/getstatuseslead', () => {
+    it('the function should get all the status leads details', async () => {
+        const response = await request(app).get('/leads/getstatuseslead');
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+
+    
+})
+
+
 
 
 describe('/getrowaccordingtophone', () => {
@@ -227,3 +432,34 @@ describe('check function updeatLead', () => {
 
     })
 })
+describe('/getorderers', () => {
+    it('the function should get all the status leads details', async () => {
+        const response = await request(app).get('/leads/getorderers');
+        expect(response).toBeTruthy();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+    })
+    it('the function should call to selectAllTable', async () => {
+        const { selectAllTable } = jest.requireMock('../../modules/leads/more-tables')
+        const response = await request(app).get('/leads/getorderers')
+        expect(selectAllTable).toHaveBeenCalled()
+        expect(response).toBeDefined()
+    })
+})
+describe('/updatestatuslead', () => {
+    it('the function should not fail if the object is empty', async () => {
+        const response = await request(app).post('/leads/updatestatuslead');
+        expect(response.headers['content-type']).toBe('text/html; charset=utf-8');
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response.text).toBe('updateTheLead')
+    })
+    it('the function should update the status of the lead by sending the serialNumber of the lead and the other status', async () => {
+        const response = await request(app).post('/leads/updatestatuslead', { serialNumber: 111, status: 'ממתין' });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(200);
+        expect(response.text).toBe('updateTheLead');
+    })
+})
+
