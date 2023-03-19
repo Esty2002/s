@@ -1,7 +1,8 @@
 const router = require('express').Router()
 const express = require('express')
 
-const {  addPriceList, updatePriceList, dletePriceList,selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode } = require('../modules/prices')
+const {  addPriceList, updatePriceList, dletePriceList,selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode,selectProductsOfSupplierOrClientByAreaName } = require('../modules/prices')
+
 
 router.get('/', (req, res) => {
     res.send('priceList')
@@ -22,11 +23,19 @@ router.post('/deletePriceList', express.json(), async (req, res) => {
     const result = await dletePriceList(req.body.id)
     res.send(result)
 })
-
-
-router.get('/', async (req, res) => {
-    // console.log("in router");
+router.get('/findPriceListByPriceListCodeAndAreaNameAndItemCode/:code/:area/:productCode', async (req, res) => {
+    console.log(req.params.code, req.params.area, req.params.productCode);
+    const ans = await selectAllAreasByPriceListCodeAndAreaNameAndItemCode(req.params.code, req.params.area, req.params.productCode)
+    res.send(ans)
 })
+
+router.get('/findProductsOfSupplierOrClientByAreaName/:code/:areaName', async (req, res) => {
+    console.log('find');
+    const ans = await selectProductsOfSupplierOrClientByAreaName(req.params.code, req.params.areaName)
+    res.send(ans)
+})
+
+
 
 // הפונקציה מקבלת קוד פריט ומחזירה את האזורים שבו הוא משווק ואת מחירו בכל אזור
 router.get('/findAreaAndPriceByItemCode/:code', async (req, res) => {

@@ -32,3 +32,4 @@ const getClient = () => {
 module.exports = {
     connect, disconnect, getClient
 }
+

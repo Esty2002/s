@@ -51,6 +51,7 @@ async function dletePriceList(id) {
     return result.rowsAffected
 }
 
+
 //sql פונקציה שמקבלת תאריך ועורכת אותו בהתאמה ל-דרישות
 function setTheDateForSql(date) {
     let newDate = new Date(date).toISOString().split("T").join(" ").split("Z")
@@ -82,21 +83,43 @@ async function selectProductByAreaName(areaName) {
     return result.recordset
 
 }
+
 async function selectAreaByClientOrSupplyCode(code) {
     await connect()
-    const result = await getConnection().request().query(`SELECT areaName FROM priceList WHERE priceListCode=${code}`)
-    console.log(result.recordset);
+    code = parseInt(code)
+    const result = await getConnection().request().query(`SELECT distinct areaName FROM priceList WHERE priceListCode=${code}`)
+    console.log('code----', code, '  result---', result.recordset);
     disconnect()
     return result.recordset
 }
 
 
 async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode, areaName, itemCode) {
+    priceListCode = parseInt(priceListCode)
     await connect()
-    const result = await getConnection().request().query(`SELECT date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode=${priceListCode} AND areaName='${areaName}' AND itemCode=${itemCode}`)
+    const result = await getConnection().request().query(`SELECT id,date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${parseInt(itemCode)}'`)
+    disconnect()
+    return (result.recordset)
+}
+async function selectProductsOfSupplierOrClientByAreaName(code, areaName) {
+    console.log('sql');
+    await connect()
+    const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE priceListCode=${code} AND areaName='${areaName}'`)
     console.log(result.recordset);
     disconnect()
     return result.recordset
 }
 
-module.exports = { addPriceList, updatePriceList, dletePriceList, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode }
+module.exports = {
+    createTable,
+    addPriceList,
+    updatePriceList,
+    dletePriceList,
+    selectAllAreasByPriceListCodeAndAreaNameAndItemCode,
+    selectAreaByClientOrSupplyCode,
+    selectProductsOfSupplierOrClientByAreaName,
+    setTheDateForSql,
+    selectAreaAndPriceByItemCode,
+    selectProductAndPricesByAreaName,
+    selectProductByAreaName
+}
