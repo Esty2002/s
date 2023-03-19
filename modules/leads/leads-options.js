@@ -1,5 +1,5 @@
 require('dotenv').config()
-const MongoDBOperations = require('../../../services/db/mongo-operations')
+const MongoDBOperations = require('../../services/db/mongo-operations')
 
 const { MONGO_COLLECTION_LEADS, MONGO_COLLECTION_PRODUCTS } = process.env
 const mongo_collection_leads = MongoDBOperations;
@@ -9,10 +9,9 @@ const createNewLead = async (obj = null) => {
 
     let result;
     if (obj) {
-        obj.serialNumber=await mongo_collection_leads.countDocuments();
-        obj.serialNumber+=1;
-        console.log('serialNum:'+obj.serialNumber);
-        obj.disable=false;
+        obj.serialNumber = await mongo_collection_leads.countDocuments();
+        obj.serialNumber += 1;
+        obj.disable = false;
         result = await mongo_collection_leads.insertOne(obj);
     }
     else {
@@ -32,23 +31,17 @@ const getTheMustConcretItem = async () => {
 const updateLead = async (obj = {}) => {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
 
-   const  result = await mongo_collection_leads.updateOne(obj ,obj.serialNumber)
-   return result
-}
-
-
-
-async function AllLeadsDetails (){
-    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-
-    const result= await mongo_collection_leads.find({disable:false},{_id:0,phoneOrderer:1,supplyAdress:1,supplyDate:1,serialNumber:1})
-    return result
-}
-async function leadsbyserialnumber(serialNumber1){
-    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-    
-    const  result = await mongo_collection_leads.find({disable:false,serialNumber:parseInt(serialNumber1)},{})
+    const result = await mongo_collection_leads.updateOne(obj, obj.serialNumber)
     return result
 }
 
-module.exports = { createNewLead ,AllLeadsDetails,getTheMustConcretItem,updateLead,leadsbyserialnumber}
+
+//לשנות ברירת מחדל
+async function allLeadsDetails(filter = { disable: false }, project = { _id: 0, phoneOrderer: 1, supplyAdress: 1, supplyDate: 1, serialNumber: 1 }) {
+    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
+    const result = await mongo_collection_leads.find(filter, project)
+    return result
+}
+
+
+module.exports = { createNewLead, allLeadsDetails, getTheMustConcretItem, updateLead }
