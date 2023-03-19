@@ -30,7 +30,7 @@ router.post('/newpouringtype', express.json(), async (req, res) => {
     res.status(200).send(result);
 })
 router.post('/getleadsdetails', express.json(), async (req, res) => {
-    const response = await allLeadsDetails();
+    const response = await allLeadsDetails(req.body);
     res.status(200).send(response);
 })
 

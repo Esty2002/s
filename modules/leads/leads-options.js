@@ -37,7 +37,7 @@ const updateLead = async (obj = {}, filter = {}) => {
 
 
 
-const allLeadsDetails=async(filter,sort,skip,limit,project) =>{
+const allLeadsDetails=async({filter,sort,skip,limit,project}) =>{
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
     const result=await mongo_collection_leads.aggregate(filter,sort,skip,limit,project);
     return result;
