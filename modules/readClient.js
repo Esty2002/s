@@ -2,17 +2,19 @@ const { getAll, getClientByField, getClientById } = require('../dal/db/sql/sql-o
 
 async function getAllClient() {
     const result = await getAll()
-    let resultUser = result.recordset
-    resultUser = resultUser.filter(user => user.disabled != true)
-    return resultUser
+    return result.recordset
 }
 async function getClientsById(id) {
-    resultUser=await getClientById(id)
-    return resultUser.recordset
+    const result = await getClientById(id)
+    if (result.rowsAffected == 0)
+        return null
+    return result.recordset
 }
 
 async function getClientsByField(field, value) {
     const result = await getClientByField(field, value)
+    if (result.rowsAffected == 0)
+        return null
     return result
 }
 
