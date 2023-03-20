@@ -40,15 +40,25 @@ async function updateDetail(code, setting) {
         throw new Error('can not update branch');
     }
 }
-//return all the branches
+//return all the branches 
 async function getAllBranches() {
-    const result = await getAll('Branches');
-    return result;
+    try {
+        const result = await getAll('Branches');
+        return result;
+    }
+    catch (error) {
+        throw error;
+    }
 }
-//return all the branches that the condition for it and not disabled.
+//return all the branches that the condition for it and not disabled. 
 async function getBranchesByCondition(column, code) {
-    const result = await allTheOption('Branches', column, code);
-    return result;
+    try {
+        const result = await allTheOption('Branches', column, code);
+        return result;
+    }
+    catch (error) {
+        throw error;
+    }
 }
 //insert branch
 async function insertOneBranch(object) {
@@ -67,14 +77,6 @@ async function insertOneBranch(object) {
         throw new Error('can not insert branch');
     }
 }
-
-// פונקציה ששולחת לפונקציות מחיקה
-// async function deleteBranches(object) {
-//     const date = await setDate()
-//     const newDate = date.recordset[0].Today
-//     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
-//     return (resultBranchCode)
-// }
 //check if must keys not empty and content
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
