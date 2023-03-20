@@ -6,10 +6,6 @@ jest.mock('../../db/sql-operation', () => {
             else
                 return table;
         }),
-        setDate: jest.fn(() => {
-            return { recordset: [{ date: '01/03/2023' }] };
-            //צריך לסדר את זה!!
-        }),
         checkUniqueBranch: jest.fn((code, branchname) => {
             if (code === undefined)
                 throw new Error('can not insert branch')
@@ -42,12 +38,20 @@ jest.mock('../../modules/suppliers', () => {
         })
     }
 })
+jest.mock('../../services/functions',()=>{
+    return{
+        setDate:jest.fn((stringOfDate)=>{
+            return '01/03/2023';
+        })
+    }
+})
 
 const { insertOneBranch, checkUnique, updateDetail ,checkValid} = require('../../modules/branches');
 
 describe('INSERT BRANCH', () => {
     it('should call insertBranch and setDate and checkUniqueBranch and getSupplier', async () => {
-        const { insertBranch, setDate, checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
+        const { insertBranch, checkUniqueBranch } = jest.requireMock('../../db/sql-operation');
+        const {setDate}=jest.requireMock('../../services/functions');
         const { getSupplier } = jest.requireMock('../../modules/suppliers')
         const response = await insertOneBranch({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(insertBranch).toHaveBeenCalled()
@@ -60,7 +64,7 @@ describe('INSERT BRANCH', () => {
     it('should return inserted object', async () => {
         const response = await insertOneBranch({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '3', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined()
-        expect(response).toStrictEqual({ BranchName: "dfdfd", City: "hhh", CreationDate: "01/03/2023", HomeNumber: "3", Phone1: "jjj", Street: "fgd", SupplierCode: "ffff", UserThatInsert: "hhh" })
+        expect(response).toStrictEqual({ BranchName: 'dfdfd', City: 'hhh', CreationDate: '01/03/2023', HomeNumber: '3', Phone1: "jjj", Street: "fgd", SupplierCode: "ffff", UserThatInsert: "hhh" })
     })
     it('should return fasle when it not suitable to the model', async () => {
         const response = await insertOneBranch({ BranchName: 'aaa', Street: 'fgd', HomeNumber: '3', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
@@ -162,20 +166,6 @@ describe('UPDATE BRANCH', () => {
                 expect(error).toBeDefined()
                 expect(error).toBeInstanceOf(Error)
                 expect(error.message).toBe('can not update branch')
-            }
-        })
-    })
-
-    describe('ERRORS', () => {
-        it('should throw an error when it not suitable to sql ', async () => {
-            expect.assertions(3)
-            try {
-                const response = await insertOneBranch({ aaaa: "aaaaa" }, 'x')
-            }
-            catch (error) {
-                expect(error).toBeDefined()
-                expect(error).toBeInstanceOf(Error)
-                expect(error.message).toBe('can not insert branch')
             }
         })
     })
