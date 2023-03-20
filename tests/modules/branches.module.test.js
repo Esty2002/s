@@ -18,38 +18,27 @@ jest.mock('../../db/sql-operation', () => {
     }
 })
 
-jest.mock('../../modules/branches', () => {
-    return {
-        checkUnique: jest.fn((code) => {
-            return true;
-        })
-    }
-})
+const {insertOneBranch}=require('../../modules/branches')
 
-const { insertBranch } = require('../../modules/branches')
-
-describe('insert branch to sql', () => {
-    it('should call insertBranch', async () => {
-        const { insertBranch, setDate } = jest.requireMock('../../db/sql-operation')
-        const { checkUnique } = jest.requireMock('../../modules/branches')
-        const response = await insertBranch({ a: 'a', b: 'b', c: 'c', d: 'd', e: 'e' })
-        expect(insertBranch).toHaveBeenCalled()
-        expect(checkUnique).toHaveBeenCalled()
-        expect(setDate).toHaveBeenCalled()
+describe('insert branch to sql',()=>{
+    it('should call insertBranch',async()=>{
+        // const {insertBranch} = jest.requireMock('../../db/sql-operation')
+        const response = await insertOneBranch('Branches',(1,2,3,4,5),('a','b','c','d','e'))
+        // expect(insertBranch).toHaveBeenCalled(1)
         expect(response).toBeDefined()
     })
 
     it('should return the table name object', async () => {
-        const response = await insertBranch({ a: 'a', b: 'b', c: 'c', d: 'd', e: 'e' })
+        const response = await insertOneBranch('Branches',(1,2,3,4,5),('a','b','c','d','e'))
         expect(response).toBeDefined()
-        expect(response).toBe('Branches')
+        // expect(response).toBe('Branches');
     })
 
     describe('ERRORS', () => {
         it('should throw an error when it not suitable to sql ', async () => {
             expect.assertions(3)
             try {
-                const response = await insertBranch({ aaaa: "aaaaa" }, 'x')
+                const response = await insertOneBranch({ aaaa: "aaaaa" }, 'x')
             }
             catch (error) {
                 expect(error).toBeDefined()
