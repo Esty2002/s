@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const { getSupplier } = require('../modules/suppliers')
 const { getAll, delBranches,  update, allTheOption,insertBranch, checkUniqueBranch} = require('../db/sql-operation');
 const {setDate}=require('../services/functions');
@@ -17,11 +16,6 @@ async function deleteBranches(object) {
         throw new Error('can not delete branch');
     }
 }
-=======
-const { getAll, setDate, insertBranch, delBranches, update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
-require('dotenv').config();
-const { SQL_DB_BRANCHES } = process.env;
->>>>>>> TzipiChusid
 
 async function updateDetail(code, setting) {
     try {
@@ -33,13 +27,9 @@ async function updateDetail(code, setting) {
             // REPLACE (f, ':','-')
             const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
-<<<<<<< HEAD
             Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code,{'BranchName':setting.OldBranchName})
             console.log(result);
             return result;
-=======
-            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code)
->>>>>>> TzipiChusid
         }
         else {
             return false;
@@ -74,14 +64,8 @@ async function getBranchesByCondition(column, code) {
 async function insertOneBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
-<<<<<<< HEAD
             object['CreationDate'] =await setDate(new Date());
             const result = await insertBranch(object);
-=======
-            const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])
-            const result = await insertBranch("Branches", Object.keys(object).join(','), newVals);
->>>>>>> TzipiChusid
             return result;
         }
         else {
@@ -93,23 +77,6 @@ async function insertOneBranch(object) {
         throw new Error('can not insert branch');
     }
 }
-
-// פונקציה ששולחת לפונקציות מחיקה
-<<<<<<< HEAD
-// async function deleteBranches(object) {
-//     const date = await setDate()
-//     const newDate = date.recordset[0].Today
-//     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
-//     return (resultBranchCode)
-// }
-=======
-async function deleteBranches(object) {
-    const date = await setDate()
-    const newDate = date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
-    return (resultBranchCode)
-}
->>>>>>> TzipiChusid
 //check if must keys not empty and content
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
@@ -137,8 +104,4 @@ async function checkUnique(object) {
     }
 }
 
-<<<<<<< HEAD
 module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique ,checkValid};
-=======
-module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };
->>>>>>> TzipiChusid

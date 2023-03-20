@@ -1,6 +1,5 @@
 jest.mock('../../db/sql-operation', () => {
     return {
-<<<<<<< HEAD
         insertBranch: jest.fn((table) => {
             if (table.BranchName === '123')
                 throw new Error('can not insert branch')
@@ -22,29 +21,6 @@ jest.mock('../../db/sql-operation', () => {
         update: jest.fn(() => {
             return { recordset: [{ hh: 'pp' }, { hh: 'jj' }] }
         }),
-        getAll: jest.fn((coulmn) => {
-            return { name: 'aaaa', sum: 9 };
-        }),
-        allTheOption: jest.fn((table, option, text) => {
-            return { name: 'aaaa', sum: 9, age: 4 };
-        }),
-    }
-})
-jest.mock('../../modules/suppliers', () => {
-    return {
-        getSupplier: jest.fn((value1, value2) => {
-            if (value1 === undefined)
-                throw new Error('can not insert branch')
-            else {
-                if (value1.text === 'aaa')
-                    return { recordset: [] }
-                return { recordset: [{ aa: 'aaa' }] }
-            }
-        })
-=======
-        // insertBranch:jest.fn((columns,values)=>{
-        //     return table;
-        // }),
         getAll: jest.fn((table) => {
             return { name: 'aaaa', sum: 9 };
         }),
@@ -58,7 +34,19 @@ jest.mock('../../modules/suppliers', () => {
         }),
 
 
->>>>>>> TzipiChusid
+    }
+})
+jest.mock('../../modules/suppliers', () => {
+    return {
+        getSupplier: jest.fn((value1, value2) => {
+            if (value1 === undefined)
+                throw new Error('can not insert branch')
+            else {
+                if (value1.text === 'aaa')
+                    return { recordset: [] }
+                return { recordset: [{ aa: 'aaa' }] }
+            }
+        })
     }
 })
 
