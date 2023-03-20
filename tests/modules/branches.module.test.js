@@ -6,9 +6,6 @@ jest.mock('../../db/sql-operation', () => {
             // else
             return 'table';
         }),
-        setDate: jest.fn(() => {
-            return '01/03/2023';
-        }),
         getAll: jest.fn((coulmn) => {
             return { name: 'aaaa', sum: 9 };
         }),
