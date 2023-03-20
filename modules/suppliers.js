@@ -22,7 +22,7 @@ async function deleteSupplier(object) {
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
     try {
-        const result = await getAll('suppliers')
+        const result = await getAll('suppliers');
         return result;
     }
     catch (error) {
@@ -126,4 +126,4 @@ async function updateDetail(code, setting) {
         throw new Error('can not update branch');
     }
 }
-module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, insertOneSupplier, updateDetail };
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail };

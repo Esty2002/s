@@ -51,13 +51,24 @@ router.get('/checkUnique/:suppliercode/:suppliername',async(req,res)=>{
 })
 //פונקציה שמביא את כל נתוני הספקים
 router.get('/getallSuppliers', async (req, res) => {
-    const result = await getAllSuppliers()
-    res.send(result)
+    try {
+        const result = await getAllSuppliers();
+        res.send(result);
+    }
+    catch (error) {
+        res.status(500).send(error);
+    }
 })
 //פונקציה שמביא ספק לפי תור ונתון
 router.get('/getSuppliers/:option/:text', async (req, res) => {
-    const result = await getSupplier({option:req.params.option,text:req.params.text})
-    res.status(200).send(result)
+    try {
+        const result = await getSupplier({ option: req.params.option, text: req.params.text })
+        res.status(200).send(result)
+    }
+    catch (error) {
+        res.status(500).send(error);
+    }
+
 })
 
 module.exports = router;
