@@ -17,7 +17,13 @@ jest.mock('../../db/sql-operation', () => {
         }),
         update: jest.fn(() => {
 return { recordset: [] }
-        })
+        }),
+        getAll: jest.fn((coulmn) => {
+            return { name: 'aaaa', sum: 9 };
+        }),
+        allTheOption: jest.fn((table, option, text) => {
+            return { name: 'aaaa', sum: 9, age: 4 };
+        }),
     }
 })
 jest.mock('../../modules/suppliers', () => {
