@@ -34,7 +34,7 @@ async function connectToSql() {
         BokkeepingNumber nvarchar(20) NULL,
         ObjectiveBank nvarchar(20) NULL,
         ConditionGushyPayment nvarchar(20) NULL,
-        PreferredPaymentDate nvarchar(20)  NULL,
+        PreferredPaymentDate DATE  NULL,
         Ovligo int  NULL,
         Status int NOT NULL,
         Street nvarchar(20)NOT NULL,
@@ -47,9 +47,9 @@ async function connectToSql() {
         Fax nvarchar(20) NULL,
         Mail nvarchar(20) NULL,
         Notes nvarchar(MAX) NULL,
-        CreationDate nvarchar(20)NOT NULL,
+        CreationDate DATE NOT NULL,
         Disabled BIT  NULL,
-        DisabledDate nvarchar(40) NULL,
+        DisabledDate DATE NULL,
         DisableUser nvarchar(20) NULL
         )`);
         _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_BRANCHES}') CREATE TABLE [dbo].[${SQL_DB_BRANCHES}](
@@ -67,10 +67,10 @@ async function connectToSql() {
             Fax nvarchar(20) NULL,
             Mail nvarchar(20) NULL,
             Notes nvarchar(MAX) NULL,
-            CreationDate nvarchar(20) NULL,
+            CreationDate DATE NULL,
             UserThatInsert nvarchar(20)NOT NULL,
             Disabled BIT NULL,
-            DisabledDate nvarchar(20) NULL,
+            DisabledDate DATE NULL,
             DisableUser nvarchar(20) NULL
                 )`)
     await disconnect();

@@ -29,7 +29,7 @@ async function updateDetail(code, setting) {
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
             Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code,{'BranchName':setting.OldBranchName})
             console.log(result);
-
+            return result;
         }
         else {
             return false;
@@ -37,7 +37,7 @@ async function updateDetail(code, setting) {
     }
     catch {
         console.log('error');
-        throw error;
+        throw new Error('can not update branch');
     }
 }
 //return all the branches
@@ -70,12 +70,12 @@ async function insertOneBranch(object) {
 }
 
 // פונקציה ששולחת לפונקציות מחיקה
-async function deleteBranches(object) {
-    const date = await setDate()
-    const newDate = date.recordset[0].Today
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
-    return (resultBranchCode)
-}
+// async function deleteBranches(object) {
+//     const date = await setDate()
+//     const newDate = date.recordset[0].Today
+//     const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.BranchName, object.DisableUser, newDate)
+//     return (resultBranchCode)
+// }
 //check if must keys not empty and content
 async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
@@ -99,8 +99,8 @@ async function checkUnique(object) {
     }
     catch(error){
         console.log('error');
-        throw error;
+        throw new Error('can not insert branch');;
     }
 }
 
-module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };
+module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique ,checkValid};
