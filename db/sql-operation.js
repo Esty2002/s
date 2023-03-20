@@ -34,9 +34,9 @@ async function delBranches(title, code, name, date, Bname) {
     return result;
 }
 //פונקצית עדכון
-async function update(title, setting, code) {
+async function update(title, setting, code,other) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}' AND ${Object.keys(other)}='${Object.values(other)}'`)
     await disconnect()
     return result;
 }
