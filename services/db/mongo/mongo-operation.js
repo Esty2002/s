@@ -4,8 +4,10 @@ const {getClient} = require('./mongo_connection')
 const { MONGO_DB ,COLLECTION_NAME} = process.env
 
 class MongoDBOperations {
-    constructor() {
-       
+    constructor(collectionName = COLLECTION_NAME, dbName = MONGO_DB) {
+        console.log("data name:", dbName);
+        this.collectionName = collectionName
+        this.dbName = dbName
     }
     async insertOne(obj) {
         const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
