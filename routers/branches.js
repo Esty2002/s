@@ -49,6 +49,10 @@ router.post('/updatebranch', express.json(), async (req, res) => {
     }
 })
 
+router.post('/deletebranches', express.json(), async (req, res) => {
+    const result = await deleteBranches(req.body)
+    res.status(200).send(true);
+})
 
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
     try{
@@ -56,7 +60,7 @@ router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
         res.status(200).send(result)
     }
     catch(error){
-        console.log('error');
+        console.log(error);
         res.status(500).send(error);
     }
 })
