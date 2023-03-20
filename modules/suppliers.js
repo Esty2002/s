@@ -22,7 +22,7 @@ async function deleteSupplier(object) {
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
     try {
-        const result = await getAll('suppliers')
+        const result = await getAll('suppliers');
         return result;
     }
     catch (error) {
@@ -99,4 +99,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, insertOneSupplier };
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier };
