@@ -15,17 +15,6 @@ async function setDate() {
     return result;
 }
 
-
-// Begin tran
-// UPDATE Suppliers 
-// SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
-// WHERE SupplierCode = '22'
-// UPDATE Branches 
-// SET DisableUser='sss' ,Disabled='1',DisabledDate='02/05/85'  
-// WHERE SupplierCode = '22'
-// commit
-
-
 // פונקצית מחיקת ספק  
 async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()

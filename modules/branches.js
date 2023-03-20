@@ -1,3 +1,4 @@
+const { error } = require('console');
 const { getAll, setDate, insertBranch, delBranches, update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
 const { getSupplier } = require('../modules/suppliers')
 require('dotenv').config();
@@ -14,6 +15,8 @@ async function updateDetail(code, setting) {
             const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
             Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code,{'BranchName':setting.OldBranchName})
+            console.log(result);
+
         }
         else {
             return false;
@@ -39,7 +42,7 @@ async function insertOneBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])
+            object['CreationDate'] = Object.values(date.recordset[0])[0]
             const result = await insertBranch(object)
             return result;
         }
@@ -76,10 +79,15 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierExist = await getSupplier({ optin: 'SupplierCode', text: object.SupplierCode })
-    const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName)
-    console.log (resultBranchName.recordset.length === 0 && (resultSupplierExist.data.recordset.length !== 0));
-    // return (resultBranchName.recordset.length === 0 && (resultSupplierExist.data.recordset.length !== 0));
+    try{
+        const resultSupplierExist = await getSupplier({ option: 'SupplierCode', text: object.SupplierCode })
+        const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName)
+        return (resultBranchName.recordset.length === 0 && (resultSupplierExist.recordset.length !== 0));
+    }
+    catch(error){
+        console.log('error');
+        throw error;
+    }
 }
 
 module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };
