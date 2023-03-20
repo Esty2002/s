@@ -9,6 +9,7 @@ const delete_router = require('./routers/delete');
 
 app.use(cors())
 
+app.get('/',(req,res)=> res.send("request not found"));
 
 app.use('/create', create_router);
 app.use('/read', read_router);
