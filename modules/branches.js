@@ -1,13 +1,13 @@
-const { getAll, setDate, insertBranch, delBranches, update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
 const { getSupplier } = require('../modules/suppliers')
+const { getAll, delBranches,  update, allTheOption,insertBranch, checkUniqueBranch} = require('../db/sql-operation');
+const {setDate}=require('../services/functions');
 require('dotenv').config();
 const { SQL_DB_BRANCHES } = process.env;
 
 //delet the branch and update the fields
 async function deleteBranches(object) {
     try {
-        const date = await setDate()
-        const newDate = date.recordset[0].Today
+        const newDate = await setDate(new Date())
         const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
         return (resultBranchCode)
     }
@@ -54,9 +54,8 @@ async function getBranchesByCondition(column, code) {
 async function insertOneBranch(object) {
     try {
         if (await checkValid(object) && await checkUnique(object)) {
-            const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])[0]
-            const result = await insertBranch(object)
+            object['CreationDate'] =await setDate(new Date());
+            const result = await insertBranch(object);
             return result;
         }
         else {

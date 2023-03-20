@@ -1,57 +1,58 @@
 require('dotenv').config();
-const { getAll,allTheOption, insertSupplier,insertBranch, setDate, update, delSupllier,delBranches,insertSupplierAndBranch}=require('../db/sql-operation');
+const { getAll, allTheOption, insertSupplier, update, delSupllier, delBranches, insertSupplierAndBranch } = require('../db/sql-operation');
+const { setDate } = require('../services/functions');
+
 const branchModule = require('./branches');
 
-const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
+const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 
 //delet the supplier and update the fields
 async function deleteSupplier(object) {
-    try{
-         const date=await setDate()
-    const newDate=date.recordset[0].Today
-    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS,SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
-    return (resultSupplierCode)
+    try {
+        const newDate = await setDate(new Date());
+        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
+        return (resultSupplierCode)
     }
-    catch(error){
+    catch (error) {
         console.log('error');
         throw new Error('can not delete supplier');
     }
-   
+
 }
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
-    try{
-         const result = await getAll('suppliers')
-    return result;
+    try {
+        const result = await getAll('suppliers')
+        return result;
     }
-   catch(error){
-       throw error;
-   }
+    catch (error) {
+        throw error;
+    }
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
-    try{
-        const result = await allTheOption("Suppliers",obj.option,obj.text)
-    return result;
+    try {
+        const result = await allTheOption("Suppliers", obj.option, obj.text)
+        return result;
     }
-    catch(error){
+    catch (error) {
         throw error;
     }
 }
 async function insertOneSupplier(object) {
     try {
-        if (Object.keys(object).length===2) {
+        if (Object.keys(object).length === 2) {
             if (await checkValid(object.supplier) && await checkUnique(object.supplier)) {
-                if ( await branchModule.checkValid(object.branch) && await branchModule.checkUnique(object.branch)) {
-                    const date = await setDate();
-                    object.supplier['CreationDate'] = (Object.values(date.recordset[0]))[0];
-                    object.branch['CreationDate'] = (Object.values(date.recordset[0]))[0];
+                if (await branchModule.checkValid(object.branch) && await branchModule.checkUnique(object.branch)) {
+                    const date = await setDate(new Date());
+                    object.supplier['CreationDate'] = date;
+                    object.branch['CreationDate'] = date;
                     console.log('in check  insertSupplierAndBranch');
-                    const result=await insertSupplierAndBranch(object)
+                    const result = await insertSupplierAndBranch(object)
                     return result
                 }
-                else{
-              
+                else {
+
                 }
             }
             else {
@@ -60,8 +61,8 @@ async function insertOneSupplier(object) {
         }
         else {
             if (await checkValid(object) && await checkUnique(object)) {
-                const date = await setDate();
-                object['CreationDate'] = (Object.values(date.recordset[0]))[0];
+                const date = await setDate(new Date());
+                object['CreationDate'] = date;
                 const result = await insertSupplier(object)
                 console.log('vvvvvvvvvvvvvvvvvvvvvv');
                 return result;
@@ -98,4 +99,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier,insertOneSupplier};
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, insertOneSupplier };

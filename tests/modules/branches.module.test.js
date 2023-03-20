@@ -8,6 +8,7 @@ jest.mock('../../db/sql-operation', () => {
         }),
         setDate: jest.fn(() => {
             return { recordset: [{ date: '01/03/2023' }] };
+            //צריך לסדר את זה!!
         }),
         checkUniqueBranch: jest.fn((code, branchname) => {
             if (code === undefined)
@@ -19,7 +20,13 @@ jest.mock('../../db/sql-operation', () => {
         }),
         update: jest.fn(() => {
             return { recordset: [{ hh: 'pp' }, { hh: 'jj' }] }
-        })
+        }),
+        getAll: jest.fn((coulmn) => {
+            return { name: 'aaaa', sum: 9 };
+        }),
+        allTheOption: jest.fn((table, option, text) => {
+            return { name: 'aaaa', sum: 9, age: 4 };
+        }),
     }
 })
 jest.mock('../../modules/suppliers', () => {
@@ -155,6 +162,20 @@ describe('UPDATE BRANCH', () => {
                 expect(error).toBeDefined()
                 expect(error).toBeInstanceOf(Error)
                 expect(error.message).toBe('can not update branch')
+            }
+        })
+    })
+
+    describe('ERRORS', () => {
+        it('should throw an error when it not suitable to sql ', async () => {
+            expect.assertions(3)
+            try {
+                const response = await insertOneBranch({ aaaa: "aaaaa" }, 'x')
+            }
+            catch (error) {
+                expect(error).toBeDefined()
+                expect(error).toBeInstanceOf(Error)
+                expect(error.message).toBe('can not insert branch')
             }
         })
     })

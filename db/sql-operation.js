@@ -9,12 +9,12 @@ async function getAll(table) {
     return result;
 }
 // פונקציה המחזירה תאריך נוכחי
-async function setDate() {
-    await connect()
-    const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
-    await disconnect()
-    return result;
-}
+// async function setDate() {
+//     await connect()
+//     const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
+//     await disconnect()
+//     return result;
+// }
 
 //function that delete supplier and all her branches  
 async function delSupllier(titleSup, titelBran, code, name, date) {
@@ -123,4 +123,4 @@ async function insertSupplierAndBranch(objectBranch) {
 
 
 
-module.exports = { getAll,allTheOption, insertSupplier, delSupllier, delBranches,insertBranch, checkUniqueBranch , setDate, update ,insertSupplierAndBranch}
+module.exports = { getAll,allTheOption, insertSupplier, delSupllier, delBranches,insertBranch, checkUniqueBranch , update ,insertSupplierAndBranch}
