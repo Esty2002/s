@@ -1,9 +1,4 @@
 /node_modules
 .env
-dev
-<<<<<<< HEAD
+/coverage
 
-/coverage
-=======
-/coverage
->>>>>>> c90e3a3d1c7e2c2ca96c228d95f5ab0ff5289826
