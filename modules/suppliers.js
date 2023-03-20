@@ -1,33 +1,33 @@
 require('dotenv').config();
-const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate, update, delSupllier,delBranches}=require('../db/sql-operation');
+const { getAll, allTheOption, insertSupplier, insertBranch, getIsDisabled, setDate, update, delSupllier, delBranches } = require('../db/sql-operation');
 
-const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
+const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 
 // פונקציה ששולחת לפונקציות מחיקה
 async function deleteSupplier(object) {
-    const date=await setDate()
-    const newDate=date.recordset[0].Today
-    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser,newDate)
-    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
-    return (resultSupplierCode,resultBranchCode)
+    const date = await setDate()
+    const newDate = date.recordset[0].Today
+    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, object.SupplierCode, object.DisableUser, newDate)
+    const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
+    return (resultSupplierCode, resultBranchCode)
 }
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
-    try{
-         const result = await getAll('suppliers')
-    return result;
+    try {
+        const result = await getAll('suppliers');
+        return result;
     }
-   catch(error){
-       throw error;
-   }
+    catch (error) {
+        throw error;
+    }
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
-    try{
-        const result = await allTheOption("Suppliers",obj.option,obj.text)
-    return result;
+    try {
+        const result = await allTheOption("Suppliers", obj.option, obj.text)
+        return result;
     }
-    catch(error){
+    catch (error) {
         throw error;
     }
 }
@@ -69,4 +69,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier};
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier };
