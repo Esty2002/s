@@ -39,6 +39,7 @@ class MongoDBOperations {
     }
 }
 
-const me = new  MongoDBOperations()
-module.exports = me;
+ 
+const mongoDb=new MongoDBOperations()
+module.exports=mongoDb;
     
