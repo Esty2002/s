@@ -2,6 +2,8 @@ const express = require('express')
 const router = express.Router();
 
 const { Insert, Delete, Update ,commentAccordingCode,updateAccordingCode} = require('../modules/quotation/update')
+const {  DeleteQuat } = require('../modules/quotation/delete')
+
 
 router.get('/', (req, res) => {
     res.send({ message: 'welcome to router' })
@@ -27,9 +29,17 @@ router.post('/deleteQuotationItems', express.json(), async (req, res) => {
         res.send({ result })   
 })
 
-router.post('/updateQuotationItems', express.json(), async (req, res) => {    
-    const result = await Update(req.body);
+router.post('/updateQuotationItems', express.json(), async (req, res) => {
+      const result = await Update(req.body);
     res.send({ result })
 })
+
+router.post('/deleteQuotation', express.json(), async (req, res) => {
+    const result = await DeleteQuat(req.body);        
+    res.send({ result })   
+})
+
+
+
 
 module.exports = router

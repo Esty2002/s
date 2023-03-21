@@ -56,6 +56,7 @@ async function postComment(obj = null) {
 }
 
 async function insert(obj = null) {
+    console.log(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
     await connect()
     const result = await getConnection().request().query(`INSERT INTO ${obj.table} VALUES (${obj.quotationCode},${obj.rowNumber},${obj.itemCode},${obj.priceList},${obj.amount},${obj.price},${obj.discount},${obj.priceAfterDiscount},${obj.priceChange},${obj.total},'${obj.addedDate}',${obj.disabled},'${obj.disabledDate}')`)
     console.log(result)
@@ -64,4 +65,19 @@ async function insert(obj = null) {
 }
 
 
-module.exports = { insert, del, update, getCode, postComment, updateQuotation }
+async function updateAll(serialNumber) {
+    await connect()
+    const result = await getConnection().request().input('serialNumber', serialNumber).execute('Proc_updateQuotation')
+    await disconnect()
+    return result
+}
+async function deleteAll(serialNumber) {
+    await connect()
+    const result = await getConnection().request().input('serialNumber', serialNumber).execute('Proc_deleteQuotation')
+    disconnect()
+    return result
+}
+
+
+
+module.exports = { insert, del, update, getCode, postComment, updateQuotation ,deleteAll,updateAll}

@@ -8,6 +8,7 @@ app.get('/',(req,res)=>{
 })
 
 app.use(cors())
-app.use('/update',manage_quotation)
+
+app.use('/quotation',manage_quotation)
 
 module.exports = { app }
