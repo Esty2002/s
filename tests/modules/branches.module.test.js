@@ -37,14 +37,6 @@ jest.mock('../../db/sql-operation', () => {
 
     }
 })
-jest.mock('../../services/functions',()=>{
-    return{
-        setDate:jest.fn((stringOfDate)=>{
-            return '01/03/2023';
-        })
-    }
-})
-
 jest.mock('../../modules/suppliers', () => {
     return {
         getSupplier: jest.fn((value1, value2) => {
@@ -61,7 +53,7 @@ jest.mock('../../modules/suppliers', () => {
 jest.mock('../../services/functions', () => {
     return {
         setDate: jest.fn((stringOfDate) => {
-            return '13-12-21';
+            return '01/03/2023';
         })
     }
 })
@@ -145,6 +137,11 @@ describe('CHECK VALID BRANCH', () => {
         const response = await checkValid({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined()
         expect(response).toBeTruthy()
+    })
+    it('should return false  if the content is empty', async () => {
+        const response = await checkValid({ SupplierCode: '', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
+        expect(response).toBeDefined()
+        expect(response).toBeFalsy()
     })
     it('should return false  if it has not all the must keys', async () => {
         const response = await checkValid({ Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })

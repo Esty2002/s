@@ -3,18 +3,16 @@ const { getAll, allTheOption, insertSupplier, updateSupplier, delSupllier, delBr
 const { setDate } = require('../services/functions');
 
 const branchModule = require('./branches');
-
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 
 //delet the supplier and update the fields
 async function deleteSupplier(object) {
     try {
-        const newDate = await setDate(new Date());
+        const newDate = setDate(new Date());
         const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
-        return (resultSupplierCode)
+        return resultSupplierCode
     }
     catch (error) {
-        console.log('error');
         throw new Error('can not delete supplier');
     }
 
@@ -44,10 +42,9 @@ async function insertOneSupplier(object) {
         if (Object.keys(object).length === 2) {
             if (await checkValid(object.supplier) && await checkUnique(object.supplier)) {
                 if (await branchModule.checkValid(object.branch) && await branchModule.checkUnique(object.branch)) {
-                    const date = await setDate(new Date());
+                    const date = setDate(new Date());
                     object.supplier['CreationDate'] = date;
                     object.branch['CreationDate'] = date;
-                    console.log('in check  insertSupplierAndBranch');
                     const result = await insertSupplierAndBranch(object)
                     return result
                 }
@@ -56,7 +53,7 @@ async function insertOneSupplier(object) {
                 }
             }
             else {
-                console.log('noooooooooooooo');
+                console.log('can not insert supplier and branch');
             }
         }
         else {
@@ -64,15 +61,13 @@ async function insertOneSupplier(object) {
                 const date = await setDate(new Date());
                 object['CreationDate'] = date;
                 const result = await insertSupplier(object)
-                console.log('vvvvvvvvvvvvvvvvvvvvvv');
                 return result;
             }
             else {
-                console.log('xxxxxxxxxxxxxxxxxxxxxx');
+                console.log('can not insert supplier');
                 return false;
             }
         }
-
     }
     catch (error) {
         throw error;
@@ -122,7 +117,6 @@ async function updateDetail(code, setting) {
         return result;
     }
     catch {
-        console.log('error');
         throw new Error('can not update branch');
     }
 }

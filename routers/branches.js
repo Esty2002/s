@@ -11,15 +11,18 @@ router.post('/deletebranches', express.json(), async (req, res) => {
         res.status(200).send(true);
     }
     catch (error) {
-        console.log('error');
         res.status(500).send(error);
     }
 })
-
-
+//return all the branches
 router.get('/getallbranches', async (req, res) => {
-    const result = await getAllBranches();
-    res.status(200).send(result);
+    try{
+        const result = await getAllBranches();
+        res.status(200).send(result);
+    }
+    catch(error){
+        res.status(500).send(error);
+    }
 })
 
 router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
@@ -28,7 +31,6 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 })
 
 router.post('/insertbranch', express.json(), async (req, res) => {
-    console.log(req.body);
     try {
         const result = await insertOneBranch(req.body);
         res.status(200).send(result);
@@ -44,7 +46,6 @@ router.post('/updatebranch', express.json(), async (req, res) => {
         res.status(200).send(result)
     }
     catch(error){
-        console.log('error');
         res.status(500).send(error);
     }
 })
@@ -52,11 +53,11 @@ router.post('/updatebranch', express.json(), async (req, res) => {
 
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
     try{
+        console.log({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname });
         const result = await checkUnique({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname })
         res.status(200).send(result)
     }
     catch(error){
-        console.log(error);
         res.status(500).send(error);
     }
 })

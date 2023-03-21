@@ -2,7 +2,6 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
-
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE  Disabled='0'`)
     await disconnect()
@@ -18,8 +17,10 @@ async function delSupllier(titleSup, titelBran, code, name, date) {
 }
 //function that delete branch  
 async function delBranches(title, code, name, date, Bname) {
+    console.log(title, code, name, date, Bname);
+    console.log(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= ${code}  AND BranchName = '${Bname}' `);
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'  AND BranchName = '${Bname}' `)
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= ${code}  AND BranchName = '${Bname}' `)
     await disconnect()
     return result;
 }
@@ -88,7 +89,6 @@ async function insertSupplier(objectSupplier) {
 }
 // פונקצית הוספת סניף ע"י פרוצדורה
 async function insertBranch(objectBranch) {
-    console.log('in insert b');
     await connect();
     const result = await getConnection().request()
         .input('SupplierCode', objectBranch.SupplierCode)
@@ -112,7 +112,6 @@ async function insertBranch(objectBranch) {
         .execute(`usp_insertBranch`);
     await disconnect()
     return result;
-
 }
 // פונקציה המוסיפה בטקנקזציה ספק יחד עם סניף
 async function insertSupplierAndBranch(object) {

@@ -15,11 +15,6 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
     }
 })
 
-router.get('/getSupplierWithCondition/:condition/:value', async (req, res) => {
-    const result = await getSupplierByCondition(req.params.condition, req.params.value);
-    res.status(200).send(result);
-})
-
 router.post('/insertsupplier', express.json(), async (req, res) => {
     try {
         const result = await insertOneSupplier(req.body);

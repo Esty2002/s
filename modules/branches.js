@@ -7,12 +7,13 @@ const { SQL_DB_BRANCHES } = process.env;
 //delet the branch and update the fields
 async function deleteBranches(object) {
     try {
-        const newDate = await setDate(new Date())
-        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
-        return (resultBranchCode)
+        const newDate = setDate(new Date())
+        console.log(object);
+        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.Id, object.DisableUser, newDate, object.BranchName);
+        console.log({resultBranchCode});
+        return resultBranchCode
     }
     catch (error) {
-        console.log('error');
         throw new Error('can not delete branch');
     }
 }
@@ -20,11 +21,6 @@ async function deleteBranches(object) {
 async function updateDetail(code, setting) {
     try {
         if (await checkUniqueBranch(setting)) {
-            // setting.map(f=>{
-            //     console.log('f');
-            //     replace(f, ':','-')
-            // })
-            // REPLACE (f, ':','-')
             const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
             Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code,{'BranchName':setting.OldBranchName})
@@ -35,7 +31,6 @@ async function updateDetail(code, setting) {
         }
     }
     catch {
-        console.log('error');
         throw new Error('can not update branch');
     }
 }
@@ -61,10 +56,9 @@ async function getBranchesByCondition(column, code) {
 }
 //insert branch
 async function insertOneBranch(object) {
-    console.log('in 44');
     try {
         if (await checkValid(object) && await checkUnique(object)) {
-            object['CreationDate'] =await setDate(new Date());
+            object['CreationDate'] = setDate(new Date());
             const result = await insertBranch(object);
             return result;
         }
@@ -73,7 +67,6 @@ async function insertOneBranch(object) {
         }
     }
     catch (error) {
-        console.log('error');
         throw new Error('can not insert branch');
     }
 }
@@ -94,13 +87,12 @@ async function checkValid(object) {
 //check if uniques variable is unique
 async function checkUnique(object) {
     try{
-        const resultSupplierExist = await getSupplier({ option: 'SupplierCode', text: object.SupplierCode })
-        const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName)
+        const resultSupplierExist = await getSupplier({ option: 'Id', text: object.SupplierCode });
+        const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName);
         return (resultBranchName.recordset.length === 0 && (resultSupplierExist.recordset.length !== 0));
     }
     catch(error){
-        console.log('error');
-        throw new Error('can not insert branch');;
+        throw new Error('can not insert branch');
     }
 }
 
