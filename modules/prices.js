@@ -22,7 +22,7 @@ const { selectFromSql, addToSql, updateInSql } = require('../services/sql/sql-op
 async function addPriceList(data) {
 
 
-    let values=`('${setTheDateForSql(data.date)}',
+    let values = `('${setTheDateForSql(data.date)}',
     '${parseInt(data.priceListCode)}',
     '${data.areaName}','${data.itemCode}',
     '${parseInt(data.price)}',
@@ -31,8 +31,8 @@ async function addPriceList(data) {
     '${data.unitOfMeasure}',
     '${setTheDateForSql(data.additionDate)}',
     '${parseInt(data.disable)}',
-    '${setTheDateForSql(data.deleteDate)}')` 
-    const result = await addToSql('priceList',values)
+    '${setTheDateForSql(data.deleteDate)}')`
+    const result = await addToSql('priceList', values)
 
     return result
 }
@@ -40,14 +40,14 @@ async function addPriceList(data) {
 //פונקציה שמעדכנת את התאריך שבו המחירון נכנס לתוקף
 async function updatePriceList(data) {
 
-    const result=updateInSql('priceList',`date='${setTheDateForSql(data.date)}'`,`id='${parseInt(data.id)}'`)
+    const result = updateInSql('priceList', `date='${setTheDateForSql(data.date)}'`, `id='${parseInt(data.id)}'`)
     return result
 }
 
 //   ל -1disable פןנקציה שמוחקת מחירון כלומר מעדכנת את הערך 
 async function deletePriceList(id) {
 
-    const result=updateInSql('priceList',`disable='0'`,`id='${parseInt(id)}'`)
+    const result = updateInSql('priceList', `disable='0'`, `id='${parseInt(id)}'`)
     return result
 }
 
@@ -62,26 +62,26 @@ function setTheDateForSql(date) {
 async function selectAreaAndPriceByItemCode(condition) {
     const result = await selectFromSql('areaName,price', 'priceList', `itemCode=${condition.code}`)
     return result
-    
+
 }
 
 
-async function selectProductByAreaName(condition,flag) {
+async function selectProductByAreaName(condition, flag) {
     let result;
     if (flag) {
-         result = await selectFromSql('itemCode,price', 'priceList', `areaName='${condition.area}'`)
+        result = await selectFromSql('itemCode,price', 'priceList', `areaName='${condition.area}'`)
     }
     else {
-         result = await selectFromSql('itemCode', 'priceList', `areaName='${condition.area}'`)
+        result = await selectFromSql('itemCode', 'priceList', `areaName='${condition.area}'`)
 
     }
     return result;
 }
 
 async function selectAreaByClientOrSupplyCode(condition) {
-log
+
     const result = await selectFromSql('distinct areaName', 'priceList', `priceListCode=${condition.code}`)
-    
+
     return result;
 
 
