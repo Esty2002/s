@@ -42,7 +42,7 @@
 //         expect(methods.allTheOption).toHaveBeenCalled();
 //         expect(methods.allTheOption).toHaveBeenCalledTimes(2);
 //     })
-    
+
 // })
 // //test to deleteSupplier
 
@@ -81,17 +81,31 @@ jest.mock('../../db/sql-operation', () => {
         getAll: jest.fn((table) => {
             return { name: 'aaaa', sum: 9 };
         }),
-        allTheOption: jest.fn((table,option, text) => {
-            if ( option === undefined || text === undefined) {
+        allTheOption: jest.fn((table, option, text) => {
+            if (option === undefined || text === undefined) {
                 throw new Error('can not get without option or value');
             }
             else {
-                return { name:"lll",sum: 9, age: 4 };
+                return { name: "lll", sum: 9, age: 4 };
             }
+        }),
+
+        delSupllier: jest.fn((SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, supplierCode, disableUser, newDate) => {
+            if (disableUser === undefined || supplierCode === undefined)
+                throw new Error('can not delete supplier');
+            else
+                return true;
         }),
     }
 })
-const { getSupplier, getAllSuppliers } = require('../../modules/suppliers');
+jest.mock('../../services/functions', () => {
+    return {
+        setDate: jest.fn((stringOfDate) => {
+            return '13-12-21';
+        })
+    }
+})
+const { getSupplier, getAllSuppliers, deleteSupplier } = require('../../modules/suppliers');
 describe('GETALLSUPPLIER', () => {
 
     it('should return defined object from sql', async () => {
@@ -132,5 +146,21 @@ describe('GETSUPPLIER', () => {
             expect(error).toBeInstanceOf(Error);
             expect(error.message).toBe('can not get without option or value');
         }
+    })
+})
+describe('DELETE SUPPLIER', () => {
+    it('should return defined answer', async () => {
+        const response = await deleteSupplier({ SupplierCode: '123', DisableUser: 'sari' });
+        expect(response).toBeDefined();
+    })
+
+    it('should called delSupplier and setDate -  twice', async () => {
+        _ = await deleteSupplier({ SupplierCode: '123', DisableUser: 'sari' });
+        const result = jest.requireMock('../../db/sql-operation');
+        const { setDate } = jest.requireMock('../../services/functions');
+        expect(result.delSupllier).toHaveBeenCalled();
+        expect(result.delSupllier).toHaveBeenCalledTimes(2);
+        expect(setDate).toHaveBeenCalled();
+        expect(setDate).toHaveBeenCalledTimes(2);
     })
 })
