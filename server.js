@@ -18,7 +18,7 @@ connect().then(_ => {
 })
 
 const r=new MongoDBOperations()
-const a=r.insertOne({ordinalNumber:1,traitName:'22',must:true,shortTrait:'1'
+const a=r.insertOne({ordinalNumber:1,traitName:'55',must:true,shortTrait:'1'
 ,values:[{name:'stam',addedDate:"28/03/03"}],addedDate:"12/03/23",enabled:true})
 
 // sconnect().then(_ => {

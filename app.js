@@ -10,7 +10,6 @@ app.get('/', async (req, res) => {
     res.send("localhost:2222")
 })
 
-
 app.get('/*', (req, res) => {
     res.status(404).send('not found')
 })
