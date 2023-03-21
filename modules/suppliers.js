@@ -1,39 +1,39 @@
 require('dotenv').config();
-const { getAll,allTheOption, insertSupplier,insertBranch,getIsDisabled, setDate, update, delSupllier,delBranches}=require('../db/sql-operation');
+const { getAll, allTheOption, insertSupplier, insertBranch, getIsDisabled, setDate, update, delSupllier, delBranches } = require('../db/sql-operation');
 
-const {SQL_DB_SUPPLIERS ,SQL_DB_BRANCHES} = process.env;
+const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 
 //delet the supplier and update the fields
 async function deleteSupplier(object) {
-    try{
-         const date=await setDate()
-    const newDate=date.recordset[0].Today
-    const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS,SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser,newDate)
-    return (resultSupplierCode)
+    try {
+        const date = await setDate()
+        const newDate = date.recordset[0].Today
+        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
+        return (resultSupplierCode)
     }
-    catch(error){
+    catch (error) {
         console.log('error');
         throw new Error('can not delete supplier');
     }
-   
+
 }
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
-    try{
-         const result = await getAll('suppliers')
-    return result;
+    try {
+        const result = await getAll('suppliers')
+        return result;
     }
-   catch(error){
-       throw error;
-   }
+    catch (error) {
+        throw error;
+    }
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
-    try{
-        const result = await allTheOption("Suppliers",obj.option,obj.text)
-    return result;
+    try {
+        const result = await allTheOption("Suppliers", obj.option, obj.text)
+        return result;
     }
-    catch(error){
+    catch (error) {
         throw error;
     }
 }
@@ -75,4 +75,4 @@ async function checkUnique(object) {
 }
 
 
-module.exports = { deleteSupplier,getAllSuppliers ,insertOneSupplier,checkValid,checkUnique,getSupplier,getBranchesByCondition};
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier };

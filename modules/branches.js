@@ -1,4 +1,4 @@
-const { getAll, setDate, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+const { getAll, setDate, delBranches, update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
 require('dotenv').config();
 const { SQL_DB_BRANCHES } = process.env;
 
@@ -6,7 +6,9 @@ const { SQL_DB_BRANCHES } = process.env;
 async function deleteBranches(object) {
     try {
         const date = await setDate()
+        console.log(object);
         const newDate = date.recordset[0].Today
+        console.log(newDate);
         const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
         return (resultBranchCode)
     }
@@ -24,9 +26,9 @@ async function updateDetail(code, setting) {
             //     replace(f, ':','-')
             // })
             // REPLACE (f, ':','-')
-            const result = await update('Branches',`SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
+            const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
-            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`,code)
+            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code)
         }
         else {
             return false;
