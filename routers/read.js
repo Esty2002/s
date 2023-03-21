@@ -1,6 +1,6 @@
 const router = require('express').Router()
 
-const { getTraits } = require('../modules/read')
+const { getTraits, createCartesian } = require('../modules/read')
 
 router.get('/find', async (req, res) => {
     res.send(await getTraits(Object.keys(req.query)[0] == 'ordinalNumber' ? { ordinalNumber: parseInt(req.query['ordinalNumber']) } : req.query, { _id: 0 }))
@@ -15,7 +15,7 @@ router.get('/alltraitmust/:must', async (req, res) => {
 })
 
 router.get('/cartesian', async (req, res) => {
-    res.send(await getTraits({},{_id:0,shortTrait:1,"values.name":1}))
+    res.status(200).send(await createCartesian(req.query.start))
 })
 
 module.exports = router
