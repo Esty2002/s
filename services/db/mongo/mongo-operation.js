@@ -1,10 +1,10 @@
 require('dotenv').config()
 const { getClient } = require('./mongo_connection')
 
-const { MONGO_DB, COLLECTION_NAME } = process.env
+const { MONGO_DB, MONGO_COLLECTION } = process.env
 
 class MongoDBOperations {
-    constructor(collectionName = COLLECTION_NAME, dbName = MONGO_DB) {
+    constructor(collectionName = MONGO_COLLECTION, dbName = MONGO_DB) {
         console.log("data name:", dbName);
         this.collectionName = collectionName
         this.dbName = dbName

@@ -1,5 +1,5 @@
 const { connect, disconnect } = require('../../../services/db/mongo/mongo_connection')
-const { MongoDBOperations } = require('../../../services/db/mongo/mongo_operation')
+const { MongoDBOperations } = require('../../../services/db/mongo/mongo-operation')
 
 const url = 'mongodb://127.0.0.1:27017'
 

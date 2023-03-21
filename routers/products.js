@@ -1,7 +1,6 @@
-const express = require('express').Router()
-const { updateProduct, insertProduct, findObject } = require('../modules/products')
-const { getTraits } = require('../modules/read')
-
+const express=require('express')
+const router = express.Router()
+const { updateProduct, insertProduct, findObject ,getTraits} = require('../modules/products')
 
 router.post('/addproduct', express.json(), async (req, res) => {
     console.log("req.body", req.body);
