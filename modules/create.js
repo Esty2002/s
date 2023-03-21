@@ -1,58 +1,40 @@
+const { create, read } = require('../services/sql/sql-operations');
 
-const {createReceiptSql ,
-    createCreditReceiptsql ,
-    createCashReceiptsql ,
-    createChequeReceiptsql,
-    createBankTransferReceiptsql,
-    createStandingOrderReceiptsql,
-    getReceiptNumbersql} =require('../services/sql/sql-operations')
+async function createReceipts(obj) {
+    _ = await create['BasicReceipt'](obj);
+};
 
+async function createCashReceiptMod(obj) {
+    _ = await create['Cash'](obj);
+};
 
-async function createReceipts(obj){
-    console.log(obj);
-    const result = await createReceiptSql(obj)
-    // console.log({result});
-}
+async function createChequeMod(obj) {
+    _ = await create['Cheque'](obj);
+};
 
-async function createCashReceiptMod(obj){
-    console.log(obj);
-    const result = await createCashReceiptsql(obj)
-    // console.log({result});
-}
+async function createCreditReceiptMod(obj) {
+    _ = await create['Credit'](obj);
+};
 
-async function createCreditReceiptMod(obj){
-    console.log(obj);
-    const result = await createCreditReceiptsql(obj)
-    // console.log({result});
-}
+async function createStandingOrderMod(obj) {
+    _ = await create['StandingOrder'](obj);
+};
 
-async function createChequeMod(obj){
-    console.log(obj);
-    const result = await createChequeReceiptsql(obj)
-    // console.log({result});
-}
+async function createBankTransferMod(obj) {
+    _ = await create['BankTransfer'](obj);
+};
 
-async function createBankTransferMod(obj){
-    console.log(obj);
-    const result = await createBankTransferReceiptsql(obj)
-    // console.log({result});
-}
+async function getReceiptNumberMod() {
+    _ = await read['MaxReceiptNumber']();
+};
 
-async function createStandingOrderMod(obj){
-    console.log(obj);
-    const result = await createStandingOrderReceiptsql(obj)
-    // console.log({result});
-}
-async function getReceiptNumberMod(){
-    const result = await getReceiptNumbersql()
-
-}
-
-module.exports={createReceipts ,
-createCreditReceiptMod ,
-createCashReceiptMod ,
-createCreditReceiptMod ,
-createBankTransferMod,
-createChequeMod,
-createStandingOrderMod,
-getReceiptNumberMod}
+module.exports = {
+    createReceipts,
+    createCreditReceiptMod,
+    createCashReceiptMod,
+    createCreditReceiptMod,
+    createBankTransferMod,
+    createChequeMod,
+    createStandingOrderMod,
+    getReceiptNumberMod
+};
