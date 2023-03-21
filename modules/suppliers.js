@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertSupplierAndBranch,update } = require('../db/sql-operation');
+const { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertSupplierAndBranch, update } = require('../db/sql-operation');
 const { setDate } = require('../services/functions');
 const branchModule = require('./branches');
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
@@ -8,7 +8,7 @@ const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 async function deleteSupplier(object) {
     try {
         const newDate = setDate(new Date());
-        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
+        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.Id, object.DisableUser, newDate)
         return resultSupplierCode
     }
     catch (error) {
@@ -20,9 +20,9 @@ async function deleteSupplier(object) {
 async function getAllSuppliers() {
     try {
         const result = await getAll('suppliers');
-        return result.recordset;    
+        return result.recordset;
     }
-     catch (error) {
+    catch (error) {
         throw new Error('can not get all suppliers');
     }
 }
@@ -30,7 +30,6 @@ async function getAllSuppliers() {
 async function getSupplier(obj) {
     try {
         const result = await allTheOption("Suppliers", obj.option, obj.text);
-        console.log(result.recordset,'recordset');
         return result.recordset;
     }
     catch (error) {
@@ -82,6 +81,7 @@ async function checkValid(object) {
     }
     return true;
 }
+
 //check if uniques variable is unique
 async function checkUnique(object) {
     const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode);
@@ -94,22 +94,36 @@ async function checkUnique(object) {
     }
     return (resultSuppliersName.recordset.length === 0);
 }
-
+//function to update supplier details
 async function updateDetail(code, setting) {
     try {
-        let flag = true;
-        if (setting.SupplierCode === setting.OldSupplierCode && setting.SupplierName === setting.OldSuppliername) {
+        let flag = true
+        if (setting.SupplierCode === setting.OldSupplierCode && setting.SupplierName === setting.OldSupplierName) {
             flag = false;
         }
-        if (flag === false) {
-            if (!await checkUnique(setting)) {
-                return false;
+        if (flag) {
+            if (setting.SupplierCode === setting.OldSupplierCode) {
+                if (!await checkUnique({ SupplierCode: '', SupplierName: setting.SupplierName })) {
+                    return false;
+                }
+            }
+            else{
+                if (setting.SupplierName === setting.OldSupplierName) {
+                    if (!await checkUnique({ SupplierCode: setting.SupplierCode, SupplierName: '' })) {
+                        return false;
+                    }
+                }
+                else{
+                    if (!await checkUnique({ SupplierCode: setting.SupplierCode, SupplierName: setting.SupplierName })) {
+                        return false;
+                    }
+                }
             }
         }
-        const result = await update('Suppliers',`SupplierCode='${setting.SupplierCode}',SupplierName='${setting.SupplierName}',licensedDealerNumber='${setting.licensedDealerNumber}',
+        const result = await update('Suppliers', `SupplierCode='${setting.SupplierCode}',SupplierName='${setting.SupplierName}',licensedDealerNumber='${setting.licensedDealerNumber}',
         BokkeepingNumber='${setting.BokkeepingNumber}',ObjectiveBank= '${setting.ObjectiveBank}',ConditionGushyPayment='${setting.ConditionGushyPayment}',PreferredPaymentDate='${setting.PreferredPaymentDate}',
         Ovligo='${setting.Ovligo}', Status='${setting.Status}' ,Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
-        Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, {SupplierName:setting.SupplierName})
+        Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, { SupplierName: setting.OldSupplierName })
         return result.recordset;
     }
     catch {

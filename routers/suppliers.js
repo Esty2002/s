@@ -17,7 +17,7 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
 router.post('/insertsupplier', express.json(), async (req, res) => {
     try {
         const result = await insertOneSupplier(req.body);
-        res.status(200).send(result);
+        res.status(200).send(true);
     }
     catch (error) {
         res.status(500).send(error);
@@ -47,12 +47,12 @@ router.get('/checkUnique/:suppliercode/:suppliername', async (req, res) => {
 router.get('/getallSuppliers', async (req, res) => {
     try {
         const result = await getAllSuppliers();
-        if (result.length > 0) {
+        // if (result.length > 0) {
             res.status(200).send(result);
-        }
-        else {
-            res.status(404).send([]);
-        }
+        // }
+        // else {
+            // res.status(404).send([]);
+        // }
     } 
     catch (error) {
         res.status(500).send(error);
@@ -63,12 +63,12 @@ router.get('/getallSuppliers', async (req, res) => {
 router.get('/getSuppliers/:option/:text', async (req, res) => {
     try {
         const result = await getSupplier({ option: req.params.option, text: req.params.text });
-        if (Object.keys(result)>0) {
+        // if (result.length>0) {
             res.status(200).send(result);
-        }
-        else {
-            res.status(404).send([]);
-        }
+        // }
+        // else {
+        //     res.status(404).send([]);
+        // }
     }
     catch (error) {
         res.status(500).send(error);

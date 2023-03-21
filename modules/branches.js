@@ -18,11 +18,10 @@ async function deleteBranches(object) {
 
 async function updateDetail(code, setting) {
     try {
-        if (await checkUniqueBranch(setting)) {
-            console.log(code,setting,"in update details");
+        if (await checkUniqueBranch(code,setting.BranchName)) {
             const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
-            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, { 'BranchName': setting.OldBranchName })
+            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, { 'BranchName': setting.OldBranchName });
             return result.recordset;
         }
         else {
@@ -56,9 +55,10 @@ async function getBranchesByCondition(column, code) {
 //insert branch
 async function insertOneBranch(object) {
     try {
-        if (await checkValid(object) && await checkUnique(object)) {
+        if (checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] = setDate(new Date());
             const result = await insertBranch(object);
+            console.log();
             return result.recordset;
         }
         else {
@@ -70,7 +70,7 @@ async function insertOneBranch(object) {
     }
 }
 //check if must keys not empty and content
-async function checkValid(object) {
+function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
     //לבדוק את מספר הטלפון שהוא תקין
     //לבדוק את תקינות המייל
@@ -88,7 +88,7 @@ async function checkUnique(object) {
     try {
         const resultSupplierExist = await getSupplier({ option: 'Id', text: object.SupplierCode });
         const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName);
-        return (resultBranchName.recordset.length === 0 && (resultSupplierExist.recordset.length !== 0));
+        return (resultBranchName.recordset.length === 0 && (resultSupplierExist.length !== 0));
     }
     catch (error) {
         throw new Error('can not insert branch');

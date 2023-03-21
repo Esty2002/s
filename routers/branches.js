@@ -18,12 +18,12 @@ router.post('/deletebranches', express.json(), async (req, res) => {
 router.get('/getallbranches', async (req, res) => {
     try {
         const result = await getAllBranches();
-        if (result.length > 0) {
+        // if (result.length > 0) {
             res.status(200).send(result);
-        }
-        else {
-            res.status(404).send([]);
-        }
+        // }
+        // else {
+        //     res.status(404).send([]);
+        // }
     }
     catch (error) {
         res.status(500).send(error);

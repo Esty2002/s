@@ -11,8 +11,8 @@ async function getAll(table) {
 async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()
     const result = await getConnection().request().query(
-    `BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'; 
-    UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'; commit`)
+    `BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE Id = ${code}; 
+    UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = ${code}; commit`)
     await disconnect()
     return result;
 }
@@ -25,6 +25,7 @@ async function delBranches(title, code, name, date, Bname) {
 }
 //פונקצית עדכון
 async function update(title, setting, code, other) {
+    console.log(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}' AND ${Object.keys(other)}='${Object.values(other)}'`);
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}' AND ${Object.keys(other)}='${Object.values(other)}'`)
     await disconnect()
@@ -42,7 +43,7 @@ async function allTheOption(table, column, code) {
 async function checkUniqueBranch(code, branchname) {
     await connect()
     const result = await getConnection().request().query(`
-    SELECT * FROM (SELECT * FROM Branches WHERE SupplierCode='${code}' AND Disabled='0' )ss WHERE ss.BranchName ='${branchname}'`)
+    SELECT * FROM (SELECT * FROM Branches WHERE SupplierCode=${code} AND Disabled='0' )ss WHERE ss.BranchName ='${branchname}'`)
     await disconnect()
     return result;
 }
