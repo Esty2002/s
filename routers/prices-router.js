@@ -75,7 +75,6 @@ router.get('/findProductByAreaName/:area', async (req, res) => {
 router.get('/findAreaByClientOrSupplyCode/:code', async (req, res) => {
     try {
         const ans = await selectAreaByClientOrSupplyCode(req.params)
-        console.log('ans-----',ans);
         res.status(200).send(ans)
     } catch (error) {
         res.status(404).send(error)
