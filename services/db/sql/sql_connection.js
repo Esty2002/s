@@ -24,6 +24,5 @@ const sconnect = async (config = myconfig) => {
 const disconnect = () => {
     connection.close()
 }
-
 const getConnection = () => connection
 module.exports = { sconnect, disconnect, getConnection }

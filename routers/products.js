@@ -1,13 +1,13 @@
 const express = require('express')
 const router = express.Router()
-const { updateProduct, insertProduct, findProduct,getTraits} = require('../modules/products')
+const { updateProduct, insertProduct, findProduct, getTraits } = require('../modules/products')
 
 router.post('/UpdateProduct', express.json(), async (req, res) => {
-    console.log("update",req.query,req.body,"------------------------------");
-    res.send( await updateProduct(req.query,req.body))
+    console.log("update", req.query, req.body, "------------------------------");
+    res.send(await updateProduct(req.query, req.body))
 })
 
-router.get('/getItemForSetting', async (req, res) => {  
+router.get('/getItemForSetting', async (req, res) => {
     const product = await findProduct(req.query)
     res.send(product);
 })
@@ -18,8 +18,10 @@ router.post('/addproduct', express.json(), async (req, res) => {
     res.send(id)
 })
 router.get('/find', async (req, res) => {
-    const object = req.query
-    const ans = await findProduct(object)
+    // const object = req.query
+    console.log("req.query",req.query);
+    const ans = await findProduct(req.query)
+    console.log(ans);
     res.send(ans)
 })
 router.get('/getItemForSetting', async (req, res) => {
@@ -39,6 +41,9 @@ router.get('/cartesian', async (req, res) => {
 router.get('/search', async (req, res) => {
     res.send(await getTraits(Object.keys(req.query)[0] == 'ordinalNumber' ? { ordinalNumber: parseInt(req.query['ordinalNumber']) } : req.query, { _id: 0 }))
 })
-
+router.post('/delete', express.json(), async (req, res) => {
+    const ans = await updateProduct(req.body, { enabled: false, deletedDate: new Date() })
+    res.status(200).send(ans)
+})
 
 module.exports = router

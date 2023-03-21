@@ -34,6 +34,18 @@ class MongoDBOperations {
         s[sort] = 1
         return await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).sort(s).toArray()
     }
+    async insertOne(obj) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
+        return result.insertedId
+    }
+    async updateOne(filter = {}, s) {
+        const res = await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, { $set: s })
+        return res
+    }
+
+    async countDocuments() {
+        return await getClient().db(this.dbName).collection(this.collectionName).countDocuments()
+    }
 
 }
 
