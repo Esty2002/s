@@ -40,8 +40,6 @@ describe('GET ALL CLIENTS', () => {
         const response = await request(app).get('/readClient/getAll')
         expect(response.headers['content-type']).toBe('application/json; charset=utf-8')
     })
-
-
 })
 
 describe('FIND CLIENT BY ID', () => {
