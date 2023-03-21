@@ -5,7 +5,7 @@ const mongo_collection_areas = new MongoDBOperations('areas')
 async function insertArea(obj) {
     let filter = { supplierOrClientCode: obj.supplierOrClientCode }
     let what = obj.areasList
-    const result = await mongo_collection_areas.updateOne(filter, { $addToSet: { areasList: what } })
+    const result = await mongo_collection_areas.updateOne(filter, { $addToSet: { areas: what } })
     if (result)
         return result
     else
