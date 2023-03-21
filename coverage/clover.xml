@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<<<<<<< HEAD
 <coverage generated="1679415846736" clover="3.2.0">
   <project timestamp="1679415846737" name="All files">
     <metrics statements="25" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2" elements="30" coveredelements="21" complexity="0" loc="25" ncloc="25" packages="2" files="2" classes="2"/>
+=======
+<coverage generated="1679305779531" clover="3.2.0">
+  <project timestamp="1679305779532" name="All files">
+    <metrics statements="77" coveredstatements="39" conditionals="15" coveredconditionals="5" methods="17" coveredmethods="4" elements="109" coveredelements="48" complexity="0" loc="77" ncloc="77" packages="4" files="5" classes="5"/>
+>>>>>>> c780751bfb237b3d80d3b81eddb56b3c3393b153
     <package name="node">
       <metrics statements="7" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="app.js" path="\\FS\U\welcome to the project\lets concrete\Lccem\ourTeam\Chumi\node\app.js">
@@ -11,6 +17,7 @@
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
         <line num="7" count="0" type="stmt"/>
+<<<<<<< HEAD
         <line num="12" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
       </file>
@@ -19,6 +26,41 @@
       <metrics statements="18" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
       <file name="manageQuotation.js" path="\\FS\U\welcome to the project\lets concrete\Lccem\ourTeam\Chumi\node\routers\manageQuotation.js">
         <metrics statements="18" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+=======
+        <line num="10" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="node.modules.quotation.sql">
+      <metrics statements="19" coveredstatements="9" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="1"/>
+      <file name="delete.js" path="\\FS\U\welcome to the project\lets concrete\Lccem\ourTeam\Chumi\node\modules\quotation\sql\delete.js">
+        <metrics statements="19" coveredstatements="9" conditionals="12" coveredconditionals="4" methods="3" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="0" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="9" count="0" type="stmt"/>
+        <line num="10" count="0" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="18" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="cond" truecount="0" falsecount="2"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="23" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="24" count="1" type="stmt"/>
+        <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="1" type="cond" truecount="1" falsecount="1"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+        <line num="37" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="node.routers">
+      <metrics statements="15" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+      <file name="manageQuotation.js" path="\\FS\U\welcome to the project\lets concrete\Lccem\ourTeam\Chumi\node\routers\manageQuotation.js">
+        <metrics statements="15" coveredstatements="11" conditionals="0" coveredconditionals="0" methods="4" coveredmethods="2"/>
+>>>>>>> c780751bfb237b3d80d3b81eddb56b3c3393b153
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
@@ -27,6 +69,7 @@
         <line num="13" count="1" type="stmt"/>
         <line num="14" count="1" type="stmt"/>
         <line num="15" count="1" type="stmt"/>
+<<<<<<< HEAD
         <line num="16" count="0" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
@@ -37,6 +80,60 @@
         <line num="30" count="0" type="stmt"/>
         <line num="31" count="0" type="stmt"/>
         <line num="35" count="1" type="stmt"/>
+=======
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+        <line num="25" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="node.services.sql">
+      <metrics statements="36" coveredstatements="13" conditionals="3" coveredconditionals="1" methods="9" coveredmethods="1"/>
+      <file name="sql-connection.js" path="\\FS\U\welcome to the project\lets concrete\Lccem\ourTeam\Chumi\node\services\sql\sql-connection.js">
+        <metrics statements="12" coveredstatements="11" conditionals="1" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="20" count="1" type="cond" truecount="1" falsecount="0"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="29" count="1" type="stmt"/>
+        <line num="31" count="1" type="stmt"/>
+      </file>
+      <file name="sql-operations.js" path="\\FS\U\welcome to the project\lets concrete\Lccem\ourTeam\Chumi\node\services\sql\sql-operations.js">
+        <metrics statements="24" coveredstatements="2" conditionals="2" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="5" count="0" type="stmt"/>
+        <line num="6" count="0" type="stmt"/>
+        <line num="7" count="0" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="12" count="0" type="stmt"/>
+        <line num="13" count="0" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="20" count="0" type="stmt"/>
+        <line num="21" count="0" type="stmt"/>
+        <line num="22" count="0" type="stmt"/>
+        <line num="26" count="0" type="stmt"/>
+        <line num="27" count="0" type="stmt"/>
+        <line num="28" count="0" type="stmt"/>
+        <line num="29" count="0" type="stmt"/>
+        <line num="33" count="0" type="stmt"/>
+        <line num="34" count="0" type="stmt"/>
+        <line num="51" count="0" type="stmt"/>
+        <line num="55" count="0" type="stmt"/>
+        <line num="56" count="0" type="stmt"/>
+        <line num="71" count="0" type="stmt"/>
+        <line num="79" count="1" type="stmt"/>
+>>>>>>> c780751bfb237b3d80d3b81eddb56b3c3393b153
       </file>
     </package>
   </project>

@@ -1,26 +1,69 @@
-const { getConnection, connect, disconnect } = require('./sql-connection');
+const { getConnection, connect, disconnect } = require("./sql-connection");
 
+async function getCode(code) {
+    await connect()
+    const result = await getConnection().request().query(`select price from quotationItems where serialNumber=${code} `)
+    console.log(result)
+    disconnect()
+    return result.recordsets[0][0]
+}
 
 async function del(obj = null) {
     await connect()
-    const result = await getConnection().request().query(`DELETE FROM ${obj.table} WHERE ${obj.according} = ${obj.code}`)
+    const result = await getConnection().request().query(`
+    declare @cou int    
+    set @cou=(select quotationCode from quotationItems where serialNumber=${obj.code})   
+    select @cou as qCode
+    DELETE FROM ${obj.table} WHERE ${obj.according}=${obj.code}
+    select count(*) as count from quotationItems where quotationCode=@cou     
+    `)
+    console.log(result)
     disconnect()
-    return result
-}
-
-async function deleteAll(serialNumber) {
-    await connect()
-    const result = await getConnection().request().input('serialNumber', serialNumber).execute('Proc_deleteQuotation')
-    disconnect()
-    return result
+    return result.recordsets
 }
 
 async function update(obj = null) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${obj.table} SET ${obj.all} WHERE ${obj.according}=${obj.code}`)
-    await disconnect()
+    const result = await getConnection().request().query(`
+    declare @cou int 
+    set @cou=(select quotationCode from quotationItems where serialNumber=${obj.code})
+    select @cou as qCode
+     UPDATE ${obj.table} SET ${obj.all} WHERE ${obj.according}=${obj.code}  
+     select count(*) as count from quotationItems where quotationCode=@cou AND disabled=0 
+     `)
+    console.log(result)
+    disconnect()
+    // return result.recordsets[0][0]
+    return result.recordsets
+
+}
+
+async function updateQuotation(val) {
+    console.log(val);
+    await connect()
+    const result = await getConnection().request().input('qc', val).execute('updateQuotation')
+    console.log(result)
+    disconnect()
     return result
 }
+
+async function postComment(obj = null) {
+    await connect()
+    const result = await getConnection().request().query(`UPDATE quotationItems SET price=${obj.price} WHERE serialNumber=${obj.code} AND disabled=0`)
+    console.log(result)
+    disconnect()
+    return result
+}
+
+async function insert(obj = null) {
+    console.log(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+    await connect()
+    const result = await getConnection().request().query(`INSERT INTO ${obj.table} VALUES (${obj.quotationCode},${obj.rowNumber},${obj.itemCode},${obj.priceList},${obj.amount},${obj.price},${obj.discount},${obj.priceAfterDiscount},${obj.priceChange},${obj.total},'${obj.addedDate}',${obj.disabled},'${obj.disabledDate}')`)
+    console.log(result)
+    disconnect()
+    // return result
+}
+
 
 async function updateAll(serialNumber) {
     await connect()
@@ -28,52 +71,13 @@ async function updateAll(serialNumber) {
     await disconnect()
     return result
 }
-
-async function createQuatationTable() {
+async function deleteAll(serialNumber) {
     await connect()
-    const result = await getConnection().request().query(`CREATE TABLE quotation
-    (serialNumber int IDENTITY(1000,1) NOT NULL,
-    clientCode int NOT NULL,  date Date NULL,
-    priceBeforeDiscount int NOT NULL ,
-    discountPercent int NULL,discount int NOT NULL,
-    priceAfterDiscount int NOT NULL,
-    VATPercent int NOT NULL,
-    VAT int NOT NULL,
-    total int NOT NULL,
-    userName int NOT NULL,
-    comments nvarchar(1000) NULL,
-    contact varchar(255) NULL,
-    payoffDate Date NULL,
-    closingComments nvarchar(1000) NULL,
-    addedDate Date NOT NULL,
-    disabled int NOT NULL,
-    disabledDate Date NULL)`)
+    const result = await getConnection().request().input('serialNumber', serialNumber).execute('Proc_deleteQuotation')
     disconnect()
-}
-
-async function createQuatationItamsTable() {
-    await connect()
-    const result = await getConnection().request().query(`CREATE TABLE quotationItems
-    (serialNumber int IDENTITY(1000,1) NOT NULL,
-        quotationCode int NOT NULL,
-        rowNumber int NOT NULL,
-        itemCode int NOT NULL,
-        priceList int NOT NULL,
-        amount int NOT NULL,
-        price int NOT NULL,
-        discount int NULL,
-        priceAfterDiscount int NOT NULL,
-        priceChange int NULL,
-        total int NOT NULL,
-        addedDate Date NOT NULL,
-        disabled int NOT NULL,
-        disabledDate Date NULL)`)
-    disconnect()
+    return result
 }
 
 
 
-
-
-
-module.exports = { createQuatationTable, createQuatationItamsTable, del, update, deleteAll, updateAll }
+module.exports = { insert, del, update, getCode, postComment, updateQuotation ,deleteAll,updateAll}
