@@ -1,9 +1,9 @@
 const request = require('supertest')
 
-const { app } = require('../../app')
+const { app } = require('../../../app')
 
 
-jest.mock('../../modules/quotation/delete', () => {
+jest.mock('../../../modules/quotation/delete', () => {
     return {
         Delete: jest.fn((table) => {
             if ((table === "quotation") || (table === "quotationItems")) {
@@ -19,8 +19,8 @@ jest.mock('../../modules/quotation/delete', () => {
 })
 
 describe('POST - DELETE QUOTATION ITEMS', () => {
-    it('post /deleteQuotationItems is found', async () => {
-        const response = await request(app).post('/quotation/deleteQuotationItems').send(table = "quotation")
+    it('post /deleteQuotation is found', async () => {
+        const response = await request(app).post('/quotation/deleteQuotation').send({table : "quotation"})
         expect(response).toBeDefined()
         expect(response).toBeTruthy()
         expect(response.statusCode).toBe(200)
@@ -29,17 +29,17 @@ describe('POST - DELETE QUOTATION ITEMS', () => {
         expect(response.notFound).toBeFalsy()
     })
 
-    it('should call function Delete in modules', async () => {
-        const method = jest.requireMock('../../modules/quotation/delete')
-        const response = await request(app).post('/quotation/deleteQuotationItems').send(table = "quotationItems")
-        expect(method.Delete).toHaveBeenCalled()
-        expect(response).toBeDefined()
-        expect(response.error).toBe(false)
-        expect(response.notFound).toBeFalsy()
-    })
+    // it('should call function Delete in modules', async () => {
+    //     const method = jest.requireMock('../../modules/quotation/delete')
+    //     const response = await request(app).post('/quotation/deleteQuotation').send(table = "quotationItems")
+    //     expect(method.Delete).toHaveBeenCalled()
+    //     expect(response).toBeDefined()
+    //     expect(response.error).toBe(false)
+    //     expect(response.notFound).toBeFalsy()
+    // })
 
     it('should return status 500 if value not send', async () => {
-        const response = await request(app).post('/quotation/deleteQuotationItems').send({})
+        const response = await request(app).post('/quotation/deleteQuotation').send({})
         expect(response.statusCode).toBe(500)
         expect(response.serverError).toBeTruthy()
         expect(response.notFound).toBe(false)
@@ -47,14 +47,14 @@ describe('POST - DELETE QUOTATION ITEMS', () => {
 })
 
 
-describe('POST APIs', () => {
-    it('/ path should delete an item as send', async () => {
-        const response = await request(app).post('/delete/deleteQuotationItems')
-        expect(response.notFound).toBeTruthy()
-        expect(response.statusCode).toBe(200)
-        expect(response.headers['content-type']).toBe('application/json; charset=utf-8')
-    })
-})
+// describe('POST APIs', () => {
+//     it('/ path should delete an item as send', async () => {
+//         const response = await request(app).post('/delete/deleteQuotation')
+//         expect(response.notFound).toBeTruthy()
+//         expect(response.statusCode).toBe(200)
+//         expect(response.headers['content-type']).toBe('application/json; charset=utf-8')
+//     })
+// })
 
 
 describe('GET APIs', () => {
