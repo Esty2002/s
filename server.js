@@ -4,16 +4,9 @@ const http = require('http')
 const { app } = require('./app')
 const { HOST, PORT } = process.env
 
-
-
-
-
-
-
-
 connect().then(() => {
     app.listen(PORT, HOST, () => {
-        console.log('server is open at http://localhost:2222');
+        console.log(`http://${HOST}:${PORT}`);
     })
 })
 

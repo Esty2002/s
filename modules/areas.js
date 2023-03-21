@@ -24,7 +24,6 @@ async function findAreaByCode(code) {
 }
 
 
-
 async function updateArea(obj) {
 
     const result = await mongo_collection_areas.updateOne({ suplierOrClientCode: parseInt(obj.suplierOrClientCode) }, { $set: { 'areas.$[u]': obj.areas } }, { arrayFilters: [{ 'u.areaName': obj.areas.areaName }] })
@@ -51,6 +50,12 @@ async function deleteArea(phone, area) {
     const result = await mongo_collection_areas.updateOne(phone, { $set: { 'areas.$[u].delate': true } }, { arrayFilters: [{ 'u.areaName': area }] })
     return result
 }
+async function findAreaBySupplierOrClientCode(code, filter) {
+
+    const result = await mongo_collection_areas.findOneWithProject(code, filter)
+    return result
+}
+
 
 
 
@@ -63,4 +68,5 @@ module.exports = {
     deleteArea,
     findAreaOfSupplierOrClient,
     updateArea
+    ,findAreaBySupplierOrClientCode
 }

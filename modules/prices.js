@@ -54,6 +54,7 @@ async function dletePriceList(id) {
 
 //sql פונקציה שמקבלת תאריך ועורכת אותו בהתאמה ל-דרישות
 function setTheDateForSql(date) {
+    console.log(date,"-----------------");
     let newDate = new Date(date).toISOString().split("T").join(" ").split("Z")
     return newDate[0]
 }

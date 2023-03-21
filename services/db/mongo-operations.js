@@ -21,6 +21,11 @@ class MongoDBOperations {
     //     return result
 
     // }
+    async findOneWithProject(filter={}, project={}) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, { projection: project })
+        return result
+    }
+
     async findItems(filter = {}, project = {}) {
         const result = await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).toArray()
         return result;
@@ -39,8 +44,16 @@ class MongoDBOperations {
         console.log('mongo---', result);
         return result
     }
+//     async updateOne(obj) {
+//         const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(obj)
+//         return result
+
+//     }
 }
 
 
 
 module.exports = { MongoDBOperations }
+
+// const mongo=new MongoDBOperations();
+// module.exports =  mongo 

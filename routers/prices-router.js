@@ -63,7 +63,8 @@ router.get('/findProductByAreaName/:area', async (req, res) => {
 // הפונקציה מקבלת קוד ספק/לקוח ומחזירה את האזורים שרשומים אצלו
 router.get('/findAreaByClientOrSupplyCode/:code', async (req, res) => {
     const code=req.params.code 
-    const ans=selectAreaByClientOrSupplyCode(code)
+    const ans=await selectAreaByClientOrSupplyCode(code)
+    console.log(ans);
     res.send(ans)
 
 })
