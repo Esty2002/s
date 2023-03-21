@@ -3,15 +3,14 @@ const { getAll, allTheOption, insertSupplier, updateSupplier, delSupllier, delBr
 const { setDate } = require('../services/functions');
 
 const branchModule = require('./branches');
-
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 
 //delet the supplier and update the fields
 async function deleteSupplier(object) {
     try {
-        const newDate = await setDate(new Date());
-        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate);
-        return resultSupplierCode.recordset;
+        const newDate = setDate(new Date());
+        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
+        return resultSupplierCode
     }
     catch (error) {
         throw new Error('can not delete supplier');
@@ -20,8 +19,13 @@ async function deleteSupplier(object) {
 }
 //function that get dataSuppliers;
 async function getAllSuppliers() {
+    try {
         const result = await getAll('suppliers');
-        return result.recordset;
+        return result.recordset;    
+    }
+     catch (error) {
+        throw new Error('can not get all suppliers');
+    }
 }
 //function that get dateSupplier according to search
 async function getSupplier(obj) {
@@ -38,17 +42,16 @@ async function insertOneSupplier(object) {
         if (Object.keys(object).length === 2) {
             if (await checkValid(object.supplier) && await checkUnique(object.supplier)) {
                 if (await branchModule.checkValid(object.branch) && await branchModule.checkUnique(object.branch)) {
-                    const date = await setDate(new Date());
+                    const date = setDate(new Date());
                     object.supplier['CreationDate'] = date;
                     object.branch['CreationDate'] = date;
                     const result = await insertSupplierAndBranch(object);
                     return result.recordset;
                 }
-                else {
-
-                }
             }
-           
+            else {
+                return false;
+            }
         }
         else {
             if (await checkValid(object) && await checkUnique(object)) {

@@ -39,7 +39,6 @@ jest.mock('../../modules/branches', () => {
         deleteBranches: jest.fn((object) => {
             return object;
         })
-
     }
 })
 let server;
@@ -90,17 +89,17 @@ describe('POST API', () => {
     })
 
     describe('DELETE BRANCH', () => {
+        it('post("/deleteBranches") is found', async () => {
+            const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
+            expect(response.statusCode).toBe(200);
+            expect(response).toBeTruthy();
+        })
         it('should call deleteBranches', async () => {
             const methods = jest.requireMock('../../modules/branches');
             const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
             expect(methods.deleteBranches).toHaveBeenCalled();
             expect(methods.deleteBranches).toHaveBeenCalledTimes(2);
             expect(response).toBeDefined()
-        })
-        it('post("/deleteBranches") is found', async () => {
-            const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
-            expect(response.statusCode).toBe(200);
-            expect(response).toBeTruthy();
         })
 
     })
@@ -110,7 +109,6 @@ describe('GET API', () => {
         it('get("/checkUnique/:supplierCode/:branchname") is found', async () => {
             const response = await request(app).get('/branches/checkUnique/123/aaa');
             expect(response).toBeDefined()
-            console.log(response);
             expect(response.status).toBe(200);
             expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
         })
@@ -126,8 +124,8 @@ describe('GET API', () => {
             expect(response).toBeDefined()
             expect(response.statusCode).toBe(500)
         })
-
     })
+
     describe(('GET ALLBRANCHES '), () => {
         it('get("/branches/getallbranches") returns an answer if get from findBranch obj', async () => {
             const response = await request(app).get('/branches/getallbranches');
@@ -136,7 +134,7 @@ describe('GET API', () => {
         })
     })
 
-    describe(('GETBRANCHES '), () => {
+    describe(('GET BRANCHES '), () => {
         it('get("/branches/getBranchesWithCondition/BranchCode/12") returns an answer if get from findBranch obj', async () => {
             const response = await request(app).get('/branches/getBranchesWithCondition/BranchCode/12');
             expect(response.statusCode).toBe(200);

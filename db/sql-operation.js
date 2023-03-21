@@ -17,8 +17,10 @@ async function delSupllier(titleSup, titelBran, code, name, date) {
 }
 //function that delete branch  
 async function delBranches(title, code, name, date, Bname) {
+    console.log(title, code, name, date, Bname);
+    console.log(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= ${code}  AND BranchName = '${Bname}' `);
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= '${code}'  AND BranchName = '${Bname}' `)
+    const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= ${code}  AND BranchName = '${Bname}' `)
     await disconnect()
     return result;
 }
@@ -110,7 +112,6 @@ async function insertBranch(objectBranch) {
         .execute(`usp_insertBranch`);
     await disconnect()
     return result;
-
 }
 // פונקציה המוסיפה בטקנקזציה ספק יחד עם סניף
 async function insertSupplierAndBranch(object) {

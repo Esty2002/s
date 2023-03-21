@@ -27,8 +27,8 @@ async function connectToSql() {
     await connect();
 
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_SUPPLIERS}') CREATE TABLE [dbo].[${SQL_DB_SUPPLIERS}](
-        Id int Identity (1000,1) NOT NULL,
-        SupplierCode nvarchar(50) NOT NULL  PRIMARY KEY,
+        Id int Identity (1000,1) NOT NULL PRIMARY KEY,
+        SupplierCode nvarchar(50) NOT NULL  ,
         SupplierName nvarchar(50)NOT NULL,
         licensedDealerNumber nvarchar(20)NOT NULL,
         BokkeepingNumber nvarchar(20) NULL,
@@ -54,7 +54,7 @@ async function connectToSql() {
         )`);
         _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_BRANCHES}') CREATE TABLE [dbo].[${SQL_DB_BRANCHES}](
             Id int Identity (1000,1) NOT NULL ,
-            SupplierCode nvarchar(50)NOT NULL FOREIGN KEY(SupplierCode) REFERENCES ${SQL_DB_SUPPLIERS}(SupplierCode),
+            SupplierCode INT NOT NULL FOREIGN KEY(Id) REFERENCES ${SQL_DB_SUPPLIERS}(Id),
             BranchName nvarchar(20)NOT NULL,
             Status int NOT NULL,
             Street nvarchar(20)NOT NULL,
