@@ -9,6 +9,37 @@ async function deleteReceipt(ReceiptNumber) {
      return result;
 }
 
+
+
+async function getAll(table = 'BasicDetails') {
+    await connect()
+    const result = await getConnection().request().query(`select top 10 ReceiptNumber,ClientCode,DateReceipt,TotalSum,UserName  from ${table} order by DateReceipt desc`)
+    console.log(result+"  hello");
+    disconnect()
+    return result;
+}
+async function getByOption(table = 'BasicDetails', option = null, value = null) {
+    await connect()
+    const result = await getConnection().request().query(`select ReceiptNumber,ClientCode,DateReceipt,TotalSum,UserName
+    from ${table} where ${option}='${value}'`)
+    console.log(result);
+    disconnect()
+    return result
+}
+async function getByPaymentType(table = 'BasicDetails',value=0) {
+    await connect()
+    const result = await getConnection().request().query(`select ReceiptNumber,ClientCode,DateReceipt,TotalSum,UserName
+    from ${table}
+    where 
+    (ReceiptNumber in(select ReceiptNumber from NormalizationTable
+    where ${value}=PaymentId)) `)
+    console.log(result+"  hello");
+    disconnect()
+    return result;
+}
+
+
+
 //חשבונית בסיסית
 async function createReceiptSql(obj){
 console.log({obj});
@@ -128,4 +159,5 @@ createBankTransferReceiptsql,
 createCashReceiptsql,
 createChequeReceiptsql,
 createStandingOrderReceiptsql,
-getReceiptNumbersql}
+getReceiptNumbersql,
+getByOption,getAll ,getByPaymentType}
