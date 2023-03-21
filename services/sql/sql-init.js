@@ -131,7 +131,7 @@ async function createTables() {
         --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES NormalizationTable(ReceiptNumber)  NOT NULL,
         ReceiptNumber NVARCHAR(20)  NOT NULL,
         SumOfBankTransfer INT NOT NULL,
-        TransferDate DATE NOT NULL,
+        TransferDate  NVARCHAR(20) NOT NULL,
         Proof NVARCHAR(100) NOT NULL,
         ProofNumber NVARCHAR(30) NOT NULL,
         AccountNumber NVARCHAR(15) NOT NULL,
