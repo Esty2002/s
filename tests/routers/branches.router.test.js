@@ -19,6 +19,9 @@ jest.mock('../../modules/branches', () => {
             else {
                 return { condition: "aaaa", value: "kkkk" };
             }
+        }),
+        deleteBranches:jest.fn((object) => {
+            return object;
         })
     }
 })
@@ -53,6 +56,22 @@ describe('POST API', () => {
             expect(response.statusCode).toBe(500)
         })
 
+    })
+
+    describe('DELETE BRANCH', () => {
+        it('should call deleteBranches', async () => {
+            const methods = jest.requireMock('../../modules/branches');
+            const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
+            expect(methods.deleteBranches).toHaveBeenCalled();
+            // expect(methods.insertOneBranch).toHaveBeenCalledTimes(1);
+            expect(response).toBeDefined()
+        })
+
+        it('post("/deleteBranches") is found', async () => {
+            const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
+            expect(response.statusCode).toBe(200);
+            expect(response).toBeTruthy();
+        })
     })
 })
 
