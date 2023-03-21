@@ -42,6 +42,7 @@ async function updateArea(obj) {
 
 async function findSupplierOrClient(code) {
     const result = await mongo_collection_areas.findOne({ supplierOrClientCode: code })
+    console.log(result);
     if (result)
         return result
     else

@@ -1,4 +1,5 @@
 const { getConnection, connect, disconnect } = require("../services/sql/sql-connection");
+const { selectFromSql, addToSql, updateInSql } = require('../services/sql/sql-operations')
 
 //  sql-פונקציה שיוצרת את הטבלה של המחירונים ב
 async function createTable() {
@@ -60,66 +61,59 @@ function setTheDateForSql(date) {
 }
 
 
-async function selectAreaAndPriceByItemCode(itemCode) {
-    await connect()
-    const result = await getConnection().request().query(`SELECT areaName,price FROM priceList WHERE itemCode=${itemCode}`)
-    console.log(result.recordset);
-    disconnect()
-    return result.recordset
-
-}
-
-async function selectProductAndPricesByAreaName(areaName) {
-    await connect()
-    const result = await getConnection().request().query(`SELECT itemCode,price FROM priceList WHERE areaName='${areaName}'`)
-    console.log(result.recordset);
-    disconnect()
-    return result.recordset
-}
-async function selectProductByAreaName(areaName) {
-    await connect()
-    const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE areaName='${areaName}'`)
-    console.log(result.recordset);
-    disconnect()
-    return result.recordset
-
-}
-
-async function selectAreaByClientOrSupplyCode(code) {
-    await connect()
-    code = parseInt(code)
-    const result = await getConnection().request().query(`SELECT distinct areaName FROM priceList WHERE priceListCode=${code}`)
-    console.log('code----', code, '  result---', result.recordset);
-    disconnect()
-    return result.recordset
-}
 
 
-async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode, areaName, itemCode) {
-    priceListCode = parseInt(priceListCode)
-    await connect()
-    const result = await getConnection().request().query(`SELECT id,date,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure FROM priceList WHERE priceListCode='${parseInt(priceListCode)}' AND areaName='${areaName}' AND itemCode='${parseInt(itemCode)}'`)
-    disconnect()
-    return (result.recordset)
-}
-async function selectProductsOfSupplierOrClientByAreaName(select, table, condition) {
 
-    const result = await selectFromSql(select, table, condition)
+
+
+
+
+
+
+
+
+
+
+async function selectAreaAndPriceByItemCode(condition) {
+    const result = await selectFromSql('areaName,price', 'priceList', `itemCode=${condition.code}`)
+    console.log("chavi  ",result);
     return result
+
 }
 
 
-async function selectFromSql(select, table, condition) {
-
-    await connect()
-    const result = await getConnection().request().query(`SELECT ${select} FROM ${table} WHERE ${condition}`)
-    console.log(result.recordset);
-    disconnect()
-    if (result) {
-        return result.recordset
+async function selectProductByAreaName(condition,flag) {
+    let result;
+    if (flag) {
+         result = await selectFromSql('itemCode,price', 'priceList', `areaName='${condition.area}'`)
     }
-    else
-        throw new Error('not found')
+    else {
+         result = await selectFromSql('itemCode', 'priceList', `areaName='${condition.area}'`)
+
+    }
+    return result;
+}
+
+async function selectAreaByClientOrSupplyCode(condition) {
+
+    const result = await selectFromSql('distinct areaName', 'priceList', `priceListCode=${condition.code}`)
+    return result;
+
+
+}
+
+
+async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(condition) {
+
+    const result = await selectFromSql('id,priceListCode,areaName,itemCode,price,reduction,primaryAmount,unitOfMeasure', 'priceList', `priceListCode='${condition.code}' AND areaName='${condition.area}' AND itemCode=${parseInt(condition.productCode)}`)
+    return result;
+
+
+}
+async function selectProductsOfSupplierOrClientByAreaName(condition) {
+
+    const result = await selectFromSql('itemCode', 'priceList', `priceListCode=${condition.code} AND areaName='${condition.areaName}'`)
+    return result
 }
 
 module.exports = {
@@ -132,6 +126,5 @@ module.exports = {
     selectProductsOfSupplierOrClientByAreaName,
     setTheDateForSql,
     selectAreaAndPriceByItemCode,
-    selectProductAndPricesByAreaName,
     selectProductByAreaName
 }

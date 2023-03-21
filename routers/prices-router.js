@@ -1,18 +1,19 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { addPriceList, updatePriceList, dletePriceList, selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode, selectProductsOfSupplierOrClientByAreaName } = require('../modules/prices')
+const { createTable, addPriceList, updatePriceList, dletePriceList, selectAreaAndPriceByItemCode, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode, selectProductsOfSupplierOrClientByAreaName } = require('../modules/prices')
 
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
+    await createTable()
     res.send('priceList')
 })
 
 
+// --------------------------------------------------------------
 router.get('/findPriceListByPriceListCodeAndAreaNameAndItemCode/:code/:area/:productCode', async (req, res) => {
-    console.log(req.params.code, req.params.area, req.params.productCode);
     try {
-        const ans = await selectAllAreasByPriceListCodeAndAreaNameAndItemCode(req.params.code, req.params.area, req.params.productCode)
+        const ans = await selectAllAreasByPriceListCodeAndAreaNameAndItemCode(req.params)
         res.status(200).send(ans)
     } catch (error) {
         res.status(404).send(error)
@@ -21,53 +22,94 @@ router.get('/findPriceListByPriceListCodeAndAreaNameAndItemCode/:code/:area/:pro
 })
 
 router.get('/findProductsOfSupplierOrClientByAreaName/:code/:areaName', async (req, res) => {
-    console.log('find');
-    // const ans = await selectProductsOfSupplierOrClientByAreaName(req.params.code, req.params.areaName)
-    const ans = await selectProductsOfSupplierOrClientByAreaName('itemCode', 'priceList', `priceListCode=${req.params.code} AND areaName='${req.params.areaName}'`)
+    try {
+        const ans = await selectProductsOfSupplierOrClientByAreaName(req.params)
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+    }
 
-    res.send(ans)
 })
 
 
 
 // הפונקציה מקבלת קוד פריט ומחזירה את האזורים שבו הוא משווק ואת מחירו בכל אזור
 router.get('/findAreaAndPriceByItemCode/:code', async (req, res) => {
-    const itemCode = req.params.code
-    const ans = await selectAreaAndPriceByItemCode(itemCode)
-    res.send(ans)
+    try {
+        const ans = await selectAreaAndPriceByItemCode(req.params)
+        res.status(200).send(ans)
+
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
 
 })
 
 // הפונקציה מקבלת שם אזור ומחזירה את המוצרים המשווקים שם ואת מחירם
 router.get('/findProductAndPricesByAreaName/:area', async (req, res) => {
-    const areaName = req.params.area  //  מקבלת שם אזור
-    const ans = await selectProductAndPricesByAreaName(areaName)
-    res.send(ans)
+    try {
+        const ans = await selectProductByAreaName(req.params, true)
+        res.status(200).send(ans)
+
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
 
 })
 
 // הפונקציה מקבלת שם אזור ומחזירה את המוצרים המשווקים שם
 router.get('/findProductByAreaName/:area', async (req, res) => {
-    const areaName = req.params.area
-    const ans = selectProductByAreaName(areaName)
-    res.send(ans)
+    try {
+        const ans = selectProductByAreaName(req.params, false)
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+
 })
 
 // הפונקציה מקבלת קוד ספק/לקוח ומחזירה את האזורים שרשומים אצלו
 router.get('/findAreaByClientOrSupplyCode/:code', async (req, res) => {
-    const code = req.params.code
-    const ans = await selectAreaByClientOrSupplyCode(code)
-    console.log(ans);
-    res.send(ans)
+    try {
+        const ans = await selectAreaByClientOrSupplyCode(req.params)
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+
 
 })
 
 //  הפונקציה מקבלת:קוד ספק/לקוח,שם אזור וקוד פריט ומחזירה את האוביקט של המחירון שתואם לנתונים
-router.get('/findAllAreasByPriceListCodeAndAreaNameAndItemCode/:code/:area/:productCode', async (req, res) => {
-    console.log("in router5");
-    const ans = selectAllAreasByPriceListCodeAndAreaNameAndItemCode(req.params.code, req.params.area, req.params.productCode)
-    res.send(ans)
-})
+// router.get('/findAllAreasByPriceListCodeAndAreaNameAndItemCode/:code/:area/:productCode', async (req, res) => {
+//     try {
+//         const ans = selectAllAreasByPriceListCodeAndAreaNameAndItemCode(req.params)
+//         res.status(200).send(ans)
+//     } catch (error) {
+//         res.status(404).send(error)
+
+//     }
+
+// })
+
+// מי שצריכה את הפונקציה הזאת שתשתמש בפונקציה הם עושות אותו דבר בדיוק  findPriceListByPriceListCodeAndAreaNameAndItemCode
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 //  הוספת מחירון -מקבל אוביקט של הנתוהים ומכניס ל__ ומחזיר כמה שורות הושפעו בתוך מערך

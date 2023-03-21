@@ -21,7 +21,7 @@ jest.mock('../../modules/sql/prices', () => {
         updatePriceList:jest.fn(()=>{
             return "good"
         }),
-        dletePriceList:jest.fn(()=>{
+        deletePriceList:jest.fn(()=>{
             return "delete"
         })
     }
@@ -94,8 +94,8 @@ describe('POST APIs',()=>{
     it('/deletePriceList',async()=>{
         const response = await request(app).post('/prices/deletePriceList',{name:'shoshi',delete:1})  
         const method = jest.requireMock('../../modules/sql/prices')
-        expect(method.dletePriceList).toHaveBeenCalled()
-        expect(method.dletePriceList).toHaveBeenCalledTimes(1)
+        expect(method.deletePriceList).toHaveBeenCalled()
+        expect(method.deletePriceList).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
 
     })

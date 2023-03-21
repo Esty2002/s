@@ -9,7 +9,6 @@ router.get('/', (req, res) => {
     res.send('into router...')
 })
 
-//o.k
 router.get('/isExist/:code', async (req, res) => {
     console.log('isExist');
     const phone = req.params.code

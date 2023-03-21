@@ -226,7 +226,7 @@
 <span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const router = require('express').Router()
 const express = require('express')
 &nbsp;
-const {  addPriceList, updatePriceList, dletePriceList,selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode,selectProductsOfSupplierOrClientByAreaName } = require('../modules/prices')
+const {  addPriceList, updatePriceList, deletePriceList,selectAreaAndPriceByItemCode, selectProductAndPricesByAreaName, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode,selectProductsOfSupplierOrClientByAreaName } = require('../modules/prices')
 &nbsp;
 &nbsp;
 router.get('/', <span class="fstat-no" title="function not covered" >(r</span>eq, res) =&gt; {
@@ -245,7 +245,7 @@ router.post('/updatePriceList', express.json(), <span class="fstat-no" title="fu
 })
 // מחיקרת מחירון-מצפה לקבל אוביקט שמכיל את ה "יד" ומחזיר כמה שורות הושפעו בתוך מערך                   
 router.post('/deletePriceList', express.json(), <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {
-    const result = <span class="cstat-no" title="statement not covered" >await dletePriceList(req.body.id)</span>
+    const result = <span class="cstat-no" title="statement not covered" >await deletePriceList(req.body.id)</span>
 <span class="cstat-no" title="statement not covered" >    res.send(result)</span>
 })
 router.get('/findPriceListByPriceListCodeAndAreaNameAndItemCode/:code/:area/:productCode', <span class="fstat-no" title="function not covered" >as</span>ync (req, res) =&gt; {

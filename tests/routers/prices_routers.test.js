@@ -61,3 +61,32 @@ describe('GET APIs', () => {
 
 
 })
+
+describe('POST APIs',()=>{
+    it('/addPriceList',async()=>{
+        const response = await request(app).post('/prices/addPriceList',{name:'shoshi',age:5})  
+        const method = jest.requireMock('../../modules/sql/prices')
+        expect(method.addPriceList).toHaveBeenCalled()
+        expect(method.addPriceList).toHaveBeenCalledTimes(1)
+        expect(response).toBeDefined();
+
+    })
+    it('/updatePriceList',async()=>{
+        const response = await request(app).post('/prices/updatePriceList',{name:'shoshi',age:8})  
+        const method = jest.requireMock('../../modules/sql/prices')
+        expect(method.updatePriceList).toHaveBeenCalled()
+        expect(method.updatePriceList).toHaveBeenCalledTimes(1)
+        expect(response).toBeDefined();
+
+    })
+    it('/deletePriceList',async()=>{
+        const response = await request(app).post('/prices/deletePriceList',{name:'shoshi',delete:1})  
+        const method = jest.requireMock('../../modules/sql/prices')
+        expect(method.deletePriceList).toHaveBeenCalled()
+        expect(method.deletePriceList).toHaveBeenCalledTimes(1)
+        expect(response).toBeDefined();
+
+    })
+
+
+})
