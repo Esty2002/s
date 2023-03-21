@@ -3,7 +3,7 @@ const request = require('supertest');
 jest.mock('../../modules/branches', () => {
     return {
         insertOneBranch: jest.fn((object) => {
-            if(object.SupplierCode===undefined){
+            if (object.SupplierCode === undefined) {
                 throw new Error('can not insert')
             }
             else
@@ -12,51 +12,52 @@ jest.mock('../../modules/branches', () => {
         getAllBranches: jest.fn(() => {
             return 'true';
         }),
-        getBranchesWithCondition: jest.fn((condition, value) => {
+        getBranchesByCondition: jest.fn((condition, value) => {
             if (condition === undefined && value === undefined) {
-                throw new Error('can not getBranchesWithCondition')
+                throw new Error('can not getBranchesByCondition')
             }
             else {
                 return { condition: "aaaa", value: "kkkk" };
             }
         }),
-        updateDetail:jest.fn((code,object)=>{
+        updateDetail: jest.fn((code, object) => {
             console.log(code);
             console.log(object);
-            if(object.BranchName===undefined){
+            if (object.BranchName === undefined) {
                 throw new Error('can not update')
             }
             else
                 return object;
         }),
-        checkUnique:jest.fn((object)=>{
-            if(object.BranchName==='yyy'){
+        checkUnique: jest.fn((object) => {
+            if (object.BranchName === 'yyy') {
                 throw new Error('can not check')
             }
             else
                 return object;
+        }),
+        deleteBranches: jest.fn((object) => {
+            return object;
         })
+
     }
 })
-
-
 let server;
 
 beforeAll(() => {
     server = app.listen('1500')
 })
-
 describe('POST API', () => {
     describe('INSERT BRANCH', () => {
         it('post("/insertbranch") is found', async () => {
-            const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: "aaa", BranchName: 'jjj' });
+            const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: 'aaa', BranchName: 'jjj' });
             expect(response).toBeDefined()
             expect(response.status).toBe(200);
             expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
         })
         it('should call insertOneBranch', async () => {
             const methods = jest.requireMock('../../modules/branches');
-            const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: "aaa", BranchName: 'jjj' });
+            const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: 'aaa', BranchName: 'jjj' });
             expect(methods.insertOneBranch).toHaveBeenCalled();
             expect(methods.insertOneBranch).toHaveBeenCalledTimes(2);
             expect(response).toBeDefined()
@@ -70,13 +71,13 @@ describe('POST API', () => {
 
     describe('UPDATE BRANCH', () => {
         it('post("/updatebranch") is found', async () => {
-            const response = await request(app).post('/branches/updatebranch').send({BranchName: 'jjj' ,SupplierCode:123});
+            const response = await request(app).post('/branches/updatebranch').send({ BranchName: 'jjj', SupplierCode: 123 });
             expect(response).toBeDefined()
             expect(response.status).toBe(200);
         })
         it('should call updateDetail', async () => {
             const methods = jest.requireMock('../../modules/branches');
-            const response = await request(app).post('/branches/updatebranch').send({ BranchName: 'jjj',SupplierCode:123});
+            const response = await request(app).post('/branches/updatebranch').send({ BranchName: 'jjj', SupplierCode: 123 });
             expect(methods.updateDetail).toHaveBeenCalled();
             expect(methods.updateDetail).toHaveBeenCalledTimes(2);
             expect(response).toBeDefined()
@@ -87,8 +88,23 @@ describe('POST API', () => {
             expect(response.statusCode).toBe(500)
         })
     })
-})
 
+    describe('DELETE BRANCH', () => {
+        it('should call deleteBranches', async () => {
+            const methods = jest.requireMock('../../modules/branches');
+            const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
+            expect(methods.deleteBranches).toHaveBeenCalled();
+            expect(methods.deleteBranches).toHaveBeenCalledTimes(2);
+            expect(response).toBeDefined()
+        })
+        it('post("/deleteBranches") is found', async () => {
+            const response = await request(app).post('/branches/deleteBranches', { SupplierCode: "aaa", BranchName: 'jjj' });
+            expect(response.statusCode).toBe(200);
+            expect(response).toBeTruthy();
+        })
+
+    })
+})
 describe('GET API', () => {
     describe('CHECK UNIQUE BRANCH NAME', () => {
         it('get("/checkUnique/:supplierCode/:branchname") is found', async () => {
@@ -110,7 +126,7 @@ describe('GET API', () => {
             expect(response).toBeDefined()
             expect(response.statusCode).toBe(500)
         })
-        
+
     })
     describe(('GET ALLBRANCHES '), () => {
         it('get("/branches/getallbranches") returns an answer if get from findBranch obj', async () => {

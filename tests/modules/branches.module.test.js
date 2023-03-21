@@ -20,15 +20,20 @@ jest.mock('../../db/sql-operation', () => {
         getAll: jest.fn((table) => {
             return { name: 'aaaa', sum: 9 };
         }),
-        allTheOption: jest.fn((table,option, text) => {
+        allTheOption: jest.fn((table, option, text) => {
             if (option === undefined || text === undefined) {
                 throw new Error('can not get without option or value');
             }
             else {
-                return {  sum: 9, age: 4 };
+                return { sum: 9, age: 4 };
             }
         }),
-
+        delBranches: jest.fn((title, code, name, date, Bname) => {
+            if (name === undefined || code === undefined || Bname === undefined)
+                throw new Error('can not delete branch');
+            else
+                return true;
+        })
 
     }
 })
@@ -53,14 +58,20 @@ jest.mock('../../modules/suppliers', () => {
         })
     }
 })
+jest.mock('../../services/functions', () => {
+    return {
+        setDate: jest.fn((stringOfDate) => {
+            return '13-12-21';
+        })
+    }
+})
 
-const { insertOneBranch, checkUnique, updateDetail ,checkValid,getAllBranches, getBranchesByCondition } = require('../../modules/branches');
-// const {setDate} = require('../../services/functions')
+const { insertOneBranch, checkUnique, updateDetail, checkValid, getAllBranches, getBranchesByCondition, deleteBranches } = require('../../modules/branches');
 
 describe('INSERT BRANCH', () => {
     it('should call insertBranch and setDate and checkUniqueBranch and getSupplier', async () => {
-        const { insertBranch, checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
-        const {setDate}=jest.requireMock('../../services/functions');
+        const { insertBranch, checkUniqueBranch } = jest.requireMock('../../db/sql-operation');
+        const { setDate } = jest.requireMock('../../services/functions');
         const { getSupplier } = jest.requireMock('../../modules/suppliers')
         const response = await insertOneBranch({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(insertBranch).toHaveBeenCalled()
@@ -177,9 +188,39 @@ describe('UPDATE BRANCH', () => {
         })
     })
 })
+//test to deleteBranch
+describe('DELETE BRANCH', () => {
+    it('should return defined answer', async () => {
+        const response = await deleteBranches({ SupplierCode: '123', DisableUser: 'Sari', branchName: 'Ruty' });
+        expect(response).toBeDefined();
+    })
+
+    it('should called delBranches and setDate -  twice', async () => {
+        _ = await deleteBranches({ SupplierCode: '123', DisableUser: 'Sari', branchName: 'Ruty' });
+        const result = jest.requireMock('../../db/sql-operation')
+
+        expect(result.delSupllier).toHaveBeenCalled();
+        expect(result.delSupllier).toHaveBeenCalledTimes(2);
+        expect(result.setDate).toHaveBeenCalled();
+        expect(result.setDate).toHaveBeenCalledTimes(2);
+    })
+
+    it('shoult throw Error if not get in object keys:SupplierCode or DisableUser', async () => {
+        expect.assertions(3);
+        try {
+            const response = await deleteBranches({});
+        }
+        catch (error) {
+            expect(error).toBeDefined()
+            expect(error).toBeInstanceOf(Error)
+            expect(error.message).toBe('can not delete branch')
+        }
+    })
+
+})
 
 
-describe('get all the branches',()=>{
+describe('GETALLBRANCH', () => {
 
     it('should return defined object from sql', async () => {
         const response = await getAllBranches();
@@ -193,15 +234,16 @@ describe('get all the branches',()=>{
         expect(methods.getAll).toHaveBeenCalledTimes(2);
     })
 })
+
 describe('GETBRANCH', () => {
 
     it('should return defined object from sql', async () => {
-        const response = await getBranchesByCondition( 'SupplierCode','08-8666515' );
+        const response = await getBranchesByCondition('SupplierCode', '08-8666515');
         expect(response).toBeDefined();
     })
 
     it('if you can to connect sql', async () => {
-        _ = await getBranchesByCondition('SupplierCode',  '08-8666515' );
+        _ = await getBranchesByCondition('SupplierCode', '08-8666515');
         const methods = jest.requireMock('../../db/sql-operation')
         expect(methods.allTheOption).toHaveBeenCalled();
         expect(methods.allTheOption).toHaveBeenCalledTimes(2);
@@ -219,7 +261,7 @@ describe('GETBRANCH', () => {
             expect(error.message).toBe('can not get without option or value');
         }
     })
- 
+
 })
 
 
