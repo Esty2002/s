@@ -31,11 +31,9 @@ class MongoDBOperations {
         return result;
     }
 
-    async findOne(filter = {}, elemMatch = {}, project = {}) {
+    async findOne(filter = {}, elemMatch = {}) {
         console.log('filter  ', filter);
-        // console.log('elemath  ', elemMatch);
         const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, elemMatch)
-        // console.log('mongo---', result);
         return result
     }
     async updateOne(filter = {}, what = {}, arrayFilters = {}) {
@@ -44,11 +42,7 @@ class MongoDBOperations {
         console.log('mongo---', result);
         return result
     }
-//     async updateOne(obj) {
-//         const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(obj)
-//         return result
 
-//     }
 }
 
 

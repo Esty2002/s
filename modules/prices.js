@@ -54,7 +54,7 @@ async function dletePriceList(id) {
 
 //sql פונקציה שמקבלת תאריך ועורכת אותו בהתאמה ל-דרישות
 function setTheDateForSql(date) {
-    console.log(date,"-----------------");
+    console.log(date, "-----------------");
     let newDate = new Date(date).toISOString().split("T").join(" ").split("Z")
     return newDate[0]
 }
@@ -102,13 +102,24 @@ async function selectAllAreasByPriceListCodeAndAreaNameAndItemCode(priceListCode
     disconnect()
     return (result.recordset)
 }
-async function selectProductsOfSupplierOrClientByAreaName(code, areaName) {
-    console.log('sql');
+async function selectProductsOfSupplierOrClientByAreaName(select, table, condition) {
+
+    const result = await selectFromSql(select, table, condition)
+    return result
+}
+
+
+async function selectFromSql(select, table, condition) {
+
     await connect()
-    const result = await getConnection().request().query(`SELECT itemCode FROM priceList WHERE priceListCode=${code} AND areaName='${areaName}'`)
+    const result = await getConnection().request().query(`SELECT ${select} FROM ${table} WHERE ${condition}`)
     console.log(result.recordset);
     disconnect()
-    return result.recordset
+    if (result) {
+        return result.recordset
+    }
+    else
+        throw new Error('not found')
 }
 
 module.exports = {

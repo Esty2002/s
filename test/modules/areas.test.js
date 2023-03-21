@@ -61,7 +61,7 @@ describe('CHECK FUNCTION findAreaBySupplierOrClientCode', () => {
     })
 
     it('should return ObjectId when we try to find with elements', async () => {
-        let result = await findAreaBySupplierOrClientCode({ suplierOrClientCode: "123456" })
+        let result = await findAreaBySupplierOrClientCode({ supplierOrClientCode: "123456" })
         expect(result).toBeDefined()
         expect(result).toBeInstanceOf(Object)
     })
@@ -77,7 +77,7 @@ describe('CHECK FUNCTION findSupplierOrClient', () => {
     })
 
     it('should return ObjectId when we try to find with elements', async () => {
-        let result = await findSupplierOrClient({ suplierOrClientCode: "123456" })
+        let result = await findSupplierOrClient({ supplierOrClientCode: "123456" })
         expect(result).toBeDefined()
         expect(result).toBeInstanceOf(Object)
     })
@@ -93,7 +93,7 @@ describe('CHECK FUNCTION updateSupplierOrClient', () => {
     })
 
     it('should function when we gave all element ', async () => {
-        let result = await updateSupplierOrClient({ suplierOrClientCode: "123456" })
+        let result = await updateSupplierOrClient({ supplierOrClientCode: "123456" })
         expect(result).toBeDefined()
         expect(result).not.toBeNull()
     })
@@ -109,7 +109,7 @@ describe('CHECK FUNCTION updateArea', () => {
     })
 
     it('should function when we gave element ', async () => {
-        let result = await updateArea({ suplierOrClientCode: "123456" }, "Moshe")
+        let result = await updateArea({ supplierOrClientCode: "123456" }, "Moshe")
         expect(result).toBeDefined()
         expect(result).not.toBeNull()
     })

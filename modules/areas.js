@@ -3,11 +3,14 @@ const { MongoDBOperations } = require('../services/db/mongo-operations')
 const mongo_collection_areas = new MongoDBOperations('areas')
 
 async function insertArea(obj) {
-    let filter = { suplierOrClientCode: parseInt(obj.suplierOrClientCode) }
-    let what = obj.areas
+    let filter = { supplierOrClientCode: obj.supplierOrClientCode }
+    let what = obj.areasList
     console.log('filter--', filter, '  what--', what);
-    const result = await mongo_collection_areas.updateOne(filter, { $addToSet: { areas: what } })
-    return result
+    const result = await mongo_collection_areas.updateOne(filter, { $addToSet: { areasList: what } })
+    if (result)
+        return result
+    else
+        throw new Error("Can't insert area")
 }
 
 
@@ -17,47 +20,57 @@ async function updateSupplierOrClient(phone) {
 }
 
 
-async function findAreaByCode(code) {
-    const result = await mongo_collection_areas.findItems({ suplierOrClientCode: code })
+async function findAreaByCode(code,project={}) {
+    const result = await mongo_collection_areas.findOneWithProject({ supplierOrClientCode: code },project)
     console.log(JSON.stringify(result) + "------rrrrrrrrrrr");
-    return result
+    if (result)
+        return JSON.stringify(result)
+    else
+        throw new Error("not found area")
 }
 
 
 async function updateArea(obj) {
 
-    const result = await mongo_collection_areas.updateOne({ suplierOrClientCode: parseInt(obj.suplierOrClientCode) }, { $set: { 'areas.$[u]': obj.areas } }, { arrayFilters: [{ 'u.areaName': obj.areas.areaName }] })
-    return result
+    const result = await mongo_collection_areas.updateOne({ supplierOrClientCode: obj.supplierOrClientCode }, { $set: { 'areasList.$[u]': obj.areas } }, { arrayFilters: [{ 'u.areaName': obj.areas.areaName }] })
+    if (result)
+        return result
+    else
+        throw new Error('Not Found area to update')
+
 }
 
 async function findSupplierOrClient(code) {
-    const result = await mongo_collection_areas.findOne({ suplierOrClientCode: code })
-    return result
+    const result = await mongo_collection_areas.findOne({ supplierOrClientCode: code })
+    if (result)
+        return result
+    else
+        throw new Error("not found supplier or client code")
 }
 
 async function findAreaOfSupplierOrClient(code, areaName) {
-    // findOne({ suplierOrClientCode: 1234 }, {areas: {$elemMatch: {areaName: 'uuu' }}})
-
-
-    const result = await mongo_collection_areas.findOne({ suplierOrClientCode: code }, `{areas:{$elemMatch:{areaName:${areaName}}}}`)
-    return result
+    const result = await mongo_collection_areas.findOne({ supplierOrClientCode: code }, `{areasList:{$elemMatch:{areaName:${areaName}}}}`)
+    if (result)
+        return result
+    else
+        throw new Error('Not Found area of supplier or client code')
 }
+
 async function deleteSupplierOrClient(phone) {
     const result = await mongo_collection_areas.updateOne(phone, { $set: { disable: false } })
-    return result
+    if (result)
+        return result
+    else
+        throw new Error('Not Found supplier or client code to delete his areas')
 }
 async function deleteArea(phone, area) {
-    const result = await mongo_collection_areas.updateOne(phone, { $set: { 'areas.$[u].delate': true } }, { arrayFilters: [{ 'u.areaName': area }] })
-    return result
+    const result = await mongo_collection_areas.updateOne(phone, { $set: { 'areasList.$[u].delete': true } }, { arrayFilters: [{ 'u.areaName': area }] })
+    if (result)
+        return result
+    else
+        throw new Error('Not Found area to delete')
+
 }
-async function findAreaBySupplierOrClientCode(code, filter) {
-
-    const result = await mongo_collection_areas.findOneWithProject(code, filter)
-    return result
-}
-
-
-
 
 module.exports = {
     findAreaByCode,
@@ -68,5 +81,4 @@ module.exports = {
     deleteArea,
     findAreaOfSupplierOrClient,
     updateArea
-    ,findAreaBySupplierOrClientCode
 }
