@@ -61,6 +61,7 @@ async function getBranchesByCondition(column, code) {
 }
 //insert branch
 async function insertOneBranch(object) {
+    console.log('in 44');
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] =await setDate(new Date());
