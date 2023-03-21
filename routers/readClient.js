@@ -22,7 +22,7 @@ router.get('/findClient/:id', async (req, res) => {
 
 router.get('/searchClient/:field/:value', async (req, res) => {
     const getClientByValue = await getClientsByField(req.params.field, req.params.value)
-    if (getClientByValue )
+    if (getClientByValue)
         res.status(200).send(getClientByValue)
     else
         res.status(404).send({message:req.params.value})
