@@ -1,12 +1,20 @@
 const express = require('express');
 const router = express.Router();
-const { updateColumns } = require('../modules/update')
+const { updateReceipt, createReceipt, deleteReceipt } = require('../modules/update');
 
 router.post('/update', express.json(), async (req, res) => {
-    // let ans = await updateColumns(table, column, value, columnCond, valueCond)
-    // res.status(200).send(ans)
-    console.log('req.body', req.body);
-    res.status(200).send(true)
+    let ans = updateReceipt(req.body);
+    res.status(200).send(true);
+})
+
+router.post('/create', express.json(), async (req, res) => {
+    let ans = createReceipt(req.body);
+    res.status(200).send(true);
+})
+
+router.post('/delete', express.json(), async (req, res) => {
+    let ans = deleteReceipt(req.body);
+    res.status(200).send(true);
 })
 
 module.exports = router;

@@ -1,8 +1,15 @@
-const {update} = require('../services/sql/sql-operations');
+const { update, create, remove } = require('../services/sql/sql-operations');
 
-async function updateColumns(table, column, value, columnCond, valueCond) {
-    let res = await update(table, column, value, columnCond, valueCond);
-    return res;
+async function updateReceipt(obj) {
+    update[obj.PaymentType](obj);
 }
 
-module.exports = { updateColumns };
+async function createReceipt(obj) {
+    create[obj.PaymentType](obj);
+}
+
+async function deleteReceipt(obj) {
+    remove[obj.PaymentType](obj);
+}
+
+module.exports = { updateReceipt, createReceipt, deleteReceipt };

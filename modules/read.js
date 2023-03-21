@@ -1,8 +1,8 @@
-const {getByField} = require('../services/sql/sql-operations')
+const { getByReceiptNumber } = require('../services/sql/sql-operations');
 
-async function getReceiptByReceiptNumber(id) {
-    let res = await getByField('ReceiptNumber', id)
+async function getReceiptByReceiptNumber(rn) {
+    let res = await getByReceiptNumber(rn);
     return res;
 }
 
-module.exports = { getReceiptByReceiptNumber }
+module.exports = { getReceiptByReceiptNumber };
