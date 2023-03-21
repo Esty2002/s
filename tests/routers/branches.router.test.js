@@ -21,8 +21,6 @@ jest.mock('../../modules/branches', () => {
             }
         }),
         updateDetail: jest.fn((code, object) => {
-            console.log(code);
-            console.log(object);
             if (object.BranchName === undefined) {
                 throw new Error('can not update')
             }

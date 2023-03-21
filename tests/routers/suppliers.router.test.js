@@ -35,8 +35,8 @@ describe(('GET ALLSUPPLIER '), () => {
 
 
 describe(('GETSUPPLIERS '), () => {
-    it('get("/suppliers/getSuppliers/:"SuplierCode"/:12") returns an answer if get from findSupllier obj', async () => {
-        const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
+    it('get("/suppliers/getSuppliers/uplierCode/12") returns an answer if get from findSupllier obj', async () => {
+        const response = await request(app).get('/suppliers/getSuppliers/SupplierCode/12');
         expect(response.statusCode).toBe(200);
         expect(response.notFound).toBeFalsy();
     })

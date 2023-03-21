@@ -8,31 +8,32 @@ jest.mock('../../db/sql-operation', () => {
         }),
         checkUniqueBranch: jest.fn((code, branchname) => {
             if (code === undefined)
-                throw new Error('can not insert branch')
-            if (code.BranchName == 'aaa')
-                return ''
+                throw new Error('can not insert branch');
+                console.log(code.BranchName);
+            if (code.BranchName === 'aaa')
+                return {recordset:''};
             else
-                return { recordset: [] };
+                return {recordset:[]};
         }),
         update: jest.fn(() => {
-            return { recordset: [{ hh: 'pp' }, { hh: 'jj' }] }
+            return {recordset:[{ hh: 'pp' }, { hh: 'jj' }] } ;
         }),
         getAll: jest.fn((table) => {
-            return { name: 'aaaa', sum: 9 };
+            return {recordset:{ name: 'aaaa', sum: 9} };
         }),
         allTheOption: jest.fn((table, option, text) => {
             if (option === undefined || text === undefined) {
                 throw new Error('can not get without option or value');
             }
             else {
-                return { sum: 9, age: 4 };
+                return {recordset:{ sum: 9, age: 4 }};
             }
         }),
         delBranches: jest.fn((title, code, name, date, Bname) => {
             if (name === undefined || code === undefined || Bname === undefined)
                 throw new Error('can not delete branch');
             else
-                return true;
+                return {recordset:true};
         })
 
     }
@@ -44,12 +45,9 @@ jest.mock('../../modules/suppliers', () => {
                 throw new Error('can not insert branch')
             else {
                 if (value1.text === 'aaa')
-                    return { recordset: [] }
-                return { recordset: [{ aa: 'aaa' }] }
+                    return [] ;
+                return [{ aa: 'aaa' }];
             }
-        }),
-        getAll: jest.fn((branch='branch') => {
-            return {name:'rrrrrr'};
         })
     }
 })
@@ -104,18 +102,18 @@ describe('CHECK UNIQUE BRANCH', () => {
     it('should call checkUniqueBranch and getSupplier', async () => {
         const { checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
         const { getSupplier } = jest.requireMock('../../modules/suppliers')
-        const response = await checkUnique({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
+        const response = await checkUnique({ SupplierCode: 1000, BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(checkUniqueBranch).toHaveBeenCalled()
         expect(getSupplier).toHaveBeenCalled()
         expect(response).toBeDefined()
     })
     it('should return true if the branch unique for his spplier', async () => {
-        const response = await checkUnique({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
+        const response = await checkUnique({ SupplierCode: 1000, BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined()
         expect(response).toBeTruthy()
     })
     it('should return false when the supplier is not exist', async () => {
-        const response = await checkUnique({ SupplierCode: 'aaa', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
+        const response = await checkUnique({ SupplierCode: 1000, BranchName: 'aaa', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined()
         expect(response).toBeFalsy()
     })
@@ -165,7 +163,7 @@ describe('UPDATE BRANCH', () => {
     it('should return the updated item', async () => {
         const response = await updateDetail('1234', { BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '3', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined()
-        expect(response).toStrictEqual({ recordset: [{ hh: 'pp' }, { hh: 'jj' }] })
+        expect(response).toStrictEqual([{ hh: 'pp' }, { hh: 'jj' }])
     })
 
     it('should return false when the branch is not unique to his supplier', async () => {
@@ -189,43 +187,34 @@ describe('UPDATE BRANCH', () => {
     })
 })
 
-
-
-
-describe('DELETE BRANCH', () => {
+describe('DELETE SUPPLIER', () => {
     it('should return defined answer', async () => {
-        const response = await deleteBranches({ SupplierCode: '123', DisableUser: 'sari' , branchName: 'Ruty' });
+        const response = await deleteBranches({ SupplierCode: '123', DisableUser: 'sari', BranchName: 'Ruty'  });
         expect(response).toBeDefined();
     })
     
 
-    it('should called deletebranch and setDate -  twice', async () => {
-        _ = await deleteBranches({ SupplierCode: '123', DisableUser: 'sari' , branchName: 'Ruty' });
+    it('should called delSupplier and setDate -  twice', async () => {
+        _ = await deleteBranches({ SupplierCode: '123', DisableUser: 'sari' , BranchName: 'Ruty' });
         const result = jest.requireMock('../../db/sql-operation');
         const { setDate } = jest.requireMock('../../services/functions');
-        expect(result.delSupllier).toHaveBeenCalled();
-        expect(result.delSupllier).toHaveBeenCalledTimes(2);
+        expect(result.delBranches).toHaveBeenCalled();
+        expect(result.delBranches).toHaveBeenCalledTimes(2);
         expect(setDate).toHaveBeenCalled();
         expect(setDate).toHaveBeenCalledTimes(2);
     })
 
-    // it('shoulde return false for empty data',async () => {
-    //     const response = await deleteBranches();
-    //     expect(response).toBeFalsy();
-    // })
-
-
-    // it('shoult throw Error if not get in object keys:SupplierCode or DisableUser', async () => {
-    //             expect.assertions(3);
-    //             try {
-    //                 const response = await deleteBranches({});
-    //             }
-    //             catch (error) {
-    //                 expect(error).toBeDefined()
-    //                 expect(error).toBeInstanceOf(Error)
-    //                 expect(error.message).toBe('can not delete branch')
-    //             }
-    //         })
+    it('shoult throw Error if not get in object keys:SupplierCode or DisableUser', async () => {
+        expect.assertions(3);
+        try {
+            const response = await deleteBranches({});
+        }
+        catch (error) {
+            expect(error).toBeDefined()
+            expect(error).toBeInstanceOf(Error)
+            expect(error.message).toBe('can not delete branch')
+        }
+    })
 })
 
 describe('GETALLBRANCH', () => {

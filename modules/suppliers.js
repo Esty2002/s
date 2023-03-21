@@ -31,6 +31,7 @@ async function getAllSuppliers() {
 async function getSupplier(obj) {
     try {
         const result = await allTheOption("Suppliers", obj.option, obj.text);
+        console.log(result.recordset,'recordset');
         return result.recordset;
     }
     catch (error) {

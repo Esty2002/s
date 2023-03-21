@@ -66,7 +66,7 @@ router.get('/getallSuppliers', async (req, res) => {
 router.get('/getSuppliers/:option/:text', async (req, res) => {
     try {
         const result = await getSupplier({ option: req.params.option, text: req.params.text });
-        if (result.length > 0) {
+        if (Object.keys(result)>0) {
             res.status(200).send(result);
         }
         else {
