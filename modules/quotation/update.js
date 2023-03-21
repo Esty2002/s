@@ -11,14 +11,8 @@ async function updateAccordingCode(val) {
 }
 
 async function Insert(obj) {
-    console.log("ddddddddddddddddddddddddddddddddddddddddd");
-
     const result = await insert(obj);
-    console.log("ppppppppppppppppppppppppppppppppppppppppppppppppp");
-
     updatebig(obj.quotationCode)
-    console.log("ppppppppppppppppppppppppppppppppppppppppppppppppp");
-
     return result
 }
 
