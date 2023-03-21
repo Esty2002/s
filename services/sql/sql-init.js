@@ -57,10 +57,20 @@ async function createTables() {
           (5, 'BankTransfer')
     `)
 
+
+     // --טבלת נרמול מספרי קבלות וסוגי תשלום     
+     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'NormalizationTable') CREATE TABLE [dbo].[NormalizationTable](
+        SerialNumber INT IDENTITY PRIMARY KEY NOT NULL,
+        --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES BasicDetails(ReceiptNumber)  NOT NULL,
+        ReceiptNumber NVARCHAR(20)  NOT NULL,
+        PaymentId INT  NOT NULL
+    )`)
+
     // --טבלת מזומן
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Cash') CREATE TABLE [dbo].[Cash](
         --NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES BasicDetails(ReceiptNumber)
         SerialNumber INT IDENTITY PRIMARY KEY NOT NULL,
+        --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES NormalizationTable(ReceiptNumber)  NOT NULL,
         ReceiptNumber NVARCHAR(20) NOT NULL,
         SumOfCash INT NOT NULL,
         Disabled BIT NOT NULL, 
@@ -70,6 +80,7 @@ async function createTables() {
     // --טבלת צק
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Cheque') CREATE TABLE [dbo].[Cheque](
         SerialNumber INT IDENTITY  PRIMARY KEY NOT NULL,
+        --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES NormalizationTable(ReceiptNumber)  NOT NULL,
         ReceiptNumber NVARCHAR(20) NOT NULL,
         SumOfCheque INT NOT NULL,
         BankNumber NVARCHAR(10) NOT NULL,
@@ -84,6 +95,7 @@ async function createTables() {
     // --טבלת אשראי
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'Credit') CREATE TABLE [dbo].[Credit](
         SerialNumber INT IDENTITY  PRIMARY KEY NOT NULL,
+        --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES NormalizationTable(ReceiptNumber)  NOT NULL,
         ReceiptNumber NVARCHAR(20)  NOT NULL,
         SumOfCredit INT NOT NULL,
         CreditNumber NVARCHAR(16)NOT NULL,
@@ -101,6 +113,7 @@ async function createTables() {
     // --טבלת הו"ק    
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'StandingOrder') CREATE TABLE [dbo].[StandingOrder](
         SerialNumber INT IDENTITY PRIMARY KEY NOT NULL,
+        --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES NormalizationTable(ReceiptNumber)  NOT NULL,
         ReceiptNumber NVARCHAR(20)  NOT NULL,
         SumOfStandingOrder INT NOT NULL,
         StandingOrderType NVARCHAR(20)NOT NULL,
@@ -114,6 +127,7 @@ async function createTables() {
     // --טבלת העברה בנקאית      
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'BankTransfer') CREATE TABLE [dbo].[BankTransfer](
         SerialNumber INT IDENTITY PRIMARY KEY NOT NULL,
+        --ReceiptNumber NVARCHAR(20) FOREIGN KEY(ReceiptNumber) REFERENCES NormalizationTable(ReceiptNumber)  NOT NULL,
         ReceiptNumber NVARCHAR(20)  NOT NULL,
         SumOfBankTransfer INT NOT NULL,
         TransferDate NVARCHAR(20) NOT NULL,
@@ -124,12 +138,7 @@ async function createTables() {
         DeleteDate NVARCHAR(20) NULL
     )`)
 
-    // --טבלת נרמול מספרי קבלות וסוגי תשלום     
-    _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = 'NormalizationTable') CREATE TABLE [dbo].[NormalizationTable](
-        SerialNumber INT IDENTITY PRIMARY KEY NOT NULL,
-        ReceiptNumber NVARCHAR(20)  NOT NULL,
-        PaymentId INT  NOT NULL
-    )`)
+   
 
     await disconnect();
 

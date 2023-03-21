@@ -15,10 +15,11 @@ app.use('/update', update_router);
 app.use('/delete', delete_router);
 
 app.get('/', (req, res)=>{
-    res.status(200).send('hello app')
+    res.status(200).send('hello buyton')
 })
 
 app.get('/*', (req, res)=>{
-    res.status(200).send('req not found')
+    res.status(200).send('request not found')
 })
+
 module.exports = { app };
