@@ -9,7 +9,6 @@ async function deleteReceipt(ReceiptNumber) {
      return result;
 }
 
-module.exports = { deleteReceipt }
 //חשבונית בסיסית
 async function createReceiptSql(obj){
 console.log({obj});
@@ -122,6 +121,7 @@ async function getReceiptNumbersql(){
 
 }
 module.exports={
+deleteReceipt,
 createReceiptSql ,
 createCreditReceiptsql ,
 createBankTransferReceiptsql,
