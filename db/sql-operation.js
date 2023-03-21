@@ -87,7 +87,6 @@ async function insertSupplier(objectSupplier) {
 }
 // פונקצית הוספת סניף ע"י פרוצדורה
 async function insertBranch(objectBranch) {
-    console.log('in insert b');
     await connect();
     const result = await getConnection().request()
         .input('SupplierCode', objectBranch.SupplierCode)
@@ -115,7 +114,6 @@ async function insertBranch(objectBranch) {
 }
 // פונקציה המוסיפה בטקנקזציה ספק יחד עם סניף
 async function insertSupplierAndBranch(object) {
-    console.log('in insert b');
     objectBranch=object.branch
     objectSupplier=object.supplier
     await connect();

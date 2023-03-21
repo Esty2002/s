@@ -10,25 +10,24 @@ const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 async function deleteSupplier(object) {
     try {
         const newDate = await setDate(new Date());
-        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate)
-        return (resultSupplierCode)
+        const resultSupplierCode = await delSupllier(SQL_DB_SUPPLIERS, SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate);
+        return resultSupplierCode.recordset;
     }
     catch (error) {
-        console.log('error');
         throw new Error('can not delete supplier');
     }
 
 }
-//פונקציה שמקבלת נתוני כל הספקים
+//function that get dataSuppliers;
 async function getAllSuppliers() {
         const result = await getAll('suppliers');
         return result.recordset;
 }
-//פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
+//function that get dateSupplier according to search
 async function getSupplier(obj) {
     try {
-        const result = await allTheOption("Suppliers", obj.option, obj.text)
-        return result;
+        const result = await allTheOption("Suppliers", obj.option, obj.text);
+        return result.recordset;
     }
     catch (error) {
         throw error;
@@ -42,32 +41,26 @@ async function insertOneSupplier(object) {
                     const date = await setDate(new Date());
                     object.supplier['CreationDate'] = date;
                     object.branch['CreationDate'] = date;
-                    console.log('in check  insertSupplierAndBranch');
-                    const result = await insertSupplierAndBranch(object)
-                    return result
+                    const result = await insertSupplierAndBranch(object);
+                    return result.recordset;
                 }
                 else {
 
                 }
             }
-            else {
-                console.log('noooooooooooooo');
-            }
+           
         }
         else {
             if (await checkValid(object) && await checkUnique(object)) {
                 const date = await setDate(new Date());
                 object['CreationDate'] = date;
-                const result = await insertSupplier(object)
-                console.log('vvvvvvvvvvvvvvvvvvvvvv');
-                return result;
+                const result = await insertSupplier(object);
+                return result.recordset;
             }
             else {
-                console.log('xxxxxxxxxxxxxxxxxxxxxx');
                 return false;
             }
         }
-
     }
     catch (error) {
         throw error;
@@ -77,8 +70,8 @@ async function checkValid(object) {
     //לבדוק שהאותיות אותיות והמספרים מספרים
     //לבדוק את מספר הטלפון שהוא תקין
     //לבדוק את תקינות המייל
-    let mustKeys = ["SupplierCode", "SupplierName", "licensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"]
-    let array = Object.keys(object)
+    let mustKeys = ["SupplierCode", "SupplierName", "licensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
+    let array = Object.keys(object);
     for (let i = 0; i < mustKeys.length; i++) {
         if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && array[(mustKeys[i])] === null)) {
             return false;
@@ -88,8 +81,8 @@ async function checkValid(object) {
 }
 //check if uniques variable is unique
 async function checkUnique(object) {
-    const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode)
-    const resultSuppliersName = await allTheOption('Suppliers', 'SupplierName', object.SupplierName)
+    const resultSupplierCode = await allTheOption('Suppliers', 'SupplierCode', object.SupplierCode);
+    const resultSuppliersName = await allTheOption('Suppliers', 'SupplierName', object.SupplierName);
     if (Object.values(object.SupplierCode) !== '' && Object.values(object.SupplierName) !== '') {
         return (resultSupplierCode.recordset.length === 0 && resultSuppliersName.recordset.length === 0);
     }
@@ -101,7 +94,7 @@ async function checkUnique(object) {
 
 async function updateDetail(code, setting) {
     try {
-        let flag = true
+        let flag = true;
         if (setting.SupplierCode === setting.OldSupplierCode && setting.SupplierName === setting.OldSuppliername) {
             flag = false;
         }
@@ -114,10 +107,9 @@ async function updateDetail(code, setting) {
             BokkeepingNumber='${setting.BokkeepingNumber}',ObjectiveBank= '${setting.ObjectiveBank}',ConditionGushyPayment='${setting.ConditionGushyPayment}',PreferredPaymentDate='${setting.PreferredPaymentDate}',
             Ovligo='${setting.Ovligo}', Status='${setting.Status}' ,Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
             Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, setting.SupplierCode)
-        return result;
+        return result.recordset;
     }
     catch {
-        console.log('error');
         throw new Error('can not update branch');
     }
 }
