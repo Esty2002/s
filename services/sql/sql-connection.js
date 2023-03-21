@@ -1,30 +1,30 @@
 const sql = require('mssql')
 
 
-let myconfig = {  
+let myconfig = {
     server: 'TB6-19\\MSSQLSERVER',  //update me 
-    port:1433,
+    port: 1433,
     user: 'project', //update me
     password: '1234',  //update me
     database: 'Byton',
     options: {
-        
-      
-       trustServerCertificate: true
-          //update me
+
+
+        trustServerCertificate: true
+        //update me
     }
 };
 
 let connection = null
 
-const connect =async (config = myconfig)=>{
-   connection =  await sql.connect(config)
+const connect = async (config = myconfig) => {
+    connection = await sql.connect(config)
 }
 
-const disconnect  = ()=>{
+const disconnect = () => {
     connection.close()
 }
 
-const getConnection =()=>connection
+const getConnection = () => connection
 
-module.exports = {connect, disconnect, getConnection}
+module.exports = { connect, disconnect, getConnection }

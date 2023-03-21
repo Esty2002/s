@@ -23,16 +23,16 @@
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>5/17</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">9.09% </span>
+                <span class="strong">10% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>1/11</span>
+                <span class='fraction'>1/10</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">27.77% </span>
+                <span class="strong">29.41% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>5/18</span>
+                <span class='fraction'>5/17</span>
             </div>
         
             
@@ -116,13 +116,7 @@
 <a name='L51'></a><a href='#L51'>51</a>
 <a name='L52'></a><a href='#L52'>52</a>
 <a name='L53'></a><a href='#L53'>53</a>
-<a name='L54'></a><a href='#L54'>54</a>
-<a name='L55'></a><a href='#L55'>55</a>
-<a name='L56'></a><a href='#L56'>56</a>
-<a name='L57'></a><a href='#L57'>57</a>
-<a name='L58'></a><a href='#L58'>58</a>
-<a name='L59'></a><a href='#L59'>59</a>
-<a name='L60'></a><a href='#L60'>60</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
+<a name='L54'></a><a href='#L54'>54</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -157,20 +151,14 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -214,24 +202,18 @@ class MongoDBOperations {
 <span class="cstat-no" title="statement not covered" >        return result;</span>
     }
 &nbsp;
-<span class="fstat-no" title="function not covered" >    as</span>ync findOne(filter = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> elemMatch = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> project = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
+<span class="fstat-no" title="function not covered" >    as</span>ync findOne(filter = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> elemMatch = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
 <span class="cstat-no" title="statement not covered" >        console.log('filter  ', filter);</span>
-        // console.log('elemath  ', elemMatch);
         const result = <span class="cstat-no" title="statement not covered" >await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, elemMatch)</span>
-        // console.log('mongo---', result);
 <span class="cstat-no" title="statement not covered" >        return result</span>
     }
 <span class="fstat-no" title="function not covered" >    as</span>ync updateOne(filter = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> what = <span class="branch-0 cbranch-no" title="branch not covered" >{},</span> arrayFilters = <span class="branch-0 cbranch-no" title="branch not covered" >{})</span> {
-<span class="cstat-no" title="statement not covered" >        console.log(filter,'  ',what,'  ',arrayFilters);</span>
+        // console.log(filter,'  ',what,'  ',arrayFilters);
         const result = <span class="cstat-no" title="statement not covered" >await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, what, arrayFilters)</span>
 <span class="cstat-no" title="statement not covered" >        console.log('mongo---', result);</span>
 <span class="cstat-no" title="statement not covered" >        return result</span>
     }
-//     async updateOne(obj) {
-//         const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(obj)
-//         return result
 &nbsp;
-//     }
 }
 &nbsp;
 &nbsp;
@@ -247,7 +229,7 @@ module.exports = { MongoDBOperations }
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2023-03-20T19:00:10.812Z
+                at 2023-03-21T16:16:18.537Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

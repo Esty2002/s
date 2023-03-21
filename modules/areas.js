@@ -5,7 +5,6 @@ const mongo_collection_areas = new MongoDBOperations('areas')
 async function insertArea(obj) {
     let filter = { supplierOrClientCode: obj.supplierOrClientCode }
     let what = obj.areasList
-    console.log('filter--', filter, '  what--', what);
     const result = await mongo_collection_areas.updateOne(filter, { $addToSet: { areasList: what } })
     if (result)
         return result
@@ -22,7 +21,6 @@ async function updateSupplierOrClient(phone) {
 
 async function findAreaByCode(code,project={}) {
     const result = await mongo_collection_areas.findOneWithProject({ supplierOrClientCode: code },project)
-    console.log(JSON.stringify(result) + "------rrrrrrrrrrr");
     if (result)
         return JSON.stringify(result)
     else
@@ -42,20 +40,13 @@ async function updateArea(obj) {
 
 async function findSupplierOrClient(code) {
     const result = await mongo_collection_areas.findOne({ supplierOrClientCode: code })
-    console.log(result);
     if (result)
         return result
     else
         throw new Error("not found supplier or client code")
 }
 
-async function findAreaOfSupplierOrClient(code, areaName) {
-    const result = await mongo_collection_areas.findOne({ supplierOrClientCode: code }, `{areasList:{$elemMatch:{areaName:${areaName}}}}`)
-    if (result)
-        return result
-    else
-        throw new Error('Not Found area of supplier or client code')
-}
+
 
 async function deleteSupplierOrClient(phone) {
     const result = await mongo_collection_areas.updateOne(phone, { $set: { disable: false } })
@@ -80,6 +71,5 @@ module.exports = {
     findSupplierOrClient,
     deleteSupplierOrClient,
     deleteArea,
-    findAreaOfSupplierOrClient,
     updateArea
 }

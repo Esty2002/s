@@ -54,7 +54,6 @@ async function deletePriceList(id) {
 
 //sql פונקציה שמקבלת תאריך ועורכת אותו בהתאמה ל-דרישות
 function setTheDateForSql(date) {
-    console.log(date, "-----------------");
     let newDate = new Date(date).toISOString().split("T").join(" ").split("Z")
     return newDate[0]
 }
@@ -62,7 +61,6 @@ function setTheDateForSql(date) {
 
 async function selectAreaAndPriceByItemCode(condition) {
     const result = await selectFromSql('areaName,price', 'priceList', `itemCode=${condition.code}`)
-    console.log("chavi  ",result);
     return result
     
 }
@@ -81,8 +79,9 @@ async function selectProductByAreaName(condition,flag) {
 }
 
 async function selectAreaByClientOrSupplyCode(condition) {
-
+log
     const result = await selectFromSql('distinct areaName', 'priceList', `priceListCode=${condition.code}`)
+    
     return result;
 
 
@@ -103,7 +102,6 @@ async function selectProductsOfSupplierOrClientByAreaName(condition) {
 }
 
 module.exports = {
-    createTable,
     addPriceList,
     updatePriceList,
     deletePriceList,

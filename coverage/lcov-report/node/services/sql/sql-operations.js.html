@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for node/services/db/mongo-connection.js</title>
+    <title>Code coverage report for node/services/sql/sql-operations.js</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">node/services/db</a> mongo-connection.js</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">node/services/sql</a> sql-operations.js</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">7.69% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>8/16</span>
+                <span class='fraction'>2/26</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/5</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">50% </span>
+                <span class="strong">7.69% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>8/16</span>
+                <span class='fraction'>2/26</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line medium'></div>
+    <div class='status-line low'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -98,77 +98,101 @@
 <a name='L33'></a><a href='#L33'>33</a>
 <a name='L34'></a><a href='#L34'>34</a>
 <a name='L35'></a><a href='#L35'>35</a>
-<a name='L36'></a><a href='#L36'>36</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-yes">1x</span>
+<a name='L36'></a><a href='#L36'>36</a>
+<a name='L37'></a><a href='#L37'>37</a>
+<a name='L38'></a><a href='#L38'>38</a>
+<a name='L39'></a><a href='#L39'>39</a>
+<a name='L40'></a><a href='#L40'>40</a>
+<a name='L41'></a><a href='#L41'>41</a>
+<a name='L42'></a><a href='#L42'>42</a>
+<a name='L43'></a><a href='#L43'>43</a>
+<a name='L44'></a><a href='#L44'>44</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">&nbsp;
-require('dotenv').config()
-const { MongoClient } = require('mongodb')
-let client = null
-const{MONGO_CONNECTION}=process.env
-// const connect = async (server_url = 'mongodb://127.0.0.1:27017') =&gt; {
-//     if (server_url.indexOf('mongodb') != 0) {
-// const { MongoClient } = require('mongodb')
-// const { MONGO_CONNECTION } = process.env
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span></td><td class="text"><pre class="prettyprint lang-js">const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
 &nbsp;
-// let client = null
-//     }
-const connect = <span class="fstat-no" title="function not covered" >as</span>ync (server_url = <span class="branch-0 cbranch-no" title="branch not covered" >MONGO_CONNECTION)</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (server_url.trim().indexOf('mongodb') != 0) {</span>
-<span class="cstat-no" title="statement not covered" >        throw new Error('connection string is not in the right format.')</span>
+&nbsp;
+async function <span class="fstat-no" title="function not covered" >selectFromSql(</span>select, table, condition) {
+<span class="cstat-no" title="statement not covered" >    console.log("select ", select);</span>
+<span class="cstat-no" title="statement not covered" >    console.log("table ", table);</span>
+<span class="cstat-no" title="statement not covered" >    console.log("condition ", condition);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    await connect()</span>
+    const result = <span class="cstat-no" title="statement not covered" >await getConnection().request().query(`SELECT ${select} FROM ${table} WHERE ${condition}`)</span>
+<span class="cstat-no" title="statement not covered" >    console.log("sql ",result.recordset);</span>
+<span class="cstat-no" title="statement not covered" >    disconnect()</span>
+<span class="cstat-no" title="statement not covered" >    if (result) {</span>
+<span class="cstat-no" title="statement not covered" >        return result.recordset</span>
     }
-<span class="cstat-no" title="statement not covered" >    client = new MongoClient(server_url.trim())</span>
-<span class="cstat-no" title="statement not covered" >    await client.connect()</span>
+    else
+<span class="cstat-no" title="statement not covered" >        throw new Error('not found')</span>
 }
 &nbsp;
-const disconnect = <span class="fstat-no" title="function not covered" >as</span>ync () =&gt; {
-<span class="cstat-no" title="statement not covered" >    if (client == null) {</span>
-<span class="cstat-no" title="statement not covered" >        throw new Error('client is still null')</span>
+async function <span class="fstat-no" title="function not covered" >addToSql(</span>table, values) {
+<span class="cstat-no" title="statement not covered" >    await connect()</span>
+    const result = <span class="cstat-no" title="statement not covered" >await getConnection().request().query(`INSERT INTO ${table} VALUES ${values}`)</span>
+<span class="cstat-no" title="statement not covered" >    console.log(result.recordset);</span>
+<span class="cstat-no" title="statement not covered" >    disconnect()</span>
+<span class="cstat-no" title="statement not covered" >    if (result) {</span>
+<span class="cstat-no" title="statement not covered" >        return result.recordset</span>
     }
-<span class="cstat-no" title="statement not covered" >    await client.close()</span>
+    else
+<span class="cstat-no" title="statement not covered" >        throw new Error('not found')</span>
 }
 &nbsp;
-const getClient = <span class="fstat-no" title="function not covered" >()</span> =&gt; {
-<span class="cstat-no" title="statement not covered" >    return client</span>
+async function <span class="fstat-no" title="function not covered" >updateInSql(</span>table, set, condition) {
+<span class="cstat-no" title="statement not covered" >    await connect()</span>
+    const result = <span class="cstat-no" title="statement not covered" >await getConnection().request().query(`UPDATE ${table} SET ${set} WHERE ${condition}`)</span>
+<span class="cstat-no" title="statement not covered" >    console.log(result.recordset);</span>
+<span class="cstat-no" title="statement not covered" >    disconnect()</span>
+<span class="cstat-no" title="statement not covered" >    if (result) {</span>
+<span class="cstat-no" title="statement not covered" >        return result.recordset</span>
+    }
+    else
+<span class="cstat-no" title="statement not covered" >        throw new Error('not found')</span>
 }
 &nbsp;
-module.exports = {
-    connect, disconnect, getClient
-}
-&nbsp;
-&nbsp;</pre></td></tr></table></pre>
+module.exports = { selectFromSql, addToSql, updateInSql }</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

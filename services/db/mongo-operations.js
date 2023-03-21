@@ -32,14 +32,11 @@ class MongoDBOperations {
     }
 
     async findOne(filter = {}, elemMatch = {}) {
-        console.log('filter  ', filter);
         const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, elemMatch)
         return result
     }
     async updateOne(filter = {}, what = {}, arrayFilters = {}) {
-        console.log(filter,'  ',what,'  ',arrayFilters);
         const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, what, arrayFilters)
-        console.log('mongo---', result);
         return result
     }
 

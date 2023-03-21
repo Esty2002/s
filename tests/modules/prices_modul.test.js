@@ -27,7 +27,6 @@ describe('SQL OPERATIONS', () => {
 
         it('should insert one row to the table when the values sends according to them types', async () => {
             const result = await getConnection().request().query(`INSERT INTO TESTS VALUES ('tovi',15,'ashdod')`)
-            console.log(result, " result");
             expect(result).toBeDefined()
             expect(result.rowsAffected).toEqual([1])
         })
@@ -35,7 +34,6 @@ describe('SQL OPERATIONS', () => {
         it('should throw an eror when the values send with out maching', async () => {
             try {
                 const result = await getConnection().request().query(`INSERT INTO TESTS VALUES (tovi,15,'ashdod')`)
-                console.log(result, " result");
             } catch (error) {
                 expect(error).toBeDefined();
                 expect(error).toBeInstanceOf(Error);
@@ -45,7 +43,6 @@ describe('SQL OPERATIONS', () => {
         it('should throw an eror when not all the values send', async () => {
             try {
                 const result = await getConnection().request().query(`INSERT INTO TESTS VALUES (tovi,15)`)
-                console.log(result, " result");
             } catch (error) {
                 expect(error).toBeDefined();
                 expect(error).toBeInstanceOf(Error);
