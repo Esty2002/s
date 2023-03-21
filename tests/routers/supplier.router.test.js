@@ -19,25 +19,39 @@ const { app } = require('../../app');
 let server;
 
 beforeAll(() => {
-    server = app.listen('1500');
+    server = app.listen('1400');
 })
 
-describe('GET SUPPLIERS', () => {
-    describe(('GET ALLSUPPLIER '), () => {
-        it('get("/suppliers/getallSuppliers") returns an answer if get from findSupllier obj', async () => {
-            const response = await request(app).get('/suppliers/getallSuppliers');
-            expect(response.statusCode).toBe(200);
-            expect(response.notFound).toBeFalsy();
-        })
+describe(('GET ALLSUPPLIER '), () => {
+    it('get("/suppliers/getallSuppliers") returns an answer if get from findSupllier obj', async () => {
+        const response = await request(app).get('/suppliers/getallSuppliers');
+        expect(response.statusCode).toBe(200);
+        expect(response.notFound).toBeFalsy();
     })
-    describe(('GET GETSUPPLIERS '), () => {
-        it('get("/suppliers/getSuppliers/:"SuplierCode"/:12") returns an answer if get from findSupllier obj', async () => {
-            const response = await request(app).get('/suppliers/getSuppliers/:"SuplierCode"/:12');
-            expect(response.statusCode).toBe(200);
-            expect(response.notFound).toBeFalsy();
-        })
+    it('should send status 500 if it is not good ', async () => {
+        const response = await request(app).get('/suppliers/getallSupplier');
+        expect(response).toBeDefined()
+        expect(response.statusCode).toBe(500)
     })
 })
+
+
+describe(('GETSUPPLIERS '), () => {
+    it('get("/suppliers/getSuppliers/:"SuplierCode"/:12") returns an answer if get from findSupllier obj', async () => {
+        const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
+        expect(response.statusCode).toBe(200);
+        expect(response.notFound).toBeFalsy();
+    })
+    it('should send status 500 if it is not good ', async () => {
+        const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
+        expect(response).toBeDefined()
+        expect(response.statusCode).toBe(500)
+    })
+})
+
+
+
+
 
 afterAll(() => {
     server.close();

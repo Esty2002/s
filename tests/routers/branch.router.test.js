@@ -29,7 +29,7 @@ describe('GET BRANCHES', () => {
         })
     })
     describe(('GET GETBRANCHES '), () => {
-        it('get("/branches/getBranchesWithCondition/:"BranchCode"/:12") returns an answer if get from findBranch obj', async () => {
+        it('get("/branches/getBranchesWithCondition/"BranchCode"/12") returns an answer if get from findBranch obj', async () => {
             const response = await request(app).get('/branches/getBranchesWithCondition/:"BranchCode"/:12');
             expect(response.statusCode).toBe(200);
             expect(response.notFound).toBeFalsy();
