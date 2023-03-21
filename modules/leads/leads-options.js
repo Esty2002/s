@@ -38,9 +38,18 @@ const updateLead = async (obj = {}, filter = {}) => {
 
 
 const allLeadsDetails=async({filter,sort,skip,limit,project}) =>{
+    console.log({filter,sort,skip,limit,project});
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
     const result=await mongo_collection_leads.aggregate(filter,sort,skip,limit,project);
     return result;
+}
+const changeLeadToOrder=async(serialNumber)=>{
+    mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
+    const resultUpdate=await mongo_collection_leads.updateOne(serialNumber,{disable:true,leadStatus:"old"});
+    const resultDetails=await mongo_collection_leads.find(serialNumber,{});
+    // כאן צריך להשתמש בפונקציה שמכניסה הזמנה חדשה ולשלוח לה את כל הנתונים שהתקבלו מהמונגו ולקבל את מספר ההזמנה ואחר כך לעדכן במונגו את מספר ההזמנה שיצא
+    return "success";
+
 }
 
     
@@ -50,4 +59,4 @@ const allLeadsDetails=async({filter,sort,skip,limit,project}) =>{
 
 
 
-module.exports = { createNewLead, allLeadsDetails, getTheMustConcretItem, updateLead }
+module.exports = { createNewLead, allLeadsDetails, getTheMustConcretItem, updateLead ,changeLeadToOrder}
