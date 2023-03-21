@@ -1,4 +1,4 @@
-const { getAll, setDate, delBranches,  update, allTheOption, checkUniqueBranch } = require('../db/sql-operation');
+const { getAll, setDate, delBranches,  update, allTheOption, checkUniqueBranch ,insertBranch} = require('../db/sql-operation');
 require('dotenv').config();
 const { SQL_DB_BRANCHES } = process.env;
 
@@ -49,11 +49,16 @@ async function getBranchesByCondition(column, code) {
 }
 //insert branch
 async function insertOneBranch(object) {
+    console.log('in 44');
     try {
         if (await checkValid(object) && await checkUnique(object)) {
             const date = await setDate()
-            object['CreationDate'] = Object.values(date.recordset[0])
-            const result = await insert("Branches", Object.keys(object).join(','), newVals)
+            object['CreationDate'] = Object.values(date.recordset[0])[0]
+            console.log('object');
+            console.log(object);
+            console.log('object');
+            const result = await insertBranch(object)
+            console.log('after branch');
             return result;
         }
         else {
@@ -87,4 +92,4 @@ async function checkUnique(object) {
     return (resultBranchName.recordset.length === 0);
 }
 
-module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };
+module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique ,checkValid};

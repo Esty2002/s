@@ -28,6 +28,7 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 })
 
 router.post('/insertbranch', express.json(), async (req, res) => {
+    console.log(req.body);
     try {
         const result = await insertOneBranch(req.body);
         res.status(200).send(result);
