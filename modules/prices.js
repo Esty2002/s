@@ -2,27 +2,27 @@ const { getConnection, connect, disconnect } = require("../services/sql/sql-conn
 const { selectFromSql, addToSql, updateInSql } = require('../services/sql/sql-operations')
 
 //  sql-פונקציה שיוצרת את הטבלה של המחירונים ב
-async function createTable() {
-    await connect()
-    const result = await getConnection().request().query(`CREATE TABLE priceList (id int IDENTITY(100,1),
-    date date,
-     priceListCode int,
-     areaName varchar(255),
-     itemCode varchar(255),
-     price int,reduction int,
-     primaryAmount int,
-     unitOfMeasure varchar(255),
-     additionDate date,
-     disable int,
-     deleteDate date)`)
-    await disconnect()
-}
+// async function createTable() {
+//     await connect()
+//     const result = await getConnection().request().query(`CREATE TABLE priceList (id int IDENTITY(100,1),
+//      date date,
+//      priceListCode int,
+//      areaName varchar(255),
+//      itemCode varchar(255),
+//      price int,reduction int,
+//      primaryAmount int,
+//      unitOfMeasure varchar(255),
+//      additionDate date,
+//      disable int,
+//      deleteDate date)`)
+//     await disconnect()
+// }
 
 //פןנקציה שמכניסה נתונים לטבלת המחירונים
 async function addPriceList(data) {
-    await connect()
-    const result = await getConnection().request().query(`INSERT INTO priceList VALUES 
-    ('${setTheDateForSql(data.date)}',
+
+
+    let values=`('${setTheDateForSql(data.date)}',
     '${parseInt(data.priceListCode)}',
     '${data.areaName}','${data.itemCode}',
     '${parseInt(data.price)}',
@@ -31,25 +31,24 @@ async function addPriceList(data) {
     '${data.unitOfMeasure}',
     '${setTheDateForSql(data.additionDate)}',
     '${parseInt(data.disable)}',
-    '${setTheDateForSql(data.deleteDate)}') `)
-    await disconnect()
-    return result.rowsAffected
+    '${setTheDateForSql(data.deleteDate)}')` 
+    const result = await addToSql('priceList',values)
+
+    return result
 }
 
 //פונקציה שמעדכנת את התאריך שבו המחירון נכנס לתוקף
 async function updatePriceList(data) {
-    await connect()
-    const result = await getConnection().request().query(`update priceList set date='${data.date}' where id='${data.id}'`)
-    await disconnect()
-    return result.rowsAffected
+
+    const result=updateInSql('priceList',`date='${setTheDateForSql(data.date)}'`,`id='${parseInt(data.id)}'`)
+    return result
 }
 
 //   ל -1disable פןנקציה שמוחקת מחירון כלומר מעדכנת את הערך 
-async function dletePriceList(id) {
-    await connect()
-    const result = await getConnection().request().query(`update priceList set disable='0' where id='${id}'`)
-    await disconnect()
-    return result.rowsAffected
+async function deletePriceList(id) {
+
+    const result=updateInSql('priceList',`disable='0'`,`id='${parseInt(id)}'`)
+    return result
 }
 
 
@@ -61,24 +60,11 @@ function setTheDateForSql(date) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 async function selectAreaAndPriceByItemCode(condition) {
     const result = await selectFromSql('areaName,price', 'priceList', `itemCode=${condition.code}`)
     console.log("chavi  ",result);
     return result
-
+    
 }
 
 
@@ -120,7 +106,7 @@ module.exports = {
     createTable,
     addPriceList,
     updatePriceList,
-    dletePriceList,
+    deletePriceList,
     selectAllAreasByPriceListCodeAndAreaNameAndItemCode,
     selectAreaByClientOrSupplyCode,
     selectProductsOfSupplierOrClientByAreaName,

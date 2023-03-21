@@ -15,13 +15,13 @@ jest.mock('../../modules/prices', () => {
         selectAllAreas: jest.fn(() => {
             return [{ areaName: 'ashdod' }, { areaName: 'jerusalem' }, { areaName: 'elad' }]
         }),
-        addPriceList:jest.fn(()=>{
+        addPriceList: jest.fn(() => {
             return true
         }),
-        updatePriceList:jest.fn(()=>{
+        updatePriceList: jest.fn(() => {
             return "good"
         }),
-        deletePriceList:jest.fn(()=>{
+        deletePriceList: jest.fn(() => {
             return "delete"
         })
     }
@@ -38,35 +38,35 @@ describe('GET APIs', () => {
         const response = await request(app).get('/prices/findAreaAndPriceByItemCode/1')
         const method = jest.requireMock('../../modules/prices')
         expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalled()
-        // expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalledTimes(1)
+        expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
     it('/findProductAndPricesByAreaName', async () => {
         const response = await request(app).get('/prices/findProductAndPricesByAreaName/ashdod')
         const method = jest.requireMock('../../modules/prices')
         expect(method.selectProductAndPricesByAreaName).toHaveBeenCalled()
-        // expect(method.selectProductAndPricesByAreaName).toHaveBeenCalledTimes(1)
+        expect(method.selectProductAndPricesByAreaName).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
     it('/findProductByAreaName', async () => {
         const response = await request(app).get('/prices/findProductByAreaName')
         const method = jest.requireMock('../../modules/prices')
         expect(method.selectProductByAreaName).toHaveBeenCalled()
-        // expect(method.selectProductByAreaName).toHaveBeenCalledTimes(1)
+        expect(method.selectProductByAreaName).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
     it('/findAreaByClientOrSupplyCode', async () => {
         const response = await request(app).get('/prices/findAreaByClientOrSupplyCode')
         const method = jest.requireMock('../../modules/prices')
         expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalled()
-        // expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalledTimes(1)
+        expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
     it('/findAllAreas', async () => {
         const response = await request(app).get('/prices/findAllAreas')
         const method = jest.requireMock('../../modules/prices')
         expect(method.selectAllAreas).toHaveBeenCalled()
-        // expect(method.selectAllAreas).toHaveBeenCalledTimes(1)
+        expect(method.selectAllAreas).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
 
@@ -74,29 +74,33 @@ describe('GET APIs', () => {
 })
 
 
-describe('POST APIs',()=>{
-    it('/addPriceList',async()=>{
-        const response = await request(app).post('/prices/addPriceList',{name:'shoshi',age:5})  
+describe('POST APIs', () => {
+    it('/addPriceList', async () => {
+        const response = await request(app).post('/prices/addPriceList', { name: 'shoshi', age: 5 })
         const method = jest.requireMock('../../modules/prices')
         expect(method.addPriceList).toHaveBeenCalled()
-        // expect(method.addPriceList).toHaveBeenCalledTimes(1)
+        expect(method.addPriceList).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
 
     })
-    it('/updatePriceList',async()=>{
-        const response = await request(app).post('/prices/updatePriceList',{name:'shoshi',age:8})  
+    it('/updatePriceList', async () => {
+        const response = await request(app).post('/prices/updatePriceList', { name: 'shoshi', age: 8 })
         const method = jest.requireMock('../../modules/prices')
         expect(method.updatePriceList).toHaveBeenCalled()
-        // expect(method.updatePriceList).toHaveBeenCalledTimes(1)
+        expect(method.updatePriceList).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
 
     })
-    it('/deletePriceList',async()=>{
-        const response = await request(app).post('/prices/deletePriceList',{name:'shoshi',delete:1})  
-        const method = jest.requireMock('../../modules/prices')
-        expect(method.deletePriceList).toHaveBeenCalled()
-        // expect(method.deletePriceList).toHaveBeenCalledTimes(1)
-        expect(response).toBeDefined();
+    it('/deletePriceList', async () => {
+        jest.setTimeout(async () => {
+            const response = await request(app).post('/prices/deletePriceList', { name: 'shoshi', delete: 1 })
+            const method = jest.requireMock('../../modules/prices')
+            expect(method.deletePriceList).toHaveBeenCalled()
+            expect(method.deletePriceList).toHaveBeenCalledTimes(1)
+            expect(response).toBeDefined();
+        }, 5000);
+
+
 
     })
 

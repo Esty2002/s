@@ -1,13 +1,13 @@
 jest.mock('../../services/db/mongo-operations', () => {
     return {
         updateOne: jest.fn((obj) => {
-            return "updateOne obj";
+            return {"updateOne": obj};
         }),
         findOne: jest.fn((obj) => {
             if (obj)
-                return [{ test: "success" }];
+                return { test: "success" };
             else
-                return [{ test: "not success" }];
+                return null;
         })
         ,
         insertOne: jest.fn((obj) => {
@@ -22,8 +22,7 @@ jest.mock('../../services/db/mongo-operations', () => {
 });
 
 const { insertArea, findSupplierOrClient,
-    updateSupplierOrClient, updateArea,
-    findAreaBySupplierOrClientCode } = require('../../modules/areas')
+    updateSupplierOrClient, updateArea } = require('../../modules/areas')
 
 describe('CHECK FUNCTION insertArea', () => {
 
