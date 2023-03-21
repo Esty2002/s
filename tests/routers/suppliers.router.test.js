@@ -1,4 +1,3 @@
-
 jest.mock('../../modules/suppliers', () => {
     return {
         getAllSuppliers: jest.fn(() => {
