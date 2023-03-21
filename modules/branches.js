@@ -7,7 +7,7 @@ const { SQL_DB_BRANCHES } = process.env;
 //delet the branch and update the fields
 async function deleteBranches(object) {
     try {
-        const newDate = await setDate(new Date());
+        const newDate = setDate(new Date());
         const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName);
         return resultBranchCode.recordset;
     }
