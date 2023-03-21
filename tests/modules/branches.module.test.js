@@ -6,10 +6,6 @@ jest.mock('../../db/sql-operation', () => {
             else
                 return table;
         }),
-        setDate: jest.fn(() => {
-            return { recordset: [{ date: '01/03/2023' }] };
-            //צריך לסדר את זה!!
-        }),
         checkUniqueBranch: jest.fn((code, branchname) => {
             if (code === undefined)
                 throw new Error('can not insert branch')
@@ -36,6 +32,14 @@ jest.mock('../../db/sql-operation', () => {
 
     }
 })
+jest.mock('../../services/functions',()=>{
+    return{
+        setDate:jest.fn((stringOfDate)=>{
+            return '01/03/2023';
+        })
+    }
+})
+
 jest.mock('../../modules/suppliers', () => {
     return {
         getSupplier: jest.fn((value1, value2) => {
@@ -50,11 +54,13 @@ jest.mock('../../modules/suppliers', () => {
     }
 })
 
-const { insertOneBranch, checkUnique, updateDetail ,checkValid} = require('../../modules/branches');
+const { insertOneBranch, checkUnique, updateDetail ,checkValid,getAllBranches, getBranchesByCondition } = require('../../modules/branches');
+// const {setDate} = require('../../services/functions')
 
 describe('INSERT BRANCH', () => {
     it('should call insertBranch and setDate and checkUniqueBranch and getSupplier', async () => {
-        const { insertBranch, setDate, checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
+        const { insertBranch, checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
+        const {setDate}=jest.requireMock('../../services/functions');
         const { getSupplier } = jest.requireMock('../../modules/suppliers')
         const response = await insertOneBranch({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(insertBranch).toHaveBeenCalled()
@@ -63,18 +69,16 @@ describe('INSERT BRANCH', () => {
         expect(setDate).toHaveBeenCalled()
         expect(response).toBeDefined()
     })
-
     it('should return inserted object', async () => {
         const response = await insertOneBranch({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '3', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined()
-        expect(response).toStrictEqual({ BranchName: "dfdfd", City: "hhh", CreationDate: "01/03/2023", HomeNumber: "3", Phone1: "jjj", Street: "fgd", SupplierCode: "ffff", UserThatInsert: "hhh" })
+        expect(response).toStrictEqual({ BranchName: 'dfdfd', City: 'hhh', CreationDate: '01/03/2023', HomeNumber: '3', Phone1: "jjj", Street: "fgd", SupplierCode: "ffff", UserThatInsert: "hhh" })
     })
     it('should return fasle when it not suitable to the model', async () => {
         const response = await insertOneBranch({ BranchName: 'aaa', Street: 'fgd', HomeNumber: '3', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined();
         expect(response).toBeFalsy()
     })
-
     describe('ERRORS', () => {
         it('should throw an error when it not suitable to sql ', async () => {
             expect.assertions(3)
@@ -174,7 +178,6 @@ describe('UPDATE BRANCH', () => {
     })
 })
 
-const { getAllBranches, getBranchesByCondition } = require('../../modules/branches');
 
 describe('get all the branches',()=>{
 

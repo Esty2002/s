@@ -18,7 +18,7 @@ const { app } = require('../../app');
 let server;
 
 beforeAll(() => {
-    server = app.listen('1500');
+    server = app.listen('1530');
 })
 
 describe('GET SUPPLIERS', () => {
@@ -31,7 +31,7 @@ describe('GET SUPPLIERS', () => {
     })
     describe(('GET GETSUPPLIERS '), () => {
         it('get("/suppliers/getSuppliers/:"SuplierCode"/:12") returns an answer if get from findSupllier obj', async () => {
-            const response = await request(app).get('/suppliers/getSuppliers/:"SuplierCode"/:12');
+            const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
             expect(response.statusCode).toBe(200);
             expect(response.notFound).toBeFalsy();
         })
