@@ -53,7 +53,7 @@ jest.mock('../../services/functions',()=>{
     }
 })
 
-const { insertOneBranch, checkUnique, updateDetail ,checkValid} = require('../../modules/branches');
+const { insertOneBranch, checkUnique, updateDetail ,checkValid,getAllBranches, getBranchesByCondition} = require('../../modules/branches');
 
 describe('INSERT BRANCH', () => {
     it('should call insertBranch and setDate and checkUniqueBranch and getSupplier', async () => {
@@ -177,8 +177,6 @@ describe('UPDATE BRANCH', () => {
         })
     })
 })
-
-const { getAllBranches, getBranchesByCondition } = require('../../modules/branches');
 
 describe('get all the branches',()=>{
 

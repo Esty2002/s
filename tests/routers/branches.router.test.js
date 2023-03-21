@@ -3,9 +3,7 @@ const request = require('supertest');
 jest.mock('../../modules/branches', () => {
     return {
         insertOneBranch: jest.fn((object) => {
-            console.log(object,"objectttttttttttttttttttttttttttttttttttttt");
             if(object.SupplierCode===undefined){
-                console.log('in vcvcvcvcvcvc');
                 throw new Error('can not insert')
             }
             else
@@ -14,9 +12,9 @@ jest.mock('../../modules/branches', () => {
         getAllBranches: jest.fn(() => {
             return 'true';
         }),
-        getBranchesWithCondition: jest.fn((condition, value) => {
+        getBranchesByCondition: jest.fn((condition, value) => {
             if (condition === undefined && value === undefined) {
-                throw new Error('can not getBranchesWithCondition')
+                throw new Error('can not getBranchesByCondition')
             }
             else {
                 return { condition: "aaaa", value: "kkkk" };
@@ -33,30 +31,29 @@ beforeAll(() => {
 })
 
 describe('POST API', () => {
-    // describe('ADD BRANCH', () => {
-    //     it('post("/insertbranch") is found', async () => {
-    //         const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: "aaa", BranchName: 'jjj' });
-    //         expect(response).toBeDefined()
-    //         expect(response.status).toBe(200);
-    //         // expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
-    //         expect(response).toBe({ SupplierCode: "aaa", BranchName: 'jjj' });
-    //     })
-    //     it('should call insertOneBranch', async () => {
-    //         const methods = jest.requireMock('../../modules/branches');
-    //         const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: "aaa", BranchName: 'jjj' });
-    //         expect(methods.insertOneBranch).toHaveBeenCalled();
-    //         // expect(methods.insertOneBranch).toHaveBeenCalledTimes(1);
-    //         expect(response).toBeDefined()
-    //     })
+    describe('ADD BRANCH', () => {
+        it('post("/insertbranch") is found', async () => {
+            const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: 'aaa', BranchName: 'jjj' });
+            expect(response).toBeDefined()
+            expect(response.status).toBe(200);
+            expect(response.headers['content-type']).toBe('application/json; charset=utf-8');
+        })
+        it('should call insertOneBranch', async () => {
+            const methods = jest.requireMock('../../modules/branches');
+            const response = await request(app).post('/branches/insertbranch').send({ SupplierCode: 'aaa', BranchName: 'jjj' });
+            expect(methods.insertOneBranch).toHaveBeenCalled();
+            expect(methods.insertOneBranch).toHaveBeenCalledTimes(2);
+            expect(response).toBeDefined()
+        })
 
 
-    //     // it('should send status 500 if it is not good ', async () => {
-    //     //     const response = await request(app).post('/branches/insertbranch').send({});
-    //     //     expect(response).toBeDefined()
-    //     //     expect(response.statusCode).toBe(500)
-    //     // })
+        it('should send status 500 if it is not good ', async () => {
+            const response = await request(app).post('/branches/insertbranch').send({});
+            expect(response).toBeDefined()
+            expect(response.statusCode).toBe(500)
+        })
 
-    // })
+    })
 })
 
 describe('GET API', () => {
@@ -67,9 +64,10 @@ describe('GET API', () => {
             expect(response.notFound).toBeFalsy();
         })
     })
+
     describe(('GET GETBRANCHES '), () => {
-        it('get("/branches/getBranchesWithCondition/:"BranchCode"/:12") returns an answer if get from findBranch obj', async () => {
-            const response = await request(app).get('/branches/getBranchesWithCondition/:"BranchCode"/:12');
+        it('get("/branches/getBranchesWithCondition/BranchCode/12") returns an answer if get from findBranch obj', async () => {
+            const response = await request(app).get('/branches/getBranchesWithCondition/BranchCode/12');
             expect(response.statusCode).toBe(200);
             expect(response.notFound).toBeFalsy();
         })
