@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const path = require('path')
 const cors = require('cors')
-const { MongoDBOperations } = require('./services/db/mongo/mongo-operation')
 const manageProduct = require('./routers/products')
 const manageUnitOfMeasure=require('./routers/unit_of_measure')
 

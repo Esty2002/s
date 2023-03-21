@@ -1,4 +1,7 @@
-const { insertProduct, findObject } = require('../../modules/products')
+const { insertProduct, getTraits } = require('../../modules/products')
+
+jest.mock('../../services/')
+
 
 describe('INSERT', () => {
     it('should return defined response', async () => {
@@ -23,7 +26,7 @@ describe('INSERT', () => {
 })
 describe('FIND', () => {
     it('should return defined response', async () => {
-        const response = await findObject({ traitName: "f" });
+        const response = await getTraits({ traitName: "f" });
         // expect(response).toBeDefined();
         expect(response).toBeInstanceOf(Object)
     })

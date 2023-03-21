@@ -21,7 +21,7 @@ router.get('/findMeasureId',async (req,res)=>{
 
 router.post('/insert',express.json(),async (req,res)=>{
     try {
-        res.status(200).send(await insert(req.body))
+        res.status(200).send(await insert(req.body.new))
     } catch (error) {
         res.status(404).send(error.message)
     }
@@ -29,7 +29,7 @@ router.post('/insert',express.json(),async (req,res)=>{
 
 router.post('/update',express.json(),async (req,res)=>{
     try {
-        res.status(200).send(await update(req.body))
+        res.status(200).send(await update(req.body.prev,req.body.new))
     } catch (error) {
         res.status(404).send(error.message)
     }
