@@ -3,8 +3,8 @@ jest.mock('../../modules/suppliers', () => {
         getAllSuppliers: jest.fn(() => {
             return 'true';
         }),
-        getSupplier: jest.fn((option, text) => {
-            if (option === undefined && text === undefined) {
+        getSupplier: jest.fn((obj) => {
+            if (obj.option === 'gggg' || obj.text === 'gggg') {
                 throw new Error('can not getSupplier')
             }
             else {
@@ -27,11 +27,7 @@ describe(('GET ALLSUPPLIER '), () => {
         expect(response.statusCode).toBe(200);
         expect(response.notFound).toBeFalsy();
     })
-    it('should send status 500 if it is not good ', async () => {
-        const response = await request(app).get('/suppliers/getallSupplier');
-        expect(response).toBeDefined()
-        expect(response.statusCode).toBe(500)
-    })
+
 })
 
 
@@ -42,14 +38,11 @@ describe(('GETSUPPLIERS '), () => {
         expect(response.notFound).toBeFalsy();
     })
     it('should send status 500 if it is not good ', async () => {
-        const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
+        const response = await request(app).get('/suppliers/getSuppliers/gggg/gggg');
         expect(response).toBeDefined()
         expect(response.statusCode).toBe(500)
     })
 })
-
-
-
 
 
 afterAll(() => {

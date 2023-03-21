@@ -2,7 +2,6 @@ const { connect, disconnect, getConnection } = require('./sql-connection')
 
 //פונקציה שמחזירה את כל הנתונים מטבלה מסוימת
 async function getAll(table) {
-
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE  Disabled='0'`)
     await disconnect()
