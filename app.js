@@ -2,7 +2,6 @@ const express = require('express')
 const app = express()
 const cors = require('cors')
 const delete_router = require('./routers/delete')
-const { MongoDBOperations } = require('./services/db/mongo/mongo-operation')
 app.use(cors())
 
 app.use('/delete', delete_router)

@@ -3,7 +3,10 @@ const http = require('http')
 const { app } = require('./app')
 const { connect } = require('./services/db/mongo/mongo_connection')
 const { sconnect } = require('./services/db/sql/sql_connection')
-const { MongoDBOperations }=require('./services/db/mongo/mongo-operation')
+const { MongoDBOperations } = require('./services/db/mongo/mongo-operation')
+// const{insert,update,find}=require('./modules/pumps')
+const { sqlDBOperations } = require('./services/db/sql/sql_operation')
+
 const { PORT, HOST } = process.env
 
 connect().then(_ => {
@@ -14,16 +17,11 @@ connect().then(_ => {
     })
 })
 
-
 const r=new MongoDBOperations()
-const a=r.insertOne({ordinalNumber:1,traitName:'OO',must:true,shortTrait:'1'
+const a=r.insertOne({ordinalNumber:1,traitName:'22',must:true,shortTrait:'1'
 ,values:[{name:'stam',addedDate:"28/03/03"}],addedDate:"12/03/23",enabled:true})
-   
-    
-    
 
-sconnect().then(_=>{
-    console.log('connect to sql');
-})
-
+// sconnect().then(_ => {
+//     console.log('connect to sql');
+// })
 const server = http.createServer(app)
