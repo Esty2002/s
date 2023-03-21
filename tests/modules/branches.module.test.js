@@ -83,7 +83,7 @@ describe('INSERT BRANCH', () => {
     it('should return fasle when it not suitable to the model', async () => {
         const response = await insertOneBranch({ BranchName: 'aaa', Street: 'fgd', HomeNumber: '3', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(response).toBeDefined();
-        expect(response).toBeFalsy()
+        expect(response).toBeFalsy();
     })
     describe('ERRORS', () => {
         it('should throw an error when it not suitable to sql ', async () => {
@@ -119,7 +119,6 @@ describe('CHECK UNIQUE BRANCH', () => {
         expect(response).toBeDefined()
         expect(response).toBeFalsy()
     })
-
     describe('ERRORS', () => {
         it('should throw an error when it not suitable to sql ', async () => {
             expect.assertions(3)
