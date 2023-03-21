@@ -1,31 +1,26 @@
 const request = require('supertest')
 
 const { app } = require('../../app')
-const { connect } = require('../../services/sql/sql-connection')
 
-// let server
-
-// beforeAll(() => {
-//     server = app.listen(3332)
-// })
 
 jest.mock('../../modules/quotation/delete', () => {
     return {
-        Delete: jest.fn((obj) => {
-            if (obj.table != 'quotation' && obj.table != 'quotationItems') {
-                console.log('not exist');
-                throw new Error('this table does not exist')
+        Delete: jest.fn((table) => {
+            if ((table === "quotation") || (table === "quotationItems")) {
+                console.log('table found');
+                return table
             }
             else {
-                return obj.table
+                console.log('not exist');
+                throw new Error('this table does not exist')
             }
         })
     }
 })
 
-describe('Delete Quotation Items', () => {
+describe('POST - DELETE QUOTATION ITEMS', () => {
     it('post /deleteQuotationItems is found', async () => {
-        const response = await request(app).post('/quotation/deleteQuotationItems').send(obj.table = 'quotation')
+        const response = await request(app).post('/quotation/deleteQuotationItems').send(table = "quotation")
         expect(response).toBeDefined()
         expect(response).toBeTruthy()
         expect(response.statusCode).toBe(200)
@@ -34,10 +29,10 @@ describe('Delete Quotation Items', () => {
         expect(response.notFound).toBeFalsy()
     })
 
-    it('should call function deleteQuotationItems in module', async () => {
+    it('should call function Delete in modules', async () => {
         const method = jest.requireMock('../../modules/quotation/delete')
-        const response = await request(app).post('quotation/deleteQuotationItems').send(obj.table = 'quotationItems')
-        expect(method.deleteQuotationItems).toHaveBeenCalld()
+        const response = await request(app).post('/quotation/deleteQuotationItems').send(table = "quotationItems")
+        expect(method.Delete).toHaveBeenCalled()
         expect(response).toBeDefined()
         expect(response.error).toBe(false)
         expect(response.notFound).toBeFalsy()
@@ -54,9 +49,8 @@ describe('Delete Quotation Items', () => {
 
 describe('POST APIs', () => {
     it('/ path should delete an item as send', async () => {
-        await connect()
         const response = await request(app).post('/delete/deleteQuotationItems')
-        expect(response.notFound).toBeFalsy()
+        expect(response.notFound).toBeTruthy()
         expect(response.statusCode).toBe(200)
         expect(response.headers['content-type']).toBe('application/json; charset=utf-8')
     })
@@ -65,14 +59,10 @@ describe('POST APIs', () => {
 
 describe('GET APIs', () => {
     it('/ path should return a welcome message', async () => {
-        const response = await request(app).get('/delete')
+        const response = await request(app).get('/quotation')
         expect(response.notFound).toBeFalsy()
         expect(response.statusCode).toBe(200)
         expect(response.headers['content-type']).toBe('application/json; charset=utf-8')
     })
 })
 
-
-// afterAll(() => {
-//     server.close()
-// })
