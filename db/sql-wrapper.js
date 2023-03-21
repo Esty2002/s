@@ -22,10 +22,7 @@ async function connectToSql() {
     _ = await getConnection().request().query(`IF NOT EXISTS(SELECT * FROM sys.databases WHERE name = '${SQL_SERVER_DATABASE}') CREATE DATABASE [${SQL_SERVER_DATABASE}];`)
     await disconnect();
 
-    // await connect(); 
-    // await getConnection().request().execute('CreateTables')   
     await connect();
-
     _ = await getConnection().request().query(`IF NOT EXISTS (SELECT * FROM sys.tables WHERE name = '${SQL_DB_SUPPLIERS}') CREATE TABLE [dbo].[${SQL_DB_SUPPLIERS}](
         Id int Identity (1000,1) NOT NULL PRIMARY KEY,
         SupplierCode nvarchar(50) NOT NULL  ,

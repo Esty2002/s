@@ -10,12 +10,9 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
         res.status(200).send(true);
     }
     catch (error) {
-        console.log('error');
         res.status(500).send(error);
     }
 })
-
-
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
     try {
@@ -27,7 +24,6 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
     }
 })
 
-
 router.post('/updatesupplier', express.json(), async (req, res) => {
     try {
         const result = await updateDetail(req.body.OldSupplierCode, req.body);
@@ -37,6 +33,7 @@ router.post('/updatesupplier', express.json(), async (req, res) => {
         res.status(500).send(error);
     }
 })
+
 router.get('/checkUnique/:suppliercode/:suppliername', async (req, res) => {
     try {
         const result = await checkUnique({ SupplierCode: req.params.suppliercode,SupplierName: req.params.suppliername});
@@ -76,7 +73,6 @@ router.get('/getSuppliers/:option/:text', async (req, res) => {
     catch (error) {
         res.status(500).send(error);
     }
-
 })
 
 module.exports = router;

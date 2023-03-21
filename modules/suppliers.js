@@ -1,7 +1,6 @@
 require('dotenv').config();
-const { getAll, allTheOption, insertSupplier, updateSupplier, delSupllier, delBranches, insertSupplierAndBranch } = require('../db/sql-operation');
+const { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertSupplierAndBranch,update } = require('../db/sql-operation');
 const { setDate } = require('../services/functions');
-
 const branchModule = require('./branches');
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 
@@ -56,7 +55,7 @@ async function insertOneSupplier(object) {
         }
         else {
             if (await checkValid(object) && await checkUnique(object)) {
-                const date = await setDate(new Date());
+                const date = setDate(new Date());
                 object['CreationDate'] = date;
                 const result = await insertSupplier(object);
                 return result.recordset;
@@ -107,10 +106,10 @@ async function updateDetail(code, setting) {
                 return false;
             }
         }
-        const result = await updateSupplier(`SupplierCode='${setting.SupplierCode}',SupplierName='${setting.SupplierName}',licensedDealerNumber='${setting.licensedDealerNumber}',
-            BokkeepingNumber='${setting.BokkeepingNumber}',ObjectiveBank= '${setting.ObjectiveBank}',ConditionGushyPayment='${setting.ConditionGushyPayment}',PreferredPaymentDate='${setting.PreferredPaymentDate}',
-            Ovligo='${setting.Ovligo}', Status='${setting.Status}' ,Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
-            Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, setting.SupplierCode)
+        const result = await update('Suppliers',`SupplierCode='${setting.SupplierCode}',SupplierName='${setting.SupplierName}',licensedDealerNumber='${setting.licensedDealerNumber}',
+        BokkeepingNumber='${setting.BokkeepingNumber}',ObjectiveBank= '${setting.ObjectiveBank}',ConditionGushyPayment='${setting.ConditionGushyPayment}',PreferredPaymentDate='${setting.PreferredPaymentDate}',
+        Ovligo='${setting.Ovligo}', Status='${setting.Status}' ,Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
+        Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, {SupplierName:setting.SupplierName})
         return result.recordset;
     }
     catch {

@@ -18,8 +18,6 @@ async function delSupllier(titleSup, titelBran, code, name, date) {
 }
 //function that delete branch  
 async function delBranches(title, code, name, date, Bname) {
-    console.log(title, code, name, date, Bname);
-    console.log(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= ${code}  AND BranchName = '${Bname}' `);
     await connect()
     const result = await getConnection().request().query(`UPDATE ${title} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode= ${code}  AND BranchName = '${Bname}' `)
     await disconnect()
@@ -33,15 +31,6 @@ async function update(title, setting, code, other) {
     return result;
 }
 
-async function updateSupplier(object, code,newCode) {
-    console.log(newCode);
-    console.log(`BEGIN TRAN UPDATE Suppliers SET ${object} WHERE SupplierCode = '${code}';  UPDATE Branches SET SupplierCode = '${newCode}'  WHERE SupplierCode = '${code}'; commit`);
-    await connect()
-    const result = await getConnection().request().query(`BEGIN TRAN UPDATE Suppliers SET ${object} WHERE SupplierCode = '${code}'; 
-    UPDATE Branches SET SupplierCode = '${newCode}'  WHERE SupplierCode = '${code}'; commit`)
-    await disconnect()
-    return result;
-}
 //פונקצית מציאת ספק לפי נתוני חיפוש
 async function allTheOption(table, column, code) {
     await connect()
@@ -178,4 +167,4 @@ async function insertSupplierAndBranch(object) {
 }
 
 
-module.exports = { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertBranch, checkUniqueBranch, update,updateSupplier, insertSupplierAndBranch }
+module.exports = { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertBranch, checkUniqueBranch, update, insertSupplierAndBranch }

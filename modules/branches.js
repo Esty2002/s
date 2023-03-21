@@ -8,7 +8,7 @@ const { SQL_DB_BRANCHES } = process.env;
 async function deleteBranches(object) {
     try {
         const newDate = setDate(new Date());
-        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName);
+        const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.Id, object.DisableUser, newDate, object.BranchName);
         return resultBranchCode.recordset;
     }
     catch (error) {
@@ -19,6 +19,7 @@ async function deleteBranches(object) {
 async function updateDetail(code, setting) {
     try {
         if (await checkUniqueBranch(setting)) {
+            console.log(code,setting,"in update details");
             const result = await update('Branches', `SupplierCode='${setting.SupplierCode}',BranchName='${setting.BranchName}',Status='${setting.Status}' ,
             Street='${setting.Street}',HomeNumber='${setting.HomeNumber}',City='${setting.City}',ZipCode='${setting.ZipCode}',Phone1='${setting.Phone1}' ,
             Phone2='${setting.Phone2}',Mobile='${setting.Mobile}',Fax='${setting.Fax}',Mail='${setting.Mail}',Notes='${setting.Notes}'`, code, { 'BranchName': setting.OldBranchName })
