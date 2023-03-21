@@ -17,7 +17,7 @@ let myconfig={
 
 let connection=null
 
-const connect=async(config=myconfig)=>{
+const connect=async(config = myconfig)=>{
     connection=await sql.connect(config)
 }
 
