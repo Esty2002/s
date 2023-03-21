@@ -17,11 +17,17 @@ class MongoDBOperations {
         const result = await getClient().db(this.dbName).collection(this.collectionName).insertMany(obj)
         return result
     }
-    async findItem(filter,project) {
-        const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter,project)
+    async findItem(filter, project) {
+        const result = await getClient().db(this.dbName).collection(this.collectionName).findOne(filter, { projection: project })
         console.log(result);
         return result
     }
+    async find(filter = {}, project = {}, sort = {}) {
+        let s = {}
+        s[sort] = 1
+        return await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).sort(s).toArray()
+    }
+
     // async findMany(obj) {
     //     const result = await getClient().dbName(this.dbName).collection(this.collectionName).findMany(obj).toArrey
     //     return result.insertedId

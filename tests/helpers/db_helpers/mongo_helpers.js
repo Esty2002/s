@@ -2,11 +2,11 @@ const testConnection = async (connection) => await connection.db('admin').comman
 
 const isConnected = async (connection) => {
     try {
-        await testConnection(connection);
-        return true;
+        await testConnection(connection)
+        return true
     }
     catch {
-        return false;
+        return false
     }
 }
 
