@@ -11,5 +11,4 @@ app.get('/', (req, res) => {
 
 app.use('/quotation',manage_quotation)
 
-
 module.exports = { app }
