@@ -8,20 +8,11 @@ async function getAll(table) {
     await disconnect()
     return result;
 }
-// פונקציה המחזירה תאריך נוכחי
-async function setDate() {
-    await connect()
-    const result = await getConnection().request().query(`SELECT CONVERT(VARCHAR(20),getdate(),101) AS 'Today'`)
-    await disconnect()
-    return result;
-}
 //function that delete supplier and all her branches  
 async function delSupllier(titleSup, titelBran, code, name, date) {
     await connect()
     const result = await getConnection().request().query(`BEGIN TRAN UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'; 
     UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'; commit`)
-    // const result = await getConnection().request().query(`UPDATE ${titleSup} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}' `)
-    // const result1 = await getConnection().request().query(`UPDATE ${titelBran} SET DisableUser='${name}' ,Disabled='1',DisabledDate='${date}'  WHERE SupplierCode = '${code}'`)
     await disconnect()
     return result;
 }
@@ -33,14 +24,24 @@ async function delBranches(title, code, name, date, Bname) {
     return result;
 }
 //פונקצית עדכון
-async function update(title, setting, code) {
+async function update(title, setting, code, other) {
     await connect()
-    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}'`)
+    const result = await getConnection().request().query(`UPDATE ${title} SET ${setting} WHERE SupplierCode = '${code}' AND ${Object.keys(other)}='${Object.values(other)}'`)
+    await disconnect()
+    return result;
+}
+
+async function updateSupplier(object, code,newCode) {
+    console.log(newCode);
+    console.log(`BEGIN TRAN UPDATE Suppliers SET ${object} WHERE SupplierCode = '${code}';  UPDATE Branches SET SupplierCode = '${newCode}'  WHERE SupplierCode = '${code}'; commit`);
+    await connect()
+    const result = await getConnection().request().query(`BEGIN TRAN UPDATE Suppliers SET ${object} WHERE SupplierCode = '${code}'; 
+    UPDATE Branches SET SupplierCode = '${newCode}'  WHERE SupplierCode = '${code}'; commit`)
     await disconnect()
     return result;
 }
 //פונקצית מציאת ספק לפי נתוני חיפוש
-async function allTheOption(table,column,code){
+async function allTheOption(table, column, code) {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM ${table} WHERE ${column}='${code}' AND  Disabled='0'`)
     await disconnect()
@@ -178,4 +179,4 @@ async function insertSupplierAndBranch(object) {
 }
 
 
-module.exports = { getAll,allTheOption, insertSupplier, delSupllier, delBranches,insertBranch, checkUniqueBranch , setDate, update ,insertSupplierAndBranch}
+module.exports = { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertBranch, checkUniqueBranch, update,updateSupplier, insertSupplierAndBranch }
