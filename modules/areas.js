@@ -30,7 +30,7 @@ async function findAreaByCode(code,project={}) {
 
 async function updateArea(obj) {
 
-    const result = await mongo_collection_areas.updateOne({ supplierOrClientCode: obj.supplierOrClientCode }, { $set: { 'areasList.$[u]': obj.areas } }, { arrayFilters: [{ 'u.areaName': obj.areas.areaName }] })
+    const result = await mongo_collection_areas.updateOne({ supplierOrClientCode: obj.supplierOrClientCode }, { $set: { 'areas.$[u]': obj.areas } }, { arrayFilters: [{ 'u.areaName': obj.areas.areaName }] })
     if (result)
         return result
     else
@@ -56,7 +56,7 @@ async function deleteSupplierOrClient(phone) {
         throw new Error('Not Found supplier or client code to delete his areas')
 }
 async function deleteArea(phone, area) {
-    const result = await mongo_collection_areas.updateOne(phone, { $set: { 'areasList.$[u].delete': true } }, { arrayFilters: [{ 'u.areaName': area }] })
+    const result = await mongo_collection_areas.updateOne(phone, { $set: { 'areas.$[u].delete': true } }, { arrayFilters: [{ 'u.areaName': area }] })
     if (result)
         return result
     else
