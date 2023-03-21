@@ -10,9 +10,15 @@ async function insertProduct(obj) {
 async function findObject(filter, project = {}) {
     return mongo_operations.findItem(filter, project)
 }
-async function getTraits(filter, project,sort) {
+async function getTraits(filter, project, sort) {
     filter['enabled'] = true
-    return await mongoOperations.find(filter, project,sort)
+    return await mongoOperations.find(filter, project, sort)
+}
+async function updateProduct(condition, obj) {
+    return await mongo_operations.update(condition, obj)
+}
+async function findProduct(filter, project = {}) {
+    return mongo_operations.findItem(filter, project)
 }
 
-module.exports = { insertProduct, findObject,getTraits }
+module.exports = { insertProduct, findObject, getTraits, updateProduct, findProduct }

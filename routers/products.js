@@ -1,16 +1,25 @@
-const express=require('express')
+const express = require('express')
 const router = express.Router()
-const { updateProduct, insertProduct, findObject ,getTraits} = require('../modules/products')
+const { updateProduct, insertProduct, findProduct,getTraits} = require('../modules/products')
+
+router.post('/UpdateProduct', express.json(), async (req, res) => {
+    console.log("update",req.query,req.body,"------------------------------");
+    res.send( await updateProduct(req.query,req.body))
+})
+
+router.get('/getItemForSetting', async (req, res) => {  
+    const product = await findProduct(req.query)
+    res.send(product);
+})
 
 router.post('/addproduct', express.json(), async (req, res) => {
-    console.log("req.body", req.body);
     const id = await insertProduct(req.body)
     console.log(id);
     res.send(id)
 })
 router.get('/find', async (req, res) => {
     const object = req.query
-    const ans = await findObject(object)
+    const ans = await findProduct(object)
     res.send(ans)
 })
 router.get('/getItemForSetting', async (req, res) => {

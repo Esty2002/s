@@ -25,9 +25,10 @@ app.get('/b', async (req, res) => {
     res.send()
 })
 
+app.use('/product', manageProduct)
 
 app.get('/*', (req, res) => {
     res.status(404).send('not found')
 })
-
 module.exports = { app }
+

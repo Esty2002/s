@@ -8,6 +8,13 @@ class MongoDBOperations {
         console.log("data name:", dbName);
         this.collectionName = collectionName
         this.dbName = dbName
+
+
+    }
+    async update(condition = {}, update = {}) {
+        console.log(condition, "condition,update", update, "condition,update");
+        const result = await getClient().db(this.dbName).collection(this.collectionName).updateOne(condition, { $set: update })
+        return result
     }
     async insertOne(obj) {
         const result = await getClient().db(this.dbName).collection(this.collectionName).insertOne(obj)
@@ -27,11 +34,6 @@ class MongoDBOperations {
         s[sort] = 1
         return await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).sort(s).toArray()
     }
-
-    // async findMany(obj) {
-    //     const result = await getClient().dbName(this.dbName).collection(this.collectionName).findMany(obj).toArrey
-    //     return result.insertedId
-    // }
 
 }
 
