@@ -51,8 +51,8 @@ async function connectToSql() {
     creationDate nvarchar(20) NOT NULL,
     userThatAdd nvarchar(20) NOT NULL,
     disabled bit NOT NULL,
-    deletionDate nvarchar(50) NOT NULL,
-    userThatDelete nvarchar(20) NOT NULL)`)
+    deletionDate nvarchar(50) ,
+    userThatDelete nvarchar(20))`)
     disconnect()
 
     await connect()

@@ -7,22 +7,25 @@ router.get('/getAll', async (req, res) => {
     if (allClients.length > 0)
         res.status(200).send(allClients)
     else
-        res.status(200).send(false)
+        res.status(404).send({message:'NOT FOUND'})
 
 })
 
 router.get('/findClient/:id', async (req, res) => {
     const getClientByid = await getClientsById(req.params.id)
-    if (getClientByid != false && getClientByid.length > 0)
+    if (getClientByid )
         res.status(200).send(getClientByid)
     else
-        res.status(200).send(false)
+        res.status(404).send({message:req.params.id})
 
 })
 
 router.get('/searchClient/:field/:value', async (req, res) => {
     const getClientByValue = await getClientsByField(req.params.field, req.params.value)
-    res.status(200).send(getClientByValue)
+    if (getClientByValue )
+        res.status(200).send(getClientByValue)
+    else
+        res.status(404).send({message:req.params.value})
 })
 
 module.exports = router
