@@ -3,8 +3,8 @@ jest.mock('../../modules/suppliers', () => {
         getAllSuppliers: jest.fn(() => {
             return 'true';
         }),
-        getSupplier: jest.fn((option, text) => {
-            if (option === undefined && text === undefined) {
+        getSupplier: jest.fn((obj) => {
+            if (obj.option === 'gggg' || obj.text === 'gggg') {
                 throw new Error('can not getSupplier')
             }
             else {
@@ -24,20 +24,26 @@ beforeAll(() => {
     server = app.listen('1530');
 })
 
-describe('GET SUPPLIERS', () => {
-    describe(('GET ALLSUPPLIER '), () => {
-        it('get("/suppliers/getallSuppliers") returns an answer if get from findSupllier obj', async () => {
-            const response = await request(app).get('/suppliers/getallSuppliers');
-            expect(response.statusCode).toBe(200);
-            expect(response.notFound).toBeFalsy();
-        })
+describe(('GET ALLSUPPLIER '), () => {
+    it('get("/suppliers/getallSuppliers") returns an answer if get from findSupllier obj', async () => {
+        const response = await request(app).get('/suppliers/getallSuppliers');
+        expect(response.statusCode).toBe(200);
+        expect(response.notFound).toBeFalsy();
     })
-    describe(('GET GETSUPPLIERS '), () => {
-        it('get("/suppliers/getSuppliers/SuplierCode/12") returns an answer if get from findSupllier obj', async () => {
-            const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
-            expect(response.statusCode).toBe(200);
-            expect(response.notFound).toBeFalsy();
-        })
+
+})
+
+
+describe(('GETSUPPLIERS '), () => {
+    it('get("/suppliers/getSuppliers/:"SuplierCode"/:12") returns an answer if get from findSupllier obj', async () => {
+        const response = await request(app).get('/suppliers/getSuppliers/SuplierCode/12');
+        expect(response.statusCode).toBe(200);
+        expect(response.notFound).toBeFalsy();
+    })
+    it('should send status 500 if it is not good ', async () => {
+        const response = await request(app).get('/suppliers/getSuppliers/gggg/gggg');
+        expect(response).toBeDefined()
+        expect(response.statusCode).toBe(500)
     })
 })
 describe('DELETE SUPPLIER', () => {
@@ -55,6 +61,7 @@ describe('DELETE SUPPLIER', () => {
         expect(response).toBeTruthy();
     })
 })
+
 
 
 afterAll(() => {

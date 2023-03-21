@@ -55,6 +55,9 @@ jest.mock('../../modules/suppliers', () => {
                     return { recordset: [] }
                 return { recordset: [{ aa: 'aaa' }] }
             }
+        }),
+        getAll: jest.fn((branch='branch') => {
+            return {name:'rrrrrr'};
         })
     }
 })
@@ -233,13 +236,17 @@ describe('GETALLBRANCH', () => {
         expect(methods.getAll).toHaveBeenCalled();
         expect(methods.getAll).toHaveBeenCalledTimes(2);
     })
+   
+
+
+
 })
 
 describe('GETBRANCH', () => {
-
     it('should return defined object from sql', async () => {
         const response = await getBranchesByCondition('SupplierCode', '08-8666515');
         expect(response).toBeDefined();
+
     })
 
     it('if you can to connect sql', async () => {

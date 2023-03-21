@@ -135,7 +135,8 @@ describe('GET API', () => {
             expect(response.notFound).toBeFalsy();
         })
     })
-    describe(('GET GETBRANCHES '), () => {
+
+    describe(('GETBRANCHES '), () => {
         it('get("/branches/getBranchesWithCondition/BranchCode/12") returns an answer if get from findBranch obj', async () => {
             const response = await request(app).get('/branches/getBranchesWithCondition/BranchCode/12');
             expect(response.statusCode).toBe(200);

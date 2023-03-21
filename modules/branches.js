@@ -41,13 +41,8 @@ async function updateDetail(code, setting) {
 }
 //return all the branches 
 async function getAllBranches() {
-    try {
         const result = await getAll('Branches');
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+            return result;
 }
 //return all the branches that the condition for it and not disabled. 
 async function getBranchesByCondition(column, code) {

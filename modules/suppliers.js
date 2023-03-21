@@ -21,13 +21,8 @@ async function deleteSupplier(object) {
 }
 //פונקציה שמקבלת נתוני כל הספקים
 async function getAllSuppliers() {
-    try {
         const result = await getAll('suppliers');
-        return result;
-    }
-    catch (error) {
-        throw error;
-    }
+        return result.recordset;
 }
 //פונקציה שמקבלת נתוני ספק לפי החיפוש ששולחים לו
 async function getSupplier(obj) {
