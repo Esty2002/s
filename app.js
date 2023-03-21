@@ -1,10 +1,10 @@
 const express = require('express')
 const app = express()
 const cors = require('cors')
-const delete_router = require('./routers/delete')
+const product_router = require('./routers/product')
 app.use(cors())
 
-app.use('/delete', delete_router)
+app.use('/product', product_router)
 
 app.get('/', async (req, res) => {
     res.send("localhost:2222")

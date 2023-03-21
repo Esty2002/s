@@ -1,5 +1,5 @@
 const { getConnection, sconnect, disconnect } = require("./sql_connection");
-const { sconnect } = require("./sql_connection");
+// const { sconnect } = require("./sql_connection");
 
 class sqlDBOperations {
     constructor(table) {
@@ -30,14 +30,14 @@ class sqlDBOperations {
         disconnect()
     }
 
-    async find( col = '*', where = "") {
+    async find(col = '*', where = "") {
         await sconnect()
         const result = await getConnection().request().query(`SELECT ${{ ...col }} FROM ${this.table} ${where}`)
         disconnect()
         return result.recordset
     }
 
-    async update( obj, where) {
+    async update(obj, where) {
         await sconnect()
         let string = ""
         for (let k in obj) {
