@@ -16,7 +16,7 @@ app.use('/readClient', readClient_router)
 app.use('/statuses', status_router)
 
 app.get('/', async (req, res) => {
-    console.log('Hellllo');
+   res.status(200).send({message:'our api'})
 })
 
 module.exports = { app }

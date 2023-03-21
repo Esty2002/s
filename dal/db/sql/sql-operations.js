@@ -5,6 +5,8 @@ async function getAll() {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM CLIENTS WHERE DISABLED='False'`)
     disconnect()
+    console.log(result,' res');
+    
     return result
 }
 
@@ -14,7 +16,6 @@ async function getClientById(id) {
     disconnect()
     return result
 }
-
 async function getClientByField(field, value) {
     await connect()
     const result = await getConnection().request().query(`SELECT * FROM CLIENTS WHERE ${field}='${value}'`)
@@ -130,7 +131,5 @@ async function getCodeClient(clientCode) {
     disconnect()
     return result
 }
-
-
 
 module.exports = { update, deleteClient, getAll, getClientByField, getClientById, addClient, getStatus, getCodeClient, deleteStatus, addStatus }
