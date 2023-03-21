@@ -4,9 +4,11 @@ const path = require('path')
 const cors = require('cors')
 const { MongoDBOperations } = require('./services/db/mongo/mongo-operation')
 const manageProduct = require('./routers/products')
+const manageUnitOfMeasure=require('./routers/unit_of_measure')
 
 app.use(cors())
 app.use('/product', manageProduct)
+app.use('/unit_of_measure',manageUnitOfMeasure)
 
 app.get('/', (req, res) => {
     res.send()
