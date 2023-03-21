@@ -9,7 +9,7 @@ async function deleteBranches(object) {
     try {
         const newDate = await setDate(new Date())
         const resultBranchCode = await delBranches(SQL_DB_BRANCHES, object.SupplierCode, object.DisableUser, newDate, object.BranchName)
-        return (resultBranchCode)
+        return resultBranchCode
     }
     catch (error) {
         console.log('error');

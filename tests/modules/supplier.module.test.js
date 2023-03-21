@@ -153,6 +153,7 @@ describe('DELETE SUPPLIER', () => {
         const response = await deleteSupplier({ SupplierCode: '123', DisableUser: 'sari' });
         expect(response).toBeDefined();
     })
+    
 
     it('should called delSupplier and setDate -  twice', async () => {
         _ = await deleteSupplier({ SupplierCode: '123', DisableUser: 'sari' });
@@ -162,5 +163,17 @@ describe('DELETE SUPPLIER', () => {
         expect(result.delSupllier).toHaveBeenCalledTimes(2);
         expect(setDate).toHaveBeenCalled();
         expect(setDate).toHaveBeenCalledTimes(2);
+    })
+
+    it('shoult throw Error if not get in object keys:SupplierCode or DisableUser', async () => {
+        expect.assertions(3);
+        try {
+            const response = await deleteSupplier({});
+        }
+        catch (error) {
+            expect(error).toBeDefined()
+            expect(error).toBeInstanceOf(Error)
+            expect(error.message).toBe('can not delete supplier')
+        }
     })
 })
