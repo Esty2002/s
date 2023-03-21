@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { updateProduct, insertProduct, findProduct, getTraits } = require('../modules/products')
+const { updateProduct, insertProduct, findProduct, getTraits,createCartesian } = require('../modules/products')
 
 router.post('/UpdateProduct', express.json(), async (req, res) => {
     console.log("update", req.query, req.body, "------------------------------");
@@ -44,6 +44,10 @@ router.get('/search', async (req, res) => {
 router.post('/delete', express.json(), async (req, res) => {
     const ans = await updateProduct(req.body, { enabled: false, deletedDate: new Date() })
     res.status(200).send(ans)
+})
+
+router.get('/cartesian', async (req, res) => {
+    res.status(200).send(await createCartesian(req.query.start))
 })
 
 module.exports = router
