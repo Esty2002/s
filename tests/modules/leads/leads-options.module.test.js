@@ -58,24 +58,28 @@ const { createNewLead, getTheMustConcretItem, updateLead,allLeadsDetails } = req
 
     describe('CHECK FUNCTION CREATENEWLEAD', () => {
         it('should return inserted id when succeded', async () => {
-            let result = await createNewLead({ phone: "088659365", date: new Date() });
+            let result = await createNewLead({ phone: "088659365", supplyDate: new Date() });
             expect(result).toBeDefined();
             expect(result).toBe("123456");
         })
         it('should return false the object is empty', async () => {
-            const result = await createNewLead();
-            expect(result).toBeDefined();
-            expect(result).toBeFalsy();
-            expect(result.date).toBe(undefined);
+            let result;
+            try{
+                result = await createNewLead();
+
+            }
+            catch(error){
+                expect(error).toBeDefined();
+                expect(error.message).toBe('the obj not received');
+                expect(error).toBeInstanceOf(Error);
+                expect(result).toBe(undefined);
+            }
+            
         })
-        it('should return false the object is empty', async () => {
-            const result = await createNewLead();
-            expect(result).toBeDefined();
-            expect(result).toBeFalsy();
-            expect(result.date).toBe(undefined);
-        })
+        
     })
     describe('check function getTheMastConcretItem', () => {
+        ///לא צריך
         it('should the function return the correct data', async () => {
             const result = await getTheMustConcretItem();
             expect(result).toBeDefined();
@@ -94,7 +98,7 @@ const { createNewLead, getTheMustConcretItem, updateLead,allLeadsDetails } = req
 
     describe('check the function updateLead', () => {
         it('should return when the function succsed', async () => {
-            const result = await updateLead({ name: "testes", serialNumber: "123" });
+            const result = await updateLead({ name: "testes", serialNumber: "123" },{});
             expect(result).toBeDefined();
             expect(result).toBe("successUpdatelead");
             expect(result).toBeTruthy()
@@ -112,18 +116,35 @@ const { createNewLead, getTheMustConcretItem, updateLead,allLeadsDetails } = req
 
 
         it('should return when the function dont get arguments', async () => {
-            const result = await updateLead();
-            expect(result).toBeDefined();
-            expect(result).toBe("successUpdatelead");
-            expect(result).toBeTruthy()
+            let result;
+            try{
+                result = await updateLead();
+
+            }
+            catch(error){
+                expect(error).toBeInstanceOf(Error);
+                expect(error.message).toBe("the obj or filter are not defined");
+
+                expect(error).not.toBeNull();
+            }
+            
 
         })
 
         it('should return when the function get empty object', async () => {
-            const result = await updateLead({});
-            expect(result).toBeDefined();
-            expect(result).toBe("successUpdatelead");
-            expect(result).toBeTruthy()
+            let result;
+            try{
+                result = await await updateLead({});
+
+            }
+            catch(error){
+                expect(error).toBeInstanceOf(Error);
+                expect(error.message).toBe("the obj or filter are not defined");
+                expect(result).not.toBeDefined()
+                expect(error).not.toBeNull();
+            }
+            
+
 
         })
 

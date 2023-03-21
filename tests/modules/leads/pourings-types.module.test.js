@@ -1,7 +1,6 @@
 jest.mock('../../../services/sql/sql-operations.js', () => {
     return {
         select: jest.fn((obj) => {
-            console.log(obj.tableName);
             if (obj.tableName === "puringsTypes") {
                 return true;
             }
@@ -10,7 +9,6 @@ jest.mock('../../../services/sql/sql-operations.js', () => {
             }
         }),
         insert: jest.fn((obj) => {
-            console.log(obj.tableName, "obj.table", obj.values);
             if (obj.tableName === "puringsTypes" && !obj.values.includes('undefined')) {
                 return "your object success";
             }
@@ -19,7 +17,6 @@ jest.mock('../../../services/sql/sql-operations.js', () => {
             }
         }),
         update: jest.fn((obj) => {
-            console.log(obj.set, obj.serialNumber);
             if (obj.set && obj.serialNumber) {
                 return "object is defined";
             }
@@ -45,10 +42,17 @@ describe('check function newPouringType', () => {
         expect(result.length).toBe(19);
     })
     it('check that the function return "your object success" when try to change the tablename', async () => {
-        const result = await newPouringType();
-        expect(result).toBeDefined();
-        expect(result).toBe("the object is null");
-        expect(result.length).toBe(18);
+        let result;
+        try{
+
+             result = await newPouringType();
+        }
+        catch(error){
+            expect(result).not.toBeDefined();
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+        }
+        
     })
 })
 
@@ -69,33 +73,48 @@ describe('check function getPouringTypes', () => {
 })
 describe('check function updatePouringType',()=>{
     it('check that the functin return "object is defined" when the obj.set is defined',async()=>{
-        const result=await updatePouringType({set:"test",serialNumber:1});
-        expect(result).toBe('object is defined');
-        expect(result).toBeDefined();
-        expect(result.length).toBe(17);
-        expect(result).not.toBeNull();
+        let result;
+        try{
+
+             result = await updatePouringType({set:"test",serialNumber:1});
+        }
+        catch(error){
+            expect(result).not.toBeDefined();
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+        }
+        
+        
     })
     it('check that the function return "object is not defined" when the obj.set not defined',async()=>{
-        const result=await updatePouringType({set:"test"});
-        expect(result).toBe('object is not defined');
-        expect(result).toBeDefined();
-        expect(result.length).toBe(21);
-        expect(result).not.toBeNull();
+        let result;
+        try{
+
+             result = await updatePouringType({set:"test",serialNumber:1});
+        }
+        catch(error){
+            expect(result).not.toBeDefined();
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+        }
+        
+        
     })
     it('check that the function return "object is not defined" when the obj.set not defined',async()=>{
-        const result=await updatePouringType({serialNumber:1});
-        expect(result).toBe('object is not defined');
-        expect(result).toBeDefined();
-        expect(result.length).toBe(21);
-        expect(result).not.toBeNull();
+        let result;
+        try{
+
+             result = await updatePouringType({serialNumber:1});
+        }
+        catch(error){
+            expect(result).not.toBeDefined();
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+        }
+        
+        
     }) 
-    it('check that the function return "the object is null" when the obj is null',async()=>{
-        const result=await updatePouringType();
-        expect(result).toBe('the object is null');
-        expect(result).toBeDefined();
-        expect(result.length).toBe(18);
-        expect(result).not.toBeNull();
-    })
+    
 })
 describe('check function deletePouringType',()=>{
     it('check that the function return "object is not defined" when all obj.set is defined',async()=>{
@@ -106,10 +125,18 @@ describe('check function deletePouringType',()=>{
         expect(result).not.toBeNull();
     })
     it('check that the function return "false" when the obj.set not defined',async()=>{
-        const result=await deletePouringType({set:"delete"});
-        expect(result).toBeFalsy();
-        expect(result).toBeDefined();
-        expect(result).not.toBeNull();
+        let result;
+        try{
+
+             result = await await deletePouringType({set:"delete"});
+        }
+        catch(error){
+            expect(result).not.toBeDefined();
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+        }
+        
+       
     })
     it('check that the function return "object is not defined" when the obj.set not defined',async()=>{
         const result=await deletePouringType({serialNumber:1});

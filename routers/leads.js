@@ -13,7 +13,6 @@ router.get('/getpouringtypes', async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.get('/getorderers', async (req, res) => {
@@ -23,7 +22,6 @@ router.get('/getorderers', async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 
 })
@@ -37,7 +35,6 @@ router.get('/getordererbyphone/:phone', async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 
 })
@@ -49,7 +46,6 @@ router.get('/getconcrettype', async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.get('/getstatuseslead', async (req, res) => {
@@ -60,7 +56,6 @@ router.get('/getstatuseslead', async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 
 })
@@ -72,7 +67,6 @@ router.post('/deletepouringtype', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.post('/deleteorderer', express.json(), async (req, res) => {
@@ -83,7 +77,6 @@ router.post('/deleteorderer', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 
 })
@@ -96,7 +89,6 @@ router.post('/createnewlead', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.post('/neworderer', express.json(), async (req, res) => {
@@ -108,7 +100,6 @@ router.post('/neworderer', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 
@@ -120,7 +111,6 @@ router.post('/newpouringtype', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.post('/getleadsdetails', express.json(), async (req, res) => {
@@ -146,7 +136,7 @@ router.post('/updatepouringtype', express.json(), async (req, res) => {
         res.status(404).send({ error });
 
     }
-    
+
 })
 router.post('/updateorderer', express.json(), async (req, res) => {
     try {
@@ -180,9 +170,9 @@ router.post('/updatestatuslead', express.json(), async (req, res) => {
 
     }
     catch (error) {
+        res.status(404).send({ error });
 
     }
-    res.status(200).send(response)
 })
 router.post('/deletelead', express.json(), async (req, res) => {
     try {
@@ -194,7 +184,6 @@ router.post('/deletelead', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 
 })
@@ -206,7 +195,6 @@ router.post('/newstatus', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.post('/deletestatus', express.json(), async (req, res) => {
@@ -217,7 +205,6 @@ router.post('/deletestatus', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 router.post('/updatestatus', express.json(), async (req, res) => {
@@ -228,7 +215,6 @@ router.post('/updatestatus', express.json(), async (req, res) => {
     }
     catch (error) {
         res.status(404).send({ error });
-
     }
 })
 

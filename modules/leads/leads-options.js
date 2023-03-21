@@ -7,15 +7,15 @@ const mongo_collection_products = MongoDBOperations;
 const createNewLead = async (obj = null) => {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
     let result;
-    if (obj) {
+    if (obj&&obj.supplyDate) {
         obj.serialNumber = await mongo_collection_leads.countDocuments();
         obj.serialNumber += 1;
         obj.disable = false;
-        obj.leadStatus="חדש"
+        obj.leadStatus = "חדש"
         result = await mongo_collection_leads.insertOne(obj);
     }
     else {
-        result = false;
+        throw new Error("the obj not received")
     }
     return result;
 }
@@ -28,35 +28,41 @@ const getTheMustConcretItem = async () => {
 }
 
 
-const updateLead = async (obj = {}, filter = {}) => {
+const updateLead = async (obj = null, filter = null) => {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
+    let result;
+    if (filter && obj) {
+        result = await mongo_collection_leads.updateOne(obj, filter);
 
-    const result = await mongo_collection_leads.updateOne(obj, filter);
+    }
+    else {
+        throw new Error("the obj or filter are not defined");
+    }
+
     return result;
 }
 
 
 
-const allLeadsDetails=async({filter,sort,skip,limit,project}) =>{
-    console.log({filter,sort,skip,limit,project});
+const allLeadsDetails = async ({ filter, sort, skip, limit, project }) => {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-    const result=await mongo_collection_leads.aggregate(filter,sort,skip,limit,project);
+    const result = await mongo_collection_leads.aggregate(filter, sort, skip, limit, project);
     return result;
 }
-const changeLeadToOrder=async(serialNumber)=>{
+const changeLeadToOrder = async (serialNumber) => {
     mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-    const resultUpdate=await mongo_collection_leads.updateOne(serialNumber,{disable:true,leadStatus:"old"});
-    const resultDetails=await mongo_collection_leads.find(serialNumber,{});
+    const resultUpdate = await mongo_collection_leads.updateOne(serialNumber, { disable: true, leadStatus: "old" });
+    const resultDetails = await mongo_collection_leads.find(serialNumber, {});
     // כאן צריך להשתמש בפונקציה שמכניסה הזמנה חדשה ולשלוח לה את כל הנתונים שהתקבלו מהמונגו ולקבל את מספר ההזמנה ואחר כך לעדכן במונגו את מספר ההזמנה שיצא
     return "success";
 
 }
 
-    
 
 
 
 
 
 
-module.exports = { createNewLead, allLeadsDetails, getTheMustConcretItem, updateLead ,changeLeadToOrder}
+
+module.exports = { createNewLead, allLeadsDetails, getTheMustConcretItem, updateLead, changeLeadToOrder }

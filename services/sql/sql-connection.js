@@ -23,7 +23,7 @@ const connect =async (config = myconfig)=>{
    connection =  await sql.connect(config)
 }
 
-const disconnect  = ()=>{
+const disconnect  = async ()=>{
     connection.close()
 }
 
