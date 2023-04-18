@@ -1,11 +1,13 @@
-<<<<<<< HEAD
 const express = require('express');
 const router = express.Router();
 
-const { getQuotationByConditions, getQuotationItemsByQuotationCode,allContactDataList } = require('../modules/quotation/read');
-const { createQuotation} = require('../modules/quotation/create');
+const { getQuotationByConditions, getQuotationItemsByQuotationCode, allContactDataList } = require('../modules/quotation/read');
+const { createQuotation } = require('../modules/quotation/create');
+const { Insert, Delete, Update, commentAccordingCode, updateAccordingCode } = require('../modules/quotation/update')
+const { DeleteQuat } = require('../modules/quotation/delete')
 
-router.get('/',express.json(), async (req, res) => {
+
+router.get('/', express.json(), async (req, res) => {
     res.send("wellcome quotation");
 })
 
@@ -26,7 +28,7 @@ router.get('/getQuotationItemsByQuotationCode/:quotationCode', async (req, res) 
         const result = await getQuotationItemsByQuotationCode(req.params.quotationCode);
         res.status(200).send(result);
     }
-    catch(error){
+    catch (error) {
         res.status(404).send(error);
     }
 });
@@ -44,31 +46,24 @@ router.get('/allContactList', async (req, res) => {
 
 
 router.post('/create', express.json(), async (req, res) => {
-    try{
-    const result = await createQuotation(req.body);
-    res.send({result});
+    try {
+        const result = await createQuotation(req.body);
+        res.send({ result });
     }
-    catch(error){
-=======
-const express = require('express')
-const router = express.Router();
+    catch (error) {
 
-const { Insert, Delete, Update ,commentAccordingCode,updateAccordingCode} = require('../modules/quotation/update')
-const {  DeleteQuat } = require('../modules/quotation/delete')
-
-
-router.get('/', (req, res) => {
-    res.send({ message: 'welcome to router' })
+    }
 })
+
 
 router.get('/commentAccordingCode/:code', async (req, res) => {
     const result = await commentAccordingCode(req.params.code);
-    res.send( result )
+    res.send(result)
 })
 
 router.get('/updateAccordingCode/:code/:price', async (req, res) => {
     const result = await updateAccordingCode(req.params);
-    res.send( result )
+    res.send(result)
 })
 
 router.post('/insertQuotationItems', express.json(), async (req, res) => {
@@ -77,12 +72,12 @@ router.post('/insertQuotationItems', express.json(), async (req, res) => {
 })
 
 router.post('/deleteQuotationItems', express.json(), async (req, res) => {
-        const result = await Delete(req.body);        
-        res.send({ result })   
+    const result = await Delete(req.body);
+    res.send({ result })
 })
 
 router.post('/updateQuotationItems', express.json(), async (req, res) => {
-      const result = await Update(req.body);
+    const result = await Update(req.body);
     res.send({ result })
 })
 
@@ -95,16 +90,10 @@ router.post('/deleteQuotation', express.json(), async (req, res) => {
     }
     catch (error) {
         console.log(error);
->>>>>>> Chumi
         res.status(500).send(error)
     }
 })
 
-<<<<<<< HEAD
-module.exports = router;
-=======
-
 
 
 module.exports = router
->>>>>>> Chumi
