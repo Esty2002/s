@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { MongoDBOperations } = require('../services/db/mongo-operations')
+const { MongoDBOperations } = require('../services/db/mongo/mongo-operations')
 const mongo_collection_areas = new MongoDBOperations('areas')
 
 async function insertArea(obj) {

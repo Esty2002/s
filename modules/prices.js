@@ -1,5 +1,5 @@
-const { getConnection, connect, disconnect } = require("../services/sql/sql-connection");
-const { selectFromSql, addToSql, updateInSql } = require('../services/sql/sql-operations')
+const { getConnection, connect, disconnect } = require("../services/db/sql/sql-connection");
+const { selectFromSql, addToSql, updateInSql } = require('../services/db/sql/sql-operations')
 
 //  sql-פונקציה שיוצרת את הטבלה של המחירונים ב
 // async function createTable() {

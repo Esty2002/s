@@ -1,4 +1,4 @@
-const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
+const { getConnection, connect, disconnect } = require("./sql-connection");
 
 
 async function selectFromSql(select, table, condition) {
