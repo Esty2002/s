@@ -1,26 +1,27 @@
-const { getConnection, connect, disconnect } = require("../services/db/sql/sql-connection");
-const { selectFromSql, addToSql, updateInSql } = require('../services/db/sql/sql-operations')
+const { getConnection, connect, disconnect } = require("../../services-price-list/db/sql/sql-connection");
+const { selectFromSql, addToSql, updateInSql } = require('../../services-price-list/db/sql/sql-operations')
 
 //  sql-פונקציה שיוצרת את הטבלה של המחירונים ב
-// async function createTable() {
-//     await connect()
-//     const result = await getConnection().request().query(`CREATE TABLE priceList (id int IDENTITY(100,1),
-//      date date,
-//      priceListCode int,
-//      areaName varchar(255),
-//      itemCode varchar(255),
-//      price int,reduction int,
-//      primaryAmount int,
-//      unitOfMeasure varchar(255),
-//      additionDate date,
-//      disable int,
-//      deleteDate date)`)
-//     await disconnect()
-// }
+async function createTable() {
+    await connect()
+    const result = await getConnection().request().query(`CREATE TABLE priceList (id int IDENTITY(100,1),
+     date date,
+     priceListCode int,
+     areaName varchar(255),
+     itemCode varchar(255),
+     price int,reduction int,
+     primaryAmount int,
+     unitOfMeasure varchar(255),
+     additionDate date,
+     disable int,
+     deleteDate date)`)
+    await disconnect()
+}
 
 //פןנקציה שמכניסה נתונים לטבלת המחירונים
 async function addPriceList(data) {
 
+    console.log("hello to add Tollllllllll");
 
     let values = `('${setTheDateForSql(data.date)}',
     '${parseInt(data.priceListCode)}',
@@ -32,10 +33,12 @@ async function addPriceList(data) {
     '${setTheDateForSql(data.additionDate)}',
     '${parseInt(data.disable)}',
     '${setTheDateForSql(data.deleteDate)}')`
+    console.log(values);
     const result = await addToSql('priceList', values)
 
     return result
 }
+
 
 //פונקציה שמעדכנת את התאריך שבו המחירון נכנס לתוקף
 async function updatePriceList(data) {
@@ -55,6 +58,8 @@ async function deletePriceList(id) {
 //sql פונקציה שמקבלת תאריך ועורכת אותו בהתאמה ל-דרישות
 function setTheDateForSql(date) {
     let newDate = new Date(date).toISOString().split("T").join(" ").split("Z")
+    console.log(newDate);
+
     return newDate[0]
 }
 
@@ -110,5 +115,6 @@ module.exports = {
     selectProductsOfSupplierOrClientByAreaName,
     setTheDateForSql,
     selectAreaAndPriceByItemCode,
-    selectProductByAreaName
+    selectProductByAreaName,
+    createTable
 }

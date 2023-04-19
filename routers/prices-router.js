@@ -1,7 +1,12 @@
 const router = require('express').Router()
 const express = require('express')
 
-const {addPriceList, updatePriceList, deletePriceList, selectAreaAndPriceByItemCode, selectProductByAreaName, selectAreaByClientOrSupplyCode, selectAllAreasByPriceListCodeAndAreaNameAndItemCode, selectProductsOfSupplierOrClientByAreaName } = require('../modules/prices')
+const {addPriceList, updatePriceList, createTable,
+    deletePriceList, selectAreaAndPriceByItemCode, 
+    selectProductByAreaName, selectAreaByClientOrSupplyCode, 
+    selectAllAreasByPriceListCodeAndAreaNameAndItemCode, 
+    selectProductsOfSupplierOrClientByAreaName } = require('../modules/price-list/prices')
+
 
 
 router.get('/', async (req, res) => {
@@ -85,6 +90,8 @@ router.get('/findAreaByClientOrSupplyCode/:code', async (req, res) => {
 //  הוספת מחירון -מקבל אוביקט של הנתוהים ומכניס ל__ ומחזיר כמה שורות הושפעו בתוך מערך
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
+        console.log("hello to add To sqlllllllllllllllllllllllllll");
+
         const result = await addPriceList(req.body)
         res.status(200).send(result)
     } catch (error) {

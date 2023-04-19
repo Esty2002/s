@@ -1,4 +1,4 @@
-jest.mock('../../services/db/mongo-operations', () => {
+jest.mock('../../../services-price-list/db/mongo-operations', () => {
     return {
         updateOne: jest.fn((obj) => {
             return {"updateOne": obj};
@@ -21,8 +21,7 @@ jest.mock('../../services/db/mongo-operations', () => {
     }
 });
 
-const { insertArea, findSupplierOrClient,
-    updateSupplierOrClient, updateArea } = require('../../modules/areas')
+const { insertArea, findSupplierOrClient,updateSupplierOrClient, updateArea } = require('../../../modules/price-list/areas')
 
 describe('CHECK FUNCTION insertArea', () => {
 

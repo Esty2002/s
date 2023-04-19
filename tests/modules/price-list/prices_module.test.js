@@ -1,14 +1,13 @@
-const res = require("express/lib/response");
-const { getConnection, connect, disconnect } = require("../../services/sql/sql-connection");
+const { getConnection, connect, disconnect } = require("../../../services-price-list/db/sql/sql-connection");
 
 
 describe('SQL OPERATIONS', () => {
     let testconfig = {
-        server: 'TB6-18\\MSSQLSERVER',  //update me 
+        server: 'TB6-23\\MSSQLSERVER',  //update me 
         port: 1433,
         user: 'project', //update me
         password: '1234',  //update me
-        database: 'Bytontests',
+        database: 'BuytonTest',
         options: {
             trustServerCertificate: true
         }

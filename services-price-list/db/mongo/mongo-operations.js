@@ -44,7 +44,7 @@ class MongoDBOperations {
 
 
 
-module.exports = { MongoDBOperations }
+// module.exports = { MongoDBOperations }
 
-// const mongo=new MongoDBOperations();
-// module.exports =  mongo 
+const mongo=new MongoDBOperations();
+module.exports =  mongo 

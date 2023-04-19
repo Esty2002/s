@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { connect } = require('./services/db/mongo-connection');
+const { connect } = require('./services-price-list/db/mongo/mongo-connection');
 const http = require('http')
 const { app } = require('./app')
 const { HOST, PORT } = process.env

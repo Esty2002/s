@@ -15,6 +15,8 @@ async function selectFromSql(select, table, condition) {
 }
 
 async function addToSql(table, values) {
+    console.log("hello");
+
     await connect()
     const result = await getConnection().request().query(`INSERT INTO ${table} VALUES ${values}`)
     disconnect()
