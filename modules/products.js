@@ -12,7 +12,8 @@ async function insertProduct(obj) {
 
 async function getTraits(filter, project, sort) {
     filter['enabled'] = true
-    return await mongo_operations.find(filter, project, sort)
+    return await mongo_operations.fi
+    nd(filter, project, sort)
 }
 async function updateProduct(condition, obj) {
     return await mongo_operations.update(condition, obj)
