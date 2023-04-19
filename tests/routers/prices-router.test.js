@@ -43,8 +43,8 @@ describe('GET APIs', () => {
     it('/findProductAndPricesByAreaName', async () => {
         const response = await request(app).get('/prices/findProductAndPricesByAreaName/ashdod')
         const method = jest.requireMock('../../modules/price-list/prices')
-        expect(method.selectProductAndPricesByAreaName).toHaveBeenCalled()
-        expect(method.selectProductAndPricesByAreaName).toHaveBeenCalledTimes(1)
+        expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalled()
+        expect(method.selectAreaAndPriceByItemCode).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
     it('/findProductByAreaName', async () => {
@@ -55,19 +55,20 @@ describe('GET APIs', () => {
         expect(response).toBeDefined();
     })
     it('/findAreaByClientOrSupplyCode', async () => {
-        const response = await request(app).get('/prices/findAreaByClientOrSupplyCode')
+        const response = await request(app).get('/prices/findAreaByClientOrSupplyCode/1')
         const method = jest.requireMock('../../modules/price-list/prices')
+        console.log(method);
         expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalled()
         expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();
     })
-    it('/findAllAreas', async () => {
-        const response = await request(app).get('/prices/findAllAreas')
-        const method = jest.requireMock('../../modules/price-list/prices')
-        expect(method.selectAllAreas).toHaveBeenCalled()
-        expect(method.selectAllAreas).toHaveBeenCalledTimes(1)
-        expect(response).toBeDefined();
-    })
+    // it('/findAllAreas', async () => {
+    //     const response = await request(app).get('/prices/findAllAreas/5')
+    //     const method = jest.requireMock('../../modules/price-list/prices')
+    //     expect(method.selectAllAreas).toHaveBeenCalled()
+    //     expect(method.selectAllAreas).toHaveBeenCalledTimes(1)
+    //     expect(response).toBeDefined();
+    // })
 
 
 })

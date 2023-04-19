@@ -2,7 +2,7 @@ require('dotenv').config()
 const  mongoDBOperations  = require('../../services-price-list/db/mongo/mongo-operations')
 const mongo_collection_areas =mongoDBOperations
 const {MONGO_COLLECTION_AREAS}=process.env
-async function insertArea(obj) {
+async function insertArea(obj={}) {
     mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
     let filter = { supplierOrClientCode: obj.supplierOrClientCode }
     let what = obj.areasList
@@ -33,7 +33,7 @@ async function findAreaByCode(code,project={}) {
 }
 
 
-async function updateArea(obj) {
+async function updateArea(obj={}) {
     mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
 
     const result = await mongo_collection_areas.updateOne({ supplierOrClientCode: obj.supplierOrClientCode }, { $set: { 'areas.$[u]': obj.areas } }, { arrayFilters: [{ 'u.areaName': obj.areas.areaName }] })
