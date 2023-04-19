@@ -46,10 +46,11 @@ async function updateArea(obj) {
 
 async function findSupplierOrClient(code) {
     mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
-
+    code=parseInt(code)
     const result = await mongo_collection_areas.findOne({ supplierOrClientCode: code })
     if (result)
         return result
+
     else
         throw new Error("not found supplier or client code")
 }

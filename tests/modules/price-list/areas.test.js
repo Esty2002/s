@@ -1,4 +1,4 @@
-jest.mock('../../../services-price-list/db/mongo-operations', () => {
+jest.mock('../../../services-price-list/db/mongo/mongo-operations', () => {
     return {
         updateOne: jest.fn((obj) => {
             return {"updateOne": obj};

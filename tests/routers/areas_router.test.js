@@ -29,7 +29,7 @@
 
 
 
-jest.mock('../../../modules/price-list/areas', () => {
+jest.mock('../../modules/price-list/areas', () => {
     return {
         findAreaByCode: jest.fn(() => {
             return { areasList: [{ areaName: "ashdod", point: 12, radius: 12, delete: false }, { areaName: "jerusalem", point: 45, radius: 10, delete: false }] }
