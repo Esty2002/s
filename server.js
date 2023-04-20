@@ -6,17 +6,18 @@ const { app } = require('./app')
 
 
 const { connect } = require('./services-leads/db/mongodb/mongo-connection')
+const { connect1 } = require('./services-price-list/db/mongo/mongo-connection')
 
 const { HOST, PORT } = process.env;
 
-connect()
-    .then(
+connect().then(connect1().then(
         app.listen(PORT, HOST, () => {
             console.log('connect to mongo');
             console.log(`http://${HOST}:${PORT}`);
         })
     )
-
+    )
+    
 
 
 const server = http.createServer(app)
