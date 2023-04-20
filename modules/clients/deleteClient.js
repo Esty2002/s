@@ -1,4 +1,4 @@
-const { getClientById, deleteClient } = require('../dal/db/sql/sql-operations');
+const { getClientById, deleteClient } = require('../../services-clients/sql/sql-operations');
 
 async function deletedClientByCode(clientCode, userName) {
     const exist = await getClientById(clientCode);

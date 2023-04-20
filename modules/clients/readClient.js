@@ -1,4 +1,4 @@
-const { getAll, getClientByField, getClientById } = require('../dal/db/sql/sql-operations')
+const { getAll, getClientByField, getClientById } = require('../../services-clients/sql/sql-operations')
 
 async function getAllClient() {
     const result = await getAll()

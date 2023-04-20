@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getAllClient, getClientsByField, getClientsById } = require('../modules/readClient')
+const { getAllClient, getClientsByField, getClientsById } = require('../../modules/clients/readClient')
 
 router.get('/getAll', async (req, res) => {
     const allClients = await getAllClient();

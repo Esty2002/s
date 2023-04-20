@@ -1,4 +1,4 @@
-const { addClient, getCodeClient } = require('../dal/db/sql/sql-operations')
+const { addClient, getCodeClient } = require('../../services-clients/sql/sql-operations')
 
 async function addOneClient(obj) {
     let unique = await getCodeClient(obj.clientCode)

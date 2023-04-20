@@ -1,6 +1,6 @@
-const {postCommunications}=require('../../modules/communication')
+const {postCommunications}=require('../../../modules/clients/communication')
 
-jest.mock('../../dal/db/mongo/mongo-operations',()=>{
+jest.mock('../../../services-clients/mongo/mongo-operations',()=>{
     return{
         insertOne:jest.fn((obj)=>{
             obj.insertedId=10;
@@ -19,7 +19,7 @@ describe('POSTCOMMUNICATIONS',()=>{
 
     it('should execute insertOne twice',async ()=>{
         _=await postCommunications({name:"rachel",customerCode:1000},"try");
-        const methods=jest.requireMock('../../dal/db/mongo/mongo-operations')
+        const methods=jest.requireMock('../../../services-clients/mongo/mongo-operations')
         expect(methods.insertOne).toHaveBeenCalled();
         expect(methods.insertOne).toHaveBeenCalledTimes(2);
     

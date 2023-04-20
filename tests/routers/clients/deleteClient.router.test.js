@@ -1,7 +1,7 @@
 const request = require('supertest');
-const { app } = require('../../app');
+const { app } = require('../../../app');
 
-jest.mock('../../modules/deleteClient', () => {
+jest.mock('../../../modules/clients/deleteClient', () => {
     return {
         deletedClientByCode: jest.fn((clientCode, userName) => {
             // console.log("test : mock deletedClientByCode module");
@@ -37,7 +37,7 @@ describe ('POST API', () => {
 
     it('should execute deletedClientByCode once' ,async() => {
         _ = await request(app).post('/delete/deleteClient').send({code:1221,user:'gpree'});
-        const {deletedClientByCode}=jest.requireMock('../../modules/deleteClient');
+        const {deletedClientByCode}=jest.requireMock('../../../modules/clients/deleteClient');
         expect(deletedClientByCode).toHaveBeenCalled();
 
     })

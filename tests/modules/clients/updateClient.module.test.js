@@ -1,5 +1,5 @@
-const { updateClient } = require('../../modules/updateClient')
-jest.mock('../../dal/db/sql/sql-operations', () => {
+const { updateClient } = require('../../../modules/clients/updateClient')
+jest.mock('../../../services-clients/sql/sql-operations', () => {
     return {
         update: jest.fn((obj) => {
             console.log(obj, ' mock updateClient');
@@ -34,7 +34,7 @@ describe('UPDATECLIENT', () => {
 
     it('should execute update once', async () => {
         _ = await updateClient({ clientCode: '123', clientName: 'moshe' })
-        const methods = jest.requireMock('../../dal/db/sql/sql-operations')
+        const methods = jest.requireMock('../../../services-clients/sql/sql-operations')
         expect(methods.update).toHaveBeenCalled()
     })
 })

@@ -1,7 +1,7 @@
 const request = require('supertest');
-const { app } = require('../../app')
+const { app } = require('../../../app')
 
-jest.mock('../../modules/updateClient', () => {
+jest.mock('../../../modules/clients/updateClient', () => {
     return {
         updateClient: jest.fn((obj) => {
             if (obj)
@@ -18,7 +18,7 @@ describe('POST API', () => {
     })
 
     it('should execute updateClient once ', async () => {
-        const { updateClient } = jest.requireMock('../../modules/updateClient')
+        const { updateClient } = jest.requireMock('../../../modules/clients/updateClient')
         _ = await request(app).post('/updateClient/update', { clientCode: '123', clientName: 'Gidon' })
         expect(updateClient).toHaveBeenCalled();
         expect(updateClient).toHaveBeenCalledTimes(2);

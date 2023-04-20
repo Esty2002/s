@@ -1,5 +1,5 @@
 const express = require('express')
-const { addOneStatus ,deleteOneStatus, getStatusNumber } = require('../modules/status')
+const { addOneStatus ,deleteOneStatus, getStatusNumber } = require('../../modules/clients/status')
 
 const router = express.Router()
 

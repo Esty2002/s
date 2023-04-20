@@ -1,5 +1,5 @@
 const express = require('express');
-const { getClientByClientCode, updateClient } = require('../modules/updateClient')
+const { getClientByClientCode, updateClient } = require('../../modules/clients/updateClient')
 const router = express.Router();
 
 // router.get('/getClientForUpdate/:password', async (req, res) => {

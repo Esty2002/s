@@ -1,4 +1,4 @@
-const { getClientById, update } = require('../dal/db/sql/sql-operations');
+const { getClientById, update } = require('../../services-clients/sql/sql-operations');
 
 // async function getClientByClientCode(clientCode) {
 //     const result = await getClientById(clientCode);

@@ -1,7 +1,7 @@
 
-const { getAllClient, getClientsByField, getClientsById } = require('../../modules/readClient')
+const { getAllClient, getClientsByField, getClientsById } = require('../../../modules/clients/readClient')
 
-jest.mock('../../dal/db/sql/sql-operations', () => {
+jest.mock('../../../services-clients/sql/sql-operations', () => {
     return {
         getAll: jest.fn(() => {
             const obj = { recordset: [{ id: 1, name: "Gitty", city: "Ashdod", disabled: "false" }, { id: 2, name: "Ruty", city: "Jerusalem", disabled: "false" }] }
@@ -30,7 +30,7 @@ describe('GET ALL CLIENTS', () => {
 
     it('should execute read client once', async () => {
         _ = await getAllClient()
-        const methods = jest.requireMock('../../dal/db/sql/sql-operations')
+        const methods = jest.requireMock('../../../services-clients/sql/sql-operations')
         expect(methods.getAll).toHaveBeenCalled()
     })
 

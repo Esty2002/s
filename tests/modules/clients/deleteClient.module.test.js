@@ -1,4 +1,4 @@
-jest.mock('../../dal/db/sql/sql-operations', () => {
+jest.mock('../../../services-clients/sql/sql-operations', () => {
     return {
         getClientById: jest.fn((clientCode) => {
             // console.log("test : mock getClientById sql-operation");
@@ -15,7 +15,7 @@ jest.mock('../../dal/db/sql/sql-operations', () => {
     }
 })
 
-const { deletedClientByCode } = require("../../modules/deleteClient");
+const { deletedClientByCode } = require("../../../modules/clients/deleteClient");
 
 describe('DELETECLIENTBYCODE', () => {
 
@@ -31,7 +31,7 @@ describe('DELETECLIENTBYCODE', () => {
 
     it('should execute getClientById once' ,async () => {
         _ = await deletedClientByCode();
-        const methods = jest.requireMock('../../dal/db/sql/sql-operations');
+        const methods = jest.requireMock('../../../services-clients/sql/sql-operations');
         expect(methods.getClientById).toHaveBeenCalled();
     })
 

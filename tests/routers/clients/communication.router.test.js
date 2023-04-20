@@ -1,10 +1,10 @@
 const { default: expect } = require('expect');
 const request = require('supertest');
 
-const { app } = require('../../app');
+const { app } = require('../../../app');
 
 
-jest.mock('../../modules/communication', () => {
+jest.mock('../../../modules/clients/communication', () => {
     return {
         postCommunications: jest.fn((obj) => {
             console.log(obj);
@@ -26,7 +26,7 @@ describe('POST', () => {
         expect(res).toBeDefined()
     })
     it('shuold execute postCommunications tow ', async () => {
-       const {postCommunications}=jest.requireMock('../../modules/communication')
+       const {postCommunications}=jest.requireMock('../../../modules/clients/communication')
         const res = await request(app).post('/communication/postCommunications').send({ name: "tamy", customerCode: 1000 })
         expect(postCommunications).toHaveBeenCalled()
         expect(postCommunications).toHaveBeenCalledTimes(2)

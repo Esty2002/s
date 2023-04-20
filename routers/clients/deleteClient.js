@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { deletedClientByCode } = require('../modules/deleteClient')
+const { deletedClientByCode } = require('../../modules/clients/deleteClient')
 
 router.post('/deleteClient', express.json(), async (req, res) => {
     const result = await deletedClientByCode(req.body.code, req.body.user);

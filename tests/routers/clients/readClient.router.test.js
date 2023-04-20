@@ -1,8 +1,8 @@
 
 const request = require('supertest');
-const { app } = require('../../app');
+const { app } = require('../../../app');
 
-jest.mock('../../modules/readClient', () => {
+jest.mock('../../../modules/clients/readClient', () => {
     return {
         getAllClient: jest.fn(() => {
             return [{ id: 1, name: "Gitty", city: "Ashdod" }, { id: 2, name: "Ruty", city: "Jerusalem" }]
@@ -25,7 +25,7 @@ jest.mock('../../modules/readClient', () => {
 describe('GET ALL CLIENTS', () => {
     it('should execute getAll 1 times', async () => {
         _ = await request(app).get('/readClient/getAll');
-        const methods = jest.requireMock('../../modules/readClient');
+        const methods = jest.requireMock('../../../modules/clients/readClient');
         expect(methods.getAllClient).toHaveBeenCalled();
         expect(methods.getAllClient).toHaveBeenCalledTimes(1)
     })
@@ -46,7 +46,7 @@ describe('FIND CLIENT BY ID', () => {
 
 
     it('should execute getById 1 times', async () => {
-        const methods = jest.requireMock('../../modules/readClient');
+        const methods = jest.requireMock('../../../modules/clients/readClient');
         _ = await request(app).get('/readClient/findClient/1');
         expect(methods.getClientsById).toHaveBeenCalled();
         expect(methods.getClientsById).toHaveBeenCalledTimes(1);
@@ -75,7 +75,7 @@ describe('FIND CLIENT BY ID', () => {
 
 describe('FIND CLIENT BY SPECIFIC KEY AND VALUE',()=>{
     it('should execute getClientsByField 1 times',async()=>{
-        const methods = jest.requireMock('../../modules/readClient');
+        const methods = jest.requireMock('../../../modules/clients/readClient');
         _ = await request(app).get('/readClient/searchClient/name/Gitty');
         expect(methods.getClientsByField).toHaveBeenCalled();
         expect(methods.getClientsByField).toHaveBeenCalledTimes(1);
