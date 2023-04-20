@@ -5,7 +5,7 @@ const {addPriceList, updatePriceList, createTable,
     deletePriceList, selectAreaAndPriceByItemCode, 
     selectProductByAreaName, selectAreaByClientOrSupplyCode, 
     selectAllAreasByPriceListCodeAndAreaNameAndItemCode, 
-    selectProductsOfSupplierOrClientByAreaName } = require('../modules/price-list/prices')
+    selectProductsOfSupplierOrClientByAreaName } = require('../../modules/price-list/prices')
 
 
 

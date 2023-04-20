@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode } = require('../modules/price-list/areas')
+const { insertArea, findSupplierOrClient, deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode } = require('../../modules/price-list/areas')
 
 
 

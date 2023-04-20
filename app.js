@@ -1,8 +1,8 @@
 const express = require('express')
 const cors= require('cors');
 const app = express()
-const router_areas = require('./routers/areas-router')
-const router_prices = require('./routers/prices-router')
+const router_areas = require('./routers/price-list/areas-router')
+const router_prices = require('./routers/price-list/prices-router')
 
 
 app.use(cors())
