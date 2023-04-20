@@ -1,4 +1,4 @@
-jest.mock('../../../services/sql/sql-operations.js', () => {
+jest.mock('../../../services-leads/db/sql/sql-operations.js', () => {
     return {
         select: jest.fn((obj) => {
             if (obj.tableName === "puringsTypes") {

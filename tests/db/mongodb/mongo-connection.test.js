@@ -1,5 +1,5 @@
-const {connect,disconnect,getClient}=require('../../services/db/mongo-connection');
-const {isConnected}=require('../helpers/mongodb-helpers');
+const {connect,disconnect,getClient}=require('../../../services-leads/db/mongodb/mongo-connection');
+const {isConnected}=require('../../helpers/mongodb-helpers');
 
 
 describe('GETCLIENT',()=>{

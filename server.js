@@ -5,7 +5,7 @@ const { app } = require('./app')
 
 
 
-const { connect } = require('./services/db/mongo-connection')
+const { connect } = require('./services-leads/db/mongodb/mongo-connection')
 
 const { HOST, PORT } = process.env;
 

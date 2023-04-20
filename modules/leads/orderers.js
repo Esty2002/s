@@ -1,4 +1,4 @@
-const { insert, select, update } = require('../../services/sql/sql-operations');
+const { insert, select, update } = require('../../services-leads/db/sql/sql-operations');
 
 const tableName = "orderers";
 const newOrderer = async (obj = null) => {

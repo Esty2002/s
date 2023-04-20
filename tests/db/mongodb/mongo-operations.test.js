@@ -1,8 +1,8 @@
 require('dotenv').config();
 const { ObjectID } = require('bson');
-const mongoOperations = require('../../services/db/mongo-operations');
+const mongoOperations = require('../../../services-leads/db/mongodb/mongo-operations');
 
-const { connect, disconnect } = require('../../services/db/mongo-connection');
+const { connect, disconnect } = require('../../../services-leads/db/mongodb/mongo-connection');
 const { MONGO_CONNECTION } = process.env;
 
 

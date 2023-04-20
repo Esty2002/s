@@ -1,10 +1,10 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../modules/leads/leads-options')
-const { newOrderer, getOrderers, getOrdererByPhone, deleteOrderer, updateOrderer } = require('../modules/leads/orderers');
-const { newPouringType, getPouringTypes, deletePouringType, updatePouringType } = require('../modules/leads/pouring-types');
-const { newLeadStatus, getStatusesLead, updateStatus, deleteStatus } = require('../modules/leads/status-leads');
+const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../../modules/leads/leads-options')
+const { newOrderer, getOrderers, getOrdererByPhone, deleteOrderer, updateOrderer } = require('../../modules/leads/orderers');
+const { newPouringType, getPouringTypes, deletePouringType, updatePouringType } = require('../../modules/leads/pouring-types');
+const { newLeadStatus, getStatusesLead, updateStatus, deleteStatus } = require('../../modules/leads/status-leads');
 
 router.get('/getpouringtypes', async (req, res) => {
     try {

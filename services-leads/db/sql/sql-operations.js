@@ -1,4 +1,4 @@
-const { connect, disconnect, getConnection } = require('../../services/sql/sql-connection');
+const { connect, disconnect, getConnection } = require('./sql-connection');
 
 const select = async ({ columns, tableName, where }) => {
     let result;

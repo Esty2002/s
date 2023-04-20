@@ -1,4 +1,4 @@
-jest.mock('../../../services/db/mongo-operations', () => {
+jest.mock('../../../services-leads/db/mongodb/mongo-operations', () => {
     return {
         insertOne: jest.fn((obj) => {
             if (obj) {

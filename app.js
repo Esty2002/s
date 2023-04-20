@@ -2,9 +2,8 @@ require('dotenv').config()
 const express = require('express');
 const app = express();
 const cors = require('cors')
-const { connect } = require('./services/db/mongo-connection')
 
-const router_leads = require('./routers/leads')
+const router_leads = require('./routers/leads/leads')
 app.use(cors());
 app.use('/leads', router_leads);
 app.get('/', (req, res) => {

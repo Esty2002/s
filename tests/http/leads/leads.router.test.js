@@ -1,6 +1,6 @@
 const request = require('supertest');
-const { app } = require('../../app');
-jest.mock('../../modules/leads/leads-options', () => {
+const { app } = require('../../../app');
+jest.mock('../../../modules/leads/leads-options', () => {
     return {
         createNewLead: jest.fn(({ name }) => {
             if (name)
@@ -28,7 +28,7 @@ jest.mock('../../modules/leads/leads-options', () => {
 
 })
 
-jest.mock('../../modules/leads/orderers', () => {
+jest.mock('../../../modules/leads/orderers', () => {
     return {
         newOrderer: jest.fn(({ name, phone }) => {
             if (name && phone) {
@@ -66,7 +66,7 @@ jest.mock('../../modules/leads/orderers', () => {
     }
 })
 
-jest.mock('../../modules/leads/pouring-types', () => {
+jest.mock('../../../modules/leads/pouring-types', () => {
     return {
         newPouringType: jest.fn(({ name }) => {
             if (name)
@@ -101,7 +101,7 @@ jest.mock('../../modules/leads/pouring-types', () => {
     }
 })
 
-jest.mock('../../modules/leads/status-leads', () => {
+jest.mock('../../../modules/leads/status-leads', () => {
     return {
         newLeadStatus: jest.fn(({ name }) => {
             if (name)
@@ -149,7 +149,7 @@ describe('/getpouringtypes', () => {
         expect(response.notFound).toBeTruthy();
     })
     it('the function should call to getPouringTypes', async () => {
-        const { getPouringTypes } = jest.requireMock('../../modules/leads/pouring-types');
+        const { getPouringTypes } = jest.requireMock('../../../modules/leads/pouring-types');
         const response = await request(app).get('/leads/getpouringtypes');
         expect(getPouringTypes).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -172,7 +172,7 @@ describe('/getorderers', () => {
         expect(response.notFound).toBeTruthy();
     })
     it('the function should call to getOrderers', async () => {
-        const { getOrderers } = jest.requireMock('../../modules/leads/orderers')
+        const { getOrderers } = jest.requireMock('../../../modules/leads/orderers')
         const response = await request(app).get('/leads/getorderers')
         expect(getOrderers).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -198,7 +198,7 @@ describe('check function /getordererbyphone', () => {
     })
 
     it('should the function call to getOrdererByPhone', async () => {
-        const { getOrdererByPhone } = jest.requireMock('../../modules/leads/orderers')
+        const { getOrdererByPhone } = jest.requireMock('../../../modules/leads/orderers')
         const response = await request(app).get('/leads/getordererbyphone/0504175111')
         expect(getOrdererByPhone).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -214,7 +214,7 @@ describe('/getstatuseslead', () => {
         expect(response.text).toBe("[\"name\",\"name\",\"name\"]");
     })
     it('the function should call to getStatusesLead', async () => {
-        const { getStatusesLead } = jest.requireMock('../../modules/leads/status-leads')
+        const { getStatusesLead } = jest.requireMock('../../../modules/leads/status-leads')
         const response = await request(app).get('/leads/getorderers')
         expect(getStatusesLead).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -231,7 +231,7 @@ describe('check function /deletepouringtype', () => {
     })
     
     it('should call deleteFromTable', async () => {
-        const { deletePouringType } = jest.requireMock('../../modules/leads/pouring-types');
+        const { deletePouringType } = jest.requireMock('../../../modules/leads/pouring-types');
         const response = await request(app).post('/leads/deletepouringtype').send({ serialNumber: 1 });
         expect(deletePouringType).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -255,7 +255,7 @@ describe('check function /deleteorderer', () => {
     })
 
     it('should call deleteOrderer', async () => {
-        const { deleteOrderer } = jest.requireMock('../../modules/leads/orderers');
+        const { deleteOrderer } = jest.requireMock('../../../modules/leads/orderers');
         const response = await request(app).post('/leads/deleteorderer').send({ phone: 1 })
         expect(deleteOrderer).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -280,7 +280,7 @@ describe('/createnewlead', () => {
     })
 
     it('should call createNewLead', async () => {
-        const { createNewLead } = jest.requireMock('../../modules/leads/leads-options')
+        const { createNewLead } = jest.requireMock('../../../modules/leads/leads-options')
         const response = await request(app).post('/leads/createnewlead').send({ "name": "test" });
         expect(createNewLead).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -312,7 +312,7 @@ describe('check the function /neworderer', () => {
         expect(response.serverError).toBeFalsy();
     })
     it('should call newOrderer', async () => {
-        const { newOrderer } = jest.requireMock('../../modules/leads/orderers');
+        const { newOrderer } = jest.requireMock('../../../modules/leads/orderers');
         const response = await request(app).post('/leads/neworderer').send({ name: "someone", phone: 1 })
         expect(newOrderer).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -338,7 +338,7 @@ describe('check function newpouringtype', () => {
 
     })
     it('should call newPouringType', async () => {
-        const { newPouringType } = jest.requireMock('../../modules/leads/pouring-types');
+        const { newPouringType } = jest.requireMock('../../../modules/leads/pouring-types');
         const response = await request(app).post('/leads/newpouringtype').send({ name: "someone" })
         expect(newPouringType).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -359,7 +359,7 @@ describe('check function getleadsdetails', () => {
         expect(response.text).toBe("[{\"phone\":\"0583286577\",\"supplyAddress\":\"chisda\"},{\"phone\":\"5555555555\",\"supplyAddress\":\"sss\"}]");
     })
     it('should call allLeadsdetails', async () => {
-        const { allLeadsDetails } = jest.requireMock('../../modules/leads/leads-options');
+        const { allLeadsDetails } = jest.requireMock('../../../modules/leads/leads-options');
         const response = await request(app).post('/leads/getleadsdetails').send({ filter: "test" });
         expect(allLeadsDetails).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -393,7 +393,7 @@ describe('/updatepouringtype', () => {
 
     })
     it('should call updatePouringType', async () => {
-        const { updatePouringType } = jest.requireMock('../../modules/leads/pouring-types');
+        const { updatePouringType } = jest.requireMock('../../../modules/leads/pouring-types');
         const response = await request(app).post('/leads/updatePouringType').send({ set: "someone" })
         expect(updatePouringType).toHaveBeenCalled();
         expect(response).toBeDefined();
@@ -415,7 +415,7 @@ describe('/updateorderer', () => {
     })
 
     it('should call updateOrderer', async () => {
-        const { updateOrderer } = jest.requireMock('../../modules/leads/orderers')
+        const { updateOrderer } = jest.requireMock('../../../modules/leads/orderers')
         const response = await request(app).post('/leads/updateorderer').send({ "phone": 1, "set": "test" })
         expect(updateOrderer).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -448,7 +448,7 @@ describe('check function updeatLead', () => {
 
     })
     it('should call updateLead', async () => {
-        const { updateLead } = jest.requireMock('../../modules/leads/leads-options')
+        const { updateLead } = jest.requireMock('../../../modules/leads/leads-options')
         const response = await request(app).post('/leads/updateleadsdetails').send({ serialNumber: 5 })
         expect(updateLead).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -474,7 +474,7 @@ describe('/updatestatuslead', () => {
         expect(response.text).toBe('updateTheLead');
     })
     it('should call updateLead', async () => {
-        const { updateLead } = jest.requireMock('../../modules/leads/leads-options')
+        const { updateLead } = jest.requireMock('../../../modules/leads/leads-options')
         const response = await request(app).post('/leads/updatestatuslead').send({ serialNumber: 5 })
         expect(updateLead).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -496,7 +496,7 @@ describe('/deletelead', () => {
         expect(response.serverError).toBeFalsy();
     })
     it('should call updateLead', async () => {
-        const { updateLead } = jest.requireMock('../../modules/leads/leads-options')
+        const { updateLead } = jest.requireMock('../../../modules/leads/leads-options')
         const response = await request(app).post('/leads/deletelead').send({ serialNumber: 5 })
         expect(updateLead).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -514,7 +514,7 @@ describe('/newstatus', () => {
     })
 
     it('should call newLeadStatus', async () => {
-        const { newLeadStatus } = jest.requireMock('../../modules/leads/status-leads')
+        const { newLeadStatus } = jest.requireMock('../../../modules/leads/status-leads')
         const response = await request(app).post('/leads/newstatus').send({ "name": "test" });
         expect(newLeadStatus).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -543,7 +543,7 @@ describe('/deletestatus', () => {
     })
 
     it('should call deleteFromTable', async () => {
-        const { deleteStatus } = jest.requireMock('../../modules/leads/status-leads')
+        const { deleteStatus } = jest.requireMock('../../../modules/leads/status-leads')
         const response = await request(app).post('/leads/deletestatus').send({ serialNumber: 1 })
         expect(deleteStatus).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -572,7 +572,7 @@ describe('/updatestatus', () => {
     })
 
     it('should call updateStatus', async () => {
-        const { updateStatus } = jest.requireMock('../../modules/leads/status-leads')
+        const { updateStatus } = jest.requireMock('../../../modules/leads/status-leads')
         const response = await request(app).post('/leads/updatestatus').send({ "serialNumber": 1, "set": "test" });
         expect(updateStatus).toHaveBeenCalled()
         expect(response).toBeDefined()
@@ -597,7 +597,7 @@ describe('/updatestatus', () => {
 
 
 
-// })
+
 
 
 
