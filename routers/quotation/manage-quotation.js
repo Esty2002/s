@@ -67,7 +67,7 @@ router.get('/updateAccordingCode/:code/:price', async (req, res) => {
 })
 
 router.post('/insertQuotationItems', express.json(), async (req, res) => {
-    const result = await Insert(req.body);
+    const result = await addItem(req.body);
     res.send({ result })
 })
 

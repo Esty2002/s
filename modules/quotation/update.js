@@ -1,4 +1,4 @@
-const { insert, del,  update, getCode, postComment, updateQuotation } = require('../../services-quotation/sql/sql-operations')
+const { insertItem, del,  update, getCode, postComment, updateQuotation } = require('../../services-quotation/sql/sql-operations')
 
 async function commentAccordingCode(val) {
     const result = await getCode(val);
@@ -10,8 +10,8 @@ async function updateAccordingCode(val) {
     return result
 }
 
-async function Insert(obj) {
-    const result = await insert(obj);
+async function addItem(obj) {
+    const result = await insertItem(obj);
     updatebig(obj.quotationCode)
     return result
 }
@@ -70,4 +70,4 @@ async function deleteBig(obj,result,val2) {
         updatebig(qCode)
 }
 
-module.exports = { Insert, Delete, Update, commentAccordingCode, updateAccordingCode }
+module.exports = { addItem, Delete, Update, commentAccordingCode, updateAccordingCode }

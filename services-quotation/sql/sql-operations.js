@@ -101,8 +101,7 @@ async function postComment(obj = null) {
     return result
 }
 
-async function insert(obj = null) {
-    console.log(";;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;");
+async function insertItem(obj = null) {
     await connect()
     const result = await getConnection().request().query(`INSERT INTO ${obj.table} VALUES (${obj.quotationCode},${obj.rowNumber},${obj.itemCode},${obj.priceList},${obj.amount},${obj.price},${obj.discount},${obj.priceAfterDiscount},${obj.priceChange},${obj.total},'${obj.addedDate}',${obj.disabled},'${obj.disabledDate}')`)
     console.log(result)
@@ -128,4 +127,4 @@ async function deleteAll(serialNumber) {
 
 module.exports = {selectByConditions,deleteAll,updateAll,
     insert,postComment,updateQuotation,update,
-    getAllTheContacts,getCode,del,insert}
+    getAllTheContacts,getCode,del,insertItem}
