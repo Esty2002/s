@@ -19,7 +19,10 @@ const manage_quotation = require('./routers/quotation/manage-quotation');
 const manageProduct = require('./routers/products/products')
 const manageUnitOfMeasure = require('./routers/products/unit_of_measure')
 const managePumps = require('./routers/products/pumps')
-
+const create_router = require('./routers/receipt/create');
+const read_router = require('./routers/receipt/read');
+const update_router = require('./routers/receipt/update');
+const delete_router = require('./routers/receipt/delete');
 
 app.use('/leads', router_leads);
 app.use('/areas', router_areas)
@@ -36,20 +39,20 @@ app.use('/quotation', manage_quotation);
 app.use('/product', manageProduct)
 app.use('/unit_of_measure', manageUnitOfMeasure)
 app.use('/pumps', managePumps)
-
-app.get('/', async (req, res) => {
-   res.status(200).send({message:'our api'})
-})
-
-
+app.use('/create', create_router);
+app.use('/read', read_router);
+app.use('/update', update_router);
+app.use('/delete', delete_router);
 
 
 
 
-
+app.get('/', (req, res) => {
+    res.status(200).send('hello buyton');
+});
 
 app.get('/*', (req, res) => {
-    res.status(404).send('not found')
-})
-module.exports = { app }
+    res.status(200).send('request not found');
+});
 
+module.exports = { app };

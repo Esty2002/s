@@ -37,4 +37,9 @@ connect().then(_ => {
     })
 })
 // sconnect()
-const server = http.createServer(app)
+const { createTables,createProcedure } = require('./services-receipt/sql/sql-init');
+
+
+
+
+const server = http.createServer(app);
