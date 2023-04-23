@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { updateReceipt, createReceipt, deleteReceipt } = require('../modules/update');
+const { updateReceipt, createReceipt, deleteReceipt } = require('../../modules/receipt/update');
 
 router.post('/update', express.json(), async (req, res) => {
     _ = updateReceipt(req.body);

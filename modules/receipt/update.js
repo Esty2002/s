@@ -1,4 +1,4 @@
-const { update, create, remove } = require('../services/sql/sql-operations');
+const { update, create, remove } = require('../../services-receipt/sql/sql-operations');
 
 async function updateReceipt(obj) {
     _ = await update[obj.PaymentType](obj);

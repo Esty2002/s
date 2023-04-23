@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { createTables } = require('./services/sql/sql-init');
+const { createTables } = require('./services-receipt/sql/sql-init');
 const http = require('http');
 
 const { app } = require('./app');

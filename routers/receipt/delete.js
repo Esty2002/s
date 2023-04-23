@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { deleteByReceiptNumber } = require('../modules/delete');
+const { deleteByReceiptNumber } = require('../../modules/receipt/delete');
 
 router.post('/:receiptNumber', async (req, res) => {
     _ = await deleteByReceiptNumber(req.params.receiptNumber);

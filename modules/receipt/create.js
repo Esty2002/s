@@ -1,4 +1,4 @@
-const { create, read } = require('../services/sql/sql-operations');
+const { create, read } = require('../../services-receipt/sql/sql-operations');
 
 async function createReceipts(obj) {
     _ = await create['BasicReceipt'](obj);

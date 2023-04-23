@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { getReceiptByReceiptNumber, getByOption, getAll, getByPaymentType } = require('../modules/read');
+const { getReceiptByReceiptNumber, getByOption, getAll, getByPaymentType } = require('../../modules/receipt/read');
 
 router.get('/getByReceiptNumber/:id', async (req, res) => {
    let ans = await getReceiptByReceiptNumber(req.params.id);

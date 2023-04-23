@@ -1,4 +1,4 @@
-const { read } = require('../services/sql/sql-operations');
+const { read } = require('../../services-receipt/sql/sql-operations');
 
 async function getReceiptByReceiptNumber(rn) {
     let res = await read['ByReceiptNumber'](rn);

@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-const create_router = require('./routers/create');
-const read_router = require('./routers/read');
-const update_router = require('./routers/update');
-const delete_router = require('./routers/delete');
+const create_router = require('./routers/receipt/create');
+const read_router = require('./routers/receipt/read');
+const update_router = require('./routers/receipt/update');
+const delete_router = require('./routers/receipt/delete');
 
 app.use(cors());
 

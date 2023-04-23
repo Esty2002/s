@@ -7,7 +7,7 @@ const { createReceipts,
     createChequeMod,
     createBankTransferMod,
     createStandingOrderMod,
-    getReceiptNumberMod } = require('../modules/create');
+    getReceiptNumberMod } = require('../../modules/receipt/create');
 
 router.post('/createReceipt', express.json(), async (req, res) => {
     _ = await createReceipts(req.body);
