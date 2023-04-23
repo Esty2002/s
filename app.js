@@ -13,6 +13,8 @@ const createClient_router=require('./routers/clients/createClient')
 const readClient_router=require('./routers/clients/readClient')
 const updateClient_router=require('./routers/clients/updateClient')
 const status_router=require('./routers/clients/status')
+const manage_branches_router = require('./routers/suppliers/branches');
+const manage_suppliers_router = require('./routers/suppliers/suppliers');
 
 app.use('/leads', router_leads);
 app.use('/areas', router_areas)
@@ -23,9 +25,20 @@ app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
 app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
+app.use('/branches',manage_branches_router);
+app.use('/suppliers',manage_suppliers_router);
+
 
 app.get('/', async (req, res) => {
    res.status(200).send({message:'our api'})
 })
 
-module.exports = { app }
+
+
+
+
+
+
+
+
+module.exports = { app };
