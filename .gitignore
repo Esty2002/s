@@ -1,5 +1,5 @@
 /node_modules
-<<<<<<< HEAD
+
 /coverage
 
 .env
@@ -8,8 +8,4 @@
 
 
 
-=======
-.env
-/coverage
->>>>>>> suppliersBeforeMerge
 

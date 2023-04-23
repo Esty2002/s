@@ -8,34 +8,21 @@ const { connectToSql } = require('./services-clients/sql/sql-wrapper')
 const { connect } = require('./services-leads/db/mongodb/mongo-connection')
 const { connect1 } = require('./services-price-list/db/mongo/mongo-connection')
 const { connectToSqlSuppliers } = require('./services-suppliers/db/sql-wrapper');
+const { connectQuotation } = require('./services-quotation/sql/sql-connection');
 
 
-connect().then(connect1().then(connectToSql().then(connectToSqlSuppliers().then(
+connect().then(connect1().then(connectToSql().then(connectToSqlSuppliers().then(connectQuotation().then(
     app.listen(PORT, HOST, () => {
         console.log('connect to mongo');
         console.log(`http://${HOST}:${PORT}`);
     })
 )
-)))
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-const server = http.createServer(app)
-
-
-
+))))
 //            בעיות
 //               מסכים רק מספרים#
 // התאריך לא נכתב בצורה נורמלית#
+
+
+
+
+const server = http.createServer(app);
