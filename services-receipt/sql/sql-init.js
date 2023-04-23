@@ -141,7 +141,7 @@ async function createProcedure() {
     await connect();
 
     _ = await getConnection().request().query(`(
-        CREATE  PROCEDURE [dbo].[pro_CreateCash]	
+        CREATE PROCEDURE [dbo].[pro_CreateCash]	
             @ReceiptNumber NVARCHAR(20),
             @SumOfCash FLOAT,
             @Disabled BIT, 
@@ -328,7 +328,7 @@ async function createProcedure() {
             @InsertDate NVARCHAR(20)
         AS
       
-        EGIN
+        BEGIN
 		    UPDATE BasicDetails
 		    SET ClientCode=@ClientCode,
 				DateReceipt=@DateReceipt,
