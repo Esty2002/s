@@ -12,21 +12,8 @@ async function insertPump(obj) {
     }
     return await sql_operations.insert(obj)
 }
-async function findPump(project = [], filter = "") {
-    let columns = ""
-    if (project.length > 0) {
-        for (let index = 0; index < project.length; index++) {
-
-            columns += project[index] + ','
-        }
-        columns = columns.slice(0, -1)
-    }
-    let condition = ""
-    if (filter) {
-        condition = `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'`
-    }
-
-    return await sql_operations.find(columns, condition)
+async function findPump(project = [], filter = {}) {
+    return await sql_operations.find(project.join(','), filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "")
 }
 async function updatePump(obj, filter) {
     let string = ""
@@ -35,11 +22,7 @@ async function updatePump(obj, filter) {
 
     }
     string = string.slice(0, -1)
-    let condition = ""
-    if (filter) {
-        condition = ` ${Object.keys(filter)[0]}='${Object.values(filter)[0]}'`
-    }
-    return await sql_operations.update(string, condition)
+    return await sql_operations.update(string, filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "")
 }
 
 module.exports = { updatePump, insertPump, findPump }

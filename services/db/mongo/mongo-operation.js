@@ -31,7 +31,7 @@ class MongoDBOperations {
         return await getClient().db(this.dbName).collection(this.collectionName).find(filter, { projection: project }).sort(s).toArray()
     }
     async update(filter = {}, s) {
-        const res = await getClient().db(this.dbName).collection(this.collectionName).update(filter, { $set: s })
+        const res = await getClient().db(this.dbName).collection(this.collectionName).updateOne(filter, { $set: s })
         return res
     }
 
