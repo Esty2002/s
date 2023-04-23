@@ -1,9 +1,9 @@
 const express = require('express')
 const router = express.Router()
-const { updateProduct, insertProduct, getTraits, createCartesian } = require('../modules/products')
+const { updateProduct, insertProduct, getTraits, createCartesian } = require('../../modules/products/products')
 
 
-router.post('/addproduct', express.json(), async (req, res) => {
+router.post('/product', express.json(), async (req, res) => {
     try { res.status(200).send(await insertProduct(req.body)) }
     catch (error) { res.status(404).send(error.message) }
 })

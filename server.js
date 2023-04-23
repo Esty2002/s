@@ -1,7 +1,7 @@
 require('dotenv').config()
 const http = require('http')
 const { app } = require('./app')
-const { connect } = require('./services/db/mongo/mongo_connection')
+const { connect } = require('./services-products/db/mongo/mongo_connection')
 const { PORT, HOST } = process.env
 
 connect().then(_ => {

@@ -1,6 +1,6 @@
 require('dotenv').config()
 
-const { MongoDBOperations } = require('../services/db/mongo/mongo-operation')
+const { MongoDBOperations } = require('../../services-products/db/mongo/mongo-operation')
 const { MONGO_COLLECTION } = process.env
 
 const mongo_operations = new MongoDBOperations()

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { findPump,insertPump,updatePump } = require('../modules/pumps')
+const { findPump,insertPump,updatePump } = require('../../modules/products/pumps')
 
 router.post('/insert', express.json(), async (req, res) => {
     try {

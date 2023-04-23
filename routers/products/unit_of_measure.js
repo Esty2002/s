@@ -1,7 +1,7 @@
 const express=require('express')
 const router=express.Router()
 
-const {findMeasureName,findMeasureNumber,insertMeasure,updateMeasure} = require('../modules/measure')
+const {findMeasureName,findMeasureNumber,insertMeasure,updateMeasure} = require('../../modules/products/measure')
 
 router.get('/findMeasureName',async (req,res)=>{
 try {

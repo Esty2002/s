@@ -1,4 +1,4 @@
-const  {sqlOperations}  = require('../services/db/sql/sql_operation')
+const  {sqlOperations}  = require('../../services-products/db/sql/sql_operation')
 
 
 const sql_operations = new sqlOperations("unitOfMeasure")
