@@ -1,9 +1,10 @@
 /node_modules
-
-
-
-
+/coverage
 
 .env
 
-/coverage
+
+
+
+
+
