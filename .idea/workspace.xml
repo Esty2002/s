@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="bae81b01-223e-48ee-a312-2f5bb00554a7" name="Default Changelist" comment="" />
+=======
+    <list default="true" id="6b9f7113-160f-47f6-93b7-d2b93cd1c6ea" name="Default Changelist" comment="" />
+>>>>>>> productsBeforeMerge
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -11,7 +15,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+<<<<<<< HEAD
   <component name="ProjectId" id="2MmPQtwm2GJW0bJ2OHKZfOaKKyh" />
+=======
+  <component name="ProjectId" id="2N3ft4sRY4X4UAYVVLG8THYEtJo" />
+>>>>>>> productsBeforeMerge
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -29,11 +37,19 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
+<<<<<<< HEAD
       <changelist id="bae81b01-223e-48ee-a312-2f5bb00554a7" name="Default Changelist" comment="" />
       <created>1678369772203</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1678369772203</updated>
+=======
+      <changelist id="6b9f7113-160f-47f6-93b7-d2b93cd1c6ea" name="Default Changelist" comment="" />
+      <created>1678897897693</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1678897897693</updated>
+>>>>>>> productsBeforeMerge
     </task>
     <servers />
   </component>

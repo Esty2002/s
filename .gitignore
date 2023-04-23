@@ -1,9 +1,8 @@
 /node_modules
+.env
+.package
 
 /coverage
-
-.env
-
 
 
 
