@@ -1,5 +1,5 @@
 
-const { selectByConditions, getAllTheContacts } = require('../../services/sql/sql-operations');
+const { selectByConditions, getAllTheContacts } = require('../../services-quotation/sql/sql-operations');
 
 //selectByConditions פונקציה הבונה מחרוזת מהמערך שהתקבל ושולחת את מחרוזת זו לפונקציה 
 async function getQuotationByConditions(arrOfObjects) {

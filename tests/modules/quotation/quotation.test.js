@@ -1,6 +1,6 @@
 // const request = require("sequelize");
 
-jest.mock('../../services/db/sql/sql-operations', () => {
+jest.mock('../../../services-qutation/sql/sql-operations', () => {
     return {
         selectByConditions: jest.fn((table, conditionsString) => {
             
@@ -21,7 +21,7 @@ const { getQuotationByConditions } = require('../../../modules/quotation/read')
 
 describe('SELECT QUOTATION BY CONDITIONS', () => {
     it('should call selectByConditions', async () => {
-        const { selectByConditions } = jest.requireMock('../../services/db/sql/sql-operations');
+        const { selectByConditions } = jest.requireMock('../../../services-quotation/sql/sql-operations');
         const response = await getQuotationByConditions("quotation", [{ priceBeforeDiscount: 100 }, { VATPercent: 17 }]);
         console.log("responseeeeeeee: ", response);
         expect(selectByConditions).toHaveBeenCalled();

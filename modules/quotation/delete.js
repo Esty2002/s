@@ -1,4 +1,4 @@
-const { deleteAll, updateAll } = require('../../services/sql/sql-operations')
+const { deleteAll, updateAll } = require('../../services-quotation/sql/sql-operations')
 
 
 

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const { getConnection, connect, disconnect } = require('./sql-connection');
 
 // קריאת נתונים מבסיס הנתונים לפי תנאים,
@@ -46,9 +45,6 @@ async function insert(obj,table) {
     return result
 }
 
-module.exports = {insert,selectByConditions,getAllTheContacts}
-=======
-const { getConnection, connect, disconnect } = require("./sql-connection");
 
 async function getCode(code) {
     await connect()
@@ -130,5 +126,6 @@ async function deleteAll(serialNumber) {
 
 
 
-module.exports = { insert, del, update, getCode, postComment, updateQuotation ,deleteAll,updateAll}
->>>>>>> Chumi
+module.exports = {selectByConditions,deleteAll,updateAll,
+    insert,postComment,updateQuotation,update,
+    getAllTheContacts,getCode,del,insert}

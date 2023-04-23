@@ -1,7 +1,7 @@
 const request = require('supertest');
-const { app } = require('../../../app')
+const { app } = require('../../app')
 
-require('../../../modules/quotation/read')
+require('../../modules/quotation/read')
 
 jest.mock('../../../modules/quotation/read', () => {
     return {

@@ -1,4 +1,4 @@
-const { insert, del,  update, getCode, postComment, updateQuotation } = require('../../services/sql/sql-operations')
+const { insert, del,  update, getCode, postComment, updateQuotation } = require('../../services-quotation/sql/sql-operations')
 
 async function commentAccordingCode(val) {
     const result = await getCode(val);

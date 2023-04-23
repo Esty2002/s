@@ -1,6 +1,6 @@
 const request = require('supertest')
 
-const { app } = require('../../app')
+const { app } = require('../../../app')
 const { connect } = require('../../services/sql/sql-connection')
 
 // let server

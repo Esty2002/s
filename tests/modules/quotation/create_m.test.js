@@ -3,7 +3,7 @@ const { app } = require('../../../app')
 const { createQuotation } = require('../../../modules/quotation/create')
 const { INET } = require("sequelize");
 
-jest.mock('../../../services/sql/sql-operations', () => {
+jest.mock('../../../services-quotation/sql/sql-operations', () => {
     return {
         insert: jest.fn((obj) => {
             return true

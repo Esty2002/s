@@ -1,7 +1,7 @@
 
 require('dotenv').config();
 var sql = require('mssql');
-const { insert } = require('../../services/sql/sql-operations');
+const { insert } = require('../../services-quotation/sql/sql-operations');
 //פונקציה ליצירת הצעת מחיר חדשה
 //שמקבלת אובייקט המכיל את המאפיינים הבאים:
 //clientCode, discountPercent,VATPercent,user,comments,contact,payoffDate,closingComments

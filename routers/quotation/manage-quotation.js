@@ -1,10 +1,10 @@
 const express = require('express');
 const router = express.Router();
 
-const { getQuotationByConditions, getQuotationItemsByQuotationCode, allContactDataList } = require('../modules/quotation/read');
-const { createQuotation } = require('../modules/quotation/create');
-const { Insert, Delete, Update, commentAccordingCode, updateAccordingCode } = require('../modules/quotation/update')
-const { DeleteQuat } = require('../modules/quotation/delete')
+const { getQuotationByConditions, getQuotationItemsByQuotationCode, allContactDataList } = require('../../modules/quotation/read');
+const { createQuotation } = require('../../modules/quotation/create');
+const { Insert, Delete, Update, commentAccordingCode, updateAccordingCode } = require('../../modules/quotation/update')
+const { DeleteQuat } = require('../../modules/quotation/delete')
 
 
 router.get('/', express.json(), async (req, res) => {

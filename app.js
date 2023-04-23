@@ -3,7 +3,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 
-const manage_quotation = require('./routers/manageQuotation');
+const manage_quotation = require('./routers/quotation/manage-quotation');
 
 app.use(cors());
 app.use('/quotation', manage_quotation);
