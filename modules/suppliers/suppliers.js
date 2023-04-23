@@ -1,6 +1,6 @@
 require('dotenv').config();
-const { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertSupplierAndBranch, update } = require('../db/sql-operation');
-const { setDate } = require('../services/functions');
+const { getAll, allTheOption, insertSupplier, delSupllier, delBranches, insertSupplierAndBranch, update } = require('../../services-suppliers/db/sql-operation');
+const { setDate } = require('./functions');
 const branchModule = require('./branches');
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 

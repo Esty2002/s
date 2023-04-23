@@ -4,8 +4,8 @@ const app = express();
 
 app.use(cors());
 
-const manage_branches_router = require('./routers/branches');
-const manage_suppliers_router = require('./routers/suppliers');
+const manage_branches_router = require('./routers/suppliers/branches');
+const manage_suppliers_router = require('./routers/suppliers/suppliers');
 
 app.use('/branches',manage_branches_router);
 app.use('/suppliers',manage_suppliers_router);

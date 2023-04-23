@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUnique, updateDetail } = require('../modules/suppliers');
+const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUnique, updateDetail } = require('../../modules/suppliers/suppliers');
 
 //sent to modules to delet supplier 
 router.post('/deletesupplier', express.json(), async (req, res) => {

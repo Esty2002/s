@@ -1,4 +1,4 @@
-jest.mock('../../db/sql-operation', () => {
+jest.mock('../../services-supppliers/db/sql-operation', () => {
     return {
         insertBranch: jest.fn((table) => {
             if (table.BranchName === '123')
@@ -38,7 +38,7 @@ jest.mock('../../db/sql-operation', () => {
 
     }
 })
-jest.mock('../../modules/suppliers', () => {
+jest.mock('../../modules/suppliers/suppliers', () => {
     return {
         getSupplier: jest.fn((value1, value2) => {
             if (value1 === undefined)
@@ -51,7 +51,7 @@ jest.mock('../../modules/suppliers', () => {
         })
     }
 })
-jest.mock('../../services/functions', () => {
+jest.mock('../../modules/suppliers/functions', () => {
     return {
         setDate: jest.fn((stringOfDate) => {
             return '01/03/2023';
@@ -59,13 +59,13 @@ jest.mock('../../services/functions', () => {
     }
 })
 
-const { insertOneBranch, checkUnique, updateDetail, checkValid, getAllBranches, getBranchesByCondition, deleteBranches } = require('../../modules/branches');
+const { insertOneBranch, checkUnique, updateDetail, checkValid, getAllBranches, getBranchesByCondition, deleteBranches } = require('../../modules/suppliers/branches');
 
 describe('INSERT BRANCH', () => {
     it('should call insertBranch and setDate and checkUniqueBranch and getSupplier', async () => {
-        const { insertBranch, checkUniqueBranch } = jest.requireMock('../../db/sql-operation');
-        const { setDate } = jest.requireMock('../../services/functions');
-        const { getSupplier } = jest.requireMock('../../modules/suppliers')
+        const { insertBranch, checkUniqueBranch } = jest.requireMock('../../services-supppliers/db/sql-operation');
+        const { setDate } = jest.requireMock('../../modules/suppliers/functions');
+        const { getSupplier } = jest.requireMock('../../modules/suppliers/suppliers')
         const response = await insertOneBranch({ SupplierCode: 'ffff', BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(insertBranch).toHaveBeenCalled()
         expect(getSupplier).toHaveBeenCalled()
@@ -100,8 +100,8 @@ describe('INSERT BRANCH', () => {
 
 describe('CHECK UNIQUE BRANCH', () => {
     it('should call checkUniqueBranch and getSupplier', async () => {
-        const { checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
-        const { getSupplier } = jest.requireMock('../../modules/suppliers')
+        const { checkUniqueBranch } = jest.requireMock('../../services-supppliers/db/sql-operation')
+        const { getSupplier } = jest.requireMock('../../modules/suppliers/suppliers')
         const response = await checkUnique({ SupplierCode: 1000, BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(checkUniqueBranch).toHaveBeenCalled()
         expect(getSupplier).toHaveBeenCalled()
@@ -152,7 +152,7 @@ describe('CHECK VALID BRANCH', () => {
 
 describe('UPDATE BRANCH', () => {
     it('should call update and checkUniqueBranch', async () => {
-        const { update, checkUniqueBranch } = jest.requireMock('../../db/sql-operation')
+        const { update, checkUniqueBranch } = jest.requireMock('../../services-supppliers/db/sql-operation')
         const response = await updateDetail('1234', { BranchName: 'dfdfd', Street: 'fgd', HomeNumber: '2', City: 'hhh', Phone1: 'jjj', UserThatInsert: 'hhh' })
         expect(update).toHaveBeenCalled()
         expect(checkUniqueBranch).toHaveBeenCalled()
@@ -195,8 +195,8 @@ describe('DELETE SUPPLIER', () => {
 
     it('should called delSupplier and setDate -  twice', async () => {
         _ = await deleteBranches({ SupplierCode: '123', DisableUser: 'sari' , BranchName: 'Ruty' });
-        const result = jest.requireMock('../../db/sql-operation');
-        const { setDate } = jest.requireMock('../../services/functions');
+        const result = jest.requireMock('../../services-supppliers/db/sql-operation');
+        const { setDate } = jest.requireMock('../../modules/suppliers/functions');
         expect(result.delBranches).toHaveBeenCalled();
         expect(result.delBranches).toHaveBeenCalledTimes(2);
         expect(setDate).toHaveBeenCalled();
@@ -225,7 +225,7 @@ describe('GETALLBRANCH', () => {
 
     it('if you can to connect sql', async () => {
         _ = await getAllBranches();
-        const methods = jest.requireMock('../../db/sql-operation')
+        const methods = jest.requireMock('../../services-supppliers/db/sql-operation')
         expect(methods.getAll).toHaveBeenCalled();
         expect(methods.getAll).toHaveBeenCalledTimes(2);
     })
@@ -244,7 +244,7 @@ describe('GETBRANCH', () => {
 
     it('if you can to connect sql', async () => {
         _ = await getBranchesByCondition('SupplierCode', '08-8666515');
-        const methods = jest.requireMock('../../db/sql-operation')
+        const methods = jest.requireMock('../../services-supppliers/db/sql-operation')
         expect(methods.allTheOption).toHaveBeenCalled();
         expect(methods.allTheOption).toHaveBeenCalledTimes(2);
     })

@@ -3,7 +3,7 @@ require('dotenv').config();
 const http = require('http');
 
 const { app } = require('./app');
-const { connectToSql } = require('./db/sql-wrapper');
+const { connectToSql } = require('./services-suppliers/db/sql-wrapper');
 
 
 const host = process.env.HOST || "localhost"

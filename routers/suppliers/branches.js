@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { getAllBranches, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../modules/branches');
+const { getAllBranches, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../../modules/suppliers/branches');
 
 
 //sent to modules to delet branch 
@@ -38,9 +38,11 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 router.post('/insertbranch', express.json(), async (req, res) => {
     try {
         const result = await insertOneBranch(req.body);
+        console.log(result);
         res.status(200).send(result);
     }
     catch (error) {
+        console.log("error",error);
         res.status(500).send(error);
     }
 })
