@@ -1,6 +1,6 @@
 require('dotenv');
 const axios=require('axios');
-const {SQL_SERVER_HOST,SQL_SERVER_PORT,}=process.env
+const {SQL_SERVER_HOST,SQL_SERVER_PORT}=process.env
 
 const sqlServer=axios.create({
     baseUrl:`http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
