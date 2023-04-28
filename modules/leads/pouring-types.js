@@ -7,7 +7,7 @@ const newPouringType = async (obj = null) => {
         try{
             obj.tableName = tableName;
             obj.values = `'${obj.name}',GETDATE(),0,NULL`;
-            result = await insert(obj)
+            result = await postData(sqlServer,'create/create',obj)
         }
         catch(error){
             throw new Error(error.message);
@@ -26,7 +26,7 @@ const getPouringTypes = async () => {
         let obj = {};
         obj.tableName = tableName;
         obj.columns = `*`;
-        obj.where = `disable='False'`;
+        obj.condition = `disable='False'`;
         result = await postData(sqlServer,'/read/readTop20',obj);
         return result;
     }
@@ -41,9 +41,9 @@ const updatePouringType = async (obj = null) => {
     if (obj) {
         try{
             obj.tableName = tableName;
-            obj.where = `serialNumber=${obj.serialNumber}`;
+            obj.condition = `serialNumber=${obj.serialNumber}`;
     
-            result = await update(obj);
+            result = await postData(sqlServer,'update/update',obj);
         }
         catch(error){
             throw new Error(error.message);
@@ -64,8 +64,8 @@ const deletePouringType = async ({ serialNumber }) => {
             let obj = {}
             obj.tableName = tableName;
             obj.set = "disable='True'";
-            obj.where = `serialNumber=${serialNumber}`;
-            result = await update(obj);
+            obj.condition = `serialNumber=${serialNumber}`;
+            result = await postData(sqlServer,'update/update',obj);
         }
         catch(error){
             throw new Error(error.message);
