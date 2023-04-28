@@ -1,6 +1,6 @@
-const { insert, select, update } = require('../../services-leads/db/sql/sql-operations')
+const { getData,postData } = require('../../services/axios')
 const tableName="puringsTypes"
-
+const {sqlServer,postData,getData}=require('../../services/axios')
 const newPouringType = async (obj = null) => {
     let result;
     if (obj) {
@@ -27,7 +27,7 @@ const getPouringTypes = async () => {
         obj.tableName = tableName;
         obj.columns = `*`;
         obj.where = `disable='False'`;
-        result = await select(obj);
+        result = await postData(sqlServer,'/read/readTop20',obj);
         return result;
     }
     catch(error){

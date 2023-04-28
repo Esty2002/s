@@ -19,6 +19,7 @@ const getData=async(server,url)=>{
     return response;
 }
 
+
 const postData=async(server,url,body)=>{
     let response;
     try{
