@@ -1,0 +1,202 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Todos API",
+        "description": "A simple todos API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "leads",
+            "email": "leads@web.com",
+            "url": "web.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:4000/todos",
+            "description": "Local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "leads options",
+            "url": ""
+        }
+    ],
+    "components": {
+        "schemas": {
+            "orderer": {
+                "type": "object",
+                "properties": {
+                    "serialNumber": {
+                        "type": "int",
+                        "description": "Filles it self",
+                        "example": "56"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The orderer's name (up to 20 chars)",
+                        "example": "משה"
+                    },
+                    "phone": {
+                        "type": "string",
+                        "description": "The orderer's phone (9 or 10 chars)",
+                        "example": "0527167844"
+                    },
+                    "addedDate": {
+                        "type": "date",
+                        "description": "The date of the orderer's first order",
+                        "example": "new Date()"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Is the orderer able to make an order?",
+                        "example": "false"
+                    },
+                    "deletingDate": {
+                        "type": "date",
+                        "description": "If disable=false - when did it happen if not - date=null?",
+                        "example": "new Date()"
+                    }
+                }
+            },
+            "statuseslead": {
+                "type": "object",
+                "properties": {
+                    "serialNumber": {
+                        "type": "int",
+                        "description": "Filles it self",
+                        "example": "56"
+                    },
+                    "name": {
+                        "type": "string",
+                        "description": "The status name (up to 20 chars)",
+                        "example": "משה"
+                    },
+                    "addedDate": {
+                        "type": "date",
+                        "description": "The date when the status was added",
+                        "example": "new Date()"
+                    },
+                    "disable": {
+                        "type": "boolean",
+                        "description": "Is the status able?",
+                        "example": "false"
+                    },
+                    "deletingDate": {
+                        "type": "date",
+                        "description": "If disable=false - when did it happen? if not - date=null",
+                        "example": "new Date()"
+                    }
+                }
+            },
+            "phone": {
+                "type": "string",
+                "description": "phone",
+                "example": "0526497822"
+            },
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Error message",
+                        "example": "Not found"
+                    },
+                    "internal_code": {
+                        "type": "string",
+                        "description": "Error internal code",
+                        "example": "Invalid parameters"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/getstatuseslead": {
+            "get": {
+                "tags": [
+                    "Leads CRUD operations"
+                ],
+                "description": "get statuses lead",
+                "operationId": "getstatuseslead",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "first 20 statuses lead",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/statuseslead"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getorderers": {
+            "get": {
+                "tags": [
+                    "Leads CRUD operations"
+                ],
+                "description": "get orderers",
+                "operationId": "getorderers",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "first 20 orderers",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/orderer"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/getordererbyphone/:phone": {
+            "get": {
+                "tags": [
+                    "Leads CRUD operations"
+                ],
+                "description": "get ordererbyphone",
+                "operationId": "getordererbyphone",
+                "parameters": [
+                    {
+                        "name": "phone",
+                        "in": "/getordererbyphone/:phone",
+                        "schema": {
+                            "$ref": "#/components/schemas/phone"
+                        },
+                        "required": true,
+                        "description": "A phone param"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "A single orderer with maching phone",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/orderer"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "Todo is not found",
+                        "content": {
+                          "application/json": {
+                            "schema": {
+                              "$ref": "#/components/schemas/Error"
+                            }
+                          }
+                        }
+                      }
+                }
+            }
+        }
+    }
+}

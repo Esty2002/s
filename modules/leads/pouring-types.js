@@ -1,4 +1,4 @@
-const { getData,postData } = require('../../services/axios')
+// const { getData,postData } = require('../../services/axios')
 const tableName="puringsTypes"
 const {sqlServer,postData,getData}=require('../../services/axios')
 const newPouringType = async (obj = null) => {
@@ -69,9 +69,7 @@ const deletePouringType = async ({ serialNumber }) => {
         }
         catch(error){
             throw new Error(error.message);
-
         }
-       
     }
     else {
         throw new Error("the serialNumber is null")

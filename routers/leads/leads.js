@@ -1,7 +1,7 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../../modules/leads/leads-options')
+const { createNewLead, updateLead, allLeadsDetails } = require('../../modules/leads/leads-options')
 const { newOrderer, getOrderers, getOrdererByPhone, deleteOrderer, updateOrderer } = require('../../modules/leads/orderers');
 const { newPouringType, getPouringTypes, deletePouringType, updatePouringType } = require('../../modules/leads/pouring-types');
 const { newLeadStatus, getStatusesLead, updateStatus, deleteStatus } = require('../../modules/leads/status-leads');
@@ -26,8 +26,6 @@ router.get('/getorderers', async (req, res) => {
 
 })
 
-
-
 router.get('/getordererbyphone/:phone', async (req, res) => {
     try {
         const response = await getOrdererByPhone(req.params);
@@ -38,16 +36,7 @@ router.get('/getordererbyphone/:phone', async (req, res) => {
     }
 
 })
-router.get('/getconcrettype', async (req, res) => {
-    try {
-        const response = await getTheMustConcretItem();
-        res.status(200).send(response);
 
-    }
-    catch (error) {
-        res.status(404).send({ error });
-    }
-})
 router.get('/getstatuseslead', async (req, res) => {
     try {
         const response = await getStatusesLead();

@@ -1,4 +1,4 @@
-const { insert, select, update } = require('../../services-leads/db/sql/sql-operations');
+// const { insert, select, update } = require('../../services-leads/db/sql/sql-operations');
 
 const tableName = "orderers";
 const newOrderer = async (obj = null) => {
@@ -44,7 +44,6 @@ const getOrdererByPhone = async ({ phone }) => {
         catch (error) {
             return error;
         }
-
     }
     else {
         throw new Error("the phone is not defined");
@@ -88,3 +87,39 @@ const deleteOrderer = async ({ phone }) => {
     return result;
 }
 module.exports = { newOrderer, getOrderers, getOrdererByPhone, deleteOrderer, updateOrderer };
+
+
+
+
+// "/deleteorderer": {
+    //     "post": {
+    //         "tags": [
+    //             "Leads CRUD operations"
+    //         ],
+    //         "description": "delete orderer",
+    //         "operationId": "deleteorderer",
+    //         "parameters": [
+    //             {
+    //                 "name": "phone",
+    //                 "in": "path",
+    //                 "schema": {
+    //                     "$ref": "#/components/schemas/phone"
+    //                 },
+    //                 "required": true,
+    //                 "description": "orderer"
+    //             }
+    //         ],
+    //         "responses": {
+    //             "200": {
+    //                 "description": "A single orderer with maching phone",
+    //                 "content": {
+    //                     "application/json": {
+    //                         "schema": {
+    //                             "$ref": "#/components/schemas/orderer"
+    //                         }
+    //                     }
+    //                 }
+    //             }
+    //         }
+    //     }
+    // }
