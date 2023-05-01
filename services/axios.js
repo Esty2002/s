@@ -1,33 +1,33 @@
 require('dotenv');
-const axios=require('axios');
-const {SQL_SERVER_HOST,SQL_SERVER_PORT}=process.env
+const axios = require('axios');
+const { SQL_SERVER_HOST, SQL_SERVER_PORT } = process.env
 
-const sqlServer=axios.create({
-    baseUrl:`http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
+const sqlServer = axios.create({
+    URL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
 })
 
 
-const getData=async(server,url)=>{
+const getData = async (server, url) => {
     let response;
-    try{
-        response=await server.get(url);
+    try {
+        response = await server.get(url);
     }
 
-    catch(error){
+    catch (error) {
         throw error;
     }
     return response;
 }
 
-const postData=async(server,url,body)=>{
+const postData = async (server, url, body) => {
     let response;
-    try{
-        response=await server.post(url,body);
+    try {
+        response = await server.post(url, body);
     }
 
-    catch(error){
+    catch (error) {
         throw error;
     }
     return response;
 }
-module.exports={sqlServer,getData,postData}
+module.exports = { sqlServer, getData, postData }
