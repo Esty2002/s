@@ -58,17 +58,20 @@ router.post('/deletelead', express.json(), async (req, res) => {
 
 router.get('/getrecord/:table/:columns/:field', async (req, res) => {
     try {
+        console.log('jhgfjkgfjkfdgjkjkgfjk');
+        console.log(req.params.table,req.params.columns,req.params.field)
         const response = await getRecord(req.params.table,req.params.columns,req.params.field);
+        console.log(response);
         res.status(200).send(response);
     }
     catch (error) {
         res.status(404).send({ error });
     }
-
 });
 
 router.post('/insertrecord', express.json(), async (req, res) => {
     try {
+        
         const response = await newRecord(req.body);
 
         res.status(200).send(response);
