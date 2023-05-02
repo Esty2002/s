@@ -1,63 +1,63 @@
-// require('dotenv').config()
-// // const MongoDBOperations = require('../../services-leads/db/mongodb/mongo-operations')
+require('dotenv').config()
+const { sqlServer, postData, getData } = require('../../services/axios');
 
-// const { MONGO_COLLECTION_LEADS, MONGO_COLLECTION_PRODUCTS } = process.env
-// // const mongo_collection_leads = MongoDBOperations;
-// const mongo_collection_products = MongoDBOperations;
 const createNewLead = async (obj = null) => {
-    // mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-    // let result;
-    // if (obj&&obj.supplyDate) {
-    //     obj.serialNumber = await mongo_collection_leads.countDocuments();
-    //     obj.serialNumber += 1;
-    //     obj.disable = false;
-    //     obj.leadStatus = "חדש"
-    //     result = await mongo_collection_leads.insertOne(obj);
-    // }
-    // else {
-    //     throw new Error("the obj not received")
-    // }
-    // return result;
-    return 'hfi'
+    let result;
+    if (obj && obj.supplyDate) {
+        obj.serialNumber = await getData(sqlServer, '/read/countdocuments/leads')
+        obj.serialNumber += 1;
+        obj.disable = false;
+        obj.leadStatus = "חדש"
+        const newObj = {
+            collection: "leads",
+            data: obj
+        }
+        result = await postData(sqlServer, '/create/insertone', newObj)
+    }
+    else {
+        throw new Error("the obj not received")
+    }
+    return result;
 }
 
-const updateLead = async (obj = null, filter = null) => {
-    // mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-    // let result;
-    // if (filter && obj) {
-    //     result = await mongo_collection_leads.updateOne(obj, filter);
+const updateLead = async ({ obj = null, filter = null }) => {
+    let result;
+    if (filter && obj) {
+        const newObj = {
+            collection: 'leads',
+            filter,
+            set: { $set: obj }
 
-    // }
-    // else {
-    //     throw new Error("the obj or filter are not defined");
-    // }
+        }
+        result = await postData(sqlServer, '/update/updateone', newObj)
 
-    // return result;
-    return 'gfj'
+    }
+    else {
+        throw new Error("the obj or filter are not defined");
+    }
+
+    return result;
 }
-
-
 
 const allLeadsDetails = async ({ filter, sort, skip, limit, project }) => {
-    // mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
-    // const result = await mongo_collection_leads.aggregate(filter, sort, skip, limit, project);
-    // return result;
-    return 'j'
+    try {
+        const aggregate = [{ $match: filter }, { $sort: sort }, { $skip: skip }, { $limit: limit }, { $project: project }]
+        const result = await postData(sqlServer, '/read/aggregate', {
+            collection: 'leads',
+            aggregate
+        });
+        return result;
+    }
+    catch (error) {
+        throw error;
+    }
 }
+
 const changeLeadToOrder = async (serialNumber) => {
-    // mongo_collection_leads.collectionName = MONGO_COLLECTION_LEADS;
     // const resultUpdate = await mongo_collection_leads.updateOne(serialNumber, { disable: true, leadStatus: "old" });
     // const resultDetails = await mongo_collection_leads.find(serialNumber, {});
     // // כאן צריך להשתמש בפונקציה שמכניסה הזמנה חדשה ולשלוח לה את כל הנתונים שהתקבלו מהמונגו ולקבל את מספר ההזמנה ואחר כך לעדכן במונגו את מספר ההזמנה שיצא
     // return "success";
-return 'hf'
 }
-
-
-
-
-
-
-
 
 module.exports = { createNewLead, allLeadsDetails, updateLead, changeLeadToOrder }
