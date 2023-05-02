@@ -1,7 +1,7 @@
 const express = require('express')
 const router = require('express').Router()
 
-const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../../modules/leads/leads-options')
+// const { createNewLead, getTheMustConcretItem, updateLead, allLeadsDetails } = require('../../modules/leads/leads-options')
 const { newOrderer, getOrderers, getOrdererByPhone, deleteOrderer, updateOrderer } = require('../../modules/leads/orderers');
 const { newPouringType, getPouringTypes, deletePouringType, updatePouringType } = require('../../modules/leads/pouring-types');
 const { newLeadStatus, getStatusesLead, updateStatus, deleteStatus } = require('../../modules/leads/status-leads');
@@ -83,7 +83,8 @@ router.post('/deleteorderer', express.json(), async (req, res) => {
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     try {
-        const response = await createNewLead(req.body);
+        // const response = await createNewLead(req.body);
+        const response="dkhj"
         res.status(200).send(response);
 
     }
@@ -115,7 +116,8 @@ router.post('/newpouringtype', express.json(), async (req, res) => {
 })
 router.post('/getleadsdetails', express.json(), async (req, res) => {
     try {
-        const response = await allLeadsDetails(req.body);
+        // const response = await allLeadsDetails(req.body);
+        const response=';'
         res.status(200).send(response);
 
     }
@@ -152,7 +154,8 @@ router.post('/updateorderer', express.json(), async (req, res) => {
 
 router.post('/updateleadsdetails', express.json(), async (req, res) => {
     try {
-        const response = await updateLead(req.body);
+        // const response = await updateLead(req.body);
+        const response="dkfjskjf"
         res.status(200).send(response);
 
     }
@@ -165,7 +168,7 @@ router.post('/updateleadsdetails', express.json(), async (req, res) => {
 
 router.post('/updatestatuslead', express.json(), async (req, res) => {
     try {
-        const response = await updateLead(req.body)
+        const response = await getStatusesLead(req.body)
         res.status(200).send(response);
 
     }
@@ -178,7 +181,8 @@ router.post('/deletelead', express.json(), async (req, res) => {
     try {
         req.body.disable = true;
         req.body.deletingDate = new Date().toLocaleDateString();
-        const response = await updateLead(req.body)
+        // const response = await updateLead(req.body)
+        const response="dkfks"
         res.status(200).send(response)
 
     }
