@@ -41,7 +41,7 @@ const updateLead = async ({ obj = null, filter = null }) => {
 
 
 
-const allLeadsDetails = async ({ filter, sort, skip, limit, project }) => {
+const allLeadsDetails = async ({ filter={}, sort={}, skip=0, limit=20, project={} }) => {
     try {
         const aggregate = [{ $match: filter }, { $sort: sort }, { $skip: skip }, { $limit: limit }, { $project: project }]
         const result = await postData(sqlServer, '/read/aggregate', {
