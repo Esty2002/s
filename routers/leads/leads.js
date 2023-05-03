@@ -36,7 +36,7 @@ router.post('/updateleadsdetails', express.json(), async (req, res) => {
 
 router.post('/updatestatuslead', express.json(), async (req, res) => {
     try {
-        const response = await updateLead(req.body);
+        const response = await updateLead({obj:req.body.obj,filter:req.body.filter});
         res.status(200).send(response);
     }
     catch (error) {

@@ -1,6 +1,7 @@
 require('dotenv').config()
 const { sqlServer, postData, getData } = require('../../services/axios');
-
+const { objectsForValidations } = require('../../services/validations/validations-objects')
+const { checkObjectValidations, checkObjectForUpdate } = require('../../services/validations/use-validations')
 const createNewLead = async (obj = null) => {
     let result;
     if (obj && obj.supplyDate) {
@@ -12,7 +13,15 @@ const createNewLead = async (obj = null) => {
             collection: "leads",
             data: obj
         }
-        result = await postData(sqlServer, '/create/insertone', newObj)
+
+        const validation = checkObjectValidations(obj, objectsForValidations.leads)
+        console.log('after validation');
+        console.log(validation);
+        if (validation) {
+            result = await postData(sqlServer, '/create/insertone', newObj)
+            return result
+        }
+
     }
     else {
         throw new Error("the obj not received")
@@ -27,9 +36,15 @@ const updateLead = async ({ obj = null, filter = null }) => {
             collection: 'leads',
             filter,
             set: { $set: obj }
-
         }
-        result = await postData(sqlServer, '/update/updateone', newObj)
+        const validation = checkObjectForUpdate(obj, objectsForValidations.leads)
+        console.log('after validation');
+        console.log(validation);
+        if (validation) {
+            result = await postData(sqlServer, '/update/updateone', newObj)
+            return result
+        }
+
 
     }
     else {

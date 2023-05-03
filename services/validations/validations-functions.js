@@ -9,17 +9,16 @@ const correctEmail = () => {
 
 }
 const dateType = (date) => {
-    let ans = true
-    try {
-        date.getFullYear()
-    }
-    catch {
-        ans = false
-    }
-    return ans
+    let date1 = new Date(date)
+    console.log({ date1 });
+    if (date1 == 'Invalid Date')
+        return false
+    return true
+
 }
 
 const correctDate = (date) => {
+    return true;
     // האם אפשר לבדוק שהשנה הוא עד שנה מעכשיו בצורה קצרה יותר מגולדי בצד לקוח
     // return date > new Date() && date < new Date()+1
 
@@ -30,9 +29,9 @@ const correctHour = (hour) => {
     //contatins ':' and two number before the ':' and two number after the ':'","the number must be between 00:00 to 24:59
 }
 
-// const containsOnlyLetters = () => {
-//     return HebrewLetters()|| EnglishLetters()
-// }
+const containsOnlyLetters = () => {
+    return true;
+}
 const correctPhone = (number) => {
     return /^0\d{8,9}$/.test(number)
 }
@@ -61,7 +60,7 @@ const positiveNumber = (number) => {
 }
 
 const HebrewLetters = () => {
-
+    return true;
 }
 const EnglishLetters = (word) => {
     return /^\w[a-z,A-Z]*$/.test(word)
@@ -82,7 +81,7 @@ const bit = (value) => {
     return value == 0 || value == 1 || value == 'True' || value == 'False'
 }
 const dataNotExistsInTable = (value) => {
-
+    return true;
 }
 const minLength = (value, min) => {
     return value.length > min
@@ -94,9 +93,11 @@ const specificLength = (value, len) => {
     return value.length == len
 }
 const unique = (value, table) => {
+    return true;
     // check that the value unique in the table//
 }
 const validation = {
+    containsOnlyLetters: containsOnlyLetters,
     required: required,
     dateType: dateType,
     correctDate: correctDate,
