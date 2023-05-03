@@ -9,7 +9,6 @@ const values = {
         Disable: 0,
         DeletingDate: null
     },
-
     pouringsTypes: "tbl_PouringsTypes",
     tbl_PouringsTypes: {
         PouringName: "",
