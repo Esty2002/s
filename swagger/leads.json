@@ -49,7 +49,7 @@
                 "description": "an identity",
                 "example": "12345678du483h"
             },
-            "objectToPost": {
+            "objectToCreateRecord": {
                 "type": "object",
                 "properties": {
                     "tableName": {
@@ -57,7 +57,7 @@
                         "description": "TableName",
                         "example": "orderers"
                     },
-                    "values":{
+                    "values": {
                         "type": "object",
                         "properties": {
                             "OrdererPhone": {
@@ -71,6 +71,46 @@
                                 "example": "חיים"
                             }
                         }
+                    }
+                }
+            },
+            "objectToUpdateRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "update": {
+                        "type": "object",
+                        "properties": {
+                            "OrdererName": {
+                                "type": "string",
+                                "description": "OrdererName",
+                                "example": "חיים"
+                            }
+                        }
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "condition",
+                        "example": "OrdererName='דב'"
+                    }
+                }
+            },
+            "objectToDeleteRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "condition",
+                        "example": "OrdererName='דב'"
                     }
                 }
             },
@@ -164,7 +204,89 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "$ref": "#/components/schemas/objectToPost"
+                                "$ref": "#/components/schemas/objectToCreateRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updaterecord": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "update a record",
+                "operationId": "updateRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToUpdateRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/deleterecord": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "delete a record",
+                "operationId": "deleteRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToDeleteRecord"
                             }
                         }
                     }

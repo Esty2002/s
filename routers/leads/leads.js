@@ -36,7 +36,7 @@ router.post('/updateleadsdetails', express.json(), async (req, res) => {
 
 router.post('/updatestatuslead', express.json(), async (req, res) => {
     try {
-        const response = await updateLead(req.body);
+        const response = await updateLead(req.body.filter,req.body.obj);
         res.status(200).send(response);
     }
     catch (error) {
@@ -46,9 +46,9 @@ router.post('/updatestatuslead', express.json(), async (req, res) => {
 
 router.post('/deletelead', express.json(), async (req, res) => {
     try {
-        req.body.disable = true;
-        req.body.deletingDate = new Date().toLocaleDateString();
-        const response = await updateLead(req.body);
+        req.body.obj.disable = true;
+        req.body.obj.deletingDate = new Date();
+        const response = await updateLead(req.body.filter,req.body.obj);
         res.status(200).send(response);
     }
     catch (error) {

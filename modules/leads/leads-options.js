@@ -27,7 +27,6 @@ const updateLead = async ({ obj = null, filter = null }) => {
             collection: 'leads',
             filter,
             set: { $set: obj }
-
         }
         result = await postData(sqlServer, '/update/updateone', newObj)
 
