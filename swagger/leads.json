@@ -72,7 +72,7 @@
                 "parameters": [
                     {
                         "name": "table",
-                        "in": "/leads/getrecord/{table}/{columns}/{field}",
+                        "in": "path",
                         "schema": {
                             "$ref": "#/components/schemas/tableName"
                         },
@@ -81,7 +81,7 @@
                     },
                     {
                         "name": "columns",
-                        "in": "/leads/getrecord/{table}/{columns}/{field}",
+                        "in": "path",
                         "schema": {
                             "$ref": "#/components/schemas/columnsNames"
                         },
@@ -90,7 +90,7 @@
                     },
                     {
                         "name": "field",
-                        "in": "/leads/getrecord/{table}/{columns}/{field}",
+                        "in": "path",
                         "schema": {
                             "$ref": "#/components/schemas/fieldName"
                         },
