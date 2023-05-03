@@ -44,13 +44,43 @@
                 "description": "Field name to match by filter",
                 "example": "OrdererName='משה'"
             },
+            "id": {
+                "type": "string",
+                "description": "an identity",
+                "example": "12345678du483h"
+            },
+            "objectToPost": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "values":{
+                        "type": "object",
+                        "properties": {
+                            "OrdererPhone": {
+                                "type": "string",
+                                "description": "OrdererPhone",
+                                "example": "0524874631"
+                            },
+                            "OrdererName": {
+                                "type": "string",
+                                "description": "OrdererName",
+                                "example": "חיים"
+                            }
+                        }
+                    }
+                }
+            },
             "Error": {
                 "type": "object",
                 "properties": {
-                    "message": {
+                    "TableName": {
                         "type": "string",
-                        "description": "Error message",
-                        "example": "Not found"
+                        "description": "TableName",
+                        "example": "orderers"
                     },
                     "internal_code": {
                         "type": "string",
@@ -98,6 +128,47 @@
                         "description": "Field name"
                     }
                 ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/insertrecord": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Insert a record",
+                "operationId": "insertRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToPost"
+                            }
+                        }
+                    }
+                },
                 "responses": {
                     "200": {
                         "description": "filtered data",
