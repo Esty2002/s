@@ -12,7 +12,7 @@
     },
     "servers": [
         {
-            "url": "http://localhost:2000/api-docs",
+            "url": "http://127.0.0.1:4000",
             "description": "Local server"
         }
     ],
@@ -24,126 +24,98 @@
     ],
     "components": {
         "schemas": {
-            "puringType": {
-                "type": "object",
-                "properties": {
-                    "serialNumber": {
-                        "type": "int",
-                        "description": "The number of serial",
-                        "example": "1234"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "The name of puringType(50 chars)",
-                        "example": "Sara coen"
-                    },
-                    "addedDate": {
-                        "type": "date",
-                        "description": "The date of the puringType's first",
-                        "example": "03-20-2023"
-                    },
-                    "disable": {
-                        "type": "boolean",
-                        "description": "Is the orderer able to make an puringtype?",
-                        "example": "false"
-                    },
-                    "deletingDate": {
-                        "type": "date",
-                        "description": "If disable=false - when did it happen if not - date=null?",
-                        "example": "03-06-2023"
-                    }
-                }
+            "empty": {
+                "type": "string",
+                "description": "dinamic response",
+                "example": "dinamic response"
             },
-            "orderer": {
-                "type": "object",
-                "properties": {
-                    "serialNumber": {
-                        "type": "int",
-                        "description": "Filles it self",
-                        "example": "56"
-                    },
-                    "name": {
-                        "type": "string",
-                        "description": "The orderer's name (up to 20 chars)",
-                        "example": "משה"
-                    },
-                    "phone": {
-                        "type": "string",
-                        "description": "The orderer's phone (9 or 10 chars)",
-                        "example": "0527167844"
-                    },
-                    "addedDate": {
-                        "type": "date",
-                        "description": "The date of the orderer's first order",
-                        "example": "new Date()"
-                    },
-                    "disable": {
-                        "type": "boolean",
-                        "description": "Is the orderer able to make an order?",
-                        "example": "false"
-                    },
-                    "deletingDate": {
-                        "type": "date",
-                        "description": "If disable=false - when did it happen if not - date=null?",
-                        "example": "new Date()"
-                    }
-                }
+            "tableName": {
+                "type": "string",
+                "description": "TableName",
+                "example": "orderers"
             },
-            "createnewlead": {
+            "columnsNames": {
+                "type": "string",
+                "description": "columnsNames seperated with a ','",
+                "example": "OrdererPhone,OrdererName"
+            },
+            "fieldName": {
+                "type": "string",
+                "description": "Field name to match by filter",
+                "example": "OrdererName='משה'"
+            },
+            "Error": {
                 "type": "object",
                 "properties": {
-                    "serialNumber": {
-                        "type": "int",
-                        "description": "Filles it self",
-                        "example": "56"
-                    },
-                    "name": {
+                    "message": {
                         "type": "string",
-                        "description": "The status name (up to 20 chars)",
-                        "example": "משה"
+                        "description": "Error message",
+                        "example": "Not found"
                     },
-                    "addedDate": {
-                        "type": "date",
-                        "description": "The date when the status was added",
-                        "example": "new Date()"
-                    },
-                    "disable": {
-                        "type": "boolean",
-                        "description": "Is the status able?",
-                        "example": "false"
-                    },
-                    "deletingDate": {
-                        "type": "date",
-                        "description": "If disable=false - when did it happen? if not - date=null",
-                        "example": "new Date()"
+                    "internal_code": {
+                        "type": "string",
+                        "description": "Error internal code",
+                        "example": "Invalid parameters"
                     }
                 }
             }
-           
-
-           
-     
-       
-       
-    }
-},
-
-"paths": {
-    "/createnewlead": {
-        "get": {
-            "tags": [
-                "Leads CRUD operations"
-            ],
-            "description": "Get pouringType",
-            "operationId": "getPouringType",
-            "parameters": [],
-            "responses": {
-                "200": {
-                    "description": "",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/puringType"
+        }
+    },
+    "paths": {
+        "/leads/getrecord/{table}/{columns}/{field}": {
+            "get": {
+                "tags": [
+                    "Leads CRUD operations"
+                ],
+                "description": "get record",
+                "operationId": "getrecord",
+                "parameters": [
+                    {
+                        "name": "table",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/tableName"
+                        },
+                        "required": true,
+                        "description": "Table name"
+                    },
+                    {
+                        "name": "columns",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/columnsNames"
+                        },
+                        "required": true,
+                        "description": "Columns names"
+                    },
+                    {
+                        "name": "field",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/fieldName"
+                        },
+                        "required": true,
+                        "description": "Field name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
                             }
                         }
                     }
@@ -152,5 +124,3 @@
         }
     }
 }
-}
-                                  
