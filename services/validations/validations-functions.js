@@ -23,7 +23,11 @@ const correctDate = (date) => {
     // האם אפשר לבדוק שהשנה הוא עד שנה מעכשיו בצורה קצרה יותר מגולדי בצד לקוח
     // return date > new Date() && date < new Date()+1
 
-}
+ }
+// const status
+
+
+
 const correctHour = (hour) => {
 
     return true

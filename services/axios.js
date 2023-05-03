@@ -19,6 +19,7 @@ const getData = async (server, url) => {
 }
 
 const postData = async (server, url, body) => {
+    console.log("goldy------------------");
     let response;
     try {
         response = await server.post(url, body);
