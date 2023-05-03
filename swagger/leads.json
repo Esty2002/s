@@ -89,7 +89,7 @@
                     }
                 }
             },
-            "statuseslead": {
+            "createnewlead": {
                 "type": "object",
                 "properties": {
                     "serialNumber": {
@@ -129,7 +129,7 @@
 },
 
 "paths": {
-    "/getpouringtypes": {
+    "/createnewlead": {
         "get": {
             "tags": [
                 "Leads CRUD operations"
@@ -139,7 +139,7 @@
             "parameters": [],
             "responses": {
                 "200": {
-                    "description": "the puringType",
+                    "description": "",
                     "content": {
                         "application/json": {
                             "schema": {
