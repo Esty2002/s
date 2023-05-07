@@ -3,11 +3,13 @@ const required = (value = null) => {
         return true
     }
     return false;
-}
+};
+
 const correctEmail = () => {
     return true
 
-}
+};
+
 const dateType = (date) => {
     let date1 = new Date(date)
     console.log({ date1 });
@@ -15,9 +17,7 @@ const dateType = (date) => {
         return false
     return true
 
-}
-
-
+};
 
 const correctDate = (date) => {
     return true;
