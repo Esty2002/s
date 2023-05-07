@@ -35,6 +35,7 @@ const checkObjectValidations = (body, obj) => {
     return flag;
 
 }
+
 const checkObjectForUpdate = (obj, body) => {
     let flag = true
     for (let i in obj) {

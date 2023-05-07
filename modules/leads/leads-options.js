@@ -29,6 +29,7 @@ const createNewLead = async (obj = null) => {
     return result;
 }
 
+
 const updateLead = async ({ obj = null, filter = null }) => {
     let result;
     if (filter && obj) {
