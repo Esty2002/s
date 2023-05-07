@@ -4,7 +4,7 @@ const { sqlServer, postData, getData } = require('../../services/axios');
 const createNewLead = async (obj = null) => {
     let result;
     if (obj && obj.supplyDate) {
-        obj.serialNumber = await getData(sqlServer, '/read/countdocuments/leads')
+        obj.serialNumber = await getData(sqlServer, '/mongo/countdocuments/leads')
         obj.serialNumber += 1;
         obj.disable = false;
         obj.leadStatus = "חדש"
@@ -12,7 +12,8 @@ const createNewLead = async (obj = null) => {
             collection: "leads",
             data: obj
         }
-        result = await postData(sqlServer, '/create/insertone', newObj)
+
+        result = await postData(sqlServer, '/mongo/insertone', newObj)
     }
     else {
         throw new Error("the obj not received")
@@ -20,7 +21,7 @@ const createNewLead = async (obj = null) => {
     return result;
 }
 
-const updateLead = async ({ obj = null, filter = null }) => {
+const updateLead = async (filter = null, obj = null) => {
     let result;
     if (filter && obj) {
         const newObj = {
@@ -29,7 +30,7 @@ const updateLead = async ({ obj = null, filter = null }) => {
             set: { $set: obj }
 
         }
-        result = await postData(sqlServer, '/update/updateone', newObj)
+        result = await postData(sqlServer, '/mongo/updateone', newObj)
 
     }
     else {
@@ -41,10 +42,11 @@ const updateLead = async ({ obj = null, filter = null }) => {
 
 
 
-const allLeadsDetails = async ({ filter={}, sort={}, skip=0, limit=20, project={} }) => {
+const allLeadsDetails = async ({ filter = {}, sort = {}, skip = 0, limit = 20, project = {} }) => {
     try {
         const aggregate = [{ $match: filter }, { $sort: sort }, { $skip: skip }, { $limit: limit }, { $project: project }]
-        const result = await postData(sqlServer, '/read/aggregate', {
+
+        const result = await postData(sqlServer, '/mongo/aggregate', {
             collection: 'leads',
             aggregate
         });
@@ -55,20 +57,4 @@ const allLeadsDetails = async ({ filter={}, sort={}, skip=0, limit=20, project={
     }
 }
 
-
-const changeLeadToOrder = async (serialNumber) => {
-    // const resultUpdate = await mongo_collection_leads.updateOne(serialNumber, { disable: true, leadStatus: "old" });
-    // const resultDetails = await mongo_collection_leads.find(serialNumber, {});
-    // // כאן צריך להשתמש בפונקציה שמכניסה הזמנה חדשה ולשלוח לה את כל הנתונים שהתקבלו מהמונגו ולקבל את מספר ההזמנה ואחר כך לעדכן במונגו את מספר ההזמנה שיצא
-    // return "success";
-
-}
-
-
-
-
-
-
-
-
-module.exports = { createNewLead, allLeadsDetails, updateLead, changeLeadToOrder }
+module.exports = { createNewLead, allLeadsDetails, updateLead }

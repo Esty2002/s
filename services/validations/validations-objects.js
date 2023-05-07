@@ -1,6 +1,8 @@
 const { validation } = require('./validations-functions')
-const objectsForValidations =
-{plyDate: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "date" }, { func: validation.correctDate, arguments: null }],
+const objectsForValidations ={
+    
+    leads: {
+        supplyDate: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "date" }, { func: validation.correctDate, arguments: null }],
         supplyHour: [{ func: validation.correctHour, arguments: null }],
         ordererName: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }],
         ordererPhone: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }],
@@ -10,8 +12,6 @@ const objectsForValidations =
             houseNumber: [{ func: validation.googlemaps, arguments: null }],
             mapReference: [{ func: validation.notCheck, arguments: null }]
         },
-    leads: {
-        sup
         clientId: [{ func: validation.dataExistsInTable, arguments: null }],
         concretType: [{ func: validation.correctConcretAtributes, arguments: null }],
         concretAmount: [{ func: validation.type, arguments: "number" }, { func: validation.positiveNumber, arguments: null }],
