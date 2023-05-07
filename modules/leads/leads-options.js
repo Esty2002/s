@@ -28,7 +28,6 @@ const updateLead = async (filter = null, obj = null) => {
             collection: 'leads',
             filter,
             set: { $set: obj }
-
         }
         result = await postData(sqlServer, '/mongo/updateone', newObj)
 

@@ -1,0 +1,319 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Todos API",
+        "description": "A simple todos API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "leads",
+            "email": "leads@web.com",
+            "url": "web.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:4000",
+            "description": "Local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "leads options",
+            "url": ""
+        }
+    ],
+    "components": {
+        "schemas": {
+            "empty": {
+                "type": "string",
+                "description": "dinamic response",
+                "example": "dinamic response"
+            },
+            "tableName": {
+                "type": "string",
+                "description": "TableName",
+                "example": "orderers"
+            },
+            "columnsNames": {
+                "type": "string",
+                "description": "columnsNames seperated with a ','",
+                "example": "OrdererPhone,OrdererName"
+            },
+            "fieldName": {
+                "type": "string",
+                "description": "Field name to match by filter",
+                "example": "OrdererName='משה'"
+            },
+            "id": {
+                "type": "string",
+                "description": "an identity",
+                "example": "12345678du483h"
+            },
+            "objectToCreateRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "values": {
+                        "type": "object",
+                        "properties": {
+                            "OrdererPhone": {
+                                "type": "string",
+                                "description": "OrdererPhone",
+                                "example": "0524874631"
+                            },
+                            "OrdererName": {
+                                "type": "string",
+                                "description": "OrdererName",
+                                "example": "חיים"
+                            }
+                        }
+                    }
+                }
+            },
+            "objectToUpdateRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "update": {
+                        "type": "object",
+                        "properties": {
+                            "OrdererName": {
+                                "type": "string",
+                                "description": "OrdererName",
+                                "example": "חיים"
+                            }
+                        }
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "condition",
+                        "example": "OrdererName='דב'"
+                    }
+                }
+            },
+            "objectToDeleteRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "condition",
+                        "example": "OrdererName='דב'"
+                    }
+                }
+            },
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "TableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "internal_code": {
+                        "type": "string",
+                        "description": "Error internal code",
+                        "example": "Invalid parameters"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/leads/getrecord/{table}/{columns}/{field}": {
+            "get": {
+                "tags": [
+                    "Leads CRUD operations"
+                ],
+                "description": "get record",
+                "operationId": "getrecord",
+                "parameters": [
+                    {
+                        "name": "table",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/tableName"
+                        },
+                        "required": true,
+                        "description": "Table name"
+                    },
+                    {
+                        "name": "columns",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/columnsNames"
+                        },
+                        "required": true,
+                        "description": "Columns names"
+                    },
+                    {
+                        "name": "field",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/fieldName"
+                        },
+                        "required": true,
+                        "description": "Field name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/insertrecord": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Insert a record",
+                "operationId": "insertRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToCreateRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updaterecord": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "update a record",
+                "operationId": "updateRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToUpdateRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/deleterecord": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "delete a record",
+                "operationId": "deleteRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToDeleteRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
