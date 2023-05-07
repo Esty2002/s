@@ -14,6 +14,8 @@ router.post('/createnewlead', express.json(), async (req, res) => {
     }
 });
 
+
+
 router.post('/getleadsdetails', express.json(), async (req, res) => {
     try {
         const response = await allLeadsDetails(req.body);

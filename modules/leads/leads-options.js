@@ -22,6 +22,7 @@ const createNewLead = async (obj = null) => {
             return result
         }
 
+        
     }
     else {
         throw new Error("the obj not received")

@@ -18,6 +18,7 @@ const dateType = (date) => {
 }
 
 
+
 const correctDate = (date) => {
     return true;
     // האם אפשר לבדוק שהשנה הוא עד שנה מעכשיו בצורה קצרה יותר מגולדי בצד לקוח

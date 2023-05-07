@@ -180,6 +180,7 @@ const objectsForValidations =
         areaName: [{ func: validation.required, arguments: null }, { func: validation.dataExistsInTable, arguments: { server: "sql", tableName: "priceList" } }, { func: validation.minLength, arguments: 20 }]
     },
 
+    
     orderers: {
         SerialNumber: [{ func: validation.notCheck, arguments: null }],
         OrdererName: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }],
