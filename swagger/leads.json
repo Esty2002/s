@@ -12,7 +12,7 @@
     },
     "servers": [
         {
-            "url": "http://127.0.0.1:4000",
+            "url": "http://127.0.0.1:3060",
             "description": "Local server"
         }
     ],
@@ -44,6 +44,11 @@
                 "description": "Field name to match by filter",
                 "example": "OrdererName='משה'"
             },
+            "Serialnumber": {
+                "type": "string",
+                "description": "Field name to match by filter",
+                "example": "OrdererName='משה'"
+            },
             "id": {
                 "type": "string",
                 "description": "an identity",
@@ -57,7 +62,7 @@
                         "description": "TableName",
                         "example": "orderers"
                     },
-                    "values":{
+                    "values": {
                         "type": "object",
                         "properties": {
                             "OrdererPhone": {
@@ -69,6 +74,148 @@
                                 "type": "string",
                                 "description": "OrdererName",
                                 "example": "חיים"
+                            }
+                        }
+                    }
+                }
+            },
+            "createnewlead": {
+                "type": "object",
+                "properties": {
+                    "supplyDate": {
+                        "type": "date",
+                        "description": "supplyDate",
+                        "example": "08-06-2023"
+                    },
+                    "supplyHour": {
+                        "type": "date",
+                        "description": "supplyHour",
+                        "example": "13:40"
+                    },
+                    "ordererName": {
+                        "type": "string",
+                        "description": "ordererName",
+                        "example": "sari"
+                    },
+                    "ordererPhone": {
+                        "type": "string",
+                        "description": "ordererPhone",
+                        "example": "0583286477"
+                    },
+                    "supplyAddress": {
+                        "type": "object",
+                        "properties": {
+                            "city": {
+                                "type": "string",
+                                "description": "city",
+                                "example": "ashdod"
+                            },
+                            "street": {
+                                "type": "string",
+                                "description": "street",
+                                "example": "chalafta"
+                            },
+                            "houseNumber": {
+                                "type": "int",
+                                "description": "houseNumber",
+                                "example": "21"
+                            },
+                            "mapReference": {
+                                "type": "string",
+                                "description": "mapReference",
+                                "example": "mercaz"
+                            }
+                        }
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "clientId",
+                        "example": "112233"
+                    },
+                    "concretType": {
+                        "type": "list",
+                        "description": "concretType",
+                        "example": "false"
+                    },
+                    "concretAmount": {
+                        "type": "double",
+                        "description": "concretAmount",
+                        "example": "15.1"
+                    },
+                    "moreConcretItems": {
+                        "type": "string",
+                        "description": "moreConcretItems",
+                        "example": "asd"
+                    },
+                    "concretAdditionIsProsprective": {
+                        "type": "Boolean",
+                        "description": "concretAdditionIsProsprective",
+                        "example": "true"
+                    },
+                    "pumpId": {
+                        "type": "string",
+                        "description": "pumpId",
+                        "example": "pipe"
+                    },
+                    "morePumpItems": {
+                        "type": "string",
+                        "description": "morePumpItems",
+                        "example": "afef"
+                    },
+                    "pouringType": {
+                        "type": "string",
+                        "description": "pouringType",
+                        "example": "asf"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "notes",
+                        "example": "SAsadsdsfdsfdf"
+                    }
+                }
+            },
+          
+            "updateleadsdetails": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": "1"
+                            }
+                        }
+                    },
+                    "obj": {
+                        "type": "object",
+                        "properties": {
+                            "leadStatus": {
+                                "type": "string",
+                                "example": "ישן"
+                            }
+                        }
+                    }
+                }
+            },
+            "deletelead": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": "1"
+                            }
+                        }
+                    },
+                    "obj": {
+                        "type": "object",
+                        "properties": {
+                            "disable": {
+                                "type": "Boolean",
+                                "example": "true"
                             }
                         }
                     }
@@ -187,6 +334,171 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Error"
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/createnewlead": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "create a leads",
+                "operationId": "createnewlead",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createnewlead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updateleadsdetails": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateleadsdetails"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        
+        "/leads/updatestatuslead": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatestatuslead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/deletelead": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletelead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
                             }
                         }
                     }

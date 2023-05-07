@@ -3,8 +3,12 @@ const { sqlServer, postData, getData } = require('../../services/axios');
 
 const createNewLead = async (obj = null) => {
     let result;
+    console.log("sdasasasasaa");
+
     if (obj && obj.supplyDate) {
         obj.serialNumber = await getData(sqlServer, '/read/countdocuments/leads')
+        console.log("rrrrrrrsdasasasasaa");
+
         obj.serialNumber += 1;
         obj.disable = false;
         obj.leadStatus = "חדש"
@@ -23,6 +27,8 @@ const createNewLead = async (obj = null) => {
 const updateLead = async ({ obj = null, filter = null }) => {
     let result;
     if (filter && obj) {
+        console.log("ttttttt");
+
         const newObj = {
             collection: 'leads',
             filter,

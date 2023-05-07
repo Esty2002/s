@@ -5,7 +5,9 @@ const { createNewLead, updateLead, allLeadsDetails } = require('../../modules/le
 const { newRecord,getRecord,deleteRecord,updateRecord } = require('../../modules/leads/tables');
 
 router.post('/createnewlead', express.json(), async (req, res) => {
+    console.log("sari");
     try {
+        
         const response = await createNewLead(req.body);
         res.status(200).send(response);
     }
@@ -25,8 +27,11 @@ router.post('/getleadsdetails', express.json(), async (req, res) => {
 });
 
 router.post('/updateleadsdetails', express.json(), async (req, res) => {
+    console.log("sssssss");
     try {
         const response = await updateLead(req.body);
+        console.log("eeeee");
+
         res.status(200).send(response);
     }
     catch (error) {
@@ -68,6 +73,7 @@ router.get('/getrecord/:table/:columns/:field', async (req, res) => {
 });
 
 router.post('/insertrecord', express.json(), async (req, res) => {
+    console.log("miriam");
     try {
         const response = await newRecord(req.body);
         res.status(200).send(response);
