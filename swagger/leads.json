@@ -1,7 +1,7 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Simple Todos API",
+        "title": "swagger of leads",
         "description": "A simple todos API",
         "version": "1.0.0",
         "contact": {
@@ -40,6 +40,11 @@
                 "example": "OrdererPhone,OrdererName"
             },
             "fieldName": {
+                "type": "string",
+                "description": "Field name to match by filter",
+                "example": "OrdererName='משה'"
+            },
+            "Serialnumber": {
                 "type": "string",
                 "description": "Field name to match by filter",
                 "example": "OrdererName='משה'"
@@ -111,6 +116,193 @@
                         "type": "string",
                         "description": "condition",
                         "example": "OrdererName='דב'"
+                    }
+                }
+            },
+            "createnewlead": {
+                "type": "object",
+                "properties": {
+                    "supplyDate": {
+                        "type": "date",
+                        "description": "supplyDate",
+                        "example": "2023-06-08"
+                    },
+                    "supplyHour": {
+                        "type": "date",
+                        "description": "supplyHour",
+                        "example": "13:40"
+                    },
+                    "ordererName": {
+                        "type": "string",
+                        "description": "ordererName",
+                        "example": "sari"
+                    },
+                    "ordererPhone": {
+                        "type": "string",
+                        "description": "ordererPhone",
+                        "example": "0583286477"
+                    },
+                    "supplyAddress": {
+                        "type": "object",
+                        "properties": {
+                            "city": {
+                                "type": "string",
+                                "description": "city",
+                                "example": "ashdod"
+                            },
+                            "street": {
+                                "type": "string",
+                                "description": "street",
+                                "example": "chalafta"
+                            },
+                            "houseNumber": {
+                                "type": "int",
+                                "description": "houseNumber",
+                                "example": 21
+                            },
+                            "mapReference": {
+                                "type": "object",
+                                "description": "mapReference",
+                                "example": {
+                                    "x":15,
+                                    "y":125
+                                }
+                            }
+                        }
+                    },
+                    "clientId": {
+                        "type": "string",
+                        "description": "clientId",
+                        "example": "112233"
+                    },
+                    "concretType": {
+                        "type": "list",
+                        "description": "concretType",
+                        "example": [1,5,8,7]
+                    },
+                    "concretAmount": {
+                        "type": "double",
+                        "description": "concretAmount",
+                        "example": 15.1
+                    },
+                    "moreConcretItems": {
+                        "type": "string",
+                        "description": "moreConcretItems",
+                        "example": "asd"
+                    },
+                    "concretAdditionIsProsprective": {
+                        "type": "Boolean",
+                        "description": "concretAdditionIsProsprective",
+                        "example": true
+                    },
+                    "pumpId": {
+                        "type": "string",
+                        "description": "pumpId",
+                        "example": "pipe"
+                    },
+                    "morePumpItems": {
+                        "type": "list",
+                        "description": "morePumpItems",
+                        "example": [1,5,7]
+                    },
+                    "pouringType": {
+                        "type": "string",
+                        "description": "pouringType",
+                        "example": "asf"
+                    },
+                    "notes": {
+                        "type": "string",
+                        "description": "notes",
+                        "example": "SAsadsdsfdsfdf"
+                    }
+                }
+            },
+            "updateleadsdetails": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    },
+                    "obj": {
+                        "type": "object",
+                        "properties": {
+                            "supplyDate": {
+                                "type": "string",
+                                "example": "2023-09-05"
+                            }
+                        }
+                    }
+                }
+            },
+            "deletelead": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "getleadsdetails": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    },
+                    "sort": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber":{
+                                "type":"int",
+                                "example":1
+                            }
+                        }
+                    },
+                    "skip":{
+                        "type":"int",
+                        "example":0
+                    },
+                    "limit":{
+                        "type":"int",
+                        "example":2
+                    },
+                    "project":{
+                        "type":"object",
+                        "properties":{
+                            "_id":{
+                                "type":"int",
+                                "example":0
+                            },
+                            "serialNumber":{
+                                "type":"int",
+                                "example":1
+                            },
+                            "supplyDate":{
+                                "type":"int",
+                                "example":1
+                            },
+                            "supplyAddress":{
+                                "type":"int",
+                                "example":1
+                            }
+                        }
                     }
                 }
             },
@@ -309,6 +501,211 @@
                                 "schema": {
                                     "$ref": "#/components/schemas/Error"
                                 }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/createnewlead": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "create a leads",
+                "operationId": "createnewlead",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createnewlead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updateleadsdetails": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateleadsdetails"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updatestatuslead": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatestatuslead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/deletelead": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletelead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/getleadsdetails": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getleadsdetails"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
                             }
                         }
                     }

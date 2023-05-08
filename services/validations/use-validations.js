@@ -19,6 +19,7 @@ const checkObjectValidations = (body, obj) => {
             else {
                 for (let j = 0; j < arrKeys.length; j++) {
                     if (!arrKeys[j].func(body[keysObj[i]], arrKeys[j].arguments)) {
+                        console.log(arrKeys);
                         flag = false
                         break;
                     }

@@ -1,3 +1,5 @@
+const {validation}=require('./validations-functions');
+
 const objectsForValidations =
 {
     leads: {
@@ -203,6 +205,6 @@ const objectsForValidations =
         DeletingDate: [{ func: validation.type, arguments: "date" }]
     }
 
-}
+};
 
-module.exports = { objectsForValidations }
+module.exports = { objectsForValidations };

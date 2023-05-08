@@ -5,11 +5,13 @@ const { createNewLead, updateLead, allLeadsDetails } = require('../../modules/le
 const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modules/leads/tables');
 
 router.post('/createnewlead', express.json(), async (req, res) => {
+    
     try {
         const response = await createNewLead(req.body);
         res.status(200).send(response);
     }
     catch (error) {
+        console.log(error);
         res.status(404).send(error);
     }
 });
@@ -74,6 +76,7 @@ router.post('/insertrecord', express.json(), async (req, res) => {
         res.status(200).send(response);
     }
     catch (error) {
+        console.log(error);
         res.status(404).send(error);
     }
 });
@@ -82,11 +85,9 @@ router.post('/updaterecord', express.json(), async (req, res) => {
     try {
         const response = await updateRecord(req.body)
         res.status(200).send(response);
-
     }
     catch (error) {
         res.status(404).send(error);
-
     }
 });
 
@@ -94,7 +95,6 @@ router.post('/deleterecord', express.json(), async (req, res) => {
     try {
         const response = await deleteRecord(req.body)
         res.status(200).send(response);
-
     }
     catch (error) {
         res.status(404).send(error);

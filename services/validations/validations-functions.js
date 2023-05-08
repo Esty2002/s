@@ -12,7 +12,6 @@ const correctEmail = () => {
 
 const dateType = (date) => {
     let date1 = new Date(date)
-    console.log({ date1 });
     if (date1 == 'Invalid Date')
         return false
     return true
@@ -24,7 +23,11 @@ const correctDate = (date) => {
     // האם אפשר לבדוק שהשנה הוא עד שנה מעכשיו בצורה קצרה יותר מגולדי בצד לקוח
     // return date > new Date() && date < new Date()+1
 
-}
+ }
+// const status
+
+
+
 const correctHour = (hour) => {
 
     return true
@@ -76,8 +79,8 @@ const notCheck = () => {
 const type = (value, type) => {
     return typeof value == type
 }
-const maxLength = (value, ...max) => {
-    return value < max
+const maxLength = (value,max) => {
+    return value.length < max
 }
 const bit = (value) => {
     return value == 0 || value == 1 || value == 'True' || value == 'False'
