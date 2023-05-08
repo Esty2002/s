@@ -11,7 +11,6 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         res.status(200).send(response);
     }
     catch (error) {
-        console.log(error);
         res.status(404).send(error);
     }
 });
@@ -76,7 +75,6 @@ router.post('/insertrecord', express.json(), async (req, res) => {
         res.status(200).send(response);
     }
     catch (error) {
-        console.log(error);
         res.status(404).send(error);
     }
 });

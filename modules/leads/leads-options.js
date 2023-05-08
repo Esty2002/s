@@ -55,7 +55,6 @@ const updateLead = async (filter = null, obj = null) => {
 const allLeadsDetails = async ({ filter = {}, sort = {}, skip = 0, limit = 20, project = {} }) => {
     try {
         const aggregate = [{ $match: filter }, { $sort: sort }, { $skip: skip }, { $limit: limit }, { $project: project }];
-        console.log(aggregate);
         const result = await postData(sqlServer, '/mongo/aggregate', {
             collection: 'leads',
             aggregate

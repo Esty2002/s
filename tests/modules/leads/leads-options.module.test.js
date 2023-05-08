@@ -43,16 +43,27 @@ jest.mock('../../../services/axios', () => {
         })
 
     }
-})
+});
+
+jest.mock('../../../services/validations/use-validations', () => {
+    return {
+        checkObjectValidations: jest.fn(() => {
+            return true;
+        }),
+        checkObjectForUpdate:jest.fn(()=>{
+            return true;
+        })
+    }
+});
 
 const { createNewLead, updateLead, allLeadsDetails } = require('../../../modules/leads/leads-options');
 
 describe('CHECK FUNCTION CREATENEWLEAD', () => {
     it('should return inserted id when succeded', async () => {
-        let result = await createNewLead({ phone: "088659365", supplyDate: new Date(),SupplyAddress:{city:"Ashdod",street:"Tarfon"} });
+        let result = await createNewLead({ phone: "088659365", supplyDate: new Date(), SupplyAddress: { city: "Ashdod", street: "Tarfon" } });
         expect(result).toBeDefined();
         expect(result).toBeTruthy();
-        
+
     })
     it('should return false the object is empty', async () => {
         let result;
@@ -68,18 +79,18 @@ describe('CHECK FUNCTION CREATENEWLEAD', () => {
         }
 
     })
-    it('should the function getData and function postData',async()=>{
-        let result = await createNewLead({ phone: "088659365", supplyDate: new Date(),SupplyAddress:{city:"Ashdod",street:"Tarfon"} });
-        const { postData ,getData} = jest.requireMock('../../../services/axios');
+    it('should the function getData and function postData', async () => {
+        let result = await createNewLead({ phone: "088659365", supplyDate: new Date(), SupplyAddress: { city: "Ashdod", street: "Tarfon" } });
+        const { postData, getData } = jest.requireMock('../../../services/axios');
         expect(result).toBeTruthy();
-        expect(postData).toHaveBeenCalled();        
+        expect(postData).toHaveBeenCalled();
         expect(getData).toHaveBeenCalled();
 
     })
-    it('should the function faild if the object not correct',async()=>{
+    it('should the function faild if the object not correct', async () => {
         let result;
         try {
-            result = await createNewLead({ phone: "088659365", supplyDate: new Date()} );
+            result = await createNewLead({ phone: "088659365", supplyDate: new Date() });
 
         }
         catch (error) {
@@ -142,7 +153,7 @@ describe('check the function updateLead', () => {
     })
 
     it('should return when the function succsed with many elements', async () => {
-        const result = await updateLead({name: "testes", serialNumber: "123" }, { name: "test2", serialNumber: "333" });
+        const result = await updateLead({ name: "testes", serialNumber: "123" }, { name: "test2", serialNumber: "333" });
         expect(result).toBeDefined();
         expect(result).toBeTruthy();
         expect(result).toEqual(true);

@@ -45,7 +45,7 @@ const googlemaps = () => {
     return true
 }
 
-const dataExistsInTable = (value, arguments) => {
+const dataExistsInTable = (value) => {
     return true
     //for example : "check in the clients table if this phone is exist"
 }
