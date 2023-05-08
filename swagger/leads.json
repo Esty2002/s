@@ -221,6 +221,29 @@
                     }
                 }
             },
+            "getleadsdetails": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": "1"
+                            }
+                        }
+                    },
+                    "obj": {
+                        "type": "object",
+                        "properties": {
+                            "disable": {
+                                "type": "Boolean",
+                                "example": "true"
+                            }
+                        }
+                    }
+                }
+            },
             "Error": {
                 "type": "object",
                 "properties": {
@@ -477,6 +500,47 @@
                         "application/json": {
                             "schema": {
                                 "$ref": "#/components/schemas/deletelead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/getleadsdetails": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getleadsdetails"
                             }
                         }
                     }
