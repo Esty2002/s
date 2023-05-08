@@ -1,10 +1,11 @@
 require('dotenv').config()
 const { sqlServer, postData, getData } = require('../../services/axios');
+const {checkObjectValidations} = require('../../services/validations/use-validations')
+const {objectsForValidations} = require('../../services/validations/validations-objects')
 
 const createNewLead = async (obj = null) => {
     let result;
-    console.log("sdasasasasaa");
-
+    
     if (obj && obj.supplyDate) {
         obj.serialNumber = await getData(sqlServer, '/read/countdocuments/leads')
         console.log("rrrrrrrsdasasasasaa");
@@ -16,6 +17,9 @@ const createNewLead = async (obj = null) => {
             collection: "leads",
             data: obj
         }
+        let a=checkObjectValidations(obj,objectsForValidations.leads)
+        console.log("gdhjghjghgh");
+        console.log(a);
         result = await postData(sqlServer, '/create/insertone', newObj)
     }
     else {

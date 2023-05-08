@@ -5,7 +5,7 @@ const { createNewLead, updateLead, allLeadsDetails } = require('../../modules/le
 const { newRecord,getRecord,deleteRecord,updateRecord } = require('../../modules/leads/tables');
 
 router.post('/createnewlead', express.json(), async (req, res) => {
-    console.log("sari");
+    
     try {
         
         const response = await createNewLead(req.body);

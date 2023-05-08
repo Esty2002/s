@@ -20,7 +20,10 @@ const objectsForValidations =
         pumpId: [{ func: validation.dataExistsInTable, arguments: { server: "sql", tableName: "pumps" } }],
         morePumpItems: [{ func: validation.dataExistsInTable, arguments: { server: "sql", tableName: "pumps" } }],
         pouringType: [{ func: validation.HebrewLetters, arguments: null }, { func: validation.dataNotExistsInTable, arguments: { server: "sql", tableName: "pouringType" } }],
-        notes: [{ func: validation.maxLength, arguments: 30000 }]
+        notes: [{ func: validation.maxLength, arguments: 30000 }],
+        serialNumber : [{func:validation.notCheck ,arguments:null}],
+        leadStatus :[{func:validation.notCheck , arguments:null}],
+        disable :[{func :validation.notCheck ,arguments:null}]
     },
     clients: {
         clientCode: [{ func: validation.required, arguments: null }],
