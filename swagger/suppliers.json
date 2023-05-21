@@ -1,0 +1,429 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Todos API",
+        "description": "A simple todos API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "supplier",
+            "email": "gur@gmail.com",
+            "url": ""
+        }
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:1111",
+            "description": "Local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "supplier options",
+            "url": ""
+        }
+    ],
+    "components": {
+        "schemas": {
+            "insertSupplierPost": {
+                "type": "object",
+                "properties": {
+                    "SupplierCode": {
+                        "type": "string",
+                        "description": "code of supplier",
+                        "example": "088667054"
+                    },
+                    "SupplierName": {
+                        "type": "string",
+                        "description": "SupplierName of supplier",
+                        "example": "1111"
+                    },
+                    "licensedDealerNumber": {
+                        "type": "string",
+                        "description": "licensedDealerNumber of supplier  ",
+                        "example": "abc"
+                    },
+                    "BokkeepingNumber": {
+                        "type": "string",
+                        "description": "BokkeepingNumber of supplier",
+                        "example": "abc"
+                    },
+                    "ObjectiveBank": {
+                        "type": "string",
+                        "description": "ObjectiveBank of supplier",
+                        "example": "abc"
+                    },
+                    "ConditionGushyPayment": {
+                        "type": "string",
+                        "description": "ConditionGushyPayment of supplier",
+                        "example": "abc"
+                    },
+                    "PreferredPaymentDate": {
+                        "type": "int",
+                        "description": "PreferredPaymentDate of supplier",
+                        "example": "2"
+                    },
+                    "Ovligo": {
+                        "type": "int",
+                        "description": "Ovligo of supplier",
+                        "example": "5"
+                    },
+                    "Status": {
+                        "type": "int",
+                        "description": "Status of supplier",
+                        "example": "3"
+                    },
+                    "Street": {
+                        "type": "int",
+                        "description": "Street of supplier",
+                        "example": "chafet-chaim"
+                    },
+                    "HomeNumber": {
+                        "type": "int",
+                        "description": "HomeNumber of supplier",
+                        "example": "5"
+                    },
+                    "ZipCode": {
+                        "type": "string",
+                        "description": "ZipCode of supplier",
+                        "example": "asd"
+                    },
+                    "City": {
+                        "type": "string",
+                        "description": "City of supplier",
+                        "example": "asdod"
+                    },
+                    "Phone1": {
+                        "type": "string",
+                        "description": "Phone1 of supplier",
+                        "example": "088667054"
+                    },
+                    "Phone2": {
+                        "type": "string",
+                        "description": "Phone2 of supplier",
+                        "example": "088667054"
+                    },
+                    "Mobile": {
+                        "type": "string",
+                        "description": "Mobile of supplier",
+                        "example": "0527663325"
+                    },
+                    "Fax": {
+                        "type": "string",
+                        "description": "Fax of supplier",
+                        "example": "088667054"
+                    },
+                    "Mail": {
+                        "type": "string",
+                        "description": "Mail of supplier",
+                        "example": "jj@gmail.com"
+                    },
+                    "Notes": {
+                        "type": "string",
+                        "description": "Notes of supplier",
+                        "example": "hi what yuor name?"
+                    },
+                    "Disabled": {
+                        "type": "string",
+                        "description": "Disabled of supplier",
+                        "example": true
+                    },
+                    "DisableUser": {
+                        "type": "string",
+                        "description": "DisableUser of supplier",
+                        "example": "moshe"
+                    }
+                },
+                "xml": {
+                    "name": "order"
+                }
+            },
+            "suppliercode": {
+                "type": "string",
+                "description": "suppliercode",
+                "example": "546666"
+            },
+            "suppliername": {
+                "type": "string",
+                "description": "suppliername",
+                "example": "46566"
+            },
+            "option": {
+                "type": "string",
+                "description": "Mail",
+                "example": "jjh@ggf.jj"
+            },
+            "text": {
+                "type": "string",
+                "description": "name of city",
+                "example": "ashdod"
+            },
+            "updatesupplier": {},
+            "insertsupplier": {},
+            "deletesupplier": {},
+            "getSuppliers": {},
+            "empty": {
+                "type": "string",
+                "description": "dinamic response",
+                "example": "dinamic response"
+            },
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Error message",
+                        "example": "Not found"
+                    },
+                    "internal_code": {
+                        "type": "string",
+                        "description": "Error internal code",
+                        "example": "Invalid parameters"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "suppliers/getallSuppliers": {
+            "get": {
+                "tags": [
+                    "supplier read opertions"
+                ],
+                "description": "get all supplier",
+                "operationId": "getallSuppliers",
+                "parameters": [],
+                "responses": {
+                    "200": {
+                        "description": "get all supplier",
+                        "content": {}
+                    }
+                }
+            }
+        },
+        "/suppliers/checkUnique/{suppliercode}/{suppliername}": {
+            "get": {
+                "tags": [
+                    "supplier read opertions"
+                ],
+                "description": "get all supplier",
+                "operationId": "getallSuppliers",
+                "parameters": [
+                    {
+                        "name": "suppliercode",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/suppliercode"
+                        },
+                        "required": true,
+                        "description": "suppliercode"
+                    },
+                    {
+                        "name": "suppliername",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/suppliername"
+                        },
+                        "required": true,
+                        "description": "suppliername"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suppliers/getSuppliers/{option}/{text}": {
+            "get": {
+                "tags": [
+                    "supplier read opertions"
+                ],
+                "description": "get all supplier",
+                "operationId": "getallSuppliers",
+                "parameters": [
+                    {
+                        "name": "option",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/option"
+                        },
+                        "required": true,
+                        "description": "option"
+                    },
+                    {
+                        "name": "text",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/text"
+                        },
+                        "required": true,
+                        "description": "text"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suppliers/deletesupplier": {
+            "delete": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Insert a record",
+                "operationId": "insertRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletesupplier"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suppliers/insertsupplier": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Insert a record",
+                "operationId": "insertRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/insertSupplierPost"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/suppliers/updatesupplier": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Insert a record",
+                "operationId": "updatesupplier",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updatesupplier"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
