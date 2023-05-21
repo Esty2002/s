@@ -3,6 +3,11 @@ const express = require('express');
 const app = express();
 const cors = require('cors')
 
+const swaggerUi = require('swagger-ui-express');
+const swaggerSuppliers = require('./swagger/supplier.json');
+
+
+
 const router_leads = require('./routers/leads/leads')
 const router_areas = require('./routers/price-list/areas-router')
 const router_prices = require('./routers/price-list/prices-router')
@@ -44,7 +49,7 @@ app.use('/read', read_router);
 app.use('/update', update_router);
 app.use('/delete', delete_router);
 
-
+app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 
 
 app.get('/', (req, res) => {
