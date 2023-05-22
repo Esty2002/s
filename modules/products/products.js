@@ -1,21 +1,26 @@
 require('dotenv').config()
 
 const { MongoDBOperations } = require('../../services-products/db/mongo/mongo-operation')
-const { MONGO_COLLECTION } = process.env
+const { getData, sqlServer, postData } = require('../../services/axios')
+const { MONGO_PRODUCTS_COLLECTION } = process.env
 
 const mongo_operations = new MongoDBOperations()
 
 async function insertProduct(obj) {
-    obj['ordinalNumber'] = await (mongo_operations.countDocuments()) + 1
-    return await mongo_operations.insertOne(obj)
+    obj['ordinalNumber'] = await getData(sqlServer, `mongo/countdocuments/${MONGO_PRODUCTS_COLLECTION}`) + 1
+    return await postData(sqlServer,'mongo/insertone',{collection:MONGO_PRODUCTS_COLLECTION,data:obj})
+    // obj['ordinalNumber'] = await (mongo_operations.countDocuments()) + 1
+    // return await mongo_operations.insertOne(obj)
 }
 
 async function getTraits(filter, project = {}, sort = {}) {
     filter['enabled'] = true
-    return await mongo_operations.find(filter, project, sort)
+    return await postData(sqlServer,'mongo/find',{collection:MONGO_PRODUCTS_COLLECTION,filter,project,sort})
+    // return await mongo_operations.find(filter, project, sort)
 }
 async function updateProduct(condition, obj) {
-    return await mongo_operations.update(condition, obj)
+    return await postData(sqlServer,'mongo/updateone',{collection:MONGO_PRODUCTS_COLLECTION,filter:condition,set:obj})
+    // return await mongo_operations.update(condition, obj)
 }
 
 async function createCartesian(strat) {
