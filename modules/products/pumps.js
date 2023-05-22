@@ -1,5 +1,4 @@
 const { sqlOperations } = require('../../services-products/db/sql/sql_operation')
-const { postData } = require('../../services/axios')
 const { findMeasureNumber } = require('./measure')
 
 const sql_operations = new sqlOperations("PUMPS")
@@ -12,7 +11,6 @@ async function insertPump(obj) {
         obj[k] = "'" + obj[k] + "'"
     }
     return await sql_operations.insert(obj)
-    postData()
 }
 async function findPump(project = [], filter = {}) {
     return await sql_operations.find(project.join(','), filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "")

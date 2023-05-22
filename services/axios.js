@@ -19,10 +19,10 @@ const getData = async (server, url) => {
     return response;
 }
 
-const postData = async (server, url, body) => {
+const postData = async (url, body) => {
     let response;
     try {
-        response = await server.post(url, body);
+        response = await sqlServer.post(url, body);
     }
 
     catch (error) {
