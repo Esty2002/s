@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const express = require('express')
 
-const {addPriceList, updatePriceList, createTable,
+const {addPriceList, updatePriceList,
     deletePriceList, selectAreaAndPriceByItemCode, 
     selectProductByAreaName, selectAreaByClientOrSupplyCode, 
     selectAllAreasByPriceListCodeAndAreaNameAndItemCode, 
