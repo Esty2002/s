@@ -1,10 +1,24 @@
-const { addClient, getCodeClient } = require('../../services-clients/sql/sql-operations')
+const { postData } = require('../../services/axios')
 
 async function addOneClient(obj) {
-    let unique = await getCodeClient(obj.clientCode)
-    if (unique.rowsAffected > 0)
-        return false;
-    const result = await addClient(obj)
-    return result
+    let newObj = {
+        'tableName': 'CLIENTS',
+        'values': obj
+    }
+    let object = {
+        'tableName': 'CLIENTS',
+        'columns': '*',
+        'condition': `clientCode=${obj.clientCode}`
+    }
+    let unique = await postData('http://127.0.0.1:1313/read/readTop20', JSON.stringify(object))
+    console.log(unique, "unique");
+    if (unique.rowsAffected[1] === 0) {
+        // object['values'] = obj
+
+      
+        console.log(newObj, ' newObj in createClient');
+        const result = await postData('http://127.0.0.1:1313/create/create', JSON.stringify(newObj))
+        return result;
+    }
 }
 module.exports = { addOneClient }

@@ -1,15 +1,12 @@
-const { getClientById, update } = require('../../services-clients/sql/sql-operations');
+const {postData}=require ('../../services/axios')
 
-// async function getClientByClientCode(clientCode) {
-//     const result = await getClientById(clientCode);
-//     if (result.rowsAffected == 1)
-//         return result;
-//     return null
-
-// }
 async function updateClient(obj) {
-    const res = await update(obj);
-    return res;
+    let object={
+        "tableName":"CLIENTS",
+        "condition":`clientCode=${obj.clientCode}`,
+        "values":obj
+    }
+    _= await postData('http://127.0.0.1:1313/update/update', JSON.stringify(object));
+   
 }
-
-module.exports = { updateClient}
+module.exports = { updateClient }

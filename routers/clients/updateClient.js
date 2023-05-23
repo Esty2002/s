@@ -1,11 +1,7 @@
 const express = require('express');
-const { getClientByClientCode, updateClient } = require('../../modules/clients/updateClient')
+const { updateClient } = require('../../modules/clients/updateClient')
 const router = express.Router();
 
-// router.get('/getClientForUpdate/:password', async (req, res) => {
-//     const result = await getClientByClientCode(req.params.password);
-//     res.send(result);
-// })
 
 router.post('/update', express.json(), async (req, res) => {
     await updateClient(req.body);

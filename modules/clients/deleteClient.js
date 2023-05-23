@@ -1,12 +1,25 @@
-const { getClientById, deleteClient } = require('../../services-clients/sql/sql-operations');
-
+const { postData } = require("../../services/axios")
 async function deletedClientByCode(clientCode, userName) {
-    const exist = await getClientById(clientCode);
+
+    let obj = {
+        'tableName': 'CLIENTS',
+        'columns': '*',
+        'condition': `clientCode=${clientCode}`
+
+    }
+
+    const exist = await postData('http://127.0.0.1:1313/read/readTop20', JSON.stringify(obj))
     let result;
+
     if (exist.rowsAffected != 0) {
-        result = await deleteClient(clientCode, userName);
+
+        obj['condition'] = `clientCode=${clientCode}`
+        obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
+
+        result = await postData('http://127.0.0.1:1313/update/delete', JSON.stringify(obj))
         return result;
     }
+    
     return false
 }
 
