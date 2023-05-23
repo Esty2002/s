@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { findPump,insertPump,updatePump } = require('../../modules/products/pumps')
+const { findPump, insertPump, updatePump } = require('../../modules/products/pumps')
 
 router.post('/insert', express.json(), async (req, res) => {
     try {
@@ -12,7 +12,7 @@ router.post('/insert', express.json(), async (req, res) => {
     }
 })
 
-router.post('/find',express.json(), async (req, res) => {
+router.post('/find', express.json(), async (req, res) => {
     try {
         const ans = await findPump(req.body.arr, req.body.where)
         res.status(200).send(ans)
