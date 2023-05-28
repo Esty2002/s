@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { sqlOperations } = require('../../services-products/db/sql/sql_operation')
 const { postData, sqlServer, getData } = require('../../services/axios')
 
@@ -15,7 +16,7 @@ async function findMeasureNumber(name) {
     return await getData(sqlServer, `/read/readAll/unitOfMeasure/measure ='${name}'`)
 }
 async function findMeasureName(num) {
-    return await getData(sqlServer, `/read/readAll/unitOfMeasure/measure ='${num}'`)
+    return await getData(sqlServer, `/read/readAll/unitOfMeasure/id ='${num}'`)
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure }                

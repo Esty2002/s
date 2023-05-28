@@ -26,7 +26,7 @@ router.post('/updateAddition', express.json(), async (req, res) => {
     }
 })
 
-router.get('/findAddition', express.json(), async (req, res) => {
+router.post('/findAddition', express.json(), async (req, res) => {
     try {
         res.status(200).send(await findAddition(req.body.arr, req.body.where))
     } catch (error) {

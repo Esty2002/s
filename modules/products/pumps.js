@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { postData, sqlServer } = require('../../services/axios')
 const { findMeasureNumber } = require('./measure')
 

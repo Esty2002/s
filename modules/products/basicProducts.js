@@ -1,3 +1,4 @@
+require('dotenv').config()
 const { postData } = require('../../services/axios')
 const { SQL_PRODUCTS_TABLE } = process.env
 
