@@ -1,5 +1,4 @@
 require('dotenv').config()
-const { sqlOperations } = require('../../services-products/db/sql/sql_operation')
 const { postData, sqlServer, getData } = require('../../services/axios')
 
 const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
