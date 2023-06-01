@@ -1,5 +1,4 @@
 require('dotenv').config()
-const { sqlOperations } = require('../../services-products/db/sql/sql_operation')
 const { postData, sqlServer, getData } = require('../../services/axios')
 
 const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
@@ -9,7 +8,7 @@ async function updateMeasure(condition, obj) {
 }
 
 async function insertMeasure(name) {
-    return await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { name: name } })
+    return await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
 }
 
 async function findMeasureNumber(name) {
