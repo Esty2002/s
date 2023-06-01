@@ -3,7 +3,7 @@ const axios = require('axios');
 const { SQL_SERVER_HOST, SQL_SERVER_PORT } = process.env
 
 const sqlServer = axios.create({
-    URL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
+    baseURL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
 })
 
 
@@ -19,12 +19,11 @@ const getData = async (server, url) => {
     return response;
 }
 
-const postData = async (url, body) => {
+const postData = async (server, url, body) => {
     let response;
     try {
-        response = await sqlServer.post(url, body);
+        response = await server.post(url, body);
     }
-
     catch (error) {
         throw error;
     }
