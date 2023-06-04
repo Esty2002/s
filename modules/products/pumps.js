@@ -1,6 +1,6 @@
 require('dotenv').config()
 const { postData, sqlServer } = require('../../services/axios')
-const { findMeasureNumber } = require('./measure')
+const { findMeasureNumber, findMeasureName } = require('./measure')
 
 const { SQL_PUMPS_TABLE } = process.env
 
@@ -18,7 +18,13 @@ async function insertPump(obj) {
 
 async function findPump(project = [], filter = {}) {
     filter['enabled'] = 1
-    return (await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    let answer = (await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    for (const pump of answer) {
+        if (Object.keys(pump).includes('unitOfMeasure')){
+            pump['unitOfMeasure'] = await findMeasureName(pump['unitOfMeasure'])
+        }
+    }
+    return answer
 }
 
 async function updatePump(obj, filter) {
