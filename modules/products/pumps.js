@@ -11,7 +11,8 @@ async function insertPump(obj) {
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }
-    return await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })
+    const result=await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })
+    return result
 }
 
 async function findPump(project = [], filter = {}) {
