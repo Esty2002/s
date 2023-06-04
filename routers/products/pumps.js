@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { findPump, insertPump, updatePump } = require('../../modules/products/pumps')
 
-router.post('/insert', express.json(), async (req, res) => {
+router.post('/create', express.json(), async (req, res) => {
     try {
         const ans = await insertPump(req.body)
         res.status(200).send(ans)

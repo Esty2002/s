@@ -2,7 +2,7 @@ const express = require('express')
 const { insertAddition, updateAddition, findAddition } = require('../../modules/products/additions')
 const router = express.Router()
 
-router.post('/createAddition', express.json(), async (req, res) => {
+router.post('/create', express.json(), async (req, res) => {
     try {
         res.status(200).send(await insertAddition(req.body))
     } catch (error) {
