@@ -1,14 +1,14 @@
-const { postData } = require("../ajax")
+const { postData ,sqlServer} = require('../../services/axios')
 async function deletedClientByCode(clientCode, userName) {
 
     let obj = {
-        'tableName': 'CLIENTS',
+        'tableName': 'tbl_Clients',
         'columns': '*',
         'condition': `clientCode=${clientCode}`
 
     }
 
-    const exist = await postData('http://127.0.0.1:1313/read/readTopN', JSON.stringify(obj))
+    const exist = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN', JSON.stringify(obj))
     let result;
 
     if (exist.rowsAffected != 0) {
@@ -16,7 +16,7 @@ async function deletedClientByCode(clientCode, userName) {
         obj['condition'] = `clientCode=${clientCode}`
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
 
-        result = await postData('http://127.0.0.1:1313/update/update', JSON.stringify(obj))
+        result = await postData(sqlServer,'http://127.0.0.1:1313/update/update', JSON.stringify(obj))
         return result;
     }
     
