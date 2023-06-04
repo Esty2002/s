@@ -3,7 +3,9 @@ const axios = require('axios');
 const { SQL_SERVER_HOST, SQL_SERVER_PORT } = process.env
 
 const sqlServer = axios.create({
-    URL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
+    // URL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
+    baseURL: 'http://127.0.0.1:1313'
+    
 })
 
 

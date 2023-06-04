@@ -3,6 +3,7 @@ const router = express.Router()
 const { findFinishProduct, insertFinishProduct, updateFinishProduct } = require('../../modules/products/finishProducts')
 
 router.post('/create', express.json(), async (req, res) => {
+    console.log(req.body);
     try { res.status(200).send(await insertFinishProduct(req.body)) }
     catch (error) { res.status(404).send(error.message) }
 })
