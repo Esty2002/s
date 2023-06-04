@@ -22,8 +22,9 @@ async function updateFinishProduct(data = {}, condition = {}) {
 }
 
 async function findFinishProduct(project = [], filter = {}) {
-    filter['enable'] = true
-    return await postData(sqlServer, "read/readTop20", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: project.join(','), condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })
+    filter['enabled'] = 1
+    console.log(filter);
+    return (await postData(sqlServer, "/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

@@ -13,7 +13,7 @@ try {
 
 router.get('/findMeasureId',async (req,res)=>{
     try {
-        res.status(200).send(await findMeasureNumber(req.query.name))
+        res.status(200).send(`${await findMeasureNumber(req.query.name)}`)
     } catch (error) {
         res.status(404).send(error.message)
     }
