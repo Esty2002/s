@@ -1,4 +1,5 @@
-const { getData,postData } = require('../../services/axios')
+const { addStatus, deleteStatus } = require('../dal/db/sql/sql-operations')
+const { getData,postData } = require('../ajax')
 
 
 async function addOneStatus(statusName) {
@@ -15,10 +16,8 @@ async function getStatusNumber() {
     let obj = {
         'tableName': 'status',
         'columns': '*',
-        //how can i make it without the condition attribute.?????? and I need reed All and not top20
-        'condition':`serialNumber<${10}`
     }
-    const result = await postData('http://127.0.0.1:1313/read/readTop20',JSON.stringify(obj));
+    const result = await postData('http://127.0.0.1:1313/read/readTopN',JSON.stringify(obj));
     return result;
 }
 

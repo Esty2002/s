@@ -1,4 +1,4 @@
-const { postData } = require("../../services/axios")
+const { postData } = require("../ajax")
 async function deletedClientByCode(clientCode, userName) {
 
     let obj = {
@@ -8,7 +8,7 @@ async function deletedClientByCode(clientCode, userName) {
 
     }
 
-    const exist = await postData('http://127.0.0.1:1313/read/readTop20', JSON.stringify(obj))
+    const exist = await postData('http://127.0.0.1:1313/read/readTopN', JSON.stringify(obj))
     let result;
 
     if (exist.rowsAffected != 0) {
@@ -16,7 +16,7 @@ async function deletedClientByCode(clientCode, userName) {
         obj['condition'] = `clientCode=${clientCode}`
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
 
-        result = await postData('http://127.0.0.1:1313/update/delete', JSON.stringify(obj))
+        result = await postData('http://127.0.0.1:1313/update/update', JSON.stringify(obj))
         return result;
     }
     

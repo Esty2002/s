@@ -1,4 +1,4 @@
-const {postData}=require ('../../services/axios')
+const {postData}=require ('../ajax')
 
 async function updateClient(obj) {
     let object={
