@@ -3,84 +3,13 @@ const { SQL_DB_BRANCHES ,SQL_DB_SUPPLIERS} = process.env;
 const { setDate } = require('./functions');
 const { getData, postData, sqlServer } = require('../../services/axios');
 
-async function deleteBranches(object) {
-    try {
-        const newDate = setDate(new Date());
-        let obj = { tableName: SQL_DB_BRANCHES, values: { DisableUser: `${object.BranchName}`, Disabled: '1', DisabledDate: newDate }, condition: `SupplierCode= ${object.Id}  AND BranchName = '${object.BranchName}' ` };
-        const res = await postData(sqlServer, "/update/update", JSON.stringify(obj));
-        console.log(res);
-        return res.recordset;
-    }
-    catch (error) {
-        throw new Error('can not delete branch');
-    }
-}
-
-// update details
-async function updateDetail(code, setting) {
-    try {
-        let obj;
-        if (setting.OldBranchName !== setting.BranchName) {
-            obj = { tableName: SQL_DB_BRANCHES, columns: "*", condition: `BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0' ` }
-            const result = await postData(sqlServer, '/read/readTop20', JSON.stringify(obj));
-            if (result.recordset.length !== 0) {
-                return false;
-            }
-        }
-        obj = {
-            tableName: SQL_DB_BRANCHES, values: {
-                SupplierCode: setting.SupplierCode, BranchName: setting.BranchName, Status: setting.Status,
-                Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
-                Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
-            }, condition: `SupplierCode=${code}, AND BranchName=${setting.OldBranchName}`
-        }
-        const res = await postData(sqlServer, "/update/update", JSON.stringify(obj));
-        return res.recordset;
-    }
-    catch {
-        throw new Error('can not update branch');
-    }
-}
-
-//return all the branches 
-async function getAllBranches() {
-    try {
-        let obj = { tableName: SQL_DB_BRANCHES,  columns: "*", condition: "1=1" };
-        const res = await postData(sqlServer, "/read/readTop20", JSON.stringify(obj));
-        console.log(res);
-        return res.recordset;
-    }
-    catch (error) {
-        throw new Error('can not get all the branches')
-    }
-}
-
-//return all the branches that the condition for it and not disabled. 
-async function getBranchesByCondition(column, code) {
-    try {
-        let obj = { tableName: SQL_DB_BRANCHES,  columns: "*", condition: `${column}='${code}' AND  Disabled='0'` };
-        const res = await postData(sqlServer, "/read/readTop20", JSON.stringify(obj));
-        console.log(res);
-        return res.recordset;
-    }
-    catch (error) {
-        throw error;
-    }
-}
-
-//insert branch
+/////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
-    console.log("in module - brances");
     try {
         if (checkValid(object) && await checkUnique(object)) {
-            const date = setDate(new Date());
-            object['CreationDate'] = date;
-            object["SupplierCode"]=parseInt(object["SupplierCode"]);
-            object["HomeNumber"]=parseInt(object["HomeNumber"]);
-            console.log(object);
-            let obj = { tableName: SQL_DB_BRANCHES, values: object, condition: "1=1" };
+            object['CreationDate'] = setDate(new Date());
+            let obj = { tableName: SQL_DB_BRANCHES,columns: Object.keys(object),values: Object.values(object)};
             const res = await postData(sqlServer, "/create/create",obj);
-            console.log(res, "insert branch");
             return res.recordset;
         }
         else {
@@ -91,8 +20,63 @@ async function insertOneBranch(object) {
         throw new Error('can not insert branch');
     }
 }
-
-//check if must keys not empty and content
+///////////////////////////////////////////////////////////////////
+async function getAllBranches() {
+    try {
+        const res = await getData(sqlServer, `/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
+        return res.data;
+    }
+    catch (error) {
+        throw new Error('can not get all the branches')
+    }
+}
+///////////////////////////////////////////////////////////////////
+async function getBranchesByCondition(column, code) {
+    try {
+        const res = await getData(sqlServer, `/read/readAll/${SQL_DB_BRANCHES}/${column}='${code}' AND  Disabled='0'`);
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+///////////////////////////////////////////////////////////////////
+async function updateDetail(code, setting) {
+    try {
+        if (setting.OldBranchName !== setting.BranchName) {
+            const result = await getData(sqlServer,`/read/readAll/${SQL_DB_BRANCHES}/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
+            if (result.data.length !== 0) {
+                return false;
+            }
+        }
+        let obj = {
+            tableName: SQL_DB_BRANCHES, values: {
+                SupplierCode: setting.SupplierCode, BranchName: setting.BranchName, Status: setting.Status,
+                Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
+                Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
+            }, condition: `SupplierCode=${code} AND BranchName='${setting.OldBranchName}' AND Disabled = '0'`
+        }
+        const res = await postData(sqlServer, "/update/update",obj);
+        console.log(res);
+        return res;
+    }
+    catch {
+        throw new Error('can not update branch');
+    }
+}
+///////////////////////////////////////////////////////////////////
+async function deleteBranches(object) {
+    try {
+        const newDate = setDate(new Date());
+        let obj = { tableName: SQL_DB_BRANCHES, values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: `SupplierCode= ${object.Id} AND BranchName = '${object.BranchName}' ` };
+        const res = await postData(sqlServer, "/update/update",obj);
+        return res.data;
+    }
+    catch (error) {
+        throw new Error('can not delete branch');
+    }
+}
+///////////////////////////////////////////////////////////////////
 function checkValid(object) {
     let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1", "UserThatInsert"];
     let array = Object.keys(object);
@@ -103,20 +87,14 @@ function checkValid(object) {
     }
     return true;
 }
-
-//check if uniques variable is unique
+///////////////////////////////////////////////////////////////////
 async function checkUnique(object) {
-    console.log("in module - brances");
     try {
-        let obj = { tableName: SQL_DB_SUPPLIERS,  columns: "*", condition: `Id='${object.SupplierCode }' AND  Disabled='0'` };
-        const resultSupplierExist = await postData(sqlServer, "/read/readTop20", obj);
-        obj = { tableName: SQL_DB_BRANCHES, columns: "*", condition: `BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0' ` }
-        const resultBranchName = await postData(sqlServer, "/read/readTop20", obj);
-        console.log("resultBranchName" ,resultBranchName);
+        const resultSupplierExist = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/Id=${object.SupplierCode } AND  Disabled='0'`);
+        const resultBranchName = await getData(sqlServer, `/read/readAll/${SQL_DB_BRANCHES}/BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0'`);
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
     }
     catch (error) {
-        console.log("errorrrrrrrrrrrr");
         throw new Error('can not insert branch');
     }
 }
