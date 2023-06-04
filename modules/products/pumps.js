@@ -6,8 +6,10 @@ const { SQL_PUMPS_TABLE } = process.env
 
 async function insertPump(obj) {
     obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure'])).data[0].id
-    obj['addedDate'] = new Date().toISOString().slice(0,new Date().toISOString().indexOf('T'))
+    obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
+    obj['addition'] = obj['addition'] ? 1 : 0
+    console.log({ obj });
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }
@@ -15,7 +17,8 @@ async function insertPump(obj) {
 }
 
 async function findPump(project = [], filter = {}) {
-    return await postData(sqlServer, "read/readTop20", { tableName: SQL_PUMPS_TABLE, columns: project.join(','), condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })
+    filter['enabled'] = 1
+    return (await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
 async function updatePump(obj, filter) {

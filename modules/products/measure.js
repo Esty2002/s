@@ -12,10 +12,10 @@ async function insertMeasure(name) {
 }
 
 async function findMeasureNumber(name) {
-    return await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
+    return (await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)).data[0].id
 }
 async function findMeasureName(num) {
-    return await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)
+    return (await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].measure
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure }                
