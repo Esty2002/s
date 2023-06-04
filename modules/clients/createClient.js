@@ -2,11 +2,11 @@ const { postData } = require('../../services/axios')
 
 async function addOneClient(obj) {
     let newObj = {
-        'tableName': 'CLIENTS',
+        'tableName': 'tbl_Clients',
         'values': obj
     }
     let object = {
-        'tableName': 'CLIENTS',
+        'tableName': 'tbl_Clients',
         'columns': '*',
         'condition': `clientCode=${obj.clientCode}`
     }

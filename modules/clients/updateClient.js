@@ -2,7 +2,7 @@ const {postData}=require ('../ajax')
 
 async function updateClient(obj) {
     let object={
-        "tableName":"CLIENTS",
+        "tableName":"tbl_Clients",
         "condition":`clientCode=${obj.clientCode}`,
         "values":obj
     }

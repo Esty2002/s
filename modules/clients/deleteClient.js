@@ -2,7 +2,7 @@ const { postData } = require("../ajax")
 async function deletedClientByCode(clientCode, userName) {
 
     let obj = {
-        'tableName': 'CLIENTS',
+        'tableName': 'tbl_Clients',
         'columns': '*',
         'condition': `clientCode=${clientCode}`
 
