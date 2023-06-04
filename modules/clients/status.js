@@ -1,5 +1,4 @@
-const { addStatus, deleteStatus } = require('../dal/db/sql/sql-operations')
-const { getData,postData } = require('../ajax')
+const { postData ,sqlServer} = require('../../services/axios')
 
 
 async function addOneStatus(statusName) {
@@ -17,7 +16,7 @@ async function getStatusNumber() {
         'tableName': 'status',
         'columns': '*',
     }
-    const result = await postData('http://127.0.0.1:1313/read/readTopN',JSON.stringify(obj));
+    const result = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN',JSON.stringify(obj));
     return result;
 }
 
