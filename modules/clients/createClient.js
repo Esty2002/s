@@ -8,16 +8,12 @@ async function addOneClient(obj) {
     let object = {
         'tableName': 'tbl_Clients',
         'columns': '*',
-        'condition': `clientCode=${obj.clientCode}`
+        'condition': `ClientCode=${obj.ClientCode}`
     }
-    let unique = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN', JSON.stringify(object))
-    console.log(unique, "unique");
-    if (unique.rowsAffected[1] === 0) {
-        // object['values'] = obj
-
-      
+    let unique = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN', object)
+    if (unique.data.length === 0) {
         console.log(newObj, ' newObj in createClient');
-        const result = await postData(sqlServer,'http://127.0.0.1:1313/create/create', JSON.stringify(newObj))
+        const result = await postData(sqlServer,'http://127.0.0.1:1313/create/create',newObj)
         return result;
     }
 }

@@ -17,6 +17,7 @@ router.post('/deleteOneStatus',express.json(),(req,res)=>{
 
 router.get('/status', async (req, res) => {
     const result = await getStatusNumber()
+
     res.send(result)
 });
 

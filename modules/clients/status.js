@@ -13,11 +13,12 @@ async function deleteOneStatus(statusName) {
 
 async function getStatusNumber() {
     let obj = {
-        'tableName': 'status',
+        'tableName': 'tbl_Status',
         'columns': '*',
     }
-    const result = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN',JSON.stringify(obj));
-    return result;
+    console.log(obj);
+    const result = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN',obj);
+    return result.data;
 }
 
 module.exports = { addOneStatus, deleteOneStatus, getStatusNumber }
