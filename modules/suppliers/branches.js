@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { SQL_DB_BRANCHES ,SQL_DB_SUPPLIERS} = process.env;
 const { setDate } = require('./functions');
-const { getData, postData, sqlServer } = require('../services/axios');
+const { getData, postData, sqlServer } = require('../../services/axios');
 
 async function deleteBranches(object) {
     try {
@@ -70,6 +70,7 @@ async function getBranchesByCondition(column, code) {
 
 //insert branch
 async function insertOneBranch(object) {
+    console.log("in module - brances");
     try {
         if (checkValid(object) && await checkUnique(object)) {
             const date = setDate(new Date());
@@ -105,14 +106,17 @@ function checkValid(object) {
 
 //check if uniques variable is unique
 async function checkUnique(object) {
+    console.log("in module - brances");
     try {
         let obj = { tableName: SQL_DB_SUPPLIERS,  columns: "*", condition: `Id='${object.SupplierCode }' AND  Disabled='0'` };
         const resultSupplierExist = await postData(sqlServer, "/read/readTop20", obj);
         obj = { tableName: SQL_DB_BRANCHES, columns: "*", condition: `BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0' ` }
         const resultBranchName = await postData(sqlServer, "/read/readTop20", obj);
+        console.log("resultBranchName" ,resultBranchName);
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
     }
     catch (error) {
+        console.log("errorrrrrrrrrrrr");
         throw new Error('can not insert branch');
     }
 }

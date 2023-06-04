@@ -41,6 +41,7 @@ async function getSupplier(object) {
 }
 
 async function insertOneSupplier(object) {
+    console.log("insert2" +object);
     try {
         if (checkValid(object) && await checkUnique(object)) {
             const date = setDate(new Date());
@@ -71,10 +72,12 @@ function checkValid(object) {
 }
 
 async function checkUnique(object) {
+    console.log("insertModules");
     let obj = { tableName: SQL_DB_SUPPLIERS, columns: "*", condition: `SupplierCode='${object.SupplierCode}' AND  Disabled=0` };
     let obj2 = { tableName: SQL_DB_SUPPLIERS, columns: "*", condition: `SupplierName='${object.SupplierName}' AND  Disabled=0` };
-    let resultSupplierCode = await postData(sqlServer, "/read/readTop20", obj);
-    let resultSuppliersName = await postData(sqlServer, "/read/readTop20", obj2);
+    let resultSupplierCode = await postData(sqlServer, "/read/readTopN", obj);
+    let resultSuppliersName = await postData(sqlServer, "/read/readTopN", obj2);
+    console.log("resultSupplierCode",resultSupplierCode);
     resultSupplierCode = resultSupplierCode.data;
     resultSuppliersName = resultSuppliersName.data;
     if (Object.values(object.SupplierCode) !== '' && Object.values(object.SupplierName) !== '') {

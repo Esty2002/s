@@ -36,6 +36,7 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 })
 
 router.post('/insertbranch', express.json(), async (req, res) => {
+    console.log("insertBranch - router");
     try {
         const result = await insertOneBranch(req.body);
         console.log(result);
@@ -59,11 +60,14 @@ router.post('/updatebranch', express.json(), async (req, res) => {
 
 
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
+    console.log("in router - brances!!!!!!!!!!!!!");
     try {
+        console.log("good - router");
         const result = await checkUnique({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname });
         res.status(200).send(result);
     }
     catch (error) {
+        console.log("error - router");
         res.status(500).send(error);
     }
 })
