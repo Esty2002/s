@@ -19,7 +19,7 @@ router.get('/findMeasureId',async (req,res)=>{
     }
 })
 
-router.post('/insert',express.json(),async (req,res)=>{
+router.post('/create',express.json(),async (req,res)=>{
     try {
         res.status(200).send(await insertMeasure(req.body.new))
     } catch (error) {

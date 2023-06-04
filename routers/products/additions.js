@@ -10,7 +10,7 @@ router.post('/create', express.json(), async (req, res) => {
     }
 })
 
-router.post('/deleteAddition', express.json(), async (req, res) => {
+router.post('/delete', express.json(), async (req, res) => {
     try {
         res.status(200).send(await updateAddition({ enable: false, deleteDate: new Date() }, req.body))
     } catch (error) {
@@ -18,7 +18,7 @@ router.post('/deleteAddition', express.json(), async (req, res) => {
     }
 })
 
-router.post('/updateAddition', express.json(), async (req, res) => {
+router.post('/update', express.json(), async (req, res) => {
     try {
         res.status(200).send(await updateAddition(req.body.update, req.body.where))
     } catch (error) {
@@ -26,11 +26,11 @@ router.post('/updateAddition', express.json(), async (req, res) => {
     }
 })
 
-router.post('/findAddition', express.json(), async (req, res) => {
+router.post('/find', express.json(), async (req, res) => {
     try {
         res.status(200).send(await findAddition(req.body.arr, req.body.where))
     } catch (error) {
-
+        res.status(404).send(error.message)
     }
 })
 

@@ -5,12 +5,13 @@ const { findMeasureNumber } = require('./measure')
 const { SQL_PUMPS_TABLE } = process.env
 
 async function insertPump(obj) {
-    let temp = await findMeasureNumber(obj['measure'])
-    obj['measure'] = temp[0].id
-    for (let k in obj) {
-        obj[k] = "'" + obj[k] + "'"
-    }
-    return await postData(sqlServer, "craete/create", { tableName: SQL_PUMPS_TABLE, values: obj })
+    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure'])).data[0].id
+    obj['addedDate'] = new Date().toISOString().slice(0,new Date().toISOString().indexOf('T'))
+    obj['enabled'] = 1
+    // for (let k in obj) {
+    //     obj[k] = "'" + obj[k] + "'"
+    // }
+    return await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })
 }
 
 async function findPump(project = [], filter = {}) {
