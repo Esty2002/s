@@ -1,15 +1,17 @@
 require('dotenv').config()
 const { sqlServer, getData, postData } = require('../../services/axios')
 const { SQL_FINISH_PRODUCTS_TABLE } = process.env
+const { findMeasureNumber } = require('./measure')
 
 async function insertFinishProduct(obj) {
-    obj['enable'] = true
-    obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
-    obj['addedDate'] = new Date()
+    obj['enabled'] = 1
+    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure'])).data[0].id
+    // obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
+    obj['addedDate'] = new Date().toISOString().slice(0, new Date().toISOString().indexOf('T'))
     return await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
 }
 
-async function updateFinishProduct( data={},condition={}) {
+async function updateFinishProduct(data = {}, condition = {}) {
     let string = ""
     for (let k in data) {
         string += `${k}='${data[k]}',`
