@@ -8,7 +8,7 @@ async function insertOneBranch(object) {
     try {
         if (checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] = setDate(new Date());
-            let obj = { tableName: SQL_DB_BRANCHES,columns: Object.keys(object),values: Object.values(object)};
+            let obj = { tableName: SQL_DB_BRANCHES,values: object};
             const res = await postData(sqlServer, "/create/create",obj);
             return res.recordset;
         }
