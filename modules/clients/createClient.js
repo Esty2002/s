@@ -10,7 +10,7 @@ async function addOneClient(obj) {
         'columns': '*',
         'condition': `clientCode=${obj.clientCode}`
     }
-    let unique = await postData('http://127.0.0.1:1313/read/readTop20', JSON.stringify(object))
+    let unique = await postData('http://127.0.0.1:1313/read/readTopN', JSON.stringify(object))
     console.log(unique, "unique");
     if (unique.rowsAffected[1] === 0) {
         // object['values'] = obj
