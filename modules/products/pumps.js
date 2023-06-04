@@ -5,7 +5,7 @@ const { findMeasureNumber } = require('./measure')
 const { SQL_PUMPS_TABLE } = process.env
 
 async function insertPump(obj) {
-    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure'])).data[0].id
+    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
     obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
     obj['addition'] = obj['addition'] ? 1 : 0
