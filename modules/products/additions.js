@@ -9,7 +9,7 @@ async function insertAddition(obj) {
     obj['enabled'] = 1
     obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure'])).data[0].id
     console.log(obj);
-    return await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })
+    return (await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })).data
 }
 
 async function findAddition(project = [], filter = {}) {
@@ -23,7 +23,7 @@ async function updateAddition(obj = {}, filter = {}) {
         string += `${k}='${obj[k]}',`
     }
     string = string.slice(0, -1)
-    return await postData(sqlServer, '/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })
+    return (await postData(sqlServer, '/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
 module.exports = { insertAddition, findAddition, updateAddition }

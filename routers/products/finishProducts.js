@@ -14,7 +14,7 @@ router.post('/update', express.json(), async (req, res) => {
 })
 
 router.post('/delete', express.json(), async (req, res) => {
-    try { res.status(200).send(await updateFinishProduct({ enable: false, deleteDate: new Date() }, req.body)) }
+    try { res.status(200).send(await updateFinishProduct({ enabled: false, deletedDate: new Date() }, req.body)) }
     catch (error) { res.status(404).send(error.message) }
 })
 

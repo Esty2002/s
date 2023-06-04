@@ -13,8 +13,7 @@ async function insertPump(obj) {
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }
-    const result=await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })
-    return result
+    return (await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })).data
 }
 
 async function findPump(project = [], filter = {}) {
@@ -28,7 +27,7 @@ async function updatePump(obj, filter) {
         string += `${k}='${obj[k]}',`
     }
     string = string.slice(0, -1)
-    return await postData(sqlServer, 'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })
+    return (await postData(sqlServer, 'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
 module.exports = { updatePump, insertPump, findPump }
