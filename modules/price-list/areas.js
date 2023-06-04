@@ -2,6 +2,7 @@ require('dotenv').config()
 const  mongoDBOperations  = require('../../services-price-list/db/mongo/mongo-operations')
 const mongo_collection_areas =mongoDBOperations
 const {MONGO_COLLECTION_AREAS}=process.env
+
 async function insertArea(obj={}) {
     mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
     let filter = { supplierOrClientCode: obj.supplierOrClientCode }
