@@ -1,11 +1,11 @@
 require('dotenv').config()
 const { sqlServer, getData, postData } = require('../../services/axios')
 const { SQL_FINISH_PRODUCTS_TABLE } = process.env
-const { findMeasureNumber } = require('./measure')
+const { findMeasureNumber, findMeasureName } = require('./measure')
 
 async function insertFinishProduct(obj) {
     obj['enabled'] = 1
-    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure'])).data[0].id
+    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
     // obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
     obj['addedDate'] = new Date().toISOString().slice(0, new Date().toISOString().indexOf('T'))
     return (await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })).data
@@ -22,7 +22,13 @@ async function updateFinishProduct(data = {}, condition = {}) {
 
 async function findFinishProduct(project = [], filter = {}) {
     filter['enabled'] = 1
-    return (await postData(sqlServer, "/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    let answer = (await postData(sqlServer, "/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    for (const finish of answer) {
+        if (Object.keys(finish).includes('unitOfMeasure')) {
+            finish['unitOfMeasure'] = await findMeasureName(finish['unitOfMeasure'])
+        }
+    }
+    return answer
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }
