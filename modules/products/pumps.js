@@ -9,7 +9,6 @@ async function insertPump(obj) {
     obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
     obj['addition'] = obj['addition'] ? 1 : 0
-    console.log({ obj });
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }

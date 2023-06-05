@@ -21,8 +21,6 @@ async function createTable() {
 //פןנקציה שמכניסה נתונים לטבלת המחירונים
 async function addPriceList(data) {
 
-    console.log("hello to add Tollllllllll");
-
     let values = `('${setTheDateForSql(data.date)}',
     '${parseInt(data.priceListCode)}',
     '${data.areaName}','${data.itemCode}',
@@ -33,7 +31,6 @@ async function addPriceList(data) {
     '${setTheDateForSql(data.additionDate)}',
     '${parseInt(data.disable)}',
     '${setTheDateForSql(data.deleteDate)}')`
-    console.log(values);
     const result = await addToSql('priceList', values)
 
     return result
@@ -58,7 +55,6 @@ async function deletePriceList(id) {
 //sql פונקציה שמקבלת תאריך ועורכת אותו בהתאמה ל-דרישות
 function setTheDateForSql(date) {
     let newDate = new Date(date).toISOString().split("T").join(" ").split("Z")
-    console.log(newDate);
 
     return newDate[0]
 }

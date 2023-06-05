@@ -45,11 +45,7 @@ async function Update(obj) {
     allupdate = allupdate.substring(0, allupdate.length - 1)
     obj.all = allupdate
 
-    console.log("obj");
-    console.log(obj);
     const result = await update(obj);
-    console.log("result");
-    console.log(result);
 
     updatebig(result[0][0].qCode)
     return result
