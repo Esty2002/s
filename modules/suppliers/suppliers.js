@@ -1,15 +1,17 @@
 require('dotenv').config();
-const { setDate } = require('./functions');
-const { SQL_DB_SUPPLIERS } = process.env;
+// const { setDate } = require('./functions');
+// const { SQL_DB_SUPPLIERS } = process.env;
 const { getData, postData, sqlServer } = require('../../services/axios');
 
-//////////////////////////////////////////////////////////////////////
 async function insertOneSupplier(object) {
     try {
         if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
             console.log("object ",object);
-            object['CreationDate'] = setDate(new Date());
-            let obj = { tableName: SQL_DB_SUPPLIERS, values: object };
+            object.CreationDate =new Date().toISOString().toString();
+            console.log(object.CreationDate)
+            let obj = { tableName: 'tbl_Suppliers', values: object };
+
+            console.log({obj})
             const res = await postData(sqlServer, "/create/create", obj);
             return res.recordset;
         }
@@ -21,10 +23,9 @@ async function insertOneSupplier(object) {
         throw error;
     }
 }
-/////////////////////////////////////////////////////////////
 async function getAllSuppliers() {
     try {
-        const res = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/Disabled=0`);
+        const res = await getData(sqlServer, `/read/readAll/tbl_Suppliers/Disabled=0`);
         return res.data;
     }
     catch (error) {
@@ -34,7 +35,7 @@ async function getAllSuppliers() {
 /////////////////////////////////////////////////////////////
 async function getSupplier(object) {
     try {
-        const res = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/${object.option}='${object.text}' AND Disabled=0`);
+        const res = await getData(sqlServer, `/read/readAll/tbl_Suppliers/${object.option}='${object.text}' AND Disabled=0`);
         return res.data;
     }
     catch (error) {
@@ -88,12 +89,12 @@ function checkValid(object) {
 }
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
-    let resultSupplierCode = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
+    let resultSupplierCode = await getData(sqlServer, `/read/readAll/tbl_Suppliers/SupplierCode='${code}' AND  Disabled='0'`);
     return resultSupplierCode.data[0]===undefined
  
 }
 async function checkUniqueName(name) {
-    let resultSuppliersName = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
+    let resultSuppliersName = await getData(sqlServer, `/read/readAll/tbl_Suppliers/SupplierName='${name}' AND  Disabled='0'`);
     return resultSuppliersName.data[0]===undefined
 }
 

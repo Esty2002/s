@@ -28,7 +28,7 @@ async function getClientsByField(field, value) {
     obj['tableName']='tbl_Clients'
     obj['condition']=`${field}=${value}`
     obj['columns']='*'
-    const result= await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN', JSON.stringify(obj));
+    const result= await postData(sqlServer,'/read/readTopN', JSON.stringify(obj));
     console.log(result,' result');
     if (result==undefined)
         return null
