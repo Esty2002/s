@@ -16,8 +16,7 @@ async function getStatusNumber() {
         'tableName': 'tbl_Status',
         'columns': '*',
     }
-    console.log(obj);
-    const result = await postData(sqlServer,'http://127.0.0.1:1313/read/readTopN',obj);
+    const result = await postData(sqlServer,'/read/readTopN',obj);
     return result.data;
 }
 
