@@ -12,18 +12,24 @@ async function insertPump(obj) {
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }
+    console.log(obj,'in insertPump');
     return (await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })).data
 }
 
 async function findPump(project = [], filter = {}) {
     filter['enabled'] = 1
-    let answer = (await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    let answer = await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })
+    answer=answer.data
+    
+    console.log(answer,'llll');
     for (const pump of answer) {
         if (Object.keys(pump).includes('unitOfMeasure')){
             pump['unitOfMeasure'] = await findMeasureName(pump['unitOfMeasure'])
         }
+        console.log(pump['unitOfMeasure'],'{answer})');
     }
-    return answer
+
+    return answer[0]
 }
 
 async function updatePump(obj, filter) {

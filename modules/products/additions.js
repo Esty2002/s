@@ -9,7 +9,7 @@ async function insertAddition(obj) {
     obj['enabled'] = 1
     obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
     obj['addition'] = obj['addition'] ? 1 : 0
-    console.log(obj);
+    console.log(obj,'in insertAdditions');
     return (await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })).data
 }
 
