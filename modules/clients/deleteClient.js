@@ -5,7 +5,6 @@ async function deletedClientByCode(clientCode, userName) {
         'tableName': 'tbl_Clients',
         'columns': '*',
         'condition': `clientCode=${clientCode}`
-
     }
 
     const exist = await postData(sqlServer,'/read/readTopN', JSON.stringify(obj))

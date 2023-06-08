@@ -4,8 +4,8 @@ const { getAllClient, getClientsByField, getClientsById } = require('../../modul
 
 router.get('/getAll', async (req, res) => {   
     const allClients = await getAllClient();
-    console.log('+++++++',allClients.data);
-    if (allClients.data.length > 0)
+    console.log(allClients.data);
+    if (allClients.data)
         res.status(200).send(allClients.data)
     else
         res.status(404).send({message:'NOT FOUND'})
