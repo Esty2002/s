@@ -11,6 +11,7 @@ async function insertArea(obj={}) {
         return result
     else
         throw new Error("Can't insert area")
+    
 }
 
 
