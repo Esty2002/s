@@ -7,7 +7,7 @@ const { getData, postData, sqlServer } = require('../../services/axios');
 async function insertOneSupplier(object) {
     try {
         if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
-            console.log("object ",object);
+            console.log("object ", object);
             object['CreationDate'] = setDate(new Date());
             let obj = { tableName: SQL_DB_SUPPLIERS, values: object };
             const res = await postData(sqlServer, "/create/create", obj);
@@ -24,10 +24,13 @@ async function insertOneSupplier(object) {
 /////////////////////////////////////////////////////////////
 async function getAllSuppliers() {
     try {
+        console.log("getAllSuppliers - modules");
         const res = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/Disabled=0`);
+        // console.log("data",res);
         return res.data;
     }
     catch (error) {
+        console.log("error");
         throw new Error('can not get all suppliers');
     }
 }
@@ -44,7 +47,16 @@ async function getSupplier(object) {
 //////////////////////////////////////////////////////////////
 async function updateDetail(code, setting) {
     try {
-        if (!await checkUnique(setting)){
+        flag = true
+        if (setting.SupplierCode !== setting.OldSupplierCode) {
+            if (!await checkUniqueCode(setting.SupplierCode))
+                flag = false;
+        }
+        if (setting.SupplierName !== setting.OldSupplierName) {
+            if (!await checkUniqueName(setting.SupplierName))
+                flag = false;
+        }
+        if (!flag) {
             return false;
         }
         let object = {
@@ -66,7 +78,10 @@ async function updateDetail(code, setting) {
 async function deleteSupplier(object) {
     try {
         let obj = { supplierCode: object.SupplierCode, name: object.DisableUser, id: object.Id }
+        console.log("obj", obj);
         const result = await postData(sqlServer, '/update/updateSuppliersBranches', obj);
+        console.log("result", result);
+
         return result.data
     }
     catch (error) {
@@ -88,24 +103,22 @@ function checkValid(object) {
 }
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
+    console.log("check - unique - code", code);
     let resultSupplierCode = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
-    return resultSupplierCode.data[0]===undefined
- 
+   
+    return resultSupplierCode.data.length===0
+
 }
-async function checkUniqueName(name) {
+async functio(name) {
+    console.log("check - unique - name", name);
     let resultSuppliersName = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
-    return resultSuppliersName.data[0]===undefined
+ 
+    return resultSuppliersName.data.length===0
 }
 
 async function checkUnique(setting) {
-    if(setting.SupplierCode !== setting.OldSupplierCode){
-        if(!await checkUniqueCode(setting.SupplierCode))
-        return false;
-    }
-    if(setting.SupplierName !== setting.OldSupplierName){
-        if(!await checkUniqueName(setting.SupplierName))
-        return false;
-    }
-    return true;
+    let resultSuppliersCode = checkUniqueCode(setting.SupplierCode);
+    let resultSuppliersName = checkUniqueName(setting.SupplierName);
+    return resultSuppliersCode && resultSuppliersName;
 }
-module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid ,checkUnique, getSupplier, updateDetail };
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName };
