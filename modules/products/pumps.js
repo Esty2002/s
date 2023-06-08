@@ -9,10 +9,10 @@ async function insertPump(obj) {
     obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
     obj['addition'] = obj['addition'] ? 1 : 0
-    console.log({ obj });
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }
+    console.log(obj,'in insertPump');
     return (await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })).data
 }
 
@@ -24,8 +24,10 @@ async function findPump(project = [], filter = {}) {
         if (Object.keys(pump).includes('unitOfMeasure')){
             pump['unitOfMeasure'] = await findMeasureName(pump['unitOfMeasure'])
         }
+        console.log(pump['unitOfMeasure'],'{answer})');
     }
-    return answer
+
+    return answer[0]
 }
 
 async function updatePump(obj, filter) {

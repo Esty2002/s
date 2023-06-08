@@ -9,13 +9,11 @@ const { insert } = require('../../services-quotation/sql/sql-operations');
 //בפועל dbומחשבת את הנתונים הדרושים,ושולחת לפונקציה שתכניס את הנתונים ל
 async function createQuotation(obj) {
     try {
-        console.log("module",obj);
         obj.newQuotation.priceBeforeDiscount = priceBefore(obj.items);
         obj.newQuotation.discount = obj.newQuotation.priceBeforeDiscount * (obj.newQuotation.discountPercent / 100);
         obj.newQuotation.priceAfterDiscount = obj.newQuotation.priceBeforeDiscount - obj.newQuotation.discount;
         obj.newQuotation.VAT = obj.newQuotation.priceAfterDiscount * (obj.newQuotation.VATPercent / 100);
         obj.newQuotation.total = obj.newQuotation.priceAfterDiscount + obj.newQuotation.VAT;
-        console.log(obj);
         const result = await insertQuotation(obj);
         return result;
     }
@@ -51,7 +49,6 @@ async function insertQuotation(obj) {
     }
 
     const ans = await insert(obj.newQuotation, tvp_quo);
-    console.log(ans);
 
 };
 

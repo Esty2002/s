@@ -57,7 +57,6 @@ describe('GET APIs', () => {
     it('/findAreaByClientOrSupplyCode', async () => {
         const response = await request(app).get('/prices/findAreaByClientOrSupplyCode/1')
         const method = jest.requireMock('../../../modules/price-list/prices')
-        console.log(method);
         expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalled()
         expect(method.selectAreaByClientOrSupplyCode).toHaveBeenCalledTimes(1)
         expect(response).toBeDefined();

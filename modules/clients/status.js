@@ -1,7 +1,6 @@
 const {addStatus,deleteStatus,getStatus}=require('../../services-clients/sql/sql-operations')
 
 async function addOneStatus(statusName){
-    console.log("statusName   --------",statusName);
     const result=await addStatus(statusName)
     return result.rowsAffected
 }

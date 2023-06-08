@@ -58,7 +58,6 @@ async function insertOneBranch(object) {
         if (checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] = setDate(new Date());
             const result = await insertBranch(object);
-            console.log("result",result);
             return result.recordset;
         }
         else {
@@ -78,10 +77,8 @@ function checkValid(object) {
     //לבדוק את תקינות המייל
     let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1", "UserThatInsert"];
     let array = Object.keys(object);
-    console.log(array);
     for (let i = 0; i < mustKeys.length; i++) {
         if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && object[mustKeys[i]] === "")) {
-            console.log("no");
             return false;
         }
     }
@@ -91,9 +88,7 @@ function checkValid(object) {
 async function checkUnique(object) {
     try {
         const resultSupplierExist = await getSupplier({ option: 'Id', text: object.SupplierCode });
-        console.log(resultSupplierExist,"resultSupplierExist");
         const resultBranchName = await checkUniqueBranch(object.SupplierCode, object.BranchName);
-        console.log(resultBranchName,"resultBranchName");
         return (resultBranchName.recordset.length === 0 && (resultSupplierExist.length !== 0));
     }
     catch (error) {

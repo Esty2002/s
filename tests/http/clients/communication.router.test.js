@@ -7,7 +7,6 @@ const { app } = require('../../../app');
 jest.mock('../../../modules/clients/communication', () => {
     return {
         postCommunications: jest.fn((obj) => {
-            console.log(obj);
             if (Object.keys(obj).length==0) {
                 return false;
             }
