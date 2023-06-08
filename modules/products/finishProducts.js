@@ -12,12 +12,13 @@ async function insertFinishProduct(obj) {
 }
 
 async function updateFinishProduct(data = {}, condition = {}) {
+    console.log('upFiPr');
     let string = ""
     for (let k in data) {
         string += `${k}='${data[k]}',`
     }
     string = string.slice(0, -1)
-    return (await postData(sqlServer, 'update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: data, condition: condition ? `${Object.keys(condition)[0]}='${Object.values(condition)[0]}'` : "" })).data
+    return (await postData(sqlServer, '/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: data, condition: condition ? `${Object.keys(condition)[0]}='${Object.values(condition)[0]}'` : "" })).data
 }
 
 async function findFinishProduct(project = [], filter = {}) {
@@ -28,6 +29,7 @@ async function findFinishProduct(project = [], filter = {}) {
             finish['unitOfMeasure'] = await findMeasureName(finish['unitOfMeasure'])
         }
     }
+    console.log(answer,'aaaaaaaaaaaaa');
     return answer
 }
 

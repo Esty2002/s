@@ -8,7 +8,7 @@ async function insertAddition(obj) {
     obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
     obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
-    obj['addition'] = obj['addition'] ? 1 : 0
+    // obj['addition'] = obj['addition'] ? 1 : 0
     console.log(obj);
     return (await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })).data
 }

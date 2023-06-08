@@ -19,6 +19,7 @@ async function insertPump(obj) {
 async function findPump(project = [], filter = {}) {
     filter['enabled'] = 1
     let answer = (await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    console.log('answer',answer);
     for (const pump of answer) {
         if (Object.keys(pump).includes('unitOfMeasure')){
             pump['unitOfMeasure'] = await findMeasureName(pump['unitOfMeasure'])

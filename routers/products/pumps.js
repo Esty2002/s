@@ -14,6 +14,7 @@ router.post('/create', express.json(), async (req, res) => {
 
 router.post('/find', express.json(), async (req, res) => {
     try {
+        console.log(req.body.arr,req.body.where);
         const ans = await findPump(req.body.arr, req.body.where)
         res.status(200).send(ans)
     } catch (error) {
