@@ -1,0 +1,365 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Todos API",
+        "description": "A simple todos API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "branches",
+            "email": "gur@gmail.com",
+            "url": ""
+        }
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:1111",
+            "description": "Local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "branches options",
+            "url": ""
+        }
+    ],
+    "components": {
+        "schemas": {
+            "insertBranchPost": {
+                "type": "object",
+                "properties": {
+                    "SupplierCode": {
+                        "type": "int",
+                        "description": "Id of supplier of the branch",
+                        "example": "1000"
+                    },
+                    "BranchName": {
+                        "type": "string",
+                        "description": "name of branch",
+                        "example": "Raital"
+                    },
+                    "Status": {
+                        "type": "int",
+                        "description": "status of the branch",
+                        "example": "1"
+                    },
+                    "Street": {
+                        "type": "string",
+                        "description": "name of street of branch",
+                        "example": "Yanai"
+                    },
+                    "HomeNumber": {
+                        "type": "int",
+                        "description": "HomeNumber of the branch",
+                        "example": "4"
+                    },
+                    "City": {
+                        "type": "string",
+                        "description": "City of the branch",
+                        "example": "Ashdod"
+                    },
+                    "ZipCode": {
+                        "type": "string",
+                        "description": "Zip of the branch",
+                        "example": "44765"
+                    },
+                    "Phone1": {
+                        "type": "string",
+                        "description": "Phone1 of the branch",
+                        "example": "088987676"
+                    },
+                    "Phone2": {
+                        "type": "string",
+                        "description": "Phone2 of the branch",
+                        "example": "0887687888"
+                    },
+                    "Mobile": {
+                        "type": "string",
+                        "description": "Mobile of the branch",
+                        "example": "0534199999"
+                    },
+                    "Fax": {
+                        "type": "string",
+                        "description": "Fax of the branch",
+                        "example": "0887687888"
+                    },
+                    "Mail": {
+                        "type": "string",
+                        "description": "Mail of the branch",
+                        "example": "aaa@gmail.com"
+                    },
+                    "Notes": {
+                        "type": "string",
+                        "description": "Notes of the branch",
+                        "example": "important"
+                    },
+                    "CreationDate": {
+                        "type": "Date",
+                        "description": "CreationDate of the branch",
+                        "example": "03/05/2023"
+                    },
+                    "UserThatInsert": {
+                        "type": "string",
+                        "description": "UserThatInsert the branch",
+                        "example": "yyy"
+                    },
+                    "Disabled": {
+                        "type": "int",
+                        "description": "Disabled branch",
+                        "example": "0"
+                    },
+                    "DisabledDate": {
+                        "type": "Date",
+                        "description": "DisabledDate of the branch",
+                        "example": "04/05/2023"
+                    },
+                    "DisableUser": {
+                        "type": "string",
+                        "description": "DisableUser the branch",
+                        "example": "sara"
+                    }
+                },
+                "xml": {
+                    "name": "order"
+                }
+            },
+            "empty": {
+                "type": "string",
+                "description": "dinamic response",
+                "example": "dinamic response"
+            },
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "message": {
+                        "type": "string",
+                        "description": "Error message",
+                        "example": "Not found"
+                    },
+                    "internal_code": {
+                        "type": "string",
+                        "description": "Error internal code",
+                        "example": "Invalid parameters"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/branches/deletebranches": {
+            "post": {
+                "tags": [
+                    "branch update opertions"
+                ],
+                "description": "delete branches",
+                "operationId": "deleteBranches",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/branches"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "update branch"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/branches/insertbranch": {
+            "post": {
+                "tags": [
+                    "branch insert opertions"
+                ],
+                "description": "insert branch",
+                "operationId": "insertOneBranch",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/branches"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "update branch"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/branches/updatebranch": {
+            "post": {
+                "tags": [
+                    "branch update opertions"
+                ],
+                "description": "update branch",
+                "operationId": "updateDetail",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/branches"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "update branch"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+ 
+        "/branches/getallbranches": {
+            "get": {
+                "tags": [
+                    "branches read opertions"
+                ],
+                "description": "get all branches",
+                "operationId": "getAllBranches",
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/branches/getBranchesWithCondition/{condition}/{value}": {
+            "get": {
+                "tags": [
+                    "branch read opertions"
+                ],
+                "description": "get branch with condition",
+                "operationId": "getBranchesByCondition",
+                "parameters": [
+                    {
+                        "name": "condition",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/condition"
+                        },
+                        "required": true,
+                        "description": "condition"
+                    },
+                    {
+                        "name": "value",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/value"
+                        },
+                        "required": true,
+                        "description": "value"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/branches/checkUnique/{supplierCode}/{branchname}": {
+            "get": {
+                "tags": [
+                    "branch read opertions"
+                ],
+                "description": "check unique",
+                "operationId": "checkUnique",
+                "parameters": [
+                    {
+                        "name": "supplierCode",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/supplierCode"
+                        },
+                        "required": true,
+                        "description": "supplierCode"
+                    },
+                    {
+                        "name": "branchname",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/branchname"
+                        },
+                        "required": true,
+                        "description": "branchname"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

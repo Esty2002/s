@@ -8,12 +8,16 @@ const sqlServer = axios.create({
 
 
 const getData = async (server, url) => {
+    console.log("getData");
     let response;
     try {
+        console.log("url", url );
         response = await server.get(url);
+        console.log("response",response);
     }
 
     catch (error) {
+        console.log("response-error");
         throw error;
     }
     return response;

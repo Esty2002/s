@@ -1,19 +1,34 @@
-const { getAll, getClientByField, getClientById } = require('../../services-clients/sql/sql-operations')
+const { postData ,sqlServer} = require('../../services/axios')
 
 async function getAllClient() {
-    const result = await getAll()
-    return result.recordset
+    let obj={}
+    obj['tableName']='tbl_Clients'
+    obj['condition']=`disabled='False'`
+    obj['columns']='*'
+    const result= await postData(sqlServer,'/read/readTopN',obj);
+    return result
 }
 async function getClientsById(id) {
-    const result = await getClientById(id)
-    if (result.rowsAffected == 0)
+    let obj={}
+    obj['tableName']='tbl_Clients'
+    obj['condition']=`clientCode=${id}`
+    obj['columns']='*'
+    const result= await postData(sqlServer,'/read/readTopN', obj);
+   console.log(result,' result');
+    if (result==undefined) 
         return null
-    return result.recordset
+    return result.data
 }
 
+
 async function getClientsByField(field, value) {
-    const result = await getClientByField(field, value)
-    if (result.rowsAffected == 0)
+    let obj={}
+    obj['tableName']='tbl_Clients'
+    obj['condition']=`${field}=${value}`
+    obj['columns']='*'
+    const result= await postData(sqlServer,'/read/readTopN', obj);
+    console.log(result,' result');
+    if (result==undefined)
         return null
     return result
 }
