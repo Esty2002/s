@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { getAllClient, getClientsByField, getClientsById } = require('../../modules/clients/readClient')
 
+
 router.get('/getAll', async (req, res) => {   
     const allClients = await getAllClient();
     console.log(allClients.data);
@@ -10,10 +11,10 @@ router.get('/getAll', async (req, res) => {
     else
         res.status(404).send({message:'NOT FOUND'})
     console.log();
+
 })
 
 router.get('/findClient/:id', async (req, res) => {
-    
     const getClientByid = await getClientsById(req.params.id)
     if (getClientByid )
         res.status(200).send(getClientByid)
