@@ -23,12 +23,11 @@ const getData = async (server, url) => {
     return response;
 }
 
-const postData=async(server,url,body)=>{
+const postData = async (server, url, body) => {
     let response;
     try {
         response = await server.post(url, body);
     }
-
     catch (error) {
         throw error;
     }
