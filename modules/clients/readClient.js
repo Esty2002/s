@@ -1,7 +1,6 @@
 const { postData ,sqlServer} = require('../../services/axios')
 
 async function getAllClient() {
-    console.log('//////////////++++++++++////////////////');
     let obj={}
     obj['tableName']='tbl_Clients'
     obj['condition']=`disabled='False'`
@@ -10,7 +9,6 @@ async function getAllClient() {
     return result
 }
 async function getClientsById(id) {
-    console.log("in module",id); 
     let obj={}
     obj['tableName']='tbl_Clients'
     obj['condition']=`clientCode=${id}`

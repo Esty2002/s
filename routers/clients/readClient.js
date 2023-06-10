@@ -2,19 +2,16 @@ const express = require('express')
 const router = express.Router()
 const { getAllClient, getClientsByField, getClientsById } = require('../../modules/clients/readClient')
 
-router.get('/getAll', async (req, res) => {  
-    try{
-        const allClients = await getAllClient();
-        console.log('+++++++',allClients.data);
-        if (allClients.data.length > 0)
-            res.status(200).send(allClients.data)
-        else
-            res.status(404).send({message:'NOT FOUND'})
-    } 
-    catch{
-        console.log('ss');
-    }
-   
+
+router.get('/getAll', async (req, res) => {   
+    const allClients = await getAllClient();
+    console.log(allClients.data);
+    if (allClients.data)
+        res.status(200).send(allClients.data)
+    else
+        res.status(404).send({message:'NOT FOUND'})
+    console.log();
+
 })
 
 router.get('/findClient/:id', async (req, res) => {

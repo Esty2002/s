@@ -32,7 +32,7 @@ async function getAllSuppliers() {
         throw new Error('can not get all suppliers');
     }
 }
-/////////////////////////////////////////////////////////////
+
 async function getSupplier(object) {
     try {
         const res = await getData(sqlServer, `/read/readAll/tbl_Suppliers/${object.option}='${object.text}' AND Disabled=0`);
@@ -42,7 +42,7 @@ async function getSupplier(object) {
         throw error;
     }
 }
-//////////////////////////////////////////////////////////////
+
 async function updateDetail(code, setting) {
     try {
         if (!await checkUnique(setting)){
