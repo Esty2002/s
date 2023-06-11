@@ -12,6 +12,7 @@ const createClient_router=require('./routers/clients/createClient')
 const readClient_router=require('./routers/clients/readClient')
 const updateClient_router=require('./routers/clients/updateClient')
 const status_router=require('./routers/clients/status')
+const readPriceList_router=require('./routers/pricelist/readPricelist')
 
 app.use(cors());
 app.use('/branches',manage_branches_router);
@@ -21,6 +22,9 @@ app.use('/createClient', createClient_router)
 // app.use('/delete_client', delete_client_router);
 app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
+app.use('/readpricelist', readPriceList_router)
+
+
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 
 
