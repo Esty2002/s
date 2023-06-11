@@ -8,7 +8,8 @@ async function updateMeasure(condition, obj) {
 }
 
 async function insertMeasure(name) {
-    return (await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })).data
+    const response =  await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
+    return response
 }
 
 async function findMeasureNumber(name) {
@@ -21,4 +22,9 @@ async function findMeasureName(num) {
     return (await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].measure
 }
 
-module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure }                
+async function getAll(){
+    const response = await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
+    return response.data
+}
+
+module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll }                

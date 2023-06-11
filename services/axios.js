@@ -13,7 +13,6 @@ const getData = async (server, url) => {
     try {
         console.log("url", url );
         response = await server.get(url);
-        console.log("response",response);
     }
 
     catch (error) {

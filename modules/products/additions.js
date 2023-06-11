@@ -7,10 +7,11 @@ async function insertAddition(obj) {
     // obj['ordinalNumber'] = (await postData(sqlServer, '/read/countRows', { tableName: SQL_ADDITIONS_TABLE })).data.returnValue + 1
     obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
-    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
     // obj['addition'] = obj['addition'] ? 1 : 0
     console.log(obj);
-    return (await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })).data
+    const response = await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })
+
+    return response.data
 }
 
 async function findAddition(project = [], filter = {}) {

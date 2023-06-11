@@ -1,6 +1,6 @@
 require('dotenv').config();
 // const { setDate } = require('./functions');
-// const { SQL_DB_SUPPLIERS } = process.env;
+const { SQL_DB_SUPPLIERS } = process.env;
 const { getData, postData, sqlServer } = require('../../services/axios');
 
 async function insertOneSupplier(object) {

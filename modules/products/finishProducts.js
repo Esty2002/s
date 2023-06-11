@@ -5,10 +5,14 @@ const { findMeasureNumber, findMeasureName } = require('./measure')
 
 async function insertFinishProduct(obj) {
     obj['enabled'] = 1
-    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
+    // const measure = await findMeasureNumber(obj['unitOfMeasure'])
+    // obj['unitOfMeasure'] = measure
     // obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
-    obj['addedDate'] = new Date().toISOString().slice(0, new Date().toISOString().indexOf('T'))
-    return (await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })).data
+    obj['addedDate'] = new Date().toISOString()
+    console.log(obj)
+    const response = await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+    console.log({response:response.data})
+    return response
 }
 
 async function updateFinishProduct(data = {}, condition = {}) {
