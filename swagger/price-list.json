@@ -1,0 +1,344 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "Simple Todos API",
+        "description": "A simple todos API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "",
+            "email": "areas@web.com",
+            "url": "web.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://localhost:2222",
+            "description": "Local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "areas options",
+            "url": ""
+        }
+    ],
+    "components": {
+        "schemas": {
+            "code": {
+                "type": "string",
+                "description": "code of supplier or client",
+                "example": "1234"
+            },
+            "codeByObject": {
+                "type": "object",
+                "properties": {
+                    "supplierOrClientCode": {
+                        "type": "string",
+                        "description": "code of supplier or client",
+                        "example": "1234"
+                    }
+                }
+            },
+            "areaName": {
+                "type": "string",
+                "description": "the area name",
+                "example": "ashdod"
+            },
+            "numOfTimes": {
+                "type": "object",
+                "properties": {
+                    "int": {
+                        "type": "int",
+                        "description": "number of times",
+                        "example": "0"
+                    }
+                }
+            },
+            "areaToDelete": {
+                "type": "object",
+                "properties": {
+                    "phone": {
+                        "type": "string",
+                        "description": "supply code",
+                        "example": "055-2222222"
+                    },
+                    "areaName": {
+                        "type": "string",
+                        "description": "area name to delete",
+                        "example": "ashdod"
+                    }
+                }
+            },
+            "area": {
+                "type": "object",
+                "properties": {
+                    "supplierOrClientCode": {
+                        "type": "string",
+                        "description": "code",
+                        "example": "1234"
+                    },
+                    "area": {
+                        "type": "object",
+                        "properties": {
+                            "areaName": {
+                                "type": "string",
+                                "description": "area name",
+                                "example": "ashdod"
+                            },
+                            "location": {
+                                "type": "object",
+                                "properties": {
+                                    "type": {
+                                        "type": "string",
+                                        "description": "the type of the area",
+                                        "example": "point"
+                                    },
+                                    "coordinates": {
+                                        "type": "array",
+                                        "description": "array of x and y values",
+                                        "example": "[10,20]"
+                                    }
+                                }
+                            },
+                            "radius": {
+                                "type": "float",
+                                "description": "radius value",
+                                "example": "100"
+                            },
+                            "delete": {
+                                "type": "booleat",
+                                "description": "",
+                                "example": "false"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/areas/isExist/{code}": {
+            "get": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Get todos",
+                "operationId": "isExist",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/code"
+                        },
+                        "required": true,
+                        "description": "A single todo id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
+            }
+        },
+        "/areas/findAreaOfSupplierOrClient?code={code}&areaName={areaName}": {
+            "get": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Get todos",
+                "operationId": "findAreaOfSupplierOrClient",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/code"
+                        },
+                        "required": true,
+                        "description": "The supplier Or Client Code"
+                    },
+                    {
+                        "name": "areaName",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/areaName"
+                        },
+                        "required": true,
+                        "description": "area name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/numOfTimes"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/areas/findAllAreas/{code}": {
+            "get": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Get todos",
+                "operationId": "isExist",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/code"
+                        },
+                        "required": true,
+                        "description": "A single todo id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
+            }
+        },
+        "/areas/findAreasByCode/{code}": {
+            "get": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Get todos",
+                "operationId": "isExist",
+                "parameters": [
+                    {
+                        "name": "code",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/code"
+                        },
+                        "required": true,
+                        "description": "A single todo id"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
+            }
+        },
+        "/areas/insertArea": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Create todo",
+                "operationId": "insertArea",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/area"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Todo created successfully"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/areas/updateArea": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Create todo",
+                "operationId": "updateArea",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/area"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Todo created successfully"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/areas/deleteAreaDetail": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Create todo",
+                "operationId": "updateArea",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/areaToDelete"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Todo created successfully"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        },
+        "/areas/deleteArea": {
+            "post": {
+                "tags": [
+                    "Todo CRUD operations"
+                ],
+                "description": "Create todo",
+                "operationId": "updateArea",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/codeByObject"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Todo created successfully"
+                    },
+                    "500": {
+                        "description": "Server error"
+                    }
+                }
+            }
+        }
+    }
+}
