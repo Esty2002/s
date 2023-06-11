@@ -1,5 +1,5 @@
 require('dotenv').config();
-// const { SQL_DB_BRANCHES ,SQL_DB_SUPPLIERS} = process.env;
+const { SQL_DB_BRANCHES ,SQL_DB_SUPPLIERS} = process.env;
 // const { setDate } = require('./functions');
 const { getData, postData, sqlServer } = require('../../services/axios');
 
@@ -23,7 +23,7 @@ async function insertOneBranch(object) {
 ///////////////////////////////////////////////////////////////////
 async function getAllBranches() {
     try {
-        const res = await getData(sqlServer, `/read/readAll/tbl_Branches/Disabled = '0'`);
+        const res = await getData(sqlServer, `/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
         return res.data;
     }
     catch (error) {
@@ -90,7 +90,7 @@ function checkValid(object) {
 ///////////////////////////////////////////////////////////////////
 async function checkUnique(object) {
     try {
-        const resultSupplierExist = await getData(sqlServer, `/read/readAll/tbl_Supplliers/Id=${object.SupplierCode } AND  Disabled='0'`);
+        const resultSupplierExist = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/Id=${object.SupplierCode } AND  Disabled='0'`);
         const resultBranchName = await getData(sqlServer, `/read/readAll/tbl_Branches/BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0'`);
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
     }

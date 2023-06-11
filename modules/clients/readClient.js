@@ -17,7 +17,7 @@ async function getClientsById(id) {
    console.log(result,' result');
     if (result==undefined) 
         return null
-    return result
+    return result.data
 }
 
 
