@@ -22,8 +22,11 @@ const getData=async(server,url)=>{
 const postData=async(server,url,body)=>{
     let response;
     try{
+        console.log(body,' body');
         response=await server.post(url,body);
+        console.log('after');
     }
+    
 
     catch(error){
         throw error;
