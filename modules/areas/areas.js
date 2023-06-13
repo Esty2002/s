@@ -2,6 +2,9 @@ require('dotenv').config()
 const { getData, postData, server } = require('../../services/axios')
 
 
+
+
+
 async function insertArea(obj = {}) {
     const exist = await findAreaOfSupplierOrClient(obj.supplierOrClientCode, obj.area.areaName)
     if (exist.int == 0) {
@@ -13,7 +16,6 @@ async function insertArea(obj = {}) {
                 set: { $addToSet: { areasList: obj.area } }
             })
         if (result) {
-            // addddddddddddddddddddddddddddddddddddddddddd
             const resultToSql = await postData(server, '/create/create',
                 {
                     tableName: "tbl_Areas",
@@ -111,7 +113,7 @@ async function deleteArea(phone, area) {
 }
 
 async function findAreaOfSupplierOrClient(code, areaName) {
-    console.log('lololo');
+   
     const result = await postData(server, '/mongo/aggregate', {
         collection: "Areas",
         aggregate:
