@@ -5,29 +5,29 @@ const { findMeasureNumber, findMeasureName } = require('./measure')
 const { SQL_PUMPS_TABLE } = process.env
 
 async function insertPump(obj) {
-    obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
+    // obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
     obj['addedDate'] = new Date().toISOString()
     obj['enabled'] = 1
     obj['addition'] = obj['addition'] ? 1 : 0
     // for (let k in obj) {
     //     obj[k] = "'" + obj[k] + "'"
     // }
-    console.log(obj,'in insertPump');
+    console.log(obj, 'in insertPump');
     return (await postData(sqlServer, "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })).data
 }
 
 async function findPump(project = [], filter = {}) {
-    filter['enabled'] = 1
-    let answer = (await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-    console.log('answer',answer);
+    filter.enabled = 1
+    const result = await postData(sqlServer, "/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })
+    let answer = result.data
     for (const pump of answer) {
-        if (Object.keys(pump).includes('unitOfMeasure')){
+        if (Object.keys(pump).includes('unitOfMeasure')) {
             pump['unitOfMeasure'] = await findMeasureName(pump['unitOfMeasure'])
         }
-        console.log(pump['unitOfMeasure'],'{answer})');
+        console.log(pump['unitOfMeasure'], '{answer})');
     }
 
-    return answer[0]
+    return answer
 }
 
 async function updatePump(obj, filter) {
