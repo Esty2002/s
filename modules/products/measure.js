@@ -14,6 +14,8 @@ async function insertMeasure(name) {
 
 async function findMeasureNumber(name) {
      let a=await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
+     console.log({a});
+     console.log(a.data[0].id);
      return a.data[0].id
 }
 async function findMeasureName(num) {

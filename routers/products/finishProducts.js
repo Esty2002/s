@@ -5,17 +5,20 @@ const { findFinishProduct, insertFinishProduct, updateFinishProduct } = require(
 
 router.post('/create', express.json(), async (req, res) => {
     console.log('post create finishproduct')
-    try { 
+    try {
         const response = await insertFinishProduct(req.body)
-        
-        res.status(200).send(response) 
+        res.status(200).send(response)
     }
     catch (error) { res.status(404).send(error.message) }
 })
 
 router.post('/update', express.json(), async (req, res) => {
     console.log('router', req.body);
-    try { res.status(200).send(await updateFinishProduct(req.body.update, req.body.where)) }
+    try {
+        let aa=await updateFinishProduct(req.body.update, req.body.where)
+       
+        res.status(200).send(aa)
+    }
     catch (error) { res.status(404).send(error.message) }
 })
 

@@ -9,10 +9,10 @@ async function insertFinishProduct(obj) {
     // obj['unitOfMeasure'] = measure
     // obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
     obj['addedDate'] = new Date().toISOString()
-    console.log(obj)
+    console.log({obj})
     const response = await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
-    console.log({response:response.data})
-    return response
+    console.log({response})
+    return response.data
 }
 
 async function updateFinishProduct(data = {}, condition = {}) {

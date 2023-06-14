@@ -4,6 +4,7 @@ const { findPump, insertPump, updatePump } = require('../../modules/products/pum
 
 router.post('/create', express.json(), async (req, res) => {
     try {
+        console.log('in create pump router');
         const ans = await insertPump(req.body)
         res.status(200).send(ans)
 
