@@ -3,34 +3,33 @@ const { getData, postData, server } = require('../../services/axios')
 
 
 
-
+async function findAll() {
+    const found = await postData(server, '/read/find', {
+        collection: "areas"
+    })
+    return found
+}
 
 async function insertArea(obj = {}) {
-    const exist = await findAreaOfSupplierOrClient(obj.supplierOrClientCode, obj.area.areaName)
-    if (exist.int == 0) {
-        console.log(true);
-        const result = await postData(server, '/mongo/updateone',
+
+    const result = await postData(server, '/create/insertone',
+        {
+            collection: "Areas",
+            data: obj
+        })
+    if (result) {
+        const resultToSql = await postData(server, '/create/create',
             {
-                collection: "Areas",
-                filter: { supplierOrClientCode: obj.supplierOrClientCode },
-                set: { $addToSet: { areasList: obj.area } }
+                tableName: "tbl_Areas",
+                values: { AreaIdFromMongo: result.ObjectId, areaName: obj.area.areaName }
             })
-        if (result) {
-            const resultToSql = await postData(server, '/create/create',
-                {
-                    tableName: "tbl_Areas",
-                    values: { AreaIdFromMongo: result.ObjectId, areaName: obj.area.areaName }
-                })
 
-            if (resultToSql)
-                return resultToSql
+        if (resultToSql)
+            return resultToSql
 
-        }
-        else
-            throw new Error("Can't insert area to this Supplier or Client")
     }
     else
-        return "this area alredy exist."
+        throw new Error("Can't insert area")
 }
 
 async function updateArea(obj = {}) {
@@ -112,44 +111,10 @@ async function deleteArea(phone, area) {
 
 }
 
-async function findAreaOfSupplierOrClient(code, areaName) {
-   
-    const result = await postData(server, '/mongo/aggregate', {
-        collection: "Areas",
-        aggregate:
-            [
-                {
-                    $unwind: {
-                        path: '$areasList'
-                    }
-                }, {
-                    $match: {
-                        supplierOrClientCode: code,
-                        'areasList.areaName': areaName
-                    }
-                }, {
-                    $count: 'int'
-                }
-            ]
-    })
-    if (result) {
-        if (result.length > 0)
-            return result[0]
-        else
-            return { "int": 0 }
-    }
-    else
-        throw new Error("Not found area to count")
-}
-// פונקציה מיותרה היא אותו דבר כמו deleteSupplierOrClient
-
-// async function updateSupplierOrClient(phone) {
-//     mongo_collection_areas.collectionName = MONGO_COLLECTION_AREAS
-
-//     const result = await mongo_collection_areas.updateOne(phone, { $set: { disable: false } })
-//     return result
-// }
-
+async function findArea(areaName) {
+    const result = await postData(server, '/read/find', {
+        collection: "areas",
+        filter: { name: areaName }
 
 async function findAreaByCode(code) {
     let filter = {};
@@ -207,6 +172,7 @@ module.exports = {
     deleteArea,
     updateArea, updateLocation,
     updatePointAndRadius,
-    findAreaOfSupplierOrClient,
-    getTheDataOfTheArea
+    findArea,
+    getTheDataOfTheArea,
+    findAll
 }
