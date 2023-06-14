@@ -2,6 +2,7 @@ require('dotenv').config()
 const { getData, postData, server } = require('../../services/axios')
 
 
+
 async function findAll() {
     const found = await postData(server, '/read/find', {
         collection: "areas"
@@ -114,20 +115,6 @@ async function findArea(areaName) {
     const result = await postData(server, '/read/find', {
         collection: "areas",
         filter: { name: areaName }
-    })
-    if (result)
-        return true
-    return false
-}
-// פונקציה מיותרה היא אותו דבר כמו deleteSupplierOrClient
-
-// async function updateSupplierOrClient(phone) {
-//     mongo_collection_areas.collectionName = MONGO_COLLECTION_AREAS
-
-//     const result = await mongo_collection_areas.updateOne(phone, { $set: { disable: false } })
-//     return result
-// }
-
 
 async function findAreaByCode(code) {
     let filter = {};
