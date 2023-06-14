@@ -1,22 +1,23 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, findAreaOfSupplierOrClient,
+const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius } = require('../../modules/price-list/areas')
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll } = require('../../modules/areas/areas')
 
 
 
-router.get('/', (req, res) => {
-    res.send('into router...')
+router.get('/', async (req, res) => {
+    const ans = await findAll()
+    res.send(ans)
 })
 
-// o.k
-router.get('/isExist/:code', async (req, res) => {
-    console.log("in isExist ", req.params.code);
-    const phone = req.params.code
+
+router.get('/isExist/:areaName', async (req, res) => {
+    console.log("in isExist ", req.params.areaName);
+
     try {
-        const result = await findSupplierOrClient(phone)
+        const result = await findArea(req.params.areaName)
         res.status(200).send(result)
     } catch (error) {
         res.status(404).send(error)
@@ -134,12 +135,12 @@ router.get('/findPointArray/:code/:areaName', async (req, res) => {
 })
 
 
-//מקבל קוד ספק/לקוח וכן שם אזור
-// בודק האם אזור זה קיים 
-router.get('/findAreaOfSupplierOrClient', async (req, res) => {
-    const result = await findAreaOfSupplierOrClient(req.query.code, req.query.areaName)
-    res.status(200).send(result)
-})
+// //מקבל קוד ספק/לקוח וכן שם אזור
+// // בודק האם אזור זה קיים 
+// router.get('/findAreaOfSupplierOrClient', async (req, res) => {
+//     const result = await findAreaOfSupplierOrClient(req.query.code, req.query.areaName)
+//     res.status(200).send(result)
+// })
 
 
 
