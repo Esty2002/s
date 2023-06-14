@@ -8,28 +8,24 @@ const sqlServer = axios.create({
 
 
 const getData = async (server, url) => {
-    console.log("getData");
     let response;
     try {
-        console.log("url", url );
         response = await server.get(url);
+        return response.data;
     }
-
     catch (error) {
-        console.log("response-error");
         throw error;
     }
-    return response;
 }
 
 const postData = async (server, url, body) => {
     let response;
     try {
         response = await server.post(url, body);
+        return response.data;
     }
     catch (error) {
         throw error;
     }
-    return response;
 }
 module.exports = { sqlServer, getData, postData }
