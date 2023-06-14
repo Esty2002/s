@@ -7,9 +7,13 @@ router.post('/create', express.json(), async (req, res) => {
     console.log('post create finishproduct')
     try {
         const response = await insertFinishProduct(req.body)
-        res.status(200).send(response)
+        if (response)
+            res.status(201).send(response)
+        else {
+            res.status(500).send(response)
+        }
     }
-    catch (error) { res.status(404).send(error.message) }
+    catch (error) { res.status(500).send(error.message) }
 })
 
 router.post('/update', express.json(), async (req, res) => {
@@ -24,17 +28,16 @@ router.post('/update', express.json(), async (req, res) => {
 
 router.post('/delete', express.json(), async (req, res) => {
     try { res.status(200).send(await updateFinishProduct({ enabled: false, deletedDate: new Date() }, req.body)) }
-    catch (error) { res.status(404).send(error.message) }
+    catch (error) { res.status(500).send(error.message) }
 })
 
 router.post('/find', express.json(), async (req, res) => {
     try {
         let a = await findFinishProduct(req.body.arr, req.body.where)
-        console.log({ a });
         res.status(200).send(a)
     }
 
-    catch (error) { res.status(404).send(error.message) }
+    catch (error) { res.status(500).send(error.message) }
 })
 
 module.exports = router

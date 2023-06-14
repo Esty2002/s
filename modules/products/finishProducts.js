@@ -4,15 +4,17 @@ const { SQL_FINISH_PRODUCTS_TABLE } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 
 async function insertFinishProduct(obj) {
-    obj['enabled'] = 1
+    obj.enabled = 1
     // const measure = await findMeasureNumber(obj['unitOfMeasure'])
     // obj['unitOfMeasure'] = measure
     // obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
-    obj['addedDate'] = new Date().toISOString()
-    console.log({obj})
+    obj.addedDate = new Date().toISOString()
+    console.log(obj)
     const response = await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
-    console.log({response})
-    return response.data
+    if (response.data.rowsAffected[0] === 1)
+        return true
+    else
+        return false
 }
 
 async function updateFinishProduct(data = {}, condition = {}) {
@@ -33,7 +35,7 @@ async function findFinishProduct(project = [], filter = {}) {
             finish['unitOfMeasure'] = await findMeasureName(finish['unitOfMeasure'])
         }
     }
-    console.log(answer,'aaaaaaaaaaaaa');
+    console.log(answer, 'aaaaaaaaaaaaa');
     return answer
 }
 
