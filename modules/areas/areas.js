@@ -1,27 +1,35 @@
 require('dotenv').config()
-const { getData, postData, server } = require('../../services/axios')
+const { getData, postData } = require('../../services/axios')
 
 
 
 async function findAll() {
-    const found = await postData(server, '/read/find', {
+    const found = await postData( '/read/find', {
         collection: "areas"
     })
     return found
 }
 
-async function insertArea(obj = {}) {
+async function findAllCities(){
+    console.log('findall cities');
+    const found = await postData( '/read/find', {
+        collection: "areas", filter:{city:true}
+    })
+    return found
+}
 
-    const result = await postData(server, '/create/insertone',
+async function insertArea(obj = {}) {
+console.log({obj})
+    const result = await postData( '/create/insertone',
         {
             collection: "Areas",
             data: obj
         })
-    if (result) {
-        const resultToSql = await postData(server, '/create/create',
+    if (result.data) {
+        const resultToSql = await postData( '/create/create',
             {
                 tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.ObjectId, areaName: obj.area.areaName }
+                values: { AreaIdFromMongo: result.data, areaName: obj.name }
             })
 
         if (resultToSql)
@@ -33,7 +41,7 @@ async function insertArea(obj = {}) {
 }
 
 async function updateArea(obj = {}) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData( '/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
@@ -50,7 +58,7 @@ async function updateArea(obj = {}) {
 //giti...
 async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData( '/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: obj.code },
@@ -65,7 +73,7 @@ async function updateLocation(obj) {
 
 // giti
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData( '/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -84,7 +92,7 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 };
 
 async function deleteSupplierOrClient(phone) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData( '/mongo/updateone',
         {
             collection: "Areas",
             filter: { SupplierOrClientCode: phone },
@@ -97,7 +105,7 @@ async function deleteSupplierOrClient(phone) {
 }
 
 async function deleteArea(phone, area) {
-    const result = await postData(server, '/update/updateone',
+    const result = await postData( '/update/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: phone },
@@ -112,13 +120,17 @@ async function deleteArea(phone, area) {
 }
 
 async function findArea(areaName) {
-    const result = await postData(server, '/read/find', {
+    const result = await postData( '/read/find', {
         collection: "areas",
         filter: { name: areaName }
+    })
+    return result
+}
+
 
 async function findAreaByCode(code) {
     let filter = {};
-    const result = await postData(server, '/read/find',
+    const result = await postData( '/read/find',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -132,7 +144,7 @@ async function findAreaByCode(code) {
 
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");
-    const result = await postData(server, '/read/find',
+    const result = await postData( '/read/find',
         {
             dbName: "Buyton",
             collection: "Areas",
@@ -149,7 +161,7 @@ async function findSupplierOrClient(code) {
 
 async function getTheDataOfTheArea(code, areaName) {
     console.log("getTheDataOfTheArea", code, areaName);
-    const result = await postData(server, '/mongo/find',
+    const result = await postData( '/mongo/find',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -174,5 +186,6 @@ module.exports = {
     updatePointAndRadius,
     findArea,
     getTheDataOfTheArea,
-    findAll
+    findAll,
+    findAllCities
 }
