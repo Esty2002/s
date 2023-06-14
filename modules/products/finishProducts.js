@@ -4,12 +4,11 @@ const { SQL_FINISH_PRODUCTS_TABLE } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 
 async function insertFinishProduct(obj) {
-    obj.enabled = 1
     // const measure = await findMeasureNumber(obj['unitOfMeasure'])
     // obj['unitOfMeasure'] = measure
     // obj['ordinalNumber'] = await (getData(sqlServer, '/')) + 1
+    obj.enabled = true
     obj.addedDate = new Date().toISOString()
-    console.log(obj)
     const response = await postData(sqlServer, '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
     if (response.data.rowsAffected[0] === 1)
         return true
@@ -17,26 +16,37 @@ async function insertFinishProduct(obj) {
         return false
 }
 
-async function updateFinishProduct(data = {}, condition = {}) {
-    console.log('upFiPr');
-    let string = ""
-    for (let k in data) {
-        string += `${k}='${data[k]}',`
-    }
-    string = string.slice(0, -1)
-    return (await postData(sqlServer, '/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: data, condition: condition ? `${Object.keys(condition)[0]}='${Object.values(condition)[0]}'` : "" })).data
+async function updateFinishProduct(obj) {
+    // console.log('upFiPr');
+    // let string = ""
+    // for (let k in data.update) {
+    //     string += `${k}='${data.update[k]}',`
+    // }
+    // string = string.slice(0, -1)
+    let conditionStr= data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : "" 
+    const response = await postData(sqlServer, '/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data,condition:conditionStr })
+    if(response.data)
+        return true
+    else
+        return false
+    
 }
 
 async function findFinishProduct(project = [], filter = {}) {
-    filter['enabled'] = 1
-    let answer = (await postData(sqlServer, "/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-    for (const finish of answer) {
-        if (Object.keys(finish).includes('unitOfMeasure')) {
-            finish['unitOfMeasure'] = await findMeasureName(finish['unitOfMeasure'])
+   // filter.enabled = 1
+    let columnsStr = project.length > 0 ? project.join(',') : '*'
+    let conditionStr=filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" 
+    const response = await postData(sqlServer, "/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr})
+    if(response){
+        for (const finish of response) {
+            if (Object.keys(finish).includes('unitOfMeasure')) {
+                finish.unitOfMeasure = await findMeasureName(finish['unitOfMeasure'])
+            }
         }
+        return response
     }
-    console.log(answer, 'aaaaaaaaaaaaa');
-    return answer
+    else
+        return false
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }
