@@ -1,6 +1,7 @@
 const { postData, sqlServer } = require('../../services/axios')
 
 async function addOneClient(obj) {
+    
     let newObj = {
         'tableName': 'tbl_Clients',
         'values': obj

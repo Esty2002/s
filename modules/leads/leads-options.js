@@ -1,45 +1,81 @@
 
 const { sqlServer, postData, getData } = require('../../services/axios');
-const { objectsForValidations } = require('../../services/validations/validations-objects');
-const { checkObjectValidations, checkObjectForUpdate } = require('../../services/validations/use-validations');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
+// const values = [
+//     {
+//         tableName: "leads",
+//         values: {
+//             supplyDate: null,
+//             supplyHour: null,
+//             ordererCode: null,
+//             supplyAddress: "",
+//             mapReferenceLongitude: null,
+//             mapReferenceLatitude: null,
+//             clientCode: null,
+//             baseConcretProduct: null,
+//             concretAmount: 0,
+//             pump: null,
+//             pumpPipeLength: null,
+//             pouringType: null,
+//             pouringTypeComments: "",
+//             comments: "",
+//             statusLead: null,
+//             orderNumber: null,
+//             addedDate: new Date(),
+//             disable: false,
+//             deletingDate: null,
 
+//         }
+//     },
+// ]
 const createNewLead = async (obj = null) => {
-
-    if (obj && obj.supplyDate) {
-        obj.serialNumber = (await getData(sqlServer, '/mongo/countdocuments/leads')).response;
-        obj.serialNumber += 1;
+    const validation = checkObjectValidations(obj, 'leads');
+    if (validation) {
+        const { moreConcretItems } = obj;
+        if (moreConcretItems)
+            delete obj.moreConcretItems;
+        obj.addedDate = new Date();
         obj.disable = false;
-        obj.leadStatus = "חדש";
-        const newObj = {
-            collection: "leads",
-            data: obj
-        };
-        const validation = checkObjectValidations(obj, objectsForValidations.leads);
-        if (validation) {
-            const result = await postData(sqlServer, '/mongo/insertone', newObj);
+        obj.deletingDate = null;
+        let valuesToSend = []
+        obj.baseConcretProduct.forEach(bcp => {
+            valuesToSend = [...valuesToSend, obj]
+            valuesToSend[valuesToSend.length - 1].baseConcretProduct = bcp;
+        });
+        try {
+            const result = await postData(sqlServer, '', obj);
             return result;
         }
-        else {
-            throw new Error("one or more of the arguments are not valid");
+        catch (error) {
+            throw error
         }
     }
     else {
-        throw new Error("the obj not received");
+        throw new Error("one or more of the arguments are not valid");
     }
+
 };
 
-const updateLead = async (filter = null, obj = null) => {
+const readLead = async(filter)=>{
+    
 
-    if (filter && obj) {
+}
+
+const updateLead = async (obj = null) => {
+    if (obj) {
         const newObj = {
-            collection: 'leads',
-            filter,
-            set: { $set: obj }
+            tableName: 'leads',
+            values: obj.values,
+            condition: obj.condition
         };
-        const validation = checkObjectForUpdate(obj, objectsForValidations.leads);
-        if (validation) {
-            const result = await postData(sqlServer, '/mongo/updateone', newObj);
-            return result;
+        if (newObj) {
+            try {
+                const result = await postData(sqlServer, '', newObj);
+                return result;
+            }
+            catch (error) {
+                throw error;
+            }
         }
         else {
             throw new Error("one or more of the arguments are not valid");
@@ -51,19 +87,30 @@ const updateLead = async (filter = null, obj = null) => {
     }
 };
 
-
-const allLeadsDetails = async ({ filter = {}, sort = {}, skip = 0, limit = 20, project = {} }) => {
-    try {
-        const aggregate = [{ $match: filter }, { $sort: sort }, { $skip: skip }, { $limit: limit }, { $project: project }];
-        const result = await postData(sqlServer, '/mongo/aggregate', {
-            collection: 'leads',
-            aggregate
-        });
-        return result;
+const deleteLead = async (serialNumber) => {
+    if (serialNumber) {
+        const obj = {
+            tableName: 'leads',
+            values: {
+                disable: 1,
+                deletingDate: new Date()
+            },
+            condition: `SerialNumber=${serialNumber}`
+        }
+        try {
+            const result = await postData(sqlServer, '', obj);
+            return result;
+        }
+        catch (error) {
+            throw error;
+        }
     }
-    catch (error) {
-        throw error;
+    else {
+        throw new Error('the serialNumber is not defined');
     }
 }
 
-module.exports = { createNewLead, allLeadsDetails, updateLead }
+
+
+
+module.exports = { createNewLead, updateLead, deleteLead,readLead }

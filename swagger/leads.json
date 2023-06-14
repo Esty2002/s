@@ -132,85 +132,81 @@
                         "description": "supplyHour",
                         "example": "13:40"
                     },
-                    "ordererName": {
-                        "type": "string",
-                        "description": "ordererName",
+                    "ordererCode": {
+                        "type": "number",
+                        "description": "the orderer code",
                         "example": "sari"
                     },
-                    "ordererPhone": {
-                        "type": "string",
-                        "description": "ordererPhone",
-                        "example": "0583286477"
-                    },
                     "supplyAddress": {
+                        "type": "string",
+                        "description": "the address to supply the concret",
+                        "example": "Halochamim 8 BeneBrak"
+                    },
+                    "mapReferenceLongitude": {
+                        "type": "string",
+                        "description": "the Longitude point in the googleMaps",
+                        "example": "456456789"
+                    },
+                    "mapReferenceLatitude": {
+                        "type": "string",
+                        "description": "the Latitude point in the googleMaps",
+                        "example": "12457845"
+                    },
+                    "clientCode": {
+                        "type": "string",
+                        "description": "the client id",
+                        "example": "112233"
+                    },
+                    "baseConcretProduct": {
+                        "type": "list",
+                        "description": "the products of the concrets",
+                        "example": [
+                            1,
+                            5,
+                            8,
+                            7
+                        ]
+                    },
+                    "concretAmount": {
+                        "type": "number",
+                        "description": "the amount of the concret",
+                        "example": 15.1
+                    },
+                    "pump": {
+                        "type": "number",
+                        "description": "the id of the pump",
+                        "example": 1
+                    },
+                    "pumpPipeLength": {
+                        "type": "number",
+                        "description": "the length of the  pipe of the pump",
+                        "example": 5
+                    },
+                    "morePorducts": {
                         "type": "object",
                         "properties": {
-                            "city": {
-                                "type": "string",
-                                "description": "city",
-                                "example": "ashdod"
+                            "productCode": {
+                                "type": "number",
+                                "description": "the product code",
+                                "example": 48
                             },
-                            "street": {
-                                "type": "string",
-                                "description": "street",
-                                "example": "chalafta"
-                            },
-                            "houseNumber": {
-                                "type": "int",
-                                "description": "houseNumber",
-                                "example": 21
-                            },
-                            "mapReference": {
-                                "type": "object",
-                                "description": "mapReference",
-                                "example": {
-                                    "x":15,
-                                    "y":125
-                                }
+                            "amount": {
+                                "type": "number",
+                                "description": "the amount of the product",
+                                "example": 18.5
                             }
                         }
                     },
-                    "clientId": {
-                        "type": "string",
-                        "description": "clientId",
-                        "example": "112233"
-                    },
-                    "concretType": {
-                        "type": "list",
-                        "description": "concretType",
-                        "example": [1,5,8,7]
-                    },
-                    "concretAmount": {
-                        "type": "double",
-                        "description": "concretAmount",
-                        "example": 15.1
-                    },
-                    "moreConcretItems": {
-                        "type": "string",
-                        "description": "moreConcretItems",
-                        "example": "asd"
-                    },
-                    "concretAdditionIsProsprective": {
-                        "type": "Boolean",
-                        "description": "concretAdditionIsProsprective",
-                        "example": true
-                    },
-                    "pumpId": {
-                        "type": "string",
-                        "description": "pumpId",
-                        "example": "pipe"
-                    },
-                    "morePumpItems": {
-                        "type": "list",
-                        "description": "morePumpItems",
-                        "example": [1,5,7]
-                    },
                     "pouringType": {
-                        "type": "string",
-                        "description": "pouringType",
-                        "example": "asf"
+                        "type": "number",
+                        "description": "the pouring type",
+                        "example": 5
                     },
-                    "notes": {
+                    "pouringTypesComments": {
+                        "type": "string",
+                        "description": "the comments about the pouring type"
+                    },
+                    "comments": {
                         "type": "string",
                         "description": "notes",
                         "example": "SAsadsdsfdsfdf"
@@ -220,23 +216,15 @@
             "updateleadsdetails": {
                 "type": "object",
                 "properties": {
-                    "filter": {
-                        "type": "object",
-                        "properties": {
-                            "serialNumber": {
-                                "type": "int",
-                                "example": 1
-                            }
-                        }
+                    "values": {
+                        "type": "string",
+                        "description": "the values to update",
+                        "example": "ordererCode=1"
                     },
-                    "obj": {
-                        "type": "object",
-                        "properties": {
-                            "supplyDate": {
-                                "type": "string",
-                                "example": "2023-09-05"
-                            }
-                        }
+                    "condition": {
+                        "type": "string",
+                        "description": "the condition which lead to update",
+                        "example": "serialNumber=1"
                     }
                 }
             },
@@ -269,38 +257,38 @@
                     "sort": {
                         "type": "object",
                         "properties": {
-                            "serialNumber":{
-                                "type":"int",
-                                "example":1
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
                             }
                         }
                     },
-                    "skip":{
-                        "type":"int",
-                        "example":0
+                    "skip": {
+                        "type": "int",
+                        "example": 0
                     },
-                    "limit":{
-                        "type":"int",
-                        "example":2
+                    "limit": {
+                        "type": "int",
+                        "example": 2
                     },
-                    "project":{
-                        "type":"object",
-                        "properties":{
-                            "_id":{
-                                "type":"int",
-                                "example":0
+                    "project": {
+                        "type": "object",
+                        "properties": {
+                            "_id": {
+                                "type": "int",
+                                "example": 0
                             },
-                            "serialNumber":{
-                                "type":"int",
-                                "example":1
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
                             },
-                            "supplyDate":{
-                                "type":"int",
-                                "example":1
+                            "supplyDate": {
+                                "type": "int",
+                                "example": 1
                             },
-                            "supplyAddress":{
-                                "type":"int",
-                                "example":1
+                            "supplyAddress": {
+                                "type": "int",
+                                "example": 1
                             }
                         }
                     }
