@@ -115,7 +115,8 @@ async function findArea(areaName) {
     const result = await postData(server, '/read/find', {
         collection: "areas",
         filter: { name: areaName }
-
+    })
+}
 async function findAreaByCode(code) {
     let filter = {};
     const result = await postData(server, '/read/find',
