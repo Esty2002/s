@@ -116,19 +116,20 @@ async function findArea(areaName) {
         collection: "areas",
         filter: { name: areaName }
 
-async function findAreaByCode(code) {
-    let filter = {};
-    const result = await postData(server, '/read/find',
-        {
-            collection: "Areas",
-            filter: { supplierOrClientCode: code },
-            project: {}
-        })
+        // async function findAreaByCode(code) {
+        //         let filter = {};
+        //         const result = await postData(server, '/read/find',
+        //             {
+        //                 collection: "Areas",
+        //                 filter: { supplierOrClientCode: code },
+        //                 project: {}
+    })
     if (result)
         return result
     else
         throw new Error("not found area")
 }
+
 
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");
