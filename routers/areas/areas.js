@@ -3,7 +3,7 @@ const express = require('express')
 
 const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll } = require('../../modules/areas/areas')
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findAllCities } = require('../../modules/areas/areas')
 
 
 
@@ -12,15 +12,22 @@ router.get('/', async (req, res) => {
     res.send(ans)
 })
 
+router.get('/allcities', async(req, res)=>{
+    console.log('allcities')
+    const ans = await findAllCities()
+    res.send(ans)
+})
 
 router.get('/isExist/:areaName', async (req, res) => {
     console.log("in isExist ", req.params.areaName);
 
     try {
         const result = await findArea(req.params.areaName)
-        res.status(200).send(result)
+        console.log({result})
+        res.status(200).send(result.data)
     } catch (error) {
-        res.status(404).send(error)
+        console.log({error})
+        res.status(500).send(error)
     }
 
 })
@@ -30,10 +37,12 @@ router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
     try {
         const result = await insertArea(req.body)
+        console.log(result)
         res.status(200).send(result)
     }
     catch (error) {
-        res.status(404).send(error)
+        console.log(error)
+        res.status(500).send(error)
     }
 })
 
