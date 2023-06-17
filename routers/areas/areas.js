@@ -12,7 +12,7 @@ router.get('/', async (req, res) => {
     res.send(ans)
 })
 
-router.get('/allcities', async(req, res)=>{
+router.get('/allcities', async (req, res) => {
     console.log('allcities')
     const ans = await findAllCities()
     res.send(ans)
@@ -23,10 +23,10 @@ router.get('/isExist/:areaName', async (req, res) => {
 
     try {
         const result = await findArea(req.params.areaName)
-        console.log({result})
+        console.log({ result })
         res.status(200).send(result.data)
     } catch (error) {
-        console.log({error})
+        console.log({ error })
         res.status(500).send(error)
     }
 
@@ -37,8 +37,10 @@ router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
     try {
         const result = await insertArea(req.body)
-        console.log(result)
-        res.status(200).send(result)
+        if (result)
+            res.status(201).send(result)
+            else
+            res.status(500).send()
     }
     catch (error) {
         console.log(error)
