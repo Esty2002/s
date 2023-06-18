@@ -18,7 +18,7 @@ const createClient_router = require('./routers/clients/createClient')
 const readClient_router = require('./routers/clients/readClient')
 const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
-
+const router_leads=require('./routers/leads/leads')
 
 app.use(cors());
 app.use('/pumps', managePumps)
@@ -34,8 +34,9 @@ app.use('/suppliers', suppliers_router);
 app.use('/updateClient', updateClient_router)
 app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
-app.use('/readClient', readClient_router)
-app.use('/statusesClient', status_router)
+app.use('/readClient', readClient_router);
+app.use('/statusesClient', status_router);
+app.use('/leads',router_leads);
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 
 
