@@ -39,4 +39,7 @@ async function updatePump(obj, filter) {
     return (await postData(sqlServer, 'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
-module.exports = { updatePump, insertPump, findPump }
+
+
+
+module.exports = { updatePump, insertPump, findPump}

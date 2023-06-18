@@ -9,7 +9,7 @@ async function updateMeasure(condition, obj) {
 
 async function insertMeasure(name) {
     const response =  await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
-    return response
+    return response.data
 }
 
 async function findMeasureNumber(name) {
