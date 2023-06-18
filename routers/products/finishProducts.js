@@ -27,6 +27,7 @@ router.post('/update', express.json(), async (req, res) => {
 })
 
 router.post('/delete', express.json(), async (req, res) => {
+    console.log('delete in finishroducts');
     try { res.status(200).send(await updateFinishProduct({ enabled: false, deletedDate: new Date() }, req.body)) }
     catch (error) { res.status(500).send(error.message) }
 })
