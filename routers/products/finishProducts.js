@@ -19,25 +19,36 @@ router.post('/create', express.json(), async (req, res) => {
 router.post('/update', express.json(), async (req, res) => {
     console.log('router', req.body);
     try {
-        let aa=await updateFinishProduct(req.body.update, req.body.where)
-       
-        res.status(200).send(aa)
+        const response = await updateFinishProduct(req.body)
+        if (response) {
+            res.status(200).send(response)
+        }
+        else {
+            res.status(500).send(response)
+        }
     }
     catch (error) { res.status(404).send(error.message) }
 })
 
 router.post('/delete', express.json(), async (req, res) => {
-    console.log('delete in finishroducts');
-    try { res.status(200).send(await updateFinishProduct({ enabled: false, deletedDate: new Date() }, req.body)) }
+    try {
+        const response = await updateFinishProduct({ data: { enabled: false, deletedDate: new Date() }, condition: req.body })
+        if (response)
+            res.status(200).send(response)
+        else
+            res.status(500).send(response)
+    }
     catch (error) { res.status(500).send(error.message) }
 })
 
 router.post('/find', express.json(), async (req, res) => {
     try {
-        let a = await findFinishProduct(req.body.arr, req.body.where)
-        res.status(200).send(a)
+        const response = await findFinishProduct(req.body.arr, req.body.where)
+        if (response)
+            res.status(200).send(response)
+        else
+            res.status(500).send(response)
     }
-
     catch (error) { res.status(500).send(error.message) }
 })
 
