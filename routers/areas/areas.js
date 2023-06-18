@@ -1,28 +1,33 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, findAreaOfSupplierOrClient,
+const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius } = require('../../modules/price-list/areas')
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findAllCities } = require('../../modules/areas/areas')
 
 
 
-router.get('/', (req, res) => {
-    res.send('into router...')
+router.get('/', async (req, res) => {
+    const ans = await findAll()
+    res.send(ans)
 })
 
-// o.k
-router.get('/isExist/:code', async (req, res) => {
-    const phone = req.params.code
+router.get('/allcities', async (req, res) => {
+    console.log('allcities')
+    const ans = await findAllCities()
+    res.send(ans)
+})
+
+router.get('/isExist/:areaName', async (req, res) => {
+    console.log("in isExist ", req.params.areaName);
+
     try {
-        const response = await findSupplierOrClient(phone)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
+        const result = await findArea(req.params.areaName)
+        console.log({ result })
+        res.status(200).send(result.data)
     } catch (error) {
-        res.status(500).send(error.message)
+        console.log({ error })
+        res.status(500).send(error)
     }
 })
 
@@ -30,14 +35,15 @@ router.get('/isExist/:code', async (req, res) => {
 router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
     try {
-        const response = await insertArea(req.body)
-        if (response)
-            res.status(201).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
+        const result = await insertArea(req.body)
+        if (result)
+            res.status(201).send(result)
+            else
+            res.status(500).send()
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).send(error)
     }
 })
 
@@ -157,20 +163,12 @@ router.get('/findPointArray/:code/:areaName', async (req, res) => {
 })
 
 
-//מקבל קוד ספק/לקוח וכן שם אזור
-// בודק האם אזור זה קיים 
-router.get('/findAreaOfSupplierOrClient', async (req, res) => {
-    try {
-        const response = await findAreaOfSupplierOrClient(req.query.code, req.query.areaName)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+// //מקבל קוד ספק/לקוח וכן שם אזור
+// // בודק האם אזור זה קיים 
+// router.get('/findAreaOfSupplierOrClient', async (req, res) => {
+//     const result = await findAreaOfSupplierOrClient(req.query.code, req.query.areaName)
+//     res.status(200).send(result)
+// })
 
 
 

@@ -17,7 +17,10 @@ const createClient_router = require('./routers/clients/createClient')
 const readClient_router = require('./routers/clients/readClient')
 const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
+
 const productsCombinations_router = require('./routers/products/productsCombinations')
+
+const areas_router = require('./routers/areas/areas')
 
 
 app.use(cors());
@@ -36,6 +39,7 @@ app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
 app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
+app.use('/areas', areas_router)
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 app.use('/productsCombinations', productsCombinations_router)
 
