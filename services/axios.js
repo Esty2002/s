@@ -6,20 +6,21 @@ const sqlServer = axios.create({
     baseURL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
 })
 
-
 const getData = async (server, url) => {
     console.log("getData");
     let response;
     try {
         console.log("url", url );
         response = await server.get(url);
+        console.log(response.data,"response");
     }
 
     catch (error) {
         console.log("response-error");
         throw error;
     }
-    return response;
+    // console.log(response,"response");
+    return response.data;
 }
 
 const postData = async (server, url, body) => {
