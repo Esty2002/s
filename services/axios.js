@@ -20,10 +20,11 @@ const getData = async (url) => {
 }
 
 const postData = async (url, body) => {
-
+console.log('2222');
     let response;
     try {
         response = await server.post(url, body);
+        console.log('3333');
     }
     catch (error) {
         return error;

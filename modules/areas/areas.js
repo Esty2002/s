@@ -4,9 +4,11 @@ const { getData, postData } = require('../../services/axios')
 
 
 async function findAll() {
+    console.log('1111');
     const found = await postData('/read/find', {
         collection: "areas"
     })
+    console.log('4444');
     return found
 }
 
@@ -124,6 +126,8 @@ async function findArea(areaName) {
         collection: "areas",
         filter: { name: areaName }
     })
+
+    return result
 }
 async function findAreaByCode(code) {
     let filter = {};

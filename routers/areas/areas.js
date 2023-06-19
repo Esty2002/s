@@ -9,10 +9,11 @@ const { insertArea, findSupplierOrClient, findArea,
 
 router.get('/', async (req, res) => {
     const ans = await findAll()
-    res.send(ans)
+    console.log('5555',ans.data);
+    // res.json(ans)
 })
 
-router.get('/allcities', async(req, res)=>{
+router.get('/allcities', async (req, res) => {
     console.log('allcities')
     const ans = await findAllCities()
     res.send(ans)
@@ -23,10 +24,10 @@ router.get('/isExist/:areaName', async (req, res) => {
 
     try {
         const result = await findArea(req.params.areaName)
-        console.log({result})
+        console.log({ result })
         res.status(200).send(result.data)
     } catch (error) {
-        console.log({error})
+        console.log({ error })
         res.status(500).send(error)
     }
 
