@@ -7,7 +7,7 @@ const server = axios.create({
 })
 
 
-const getData = async (server, url) => {
+const getData = async (url) => {
     let response;
     try {
         response = await server.get(url);
@@ -19,14 +19,15 @@ const getData = async (server, url) => {
     return response;
 }
 
-const postData = async (server, url, body) => {
+const postData = async (url, body) => {
+
     let response;
     try {
         response = await server.post(url, body);
     }
     catch (error) {
-        throw error;
+        return error;
     }
     return response;
 }
-module.exports = { server, getData, postData }
+module.exports = {  getData, postData }
