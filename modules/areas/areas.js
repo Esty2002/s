@@ -31,9 +31,9 @@ async function insertArea(obj = {}) {
                 tableName: "tbl_Areas",
                 values: { AreaIdFromMongo: result.data, areaName: obj.name }
             })
-
-        if (resultToSql)
-            return resultToSql
+console.log({resultToSql})
+        if (resultToSql.status===201)
+            return resultToSql.data
 
     }
     else
@@ -178,7 +178,7 @@ async function getTheDataOfTheArea(code, areaName) {
 }
 
 module.exports = {
-    findAreaByCode,
+    // findAreaByCode,
     insertArea,
     findSupplierOrClient,
     deleteSupplierOrClient,
