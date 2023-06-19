@@ -9,7 +9,7 @@ const { insertArea, findSupplierOrClient, findArea,
 
 router.get('/', async (req, res) => {
     const ans = await findAll()
-    console.log('5555',ans.data);
+    console.log('5555', ans.data);
     // res.json(ans)
 })
 
@@ -38,8 +38,8 @@ router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
     try {
         const result = await insertArea(req.body)
-        console.log(result)
-        res.status(200).send(result)
+        console.log('------------------',result.rowsAffected);
+        res.status(200).send(result.rowsAffected)
     }
     catch (error) {
         console.log(error)
@@ -47,6 +47,17 @@ router.post('/insertArea', express.json(), async (req, res) => {
     }
 })
 
+router.get('/findAll/:filter', async (req, res) => {
+    let filter = req.params.filter
+    try {
+        const result = await findAll(filter)
+        console.log('-------',result);
+        res.status(200).send(result)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 router.post('/updateArea', express.json(), async (req, res) => {
     try {
