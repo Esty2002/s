@@ -14,12 +14,13 @@ router.post('/createnewlead', express.json(), async (req, res) => {
     }
 });
 
-router.post('/getleadsdetails', express.json(), async (req, res) => {
+router.get('/getleads/:condition', express.json(), async (req, res) => {
     try {
-        const response = await readLead(req.body);
+        const response = await readLead(req.params.condition!=="{condition}"?req.params.condition:null);
         res.status(200).send(response);
     }
     catch (error) {
+        console.log(error);
         res.status(404).send(error);
     }
 });

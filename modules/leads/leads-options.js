@@ -20,14 +20,14 @@ const createNewLead = async (obj = null) => {
     try {
         const result = await postData(sqlServer, 'create/createManySql', newObj);
         if (result) {
-            let morePorductsItems=[];
+            let morePorductsItems = [];
             if (obj.morePorductsItems) {
                 obj.morePorductsItems.forEach(mpi => {
                     morePorductsItems = [...morePorductsItems, {
                         Product: mpi.productCode,
                         Amount: mpi.amount,
                         LeadNumber: result[0].Id,
-                        AddedDate:new Date().toISOString()
+                        AddedDate: new Date().toISOString()
                     }]
                 })
                 objMpi = {
@@ -55,7 +55,37 @@ const createNewLead = async (obj = null) => {
 };
 
 const readLead = async (filter) => {
+    const obj = {
+        tableName: "tbl_Leads",
+        columns: '*',
+        condition: filter ? filter : "1=1"
+    }
 
+    try {
+        const values = await postData(sqlServer, 'read/readTopN', obj);
+        if (values) {
+            let result = [];
+            values.forEach(val => {
+                const sameRecord = values.filter(v => v.SupplyDate.toString() === val.SupplyDate.toString() && v.SupplyHour.toString() === val.SupplyHour.toString() &&
+                    v.Address === val.Address && v.OrdererCode === val.OrdererCode);
+
+                const keys = Object.keys(sameRecord[0]);
+                const temp = {}
+                for (let key of keys) {
+                    temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
+                }
+                result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
+                    r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
+            });
+            return result;
+        }
+        else {
+            return false;
+        }
+    }
+    catch (error) {
+        throw error;
+    }
 
 }
 

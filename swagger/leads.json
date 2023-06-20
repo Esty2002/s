@@ -216,7 +216,7 @@
             "condition": {
                 "type": "string",
                 "description": "the condition which lead to update",
-                "example": "SerialNumber=1"
+                "example": "OrdererCode=1"
             },
             "updateleadsdetails": {
                 "type": "object",
@@ -624,23 +624,24 @@
                 }
             }
         },
-        "/leads/getleadsdetails": {
-            "post": {
+        "/leads/getleads/{condition}": {
+            "get": {
                 "tags": [
                     "leads CRUD operations"
                 ],
                 "description": "updateleadsdetails",
                 "operationId": "updateleadsdetails",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getleadsdetails"
-                            }
-                        }
+                "parameters": [
+                    {
+                        "name": "condition",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/condition"
+                        },
+                        "required": false,
+                        "description": "the condition"
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "filtered data",
