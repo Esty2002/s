@@ -1,17 +1,22 @@
 require('dotenv').config()
 const { getData, postData } = require('../../services/axios')
 
-
-
 async function findAll(filter = undefined) {
-    console.log('filter', filter);
     const found = await postData('/read/find', {
         collection: "areas",
         filter: { type: filter }
     })
-    return found
+    return found;
 }
 
+async function findByDistinct(collection,filter = undefined) {
+    console.log({collection});
+    console.log({filter});
+
+    const found = await getData(`/read/distinct/${collection}/${filter}`)
+    console.log({found});
+    return found;
+}
 async function findAllCities() {
     console.log('findall cities');
     const found = await postData('/read/find', {
@@ -190,5 +195,6 @@ module.exports = {
     updatePointAndRadius,
     findArea,
     getTheDataOfTheArea,
-    findAll
+    findAll,
+    findByDistinct
 }
