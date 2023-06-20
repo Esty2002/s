@@ -20,7 +20,7 @@ const getData = async (server, url) => {
         throw error;
     }
     // console.log(response,"response");
-    return response.data;
+    return response;
 }
 
 const postData = async (server, url, body) => {

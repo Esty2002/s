@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const { findAuto } = require('../modules/auto_complete');
+const { findAuto } = require('../../modules/auto_complete');
 
 router.get('/autocomplete/:table/:column/:word', async (req, res) => {
     try {
@@ -10,7 +10,8 @@ router.get('/autocomplete/:table/:column/:word', async (req, res) => {
         res.status(200).send(result);
     }
     catch (error) {
-        res.status(400).send([])
+        console.log(error);
+        res.status(404).send([])
     }
 })
 
