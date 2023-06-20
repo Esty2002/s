@@ -135,6 +135,7 @@ async function findAreaByCode(code) {
         throw new Error("not found area")
 }
 
+
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");
     const result = await postData('/read/find',
