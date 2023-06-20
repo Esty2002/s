@@ -28,6 +28,7 @@ router.get('/isExist/:areaName', async (req, res) => {
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
+    console.log("llllllllllllll",{req});
     try {
         const result = await insertArea(req.body)
         res.status(200).send(result)

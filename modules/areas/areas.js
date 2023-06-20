@@ -11,12 +11,12 @@ async function findAll() {
 }
 
 async function insertArea(obj = {}) {
-
     const result = await postData(server, '/create/insertone',
-        {
-            collection: "Areas",
-            data: obj
-        })
+    {
+        collection: "areas",
+        data: obj
+    })
+    console.log({result});
     if (result) {
         const resultToSql = await postData(server, '/create/create',
             {
@@ -166,7 +166,6 @@ async function getTheDataOfTheArea(code, areaName) {
 }
 
 module.exports = {
-    findAreaByCode,
     insertArea,
     findSupplierOrClient,
     deleteSupplierOrClient,
