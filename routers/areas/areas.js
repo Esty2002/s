@@ -2,15 +2,13 @@ const router = require('express').Router()
 const express = require('express')
 
 const { insertArea, findSupplierOrClient, findArea,
-    deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findAllCities } = require('../../modules/areas/areas')
+    deleteSupplierOrClient, deleteArea, updateArea,
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct } = require('../../modules/areas/areas')
 
 
 
 router.get('/', async (req, res) => {
-    const ans = await findAll()
-    console.log('5555', ans.data);
-    // res.json(ans)
+    res.send("areas---")
 })
 
 router.get('/allcities', async (req, res) => {
@@ -36,11 +34,11 @@ router.get('/isExist/:areaName', async (req, res) => {
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
-    console.log("llllllllllllll",{req});
-    console.log("req.body",req.body);
+    console.log("llllllllllllll", { req });
+    console.log("req.body", req.body);
     try {
         const result = await insertArea(req.body)
-        console.log('------------------',result);
+        console.log('------------------', result);
         res.status(200).send(result)
     }
     catch (error) {
@@ -62,11 +60,25 @@ router.post('/insertArea', express.json(), async (req, res) => {
 
 router.get('/findAll/:filter', async (req, res) => {
     let filter = req.params.filter
-    console.log("filter",filter);
+    console.log("filter", filter);
     try {
         const result = await findAll(filter)
-        console.log('***********************',result.data);
+        console.log('***********************', result.data);
         res.status(200).send(result.data)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+router.get('/findAllTypes/:collection/:filter', async (req, res) => {
+    let filter = req.params.filter;
+    let collection = req.params.collection;
+    console.log("filter in router", filter);
+    try {
+        const result = await findByDistinct(collection,filter)
+        console.log('***********************', result.data);
+        res.status(200).send(result.data.response)
     }
     catch (err) {
         res.status(500).send(err)
@@ -141,7 +153,7 @@ router.post('/deleteArea', express.json(), async (req, res) => {
 //     try {
 //         const result = await findAreaByCode(req.params.code)
 //         res.status(200).send(result)
-//     } catch (error) {
+//     } catch (error) { 
 //         res.status(404).send(error)
 //     }
 
