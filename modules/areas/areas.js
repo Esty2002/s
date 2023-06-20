@@ -22,7 +22,8 @@ async function findAllCities() {
     const found = await postData('/read/find', {
         collection: "areas", filter: { city: true }
     })
-    return found
+    console.log({ found })
+    return found.data
 }
 
 async function insertArea(obj = {}) {
@@ -37,7 +38,7 @@ async function insertArea(obj = {}) {
         const resultToSql = await postData('/create/create',
             {
                 tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.data, areaName: obj.name }
+                values: { AreaIdFromMongo: result.data, AreaName: obj.name }
             })
         if (resultToSql) {
             console.log("resultToSql.rowsAffected", resultToSql);

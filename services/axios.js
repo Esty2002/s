@@ -12,11 +12,13 @@ const getData = async (url) => {
     console.log({url});
     try {
         response = await server.get(url);
+        console.log(response.data,"response");
     }
 
     catch (error) {
         throw error;
     }
+    // console.log(response,"response");
     return response;
 }
 
