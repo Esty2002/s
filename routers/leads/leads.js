@@ -25,9 +25,9 @@ router.get('/getleads/:condition', express.json(), async (req, res) => {
     }
 });
 
-router.post('/updatelead', express.json(), async (req, res) => {
+router.put('/updatelead', express.json(), async (req, res) => {
     try {
-        const response = await updateLead(req.body.filter, req.body.obj);
+        const response = await updateLead(req.body);
         res.status(200).send(response);
     }
     catch (error) {
@@ -35,14 +35,14 @@ router.post('/updatelead', express.json(), async (req, res) => {
     }
 });
 
-router.post('/deletelead/:serialNumber', express.json(), async (req, res) => {
+router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
     try {
-        req.body.obj.disable = true;
-        req.body.obj.deletingDate = new Date();
+       
         const response = await deleteLead(req.params.serialNumber);
         res.status(200).send(response);
     }
     catch (error) {
+        console.log(error);
         res.status(404).send(error);
     }
 });

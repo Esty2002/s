@@ -29,6 +29,17 @@ const values = [
             DeletingDate: null
         }
     },
+    {
+        tableName:"tbl_MoreProductsItems",
+        values:{
+            LeadNumber:"",
+            Product:"",
+            Amount:"",
+            AddedDate: new Date().toISOString(),
+            Disable: 'False',
+            DeletingDate: null
+        }
+    }
     
 ];
 

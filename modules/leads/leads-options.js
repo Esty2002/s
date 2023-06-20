@@ -6,7 +6,7 @@ const createNewLead = async (obj = null) => {
         values = [...values, {
             SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour ? new Date(obj.supplyHour).toISOString() : null, OrdererCode: obj.ordererCode,
             Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-            ClientCode: obj.clientCode, BaseConcretProduct: bcp, ConcretAmount: obj.concretAmount, Pump: obj.pump, PumpPipeLength: obj.pumpPipeLength,
+            ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablname: bcp.tableReference, ConcretAmount: obj.concretAmount, Pump: obj.pump, PumpPipeLength: obj.pumpPipeLength,
             PouringType: obj.pouringType, PouringTypesComments: obj.pouringTypesComments, Comments: obj.comments, StatusLead: 1,
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
         }];
@@ -58,7 +58,7 @@ const readLead = async (filter) => {
     const obj = {
         tableName: "tbl_Leads",
         columns: '*',
-        condition: filter ? filter : "1=1"
+        condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
     }
 
     try {
@@ -90,44 +90,55 @@ const readLead = async (filter) => {
 }
 
 const updateLead = async (obj = null) => {
-    if (obj) {
-        const newObj = {
-            tableName: 'leads',
-            values: obj.values,
-            condition: obj.condition
-        };
-        if (newObj) {
-            try {
-                const result = await postData(sqlServer, '', newObj);
-                return result;
+    try {
+        if (obj.condition) {
+            const baseLead = await getData(sqlServer, `read/readAll/tbl_Leads/${obj.condition}`);
+            console.log(baseLead, "baseLead");
+            if (baseLead.length > 0) {
+                const newObj = {
+                    tableName: 'tbl_Leads',
+                    values: obj.values,
+                    condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
+                };
+                const result = await postData(sqlServer, 'update/update', newObj);
+                if (result) {
+                    return result;
+                }
+                else {
+                    return false;
+                }
             }
-            catch (error) {
-                throw error;
+            else {
+                throw new Error("this id is not exist");
             }
         }
         else {
-            throw new Error("one or more of the arguments are not valid");
+            throw new Error('the condition not exist');
         }
+    }
+    catch (error) {
+        throw error;
+    }
 
-    }
-    else {
-        throw new Error("the obj or filter are not defined");
-    }
 };
 
-const deleteLead = async (serialNumber) => {
-    if (serialNumber) {
+const deleteLead = async (id) => {
+    if (id) {
         const obj = {
-            tableName: 'leads',
             values: {
-                disable: 1,
-                deletingDate: new Date()
+                Disable: 1,
+                DeletingDate: new Date().toISOString()
             },
-            condition: `SerialNumber=${serialNumber}`
+            condition: `Id=${id}`
         }
         try {
-            const result = await postData(sqlServer, '', obj);
-            return result;
+            const result = await updateLead(obj);
+            if (result) {
+                return result;
+            }
+            else {
+                return false;
+            }
         }
         catch (error) {
             throw error;
