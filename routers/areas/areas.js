@@ -36,10 +36,11 @@ router.get('/isExist/:areaName', async (req, res) => {
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
+    console.log("req.body",req.body);
     try {
         const result = await insertArea(req.body)
-        console.log('------------------',result.rowsAffected);
-        res.status(200).send(result.rowsAffected)
+        console.log('------------------',result);
+        res.status(200).send(result)
     }
     catch (error) {
         console.log(error)
@@ -47,12 +48,24 @@ router.post('/insertArea', express.json(), async (req, res) => {
     }
 })
 
+// router.get('/findAllAreas', async (req, res) => {
+//     try {
+//         const result = await findAll()
+//         console.log('-------',result);
+//         res.status(200).send(result)
+//     }
+//     catch (err) {
+//         res.status(500).send(err)
+//     }
+// })
+
 router.get('/findAll/:filter', async (req, res) => {
     let filter = req.params.filter
+    console.log("filter",filter);
     try {
         const result = await findAll(filter)
-        console.log('-------',result);
-        res.status(200).send(result)
+        console.log('***********************',result.data);
+        res.status(200).send(result.data)
     }
     catch (err) {
         res.status(500).send(err)

@@ -3,7 +3,7 @@ const { getData, postData } = require('../../services/axios')
 
 
 
-async function findAll(filter) {
+async function findAll(filter = undefined) {
     console.log('filter', filter);
     const found = await postData('/read/find', {
         collection: "areas",
@@ -12,12 +12,6 @@ async function findAll(filter) {
     return found
 }
 
-async function findAllCities() {
-    const found = await postData('/read/find', {
-        collection: "areas", filter: { city: true }
-    })
-    return found
-}
 
 async function insertArea(obj = {}) {
     console.log('------', obj);
@@ -26,7 +20,7 @@ async function insertArea(obj = {}) {
             collection: "areas",
             data: obj
         })
-    console.log('mongo----', result.data);
+    console.log('mongo----', result.data, 'name', obj.name);
     if (result.data) {
         const resultToSql = await postData('/create/create',
             {
@@ -34,8 +28,8 @@ async function insertArea(obj = {}) {
                 values: { AreaIdFromMongo: result.data, areaName: obj.name }
             })
         if (resultToSql) {
-            console.log("resultToSql.rowsAffected", resultToSql.rowsAffected);
-            return resultToSql.rowsAffected
+            console.log("resultToSql.rowsAffected", resultToSql);
+            return resultToSql.data
         }
     }
     else
@@ -185,6 +179,5 @@ module.exports = {
     updatePointAndRadius,
     findArea,
     getTheDataOfTheArea,
-    findAll,
-    findAllCities
+    findAll
 }
