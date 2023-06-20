@@ -1,39 +1,43 @@
 require('dotenv').config()
-const { getData, postData, server } = require('../../services/axios')
+const { getData, postData } = require('../../services/axios')
 
 
 
-async function findAll() {
-    const found = await postData(server, '/read/find', {
-        collection: "areas"
+async function findAll(filter = undefined) {
+    console.log('filter', filter);
+    const found = await postData('/read/find', {
+        collection: "areas",
+        filter: { type: filter }
     })
     return found
 }
 
+
 async function insertArea(obj = {}) {
-    const result = await postData(server, '/create/insertone',
-    {
-        collection: "areas",
-        data: obj
-    })
-    console.log({result});
-    if (result) {
-        const resultToSql = await postData(server, '/create/create',
+    console.log('------', obj);
+    const result = await postData('/create/insertone',
+        {
+            collection: "areas",
+            data: obj
+        })
+    console.log('mongo----', result.data, 'name', obj.name);
+    if (result.data) {
+        const resultToSql = await postData('/create/create',
             {
                 tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.ObjectId, areaName: obj.area.areaName }
+                values: { AreaIdFromMongo: result.data, areaName: obj.name }
             })
-
-        if (resultToSql)
-            return resultToSql
-
+        if (resultToSql) {
+            console.log("resultToSql.rowsAffected", resultToSql);
+            return resultToSql.data
+        }
     }
     else
-        throw new Error("Can't insert area")
+        throw new Error("Can't insert area");
 }
 
 async function updateArea(obj = {}) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
@@ -47,10 +51,9 @@ async function updateArea(obj = {}) {
 
 }
 
-//giti...
 async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: obj.code },
@@ -63,9 +66,8 @@ async function updateLocation(obj) {
         throw new Error('Not Found area to update')
 };
 
-// giti
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -84,7 +86,7 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 };
 
 async function deleteSupplierOrClient(phone) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { SupplierOrClientCode: phone },
@@ -97,7 +99,7 @@ async function deleteSupplierOrClient(phone) {
 }
 
 async function deleteArea(phone, area) {
-    const result = await postData(server, '/update/updateone',
+    const result = await postData('/update/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: phone },
@@ -112,18 +114,21 @@ async function deleteArea(phone, area) {
 }
 
 async function findArea(areaName) {
-    const result = await postData(server, '/read/find', {
+    const result = await postData('/read/find', {
         collection: "areas",
         filter: { name: areaName }
-
-        // async function findAreaByCode(code) {
-        //         let filter = {};
-        //         const result = await postData(server, '/read/find',
-        //             {
-        //                 collection: "Areas",
-        //                 filter: { supplierOrClientCode: code },
-        //                 project: {}
     })
+
+    return result
+}
+async function findAreaByCode(code) {
+    let filter = {};
+    const result = await postData('/read/find',
+        {
+            collection: "Areas",
+            filter: { supplierOrClientCode: code },
+            project: {}
+        })
     if (result)
         return result
     else
@@ -133,7 +138,7 @@ async function findArea(areaName) {
 
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");
-    const result = await postData(server, '/read/find',
+    const result = await postData('/read/find',
         {
             dbName: "Buyton",
             collection: "Areas",
@@ -150,7 +155,7 @@ async function findSupplierOrClient(code) {
 
 async function getTheDataOfTheArea(code, areaName) {
     console.log("getTheDataOfTheArea", code, areaName);
-    const result = await postData(server, '/mongo/find',
+    const result = await postData('/mongo/find',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
