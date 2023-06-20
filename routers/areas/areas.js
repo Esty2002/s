@@ -5,8 +5,6 @@ const { insertArea, findSupplierOrClient, findAreaOfSupplierOrClient,
     deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
     getTheDataOfTheArea, updateLocation, updatePointAndRadius } = require('../../modules/price-list/areas')
 
-
-
 router.get('/', (req, res) => {
     res.send('into router...')
 })

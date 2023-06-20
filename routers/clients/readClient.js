@@ -1,19 +1,26 @@
 const express = require('express')
 const router = express.Router()
-const { getAllClient, getClientsByField, getClientsById } = require('../../modules/clients/readClient')
+const { getAllClient, getClientsByField, getClientsById , getAllDeletedClient} = require('../../modules/clients/readClient')
 
-
-router.get('/getAll', async (req, res) => {   
+// router.get('/getAll/:disabled', async (req, res) => {   
+//     console.log(req.params.disabled, " req.params.disabled");
+//     const allClients = await getAllClient(req.params.disabled);
+router.get('/getAll', async (req, res) => { 
     const allClients = await getAllClient();
-    console.log(allClients.data);
-    if (allClients.data)
-        res.status(200).send(allClients.data)
+    if (allClients)
+        res.status(200).send(allClients)
     else
         res.status(404).send({message:'NOT FOUND'})
-    console.log();
+    
+})
+router.get('/getAllDeleted', async (req, res) => {   
+    const allClients = await getAllDeletedClient();
+    if (allClients)
+        res.status(200).send(allClients)
+    else
+        res.status(404).send({message:'NOT FOUND'})
 
 })
-
 router.get('/findClient/:id', async (req, res) => {
     const getClientByid = await getClientsById(req.params.id)
     if (getClientByid )

@@ -1,10 +1,6 @@
 require('dotenv').config()
 const { getData, postData, server } = require('../../services/axios')
 
-
-
-
-
 async function insertArea(obj = {}) {
     const exist = await findAreaOfSupplierOrClient(obj.supplierOrClientCode, obj.area.areaName)
     if (exist.int == 0) {

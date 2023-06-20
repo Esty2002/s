@@ -19,7 +19,6 @@ const readClient_router = require('./routers/clients/readClient')
 const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
 
-
 app.use(cors());
 app.use('/pumps', pumps_router)
 app.use('/unitOfMeasure', manageUnitOfMeasure)
@@ -33,11 +32,10 @@ app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
 app.use('/updateClient', updateClient_router)
 app.use('/createClient', createClient_router)
-app.use('/delete_client', delete_client_router);
+app.use('/deleteclient', delete_client_router);
 app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
-
 
 app.get('/', (req, res) => {
     res.status(200).send('hello buyton');

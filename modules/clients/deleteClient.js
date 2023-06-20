@@ -16,12 +16,11 @@ async function deletedClientByCode(clientCode, userName) {
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
 
         result = await postData(sqlServer,'http://127.0.0.1:1313/update/update', obj)
-        return result.data;
+
+        return result;
     }
     
     return false
 }
-
-
 
 module.exports = { deletedClientByCode }   

@@ -17,7 +17,8 @@ async function getStatusNumber() {
         'columns': '*',
     }
     const result = await postData(sqlServer,'/read/readTopN',obj);
-    return result.data;
+    console.log({result})
+    return result;
 }
 
 module.exports = { addOneStatus, deleteOneStatus, getStatusNumber }

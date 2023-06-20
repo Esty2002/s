@@ -1,5 +1,13 @@
 const { postData ,sqlServer} = require('../../services/axios')
-
+// async function getAllClient(disabled) {
+//     console.log(disabled, " disabled - 1module");
+//     let obj={}
+//     obj['tableName']='tbl_Clients'
+//     obj['condition']=`disabled='${disabled}'`
+//     obj['columns']='*'
+//     const result= await postData(sqlServer,'/read/readTopN',obj);
+//     return result
+// }
 async function getAllClient() {
     let obj={}
     obj['tableName']='tbl_Clients'
@@ -8,6 +16,15 @@ async function getAllClient() {
     const result= await postData(sqlServer,'/read/readTopN',obj);
     return result
 }
+async function getAllDeletedClient() {
+    let obj={}
+    obj['tableName']='tbl_Clients'
+    obj['condition']=`disabled='True'`
+    obj['columns']='*'
+    const result= await postData(sqlServer,'/read/readTopN',obj);
+    return result
+}
+
 async function getClientsById(id) {
     let obj={}
     obj['tableName']='tbl_Clients'
@@ -33,4 +50,4 @@ async function getClientsByField(field, value) {
     return result
 }
 
-module.exports = { getAllClient, getClientsByField, getClientsById }
+module.exports = { getAllClient, getClientsByField, getClientsById, getAllDeletedClient }

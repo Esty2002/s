@@ -107,14 +107,14 @@ async function checkUniqueCode(code) {
     console.log("check - unique - code", code);
     let resultSupplierCode = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
    
-    return resultSupplierCode.data.length===0
+    return resultSupplierCode.length===0
 
 }
 async function checkUniqueName(name) {
     console.log("check - unique - name", name);
     let resultSuppliersName = await getData(sqlServer, `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
  
-    return resultSuppliersName.data.length===0
+    return resultSuppliersName.length===0
 }
 
 async function checkUnique(setting) {
