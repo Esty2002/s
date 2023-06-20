@@ -55,4 +55,5 @@ app.get('/*', (req, res) => {
     res.status(200).send('request not found');
 });
 
-module.exports = { app }
+
+module.exports = { app };

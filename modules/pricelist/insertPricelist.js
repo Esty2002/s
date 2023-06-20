@@ -1,17 +1,10 @@
 
-const { sqlServer, postData } = require('../../services/axios')
-let obj = {}
-async function addOnePriceList(object) {
-    let obj = {}
-    obj['tableName'] = 'tbl_PriceList2'
-    obj['values'] = object
-    obj['columns'] = '*'
+const { sqlServer, postData, getData } = require('../../services/axios')
 
-    _ = await postData(sqlServer, `/create/create`, obj)
-    return true;
-}
+
 
 async function insert(data, tableName) {
+    let obj = {}
     console.log(data, ' data');
     console.log(tableName, ' tbname');
    
@@ -19,10 +12,20 @@ async function insert(data, tableName) {
     obj['values'] = data
     obj['columns'] = '*'
 
-    const result = await postData(sqlServer, '/create/create', obj)
-    console.log(result, ' result');
+    _= await postData(sqlServer, '/create/create', obj)
     return true;
 }
 
+async function getProducts(tbName){
+    let obj={}
+    obj['tableName']=tbName
+    obj['columns']='*'
 
-module.exports = { addOnePriceList, insert}
+    const response=await postData(sqlServer,'/read/readTopN',obj)
+    console.log(response.data,' res');
+
+    return response.data;
+}
+
+
+module.exports = { insert,getProducts}

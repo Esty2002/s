@@ -1,23 +1,16 @@
 const express = require('express')
 const router = express.Router()
 
-const { addOnePriceList,insert} = require('../../modules/pricelist/insertPricelist')
+const { insert,getProducts} = require('../../modules/pricelist/insertPricelist')
 let tableName
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
-    _ = await addOnePriceList(req.body)
+    _ = await insert(req.body,'tbl_PriceList2')
     res.status(200).send(true)
 })
 
-
-
-//to do one function in module and all the functions in the router 
-// call for here
-
-
 //tbl_CitiesAdditions
 router.post('/addCitiesAdditions', express.json(), async (req, res) => {
-    console.log("innnn: ", req.body);
     tableName='tbl_CitiesAdditions'
     _ = await insert(req.body,tableName)
     res.status(200).send(true)
@@ -29,9 +22,6 @@ router.post('/addTimeAdditions', express.json(), async (req, res) => {
     _ = await insert(req.body,tableName)
     res.status(200).send(true)
 })
-
-
-
 
 //tbl_AdditionsForDistance
 router.post('/addAdditionsForDistance', express.json(), async (req, res) => {
@@ -47,13 +37,26 @@ router.post('/addTruckFill', express.json(), async (req, res) => {
     res.status(200).send(true)
 })
 
-
-
 //tbl_PricesListBySupplierOrClient
 router.post('/addPricesListBySupplierOrClient', express.json(), async (req, res) => {
     tableName='tbl_PricesListBySupplierOrClient'
     _ = await insert(req.body,tableName)
     res.status(200).send(true)
+})
+
+
+//tbl_PricelistForProducts
+router.post('/addPricelistForProducts', express.json(), async (req, res) => {
+    tableName='tbl_PricelistForProducts'
+    _ = await insert(req.body,tableName)
+    res.status(200).send(true)
+})
+
+router.post('/detailsOfProfucts/:tbname',express.json(),async(req,res)=>{
+    let tbName=req.params.tbname
+    console.log(tbName,' lklkl');
+    const result=await getProducts(tbName)
+    res.status(200).send(result)
 })
 
 module.exports = router;

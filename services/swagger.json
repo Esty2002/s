@@ -47,7 +47,7 @@
                         }
                     },
                     "required": true
-                },    
+                },
                 "responses": {
                     "200": {
                         "description": "Successful operation",
@@ -207,7 +207,6 @@
                 ]
             }
         },
-
         "/creatPricelist/addTruckFill": {
             "post": {
                 "tags": [
@@ -252,9 +251,9 @@
                 "tags": [
                     "CRUD"
                 ],
-                "summary": "insert pricelist by Supplier Or Client",
-                "description": "insert pricelist by Supplier Or Client",
-                "operationId": "insert pricelist by Supplier Or Client",
+                "summary": "insert pricelist for product",
+                "description": "insert pricelist for product",
+                "operationId": "insert pricelist for product",
                 "requestBody": {
                     "content": {
                         "application/json": {
@@ -286,11 +285,46 @@
                 ]
             }
         },
-
-        
-
-
-
+        "/creatPricelist/addPricelistForProducts": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert pricelist by Supplier Or Client",
+                "description": "insert pricelist by Supplier Or Client",
+                "operationId": "insert pricelist by Supplier Or Client",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForProducts",
+                                "format": "date-time"
+                            }
+                        }
+                    }  
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
         "/user/login": {
             "get": {
                 "tags": [
@@ -452,7 +486,7 @@
                     "name": "ResponseForCitiesadditions"
                 }
             },
-            "TimeAdditionsForPricelist":{
+            "TimeAdditionsForPricelist": {
                 "type": "object",
                 "properties": {
                     "PriceListId": {
@@ -467,20 +501,19 @@
                         "type": "integer",
                         "example": 1878
                     },
-                   
                     "CountPrecent": {
                         "type": "float",
                         "example": 8
                     },
-                    "DayOfWeek":{
+                    "DayOfWeek": {
                         "type": "integer",
                         "example": "1"
                     },
-                    "StartDate":{
+                    "StartDate": {
                         "type": "string",
                         "example": "07/05/2022"
                     },
-                    "EndDate":{
+                    "EndDate": {
                         "type": "string",
                         "example": "07/05/2024"
                     },
@@ -494,14 +527,14 @@
                     }
                 }
             },
-            "ResponseFortimeAdditions":{
+            "ResponseFortimeAdditions": {
                 "required": [],
                 "type": "boolean",
                 "xml": {
                     "name": "ResponseForCitiesadditions"
                 }
             },
-            "DistanceAdditionsForPricelist":{
+            "DistanceAdditionsForPricelist": {
                 "type": "object",
                 "properties": {
                     "PriceListId": {
@@ -512,7 +545,7 @@
                         "type": "integer",
                         "example": 1
                     },
-                    "Distance":{
+                    "Distance": {
                         "type": "float",
                         "example": 401.2
                     },
@@ -520,7 +553,6 @@
                         "type": "integer",
                         "example": 4000
                     },
-                   
                     "CountPrecent": {
                         "type": "float",
                         "example": 8
@@ -535,7 +567,7 @@
                     }
                 }
             },
-            "TruckFillAdditionsForPricelist":{
+            "TruckFillAdditionsForPricelist": {
                 "type": "object",
                 "properties": {
                     "PriceListId": {
@@ -546,7 +578,7 @@
                         "type": "integer",
                         "example": 1
                     },
-                    "TransportDiff":{
+                    "TransportDiff": {
                         "type": "float",
                         "example": 10
                     },
@@ -564,7 +596,7 @@
                     }
                 }
             },
-            "PricesListBySupplierOrClient":{
+            "PricesListBySupplierOrClient": {
                 "type": "object",
                 "properties": {
                     "PriceListId": {
@@ -572,26 +604,26 @@
                         "example": 1
                     },
                     "SupplierOrClient": {
-                        "type": "integer",  
+                        "type": "integer",
                         "example": 1001
                     },
                     "Debit": {
                         "type": "boolean",
                         "example": true
                     },
-                    "Credit":{
+                    "Credit": {
                         "type": "boolean",
                         "example": true
                     },
-                    "AreaId":{
+                    "AreaId": {
                         "type": "string",
                         "example": "Ashdod"
                     },
-                    "StartDate":{
+                    "StartDate": {
                         "type": "string",
                         "example": "01/01/2000"
                     },
-                    "EndDate":{
+                    "EndDate": {
                         "type": "string",
                         "example": "01/01/2030"
                     },
@@ -605,14 +637,42 @@
                     }
                 }
             },
-            "ResponseForInsert":{
+            "PricelistForProducts": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Price": {
+                        "type": "float",
+                        "example": 1200
+                    },
+                    "Discount": {
+                        "type": "float",
+                        "example": 10
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "15/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Nava"
+                    }
+                }
+            },
+            "ResponseForInsert": {
                 "required": [],
                 "type": "boolean",
                 "xml": {
                     "name": "ResponseForCitiesadditions"
                 }
             }
-
         },
         "requestBodies": {
             "UserArray": {
