@@ -30,9 +30,9 @@ async function insertArea(obj = {}) {
         const resultToSql = await postData('/create/create',
             {
                 tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.data, areaName: obj.name }
+                values: { AreaIdFromMongo: result.data, AreaName: obj.name }
             })
-        if (resultToSql.data.rowsAffected[0] === 1)
+        if (resultToSql)
             return true
         else {
             return false

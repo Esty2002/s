@@ -20,10 +20,11 @@ router.post('/getByType', express.json(), async (req, res) => {
 router.post('/insertRow', express.json(), async (req, res) => {
     try {
         const response = await insertRow(req.body)
-        if (response)
-            res.status(201).send(response)
+        console.log({response});
+        if (response.data.Id)
+            res.status(201).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(false)
         }
     } catch (error) {
         res.status(500).send(error.message)

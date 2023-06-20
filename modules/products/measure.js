@@ -8,8 +8,8 @@ async function updateMeasure(condition, obj) {
 }
 
 async function insertMeasure(name) {
-    const response =  await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
-    return response.data
+    const response =  await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
+    return response
 }
 
 async function findMeasureNumber(name) {
@@ -17,9 +17,9 @@ async function findMeasureNumber(name) {
      return a.data[0].id
 }
 async function findMeasureName(num) {
-    console.log(num,'num');
-
-    return (await getData( `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].measure
+const measure =(await getData( `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].Measure 
+console.log({measure})
+    return measure
 }
 
 async function getAll(){

@@ -7,6 +7,7 @@ router.post('/create', express.json(), async (req, res) => {
     console.log('post create finishproduct')
     try {
         const response = await insertFinishProduct(req.body)
+        console.log({response})
         if (response)
             res.status(201).send(response)
         else {

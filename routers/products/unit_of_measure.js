@@ -32,10 +32,11 @@ router.get('/findMeasureId', async (req, res) => {
 router.post('/create', express.json(), async (req, res) => {
     try {
         const response =await insertMeasure(req.body.new)
-        if (response)
-            res.status(201).send(response)
+        console.log({response:response.data.rowsAffected})
+        if (response.data.rowsAffected.every(r=>r==1))
+            res.status(201).send(response.data.recordset[0])
         else {
-            res.status(500).send(response)
+            res.status(500).send(-1)
         }
     } catch (error) {
         res.status(500).send(error.message)
