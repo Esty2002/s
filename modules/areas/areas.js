@@ -17,9 +17,16 @@ async function findByDistinct(collection,filter = undefined) {
     console.log({found});
     return found;
 }
+async function findAllCities() {
+    console.log('findall cities');
+    const found = await postData('/read/find', {
+        collection: "areas", filter: { city: true }
+    })
+    return found
+}
 
 async function insertArea(obj = {}) {
-    console.log('------', obj);
+    console.log({ obj })
     const result = await postData('/create/insertone',
         {
             collection: "areas",
@@ -36,6 +43,9 @@ async function insertArea(obj = {}) {
             console.log("resultToSql.rowsAffected", resultToSql);
             return resultToSql.data
         }
+        if (resultToSql.status===201)
+            return resultToSql.data
+
     }
     else
         throw new Error("Can't insert area");
@@ -176,6 +186,7 @@ async function getTheDataOfTheArea(code, areaName) {
 }
 
 module.exports = {
+    // findAreaByCode,
     insertArea,
     findSupplierOrClient,
     deleteSupplierOrClient,
