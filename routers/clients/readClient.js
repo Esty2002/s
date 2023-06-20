@@ -2,9 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { getAllClient, getClientsByField, getClientsById , getAllDeletedClient} = require('../../modules/clients/readClient')
 
-// router.get('/getAll/:disabled', async (req, res) => {   
-//     console.log(req.params.disabled, " req.params.disabled");
-//     const allClients = await getAllClient(req.params.disabled);
+
 router.get('/getAll', async (req, res) => { 
     const allClients = await getAllClient();
     if (allClients)
