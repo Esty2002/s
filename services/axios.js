@@ -20,7 +20,6 @@ const getData = async (url) => {
 }
 
 const postData = async (url, body) => {
-
     let response;
     try {
         response = await server.post(url, body);

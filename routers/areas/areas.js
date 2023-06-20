@@ -9,10 +9,11 @@ const { insertArea, findSupplierOrClient, findArea,
 
 router.get('/', async (req, res) => {
     const ans = await findAll()
-    res.send(ans)
+    console.log('5555', ans.data);
+    // res.json(ans)
 })
 
-router.get('/allcities', async(req, res)=>{
+router.get('/allcities', async (req, res) => {
     console.log('allcities')
     const ans = await findAllCities()
     res.send(ans)
@@ -23,10 +24,10 @@ router.get('/isExist/:areaName', async (req, res) => {
 
     try {
         const result = await findArea(req.params.areaName)
-        console.log({result})
+        console.log({ result })
         res.status(200).send(result.data)
     } catch (error) {
-        console.log({error})
+        console.log({ error })
         res.status(500).send(error)
     }
 
@@ -35,9 +36,10 @@ router.get('/isExist/:areaName', async (req, res) => {
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
+    console.log("req.body",req.body);
     try {
         const result = await insertArea(req.body)
-        console.log(result)
+        console.log('------------------',result);
         res.status(200).send(result)
     }
     catch (error) {
@@ -46,6 +48,29 @@ router.post('/insertArea', express.json(), async (req, res) => {
     }
 })
 
+// router.get('/findAllAreas', async (req, res) => {
+//     try {
+//         const result = await findAll()
+//         console.log('-------',result);
+//         res.status(200).send(result)
+//     }
+//     catch (err) {
+//         res.status(500).send(err)
+//     }
+// })
+
+router.get('/findAll/:filter', async (req, res) => {
+    let filter = req.params.filter
+    console.log("filter",filter);
+    try {
+        const result = await findAll(filter)
+        console.log('***********************',result.data);
+        res.status(200).send(result.data)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 router.post('/updateArea', express.json(), async (req, res) => {
     try {
