@@ -7,6 +7,7 @@ router.post('/create', express.json(), async (req, res) => {
     console.log('post create finishproduct')
     try {
         const response = await insertFinishProduct(req.body)
+        console.log({response})
         if (response)
             res.status(201).send(response)
         else {
@@ -27,7 +28,7 @@ router.post('/update', express.json(), async (req, res) => {
             res.status(500).send(response)
         }
     }
-    catch (error) { res.status(500).send(error.message) }
+    catch (error) { res.status(404).send(error.message) }
 })
 
 router.post('/delete', express.json(), async (req, res) => {
