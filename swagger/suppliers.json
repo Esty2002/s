@@ -42,9 +42,9 @@
                         "description": "licensedDealerNumber of supplier  ",
                         "example": "abc"
                     },
-                    "BokkeepingNumber": {
+                    "BookkeepingNumber": {
                         "type": "string",
-                        "description": "BokkeepingNumber of supplier",
+                        "description": "BookkeepingNumber of supplier",
                         "example": "abc"
                     },
                     "ObjectiveBank": {

@@ -22,10 +22,11 @@ router.get('/getallbranches', async (req, res) => {
         res.status(500).send(error);
     }
 })
-
-router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
+ 
+router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
+    console.log("getBranchesWithCondition - router");
     try {
-        const result = await getBranchesByCondition(req.params.condition, req.params.value);
+        const result = await getBranchesByCondition(req.params.condition, req.params.value ,req.params.num);
         res.status(200).send(result); 
     } 
     catch (error) {
@@ -33,7 +34,10 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
     }
 })
 
+
+
 router.post('/insertbranch', express.json(), async (req, res) => {
+    console.log("insert brances");
     try {
         const result = await insertOneBranch(req.body);
         res.status(200).send(result);
@@ -53,8 +57,9 @@ router.post('/updatebranch', express.json(), async (req, res) => {
     }
 })
 
-
+// /branches/checkUnique/${branch.SupplierCode}/${branch.BranchName}
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
+    console.log("in chckUniqe");
     try {
         const result = await checkUnique({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname });
         res.status(200).send(result);
