@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,GetPriceListByAreaId} =require('../../modules/pricelist/readPricelist')
+const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode} =require('../../modules/pricelist/readPricelist')
 
 router.get('/findAllPriceList', async (req, res) => {
     try {
@@ -47,18 +47,55 @@ router.get('/FindPriceListByProduct/product', async (req, res) => {
         res.status(500).send(error);
     }
 
-
 })
 // הפונקציה מקבלת שם אזור ומחזירה הצעת מחיר שקשורה אליו
 router.get('/FindPriceListByAreaId/:area', async (req, res) => {
+    console.log(req.params.area);
+
     try {
-        const ans = GetPriceListByAreaId(req.params.areaId)
+        const ans =await getPriceListByAreaId(req.params.area)
         res.status(200).send(ans)
     } catch (error) {
         res.status(404).send(error)
 
     }
+})
+// הפונקציה מקבלת שם אזור ומחזירה הצעת מחיר שקשורה אליו
+router.get('/FindPriceListBySupplerCodeOrClientCode/:code', async (req, res) => {
+    console.log("zzzzzzzzzzzzzzzzz");
+    console.log(req.params.code);
+    try {
+        const ans =await getPriceListbySupplierCodeOrClientCode(req.params.code)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
 
+    }
+})
+router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
+    console.log(";;;;;;;;;;;;");
+    console.log(req.params.id);
+    try {
+        const ans =await getPriceListByIdSupplierOrClientCode(req.params.id)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+router.get('/FindPriceListByProduct/:id', async (req, res) => {
+    console.log(";;;;;;;;;;;;");
+    console.log(req.params.id);
+    try {
+        const ans =await getPriceListByIdSupplierOrClientCode(req.params.id)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
 })
 
 module.exports=router;

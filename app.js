@@ -4,6 +4,7 @@ const app = express();
 const cors = require('cors')
 
 const swaggerUi = require('swagger-ui-express');
+const pricelist_swagger=require('./services/swagger.json')
 // const swaggerSuppliers = require('./swagger/supplier.json');
 const manage_branches_router = require('./routers/suppliers/branches');
 const manage_suppliers_router = require('./routers/suppliers/suppliers');
@@ -13,8 +14,12 @@ const readClient_router=require('./routers/clients/readClient')
 const updateClient_router=require('./routers/clients/updateClient')
 const status_router=require('./routers/clients/status')
 const readPriceList_router=require('./routers/pricelist/readPricelist')
+const creatPricelist_router=require('./routers/pricelist/insertPricelist');
+const { rmSync } = require('fs');
 
 app.use(cors());
+
+
 app.use('/branches',manage_branches_router);
 app.use('/suppliers',manage_suppliers_router);
 app.use('/updateClient',updateClient_router)
@@ -26,12 +31,15 @@ app.use('/readpricelist', readPriceList_router)
 
 
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
+app.use('/creatPricelist',creatPricelist_router)
+
+app.use('/api-pricelist-swagger', swaggerUi.serve, swaggerUi.setup(pricelist_swagger));
 
 
 app.get('/', (req, res) => {
     res.status(200).send('hello buyton');
 });
-
+rmSync
 app.get('/*', (req, res) => {
     res.status(200).send('request not found');
 });
