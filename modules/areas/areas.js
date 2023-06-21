@@ -197,5 +197,6 @@ module.exports = {
     findArea,
     getTheDataOfTheArea,
     findAll,
-    findByDistinct
+    findByDistinct,
+    findAllCities
 }

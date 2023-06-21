@@ -1,8 +1,8 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, findArea,
-    deleteSupplierOrClient, deleteArea, updateArea,
+const { insertArea, findSupplierOrClient, findArea, 
+    deleteSupplierOrClient, deleteArea, updateArea, findAllCities,
     getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct } = require('../../modules/areas/areas')
 
 
@@ -32,9 +32,6 @@ router.get('/isExist/:areaName', async (req, res) => {
 
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
-    // מקבל את כל האובייקט שצריך להכניס למונגו
-    console.log("llllllllllllll", { req });
-    console.log("req.body", req.body);
     try {
         const result = await insertArea(req.body)
         if (result)
@@ -73,11 +70,10 @@ router.get('/findAll/:filter', async (req, res) => {
 })
 
 router.get('/findAllTypes/:collection/:filter', async (req, res) => {
-    let filter = req.params.filter;
     let collection = req.params.collection;
-    console.log("filter in router", filter);
+    let filter = req.params.filter
     try {
-        const result = await findByDistinct(collection,filter)
+        const result = await findByDistinct(collection, filter)
         console.log('***********************', result.data);
         res.status(200).send(result.data.response)
     }
