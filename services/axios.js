@@ -2,34 +2,42 @@ require('dotenv');
 const axios = require('axios');
 const { SQL_SERVER_HOST, SQL_SERVER_PORT } = process.env
 
-const sqlServer = axios.create({
+const server = axios.create({
     baseURL: `http://${SQL_SERVER_HOST}:${SQL_SERVER_PORT}`
 })
 
 
-const getData = async (server, url) => {
-    console.log("getData");
+const getData = async (url) => {
     let response;
+    console.log({url});
     try {
-        console.log("url", url );
         response = await server.get(url);
+        console.log(response.data,"response");
     }
 
     catch (error) {
-        console.log("response-error");
         throw error;
     }
+    // console.log(response,"response");
     return response;
 }
 
-const postData = async (server, url, body) => {
+const postData = async (url, body) => {
     let response;
     try {
+        console.log('url======',url);
+        console.log('body======',body);
         response = await server.post(url, body);
     }
     catch (error) {
-        throw error;
+        return error;
     }
     return response;
 }
-module.exports = { sqlServer, getData, postData }
+module.exports = {  getData, postData }
+// ----1
+// url====== /read/distinct
+// body====== { collection: 'areas', distinct: 'type' }
+// ----2
+// url====== /read/find
+// body====== { collection: 'areas', filter: { type: 'poligon' } }
