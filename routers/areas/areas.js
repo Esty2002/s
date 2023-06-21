@@ -2,17 +2,16 @@ const router = require('express').Router()
 const express = require('express')
 
 const { insertArea, findSupplierOrClient, findArea,
-    deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findAllCities } = require('../../modules/areas/areas')
+    deleteSupplierOrClient, deleteArea, updateArea,
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct } = require('../../modules/areas/areas')
 
 
 
 router.get('/', async (req, res) => {
-    const ans = await findAll()
-    res.send(ans)
+    res.send("areas---")
 })
 
-router.get('/allcities', async(req, res)=>{
+router.get('/allcities', async (req, res) => {
     console.log('allcities')
     const ans = await findAllCities()
     console.log(ans);
@@ -24,22 +23,25 @@ router.get('/isExist/:areaName', async (req, res) => {
 
     try {
         const result = await findArea(req.params.areaName)
-        console.log({result})
+        console.log({ result })
         res.status(200).send(result.data)
     } catch (error) {
-        console.log({error})
+        console.log({ error })
         res.status(500).send(error)
     }
-
 })
 
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     // מקבל את כל האובייקט שצריך להכניס למונגו
+    console.log("llllllllllllll", { req });
+    console.log("req.body", req.body);
     try {
         const result = await insertArea(req.body)
-        console.log(result)
-        res.status(200).send(result)
+        if (result)
+            res.status(201).send(result)
+            else
+            res.status(500).send()
     }
     catch (error) {
         console.log(error)
@@ -47,36 +49,81 @@ router.post('/insertArea', express.json(), async (req, res) => {
     }
 })
 
+// router.get('/findAllAreas', async (req, res) => {
+//     try {
+//         const result = await findAll()
+//         console.log('-------',result);
+//         res.status(200).send(result)
+//     }
+//     catch (err) {
+//         res.status(500).send(err)
+//     }
+// })
+
+router.get('/findAll/:filter', async (req, res) => {
+    let filter = req.params.filter
+    console.log("filter", filter);
+    try {
+        const result = await findAll(filter)
+        console.log('***********************', result.data);
+        res.status(200).send(result.data)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+router.get('/findAllTypes/:collection/:filter', async (req, res) => {
+    let filter = req.params.filter;
+    let collection = req.params.collection;
+    console.log("filter in router", filter);
+    try {
+        const result = await findByDistinct(collection,filter)
+        console.log('***********************', result.data);
+        res.status(200).send(result.data.response)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 router.post('/updateArea', express.json(), async (req, res) => {
     try {
-        const result = await updateArea(req.body)
-        res.status(200).send(result)
+        const response = await updateArea(req.body)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
-    catch (error) {
-        res.status(404).send(error)
-    }
-
 })
 // giti
 router.post('/updatePointsInArea', express.json(), async (req, res) => {
-    console.log("updatePointsInArea");
-    console.log(req.body);
     try {
-        const result = await updateLocation(req.body)
-        res.status(200).send(result)
+        const response = await updateLocation(req.body)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
     } catch (error) {
-        res.status(404).send({ error })
+        res.status(500).send(error.message)
     }
 })
 
 // giti
 router.post('/updatePointsAndRadiusInArea', express.json(), async (req, res) => {
     try {
-        const result = await updatePointAndRadius(req.body)
-        res.status(200).send(result)
+        const response = await updatePointAndRadius(req.body)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error.message)
     }
 })
 
@@ -85,26 +132,31 @@ router.post('/deleteAreaDetail', express.json(), async (req, res) => {
     //req.body צריך לקבל מס' {טלפון,שם אזור} ב
     let phone = req.body.phone
     let nameArea = req.body.areaName
-    console.log("reqqqqqqqqqqqqqqqqqqqqq ", req.body);
 
     try {
-        const result = await deleteArea(phone, nameArea)
-        res.status(200).send(result)
+        const response = await deleteArea(phone, nameArea)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
-    catch (error) {
-        res.status(404).send(error)
-    }
-
 })
 
 // o.k
 router.post('/deleteArea', express.json(), async (req, res) => {
     //req.body צריך לקבל מס' {טלפון} ב
     try {
-        const result = await deleteSupplierOrClient(req.body.phone)
-        res.status(200).send(result)
+        const response = await deleteSupplierOrClient(req.body.phone)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error.message)
     }
 
 })
@@ -116,7 +168,7 @@ router.post('/deleteArea', express.json(), async (req, res) => {
 //     try {
 //         const result = await findAreaByCode(req.params.code)
 //         res.status(200).send(result)
-//     } catch (error) {
+//     } catch (error) { 
 //         res.status(404).send(error)
 //     }
 
@@ -124,23 +176,28 @@ router.post('/deleteArea', express.json(), async (req, res) => {
 
 router.get('/findAreasByCode/:code', async (req, res) => {
     try {
-        const result = await findAreaByCode(req.params.code)
-        res.status(200).send(result)
+        const response = await findAreaByCode(req.params.code)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error.message)
     }
-
 })
 
 //giti...
 router.get('/findPointArray/:code/:areaName', async (req, res) => {
-    console.log("findPointArray/:code/:areaName");
     try {
-        const result = await getTheDataOfTheArea(parseInt(req.params.code), req.params.areaName)
-        console.log("result findPointArray", { result });
-        res.status(200).send(result[0].areas[0])
+        const response = await getTheDataOfTheArea(parseInt(req.params.code), req.params.areaName)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error.message)
     }
 })
 
