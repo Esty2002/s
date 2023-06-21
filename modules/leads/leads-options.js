@@ -19,6 +19,7 @@ const createNewLead = async (obj = null) => {
 
     try {
         const result = await postData(sqlServer, 'create/createManySql', newObj);
+        console.log("resultttttttttttttttttt",result);
         if (result) {
             let morePorductsItems = [];
             if (obj.morePorductsItems) {
@@ -26,7 +27,7 @@ const createNewLead = async (obj = null) => {
                     morePorductsItems = [...morePorductsItems, {
                         Product: mpi.productCode,
                         Amount: mpi.amount,
-                        LeadNumber: result[0].Id,
+                        LeadNumber: 6,//result[0].Id,
                         AddedDate: new Date().toISOString()
                     }]
                 })
