@@ -13,9 +13,10 @@ async function findAll() {
 async function findAllCities() {
     console.log('findall cities');
     const found = await postData('/read/find', {
-        collection: "areas", filter: { city: true }
+        collection: "Areas", filter: { city: true }
     })
-    return found
+    console.log(found.data);
+    return found.data
 }
 
 async function insertArea(obj = {}) {

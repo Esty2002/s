@@ -15,6 +15,7 @@ router.get('/', async (req, res) => {
 router.get('/allcities', async(req, res)=>{
     console.log('allcities')
     const ans = await findAllCities()
+    console.log(ans);
     res.send(ans)
 })
 
