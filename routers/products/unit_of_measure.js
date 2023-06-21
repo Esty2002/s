@@ -32,9 +32,10 @@ router.get('/findMeasureId', async (req, res) => {
 router.post('/create', express.json(), async (req, res) => {
     try {
         const response =await insertMeasure(req.body.new)
+
         console.log({response:response})
-        if (response.data)
-            res.status(201).send(response.data)
+        if (response.data.Id)
+            res.status(201).send(response.data.Id)
         else {
             res.status(500).send(-1)
         }
