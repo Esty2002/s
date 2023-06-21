@@ -42,7 +42,7 @@ async function findFinishProduct(project = [], filter = {}) {
         return response.data
     }
     else
-        return false
+        return response.data
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }
