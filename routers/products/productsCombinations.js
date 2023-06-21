@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { insertRow, getAll} = require('../../modules/products/productsCombinations')
+const { insertRow, getAll, updateNames } = require('../../modules/products/productsCombinations')
 const { findPump } = require('../../modules/products/pumps')
 
 
@@ -20,7 +20,7 @@ router.post('/getByType', express.json(), async (req, res) => {
 router.post('/insertRow', express.json(), async (req, res) => {
     try {
         const response = await insertRow(req.body)
-        console.log({response});
+        // console.log({ response });
         if (response.data.Id)
             res.status(201).send(response.data)
         else {
@@ -38,6 +38,20 @@ router.get('/readAll', async (req, res) => {
             res.status(201).send(response)
         else {
             res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.post('/updateNames', express.json(), async (req, res) => {
+    try {
+        const response = await updateNames(req.body)
+       
+        if (response)
+            res.status(201).send(response.data)
+        else {
+            res.status(500).send(false)
         }
     } catch (error) {
         res.status(500).send(error.message)
