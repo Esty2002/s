@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, findArea, 
+const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAllCities,
     getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct } = require('../../modules/areas/areas')
 
@@ -23,9 +23,9 @@ router.get('/isExist/:areaName', async (req, res) => {
 
     try {
         const result = await findArea(req.params.areaName)
-        console.log({ result })
         res.status(200).send(result.data)
-    } catch (error) {
+    }
+    catch (error) {
         console.log({ error })
         res.status(500).send(error)
     }
@@ -37,7 +37,7 @@ router.post('/insertArea', express.json(), async (req, res) => {
         const result = await insertArea(req.body)
         if (result)
             res.status(201).send(result)
-            else
+        else
             res.status(500).send()
     }
     catch (error) {
