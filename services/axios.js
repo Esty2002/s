@@ -25,8 +25,6 @@ const getData = async (url) => {
 const postData = async (url, body) => {
     let response;
     try {
-        console.log('url======',url);
-        console.log('body======',body);
         response = await server.post(url, body);
     }
     catch (error) {
