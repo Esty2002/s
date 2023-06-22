@@ -9,20 +9,20 @@ async function findAll(filter = undefined) {
     return found;
 }
 
-async function findByDistinct(collection,filter = undefined) {
-    console.log({collection});
-    console.log({filter});
+async function findByDistinct(collection, filter = undefined) {
+    console.log({ collection });
+    console.log({ filter });
 
     const found = await getData(`/read/distinct/${collection}/${filter}`)
-    console.log({found});
+    console.log({ found });
     return found;
 }
 async function findAllCities() {
     console.log('findall cities');
     const found = await postData('/read/find', {
-        collection: "areas", filter: { city: true }
+        collection: "Areas", filter: { city: true }
     })
-    console.log({ found })
+    console.log(found.data);
     return found.data
 }
 
@@ -44,7 +44,7 @@ async function insertArea(obj = {}) {
             console.log("resultToSql.rowsAffected", resultToSql);
             return resultToSql.data
         }
-        if (resultToSql.status===201)
+        if (resultToSql.status === 201)
             return resultToSql.data
 
     }
@@ -134,9 +134,12 @@ async function findArea(areaName) {
         collection: "areas",
         filter: { name: areaName }
     })
-
-    return result
+    if (result)
+        return result
+    else
+        throw new Error('city does not exist in db')
 }
+
 async function findAreaByCode(code) {
     let filter = {};
     const result = await postData('/read/find',
@@ -164,7 +167,6 @@ async function findSupplierOrClient(code) {
     console.log("result ", result);
     if (result)
         return result
-
     else
         throw new Error("not found supplier or client code")
 }
