@@ -6,6 +6,8 @@ const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modu
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     try {
+        console.log("createeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!!!!!!!!");
+        console.log(req.body);
         const response = await createNewLead(req.body);
         res.status(200).send(response);
     }

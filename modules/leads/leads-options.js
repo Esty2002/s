@@ -1,6 +1,7 @@
 
 const { sqlServer, postData, getData } = require('../../services/axios');
 const createNewLead = async (obj = null) => {
+    console.log("sssssssssssssssssssss",obj);
     let values = [];
     obj.baseConcretProduct.forEach(bcp => {
         values = [...values, {
@@ -19,7 +20,6 @@ const createNewLead = async (obj = null) => {
 
     try {
         const result = await postData(sqlServer, 'create/createManySql', newObj);
-        console.log("resultttttttttttttttttt",result);
         if (result) {
             let morePorductsItems = [];
             if (obj.morePorductsItems) {
@@ -27,7 +27,7 @@ const createNewLead = async (obj = null) => {
                     morePorductsItems = [...morePorductsItems, {
                         Product: mpi.productCode,
                         Amount: mpi.amount,
-                        LeadNumber: 6,//result[0].Id,
+                        LeadNumber: result[0].Id,
                         AddedDate: new Date().toISOString()
                     }]
                 })
