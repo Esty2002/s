@@ -40,10 +40,7 @@ async function insertArea(obj = {}) {
                 tableName: "tbl_Areas",
                 values: { AreaIdFromMongo: result.data, AreaName: obj.name }
             })
-        if (resultToSql) {
-            console.log("resultToSql.rowsAffected", resultToSql);
-            return resultToSql.data
-        }
+        
         if (resultToSql.status===201)
             return resultToSql.data
 
