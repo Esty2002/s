@@ -7,7 +7,7 @@ router.post('/create', express.json(), async (req, res) => {
     console.log('post create finishproduct')
     try {
         const response = await insertFinishProduct(req.body)
-        console.log({response})
+        console.log({ response })
         if (response)
             res.status(201).send(response)
         else {
@@ -20,7 +20,7 @@ router.post('/create', express.json(), async (req, res) => {
 router.post('/update', express.json(), async (req, res) => {
     console.log('router', req.body);
     try {
-        const response = await updateFinishProduct(req.body)
+        const response = await updateFinishProduct({ data: req.body.update, condition: req.body.where })
         if (response) {
             res.status(200).send(response)
         }
@@ -33,7 +33,7 @@ router.post('/update', express.json(), async (req, res) => {
 
 router.post('/delete', express.json(), async (req, res) => {
     try {
-        const response = await updateFinishProduct({ data: { enabled: false, deletedDate: new Date() }, condition: req.body })
+        const response = await updateFinishProduct({ data: { Enabled: 0, DeleteDate: new Date() }, condition: req.body })
         if (response)
             res.status(200).send(response)
         else
@@ -45,7 +45,7 @@ router.post('/delete', express.json(), async (req, res) => {
 router.post('/find', express.json(), async (req, res) => {
     try {
         const response = await findFinishProduct(req.body.arr, req.body.where)
-        if (response)
+        if (response || response === false)
             res.status(200).send(response)
         else
             res.status(500).send(response)
