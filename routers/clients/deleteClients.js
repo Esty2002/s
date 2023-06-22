@@ -1,11 +1,11 @@
 const express = require('express');
-const { updateClient } = require('../../modules/clients/updateClient')
 const router = express.Router();
 
+const { deletedClientByCode } = require('../../modules/clients/deleteClient')
 
-router.post('/update', express.json(), async (req, res) => {
+router.post('/deleteClient', express.json(), async (req, res) => {
     try {
-        const response =await updateClient(req.body);
+        const response =await deletedClientByCode(req.body.code, req.body.user)
         if (response)
             res.status(200).send(response)
         else {

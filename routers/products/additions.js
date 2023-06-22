@@ -1,11 +1,12 @@
 const express = require('express')
+const { insertAddition, updateAddition, findAddition } = require('../../modules/products/additions')
 const router = express.Router()
-const { findPump, insertPump, updatePump } = require('../../modules/products/pumps')
 
 router.post('/create', express.json(), async (req, res) => {
     try {
-        const response =await insertPump(req.body)
-        if (response)
+        const response =await insertAddition(req.body)
+        console.log(response);
+        if (response.Id)
             res.status(201).send(response)
         else {
             res.status(500).send(response)
@@ -15,9 +16,9 @@ router.post('/create', express.json(), async (req, res) => {
     }
 })
 
-router.post('/find', express.json(), async (req, res) => {
+router.post('/delete', express.json(), async (req, res) => {
     try {
-        const response =await findPump(req.body.arr, req.body.where)
+        const response =await updateAddition({ enabled: false, deletedDate: new Date().toISOString() }, req.body)
         if (response)
             res.status(200).send(response)
         else {
@@ -30,7 +31,7 @@ router.post('/find', express.json(), async (req, res) => {
 
 router.post('/update', express.json(), async (req, res) => {
     try {
-        const response =await updatePump(req.body.update, req.body.where)
+        const response =await updateAddition(req.body.update, req.body.where)
         if (response)
             res.status(200).send(response)
         else {
@@ -41,9 +42,9 @@ router.post('/update', express.json(), async (req, res) => {
     }
 })
 
-router.post('/delete', express.json(), async (req, res) => {
+router.post('/find', express.json(), async (req, res) => {
     try {
-        const response =await updatePump({ enabled: false, deletedDate: new Date() }, req.body)
+        const response =await findAddition(req.body.arr, req.body.where)
         if (response)
             res.status(200).send(response)
         else {

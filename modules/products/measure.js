@@ -1,21 +1,30 @@
-const  {sqlOperations}  = require('../../services-products/db/sql/sql_operation')
+require('dotenv').config()
+const { postData,  getData } = require('../../services/axios')
 
+const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
 
-const sql_operations = new sqlOperations("unitOfMeasure")
-
-async function updateMeasure(condition,obj){
-    return await sql_operations.update(`measure = '${obj}'`,`measure = '${condition}'`)
+async function updateMeasure(condition, obj) {
+    return (await postData( '/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
 }
 
 async function insertMeasure(name) {
-    return sql_operations.insert({name:"'"+name+"'"})
-} 
+    const response =  await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
+    return response
+}
 
 async function findMeasureNumber(name) {
-    return sql_operations.find('id',` measure ='${name}'`)
+     let a=await getData( `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
+     return a.data[0].id
 }
 async function findMeasureName(num) {
-    return sql_operations.find('measure',` id ='${num}'`)
+const measure =(await getData( `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].Measure 
+console.log({measure})
+    return measure
 }
 
-module.exports={updateMeasure,findMeasureNumber,findMeasureName,insertMeasure}                
+async function getAll(){
+    const response = await getData( `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
+    return response.data
+}
+
+module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll }                

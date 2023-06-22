@@ -1,18 +1,23 @@
-const {addStatus,deleteStatus,getStatus}=require('../../services-clients/sql/sql-operations')
+const { postData ,sqlServer} = require('../../services/axios')
 
-async function addOneStatus(statusName){
-    console.log("statusName   --------",statusName);
-    const result=await addStatus(statusName)
+
+async function addOneStatus(statusName) {
+    const result = await addStatus(statusName)
     return result.rowsAffected
 }
 
-async function deleteOneStatus(statusName){
-    const result=await deleteStatus(statusName)
+async function deleteOneStatus(statusName) {
+    const result = await deleteStatus(statusName)
     return result.rowsAffected
 }
+
 async function getStatusNumber() {
-    const result = await getStatus();
-    return result;
+    let obj = {
+        'tableName': 'tbl_Status',
+        'columns': '*',
+    }
+    const result = await postData(sqlServer,'/read/readTopN',obj);
+    return result.data;
 }
 
-module.exports={addOneStatus,deleteOneStatus,getStatusNumber}
+module.exports = { addOneStatus, deleteOneStatus, getStatusNumber }
