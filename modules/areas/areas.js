@@ -13,7 +13,7 @@ async function findByDistinct(collection,filter = undefined) {
     console.log({collection});
     console.log({filter});
 
-    const found = await getData(`/read/distinct/${collection}/${filter}`)
+    const found = await getData(`/read/distinct/${collection}/${filter}`);
     console.log({found});
     return found;
 }
@@ -192,7 +192,8 @@ module.exports = {
     findSupplierOrClient,
     deleteSupplierOrClient,
     deleteArea,
-    updateArea, updateLocation,
+    updateArea, 
+    updateLocation,
     updatePointAndRadius,
     findArea,
     getTheDataOfTheArea,
