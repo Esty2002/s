@@ -18,7 +18,7 @@ const createClient_router = require('./routers/clients/createClient')
 const readClient_router = require('./routers/clients/readClient')
 const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
-
+const auto_complete=require('./routers/utils/auto_complete')
 const productsCombinations_router = require('./routers/products/productsCombinations')
 
 const areas_router = require('./routers/areas/areas')
@@ -40,6 +40,8 @@ app.use('/createClient', createClient_router)
 app.use('/deleteclient', delete_client_router);
 app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
+app.use('/auto_complete', auto_complete)
+
 app.use('/areas', areas_router)
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 app.use('/productsCombinations', productsCombinations_router)
