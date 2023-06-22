@@ -19,7 +19,7 @@ const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
 const auto_complete=require('./routers/utils/auto_complete')
 const productsCombinations_router = require('./routers/products/productsCombinations')
-
+const pricelist_router=require('./routers/price-list/pricelist')
 const areas_router = require('./routers/areas/areas')
 
 
@@ -35,20 +35,12 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
 app.use('/updateClient', updateClient_router)
-const managePumps = require('./routers/products/pumps')
-const create_router = require('./routers/receipt/create');
-const read_router = require('./routers/receipt/read');
-const update_router = require('./routers/receipt/update');
-const delete_router = require('./routers/receipt/delete');
-const router_pricesNew=require('./routers/price-list/pricesNew-router')
 
 
 app.use(cors());
-app.use('/leads', router_leads);
-app.use('/areas', router_areas)
-app.use('/prices', router_prices)
-app.use('/pricesNew', router_pricesNew)
-app.use('/communication',communication_router)
+// app.use('/leads', router_leads);
+app.use('/areas', areas_router)
+app.use('/pricesNew', pricelist_router)
 app.use('/updateClient',updateClient_router)
 app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
