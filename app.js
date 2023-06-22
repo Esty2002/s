@@ -18,14 +18,11 @@ const createClient_router = require('./routers/clients/createClient')
 const readClient_router = require('./routers/clients/readClient')
 const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
-<<<<<<< HEAD
-=======
 
 const productsCombinations_router = require('./routers/products/productsCombinations')
 
 const areas_router = require('./routers/areas/areas')
 
->>>>>>> 4eb9e009605059deeaaa278f5c41384256080aeb
 
 app.use(cors());
 app.use('/pumps', pumps_router)
@@ -36,10 +33,6 @@ app.use('/finishProducts', manageFinishProducts)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 4eb9e009605059deeaaa278f5c41384256080aeb
 app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
 app.use('/updateClient', updateClient_router)
@@ -49,10 +42,7 @@ app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
 app.use('/areas', areas_router)
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
-<<<<<<< HEAD
-=======
 app.use('/productsCombinations', productsCombinations_router)
->>>>>>> 4eb9e009605059deeaaa278f5c41384256080aeb
 
 app.get('/', (req, res) => {
     res.status(200).send('hello buyton');

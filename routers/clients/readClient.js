@@ -24,6 +24,7 @@ router.get('/getAllDeleted', async (req, res) => {
 
 })
 router.get('/findClient/:id', async (req, res) => {
+    console.log(req.params.id, "req.params.id");
     try {
         const response =await getClientsById(req.params.id)
         if (response)
