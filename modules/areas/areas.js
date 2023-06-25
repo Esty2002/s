@@ -129,10 +129,10 @@ async function deleteArea(phone, area) {
 
 }
 
-async function findArea(areaName) {
+async function findArea(body) {
     const result = await postData('/read/find', {
         collection: "areas",
-        filter: { name: areaName }
+        filter: body
     })
 
     return result
