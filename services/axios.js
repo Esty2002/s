@@ -11,8 +11,9 @@ const getData = async (server, url) => {
     console.log("getData");
     let response;
     try {
-        console.log("url", url );
+        console.log("urlee", url);
         response = await server.get(url);
+        // console.log(response,'resssssssss');
     }
 
     catch (error) {
