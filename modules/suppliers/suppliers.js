@@ -28,21 +28,13 @@ async function getAllSuppliers(num) {
     console.log("getAllSuppliers - modules" ,num);
 
     try {
-        console.log(num,"res1");
         const res = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/Disabled=${num}`);
-
-        console.log("data", res);
         for (let item of res.data) {
-            console.log("num:",num);
-            console.log("item.id",item.Id);
             const res = await countRowes(item.Id,num);
             if (res) {
                 item.countBraches = res[0].countRows;
-                console.log("countBrances:",item.countBraches);
             }
-            console.log(item.countBraches, "item");
         }
-        // console.log("resssssssss",res.data);
         return res.data;
     }
     catch (error) {
@@ -56,7 +48,6 @@ async function getAllSuppliers(num) {
 async function getSupplier(object) {
     try {
         const res = await getData( `/read/readAll/tbl_Suppliers/${object.option}='${object.text}' AND Disabled=0`);
-
         return res.data;
     }
     catch (error) {

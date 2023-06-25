@@ -5,82 +5,108 @@ const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUn
 
 router.post('/deletesupplier', express.json(), async (req, res) => {
     try {
-        const result = await deleteSupplier(req.body);
-        res.status(200).send(true);
-    }
-    catch (error) {
-        res.status(500).send(error);
+        const response = await deleteSupplier(req.body)
+        if (response)
+            res.status(200).send(response)
+            // res.status(200).send(true);
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
+
     try {
-        const result = await insertOneSupplier(req.body);
-        res.status(200).send(result);
-    }
-    catch (error) {
-        res.status(500).send(error);
+        const response = await insertOneSupplier(req.body)
+        if (response)
+            res.status(201).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 
 router.post('/updatesupplier', express.json(), async (req, res) => {
     try {
-        const result = await updateDetail(req.body.OldSupplierCode, req.body);
-        res.status(200).send(result);
-    }
-    catch (error) {
-        res.status(500).send(error);
+        const response = await updateDetail(req.body.OldSupplierCode, req.body)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 
 router.get('/checkUnique/:suppliercode/:suppliername', async (req, res) => {
     try {
-    const result = await checkUnique({ SupplierCode: req.params.suppliercode, SupplierName: req.params.suppliername });
-    res.status(200).send(result);
-    } 
-    catch (error) {
-    res.status(500).send(error);
+        const response = await checkUnique({ SupplierCode: req.params.suppliercode,SupplierName: req.params.suppliername})
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 
 router.get('/checkUniqueCode/:suppliercode', async (req, res) => {
     try {
-        const result = await checkUniqueCode({ SupplierCode: req.params.suppliercode });
-        res.status(200).send(result);
-    }
-    catch (error) {
-        res.status(500).send(error);
+        const response = checkUniqueCode({ SupplierCode: req.params.suppliercode})
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 
 router.get('/checkUniqueName/:suppliername', async (req, res) => {
     try {
-        const result = await checkUniqueName({ SupplierName: req.params.suppliername });
-        res.status(200).send(result);
-    }
-    catch (error) {
-        res.status(500).send(error);
+        const response = await checkUniqueName({ SupplierName: req.params.suppliername})
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 
 router.get('/getallSuppliers/:num', async (req, res) => {
     try {
-        const result = await getAllSuppliers(req.params.num);
-        res.status(200).send(result);
+        const response = await getAllSuppliers()
+        console.log({response})
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
-    catch (error) {
-        res.status(500).send(error);
-    }
-
 })
 
 router.get('/getSuppliers/:option/:text', async (req, res) => {
     try {
-        const result = await getSupplier({ option: req.params.option, text: req.params.text });
-        res.status(200).send(result);
-    }
-    catch (error) {
-        res.status(500).send(error);
+        const response = await getSupplier({ option: req.params.option, text: req.params.text })
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
     }
 })
 router.get('/insertCountBranches/:supplierCode/:isDisable', async (req, res) => {
