@@ -20,10 +20,13 @@ const status_router = require('./routers/clients/status')
 const auto_complete=require('./routers/utils/auto_complete')
 const productsCombinations_router = require('./routers/products/productsCombinations')
 const pricelist_router=require('./routers/price-list/pricelist')
-const areas_router = require('./routers/areas/areas')
+const areas_router = require('./routers/areas/areas');
+const {  reqLogger } = require('./services/logger/logger');
 
 
 app.use(cors());
+app.use(express.json())
+app.use(reqLogger())
 app.use('/pumps', pumps_router)
 app.use('/unitOfMeasure', manageUnitOfMeasure)
 app.use('/additions', manageAdditions)

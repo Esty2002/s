@@ -6,6 +6,7 @@ const { findFinishProduct, insertFinishProduct, updateFinishProduct } = require(
 router.post('/create', express.json(), async (req, res) => {
     console.log('post create finishproduct')
     try {
+        console.log(req.body)
         const response = await insertFinishProduct(req.body)
         console.log({ response })
         if (response)

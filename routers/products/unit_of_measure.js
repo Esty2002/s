@@ -3,11 +3,11 @@ const router = express.Router()
 
 const { findMeasureName, findMeasureNumber, insertMeasure, updateMeasure, getAll } = require('../../modules/products/measure')
 
-router.get('/findMeasureName', async (req, res) => {
+router.get('/findMeasureName/:id', async (req, res) => {
     try {
-        const response = await findMeasureName(req.query.id)
+        const response = await findMeasureName(req.params.id)
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }

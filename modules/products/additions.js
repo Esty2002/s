@@ -7,7 +7,7 @@ async function insertAddition(obj) {
     obj.enabled = true
     obj.addedDate = new Date().toISOString()
     const response = await postData('/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })
-    if (response.data.Id)
+    if (response.status === 201)
         return true
     else
         return false
@@ -24,14 +24,9 @@ async function findAddition(project = [], filter = {}) {
         conditionStr = "1=1"
 
     const response = await postData("/read/readTopN", { tableName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
-    if (response.data.length > 0) {
-        for (const finish of response.data) {
-            if (Object.keys(finish).includes('UnitOfMeasure')) {
-                finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
-            }
-        }
+    if(response.status===200)
         return response.data
-    }
+    
     else {
         return false
     }
