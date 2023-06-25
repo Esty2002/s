@@ -65,7 +65,8 @@ async function getSupplier(object) {
 }
 
 async function updateDetail(code, setting) {
-    console.log("updateDeatails!!!!!!!!!!!!");
+    console.log("updateDeatails - code",code);
+    console.log("updtaDetails - settings",setting.LicensedDealerNumber);
     try {
         flag = true
         if (setting.SupplierCode !== setting.OldSupplierCode) {
@@ -81,7 +82,7 @@ async function updateDetail(code, setting) {
         }
         let object = {
             tableName: SQL_DB_SUPPLIERS, values: {
-                SupplierCode: setting.SupplierCode, SupplierName: setting.SupplierName, licensedDealerNumber: setting.licensedDealerNumber, BookkeepingNumber: setting.BookkeepingNumber
+                SupplierCode: setting.SupplierCode, SupplierName: setting.SupplierName, LicensedDealerNumber: setting.LicensedDealerNumber, BookkeepingNumber: setting.BookkeepingNumber
                 , ObjectiveBank: setting.ObjectiveBank, ConditionGushyPayment: setting.ConditionGushyPayment, PreferredPaymentDate: setting.PreferredPaymentDate,
                 Ovligo: setting.Ovligo, Status: setting.Status, Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
@@ -111,7 +112,7 @@ async function deleteSupplier(object) {
 }
 ////////////////////////////////////////////////////////////////
 function checkValid(object) {
-    let mustKeys = ["SupplierCode", "SupplierName", "licensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
+    let mustKeys = ["SupplierCode", "SupplierName", "LicensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
     let array = Object.keys(object);
     for (let i = 0; i < mustKeys.length; i++) {
         if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && array[(mustKeys[i])] === null)) {
@@ -123,14 +124,12 @@ function checkValid(object) {
 }
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
-    // console.log("check - unique - code", code);
     let resultSupplierCode = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
 
     return resultSupplierCode.data.length === 0
 
 }
 async function checkUniqueName(name) {
-    // console.log("check - unique - name", name);
     let resultSuppliersName = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
 
     return resultSuppliersName.data.length === 0

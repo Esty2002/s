@@ -37,9 +37,9 @@
                         "description": "SupplierName of supplier",
                         "example": "1111"
                     },
-                    "licensedDealerNumber": {
+                    "LicensedDealerNumber": {
                         "type": "string",
-                        "description": "licensedDealerNumber of supplier  ",
+                        "description": "LicensedDealerNumber of supplier  ",
                         "example": "abc"
                     },
                     "BookkeepingNumber": {

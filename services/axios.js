@@ -11,16 +11,14 @@ const getData = async ( url) => {
     console.log("getData");
     console.log(url,"url-getData");
     let response;
-    // try {
-        console.log("url:", url );
+    try {
         response = await sqlServer.get(url);
-        // console.log("response",response);
-    // }
+    }
 
-    // catch (error) {
-    //     console.log("response-error");
-    //     throw error;
-    // }
+    catch (error) {
+        console.log("response-error");
+        throw error;
+    }
     return response;
 }
 
