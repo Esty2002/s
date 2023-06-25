@@ -57,7 +57,7 @@ router.get('/FindPriceListByAreaId/:area', async (req, res) => {
         const ans =await getPriceListByAreaId(req.params.area)
         res.status(200).send(ans)
     } catch (error) {
-        res.status(404).send(error)
+        res.status(500).send(error.message)
 
     }
 })
