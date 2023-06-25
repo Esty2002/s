@@ -132,8 +132,7 @@ async function deleteArea(phone, area) {
 
 async function findArea(body) {
     // let query = {}
-    // query[name] = value
-    // console.log('query', query);
+    // query[name] = value   
     const result = await postData('/read/find', {
         collection: "areas",
         filter: body
