@@ -658,12 +658,18 @@
                     },
                     "AddedDate": {
                         "type": "string",
-                        "example": "15/06/2023"
+                        "example": "10/06/2023"
                     },
                     "UserName": {
                         "type": "string",
-                        "example": "Nava"
+                        "example": "Mali"
                     }
+                    ,
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                    
                 }
             },
             "ResponseForInsert": {
