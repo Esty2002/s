@@ -4,6 +4,7 @@ const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 const { getData, postData } = require('../../services/axios');
 
 async function insertOneSupplier(object) {
+    console.log("insrtSupplier - module",{object});
     try {
         if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
             console.log("object ", object);
@@ -13,7 +14,8 @@ async function insertOneSupplier(object) {
 
             console.log("obj module suppliers",obj)
             const res = await postData( "/create/create", obj);
-            return res.recordset;
+            console.log('pppppppppppppppppppppppppppppp',{res});
+            return res.data;
         }
         else {
             return false;

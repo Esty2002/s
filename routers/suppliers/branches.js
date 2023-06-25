@@ -29,10 +29,10 @@ router.get('/getallbranches', async (req, res) => {
     }
 })
 
-router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
+router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
 
     try {
-        const response = await getBranchesByCondition(req.params.condition, req.params.value)
+        const response = await getBranchesByCondition(req.params.condition, req.params.value,req.params.num)
         if (response)
             res.status(200).send(response)
         else {
