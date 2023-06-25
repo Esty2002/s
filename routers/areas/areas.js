@@ -30,6 +30,18 @@ router.get('/isExist/:areaName', async (req, res) => {
     }
 })
 
+router.post('/isExistPoint', express.json(),async (req, res) => {
+    console.log("req.params.areaName", req.body);
+    try {
+        const result = await findArea(req.body)
+        console.log({ result })
+        res.status(200).send(result.data)
+    } catch (error) {
+        console.log({ error })
+        res.status(500).send(error)
+    }
+})
+
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     try {

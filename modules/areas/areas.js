@@ -37,11 +37,11 @@ async function insertArea(obj = {}) {
     if (result.data) {
         const resultToSql = await postData('/create/create',
             {
-                tableName: "tbl_Areas",
+                tableName: "areas",
                 values: { AreaIdFromMongo: result.data, AreaName: obj.name }
             })
         if (resultToSql) {
-            console.log("resultToSql.rowsAffected", resultToSql);
+            console.log("resultToSql.rowsAffected", resultToSql.rowsAffected);
             return resultToSql.data
         }
         if (resultToSql.status===201)
@@ -55,7 +55,7 @@ async function insertArea(obj = {}) {
 async function updateArea(obj = {}) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
             set: { $set: { 'areasList.$[u]': obj.area } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
@@ -71,7 +71,7 @@ async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: obj.code },
             set: { $set: { 'areas.$[u].location.coordinates': obj.coordination } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.areaName }] }
@@ -85,7 +85,7 @@ async function updateLocation(obj) {
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: code },
             set: {
                 $set: {
@@ -104,7 +104,7 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 async function deleteSupplierOrClient(phone) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { SupplierOrClientCode: phone },
             set: { $set: { disable: false } }
         })
@@ -117,7 +117,7 @@ async function deleteSupplierOrClient(phone) {
 async function deleteArea(phone, area) {
     const result = await postData('/update/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: phone },
             set: { $set: { 'areas.$[u].delete': true } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': area }] }
