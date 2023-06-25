@@ -18,10 +18,10 @@ router.get('/allcities', async (req, res) => {
     res.send(ans)
 })
 
-router.get('/isExist/:name/:value', async (req, res) => {
-    console.log("in isExist ", req.params.name, req.params.value);
+router.post('/isExist', express.json(), async (req, res) => {
+    console.log("in isExist ", req.body);
     try {
-        const result = await findArea(req.params.name, req.params.value)
+        const result = await findArea(req.body)
         res.status(200).send(result.data)
     }
     catch (error) {
