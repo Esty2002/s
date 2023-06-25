@@ -16,6 +16,7 @@ const getData = async (url) => {
     catch (error) {
         throw error;
     }
+    console.log(response.data,' popopopopo');
     return response;
 }
 
