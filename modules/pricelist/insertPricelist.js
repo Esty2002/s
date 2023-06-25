@@ -5,8 +5,15 @@ async function insert(data, tableName) {
     obj['tableName'] = tableName
     obj['values'] = data
     obj['columns'] = '*'
-    _ = await postData('/create/create', obj)
-    return true;
+    const result = await postData('/create/create', obj)
+
+    if(result.data) {
+        return result;
+    }
+    else {
+        return false
+    }
+
 }
 
 async function getProducts(tbName) {

@@ -1,12 +1,18 @@
 const express = require('express')
 const router = express.Router()
 
-const { insert, getProducts, getId, getIdForBuytonDescribe,updateField } = require('../../modules/pricelist/insertPricelist')
+const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = require('../../modules/pricelist/insertPricelist')
 let tableName
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
-    _ = await insert(req.body, 'tbl_PriceList')
-    res.status(200).send(true)
+    try {
+        const result = await insert(req.body, 'tbl_PriceList')
+        res.status(200).send(result)
+    }
+    catch (error) {
+        res.status(500).send(error)
+    }
+
 })
 
 //tbl_CitiesAdditions
@@ -51,6 +57,20 @@ router.post('/addPricelistForProducts', express.json(), async (req, res) => {
     _ = await insert(req.body, tableName)
     res.status(200).send(true)
 })
+//tbl_FinishProducts
+router.post('/addPricelistForFinishProducts', express.json(), async (req, res) => {
+    tableName = 'tbl_FinishProducts'
+    _ = await insert(req.body, tableName)
+    res.status(200).send(true)
+})
+//tbl_Additions
+router.post('/addAdditionsForPricelist', express.json(), async (req, res) => {
+    tableName = 'tbl_Additions'
+    _ = await insert(req.body, tableName)
+    res.status(200).send(true)
+})
+
+
 
 router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
     let tbName = req.params.tbname
@@ -58,15 +78,15 @@ router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
     res.status(200).send(result)
 })
 
-router.post('/updateFieldInTable/:id/:tbName',express.json(),async(req,res)=>{
-    const result=await updateField(req.params.id,req.params.tbName,req.body)
+router.post('/updateFieldInTable/:id/:tbName', express.json(), async (req, res) => {
+    const result = await updateField(req.params.id, req.params.tbName, req.body)
     res.status(200).send(result)
 })
 
 router.get('/getIdForPricelistName/:name/:tbName', async (req, res) => {
     console.log(req.params.name, '  djshfjdhsfjhjsdhfkjsdhf', req.params.tbName);
     const result = await getId(req.params.name, req.params.tbName)
-    console.log(result,' rrrrrrrrrrrrrrrrrr');
+    console.log(result, ' rrrrrrrrrrrrrrrrrr');
     // console.log(result.data[0].Id, ' kkkk');
     // let id=result.data[0].Id
     res.status(200).send(result.data[0])
