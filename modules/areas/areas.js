@@ -1,4 +1,5 @@
 require('dotenv').config()
+const { json } = require('express');
 const { getData, postData } = require('../../services/axios')
 
 async function findAll(filter = undefined) {
@@ -129,10 +130,13 @@ async function deleteArea(phone, area) {
 
 }
 
-async function findArea(areaName) {
+async function findArea(name, value) {
+    let query = {}
+    query[name] = value
+    console.log('query', query);
     const result = await postData('/read/find', {
         collection: "areas",
-        filter: { name: areaName }
+        filter: query
     })
     if (result)
         return result
