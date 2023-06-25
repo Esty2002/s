@@ -1,6 +1,6 @@
 const express=require('express')
 const router=express.Router()
-const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode} =require('../../modules/pricelist/readPricelist')
+const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId,getPriceListByAdditionsForDistance} =require('../../modules/pricelist/readPricelist')
 
 router.get('/findAllPriceList', async (req, res) => {
     try {
@@ -13,7 +13,7 @@ router.get('/findAllPriceList', async (req, res) => {
 
 
 })
-// חיפוש הצעת מחיר לפי ID
+// חיפוש מחירון לפי ID
 router.get('/FindPriceListById/:id', async (req, res) => {
     try {
         const result = await getPriceListById(req.params.id);
@@ -25,7 +25,7 @@ router.get('/FindPriceListById/:id', async (req, res) => {
 
 
 })
-// פונקצית חיפוש הצעת מחיר לפי תאריך הוספה
+// פונקצית חיפוש מחירון לפי תאריך הוספה
 router.get('/FindPriceListByAddedDate/date', async (req, res) => {
     try {
         const result = await getPriceListByAddedDate(req.params.date);
@@ -48,7 +48,7 @@ router.get('/FindPriceListByProduct/product', async (req, res) => {
     }
 
 })
-// הפונקציה מקבלת שם אזור ומחזירה הצעת מחיר שקשורה אליו
+// הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
 router.get('/FindPriceListByAreaId/:area', async (req, res) => {
     console.log(req.params.area);
 
@@ -60,7 +60,7 @@ router.get('/FindPriceListByAreaId/:area', async (req, res) => {
 
     }
 })
-// הפונקציה מקבלת שם אזור ומחזירה הצעת מחיר שקשורה אליו
+// הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
 router.get('/FindPriceListBySupplerCodeOrClientCode/:code', async (req, res) => {
     console.log("zzzzzzzzzzzzzzzzz");
     console.log(req.params.code);
@@ -73,11 +73,21 @@ router.get('/FindPriceListBySupplerCodeOrClientCode/:code', async (req, res) => 
 
     }
 })
+// חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
 router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
-    console.log(";;;;;;;;;;;;");
     console.log(req.params.id);
     try {
         const ans =await getPriceListByIdSupplierOrClientCode(req.params.id)
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+//חיפוש מוצר על פי מספר  מחירון
+router.get('/FindPriceListByProduct/:id', async (req, res) => {
+    try {
+        const ans =await getPriceListByIdPriceListId(req.params.id)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
@@ -86,10 +96,8 @@ router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
     }
 })
 router.get('/FindPriceListByProduct/:id', async (req, res) => {
-    console.log(";;;;;;;;;;;;");
-    console.log(req.params.id);
     try {
-        const ans =await getPriceListByIdSupplierOrClientCode(req.params.id)
+        const ans =await getNameOfProduvtsById(req.params.id)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
@@ -97,5 +105,18 @@ router.get('/FindPriceListByProduct/:id', async (req, res) => {
 
     }
 })
+// חיפוש מחירון לפי 
+router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
+    try {
+        const ans =await getPriceListByAdditionsForDistance(req.params.id)
+        console.log(ans);
+        console.log("lllllllllllllllllllll");
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+// ReadPriceListByAdditionsForDistance
 
 module.exports=router;

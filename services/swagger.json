@@ -664,6 +664,12 @@
                         "type": "string",
                         "example": "Mali"
                     }
+                    ,
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                    
                 }
             },
             "ResponseForInsert": {
