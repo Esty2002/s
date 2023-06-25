@@ -41,7 +41,7 @@ app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
 app.use('/updateClient', updateClient_router)
 app.use('/createClient', createClient_router)
-app.use('/delete_client', delete_client_router);
+// app.use('/delete_client', delete_client_router);
 app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
 app.use('/readpricelist', readPriceList_router)

@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS,ADDITIONSFORDISTANCE } = process.env;
+const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS,ADDITIONSFORDISTANCE,CITIESADDITIONS ,TIMEADDITIONS ,TRUCKFILL } = process.env;
 const { postData } = require('../../services/axios');
 
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
@@ -98,9 +98,7 @@ async function getPriceListByAreaId(object) {
     }
 }
 async function getPriceListByIdSupplierOrClientCode(object) {
-    console.log("////////////////////////");
     console.log(object);
-    console.log("hhhhhhhhhhhhhhHHHHHHHHHH");
     try {
         let obj = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
@@ -123,7 +121,7 @@ async function getPriceListByIdPriceListId(object) {
         throw error;
     }
 }
-// פונקציה שמחזירה את שם המןצר 
+// פונקציה שמחזירה את שם המוצר 
 async function getNameOfProduvtsById(object) {
     console.log(object);
     try {
@@ -149,7 +147,47 @@ async function getPriceListByAdditionsForDistance(object) {
         throw error;
     }
 }
+// פונקציה שמחזירה תוספת לפי עיר
+async function getPriceListByAdditionsForCities(object) {
+    console.log(object);
+    try {
+        let obj = { tableName: CITIESADDITIONS, columns: "*", condition: `PriceListId=${object}` };
+        const res = await postData("/read/readTopN", obj);
+        console.log(res.data);
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+// פונקציה שמחזירה תוספת לפי יום או שעה
+async function getPriceListByAdditionsForTime(object) {
+    console.log(object);
+    try {
+        let obj = { tableName: TIMEADDITIONS, columns: "*", condition: `PriceListId=${object}` };
+        const res = await postData("/read/readTopN", obj);
+        console.log(res.data);
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+//  פונקציה שמחזירה תוספת לפי משאית 
+async function getPriceListByAdditionsForTruckFill(object) {
+    console.log(object);
+    try {
+        let obj = { tableName: TRUCKFILL, columns: "*", condition: `PriceListId=${object}` };
+        const res = await postData("/read/readTopN", obj);
+        console.log(res.data);
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
 
 
 
-module.exports = {getPriceListByAdditionsForDistance, getNameOfProduvtsById,getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListById, getPriceListByAddedDate, getPriceListbyProduct, getPriceListByAreaId, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId };
+module.exports = {getPriceListByAdditionsForDistance, getNameOfProduvtsById,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill,
+    getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListById, getPriceListByAddedDate, getPriceListbyProduct, getPriceListByAreaId, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId };

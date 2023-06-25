@@ -1,6 +1,7 @@
 const express=require('express')
 const router=express.Router()
-const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId,getPriceListByAdditionsForDistance} =require('../../modules/pricelist/readPricelist')
+const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId
+    ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill} =require('../../modules/pricelist/readPricelist')
 
 router.get('/findAllPriceList', async (req, res) => {
     try {
@@ -62,7 +63,6 @@ router.get('/FindPriceListByAreaId/:area', async (req, res) => {
 })
 // הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
 router.get('/FindPriceListBySupplerCodeOrClientCode/:code', async (req, res) => {
-    console.log("zzzzzzzzzzzzzzzzz");
     console.log(req.params.code);
     try {
         const ans =await getPriceListbySupplierCodeOrClientCode(req.params.code)
@@ -105,18 +105,49 @@ router.get('/FindPriceListByProduct/:id', async (req, res) => {
 
     }
 })
-// חיפוש מחירון לפי 
+//  חיפוש מחירון לפי תוספת לפי מרחק
 router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
     try {
         const ans =await getPriceListByAdditionsForDistance(req.params.id)
         console.log(ans);
-        console.log("lllllllllllllllllllll");
         res.status(200).send(ans)
     } catch (error) {
         res.status(404).send(error)
 
     }
 })
-// ReadPriceListByAdditionsForDistance
+// חיפוש מחירון לפי תוספת לפי עיר
+router.get('/FindPriceListByAdditionsForCities/:id', async (req, res) => {
+    try {
+        const ans =await getPriceListByAdditionsForCities(req.params.id)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+// חיפוש מחירון לפי תוספת יום או שעה
+router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
+    try {
+        const ans =await getPriceListByAdditionsForTime(req.params.id)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+//  חיפוש מחירון לפי תוספת משאית
+router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
+    try {
+        const ans =await getPriceListByAdditionsForTruckFill(req.params.id)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
 
 module.exports=router;
