@@ -19,7 +19,7 @@ const createNewLead = async (obj = null) => {
     };
 
     try {
-        const result = await postData(sqlServer, 'create/createManySql', newObj);
+        const result = await postData('create/createManySql', newObj);
         if (result) {
             let morePorductsItems = [];
             if (obj.morePorductsItems) {
@@ -36,7 +36,7 @@ const createNewLead = async (obj = null) => {
                     values: morePorductsItems
                 }
 
-                const res = await postData(sqlServer, 'create/createManySql', objMpi);
+                const res = await postData( 'create/createManySql', objMpi);
                 if (res) {
                     return res;
                 }

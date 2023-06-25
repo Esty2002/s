@@ -57,10 +57,12 @@ const newRecord = async (obj = null) => {
                 newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
             }
             try {
-                result = await postData(sqlServer, '/create/create', newObj);
+                console.log("iiiiiiiiii");
+                result = await postData( '/create/create', newObj);
                 return result;
             }
             catch (error) {
+                console.log("errrrrrrrrrrrrrror");
                 throw error;
             }
         }

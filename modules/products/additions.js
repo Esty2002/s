@@ -1,37 +1,49 @@
 require('dotenv').config()
-const { getData, sqlServer, postData } = require("../../services/axios");
+const { postData } = require("../../services/axios");
 const { SQL_ADDITIONS_TABLE } = process.env
-const { findMeasureNumber, findMeasureName } = require('./measure')
+const { findMeasureName } = require('./measure')
 
 async function insertAddition(obj) {
-    // obj['ordinalNumber'] = (await postData(sqlServer, '/read/countRows', { tableName: SQL_ADDITIONS_TABLE })).data.returnValue + 1
-    obj['addedDate'] = new Date().toISOString()
-    obj['enabled'] = 1
-    // obj['addition'] = obj['addition'] ? 1 : 0
-    console.log(obj);
-    const response = await postData(sqlServer, '/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })
-
-    return response.data
+    obj.enabled = true
+    obj.addedDate = new Date().toISOString()
+    const response = await postData('/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })
+    if (response.data.Id)
+        return true
+    else
+        return false
 }
 
 async function findAddition(project = [], filter = {}) {
-    filter['enabled'] = 1
-    let answer = (await postData(sqlServer, `/read/readTopN`, { tableName: SQL_ADDITIONS_TABLE, columns: project.length > 0 ? project.join(',') : '*', condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-    for (const add of answer) {
-        if (Object.keys(add).includes('unitOfMeasure')) {
-            add['unitOfMeasure'] = await findMeasureName(add['unitOfMeasure'])
+    if (!Object.keys(filter).includes('Enabled'))
+        filter['Enabled'] = 1
+
+    let columnsStr = project.length > 0 ? project.join(',') : '*'
+
+    let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' ')
+    if (conditionStr.trim() == '')
+        conditionStr = "1=1"
+
+    const response = await postData("/read/readTopN", { tableName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
+    if (response.data.length > 0) {
+        for (const finish of response.data) {
+            if (Object.keys(finish).includes('UnitOfMeasure')) {
+                finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
+            }
         }
+        return response.data
     }
-    return answer
+    else {
+        return false
+    }
 }
 
 async function updateAddition(obj = {}, filter = {}) {
-    let string = ""
-    for (let k in obj) {
-        string += `${k}='${obj[k]}',`
-    }
-    string = string.slice(0, -1)
-    return (await postData(sqlServer, '/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
+    const response = await postData('/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj.data, condition: conditionStr })
+    if (response.data)
+        return true
+    else
+        return false
 }
 
 module.exports = { insertAddition, findAddition, updateAddition }

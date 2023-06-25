@@ -63,6 +63,8 @@ router.get('/getrecord/:table/:field', async (req, res) => {
 });
 
 router.post('/insertrecord', express.json(), async (req, res) => {
+    console.log("i am in inserrecordddddddddddddddddd");
+    console.log(req.body);
     try {
         const response = await newRecord(req.body);
         res.status(200).send(response);

@@ -1,38 +1,59 @@
 require('dotenv').config()
-const { getData, postData, server } = require('../../services/axios')
+const { getData, postData } = require('../../services/axios')
 
+async function findAll(filter = undefined) {
+    const found = await postData('/read/find', {
+        collection: "areas",
+        filter: { type: filter }
+    })
+    return found;
+}
+
+async function findByDistinct(collection,filter = undefined) {
+    console.log({collection});
+    console.log({filter});
+
+    const found = await getData(`/read/distinct/${collection}/${filter}`)
+    console.log({found});
+    return found;
+}
+async function findAllCities() {
+    console.log('findall cities');
+    const found = await postData('/read/find', {
+        collection: "areas", filter: { city: true }
+    })
+    console.log({ found })
+    return found.data
+}
 
 async function insertArea(obj = {}) {
-    const exist = await findAreaOfSupplierOrClient(obj.supplierOrClientCode, obj.area.areaName)
-    if (exist.int == 0) {
-        console.log(true);
-        const result = await postData(server, '/mongo/updateone',
+    console.log({ obj })
+    const result = await postData('/create/insertone',
+        {
+            collection: "areas",
+            data: obj
+        })
+    console.log('mongo----', result.data, 'name', obj.name);
+    if (result.data) {
+        const resultToSql = await postData('/create/create',
             {
-                collection: "Areas",
-                filter: { supplierOrClientCode: obj.supplierOrClientCode },
-                set: { $addToSet: { areasList: obj.area } }
+                tableName: "tbl_Areas",
+                values: { AreaIdFromMongo: result.data, AreaName: obj.name }
             })
-        if (result) {
-            // addddddddddddddddddddddddddddddddddddddddddd
-            const resultToSql = await postData(server, '/create/create',
-                {
-                    tableName: "tbl_Areas",
-                    values: { AreaIdFromMongo: result.ObjectId, areaName: obj.area.areaName }
-                })
-
-            if (resultToSql)
-                return resultToSql
-
+        if (resultToSql) {
+            console.log("resultToSql.rowsAffected", resultToSql);
+            return resultToSql.data
         }
-        else
-            throw new Error("Can't insert area to this Supplier or Client")
+        if (resultToSql.status===201)
+            return resultToSql.data
+
     }
     else
-        return "this area alredy exist."
+        throw new Error("Can't insert area");
 }
 
 async function updateArea(obj = {}) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
@@ -46,10 +67,9 @@ async function updateArea(obj = {}) {
 
 }
 
-//giti...
 async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: obj.code },
@@ -62,9 +82,8 @@ async function updateLocation(obj) {
         throw new Error('Not Found area to update')
 };
 
-// giti
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -83,7 +102,7 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 };
 
 async function deleteSupplierOrClient(phone) {
-    const result = await postData(server, '/mongo/updateone',
+    const result = await postData('/mongo/updateone',
         {
             collection: "Areas",
             filter: { SupplierOrClientCode: phone },
@@ -96,7 +115,7 @@ async function deleteSupplierOrClient(phone) {
 }
 
 async function deleteArea(phone, area) {
-    const result = await postData(server, '/update/updateone',
+    const result = await postData('/update/updateone',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: phone },
@@ -110,48 +129,17 @@ async function deleteArea(phone, area) {
 
 }
 
-async function findAreaOfSupplierOrClient(code, areaName) {
-    console.log('lololo');
-    const result = await postData(server, '/mongo/aggregate', {
-        collection: "Areas",
-        aggregate:
-            [
-                {
-                    $unwind: {
-                        path: '$areasList'
-                    }
-                }, {
-                    $match: {
-                        supplierOrClientCode: code,
-                        'areasList.areaName': areaName
-                    }
-                }, {
-                    $count: 'int'
-                }
-            ]
+async function findArea(areaName) {
+    const result = await postData('/read/find', {
+        collection: "areas",
+        filter: { name: areaName }
     })
-    if (result) {
-        if (result.length > 0)
-            return result[0]
-        else
-            return { "int": 0 }
-    }
-    else
-        throw new Error("Not found area to count")
+
+    return result
 }
-// פונקציה מיותרה היא אותו דבר כמו deleteSupplierOrClient
-
-// async function updateSupplierOrClient(phone) {
-//     mongo_collection_areas.collectionName = MONGO_COLLECTION_AREAS
-
-//     const result = await mongo_collection_areas.updateOne(phone, { $set: { disable: false } })
-//     return result
-// }
-
-
 async function findAreaByCode(code) {
     let filter = {};
-    const result = await postData(server, '/read/find',
+    const result = await postData('/read/find',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -163,9 +151,10 @@ async function findAreaByCode(code) {
         throw new Error("not found area")
 }
 
+
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");
-    const result = await postData(server, '/read/find',
+    const result = await postData('/read/find',
         {
             dbName: "Buyton",
             collection: "Areas",
@@ -182,7 +171,7 @@ async function findSupplierOrClient(code) {
 
 async function getTheDataOfTheArea(code, areaName) {
     console.log("getTheDataOfTheArea", code, areaName);
-    const result = await postData(server, '/mongo/find',
+    const result = await postData('/mongo/find',
         {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
@@ -198,13 +187,16 @@ async function getTheDataOfTheArea(code, areaName) {
 }
 
 module.exports = {
-    findAreaByCode,
+    // findAreaByCode,
     insertArea,
     findSupplierOrClient,
     deleteSupplierOrClient,
     deleteArea,
     updateArea, updateLocation,
     updatePointAndRadius,
-    findAreaOfSupplierOrClient,
-    getTheDataOfTheArea
+    findArea,
+    getTheDataOfTheArea,
+    findAll,
+    findByDistinct,
+    findAllCities
 }

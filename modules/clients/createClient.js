@@ -11,9 +11,10 @@ async function addOneClient(obj) {
         'columns': '*',
         'condition': `ClientCode=${obj.ClientCode}`
     }
-    console.log('rrrrrrrrrrrrrrr');
+    console.log(object,'rrrrrrrrrrrrrrr');
 
     let unique = await postData(sqlServer,'/read/readTopN', object)
+    console.log(unique);
     if (unique.data.length === 0) {
         console.log(newObj, ' newObj in createClient');
         const result = await postData(sqlServer,'/create/create',newObj)
