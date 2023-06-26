@@ -1,21 +1,67 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, findAreaOfSupplierOrClient,
-    deleteSupplierOrClient, deleteArea, updateArea, findAreaByCode,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius } = require('../../modules/price-list/areas')
+const { insertArea, findSupplierOrClient, findArea,
+    deleteSupplierOrClient, deleteArea, updateArea, findAllCities,
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct } = require('../../modules/areas/areas')
 
 
 
-router.get('/', (req, res) => {
-    res.send('into router...')
+router.get('/', async (req, res) => {
+    res.send("areas---")
+})
+
+router.get('/allcities', async (req, res) => {
+    console.log('allcities')
+    const ans = await findAllCities()
+    console.log(ans);
+    res.send(ans)
+})
+
+router.post('/isExist', express.json(), async (req, res) => {
+    console.log("in isExist ", req.body);
+    try {
+        const result = await findArea(req.body)
+        res.status(200).send(result.data)
+    }
+    catch (error) {
+        console.log({ error })
+        res.status(500).send(error)
+    }
+})
+
+router.post('/isExistPoint', express.json(), async (req, res) => {
+    console.log("req.params.areaName", req.body);
+    try {
+        const result = await findArea(req.body)
+        console.log({ result })
+        res.status(200).send(result.data)
+    } catch (error) {
+        console.log({ error })
+        res.status(500).send(error)
+    }
 })
 
 // o.k
-router.get('/isExist/:code', async (req, res) => {
-    const phone = req.params.code
+router.post('/insertArea', express.json(), async (req, res) => {
     try {
-        const response = await findSupplierOrClient(phone)
+        const result = await insertArea(req.body)
+        if (result) {
+            console.log("result in router insertArea",result);
+            res.status(201).send(result)
+        }
+        else
+            res.status(500).send()
+    }
+    catch (error) {
+        console.log(error)
+        res.status(500).send(error)
+    }
+})
+
+router.post('/dropArea', express.json(), async (req, res) => {
+    try {
+        const response = await deleteSupplierOrClient(req.body.phone)
         if (response)
             res.status(200).send(response)
         else {
@@ -24,23 +70,45 @@ router.get('/isExist/:code', async (req, res) => {
     } catch (error) {
         res.status(500).send(error.message)
     }
+
 })
 
-// o.k
-router.post('/insertArea', express.json(), async (req, res) => {
-    // מקבל את כל האובייקט שצריך להכניס למונגו
+// router.get('/findAllAreas', async (req, res) => {
+//     try {
+//         const result = await findAll()
+//         console.log('-------',result);
+//         res.status(200).send(result)
+//     }
+//     catch (err) {
+//         res.status(500).send(err)
+//     }
+// })
+
+router.get('/findAll/:filter', async (req, res) => {
+    let filter = req.params.filter
+    console.log("filter", filter);
     try {
-        const response = await insertArea(req.body)
-        if (response)
-            res.status(201).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
+        const result = await findAll(filter)
+        // console.log('***********************', result.data);
+        res.status(200).send(result.data)
+    }
+    catch (err) {
+        res.status(500).send(err)
     }
 })
 
+router.get('/findAllTypes/:collection/:filter', async (req, res) => {
+    let collection = req.params.collection;
+    let filter = req.params.filter
+    try {
+        const result = await findByDistinct(collection, filter)
+        // console.log('***********************', result.data);
+        res.status(200).send(result.data.response)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
 
 router.post('/updateArea', express.json(), async (req, res) => {
     try {
@@ -123,7 +191,7 @@ router.post('/deleteArea', express.json(), async (req, res) => {
 //     try {
 //         const result = await findAreaByCode(req.params.code)
 //         res.status(200).send(result)
-//     } catch (error) {
+//     } catch (error) { 
 //         res.status(404).send(error)
 //     }
 
@@ -157,20 +225,12 @@ router.get('/findPointArray/:code/:areaName', async (req, res) => {
 })
 
 
-//מקבל קוד ספק/לקוח וכן שם אזור
-// בודק האם אזור זה קיים 
-router.get('/findAreaOfSupplierOrClient', async (req, res) => {
-    try {
-        const response = await findAreaOfSupplierOrClient(req.query.code, req.query.areaName)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+// //מקבל קוד ספק/לקוח וכן שם אזור
+// // בודק האם אזור זה קיים 
+// router.get('/findAreaOfSupplierOrClient', async (req, res) => {
+//     const result = await findAreaOfSupplierOrClient(req.query.code, req.query.areaName)
+//     res.status(200).send(result)
+// })
 
 
 

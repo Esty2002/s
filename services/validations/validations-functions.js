@@ -1,8 +1,6 @@
-const { readAll } = require("../../../dbserver/services/sql/sql-operations");
 const { getData, sqlServer } = require("../axios");
 
 const required = (value = null) => {
-    console.log('required');
     if (value) {
         return true
     }
