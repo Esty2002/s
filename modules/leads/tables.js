@@ -2,33 +2,34 @@ const {  postData } = require('../../services/axios');
 
 const values = [
     {
-        tableName: "orderers",
+        tableName: "tbl_Orderers",
         values: {
             OrdererName: "",
             OrdererPhone: "",
-            AddedDate: new Date(),
-            Disable: 0,
+            AddedDate: new Date().toISOString(),
+            Disable:'False',
             DeletingDate: null
         }
     },
     {
-        tableName: "pouringsTypes",
+        tableName: "tbl_PouringsTypes",
         values: {
             PouringName: "",
-            AddedDate: new Date(),
-            Disable: 0,
-            DeletingDate: null
-        }
-    }
-    , {
-        tableName: "statusesLead",
-        values: {
-            StatusName: "",
-            AddedDate: new Date(),
-            Disable: 0,
+            AddedDate: new Date().toISOString(),
+            Disable: 'False',
             DeletingDate: null
         }
     },
+    {
+        tableName: "tbl_StatusesLead",
+        values: {
+            StatusName: "",
+            AddedDate: new Date().toISOString(),
+            Disable: 'False',
+            DeletingDate: null
+        }
+    },
+    
 ];
 
 
@@ -42,9 +43,8 @@ const newRecord = async (obj = null) => {
                 values: val.values
             };
             for (let key in newObj['values']) {
-                typeof newObj.values[key] === 'string' ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
+                newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
             }
-
             try {
                 console.log(newObj,"newObj");
                 result = await postData( '/create/create', newObj);
@@ -63,12 +63,11 @@ const newRecord = async (obj = null) => {
     }
 };
 
-const getRecord = async (tableName = "", columns = "", field = "") => {
+const getRecord = async (tableName = "", field = "") => {
     const table = values.find((v) => v.tableName === tableName);
     if (table) {
         obj = {
             tableName: tableName,
-            columns: columns,
             condition: field !== 'none' ? field : `Disable=0`
         };
         try {
@@ -121,8 +120,8 @@ const deleteRecord = async (obj) => {
             const newObj = {
                 tableName: val,
                 values: {
-                    disable: 1,
-                    deletingDate:new Date()
+                    Disable: 'True',
+                    DeletingDate: new Date().toISOString()
                 },
                 condition: obj.condition
             };
@@ -143,5 +142,7 @@ const deleteRecord = async (obj) => {
 
     }
 };
+
+
 
 module.exports = { newRecord, updateRecord, getRecord, deleteRecord };
