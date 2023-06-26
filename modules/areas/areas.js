@@ -9,12 +9,12 @@ async function findAll(filter = undefined) {
     return found;
 }
 
-async function findByDistinct(collection,filter = undefined) {
-    console.log({collection});
-    console.log({filter});
+async function findByDistinct(collection, filter = undefined) {
+    console.log({ collection });
+    console.log({ filter });
 
     const found = await getData(`/read/distinct/${collection}/${filter}`)
-    console.log({found});
+    console.log({ found });
     return found;
 }
 async function findAllCities() {
@@ -38,13 +38,13 @@ async function insertArea(obj = {}) {
         const resultToSql = await postData('/create/create',
             {
                 tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.data, AreaName: obj.name }
+                values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
             })
         if (resultToSql) {
             console.log("resultToSql.rowsAffected", resultToSql);
             return resultToSql.data
         }
-        if (resultToSql.status===201)
+        if (resultToSql.status === 201)
             return resultToSql.data
 
     }
@@ -101,31 +101,40 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
         throw new Error('Not Found area to update')
 };
 
-async function deleteSupplierOrClient(phone) {
-    const result = await postData('/mongo/updateone',
-        {
-            collection: "Areas",
-            filter: { SupplierOrClientCode: phone },
-            set: { $set: { disable: false } }
-        })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found supplier or client code to delete his areas')
-}
+// async function deleteSupplierOrClient(phone) {
+//     const result = await postData('/mongo/updateone',
+//         {
+//             collection: "Areas",
+//             filter: { SupplierOrClientCode: phone },
+//             set: { $set: { disable: false } }
+//         })
+//     if (result)
+//         return result
+//     else
+//         throw new Error('Not Found supplier or client code to delete his areas')
+// }
 
-async function deleteArea(phone, area) {
+async function deleteArea(areaName) {
     const result = await postData('/update/updateone',
         {
-            collection: "Areas",
-            filter: { supplierOrClientCode: phone },
-            set: { $set: { 'areas.$[u].delete': true } },
-            arrayFilters: { arrayFilters: [{ 'u.areaName': area }] }
+            collection: "areas",
+            filter: { name: areaName },
+            set: { $set: { disabled: false } }
         })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found area to delete')
+    if (result.data) {
+        console.log('AREANAME----', areaName);
+        const resultSql = await postData('/update/update',
+            {
+                tableName: 'tbl_Areas',
+                values: { Disabled: false },
+                condition: { AreaName: areaName }
+            })
+        console.log('delete from SQL----------------', resultSql.data.rowsAffected);
+    }
+    // return result
+    else {
+        throw new Error('cannot delete area')
+    }
 
 }
 
@@ -190,7 +199,7 @@ module.exports = {
     // findAreaByCode,
     insertArea,
     findSupplierOrClient,
-    deleteSupplierOrClient,
+    // deleteSupplierOrClient,
     deleteArea,
     updateArea, updateLocation,
     updatePointAndRadius,

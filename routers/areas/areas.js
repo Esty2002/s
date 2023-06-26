@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const express = require('express')
 
-const { insertArea, findSupplierOrClient, findArea, 
+const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAllCities,
     getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct } = require('../../modules/areas/areas')
 
@@ -36,7 +36,7 @@ router.post('/insertArea', express.json(), async (req, res) => {
         const result = await insertArea(req.body)
         if (result)
             res.status(201).send(result)
-            else
+        else
             res.status(500).send()
     }
     catch (error) {
@@ -80,6 +80,22 @@ router.get('/findAllTypes/:collection/:filter', async (req, res) => {
     catch (err) {
         res.status(500).send(err)
     }
+})
+
+router.post('/deleteArea', express.json(), async (req, res) => {
+    try {
+        const areaName = req.body.name
+        console.log('aaaaaaaaa', areaName);
+        const response = await deleteArea(areaName)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+
 })
 
 router.post('/updateArea', express.json(), async (req, res) => {
@@ -141,20 +157,7 @@ router.post('/deleteAreaDetail', express.json(), async (req, res) => {
 })
 
 // o.k
-router.post('/deleteArea', express.json(), async (req, res) => {
-    //req.body צריך לקבל מס' {טלפון} ב
-    try {
-        const response = await deleteSupplierOrClient(req.body.phone)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
 
-})
 
 
 
