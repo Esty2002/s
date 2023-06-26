@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const { findMeasureName, findMeasureNumber, insertMeasure, updateMeasure, getAll } = require('../../modules/products/measure')
+const { findMeasureName, findMeasureNumber, insertMeasure, updateMeasure, getAll ,deleteItem} = require('../../modules/products/measure')
 
 router.get('/findMeasureName/:id', async (req, res) => {
     try {
@@ -30,7 +30,6 @@ router.get('/findMeasureId', async (req, res) => {
 })
 
 router.post('/create', express.json(), async (req, res) => {
-    console.log("--------------------------------------------------------------");
     try {
         const response = await insertMeasure(req.body.new)
 
@@ -41,7 +40,6 @@ router.post('/create', express.json(), async (req, res) => {
             res.status(response.status).send(-1)
         }
     } 
-    //מוסיף את השורה החדשה ומציג, אבל מחדיר סטטוס 500 בלי ליפול 
     catch (error) {
         res.status(500).send(error.message)
     }
@@ -70,6 +68,23 @@ router.get('/all', async (req, res) => {
             res.status(500).send(response)
         }
     } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.post('/deleteItem', express.json(), async (req, res) => {
+    try {
+        console.log(req.body,'req.body------------------------------');
+        const response = await deleteItem(req.body)
+        console.log({status:response.status})
+        if (response.status === 200) {
+            res.status(200).send(response.data)
+        }
+        else {
+            res.status(response.status).send(response.data)
+        }
+    }
+    catch (error) {
         res.status(500).send(error.message)
     }
 })
