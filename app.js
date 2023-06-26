@@ -23,7 +23,6 @@ const pricelist_router=require('./routers/price-list/pricelist')
 const areas_router = require('./routers/areas/areas');
 const {  reqLogger } = require('./services/logger/logger');
 
-const areas_router = require('./routers/areas/areas');
 const api_router = require('./api/routers/readFile');
 
 app.use(cors());
