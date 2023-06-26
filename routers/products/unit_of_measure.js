@@ -3,9 +3,9 @@ const router = express.Router()
 
 const { findMeasureName, findMeasureNumber, insertMeasure, updateMeasure, getAll } = require('../../modules/products/measure')
 
-router.get('/findMeasureName', async (req, res) => {
+router.get('/findMeasureName/:id', async (req, res) => {
     try {
-        const response = await findMeasureName(req.query.id)
+        const response = await findMeasureName(req.params.id)
         if (response)
             res.status(200).send(response)
         else {
@@ -30,16 +30,19 @@ router.get('/findMeasureId', async (req, res) => {
 })
 
 router.post('/create', express.json(), async (req, res) => {
+    console.log("--------------------------------------------------------------");
     try {
         const response = await insertMeasure(req.body.new)
 
         console.log({ response: response })
-        if (response.status === 201)
+        if (response)
             res.status(201).send(response.data)
         else {
             res.status(response.status).send(-1)
         }
-    } catch (error) {
+    } 
+    //מוסיף את השורה החדשה ומציג, אבל מחדיר סטטוס 500 בלי ליפול 
+    catch (error) {
         res.status(500).send(error.message)
     }
 })

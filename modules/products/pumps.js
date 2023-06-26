@@ -10,7 +10,7 @@ async function insertPump(obj) {
     // obj.addition = obj.Addition ? 1 : 0
 
     const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
-    if (response.data.Id)
+    if (response)
         return true
     else
         return false
@@ -34,29 +34,34 @@ async function findPump(project = [], filter = {}) {
     let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' ')
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
-
-    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
-    console.log({ response }, 'in find');
-    if (response.data.length > 0) {
-        for (const finish of response.data) {
-            if (Object.keys(finish).includes('UnitOfMeasure')) {
-                finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
-            }
-        }
-        return response.data
+    try {
+        const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+        console.log({ response }, 'in find');
+        return response
     }
-    else {
-        return false
+    catch (error) {
+        throw error
     }
+    // if (response.length > 0) {
+    //     for (const finish of response) {
+    //         if (Object.keys(finish).includes('UnitOfMeasure')) {
+    //             finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
+    //         }
+    //     }
+    //     return response
+    // }
+    // else {
+    //     return false
+    // }
 }
 
 async function updatePump(obj) {
     let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    console.log({obj});
-    console.log({conditionStr});
+    console.log({ obj });
+    console.log({ conditionStr });
     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: conditionStr })
     console.log(response, 'in delete function');
-    if (response.data)
+    if (response)
         return true
     else
         return false

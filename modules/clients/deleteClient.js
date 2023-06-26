@@ -8,7 +8,7 @@ async function deletedClientByCode(clientCode, userName) {
     }
     const exist = await postData('http://127.0.0.1:1313/read/readTopN',obj)
     let result;
-    if (exist.rowsAffected != 0) {
+    if (exist) {
 
         obj['condition'] = `clientCode=${clientCode}`
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}

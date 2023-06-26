@@ -17,9 +17,10 @@ async function findMeasureNumber(name) {
     return a.data[0].id
 }
 async function findMeasureName(num) {
-    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].Measure
+
+    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id =${num}`))
     console.log({ measure })
-    return measure
+    return measure.data
 }
 
 async function getAll() {

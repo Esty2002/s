@@ -6,10 +6,11 @@ const { getAllClient, getClientsByField, getClientsById , getAllDeletedClient} =
 router.get('/getAll', async (req, res) => {  
     try {
         const response =await getAllClient()
+        console.log(response, "------------------------resd");
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -18,7 +19,7 @@ router.get('/getAll', async (req, res) => {
 router.get('/getAllDeleted', async (req, res) => {   
     const allClients = await getAllDeletedClient();
     if (allClients)
-        res.status(200).send(allClients)
+        res.status(200).send(allClients.data)
     else
         res.status(404).send({message:'NOT FOUND'})
 
@@ -28,9 +29,9 @@ router.get('/findClient/:id', async (req, res) => {
     try {
         const response =await getClientsById(req.params.id)
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -42,9 +43,9 @@ router.get('/searchClient/:field/:value', async (req, res) => {
     try {
         const response =await getClientsByField(req.params.field, req.params.value)
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)

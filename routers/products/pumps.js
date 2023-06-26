@@ -3,12 +3,14 @@ const router = express.Router()
 const { findPump, insertPump, updatePump } = require('../../modules/products/pumps')
 
 router.post('/create', express.json(), async (req, res) => {
+    console.log("-------------------------------pumps");
     try {
         const response =await insertPump(req.body)
+        console.log({response})
         if (response)
-            res.status(201).send(response)
+            res.status(201).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -18,12 +20,12 @@ router.post('/create', express.json(), async (req, res) => {
 router.post('/find', express.json(), async (req, res) => {
     try {
         const response = await findPump(req.body.arr, req.body.where)
-        if (response || response === false)
-            res.status(200).send(response)
-        else
-            res.status(500).send(response)
+         
+            res.status(response.status).send(response.data)
+        
     }
-    catch (error) { res.status(500).send(error.message) }
+    catch (error) { 
+        res.status(500).send(error.message) }
 })
 
 router.post('/update', express.json(), async (req, res) => {

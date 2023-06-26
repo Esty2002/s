@@ -13,10 +13,10 @@ async function addOneClient(obj) {
     }
 
     let unique = await postData('/read/readTopN', object)
-    if (unique.recordset.length === 0) {
-        console.log(newObj, ' newObj in createClient');
+    if (unique.data.length === 0) {
         const result = await postData('/create/create',newObj)
         return result;
     }
 }
+
 module.exports = { addOneClient }
