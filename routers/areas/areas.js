@@ -30,7 +30,7 @@ router.post('/isExist', express.json(), async (req, res) => {
     }
 })
 
-router.post('/isExistPoint', express.json(),async (req, res) => {
+router.post('/isExistPoint', express.json(), async (req, res) => {
     console.log("req.params.areaName", req.body);
     try {
         const result = await findArea(req.body)
@@ -46,8 +46,10 @@ router.post('/isExistPoint', express.json(),async (req, res) => {
 router.post('/insertArea', express.json(), async (req, res) => {
     try {
         const result = await insertArea(req.body)
-        if (result)
+        if (result) {
+            console.log("result in router insertArea",result);
             res.status(201).send(result)
+        }
         else
             res.status(500).send()
     }
@@ -55,6 +57,20 @@ router.post('/insertArea', express.json(), async (req, res) => {
         console.log(error)
         res.status(500).send(error)
     }
+})
+
+router.post('/dropArea', express.json(), async (req, res) => {
+    try {
+        const response = await deleteSupplierOrClient(req.body.phone)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+
 })
 
 // router.get('/findAllAreas', async (req, res) => {
@@ -73,7 +89,7 @@ router.get('/findAll/:filter', async (req, res) => {
     console.log("filter", filter);
     try {
         const result = await findAll(filter)
-        console.log('***********************', result.data);
+        // console.log('***********************', result.data);
         res.status(200).send(result.data)
     }
     catch (err) {
@@ -86,7 +102,7 @@ router.get('/findAllTypes/:collection/:filter', async (req, res) => {
     let filter = req.params.filter
     try {
         const result = await findByDistinct(collection, filter)
-        console.log('***********************', result.data);
+        // console.log('***********************', result.data);
         res.status(200).send(result.data.response)
     }
     catch (err) {
