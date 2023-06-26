@@ -1,5 +1,5 @@
 
-const { sqlServer, postData, getData } = require('../../services/axios');
+const {  postData, getData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
 // const values = [
 //     {
@@ -43,7 +43,7 @@ const createNewLead = async (obj = null) => {
             valuesToSend[valuesToSend.length - 1].baseConcretProduct = bcp;
         });
         try {
-            const result = await postData(sqlServer, '', obj);
+            const result = await postData( '', obj);
             return result;
         }
         catch (error) {
@@ -70,7 +70,7 @@ const updateLead = async (obj = null) => {
         };
         if (newObj) {
             try {
-                const result = await postData(sqlServer, '', newObj);
+                const result = await postData( '', newObj);
                 return result;
             }
             catch (error) {
@@ -98,7 +98,7 @@ const deleteLead = async (serialNumber) => {
             condition: `SerialNumber=${serialNumber}`
         }
         try {
-            const result = await postData(sqlServer, '', obj);
+            const result = await postData( '', obj);
             return result;
         }
         catch (error) {
