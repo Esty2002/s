@@ -31,6 +31,8 @@ const createClient_router=require('./routers/clients/createClient')
 const readClient_router=require('./routers/clients/readClient')
 const readPriceList_router=require('./routers/pricelist/readPricelist')
 const creatPricelist_router=require('./routers/pricelist/insertPricelist');
+const updatePriceList_router=require('./routers/pricelist/updatePricelist')
+
 
 app.use(cors());
 app.use(express.json())
@@ -67,6 +69,7 @@ app.use('/readpricelist', readPriceList_router)
 
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 app.use('/creatPricelist',creatPricelist_router)
+app.use('/updatePriceList',updatePriceList_router);
 
 app.use('/api-pricelist-swagger', swaggerUi.serve, swaggerUi.setup(pricelist_swagger));
 
