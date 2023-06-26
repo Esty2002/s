@@ -14,7 +14,6 @@ const getData = async (url) => {
         response = await server.get(url);
         // console.log(response.data,"response");
     }
-
     catch (error) {
         throw error;
     }
@@ -26,11 +25,11 @@ const postData=async(url,body)=>{
     let response;
     try {
         response = await server.post(url, body);
+        return response;
     }
     catch (error) {
         return error;
     }
-    return response;
 }
 module.exports = {  getData, postData }
 // ----1
