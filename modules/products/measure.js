@@ -1,29 +1,37 @@
 require('dotenv').config()
-const { postData, sqlServer, getData } = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
 
 const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
 
 async function updateMeasure(condition, obj) {
-    return (await postData(sqlServer, '/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
+    return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
 }
 
 async function insertMeasure(name) {
-    const response =  await postData(sqlServer, '/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
-    return response
+    const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
+    console.log({exist})
+    const { status, data } = exist
+    if (status === 200 && !data) {
+        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
+        return response
+    }
+    else{
+        throw  new Error(`data exist`)
+    }
 }
 
 async function findMeasureNumber(name) {
-     let a=await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
-     return a.data[0].id
+    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
+    return a.data[0].id
 }
 async function findMeasureName(num) {
-    console.log(num,'num');
-
-    return (await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].measure
+    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id =${num}`))
+    console.log({ measure })
+    return measure
 }
 
-async function getAll(){
-    const response = await getData(sqlServer, `/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
+async function getAll() {
+    const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
     return response.data
 }
 

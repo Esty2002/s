@@ -55,19 +55,22 @@ const createNewLead = async (obj = null) => {
 };
 let flag = false
 const readLead = async (filter) => {
+    
     const obj = {
         tableName: "tbl_Leads",
         columns: '*',
         condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
     }
+    console.log("55555555555555555555555555555",filter);
 
     try {
         const values = await postData('read/readTopN', obj);
+        // console.log("valuesssssssssss################################################################",values);
         if (values) {
             let result = [];
             // values.forEach(async val => {
             // _ = Promise.all(values.map(async val => {
-            console.log("values", values);
+            // console.log("values", values);
             for (let i = 0; i < values.length; i++) {
                 const sameRecord = values.filter(v => v.SupplyDate.toString() === values[i].SupplyDate.toString() && v.SupplyHour.toString() === values[i].SupplyHour.toString() &&
                     v.Address === values[i].Address && v.OrdererCode === values[i].OrdererCode);
@@ -82,24 +85,24 @@ const readLead = async (filter) => {
                 // console.log(readforeignkeyvalue(filter));
                 // getBuytonData("/leads/getforeignkeyvalue/tbl_Leads/OrdererCode/1")
                 // result.map(async r => {
-                for (let k = 0; k < result.length; k++) {
-                    // result[k].nameOrdererCode = await getData(`read/foreignkeyvalue/${filterr.tablename}/${filterr.field}/${filterr.id}`);
-                    result[k].valueOrdererCode = await getData(`read/foreignkeyvalue/tbl_Leads/OrdererCode/${result[k].OrdererCode}`);
-                    result[k].valueClientCode = await getData(`read/foreignkeyvalue/tbl_Leads/ClientCode/${result[k].ClientCode}`);
-                    // result[k].valuePump = await getData(`read/foreignkeyvalue/tbl_Leads/Pump/${result[k].Pump}`);
-                    result[k].valuePouringType = await getData(`read/foreignkeyvalue/tbl_Leads/PouringType/${result[k].PouringType}`);
-                    result[k].valueStatusLead = await getData(`read/foreignkeyvalue/tbl_Leads/StatusLead/${result[k].StatusLead}`);
+                // for (let k = 0; k < result.length; k++) {
+                //     // result[k].nameOrdererCode = await getData(`read/foreignkeyvalue/${filterr.tablename}/${filterr.field}/${filterr.id}`);
+                //     result[k].valueOrdererCode = await getData(`read/foreignkeyvalue/tbl_Leads/OrdererCode/${result[k].OrdererCode}`);
+                //     result[k].valueClientCode = await getData(`read/foreignkeyvalue/tbl_Leads/ClientCode/${result[k].ClientCode}`);
+                //     // result[k].valuePump = await getData(`read/foreignkeyvalue/tbl_Leads/Pump/${result[k].Pump}`);
+                //     result[k].valuePouringType = await getData(`read/foreignkeyvalue/tbl_Leads/PouringType/${result[k].PouringType}`);
+                //     result[k].valueStatusLead = await getData(`read/foreignkeyvalue/tbl_Leads/StatusLead/${result[k].StatusLead}`);
 
                     
-                    console.log("rrrrrrrrrrrrrrrrrrrrrrrrlll", result[k]);
-                    // result = result[k]
-                    // flag = true
-                    // console.log("resulteeeeeeeeeeeeee", result);
-                }
+                //     // console.log("rrrrrrrrrrrrrrrrrrrrrrrrlll", result[k]);
+                //     // result = result[k]
+                //     // flag = true
+                //     // console.log("resulteeeeeeeeeeeeee", result);
+                // }
                 // })
                 // }));
             }
-            console.log("resulteejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjeeeeeeeeeeee", result[0]);
+            // console.log("resulteejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjeeeeeeeeeeee", result[0]);
             return result;
         }
         else {
