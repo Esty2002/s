@@ -60,6 +60,8 @@ async function insertArea(obj = {}) {
         }
         else {
 
+        if (resultToSql.status===201)
+            return resultToSql.data
 
             throw new Error("Can't insert area to mongo and sql DB");
         }
