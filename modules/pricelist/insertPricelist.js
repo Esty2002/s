@@ -5,15 +5,15 @@ async function insert(data, tableName) {
     obj['tableName'] = tableName
     obj['values'] = data
     obj['columns'] = '*'
-    const result = await postData('/create/create', obj)
 
-    if(result.data) {
+    try {
+        const result = await postData('/create/create', obj)
+        console.log({ result })
         return result;
     }
-    else {
-        return false
+    catch(error){
+        throw error
     }
-
 }
 
 async function getProducts(tbName) {
@@ -38,7 +38,6 @@ async function updateField(id, tbName, value) {
 }
 
 async function getId(name, tbName) {
-    console.log(tbName, ' tbname in getId');
     let condition = `Name='${name}'`
     console.log({ condition });
     const response = await getData(`/read/readAll/${tbName}/${condition}`)

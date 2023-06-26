@@ -7,14 +7,13 @@ let tableName
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
         const result = await insert(req.body, 'tbl_PriceList')
-        res.status(200).send(result)
+        res.status(result.status).send(result);
     }
     catch (error) {
-        res.status(500).send(error)
+        res.status(500).send(error.message)
     }
 
 })
-
 //tbl_CitiesAdditions
 router.post('/addCitiesAdditions', express.json(), async (req, res) => {
     tableName = 'tbl_CitiesAdditions'

@@ -12,25 +12,26 @@ const getData = async (url) => {
     console.log({url});
     try {
         response = await server.get(url);
-        // console.log(response.data,"response");
+       
+       return response // console.log(response.data,"response");
     }
 
     catch (error) {
         throw error;
     }
-    console.log(response.data,"response");
-    return response;
+   
 }
 
 const postData = async (url, body) => {
     let response;
     try {
         response = await server.post(url, body);
+        return response
     }
     catch (error) {
         return error;
     }
-    return response;
+   
 }
 module.exports = {  getData, postData }
 // ----1
