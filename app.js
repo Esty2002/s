@@ -8,7 +8,7 @@ const cors = require('cors');
 const swaggerLeads = require('./swagger/leads.json');
 const swaggerUi = require('swagger-ui-express');
 const swaggerDocument = require('./swagger/products.json');
-
+const pricelist_swagger=require('./services/swagger.json')
 const manageUnitOfMeasure = require('./routers/products/unit_of_measure');
 const pumps_router = require('./routers/products/pumps');
 const manageAdditions = require('./routers/products/additions');
@@ -27,6 +27,14 @@ const pricelist_router=require('./routers/price-list/pricelist');
 const areas_router = require('./routers/areas/areas');
 
 const api_router = require('./api/routers/readFile');
+
+// const swaggerSuppliers = require('./swagger/supplier.json');
+const manage_branches_router = require('./routers/suppliers/branches');
+const manage_suppliers_router = require('./routers/suppliers/suppliers');
+// const delete_client_router = require('./routers/clients/deleteClient');
+// const readClient_router=require('./routers/clients/readClient')
+const readPriceList_router=require('./routers/pricelist/readPricelist')
+const creatPricelist_router=require('./routers/pricelist/insertPricelist');
 
 app.use(cors());
 

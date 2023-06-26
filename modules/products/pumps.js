@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData } = require('../../services/axios')
+const { postData, getData} = require('../../services/axios')
 const { findMeasureName } = require('./measure')
 
 const { SQL_PUMPS_TABLE } = process.env
@@ -10,19 +10,11 @@ async function insertPump(obj) {
     // obj.addition = obj.Addition ? 1 : 0
 
     const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
-    if (response)
+    if (response.status === 201)
         return true
     else
         return false
 
-    // // obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
-    // obj['AddedDate'] = new Date().toISOString()
-    // obj['Enabled'] = 1
-    // // for (let k in obj) {
-    // //     obj[k] = "'" + obj[k] + "'"
-    // // }
-    // console.log(obj, 'in insertPump');
-    // return (await postData("/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })).data
 }
 
 async function findPump(project = [], filter = {}) {
@@ -31,7 +23,7 @@ async function findPump(project = [], filter = {}) {
 
     let columnsStr = project.length > 0 ? project.join(',') : '*'
 
-    let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' ')
+    let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' AND ')
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
     try {
@@ -68,4 +60,12 @@ async function updatePump(obj) {
 }
 
 
-module.exports = { updatePump, insertPump, findPump }
+async function findPumpName(num) {
+    console.log({num})
+    const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
+    console.log({ pump })
+    return pump
+}
+
+
+module.exports = { updatePump, insertPump, findPump, findPumpName }
