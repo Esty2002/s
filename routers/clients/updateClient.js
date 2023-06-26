@@ -4,10 +4,16 @@ const router = express.Router();
 
 
 router.post('/update', express.json(), async (req, res) => {
-    console.log('req.body',req.body,'req.body');
-    await updateClient(req.body);
-
-    res.send(true);
+    try {
+        const response = await updateClient(req.body);
+        if (response)
+            res.status(200).send(response.data)
+        else {
+            res.status(500).send(response.data)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
 })
 
 module.exports = router
