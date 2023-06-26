@@ -9,7 +9,7 @@ router.get('/findMeasureName/:id', async (req, res) => {
         if (response)
             res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -62,10 +62,10 @@ router.get('/all', async (req, res) => {
     try {
         const response = await getAll()
         console.log(response);
-        if (response)
-            res.status(200).send(response)
+        if (response.status ===200)
+            res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)

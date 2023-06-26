@@ -12,7 +12,7 @@ router.get('/autocomplete/:table/:column/:word/:condition', async (req, res) => 
     }
     catch (error) {
         console.log(error);
-        res.status(404).send([])
+        res.status(500).send(error.message)
     }
 })
 
