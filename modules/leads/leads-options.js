@@ -1,52 +1,29 @@
 
 const { sqlServer, postData, getData } = require('../../services/axios');
 const createNewLead = async (obj = null) => {
-    console.log("sssssssssssssssssssss",obj);
-    let values = [];
+    let vals = [];
     obj.baseConcretProduct.forEach(bcp => {
-        values = [...values, {
-            SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour ? new Date(obj.supplyHour).toISOString() : null, OrdererCode: obj.ordererCode,
+        vals = [...vals, {
+            SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
             Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-            ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablname: bcp.tableReference, ConcretAmount: obj.concretAmount, Pump: obj.pump, PumpPipeLength: obj.pumpPipeLength,
-            PouringType: obj.pouringType, PouringTypesComments: obj.pouringTypesComments, Comments: obj.comments, StatusLead: 1,
+            ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: obj.pumpPipeLength,
+            PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: 1,
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
         }];
     });
-
     let newObj = {
         tableName: 'tbl_Leads',
-        values
+        values: vals
     };
 
     try {
         const result = await postData('create/createManySql', newObj);
-        if (result) {
-            let morePorductsItems = [];
-            if (obj.morePorductsItems) {
-                obj.morePorductsItems.forEach(mpi => {
-                    morePorductsItems = [...morePorductsItems, {
-                        Product: mpi.productCode,
-                        Amount: mpi.amount,
-                        LeadNumber: result[0].Id,
-                        AddedDate: new Date().toISOString()
-                    }]
-                })
-                objMpi = {
-                    tableName: 'tbl_MoreProductsItems',
-                    values: morePorductsItems
-                }
-
-                const res = await postData( 'create/createManySql', objMpi);
-                if (res) {
-                    return res;
-                }
-                else {
-                    return false;
-                }
-            };
+        if (result.status === 201 && obj.morePorductsItems) {
+            const result1 = await insertMoreProductsItems(obj, result);
+            return result1;
         }
         else {
-            return false;
+            return result;
         }
     }
     catch (error) {
@@ -55,6 +32,27 @@ const createNewLead = async (obj = null) => {
 
 };
 
+const insertMoreProductsItems = async (obj, result) => {
+    let morePorductsItems = [];
+
+    obj.morePorductsItems.forEach(mpi => {
+        morePorductsItems = [...morePorductsItems, {
+            Product: mpi.productCode,
+            Amount: mpi.amount,
+            LeadNumber: result[0].Id,
+            AddedDate: new Date().toISOString()
+        }]
+    })
+    objMpi = {
+        tableName: 'tbl_MoreProductsItems',
+        values: morePorductsItems
+    };
+
+    const res = await postData('create/createManySql', objMpi);
+    return res;
+
+
+}
 const readLead = async (filter) => {
     const obj = {
         tableName: "tbl_Leads",

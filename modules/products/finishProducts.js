@@ -7,16 +7,18 @@ async function insertFinishProduct(obj) {
     obj.enabled = true
     obj.addedDate = new Date().toISOString()
     const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
-    if (response.data.Id)
+    if(response.status === 201){
         return true
-    else
+    }
+    else{
         return false
+    }
 }
 
 async function updateFinishProduct(obj) {
     let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
     const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
-    console.log(response,'in delete function');
+    console.log(response, 'in delete function');
     if (response.data)
         return true
     else
@@ -30,22 +32,18 @@ async function findFinishProduct(project = [], filter = {}) {
     let columnsStr = project.length > 0 ? project.join(',') : '*'
 
     let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' ')
-    if (conditionStr.trim() == '') 
+    if (conditionStr.trim() == '')
         conditionStr = "1=1"
-    
+
     const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
-    console.log({response},'in find');
-    if (response.data.length>0) {
-        for (const finish of response.data) {
-            if (Object.keys(finish).includes('UnitOfMeasure')) {
-                finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
-            }
-        }
+    console.log({ response }, 'in find');
+    if (response.status === 200)
         return response.data
-    }
-    else{
+    else
         return false
-    }
+    // else{
+    //     return false
+    // }
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

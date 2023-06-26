@@ -3,11 +3,11 @@ const router = express.Router()
 
 const { findMeasureName, findMeasureNumber, insertMeasure, updateMeasure, getAll } = require('../../modules/products/measure')
 
-router.get('/findMeasureName', async (req, res) => {
+router.get('/findMeasureName/:id', async (req, res) => {
     try {
-        const response =await findMeasureName(req.query.id)
+        const response = await findMeasureName(req.params.id)
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }
@@ -18,9 +18,9 @@ router.get('/findMeasureName', async (req, res) => {
 
 router.get('/findMeasureId', async (req, res) => {
     try {
-        const response =await findMeasureNumber(req.query.name)
-        if (response)
-            res.status(200).send(`${response}`)
+        const response = await findMeasureNumber(req.query.name)
+        if (response.status ===200)
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }
@@ -31,12 +31,13 @@ router.get('/findMeasureId', async (req, res) => {
 
 router.post('/create', express.json(), async (req, res) => {
     try {
-        const response =await insertMeasure(req.body.new)
-        console.log({response:response})
-        if (response.data.Id)
-            res.status(201).send(response.data.Id)
+        const response = await insertMeasure(req.body.new)
+
+        console.log({ response: response })
+        if (response.status === 201)
+            res.status(201).send(response.data)
         else {
-            res.status(500).send(-1)
+            res.status(response.status).send(-1)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -45,7 +46,7 @@ router.post('/create', express.json(), async (req, res) => {
 
 router.post('/update', express.json(), async (req, res) => {
     try {
-        const response =await updateMeasure(req.body.prev, req.body.new)
+        const response = await updateMeasure(req.body.prev, req.body.new)
         if (response)
             res.status(200).send(response)
         else {
@@ -58,7 +59,7 @@ router.post('/update', express.json(), async (req, res) => {
 
 router.get('/all', async (req, res) => {
     try {
-        const response =await getAll()
+        const response = await getAll()
         console.log(response);
         if (response)
             res.status(200).send(response)

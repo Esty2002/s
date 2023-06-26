@@ -6,24 +6,27 @@ const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modu
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     try {
-        console.log("createeeeeeeeeeeeeeeeeeeeeeeeeeeeee!!!!!!!!!!");
-        console.log(req.body);
         const response = await createNewLead(req.body);
-        res.status(200).send(response);
+        console.log({status:response.status});
+        if (response.status === 201) {
+            res.status(response.status).send(response.data);
+        }
+        else {
+            res.status(500).send(response.message);
+        }
+
     }
     catch (error) {
-        console.log("error",error);
-        res.status(404).send(error);
+        res.status(500).send(error.message);
     }
 });
 
 router.get('/getleads/:condition', express.json(), async (req, res) => {
     try {
-        const response = await readLead(req.params.condition!=="{condition}"?req.params.condition:null);
+        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null);
         res.status(200).send(response);
     }
     catch (error) {
-        console.log("errorwwwwwwwwwwww:",error);
         res.status(404).send(error);
     }
 });
@@ -40,7 +43,7 @@ router.put('/updatelead', express.json(), async (req, res) => {
 
 router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
     try {
-       
+
         const response = await deleteLead(req.params.serialNumber);
         res.status(200).send(response);
     }
@@ -63,13 +66,17 @@ router.get('/getrecord/:table/:field', async (req, res) => {
 });
 
 router.post('/insertrecord', express.json(), async (req, res) => {
-    console.log("i am in inserrecordddddddddddddddddd");
-    console.log(req.body);
     try {
         const response = await newRecord(req.body);
-        res.status(200).send(response);
+        if (response.status === 201) {
+            res.status(201).send(response.data);
+        }
+        else
+            res.status(500).send(response.message);
+
     }
     catch (error) {
+        console.log(error);
         res.status(404).send(error);
     }
 });

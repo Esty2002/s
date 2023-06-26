@@ -6,12 +6,18 @@ const { SQL_PRODUCTS_COMBINATIONS_TABLE } = process.env
 
 async function insertRow(object) {
     const response = await postData('/create/create', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
+    
     return response
 }
 
 async function getAll() {
     const response = await getData(`/read/readAll/${SQL_PRODUCTS_COMBINATIONS_TABLE}`)
     return response.data
+}
+
+async function deleteItem(object){
+    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: {  Disable: true }, condition: `Id=${object.Id}` })
+    return response
 }
 
 async function updateNames(object) {
@@ -31,4 +37,4 @@ async function updateNames(object) {
 
 
 
-module.exports = { insertRow, getAll, updateNames }
+module.exports = { insertRow, getAll, updateNames, deleteItem }

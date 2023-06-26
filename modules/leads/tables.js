@@ -7,7 +7,7 @@ const values = [
             OrdererName: "",
             OrdererPhone: "",
             AddedDate: new Date().toISOString(),
-            Disable:'False',
+            Disable: 'False',
             DeletingDate: null
         }
     },
@@ -30,17 +30,17 @@ const values = [
         }
     },
     {
-        tableName:"tbl_MoreProductsItems",
-        values:{
-            LeadNumber:"",
-            Product:"",
-            Amount:"",
+        tableName: "tbl_MoreProductsItems",
+        values: {
+            LeadNumber: "",
+            Product: "",
+            Amount: "",
             AddedDate: new Date().toISOString(),
             Disable: 'False',
             DeletingDate: null
         }
     }
-    
+
 ];
 
 
@@ -57,12 +57,17 @@ const newRecord = async (obj = null) => {
                 newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
             }
             try {
-                console.log("iiiiiiiiii");
-                result = await postData( '/create/create', newObj);
+                result = await postData('/create/create', newObj);
+                for (let key in val.values) {
+                    if (typeof val.values[key] === 'string' && val.values[key].includes(':') && val.values[key].lastIndexOf('Z') === val.values[key].length - 1)
+                        break;
+                    else
+                        val.values[key] = "";
+                }
                 return result;
+
             }
             catch (error) {
-                console.log("errrrrrrrrrrrrrror");
                 throw error;
             }
         }
@@ -83,7 +88,7 @@ const getRecord = async (tableName = "", field = "") => {
             condition: field !== 'none' ? field : `Disable=0`
         };
         try {
-            const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}` );
+            const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}`);
             return result;
         }
         catch (error) {

@@ -8,8 +8,16 @@ async function updateMeasure(condition, obj) {
 }
 
 async function insertMeasure(name) {
-    const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
-    return response
+    const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
+    console.log({exist})
+    const { status, data } = exist
+    if (status === 200 && !data) {
+        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
+        return response
+    }
+    else{
+        throw  new Error(`data exist`)
+    }
 }
 
 async function findMeasureNumber(name) {
@@ -17,7 +25,7 @@ async function findMeasureNumber(name) {
     return a.data[0].id
 }
 async function findMeasureName(num) {
-    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id ='${num}'`)).data[0].Measure
+    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id =${num}`))
     console.log({ measure })
     return measure
 }
