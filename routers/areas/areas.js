@@ -110,6 +110,22 @@ router.get('/findAllTypes/:collection/:filter', async (req, res) => {
     }
 })
 
+router.post('/deleteArea', express.json(), async (req, res) => {
+    try {
+        const areaName = req.body.name
+        console.log('aaaaaaaaa', areaName);
+        const response = await deleteArea(areaName)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+
+})
+
 router.post('/updateArea', express.json(), async (req, res) => {
     try {
         const response = await updateArea(req.body)
@@ -169,20 +185,7 @@ router.post('/deleteAreaDetail', express.json(), async (req, res) => {
 })
 
 // o.k
-router.post('/deleteArea', express.json(), async (req, res) => {
-    //req.body צריך לקבל מס' {טלפון} ב
-    try {
-        const response = await deleteSupplierOrClient(req.body.phone)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
 
-})
 
 
 
