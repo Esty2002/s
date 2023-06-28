@@ -18,6 +18,7 @@ async function insertPump(obj) {
 }
 
 async function findPump(project = [], filter = {}) {
+    console.log(project,filter, "************************************************");
     if (!Object.keys(filter).includes('Enabled'))
         filter['Enabled'] = 1
 
