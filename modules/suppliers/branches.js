@@ -1,5 +1,5 @@
 require('dotenv').config();
-const { SQL_DB_BRANCHES ,SQL_DB_SUPPLIERS} = process.env;
+const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
 // const { setDate } = require('./functions');
 const { getData, postData } = require('../../services/axios');
 
@@ -8,8 +8,8 @@ async function insertOneBranch(object) {
     try {
         if (checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] = new Date().toISOString();
-            let obj = { tableName: 'tbl_Branches',values: object};
-            const res = await postData(sqlServer, "/create/create",obj);
+            let obj = { tableName: 'tbl_Branches', values: object };
+            const res = await postData( "/create/create", obj);
             return res.recordset;
         }
         else {
@@ -31,20 +31,23 @@ async function getAllBranches() {
     }
 }
 ///////////////////////////////////////////////////////////////////
-async function getBranchesByCondition(column, code) {
+async function getBranchesByCondition(column, code , num) {
+    console.log("getBranchesByCondition - module");
     try {
-        const res = await getData( `/read/readAll/tbl_Branches/${column}='${code}' AND  Disabled='0'`);
+        const res = await getData( `/read/readAll/tbl_Branches/${column}='${code}' AND  Disabled=${num}`);
         return res.data;
     }
     catch (error) {
         throw error;
     }
 }
+
+
 ///////////////////////////////////////////////////////////////////
 async function updateDetail(code, setting) {
     try {
         if (setting.OldBranchName !== setting.BranchName) {
-            const result = await getData(`/read/readAll/tbl_Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
+            const result = await getData( `/read/readAll/tbl_Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
             if (result.data.length !== 0) {
                 return false;
             }
@@ -56,7 +59,7 @@ async function updateDetail(code, setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: `SupplierCode=${code} AND BranchName='${setting.OldBranchName}' AND Disabled = '0'`
         }
-        const res = await postData( "/update/update",obj);
+        const res = await postData( "/update/update", obj);
         console.log(res);
         return res;
     }
@@ -69,7 +72,7 @@ async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
         let obj = { tableName: 'tbl_Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: `SupplierCode= ${object.Id} AND BranchName = '${object.BranchName}' ` };
-        const res = await postData( "/update/update",obj);
+        const res = await postData( "/update/update", obj);
         return res.data;
     }
     catch (error) {
@@ -93,6 +96,7 @@ async function checkUnique(object) {
         const resultSupplierExist = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/Id=${object.SupplierCode } AND  Disabled='0'`);
         const resultBranchName = await getData( `/read/readAll/tbl_Branches/BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0'`);
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
+
     }
     catch (error) {
         throw new Error('can not insert branch');

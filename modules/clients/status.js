@@ -1,4 +1,4 @@
-const { postData ,sqlServer} = require('../../services/axios')
+const { postData } = require('../../services/axios')
 
 
 async function addOneStatus(statusName) {
@@ -12,12 +12,13 @@ async function deleteOneStatus(statusName) {
 }
 
 async function getStatusNumber() {
+    console.log("module,server");
     let obj = {
         'tableName': 'tbl_Status',
         'columns': '*',
     }
-    const result = await postData(sqlServer,'/read/readTopN',obj);
-    return result.data;
+    const result = await postData('/read/readTopN',obj);
+    return result;
 }
 
 module.exports = { addOneStatus, deleteOneStatus, getStatusNumber }
