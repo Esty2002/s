@@ -7,7 +7,7 @@ let tableName
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
         const result = await insert(req.body, 'tbl_PriceList')
-        res.status(result.status).send(result);
+        res.status(result.status).send(result.data);
     }
     catch (error) {
         res.status(500).send(error.message)
@@ -69,11 +69,17 @@ router.post('/addAdditionsForPricelist', express.json(), async (req, res) => {
     res.status(200).send(true)
 })
 
-
+router.get('/getIdForPricelistName/:name/:tbname', async (req, res) => {
+    const result = await getId(req.params.name, req.params.tbname)
+    console.log({ result });
+    let obj={id:result}
+    res.send(obj);
+})
 
 router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
     let tbName = req.params.tbname
     const result = await getProducts(tbName)
+    console.log(result, 'kkkkk');
     res.status(200).send(result)
 })
 
@@ -82,7 +88,7 @@ router.post('/updateFieldInTable/:id/:tbName', express.json(), async (req, res) 
     res.status(200).send(result)
 })
 
-router.get('/getIdForPricelistName/:name/:tbName', async (req, res) => {
+router.get('/getIdForProductName/:name/:tbName', async (req, res) => {
     console.log(req.params.name, '  djshfjdhsfjhjsdhfkjsdhf', req.params.tbName);
     const result = await getId(req.params.name, req.params.tbName)
     console.log(result, ' rrrrrrrrrrrrrrrrrr');
@@ -91,12 +97,14 @@ router.get('/getIdForPricelistName/:name/:tbName', async (req, res) => {
     res.status(200).send(result.data[0])
 })
 
-router.get('/getIdForProductName/:name/:tbName', async (req, res) => {
+router.get('/getIdForBuytonDescribe/:name/:tbName', async (req, res) => {
     let result = await getIdForBuytonDescribe(req.params.name, req.params.tbName)
-    result = result.data[0]
+    console.log(result, ' jjjj');
+    result = result[0]
     let t = req.params.tbName.substring(10) + 'Number'
     let re = `${result[t]}`
     res.status(200).send(re)
 })
+
 
 module.exports = router;
