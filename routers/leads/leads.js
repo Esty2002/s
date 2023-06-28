@@ -1,7 +1,7 @@
 const express = require('express');
 const router = require('express').Router();
 
-const { createNewLead, updateLead, readLead, deleteLead } = require('../../modules/leads/leads-options');
+const { createNewLead, updateLead, readLead, deleteOneLead, deleteLead, readforeignkeyvalue } = require('../../modules/leads/leads-options');
 const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modules/leads/tables');
 
 router.post('/createnewlead', express.json(), async (req, res) => {
@@ -20,6 +20,7 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         res.status(500).send(error.message);
     }
 });
+// "/leads/getleads/{condition}"
 
 router.get('/getleads/:condition', express.json(), async (req, res) => {
     try {
@@ -30,6 +31,20 @@ router.get('/getleads/:condition', express.json(), async (req, res) => {
         res.status(404).send(error);
     }
 });
+
+router.get('/getforeignkeyvalue/:tablename/:field/:id', express.json(), async (req, res) => {
+
+    try {
+        console.log("ppppppppppp", req.params.tablename);
+        const response = await readforeignkeyvalue({ tablename: req.params.tablename, field: req.params.field, id: req.params.id });
+        res.status(200).send(response);
+    }
+    catch (error) {
+        console.log(error);
+        res.status(500).send(error);
+    }
+});
+
 
 router.put('/updatelead', express.json(), async (req, res) => {
     try {
@@ -43,8 +58,21 @@ router.put('/updatelead', express.json(), async (req, res) => {
 
 router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
     try {
-
         const response = await deleteLead(req.params.serialNumber);
+        res.status(200).send(response);
+    }
+    catch (error) {
+        console.log("hhh");
+
+        console.log(error);
+        res.status(404).send(error);
+    }
+});
+
+router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) => {
+    try {
+
+        const response = await deleteOneLead(req.params.serialNumber);
         res.status(200).send(response);
     }
     catch (error) {
