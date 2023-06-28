@@ -18,7 +18,6 @@ async function getStatusNumber() {
         'columns': '*',
     }
     const result = await postData('/read/readTopN',obj);
-    console.log({result})
     return result;
 }
 

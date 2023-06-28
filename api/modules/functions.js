@@ -5,10 +5,8 @@ const { HOST, PORT } = process.env;
 
 async function pathForRouter(filename) {
 
-    // let useArr = await filterBasisArr(filename, "app.use('/")
     const answer = fs.readFileSync(filename)
 
-    // console.log(answer.toString())
 
     const arr = answer.toString().split(';')
 
@@ -35,7 +33,6 @@ async function pathForRouter(filename) {
         r = { path: path, router: router }
         return r;
     })
-    // console.log(useArr, "element");
 
     return useArr;
 }
@@ -43,7 +40,6 @@ async function pathForRouter(filename) {
 async function fullRouterPath(filename, arrObjects) {
     const answer = fs.readFileSync(filename)
 
-    // console.log(answer.toString())
 
     const arr = answer.toString().split(';')
 
@@ -51,7 +47,6 @@ async function fullRouterPath(filename, arrObjects) {
         (m + '').includes("routers")
     )
 
-    // let routersArr = filterBasisArr(filename, "routers")
 
     arrObjects = arrObjects.map(element => {
         let line = routersArr.filter(e => e.includes(element.router));
@@ -63,9 +58,6 @@ async function fullRouterPath(filename, arrObjects) {
         return element
     });
 
-    // arrObjects.forEach(element => {
-    //     console.log(element,"elemnt");
-    // });
 
     return arrObjects;
 }

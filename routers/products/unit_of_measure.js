@@ -61,7 +61,6 @@ router.post('/update', express.json(), async (req, res) => {
 router.get('/all', async (req, res) => {
     try {
         const response = await getAll()
-        console.log(response);
         if (response.status ===200)
             res.status(200).send(response.data)
         else {

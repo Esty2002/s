@@ -10,7 +10,6 @@ router.get('/readsappapis/:filename', async (req, res) => {
        
         const response = await readFile(filepath)
         
-        console.log(response,"response");
         if (response)
             res.status(201).send(response)
         else {

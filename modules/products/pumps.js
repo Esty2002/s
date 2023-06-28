@@ -28,7 +28,6 @@ async function findPump(project = [], filter = {}) {
         conditionStr = "1=1"
     try {
         const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
-        console.log({ response }, 'in find');
         return response
     }
     catch (error) {
@@ -52,7 +51,6 @@ async function updatePump(obj) {
     console.log({ obj });
     console.log({ conditionStr });
     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: conditionStr })
-    console.log(response, 'in delete function');
     if (response)
         return true
     else
@@ -63,7 +61,6 @@ async function updatePump(obj) {
 async function findPumpName(num) {
     console.log({num})
     const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
-    console.log({ pump })
     return pump
 }
 

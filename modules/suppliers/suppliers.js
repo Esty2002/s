@@ -6,22 +6,19 @@ const { getData, postData } = require('../../services/axios');
 async function insertOneSupplier(object) {
     console.log("insrtSupplier - module",{object});
     try {
-        if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
-            console.log("object ", object);
-            object.CreationDate = new Date().toISOString().toString();
-            console.log("object - new",object.CreationDate)
+         if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
+            object.CreationDate = new Date().toISOString();
             let obj = { tableName: 'tbl_Suppliers', values: object };
 
-            console.log("obj module suppliers",obj)
             const res = await postData( "/create/create", obj);
-            console.log('pppppppppppppppppppppppppppppp',{res});
-            return res.data;
+            return res;
         }
-        else {
-            return false;
-        }
+         else {
+            throw new Error('validation')
+         }
     }
     catch (error) {
+        console.log({error})
         throw error;
     }
     // /suppliers/getSuppliers/SupplierCode/${code}
@@ -31,9 +28,11 @@ async function getAllSuppliers(num) {
 
     try {
         const res = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/Disabled=${num}`);
+        console.log({res:res.data})
         for (let item of res.data) {
-            const res = await countRowes(item.Id,num);
+            const res = await countRows(item.Id,num);
             if (res) {
+                console.log(item)
                 item.countBraches = res[0].countRows;
             }
         }
@@ -107,6 +106,7 @@ async function deleteSupplier(object) {
 function checkValid(object) {
     let mustKeys = ["SupplierCode", "SupplierName", "LicensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
     let array = Object.keys(object);
+
     for (let i = 0; i < mustKeys.length; i++) {
         if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && array[(mustKeys[i])] === null)) {
             console.log('false');
@@ -118,11 +118,13 @@ function checkValid(object) {
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
     let resultSupplierCode = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
+    console.log(resultSupplierCode)
     return resultSupplierCode.data.length === 0
 
 }
 async function checkUniqueName(name) {
     let resultSuppliersName = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
+    console.log(resultSuppliersName)
     return resultSuppliersName.data.length === 0
 }
 
@@ -133,10 +135,11 @@ async function checkUnique(setting) {
     return resultSuppliersCode && resultSuppliersName;
 }
 
-async function countRowes(code, isDisable) {
+async function countRows(code, isDisable) {
     console.log("countRowes - module");
-    let countRowesBranches = await postData( `read/countRows`, { tableName: SQL_DB_BRANCHES, condition: ` SupplierCode =${code} and Disabled = ${isDisable}` })
+    const countRowesBranches = await postData( `read/countRows`, { tableName: SQL_DB_BRANCHES, condition: ` SupplierCode =${code} and Disabled = ${isDisable}` })
     // console.log("countRowesBranches:", countRowesBranches.data.recordset);
+    console.log(countRowesBranches.data)
     return countRowesBranches.data.recordset;
 }
-module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countRowes };
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countRows };
