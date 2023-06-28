@@ -9,14 +9,15 @@ async function findAll(filter = undefined) {
     return found;
 }
 
-async function findByDistinct(collection,filter = undefined) {
-    console.log({collection});
-    console.log({filter});
+async function findByDistinct(collection, filter = undefined) {
+    console.log({ collection });
+    console.log({ filter });
 
     const found = await getData(`/read/distinct/${collection}/${filter}`)
-    console.log({found});
+    console.log({ found });
     return found;
 }
+
 async function findAllCities() {
     console.log('findall cities');
     const found = await postData('/read/find', {
@@ -27,35 +28,53 @@ async function findAllCities() {
 }
 
 async function insertArea(obj = {}) {
-    console.log({ obj })
+    console.log({ obj });
     const result = await postData('/create/insertone',
         {
             collection: "areas",
             data: obj
-        })
+        });
     console.log('mongo----', result.data, 'name', obj.name);
     if (result.data) {
         const resultToSql = await postData('/create/create',
             {
                 tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.data, AreaName: obj.name }
+                values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
             })
-        if (resultToSql) {
-            console.log("resultToSql.rowsAffected", resultToSql);
-            return resultToSql.data
+        //-------------------------------------- לשאול את המורה איזו שאלה הכי נחוצה
+        if (resultToSql && resultToSql.status === 201 && resultToSql.data.rowsAffected != undefined && resultToSql.data.rowsAffected[0] > 0) {
+            // console.log("resultToSql-------------", resultToSql);
+            // console.log("resultToSql.rowsAffected", resultToSql.data.rowsAffected);
+            // console.log("resultToSql.data.rowsAffected[0]", resultToSql.data.rowsAffected[0]);
+            // console.log("resultToSql.data", resultToSql.data);
+            console.log("-------------------------------------");
+            const dropResult = await postData('/update/dropDocument',
+                {
+                    collection: "areas",
+                    data: { _id: result.data }
+                })
+            console.log("result.data***", result.data);
+            console.log("dropMongoResult--", dropResult);
+            console.log("dropMongoResult.data--", dropResult.data);
+            return resultToSql.data;
         }
-        if (resultToSql.status===201)
+        if (resultToSql.status === 201)
             return resultToSql.data
+        else
+            throw new Error("Can't insert area to mongo and sql DB");
 
     }
-    else
+    else {
+
         throw new Error("Can't insert area");
+    }
+
 }
 
 async function updateArea(obj = {}) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
             set: { $set: { 'areasList.$[u]': obj.area } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
@@ -71,7 +90,7 @@ async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: obj.code },
             set: { $set: { 'areas.$[u].location.coordinates': obj.coordination } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.areaName }] }
@@ -85,7 +104,7 @@ async function updateLocation(obj) {
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: code },
             set: {
                 $set: {
@@ -101,38 +120,50 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
         throw new Error('Not Found area to update')
 };
 
-async function deleteSupplierOrClient(phone) {
-    const result = await postData('/mongo/updateone',
-        {
-            collection: "Areas",
-            filter: { SupplierOrClientCode: phone },
-            set: { $set: { disable: false } }
-        })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found supplier or client code to delete his areas')
-}
+// async function deleteSupplierOrClient(phone) {
+//     const result = await postData('/mongo/updateone',
+//         {
+//             collection: "Areas",
+//             filter: { SupplierOrClientCode: phone },
+//             set: { $set: { disable: false } }
+//         })
+//     if (result)
+//         return result
+//     else
+//         throw new Error('Not Found supplier or client code to delete his areas')
+// }
 
-async function deleteArea(phone, area) {
+async function deleteArea(areaName) {
     const result = await postData('/update/updateone',
         {
-            collection: "Areas",
-            filter: { supplierOrClientCode: phone },
-            set: { $set: { 'areas.$[u].delete': true } },
-            arrayFilters: { arrayFilters: [{ 'u.areaName': area }] }
+            collection: "areas",
+            filter: { name: areaName },
+            set: { $set: { disabled: false } }
+
         })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found area to delete')
+    if (result.data) {
+        console.log('AREANAME----', areaName);
+        const resultSql = await postData('/update/update',
+            {
+                tableName: 'tbl_Areas',
+                values: { Disabled: false },
+                condition: { AreaName: areaName }
+            })
+        console.log('delete from SQL----------------', resultSql.data.rowsAffected);
+    }
+    // return result
+    else {
+        throw new Error('cannot delete area')
+    }
 
 }
 
-async function findArea(areaName) {
+async function findArea(body) {
+    // let query = {}
+    // query[name] = value   
     const result = await postData('/read/find', {
         collection: "areas",
-        filter: { name: areaName }
+        filter: body
     })
 
     return result
@@ -190,9 +221,10 @@ module.exports = {
     // findAreaByCode,
     insertArea,
     findSupplierOrClient,
-    deleteSupplierOrClient,
+    // deleteSupplierOrClient,
     deleteArea,
-    updateArea, updateLocation,
+    updateArea,
+    updateLocation,
     updatePointAndRadius,
     findArea,
     getTheDataOfTheArea,

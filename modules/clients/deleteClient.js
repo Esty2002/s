@@ -1,5 +1,4 @@
-const { postData ,sqlServer} = require('../../services/axios')
-
+const { postData} = require('../../services/axios')
 async function deletedClientByCode(clientCode, userName) {
 
     let obj = {
@@ -8,21 +7,18 @@ async function deletedClientByCode(clientCode, userName) {
         'condition': `ClientCode=${clientCode}`
     }
 
-    const exist = await postData(sqlServer,`/read/readTopN`,obj)
+    const exist = await postData(`/read/readTopN`,obj)
     let result;
-
-    if (exist.rowsAffected != 0) {
+    if (exist) {
 
         obj['condition'] = `clientCode=${clientCode}`
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
 
-        result = await postData(sqlServer,'/update/update', obj)
+        result = await postData('/update/update', obj)
         return result.data;
     }
     
     return false
 }
-
-
 
 module.exports = { deletedClientByCode }   
