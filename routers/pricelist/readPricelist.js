@@ -1,5 +1,7 @@
 const express=require('express')
 const router=express.Router()
+const { logToFile } = require('../../services/loggerPnini')
+
 const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId
     ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill} =require('../../modules/pricelist/readPricelist')
 
