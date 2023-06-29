@@ -4,18 +4,18 @@ const { insertRow, getAll, updateNames, deleteItem } = require('../../modules/pr
 const { findPump } = require('../../modules/products/pumps');
 
 
-router.post('/getByType', express.json(), async (req, res) => {
-    try {
-        const response = await findPump(req.body.arr, req.body.where)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+// router.post('/getByType', express.json(), async (req, res) => {
+//     try {
+//         const response = await findPump(req.body.arr, req.body.where)
+//         if (response)
+//             res.status(200).send(response)
+//         else {
+//             res.status(500).send(response)
+//         }
+//     } catch (error) {
+//         res.status(500).send(error.message)
+//     }
+// })
 
 router.post('/insertRow', express.json(), async (req, res) => {
     try {

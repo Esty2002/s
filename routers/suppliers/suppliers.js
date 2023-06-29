@@ -86,7 +86,6 @@ router.get('/checkUniqueName/:suppliername', async (req, res) => {
 router.get('/getallSuppliers', async (req, res) => {
     try {
         const response = await getAllSuppliers()
-        console.log({response})
         if (response)
             res.status(200).send(response)
         else {

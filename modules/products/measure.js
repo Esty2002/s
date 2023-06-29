@@ -9,23 +9,31 @@ async function updateMeasure(condition, obj) {
 
 async function insertMeasure(name) {
     const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
-    console.log({exist})
+    console.log('after exist');
     const { status, data } = exist
-    if (status === 200 && !data) {
-        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name } })
+    console.log({status,data});
+    console.log(!data,'!');
+    if (status === 200 && !data[0]) {
+        console.log({name});
+        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Measure: name,Disable:0 } })
+        console.log(response+'hjhfdefjhg');
         return response
     }
-    else{
-        throw  new Error(`data exist`)
+    else {
+        throw new Error(`data exist`)
     }
 }
 
 async function findMeasureNumber(name) {
-    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
-    return a.data[0].id
+    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure ='${name}'`)
+    console.log(a.data);
+    console.log('----------------');
+    return a.data[0]
 }
 async function findMeasureName(num) {
-    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id =${num}`))
+    console.log(num);
+
+    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`))
     console.log({ measure })
     return measure
 }
