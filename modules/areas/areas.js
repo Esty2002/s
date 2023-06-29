@@ -115,16 +115,18 @@ async function deleteSupplierOrClient(phone) {
         throw new Error('Not Found supplier or client code to delete his areas')
 }
 
-async function deleteArea(phone, area) {
+async function deleteArea(areaName) {
+    console.log('ooooooooooooooo',areaName);
     const result = await postData('/update/updateone',
         {
-            collection: "Areas",
-            filter: { supplierOrClientCode: phone },
-            set: { $set: { 'areas.$[u].delete': true } },
-            arrayFilters: { arrayFilters: [{ 'u.areaName': area }] }
+            collection: "areas",
+            filter: { name: areaName },
+            set: { $set: { disabled: false } }
+
         })
     if (result)
         return result
+        // console.log('serverrrrrrrrrrrrrrrrrrrrrrrrrr',result);
     else
         throw new Error('Not Found area to delete')
 

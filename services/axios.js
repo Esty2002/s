@@ -28,6 +28,7 @@ const postData = async (url, body) => {
         console.log('url======',url);
         console.log('body======',body);
         response = await server.post(url, body);
+        console.log('axiossssssssss',response);
     }
     catch (error) {
         return error;

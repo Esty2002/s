@@ -142,13 +142,16 @@ router.post('/deleteAreaDetail', express.json(), async (req, res) => {
 
 // o.k
 router.post('/deleteArea', express.json(), async (req, res) => {
-    //req.body צריך לקבל מס' {טלפון} ב
     try {
-        const response = await deleteSupplierOrClient(req.body.phone)
+        const areaName = req.body.name
+        console.log('aaaaaaaaa', areaName);
+        const response = await deleteArea(areaName)
         if (response)
+            // console.log('yesyesyesyes',response);
             res.status(200).send(response)
         else {
-            res.status(500).send(response)
+            console.log("nononononononon");
+            // res.status(500).send(response)
         }
     } catch (error) {
         res.status(500).send(error.message)
