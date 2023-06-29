@@ -118,24 +118,14 @@ function checkValid(object) {
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
     let resultSupplierCode = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
-<<<<<<< HEAD
    
     return resultSupplierCode.length===0
-=======
-    console.log(resultSupplierCode)
-    return resultSupplierCode.data.length === 0
->>>>>>> 0acb9685a52e32e53d0378b70fecf84264888e53
 
 }
 async function checkUniqueName(name) {
     let resultSuppliersName = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
-<<<<<<< HEAD
  
     return resultSuppliersName.length===0
-=======
-    console.log(resultSuppliersName)
-    return resultSuppliersName.data.length === 0
->>>>>>> 0acb9685a52e32e53d0378b70fecf84264888e53
 }
 
 async function checkUnique(setting) {

@@ -7,10 +7,7 @@ const router = express.Router()
 router.post('/addStatus',express.json(),async(req,res)=>{
     try {
         const response =await addOneStatus(req.body)
-<<<<<<< HEAD
         // console.log(response,'response');
-=======
->>>>>>> 0acb9685a52e32e53d0378b70fecf84264888e53
         if (response)
             res.status(201).send(response.data)
         else {

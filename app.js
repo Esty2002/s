@@ -54,8 +54,6 @@ app.use('/auto_complete', auto_complete);
 app.use('/api', api_router);
 app.use('/productsCombinations', productsCombinations_router);
 
-app.use('/api-pricelist-swagger', swaggerUi.serve, swaggerUi.setup(pricelist_swagger));
-app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 
 
 app.get('/', (req, res) => {
