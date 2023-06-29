@@ -1,6 +1,7 @@
 require('dotenv').config()
-const { postData, getData} = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
 const { findMeasureName } = require('./measure')
+const { getAll, deleteItem } = require('./productsCombinations')
 
 const { SQL_PUMPS_TABLE } = process.env
 
@@ -18,7 +19,7 @@ async function insertPump(obj) {
 }
 
 async function findPump(project = [], filter = {}) {
-    console.log(project,filter, "************************************************");
+    console.log(project, filter, "************************************************");
     if (!Object.keys(filter).includes('Enabled'))
         filter['Enabled'] = 1
 
@@ -29,7 +30,7 @@ async function findPump(project = [], filter = {}) {
         conditionStr = "1=1"
     try {
         const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
-        console.log({ response }, 'in find');
+        // console.log({ response }, 'in find');
         return response
     }
     catch (error) {
@@ -53,7 +54,7 @@ async function updatePump(obj) {
     console.log({ obj });
     console.log({ conditionStr });
     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: conditionStr })
-    console.log(response, 'in delete function');
+    // console.log(response, 'in delete function');
     if (response)
         return true
     else
@@ -62,11 +63,29 @@ async function updatePump(obj) {
 
 
 async function findPumpName(num) {
-    console.log({num})
+    console.log({ num })
     const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
-    console.log({ pump })
+    // console.log({ pump })
     return pump
 }
 
+async function deletePumn(obj) {
+    const addition = await findPump(['Addition'], obj.condition)
+    const response = await updatePump(obj)
+    if (response) {
+        let productsCombinationsArr = await getAll();
+        if (addition.data[0].Addition)
+            productsCombinationsArr = productsCombinationsArr.filter(p => p.ChildId == obj.condition.Id)
+        else
+            productsCombinationsArr = productsCombinationsArr.filter(p => p.ParentId == obj.condition.Id)
 
-module.exports = { updatePump, insertPump, findPump, findPumpName }
+        productsCombinationsArr.forEach(async element => {
+            resp = await deleteItem({ Id: element.Id, Disable: true })
+        });
+
+        return true;
+    }
+    else
+        return false;
+}
+module.exports = { updatePump, insertPump, findPump, findPumpName, deletePumn }
