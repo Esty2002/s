@@ -5,6 +5,10 @@ const { logToFile } = require('../../services/loggerPnini')
 const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = require('../../modules/pricelist/insertPricelist')
 let tableName
 //tbl_PriceList
+
+
+
+
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
         let object = {
