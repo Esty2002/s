@@ -10,7 +10,7 @@ router.get('/findMeasureName/:id', async (req, res) => {
         if (response)
             res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -33,16 +33,13 @@ router.get('/findMeasureId', async (req, res) => {
 router.post('/create', express.json(), async (req, res) => {
     try {
         const response = await insertMeasure(req.body.new)
-
-        console.log('[[[[[[[[[[[[[[[[');
-        console.log({ response: response })
-        console.log(']]]]]]]]]]]]]]]]]');
         if (response.status === 201)
             res.status(201).send(response.data)
         else {
             res.status(response.status).send(-1)
         }
-    } catch (error) {
+    } 
+    catch (error) {
         res.status(500).send(error.message)
     }
 })
@@ -66,9 +63,26 @@ router.get('/all', async (req, res) => {
         if (response)
             res.status(200).send(response)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.post('/deleteItem', express.json(), async (req, res) => {
+    try {
+        console.log(req.body,'req.body------------------------------');
+        const response = await deleteItem(req.body)
+        console.log({status:response.status})
+        if (response.status === 200) {
+            res.status(200).send(response.data)
+        }
+        else {
+            res.status(response.status).send(response.data)
+        }
+    }
+    catch (error) {
         res.status(500).send(error.message)
     }
 })

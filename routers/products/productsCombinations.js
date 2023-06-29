@@ -20,9 +20,9 @@ const { findPump } = require('../../modules/products/pumps');
 router.post('/insertRow', express.json(), async (req, res) => {
     try {
         const response = await insertRow(req.body)
-        // console.log({ response });
-        if (response.status === 201)
-            res.status(201).send(response.data)
+         console.log(response.status);
+        if (response.status === 201 || response.status===204)
+            res.status(response.status).send(response.data)
         else {
             res.status(500).send(false)
         }

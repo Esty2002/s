@@ -4,7 +4,7 @@ const { postData, getData } = require('../../services/axios')
 const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
 
 async function updateMeasure(condition, obj) {
-    return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
+    return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` }))
 }
 
 async function insertMeasure(name) {
@@ -40,7 +40,12 @@ async function findMeasureName(num) {
 
 async function getAll() {
     const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
-    return response.data
+    return response
 }
 
-module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll }                
+async function deleteItem(object) {
+    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: `Id=${object.Id}` })
+    return response
+}
+
+module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll, deleteItem }                

@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+<<<<<<< HEAD
 const config = require('../../config.json')
 const { HOST, PORT } = process.env;
 
@@ -18,6 +19,15 @@ async function pathForRouter(filename) {
     const answer = fs.readFileSync(filename)
 
     // console.log(answer.toString())
+=======
+
+const { HOST, PORT } = process.env;
+
+async function pathForRouter(filename) {
+
+    const answer = fs.readFileSync(filename)
+
+>>>>>>> 0acb9685a52e32e53d0378b70fecf84264888e53
 
     const arr = answer.toString().split(';')
 
@@ -44,7 +54,10 @@ async function pathForRouter(filename) {
         r = { path: path, router: router }
         return r;
     })
+<<<<<<< HEAD
     // console.log(useArr, "element");
+=======
+>>>>>>> 0acb9685a52e32e53d0378b70fecf84264888e53
 
     return useArr;
 }
@@ -52,7 +65,10 @@ async function pathForRouter(filename) {
 async function fullRouterPath(filename, arrObjects) {
     const answer = fs.readFileSync(filename)
 
+<<<<<<< HEAD
     // console.log(answer.toString())
+=======
+>>>>>>> 0acb9685a52e32e53d0378b70fecf84264888e53
 
     const arr = answer.toString().split(';')
 

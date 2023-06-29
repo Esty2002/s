@@ -64,7 +64,6 @@ async function updatePump(obj) {
 async function findPumpName(num) {
     console.log({num})
     const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
-    console.log({ pump })
     return pump
 }
 
