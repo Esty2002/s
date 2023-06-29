@@ -184,6 +184,7 @@ async function deleteArea(areaName) {
             collection: "areas",
             filter: { name: areaName },
             set: { $set: { disabled: false } }
+
         })
     if (result.data) {
         console.log('AREANAME----', areaName);
