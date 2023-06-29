@@ -13,27 +13,26 @@ const getData = async (url) => {
     try {
         response = await server.get(url);
         console.log(response.data,"response");
+        return response;
     }
-
     catch (error) {
+        console.log({error:error.message})
         throw error;
     }
-    // console.log(response,"response");
-    return response;
 }
 
-const postData = async (url, body) => {
+const postData=async(url,body)=>{
     let response;
     try {
-        console.log('url======',url);
-        console.log('body======',body);
+        console.log({body:JSON.stringify(body)})
         response = await server.post(url, body);
-        console.log('axiossssssssss',response);
+        console.log({response:response.data})
+        return response;
     }
     catch (error) {
+        console.log({error:error.message})
         return error;
     }
-    return response;
 }
 module.exports = {  getData, postData }
 // ----1

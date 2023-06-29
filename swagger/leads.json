@@ -1,0 +1,669 @@
+{
+    "openapi": "3.0.3",
+    "info": {
+        "title": "swagger of leads",
+        "description": "A simple leads API",
+        "version": "1.0.0",
+        "contact": {
+            "name": "leads",
+            "email": "leads@web.com",
+            "url": "web.com"
+        }
+    },
+    "servers": [
+        {
+            "url": "http://127.0.0.1:4000",
+            "description": "Local server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "leads options",
+            "url": ""
+        }
+    ],
+    "components": {
+        "schemas": {
+            "empty": {
+                "type": "string",
+                "description": "dinamic response",
+                "example": "dinamic response"
+            },
+            "tableName": {
+                "type": "string",
+                "description": "TableName",
+                "example": "tbl_Orderers"
+            },
+            "columnsNames": {
+                "type": "string",
+                "description": "columnsNames seperated with a ','",
+                "example": "OrdererPhone,OrdererName"
+            },
+            "fieldName": {
+                "type": "string",
+                "description": "Field name to match by filter",
+                "example": "OrdererName='חיים'"
+            },
+            "Serialnumber": {
+                "type": "string",
+                "description": "Field name to match by filter",
+                "example": "OrdererName='משה'"
+            },
+            "id": {
+                "type": "string",
+                "description": "an identity",
+                "example": "12345678du483h"
+            },
+            "objectToCreateRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "tbl_Orderers"
+                    },
+                    "values": {
+                        "type": "object",
+                        "properties": {
+                            "OrdererPhone": {
+                                "type": "string",
+                                "description": "OrdererPhone",
+                                "example": "0524874631"
+                            },
+                            "OrdererName": {
+                                "type": "string",
+                                "description": "OrdererName",
+                                "example": "חיים"
+                            }
+                        }
+                    }
+                }
+            },
+            "objectToUpdateRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "tbl_Orderers"
+                    },
+                    "update": {
+                        "type": "object",
+                        "properties": {
+                            "OrdererName": {
+                                "type": "string",
+                                "description": "OrdererName",
+                                "example": "דב"
+                            }
+                        }
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "condition",
+                        "example": "OrdererName='חיים'"
+                    }
+                }
+            },
+            "objectToDeleteRecord": {
+                "type": "object",
+                "properties": {
+                    "tableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "tbl_PouringsTypes"
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "condition",
+                        "example": "serialNumber=1"
+                    }
+                }
+            },
+            "createnewlead": {
+                "type": "object",
+                "properties": {
+                    "supplyDate": {
+                        "type": "date",
+                        "description": "supplyDate",
+                        "example": "2023-07-08"
+                    },
+                    "supplyHour": {
+                        "type": "date",
+                        "description": "supplyHour",
+                        "example": "2023-07-08"
+                    },
+                    "ordererCode": {
+                        "type": "number",
+                        "description": "the orderer code",
+                        "example": 1
+                    },
+                    "address": {
+                        "type": "string",
+                        "description": "the address to supply the concret",
+                        "example": "Halochamim 8 BeneBrak"
+                    },
+                    "mapReferenceLongitude": {
+                        "type": "string",
+                        "description": "the Longitude point in the googleMaps",
+                        "example": "456456789"
+                    },
+                    "mapReferenceLatitude": {
+                        "type": "string",
+                        "description": "the Latitude point in the googleMaps",
+                        "example": "12457845"
+                    },
+                    "clientCode": {
+                        "type": "number",
+                        "description": "the client id",
+                        "example": 2
+                    },
+                    "baseConcretProduct": {
+                        "type": "list",
+                        "description": "the products of the concrets",
+                        "example": [
+                            1,
+                            5,
+                            8,
+                            7
+                        ]
+                    },
+                    "concretAmount": {
+                        "type": "number",
+                        "description": "the amount of the concret",
+                        "example": 15.1
+                    },
+                    "pump": {
+                        "type": "number",
+                        "description": "the id of the pump",
+                        "example": 1
+                    },
+                    "pumpPipeLength": {
+                        "type": "number",
+                        "description": "the length of the  pipe of the pump",
+                        "example": 5
+                    },
+                    "morePorductsItems": {
+                        "type": "list",
+                        "description": "more products items",
+                        "example": [
+                            {
+                                "productCode": 48,
+                                "amount": 18.5
+                            },
+                            {
+                                "productCode": 85,
+                                "amount": 45.85
+                            }
+                        ]
+                    },
+                    "pouringType": {
+                        "type": "number",
+                        "description": "the pouring type",
+                        "example": 5
+                    },
+                    "pouringTypesComments": {
+                        "type": "string",
+                        "description": "the comments about the pouring type",
+                        "example": "the comments about the pouring"
+                    },
+                    "comments": {
+                        "type": "string",
+                        "description": "notes",
+                        "example": "hello I must conncret"
+                    }
+                }
+            },
+            "condition": {
+                "type": "string",
+                "description": "the condition which lead to update",
+                "example": "SerialNumber=1"
+            },
+            "updateleadsdetails": {
+                "type": "object",
+                "properties": {
+                    "values": {
+                        "type": "string",
+                        "description": "the values to update",
+                        "example": "ordererCode=1"
+                    },
+                    "condition": {
+                        "type": "string",
+                        "description": "the condition which lead to update",
+                        "example": "serialNumber=1"
+                    }
+                }
+            },
+            "deletelead": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "getleadsdetails": {
+                "type": "object",
+                "properties": {
+                    "filter": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    },
+                    "sort": {
+                        "type": "object",
+                        "properties": {
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    },
+                    "skip": {
+                        "type": "int",
+                        "example": 0
+                    },
+                    "limit": {
+                        "type": "int",
+                        "example": 2
+                    },
+                    "project": {
+                        "type": "object",
+                        "properties": {
+                            "_id": {
+                                "type": "int",
+                                "example": 0
+                            },
+                            "serialNumber": {
+                                "type": "int",
+                                "example": 1
+                            },
+                            "supplyDate": {
+                                "type": "int",
+                                "example": 1
+                            },
+                            "supplyAddress": {
+                                "type": "int",
+                                "example": 1
+                            }
+                        }
+                    }
+                }
+            },
+            "Error": {
+                "type": "object",
+                "properties": {
+                    "TableName": {
+                        "type": "string",
+                        "description": "TableName",
+                        "example": "orderers"
+                    },
+                    "internal_code": {
+                        "type": "string",
+                        "description": "Error internal code",
+                        "example": "Invalid parameters"
+                    }
+                }
+            }
+        }
+    },
+    "paths": {
+        "/leads/getrecord/{table}/{field}": {
+            "get": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "get record",
+                "operationId": "getrecord",
+                "parameters": [
+                    {
+                        "name": "table",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/tableName"
+                        },
+                        "required": true,
+                        "description": "Table name"
+                    },
+                    {
+                        "name": "field",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/fieldName"
+                        },
+                        "required": true,
+                        "description": "Field name"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/insertrecord": {
+            "post": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "Insert a record",
+                "operationId": "insertRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToCreateRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updaterecord": {
+            "put": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "update a record",
+                "operationId": "updateRecord",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/objectToUpdateRecord"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/deleterecord/{tablename}/{condition}": {
+            "delete": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "delete a record",
+                "operationId": "deleteRecord",
+                "parameters": [
+                    {
+                        "name": "tablename",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/tableName"
+                        },
+                        "required": true,
+                        "description": "Table name"
+                    },
+                    {
+                        "name": "condition",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/condition"
+                        },
+                        "required": true,
+                        "description": "Field name"
+                    }
+                ], 
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "came back with an error",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/Error"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/createnewlead": {
+            "post": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "create a leads",
+                "operationId": "createnewlead",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/createnewlead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/updateleadsdetails": {
+            "post": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateleadsdetails"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/deletelead": {
+            "post": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/deletelead"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/leads/getleadsdetails": {
+            "post": {
+                "tags": [
+                    "leads CRUD operations"
+                ],
+                "description": "updateleadsdetails",
+                "operationId": "updateleadsdetails",
+                "parameters": [],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/getleadsdetails"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "filtered data",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/empty"
+                                }
+                            }
+                        }
+                    }
+                },
+                "404": {
+                    "description": "came back with an error",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/Error"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
