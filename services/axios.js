@@ -24,6 +24,7 @@ const getData = async (url) => {
 const postData=async(url,body)=>{
     let response;
     try {
+        console.log({body:JSON.stringify(body)})
         response = await server.post(url, body);
         console.log({response:response.data})
         return response;
