@@ -43,7 +43,7 @@ router.get('/FindPriceListByAddedDate/date', async (req, res) => {
 
 })
 // פונקציית חיפוש על פי מוצר
-router.get('/FindPriceListByProduct/product', async (req, res) => {
+router.get('/FindPriceListByProduct/:product', async (req, res) => {
     try {
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);

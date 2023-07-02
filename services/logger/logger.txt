@@ -687,3 +687,799 @@ Disabled: false,
 
 }
 ----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:25:33  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: sdrf, 
+tbname: {tbname}, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:25:33  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: sdrf, 
+tbName: {tbname}, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:42:58  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: g34, 
+tbname: tbl_pricelist, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:42:58  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: g34, 
+tbName: tbl_pricelist, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:43:39  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: 201, 
+tbname: tbl_pricelist, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:43:39  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: 201, 
+tbName: tbl_pricelist, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:43:39  
+description: getId after sending to db
+        
+result: {40}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:46:55  
+description: getIdForProductName in router
+        
+dataThatRecived: {getIdForProductName in router
+name: ח4, 
+tbname: undefined, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:46:55  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: ח4, 
+tbName: tbl_BuytonDegree, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:49:00  
+description: getIdForProductName in router
+        
+dataThatRecived: {getIdForProductName in router
+name: ש4, 
+tbname: undefined, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:49:00  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: ש4, 
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:49:45  
+description: getIdForProductName in router
+        
+dataThatRecived: {getIdForProductName in router
+name: ש4, 
+tbname: undefined, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:49:45  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: ש4, 
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 02 2023 - 11:57:20  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+name: 2212, 
+pumps: false, 
+beton: true, 
+addedDate: 07/02/2023, 
+userName: devloper, 
+finish: false, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:20  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: 2212, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:20  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: 2212, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonGrain}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonGrain, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonGrain}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonGrain, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: getId after sending to db
+        
+result: {85}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: 2212, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: 2212, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:21  
+description: getId after sending to db
+        
+result: {85}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:23  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonSomech}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:23  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:25  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonSomech}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:25  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:25  
+description: getIdForProductName in router
+        
+dataThatRecived: {getIdForProductName in router
+name: ש7, 
+tbname: undefined, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 11:57:25  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: ש7, 
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 02 2023 - 12:00:14  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+name: 544, 
+pumps: false, 
+beton: true, 
+addedDate: 07/02/2023, 
+userName: devloper, 
+finish: false, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: 544, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: 544, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonGrain}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonGrain, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonGrain}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonGrain, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getId after sending to db
+        
+result: {86}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: 544, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: 544, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:15  
+description: getId after sending to db
+        
+result: {86}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:19  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonSomech}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:19  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:22  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonSomech}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:22  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:22  
+description: getIdForBuytonDescribe in router
+        
+dataThatRecived: {getIdForBuytonDescribe in router
+name: ש5, 
+tbname: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:00:22  
+description: getIdForBuytonDescribe in module expects: name, tbname
+        
+dataThatRecived: {getIdForBuytonDescribe in module expects: name, tbname
+name: ש5, 
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 02 2023 - 12:00:54  
+description: addPricelistForProducts in router
+        
+dataThatRecived: {addPricelistForProducts in router
+PriceListId: 86, 
+ProductId: 5, 
+TableName: tbl_BuytonSomech, 
+Price: 4456, 
+Discount: 5, 
+AddedDate: 06/28/2023, 
+UserName: devloper, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 02 2023 - 12:01:41  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+name: ty44t, 
+pumps: false, 
+beton: true, 
+addedDate: 07/02/2023, 
+userName: devloper, 
+finish: false, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: ty44t, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: ty44t, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: getId after sending to db
+        
+result: {87}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: ty44t, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: ty44t, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: getId after sending to db
+        
+result: {87}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:41  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonGrain}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:42  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonGrain, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:42  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonGrain}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:42  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonGrain, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:43  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonSomech}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:43  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:45  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_BuytonSomech}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:45  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:45  
+description: getIdForBuytonDescribe in router
+        
+dataThatRecived: {getIdForBuytonDescribe in router
+name: ש6, 
+tbname: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:01:45  
+description: getIdForBuytonDescribe in module expects: name, tbname
+        
+dataThatRecived: {getIdForBuytonDescribe in module expects: name, tbname
+name: ש6, 
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 02 2023 - 12:01:52  
+description: addPricelistForProducts in router
+        
+dataThatRecived: {addPricelistForProducts in router
+PriceListId: 87, 
+ProductId: 6, 
+TableName: tbl_BuytonSomech, 
+Price: 1212, 
+Discount: 11, 
+AddedDate: 06/28/2023, 
+UserName: devloper, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:04:25  
+description: getIdForBuytonDescribe in router
+        
+dataThatRecived: {getIdForBuytonDescribe in router
+name: ש5, 
+tbname: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:04:25  
+description: getIdForBuytonDescribe in module expects: name, tbname
+        
+dataThatRecived: {getIdForBuytonDescribe in module expects: name, tbname
+name: ש5, 
+tbName: tbl_BuytonSomech, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:13:53  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 02 2023 - 12:13:53  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:18:28  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: {tbName}, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:18:28  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: {tbName}, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:19:18  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: tbl_PriceList, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:19:18  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: tbl_PriceList, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:20:23  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: tbl_PriceList, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:20:23  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: tbl_PriceList, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:22:19  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: tbl_PriceList, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:22:19  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: tbl_PriceList, 
+
+
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:33:14  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: false, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:33:15  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: false, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:42:10  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: false, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:42:10  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: false, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:43:20  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 201, 
+tbname: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: true, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:43:20  
+description: updateField in module
+        
+value: {updateField in module
+id: 201, 
+tbName: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: true, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:49:36  
+description: updateFieldInTable in router expect to get id and table name
+        
+values: {updateFieldInTable in router expect to get id and table name
+name: 40, 
+tbname: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: true, 
+Disabled: false, 
+
+}
+----------------------------------
+last time login in the function update : Sun Jul 02 2023 - 12:49:36  
+description: updateField in module
+        
+value: {updateField in module
+id: 40, 
+tbName: tbl_PriceList, 
+
+
+Name: dsa, 
+Pumps: true, 
+Beton: false, 
+AddedDate: 09/06/2023, 
+UserName: pnini, 
+Finish: true, 
+Disabled: false, 
+
+}
+----------------------------------
