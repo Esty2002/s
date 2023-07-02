@@ -5,10 +5,6 @@ const { logToFile } = require('../../services/loggerPnini')
 const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = require('../../modules/pricelist/insertPricelist')
 let tableName
 //tbl_PriceList
-
-
-
-
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
         let object = {
@@ -89,8 +85,6 @@ router.post('/addPricesListBySupplierOrClient', express.json(), async (req, res)
     _ = await insert(req.body, tableName)
     res.status(200).send(true)
 })
-
-
 //tbl_PricelistForProducts
 router.post('/addPricelistForProducts', express.json(), async (req, res) => {
     tableName = 'tbl_PricelistForProducts'
@@ -173,19 +167,19 @@ router.post('/updateFieldInTable/:id/:tbName', express.json(), async (req, res) 
     res.status(200).send(result)
 })
 
-router.get('/getIdForProductName/:name/:tbName', async (req, res) => {
-    let params = { name: req.params.name, tbname: req.params.tbname }
-    let object = {
-        name: 'read',
-        description: 'getIdForProductName in router',
-        dataThatRecived: params
-    }
-    logToFile(object)
-    const result = await getId(req.params.name, req.params.tbName)
-    // console.log(result.data[0].Id, ' kkkk');
-    // let id=result.data[0].Id
-    res.status(200).send(result.data[0])
-})
+// router.get('/getIdForProductName/:name/:tbName', async (req, res) => {
+//     let params = { name: req.params.name, tbname: req.params.tbname }
+//     let object = {
+//         name: 'read',
+//         description: 'getIdForProductName in router',
+//         dataThatRecived: params
+//     }
+//     logToFile(object)
+//     const result = await getId(req.params.name, req.params.tbName)
+//     // console.log(result.data[0].Id, ' kkkk');
+//     // let id=result.data[0].Id
+//     res.status(200).send(result.data[0])
+// })
 
 router.get('/getIdForBuytonDescribe/:name/:tbName', async (req, res) => {
     let params = { name: req.params.name, tbname: req.params.tbName }
@@ -201,5 +195,4 @@ router.get('/getIdForBuytonDescribe/:name/:tbName', async (req, res) => {
     let re = `${result[t]}`
     res.status(200).send(re)
 })
-
 module.exports = router;

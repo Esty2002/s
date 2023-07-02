@@ -103,6 +103,7 @@ async function getIdForBuytonDescribe(name, tbName) {
     let t = tbName.substring(10)
     t = t + 'Describe'
     let condition = `${t}='${name}'`
+    console.log('888888888888888888888888888888888888888888888',condition);
     const response = await getData(`/read/readAll/${tbName}/${condition}`)
     return response.data
 }
