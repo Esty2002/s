@@ -4,11 +4,12 @@ const {readFile} = require('../modules/readfile')
 
 const path = require('path')
 
-router.get('/readspecificfilename/:filename', async (req, res) => {
+router.get('/readsappapis/:filename', async (req, res) => {
     try {
         const filepath = path.join(__dirname, '../../app.js')    // const response =await readFile(req.params.filename)
        
         const response = await readFile(filepath)
+        
         console.log(response,"response");
         if (response)
             res.status(201).send(response)
