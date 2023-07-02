@@ -48,6 +48,10 @@ async function insertArea(obj = {}) {
             // console.log("resultToSql.data.rowsAffected[0]", resultToSql.data.rowsAffected[0]);
             // console.log("resultToSql.data", resultToSql.data);
             console.log("-------------------------------------");
+
+            return resultToSql.data;
+        }
+        else {
             const dropResult = await postData('/update/dropDocument',
                 {
                     collection: "areas",
@@ -56,10 +60,6 @@ async function insertArea(obj = {}) {
             console.log("result.data***", result.data);
             console.log("dropMongoResult--", dropResult);
             console.log("dropMongoResult.data--", dropResult.data);
-            return resultToSql.data;
-        }
-        else {
-
 
             throw new Error("Can't insert area to mongo and sql DB");
         }
@@ -174,7 +174,7 @@ async function findAreaByCode(code) {
 
 
 async function findSupplierOrClient(code) {
-    console.log(" in isExist module");
+    console.log("in isExist module");
     const result = await postData('/read/find',
         {
             dbName: "Buyton",

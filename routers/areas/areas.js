@@ -22,6 +22,7 @@ router.post('/isExist', express.json(), async (req, res) => {
     console.log("in isExist ", req.body);
     try {
         const result = await findArea(req.body)
+        console.log("result in isExist",result.data);
         res.status(200).send(result.data)
     }
     catch (error) {
