@@ -7,6 +7,8 @@ async function getAllPriceList() {
     try {
         let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
         const res = await postData("/read/readTopN", obj);
+        
+
         return res.data;
     }
     catch (error) {

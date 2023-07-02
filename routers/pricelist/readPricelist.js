@@ -9,6 +9,8 @@ router.get('/findAllPriceList', async (req, res) => {
     try {
         const result = await getAllPriceList();
             res.status(200).send(result);
+            console.log(res);
+        console.log("------------------------------------------------");
     } 
     catch (error) {
         res.status(500).send(error);

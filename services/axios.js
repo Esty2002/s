@@ -9,17 +9,17 @@ const server = axios.create({
 
 const getData = async (url) => {
     let response;
-    console.log({url});
+    console.log({ url });
     try {
         response = await server.get(url);
-       
-       return response // console.log(response.data,"response");
+
+        return response // console.log(response.data,"response");
     }
 
     catch (error) {
         throw error;
     }
-   
+
 }
 
 const postData = async (url, body) => {
@@ -31,9 +31,9 @@ const postData = async (url, body) => {
     catch (error) {
         return error;
     }
-   
+
 }
-module.exports = {  getData, postData }
+module.exports = { getData, postData }
 // ----1
 // url====== /read/distinct
 // body====== { collection: 'areas', distinct: 'type' }
