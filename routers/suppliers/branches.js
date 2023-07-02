@@ -32,7 +32,7 @@ router.get('/getallbranches', async (req, res) => {
 router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
 
     try {
-        const response = await getBranchesByCondition(req.params.condition, req.params.value,req.params.num)
+        const response = await getBranchesByCondition(req.params.condition, req.params.value, req.params.num)
         if (response)
             res.status(200).send(response)
         else {
@@ -46,34 +46,37 @@ router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) 
 
 
 router.post('/insertbranch', express.json(), async (req, res) => {
-    console.log("insert brances");
     try {
         const response = await insertOneBranch(req.body)
-        if (response)
-            res.status(201).send(response)
+
+        if (response) {
+            res.status(201).send(response.data)
+        }
         else {
+
             res.status(500).send(response)
         }
-    } catch (error) {
+    } catch (error){
+        console.log("you cant insert this branch to the data:(");
         res.status(500).send(error.message)
     }
 })
 
 router.post('/updatebranch', express.json(), async (req, res) => {
+    console.log(req.body.SupplierCode, req.body.BranchName);
     try {
         const response = await updateDetail(req.body.SupplierCode, req.body)
         if (response)
-            res.status(200).send(response)
-        // res.status(200).send(true);
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }
     } catch (error) {
+        console.log("cant update branch:(");
         res.status(500).send(error.message)
     }
 })
 
-// /branches/checkUnique/${branch.SupplierCode}/${branch.BranchName}
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
     console.log("in chckUniqe");
     try {

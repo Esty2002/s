@@ -7,8 +7,7 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
     try {
         const response = await deleteSupplier(req.body)
         if (response)
-            res.status(200).send(response)
-        // res.status(200).send(true);
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }
@@ -35,7 +34,7 @@ router.post('/updatesupplier', express.json(), async (req, res) => {
     try {
         const response = await updateDetail(req.body.OldSupplierCode, req.body)
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }
@@ -84,6 +83,7 @@ router.get('/checkUniqueName/:suppliername', async (req, res) => {
 })
 
 router.get('/getallSuppliers/:num', async (req, res) => {
+    console.log("getallsuppliers - router",req.params.num);
     try {
         console.log(req.params.num);
         const response = await getAllSuppliers(req.params.num)
