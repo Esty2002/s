@@ -19,13 +19,50 @@ async function findByDistinct(collection, filter = undefined) {
 }
 
 async function findAreas(filter) {
-    console.log('findall cities');
+    console.log('findall cities', filter);
     const found = await postData('/read/find', {
-        collection: "areas", filter: filter
+        collection: "areas",
+        filter: filter
     })
     console.log({ found })
     return found.data
 }
+
+async function findArea(body) {
+    // let query = {}
+    // query[name] = value   
+    const result = await postData('/read/find', {
+        collection: "areas",
+        filter: body
+    })
+    return result
+}
+
+async function serachByAreas(obj) {
+    let areas = [];
+    const citys = await findAreas({ basicName: obj.city });
+    const points = await findAreas({ point: obj.point, type: 'point' });
+    const radius = await findAreas({ type: 'radius' });
+    const polygon = await findInPolygon({ point: obj.point });
+    console.log("polygon.data",polygon.data);
+    areas = [...areas, ...citys, ...points, ...radius,...polygon.data];
+    console.log('areas---wwwwwwwwwwwwwwwwwwwww', areas);
+    return areas;
+}
+
+async function findInPolygon(point) {
+    console.log({ point });
+    const found = await postData('/read/findpolygon', {
+        collection: "areas",
+        filter:  { type: 'polygon' } ,
+        // $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }]
+        point
+    });
+
+    console.log({ found: found.data });
+    return found;
+}
+
 async function findAreaWithRadius(point) {
     let areasWithRadius = []
     const radius = await findAreas({ type: 'radius' })
@@ -47,17 +84,7 @@ async function findAreaWithRadius(point) {
 
     return areasWithRadius
 }
-async function findInPolygon(point) {
-    console.log({ point })
-    const found = await postData('/read/findpolygon', {
-        collection: "areas",
-        filter: { $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] },
-        point
-    }
-    )
-    console.log({ found: found.data })
-    return found;
-}
+
 async function insertArea(obj = {}) {
     console.log({ obj });
     const result = await postData('/create/insertone',
@@ -203,16 +230,7 @@ async function deleteArea(areaName) {
 
 }
 
-async function findArea(body) {
-    // let query = {}
-    // query[name] = value   
-    const result = await postData('/read/find', {
-        collection: "areas",
-        filter: body
-    })
-    return result
 
-}
 async function findAreaByCode(code) {
     let filter = {};
     const result = await postData('/read/find',
@@ -272,6 +290,7 @@ module.exports = {
     updateLocation,
     updatePointAndRadius,
     findArea,
+    serachByAreas,
     getTheDataOfTheArea,
     findAll,
     findByDistinct,
