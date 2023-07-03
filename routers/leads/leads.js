@@ -98,8 +98,7 @@ router.post('/insertrecord', express.json(), async (req, res) => {
 
     }
     catch (error) {
-        console.log(error);
-        res.status(404).send(error);
+        res.status(505).send(error.message);
     }
 });
 

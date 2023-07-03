@@ -12,14 +12,14 @@ const createNewLead = async (obj = null) => {
         }];
     });
     let newObj = {
-        tableName: 'tbl_Leads',
+        tableName: 'Leads',
         values: vals
     };
 
     try {
         const result = await postData('create/createManySql', newObj);
         if (result.status === 201 && obj.morePorductsItems) {
-            const result1 = await insertMoreProductsItems(obj, result);
+            const result1 = await insertMoreProductsItems(obj, result.data);
             return result1;
         }
         else {
@@ -43,8 +43,9 @@ const insertMoreProductsItems = async (obj, result) => {
             AddedDate: new Date().toISOString()
         }]
     })
+
     objMpi = {
-        tableName: 'tbl_MoreProductsItems',
+        tableName: 'moreProductsItems',
         values: morePorductsItems
     };
 

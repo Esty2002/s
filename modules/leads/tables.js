@@ -2,78 +2,75 @@ const { sqlServer, postData, getData } = require('../../services/axios');
 
 const values = [
     {
-        tableName: "tbl_Orderers",
-        values: {
-            OrdererName: "",
-            OrdererPhone: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
-        }
-    },
-    {
-        tableName: "tbl_PouringsTypes",
-        values: {
-            PouringName: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
-        }
-    },
-    {
-        tableName: "tbl_StatusesLead",
-        values: {
-            StatusName: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
-        }
-    },
-    {
-        tableName: "tbl_MoreProductsItems",
-        values: {
-            LeadNumber: "",
-            Product: "",
-            Amount: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
-        }
-    }
+        entityName: "orderers",
+        func: ({ ordererName, ordererPhone }) => {
+            return {
+                tableName: "Orderers",
+                values: {
+                    OrdererName: ordererName,
+                    OrdererPhone: ordererPhone,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
 
+        }
+
+    },
+    {
+        entityName: "pouringsTypes",
+        func: ({ pouringName }) => {
+            return {
+                tableName: "PouringsTypes",
+                values: {
+                    PouringName: pouringName,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
+        }
+
+    },
+    {
+
+        entityName: "StatusesLead",
+        func: ({ statusName }) => {
+            return {
+                tableName: "StatusesLead",
+                values: {
+                    StatusName: statusName,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
+        }
+
+    },
 ];
+
 
 
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
-        const val = values.find(({ tableName }) => tableName === obj.tableName);
-        if (val) {
-            let newObj = {
-                tableName: val.tableName,
-                values: val.values
-            };
-            for (let key in newObj['values']) {
-                newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
-            }
+        const entity = values.find(({ entityName }) => entityName === obj.entityName);
+        if (entity) {
+            const newObj = entity.func(obj.values);
             try {
                 result = await postData('/create/create', newObj);
-                for (let key in val.values) {
-                    if (typeof val.values[key] === 'string' && val.values[key].includes(':') && val.values[key].lastIndexOf('Z') === val.values[key].length - 1)
-                        break;
-                    else
-                        val.values[key] = "";
-                }
                 return result;
-
             }
             catch (error) {
                 throw error;
             }
         }
         else {
-            throw new Error("the table name is not exist");
+            throw new Error("the entity name not exist");
         }
+
     }
     else {
         throw new Error("the object is null");
