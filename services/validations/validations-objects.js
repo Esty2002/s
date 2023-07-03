@@ -54,13 +54,54 @@ const objectsForValidations = [
             { propertyName: "deletingDate", validation: [{ func: validation.type, arguments: "date" }] }
         ]
     },
+
+
+    {
+        objectName: "tbl_FinishProducts",
+        values: [
+ 
+            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+      
+        ]
+
+    
+
+    },
+    
+    {
+        objectName: "tbl_PricelistForProducts",
+        values: [
+ 
+            { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments:null }] },
+            { propertyName: "ProductId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "TableName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "Price", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+
+        ]
+    },
+
+{
+    objectName: "tbl_Pumps",
+    values: [
+
+        { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+        { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+        { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+        { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+        { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+
+    ]
+},
     {
         objectName: "tbl_Clients",
         values: [
             {
                 propertyName: "ClientCode", validation: [
                     { func: validation.required, arguments: null },
-                    { func: validation.type, arguments: "string" },
+                    { func: validation.onlyNumbersInString, arguments:null },
                     { func: validation.clientCodeIsExistInSQL, arguments: { tableName: "tbl_Clients", field: "ClientCode" } }
                 ]
             },
@@ -69,7 +110,7 @@ const objectsForValidations = [
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.notCheck, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "DestinationBank", validation: [{ func: validation.notCheck, arguments: null },] },
             { propertyName: "PaymentTermsFluent", validation: [{ func: validation.notCheck, arguments: null },] },
-            { propertyName: "PreferredPaymentDate", validation: [{ func: validation.type, arguments: "number" },] },
+            { propertyName: "PreferredPaymentDate", validation: [{ func: validation.dateType, arguments: null},{ func: validation.theDateAfterToday, arguments: null }] },
             { propertyName: "Ovligo", validation: [{ func: validation.type, arguments: "number" },] },
             { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null },] },
             { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null },] },
@@ -78,7 +119,7 @@ const objectsForValidations = [
             { propertyName: "Description", validation: [{ func: validation.notCheck, arguments: null },] },
             { propertyName: "Street", validation: [{ func: validation.required, arguments: null },] },
             { propertyName: "House", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "City", validation: [{ func: validation.required, arguments: null },] },
+            { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null },] },
             { propertyName: "Telephone1", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Telephone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
@@ -91,35 +132,7 @@ const objectsForValidations = [
 
         ]
 
-        // serialNumber
-        // clientCode
-        // clientName
-        // privaetCompanyNumber
-        // bookkeepingNumber
-        // destinationBank
-        // paymentTermsFluent
-        // preferredPaymentDate
-        // ovligo
-        // receiptIssueTerm
-        // receiptCentralism
-        // accountantClassifiedCode
-        // status
-        // description
-        // street
-        // house
-        // city
-        // zipCode
-        // telephone1
-        // telephone2
-        // mobilePhone
-        // fax
-        // email
-        // comments
-        // creationDate
-        // userThatAdd
-        // disabled
-        // deletionDate
-        // userThatDelete
+    
 
     }
 

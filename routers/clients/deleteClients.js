@@ -5,7 +5,9 @@ const { deletedClientByCode } = require('../../modules/clients/deleteClient')
 
 router.post('/deleteClient', express.json(), async (req, res) => {
     try {
-        const response =await deletedClientByCode(req.body.code, req.body.user)
+        console.log(req.body.ClientCode,'dddddddddddddd');
+
+        const response =await deletedClientByCode(req.body.ClientCode, req.body.user)
         if (response)
             res.status(200).send(response)
         else {

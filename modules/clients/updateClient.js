@@ -1,4 +1,4 @@
-const { postData ,sqlServer} = require('../../services/axios')
+const { postData , } = require('../../services/axios')
 
 async function updateClient(obj) {
     let object={
@@ -6,7 +6,7 @@ async function updateClient(obj) {
         "condition":`ClientCode=${obj.ClientCode}`,
         "values":obj
     }
-    _= await postData(sqlServer,'/update/update', object)
+    _= await postData( '/update/update', object)
    
 }
 module.exports = { updateClient } 

@@ -12,25 +12,27 @@ const checkObjectValidations = async (body, objName) => {
         for (let v of values) {
 
             i++
-            console.log(i, 'iiiiiiiii');
+            // console.log(i, 'iiiiiiiii');
             console.log(v.propertyName, 'sari');
-for(let valid of v.validation){
-          
-                console.log(valid, 'vvvvvvvlllllllll', valid.arguments, valid.func);
+            for (let valid of v.validation) {
+
+                // console.log(valid, 'vvvvvvvlllllllll', valid.arguments, valid.func);
 
                 // let a=!valid.func(body[v.propertyName])
-                // console.log(a,'aaaaaaaaaaaa');
-                // console.log(v.propertyName, 'body[v.propertyName]');
+               
+                console.log(v.propertyName, 'body[v.propertyName]');
                 // console.log(valid.arguments, 'argumeeeeennnnnnnnntt');
                 // console.log(valid.func(body[v.propertyName], valid.arguments));
-                console.log(body[v.propertyName], 'oooo');
+                console.log( body[v.propertyName],v.propertyName, 'oooo');
                 if (body[v.propertyName]) {
+                    console.log(body[v.propertyName],'yyyeeesss');
                     if (!(await valid.func(body[v.propertyName], valid.arguments))) {
                         console.log('nooooooooooo');
                         return false;
 
                     }
                 }
+                //  console.log('tttttttttttt');
 
             }
             // console.log(v.validations,'vvvvvvvvvvv')
@@ -38,6 +40,7 @@ for(let valid of v.validation){
         return true;
     }
     catch (error) {
+        console.log(error.message)
         throw error
     }
 
