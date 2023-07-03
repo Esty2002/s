@@ -1,0 +1,671 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Swagger Petstore - OpenAPI 3.0",
+    "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\n_If you're looking for the Swagger 2.0/OAS 2.0 version of Petstore, then click [here](). Alternatively, you can load via the `Edit > Load Petstore OAS 2.0` menu option!_\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "apiteam@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    },
+    "version": "1.0.11"
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3200"
+    }
+  ],
+  "tags": [
+    {
+      "name": "CRUD",
+      "description": "Everything about the CRUD"
+    },
+    {
+      "name": "Communication",
+      "description": "Everything about the Communication"
+    }
+  ],
+  "paths": {
+    "/createClient/add": {
+      "post": {
+        "tags": [
+          "CRUD"
+        ],
+        "summary": "Create client in the DB",
+        "description": "Create client in the DB",
+        "operationId": "Create fields in a client",
+        "requestBody": {
+          "description": "Create fields in a client",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateClient"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseCreate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        }
+      }
+    },
+    "/updateClient/update": {
+      "post": {
+        "tags": [
+          "CRUD"
+        ],
+        "summary": "Update client in the DB",
+        "description": "Update client in the DB",
+        "operationId": "update fields in a client",
+        "requestBody": {
+          "description": "update fields in a client",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/UpdatClient"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseUpdate"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/communication/postCommunications": {
+      "post": {
+        "tags": [
+          "Communication"
+        ],
+        "summary": "Documantion talking with suppliers",
+        "description": "Documantion talking with suppliers",
+        "operationId": "add post",
+        "requestBody": {
+          "description": "Create a new document",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Communication"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseComm"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/deleteClient/deleteClient": {
+      "post": {
+
+        "tags": [
+          "CRUD"
+        ],
+        "summary": "Delete client from db",
+        "description": "Delete client from db by update 'disabled' field",
+        "operationId": "add post",
+        "requestBody": {
+          "description": "Create a new object that contain client code to delete",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Delete"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ResponseDel"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    },
+    "/pet/findByStatus": {
+      "get": {
+        "tags": [
+          "CRUD"
+        ],
+        "summary": "Finds Pets by status",
+        "description": "Multiple status values can be provided with comma separated strings",
+        "operationId": "findPetsByStatus",
+        "parameters": [
+          {
+            "name": "status",
+            "in": "query",
+            "description": "Status values that need to be considered for filter",
+            "required": false,
+            "explode": true,
+            "schema": {
+              "type": "string",
+              "default": "available",
+              "enum": [
+                "available",
+                "pending",
+                "sold"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              },
+              "application/xml": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Pet"
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid status value"
+          }
+        },
+        "security": [
+          {
+            "petstore_auth": [
+              "write:pets",
+              "read:pets"
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Communication": {
+        "required": [
+          "date",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "date": {
+            "type": "string",
+            "example": "02/05/2023"
+          },
+          "user": {
+            "type": "string",
+            "example": "Gpree"
+          },
+          "customer": {
+            "type": "string",
+            "example": "supplier"
+          },
+          "journal": {
+            "type": "string",
+            "example": "order ..."
+          }
+        },
+        "xml": {
+          "name": "communication"
+        }
+      },
+      "ResponseComm": {
+        "required": [],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "64512718e3cff9d1b4c48860"
+          }
+        },
+        "xml": {
+          "name": "communication"
+        }
+      },
+      "CreateClient": {
+        "required": [],
+        "type": "object",
+        "properties": {
+          "clientCode": {
+            "type": "string",
+            "example": "123456789"
+          },
+          "clientName": {
+            "type": "string",
+            "example": "Gpree"
+          },
+          "privaetCompanyNumber": {
+            "type": "string",
+            "example": "123"
+          },
+          "bookkeepingNumber": {
+            "type": "string",
+            "example": "123"
+          },
+          "destinationBank": {
+            "type": "string",
+            "example": "123"
+          },
+          "paymentTermsFluent": {
+            "type": "string",
+            "example": "123"
+          },
+          "preferredPaymentDate": {
+            "type": "string",
+            "example": "1"
+          },
+          "ovligo": {
+            "type": "string",
+            "example": "500"
+          },
+          "receiptIssueTerm": {
+            "type": "string",
+            "example": "order"
+          },
+          "receiptCentralism": {
+            "type": "string",
+            "example": "receiptCentralism"
+          },
+          "accountantClassifiedCode": {
+            "type": "string",
+            "example": "111"
+          },
+          "status": {
+            "type": "string",
+            "example": "1"
+          },
+
+          "description": {
+            "type": "string",
+            "example": "description"
+          },
+          "street": {
+            "type": "string",
+            "example": "street"
+          },
+          "house": {
+            "type": "string",
+            "example": "1"
+          },
+          "city": {
+            "type": "string",
+            "example": "city"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": "7878"
+          },
+          "telephone1": {
+            "type": "string",
+            "example": "telephone1"
+          },
+          "telephone2": {
+            "type": "string",
+            "example": "telephone2"
+          },
+          "mobilePhone": {
+            "type": "string",
+            "example": "mobilePhone"
+          },
+          "fax": {
+            "type": "string",
+            "example": "fax"
+          },
+          "email": {
+            "type": "string",
+            "example": "recom"
+          },
+          "comments": {
+            "type": "string",
+            "example": "comments"
+          },
+          "creationDate": {
+            "type": "string",
+            "example": "creationDate"
+          },
+          "userThatAdd": {
+            "type": "string",
+            "example": "userThatAdd"
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "deletionDate": {
+            "type": "string",
+            "example": "null"
+          },
+          "userThatDelete": {
+            "type": "string",
+            "example": "null"
+          }
+        },
+        "xml": {
+          "name": "CreateClient"
+        }
+      },
+      
+      "ResponseCreate": {
+        "required": [],
+        "type": "boolean",
+        "xml": {
+          "name": "ResponseCreate"
+        }
+      },
+      "UpdatClient": {
+        "type": "object",
+        "properties": {
+          "clientCode": {
+            "type": "string",
+            "example": "123456789"
+          },
+          "clientName": {
+            "type": "string",
+            "example": "Gpree"
+          },
+          "privaetCompanyNumber": {
+            "type": "string",
+            "example": "123"
+          },
+          "bookkeepingNumber": {
+            "type": "string",
+            "example": "123"
+          },
+          "destinationBank": {
+            "type": "string",
+            "example": "123"
+          },
+          "paymentTermsFluent": {
+            "type": "string",
+            "example": "123"
+          },
+          "preferredPaymentDate": {
+            "type": "int",
+            "example": 1
+          },
+          "ovligo": {
+            "type": "int",
+            "example": 500
+          },
+          "receiptIssueTerm": {
+            "type": "string",
+            "example": "order ..."
+          },
+          "receiptCentralism": {
+            "type": "string",
+            "example": "receiptCentralism"
+          },
+          "accountantClassifiedCode": {
+            "type": "int",
+            "example": 111
+          },
+          "status": {
+            "type": "int",
+            "example": 0
+          },
+          "description": {
+            "type": "string",
+            "example": "description"
+          },
+          "street": {
+            "type": "string",
+            "example": "street"
+          },
+          "house": {
+            "type": "int",
+            "example": 1
+          },
+          "city": {
+            "type": "string",
+            "example": "city"
+          },
+          "zipCode": {
+            "type": "string",
+            "example": "7878"
+          },
+          "telephone1": {
+            "type": "string",
+            "example": "telephone1"
+          },
+          "telephone2": {
+            "type": "string",
+            "example": "telephone2"
+          },
+          "mobilePhone": {
+            "type": "string",
+            "example": "mobilePhone"
+          },
+          "fax": {
+            "type": "string",
+            "example": "fax"
+          },
+          "email": {
+            "type": "string",
+            "example": "123@gmail.com"
+          },
+          "comments": {
+            "type": "string",
+            "example": "comments"
+          },
+          "creationDate": {
+            "type": "string",
+            "example": "creationDate"
+          },
+          "userThatAdd": {
+            "type": "string",
+            "example": "userThatAdd"
+          },
+          "disabled": {
+            "type": "boolean",
+            "example": false
+          },
+          "deletionDate": {
+            "type": "string",
+            "example": "01/05/2023"
+          },
+          "userThatDelete": {
+            "type": "string",
+            "example": "g"
+          }
+        },
+        "xml": {
+          "name": "communication"
+        }
+      },
+      "ResponseUpdate": {
+        "required": [],
+        "type": "boolean",
+        "xml": {
+          "name": "UpdatClient"
+        }
+      },
+      "Delete": {
+        "required": [
+          "clientCode",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "code": {
+            "type": "string",
+            "example": "1111"
+          },
+          "user": {
+            "type": "string",
+            "example": "Gpree"
+          }
+        },
+        "xml": {
+          "name": "Delete"
+        }
+      },
+      "ResponseDel": {
+        "required": [
+          "clientCode",
+          "user"
+        ],
+        "type": "object",
+        "properties": {
+          "recordset": {
+            "type": "array",
+            "example": "[]"
+          },
+          "output": {
+            "type": "object",
+            "example": "{}"
+          },
+          "rowAffected": {
+            "type": "array",
+            "example": "[1,1]"
+          },
+          "returnValue": {
+            "type": "integer",
+            "format": "int32",
+            "example": "0"
+          }
+        },
+        "xml": {
+          "name": "ResponseDel"
+        }
+      }
+
+    },
+
+
+    "requestBodies": {
+      "Pet": {
+        "description": "Pet object that needs to be added to the store",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          },
+          "application/xml": {
+            "schema": {
+              "$ref": "#/components/schemas/Pet"
+            }
+          }
+        }
+      },
+      "UserArray": {
+        "description": "List of user object",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "array",
+              "items": {
+                "$ref": "#/components/schemas/User"
+              }
+            }
+          }
+        }
+      }
+    },
+    "securitySchemes": {
+      "petstore_auth": {
+        "type": "oauth2",
+        "flows": {
+          "implicit": {
+            "authorizationUrl": null,
+            "scopes": {
+              "write:pets": "modify pets in your account",
+              "read:pets": "read your pets"
+            }
+          }
+        }
+      },
+      "api_key": {
+        "type": "apiKey",
+        "name": "api_key",
+        "in": "header"
+      }
+    }
+  }
+}
