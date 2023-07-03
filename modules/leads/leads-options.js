@@ -31,7 +31,6 @@ const createNewLead = async (obj = null) => {
     }
 
 };
-<<<<<<< HEAD
 
 const insertMoreProductsItems = async (obj, result) => {
     let morePorductsItems = [];
@@ -54,9 +53,7 @@ const insertMoreProductsItems = async (obj, result) => {
 
 
 }
-=======
-let flag = false
->>>>>>> afead91d5a2f6a45b4bc77ac6197fa1afb60f6e7
+// let flag = false
 const readLead = async (filter) => {
     
     const obj = {
@@ -64,7 +61,6 @@ const readLead = async (filter) => {
         columns: '*',
         condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
     }
-    console.log("55555555555555555555555555555",filter);
 
     try {
         const values = await postData('read/readTopN', obj);

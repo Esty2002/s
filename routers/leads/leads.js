@@ -7,7 +7,6 @@ const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modu
 router.post('/createnewlead', express.json(), async (req, res) => {
     try {
         const response = await createNewLead(req.body);
-        console.log({status:response.status});
         if (response.status === 201) {
             res.status(response.status).send(response.data);
         }
@@ -20,7 +19,6 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         res.status(500).send(error.message);
     }
 });
-// "/leads/getleads/{condition}"
 
 router.get('/getleads/:condition', express.json(), async (req, res) => {
     try {
@@ -40,7 +38,6 @@ router.get('/getforeignkeyvalue/:tablename/:field/:id', express.json(), async (r
         res.status(200).send(response);
     }
     catch (error) {
-        console.log(error);
         res.status(500).send(error);
     }
 });
@@ -62,9 +59,6 @@ router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
         res.status(200).send(response);
     }
     catch (error) {
-        console.log("hhh");
-
-        console.log(error);
         res.status(404).send(error);
     }
 });
