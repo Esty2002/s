@@ -2,71 +2,104 @@ require('dotenv').config()
 const { getData, postData } = require('../../services/axios')
 
 async function findAll(filter = undefined) {
+    console.log({ filter })
     const found = await postData('/read/find', {
         collection: "areas",
-        filter: { type: filter }
-    })
+        filter: { $and: [{ type: filter }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] }
+    }
+    )
     return found;
 }
 
+async function findInPolygon(point) {
+    console.log({ point })
+    const found = await postData('/read/findpolygon', {
+        collection: "areas",
+        filter: { $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] },
+        point
+    }
+    )
+    console.log({found:found.data})
+    return found;
+}
 async function findByDistinct(collection, filter = undefined) {
     console.log({ collection });
     console.log({ filter });
 
     const found = await getData(`/read/distinct/${collection}/${filter}`)
-    console.log({ found });
     return found;
 }
 
 async function findAllCities() {
     console.log('findall cities');
     const found = await postData('/read/find', {
-        collection: "areas", filter: { city: true }
-    })
-    console.log({ found })
-    return found.data
+        collection: "areas",
+        filter: { $and: [{ type: 'city' }, { $or: [{ disabled: { $exist: false } }, { disabled: false }] }] }
+    }
+    )
+    return found
 }
 
 async function insertArea(obj = {}) {
-    console.log({ obj });
-    const result = await postData('/create/insertone',
-        {
-            collection: "areas",
-            data: obj
-        });
-    console.log('mongo----', result.data, 'name', obj.name);
-    if (result.data) {
-        const resultToSql = await postData('/create/create',
-            {
-                tableName: "tbl_Areas",
-                values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-            })
-        //-------------------------------------- לשאול את המורה איזו שאלה הכי נחוצה
-        if (resultToSql && resultToSql.status === 201 && resultToSql.data.rowsAffected != undefined && resultToSql.data.rowsAffected[0] > 0) {
-            // console.log("resultToSql-------------", resultToSql);
-            // console.log("resultToSql.rowsAffected", resultToSql.data.rowsAffected);
-            // console.log("resultToSql.data.rowsAffected[0]", resultToSql.data.rowsAffected[0]);
-            // console.log("resultToSql.data", resultToSql.data);
-            console.log("-------------------------------------");
-            const dropResult = await postData('/update/dropDocument',
-                {
-                    collection: "areas",
-                    data: { _id: result.data }
-                })
-            console.log("result.data***", result.data);
-            console.log("dropMongoResult--", dropResult);
-            console.log("dropMongoResult.data--", dropResult.data);
-            return resultToSql.data;
+    try {
+        const find = await findArea({ name: obj.name })
+        if (find.data?.length > 0) {
+            return { status: 409, data: 'duplicated values' }
         }
-        if (resultToSql.status === 201)
-            return resultToSql.data
-        else
-            throw new Error("Can't insert area to mongo and sql DB");
+        if (obj.type === 'polygon') {
+            console.log({ obj })
+            let points = obj.points
+            let arraymap = []
 
+            for (let i = 0; i < points.length; i++) {
+                let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng)
+                if (!find) {
+                    arraymap.push({ point:points[i], index: i })
+                }
+                else{
+                    if(i!=points.length-1){
+                    points.splice(i, 1)
+                    console.log(points.length)
+                    i--
+                    }
+                }
+            }
+
+            console.log({ points })
+        }
+        const result = await postData('/create/insertone',
+            {
+                collection: "areas",
+                data: obj
+            });
+        if (result.data) {
+            const resultToSql = await postData('/create/create',
+                {
+                    tableName: "tbl_Areas",
+                    values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                })
+            if (resultToSql && resultToSql.status !== 201) {
+                const dropResult = await postData('/update/dropDocumentById',
+                    {
+                        collection: "areas",
+                        data: { _id: result.data }
+                    })
+                return dropResult;
+            }
+            if (resultToSql.status === 201)
+                return resultToSql
+            else
+                throw new Error("Can't insert area to mongo and sql DB");
+
+        }
+        else {
+
+            throw new Error("Can't insert area");
+        }
     }
-    else {
-
-        throw new Error("Can't insert area");
+    catch (error) {
+        console.log(error.message)
+        throw error
     }
 
 }
@@ -134,36 +167,40 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 // }
 
 async function deleteArea(areaName) {
-    const result = await postData('/update/updateone',
-        {
-            collection: "areas",
-            filter: { name: areaName },
-            set: { $set: { disabled: false } }
-
-        })
-    if (result.data) {
-        console.log('AREANAME----', areaName);
-        const resultSql = await postData('/update/update',
+    try {
+        const result = await postData('/update/mongo',
             {
-                tableName: 'tbl_Areas',
-                values: { Disabled: false },
-                condition: { AreaName: areaName }
+                collection: "areas",
+                filter: { name: areaName },
+                set: { $set: { disabled: true } }
+
             })
-        console.log('delete from SQL----------------', resultSql.data.rowsAffected);
+        if (result.data) {
+            const resultSql = await postData('/update/update',
+                {
+                    tableName: 'tbl_Areas',
+                    values: { Disabled: true },
+                    condition: { AreaName: areaName }
+                })
+            return resultSql
+        }
+        // return result
+        else {
+            throw new Error('cannot delete area')
+        }
     }
-    // return result
-    else {
-        throw new Error('cannot delete area')
+    catch (error) {
+        throw error
     }
 
 }
 
-async function findArea(body) {
+async function findArea(filter = {}) {
     // let query = {}
     // query[name] = value   
     const result = await postData('/read/find', {
         collection: "areas",
-        filter: body
+        filter
     })
 
     return result
@@ -230,5 +267,6 @@ module.exports = {
     getTheDataOfTheArea,
     findAll,
     findByDistinct,
-    findAllCities
+    findAllCities,
+    findInPolygon
 }

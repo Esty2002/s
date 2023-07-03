@@ -72,9 +72,7 @@ router.get('/all', async (req, res) => {
 
 router.post('/deleteItem', express.json(), async (req, res) => {
     try {
-        console.log(req.body,'req.body------------------------------');
         const response = await deleteItem(req.body)
-        console.log({status:response.status})
         if (response.status === 200) {
             res.status(200).send(response.data)
         }
