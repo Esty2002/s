@@ -44,9 +44,8 @@ async function serachByAreas(obj) {
     const points = await findAreas({ point: obj.point, type: 'point' });
     const radius = await findAreas({ type: 'radius' });
     const polygon = await findInPolygon({ point: obj.point });
-    console.log("polygon.data",polygon.data);
-    areas = [...areas, ...citys, ...points, ...radius,...polygon.data];
-    console.log('areas---wwwwwwwwwwwwwwwwwwwww', areas);
+    areas = [...areas, ...citys, ...points, ...radius,...polygon];
+    // console.log('areas-----------', areas);
     return areas;
 }
 
@@ -58,9 +57,7 @@ async function findInPolygon(point) {
         // $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }]
         point
     });
-
-    console.log({ found: found.data });
-    return found;
+    return found.data;
 }
 
 async function findAreaWithRadius(point) {
