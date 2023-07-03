@@ -4,7 +4,7 @@ const express = require('express')
 
 const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAreas,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct, findAreaWithRadius,findInPolygon } = require('../../modules/areas/areas')
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct, serachByAreas, findInPolygon } = require('../../modules/areas/areas')
 
 
 
@@ -65,32 +65,16 @@ router.post('/insertArea', express.json(), async (req, res) => {
 
 router.post('/searchAreas', express.json(), async (req, res) => {
     try {
-        let areas = []
-        if (req.body.city) {
-            const citys = await findAreas({ basicName: req.body.city })
-            // console.log('ppppppppppppppppppppppppp');
-            // citys.forEach(c =>{console.log(c);});
-            citys.forEach(c => {
-                areas = [...areas, c]
-            })
-        }
-        const points = await findAreas({ point: req.body.point, type: 'point' })
-        points.forEach(p => {
-            areas = [...areas, p]
-        })
-        console.log('after point');
-        const radius = await findAreas({ type: 'radius' })
-        console.log('uuuuuuuuuuu',radius.length);
-        radius.forEach(r => {
-            areas = [...areas, r]
-        })
-        console.log('wwwwwwwwwwwwwwwwwwwww', areas);
-        res.status(200).send(areas)
+        const result = await serachByAreas(req.body)
+        res.status(200).send(result)
     }
-    catch (err) {
+    catch (error) {
+        console.log({ error })
+        res.status(500).send(error)
+    }
+    
+});
 
-    }
-})
 router.post('/dropArea', express.json(), async (req, res) => {
     try {
         const response = await deleteSupplierOrClient(req.body.phone)
@@ -99,11 +83,11 @@ router.post('/dropArea', express.json(), async (req, res) => {
         else {
             res.status(500).send(response)
         }
-    } catch (error) {
+    }
+    catch (error) {
         res.status(500).send(error.message)
     }
-
-})
+});
 
 // router.get('/findAllAreas', async (req, res) => {
 //     try {
@@ -244,17 +228,17 @@ router.get('/findAreasByCode/:code', async (req, res) => {
         res.status(500).send(error.message)
     }
 })
-router.post('/findInPolygon' ,express.json(), async (req, res) => {
-    console.log({findInPolygon:req.body})
-     try {
-         const result = await findInPolygon(req.body)
-         // console.log('***********************', result.data);
-         res.status(200).send(result.data)
-     }
-     catch (err) {
-         res.status(500).send(err)
-     }
- })
+router.post('/findInPolygon', express.json(), async (req, res) => {
+    console.log({ findInPolygon: req.body })
+    try {
+        const result = await findInPolygon(req.body)
+        // console.log('***********************', result.data);
+        res.status(200).send(result.data)
+    }
+    catch (err) {
+        res.status(500).send(err)
+    }
+})
 //giti...
 router.get('/findPointArray/:code/:areaName', async (req, res) => {
     try {
