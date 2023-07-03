@@ -24,14 +24,14 @@ const getData = async (url) => {
 const postData=async(url,body)=>{
     let response;
     try {
-        console.log({body:JSON.stringify(body)})
+        console.log({url,body:JSON.stringify(body)})
         response = await server.post(url, body);
         console.log({response:response.data})
         return response;
     }
     catch (error) {
         console.log({error:error.message})
-        return error;
+        throw error;
     }
 }
 module.exports = {  getData, postData }
