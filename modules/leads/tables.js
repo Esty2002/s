@@ -1,4 +1,4 @@
-const { sqlServer, postData, getData } = require('../../services/axios');
+const {  postData } = require('../../services/axios');
 
 const values = [
     {
@@ -85,7 +85,11 @@ const getRecord = async (tableName = "", field = "") => {
             condition: field !== 'none' ? field : `Disable=0`
         };
         try {
+<<<<<<< HEAD
             const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}`);
+=======
+            const result = await postData('/sql/readTop20', obj);
+>>>>>>> validations
             return result;
         }
         catch (error) {
@@ -109,7 +113,7 @@ const updateRecord = async (obj = null) => {
                 condition: obj.condition
             };
             try {
-                result = await postData(sqlServer, '/update/update', newObj);
+                result = await postData( '/sql/update', newObj);
                 return result;
             }
             catch (error) {
@@ -140,7 +144,7 @@ const deleteRecord = async (obj) => {
                 condition: obj.condition
             };
             try {
-                result = await postData(sqlServer, '/update/update', newObj);
+                result = await postData( '/sql/update', newObj);
                 return result;
             }
             catch (error) {

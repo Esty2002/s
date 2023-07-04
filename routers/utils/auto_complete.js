@@ -6,7 +6,6 @@ const { findAuto } = require('../../modules/utils/auto_complete');
 router.get('/autocomplete/:table/:column/:word/:condition', async (req, res) => {
     try {
         const result = await findAuto(req.params.table, req.params.column, req.params.word, req.params.condition);
-        console.log(result.data,"res1");
         if (result.status === 200) {
             res.status(200).send(result.data);
         }
@@ -15,8 +14,7 @@ router.get('/autocomplete/:table/:column/:word/:condition', async (req, res) => 
         }
     }
     catch (error) {
-        console.log(error);
-        res.status(404).send([])
+        res.status(500).send(error.message)
     }
 })
 

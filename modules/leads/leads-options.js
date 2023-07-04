@@ -153,6 +153,7 @@ const readforeignkeyvalue = async (filter) => {
 
 
 const updateLead = async (obj = null) => {
+<<<<<<< HEAD
     try {
         if (obj.condition) {
             const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);
@@ -169,6 +170,18 @@ const updateLead = async (obj = null) => {
                 else {
                     return false;
                 }
+=======
+    if (obj) {
+        const newObj = {
+            tableName: 'leads',
+            values: obj.values,
+            condition: obj.condition
+        };
+        if (newObj) {
+            try {
+                const result = await postData( '', newObj);
+                return result;
+>>>>>>> validations
             }
             else {
                 throw new Error("this id is not exist");
@@ -237,6 +250,7 @@ const deleteLead = async (id) => {
             condition: `Id=${id}`
         }
         try {
+<<<<<<< HEAD
             const result = await updateLead(obj);
             if (result) {
                 return result;
@@ -244,6 +258,10 @@ const deleteLead = async (id) => {
             else {
                 return false;
             }
+=======
+            const result = await postData( '', obj);
+            return result;
+>>>>>>> validations
         }
         catch (error) {
             throw error;

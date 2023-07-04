@@ -26,13 +26,21 @@ async function findPump(project = [], filter = {}) {
     let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' AND ')
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
-
-    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
-    if (response.status === 200)
-        return response.data
-    else {
-        return false
+    try {
+        const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+        console.log({ response }, 'in find');
+        return response
     }
+    catch (error) {
+        throw error
+    }
+    // if (response.length > 0) {
+    //     for (const finish of response) {
+    //         if (Object.keys(finish).includes('UnitOfMeasure')) {
+    //             finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
+    //         }
+    //     }
+    //     return response
     // }
     // else {
     //     return false
@@ -45,7 +53,7 @@ async function updatePump(obj) {
     console.log({ conditionStr });
     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: conditionStr })
     console.log(response, 'in delete function');
-    if (response.data)
+    if (response)
         return true
     else
         return false
