@@ -21,14 +21,11 @@ const pricelist_router=require('./routers/price-list/pricelist')
 const {  reqLogger } = require('./services/logger/logger');
 
 const api_router = require('./api/routers/readFile');
-const areas_router = require('./routers/areas/areas')
 
 // const swaggerSuppliers = require('./swagger/supplier.json');
 const manage_branches_router = require('./routers/suppliers/branches');
 const manage_suppliers_router = require('./routers/suppliers/suppliers');
 // const delete_client_router = require('./routers/clients/deleteClient');
-const createClient_router=require('./routers/clients/createClient')
-const readClient_router=require('./routers/clients/readClient')
 const readPriceList_router=require('./routers/pricelist/readPricelist')
 const creatPricelist_router=require('./routers/pricelist/insertPricelist');
 const updatePriceList_router=require('./routers/pricelist/updatePricelist')
