@@ -11,7 +11,6 @@ async function deletePriceList({ id }) {
     if (result.data.rowsAffected[0] > 0) {
         let table = [ADDITIONSFORDISTANCE, CITIESADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, TIMEADDITIONS, PRICElISTFORPRODUCTS]
         let res
-
         const answer = await Promise.all(table.map(async (t) => {
             console.log({ obj })
             obj['tableName'] = t
@@ -31,17 +30,15 @@ async function deletePriceList({ id }) {
 
 }
 
-async function updateOne({ tbName, id, update }) {
+async function updateOne({ id, update }) {
     // let newUpdate =[]
     let newUpdate = {}
-
-    console.log({ update })
+    // console.log({ update })
     newUpdate[update.columns] = update.values
-
     // _ = update.forEach(o => (newUpdate[o.columns] = o.values))   לכמה דברים לעדכון
-    console.log({ newUpdate });
+    // console.log({ newUpdate });
     let obj = {}
-    obj['tableName'] = tbName
+    obj['tableName'] = PRICELIST
     obj['condition'] = `Id= ${id}`
     obj['values'] = newUpdate
     console.log({ obj });
@@ -74,6 +71,7 @@ async function reedToUpdate({ tbName, id, update }) {
 async function deleteItems({ tbName, id, del, newname }) {
     let newdata
     const answer = await getData(`/read/readAll/${tbName}/PriceListId=${id}`)
+    console.log('after /read/readAll/${tbName}/PriceListId=${id}',answer.data);
     // let PriceListId=answer.data.PriceListId
     let answerIdentity = answer.data.map(d => d.Id)
     let deleteIdentity = []
@@ -82,6 +80,7 @@ async function deleteItems({ tbName, id, del, newname }) {
         // newname = await changeName(id)
         newdata = await changeName(id)
         newname = newdata.Name
+        console.log({ newname });
     }
     else {
         const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`)
@@ -92,12 +91,13 @@ async function deleteItems({ tbName, id, del, newname }) {
         }
     }
     const obj = {};
+
     obj['tableName'] = PRICELIST;
     obj['columns'] = '*';
     obj['values'] = newdata;
-    console.log(obj.values, "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
+    console.log({obj});
     const result = await postData('/create/create', obj)
-    console.log(result, "reeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
+    console.log(result,' 999999999999999999999999999999999999999999999999999999');
     if (result.data.length > 0) {
         const ans = await getData(`/read/readAll/${PRICELIST}/Name='${newname}'`)
         let pricelistId = ans.data[0].Id;
@@ -112,7 +112,7 @@ async function deleteItems({ tbName, id, del, newname }) {
         console.log({ obj });
         const result = await postData('/create/createManySql', obj)
         console.log({ result });
-        return true
+        return result.data
     }
 }
 
