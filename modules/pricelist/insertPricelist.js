@@ -15,7 +15,7 @@ async function insert(data, tableName) {
 
         // logToFile(object)
         const result = await postData('/create/create', obj)
-        let id = result.data[0].Id
+        // let id = result.data[0].Id
         // object = {
         //     name: 'create',
         //     description: ' insert in module, after sending to dbserver',

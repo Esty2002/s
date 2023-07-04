@@ -9,8 +9,6 @@ router.get('/findAllPriceList', async (req, res) => {
     try {
         const result = await getAllPriceList();
             res.status(200).send(result);
-            console.log(res);
-        console.log("------------------------------------------------");
     } 
     catch (error) {
         res.status(500).send(error);
@@ -43,7 +41,7 @@ router.get('/FindPriceListByAddedDate/date', async (req, res) => {
 
 })
 // פונקציית חיפוש על פי מוצר
-router.get('/FindPriceListByProduct/:product', async (req, res) => {
+router.get('/FindPriceListByProduct/product', async (req, res) => {
     try {
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);
