@@ -1,5 +1,6 @@
 
 const { postData, getData } = require('../../services/axios');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
 const createNewLead = async (obj = null) => {
     let vals = [];
     obj.baseConcretProduct.forEach(bcp => {
@@ -11,6 +12,12 @@ const createNewLead = async (obj = null) => {
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
         }];
     });
+    // for (let item of vals) {
+    //     const valid=checkObjectValidations(item);
+    //     if(!valid){
+
+    //     }
+    // };
     let newObj = {
         tableName: 'Leads',
         values: vals
@@ -55,12 +62,12 @@ const insertMoreProductsItems = async (obj, result) => {
 
 }
 // let flag = false
-const readLead = async (filter) => {
-    
+const readLead = async (filter, disable) => {
+
     const obj = {
         tableName: "tbl_Leads",
         columns: '*',
-        condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
+        condition: filter ? `${filter} AND Disable='${disable}'` : `Disable='${disable}'`
     }
 
     try {
@@ -93,7 +100,7 @@ const readLead = async (filter) => {
                 //     result[k].valuePouringType = await getData(`read/foreignkeyvalue/tbl_Leads/PouringType/${result[k].PouringType}`);
                 //     result[k].valueStatusLead = await getData(`read/foreignkeyvalue/tbl_Leads/StatusLead/${result[k].StatusLead}`);
 
-                    
+
                 //     // console.log("rrrrrrrrrrrrrrrrrrrrrrrrlll", result[k]);
                 //     // result = result[k]
                 //     // flag = true

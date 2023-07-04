@@ -20,9 +20,9 @@ router.post('/createnewlead', express.json(), async (req, res) => {
     }
 });
 
-router.get('/getleads/:condition', express.json(), async (req, res) => {
+router.get('/getleads/:condition/:disable', express.json(), async (req, res) => {
     try {
-        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null);
+        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null,req.params.disable);
         res.status(200).send(response);
     }
     catch (error) {
