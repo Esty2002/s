@@ -26,7 +26,8 @@ const correctPhone = (number) => {
     else{
         console.log('tttttttttttt');
 
-        throw new Error(`the number  not correctttt`)
+        throw new Error(`the number ${number} not correctttt`)
+
 
 
     }
@@ -40,7 +41,10 @@ const EnglishLetters = (word) => {
 }
 
 const onlyNumbersInString = (numbersString) => {
-    return /^\d*$/.test(numbersString)
+
+    if( /^\d*$/.test(numbersString))
+        return true
+    throw new Error(`the value ${numbersString} not only string`)
 }
 const notCheck = () => {
     return true;
@@ -53,7 +57,7 @@ const type = (value, arg) => {
             console.log('string@@@@');
             return true
         }
-        throw new Error('not typeof value')
+        throw new Error(`the value ${value} not typeof value`)
 
     }
     if(arg=="number"){
@@ -61,7 +65,7 @@ const type = (value, arg) => {
         return true
 
     }
-    throw new Error('not typeof value')
+    throw new Error(`the value ${value} not typeof value`)
 
         
         
@@ -74,7 +78,10 @@ const type = (value, arg) => {
     // console.log(`not typeof ${value}`);
 }
 const maxLength = (value, max) => {
-    return value.length < max
+    if( value.length < max)
+        return true
+    throw new Error(`the value ${value} too long `)
+    
 }
 const bit = (value) => {
     if (value == 0 || value == 1 || value == 'True' || value == 'False')
@@ -83,10 +90,14 @@ const bit = (value) => {
 }
 
 const minLength = (value, min) => {
-    return value.length > min
+    if( value.length > min)
+        return true
+    throw new Error(`the value ${value} too short`)
 }
 const betweenLength = (value, arg) => {
-    return value.length > arg.min && value.length < arg.max
+    if( value.length > arg.min && value.length < arg.max)
+        return true
+    throw new Error(`the value ${value} not betweenLength`)
 }
 const specificLength = (value, len) => {
     if (value.length == len) {

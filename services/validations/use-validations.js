@@ -27,6 +27,7 @@ const checkObjectValidations = async (body, objName) => {
                 if (body[v.propertyName]) {
                     console.log(body[v.propertyName],'yyyeeesss');
                     if (!(await valid.func(body[v.propertyName], valid.arguments))) {
+                        // throw new Error(``)
                         console.log('nooooooooooo');
                         return false;
 
