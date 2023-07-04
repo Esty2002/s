@@ -1,63 +1,66 @@
-const { sqlServer, postData, getData } = require('../../services/axios');
+const {  postData } = require('../../services/axios');
 
 const values = [
     {
-        tableName: "tbl_Orderers",
-        values: {
-            OrdererName: "",
-            OrdererPhone: "",
-            AddedDate: new Date().toISOString(),
-            Disable:'False',
-            DeletingDate: null
+        entityName: "orderers",
+        func: ({ ordererName, ordererPhone }) => {
+            return {
+                tableName: "Orderers",
+                values: {
+                    OrdererName: ordererName,
+                    OrdererPhone: ordererPhone,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
+
         }
+
     },
     {
-        tableName: "tbl_PouringsTypes",
-        values: {
-            PouringName: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
+        entityName: "pouringsTypes",
+        func: ({ pouringName }) => {
+            return {
+                tableName: "PouringsTypes",
+                values: {
+                    PouringName: pouringName,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
         }
+
     },
     {
-        tableName: "tbl_StatusesLead",
-        values: {
-            StatusName: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
+
+        entityName: "StatusesLead",
+        func: ({ statusName }) => {
+            return {
+                tableName: "StatusesLead",
+                values: {
+                    StatusName: statusName,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
         }
+
     },
-    {
-        tableName:"tbl_MoreProductsItems",
-        values:{
-            LeadNumber:"",
-            Product:"",
-            Amount:"",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
-            DeletingDate: null
-        }
-    }
-    
 ];
+
 
 
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
-        const val = values.find(({ tableName }) => tableName === obj.tableName);
-        if (val) {
-            let newObj = {
-                tableName: val.tableName,
-                values: val.values
-            };
-            for (let key in newObj['values']) {
-                newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
-            }
+        const entity = values.find(({ entityName }) => entityName === obj.entityName);
+        if (entity) {
+            const newObj = entity.func(obj.values);
             try {
-                result = await postData(sqlServer, '/create/create', newObj);
+                result = await postData('/create/create', newObj);
                 return result;
             }
             catch (error) {
@@ -65,8 +68,9 @@ const newRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the table name is not exist");
+            throw new Error("the entity name not exist");
         }
+
     }
     else {
         throw new Error("the object is null");
@@ -81,7 +85,7 @@ const getRecord = async (tableName = "", field = "") => {
             condition: field !== 'none' ? field : `Disable=0`
         };
         try {
-            const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}` );
+            const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}`);
             return result;
         }
         catch (error) {
@@ -105,7 +109,7 @@ const updateRecord = async (obj = null) => {
                 condition: obj.condition
             };
             try {
-                result = await postData(sqlServer, '/update/update', newObj);
+                result = await postData( '/sql/update', newObj);
                 return result;
             }
             catch (error) {
@@ -136,7 +140,7 @@ const deleteRecord = async (obj) => {
                 condition: obj.condition
             };
             try {
-                result = await postData(sqlServer, '/update/update', newObj);
+                result = await postData( '/sql/update', newObj);
                 return result;
             }
             catch (error) {

@@ -111,7 +111,6 @@
     "deep-equal": "^2.1.0",
     "define-lazy-prop": "^2.0.0",
     "define-property": "^2.0.2",
-    "delayed-stream": "^1.0.0",
     "depd": "^2.0.0",
     "destroy": "^1.2.0",
     "deepmerge": "^4.2.2",
@@ -206,7 +205,6 @@
     "has-value": "^1.0.0",
     "has-proto": "^1.0.1",
     "has-values": "^1.0.0",
-    "hexoid": "^1.0.0",
     "http-errors": "^2.0.0",
     "https-proxy-agent": "^5.0.1",
     "html-escaper": "^2.0.2",
@@ -485,6 +483,7 @@
     "semver": "^6.3.0",
     "sequelize": "^6.28.2",
     "serve-static": "^1.15.0",
+    
     "simple-update-notifier": "^1.0.7",
     "sisteransi": "^1.0.5",
     "sparse-bitfield": "^3.0.3",

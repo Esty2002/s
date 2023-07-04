@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> validations
 jest.mock('../../../services/axios', () => {
     return {
         getData: jest.fn((_, url) => {
@@ -78,6 +81,7 @@ describe('CHECK FUNCTION CREATENEWLEAD', () => {
             expect(error).toBeInstanceOf(Error);
             expect(result).toBe(undefined);
         }
+<<<<<<< HEAD
 =======
 // jest.mock('../../../services-leads/db/mongodb/mongo-operations', () => {
 //     return {
@@ -132,6 +136,8 @@ describe('CHECK FUNCTION CREATENEWLEAD', () => {
         
 //     })
 >>>>>>> main-dev
+=======
+>>>>>>> validations
 
     })
     it('should the function getData and function postData', async () => {
@@ -168,6 +174,9 @@ describe('CHECK FUNCTION AllLeadsDetails', () => {
     });
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> validations
     it('should return inserted id when succeded', async () => {
         let result = await allLeadsDetails({ filetr: {}, sort: { name: 1 }, skip: 0, limit: 0, project: { _id: 0, name: 1 } });
         expect(result).toBeDefined();
@@ -248,6 +257,7 @@ describe('check the function updateLead', () => {
         }
 
 
+<<<<<<< HEAD
 =======
 //     describe('CHECK FUNCTION CREATENEWLEAD', () => {
 //         it('should return inserted id when succeded', async () => {
@@ -343,6 +353,12 @@ describe('check the function updateLead', () => {
 >>>>>>> main-dev
 
 //     })
+=======
+
+    })
+
+})
+>>>>>>> validations
 
 })
 

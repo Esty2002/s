@@ -1,16 +1,27 @@
 
 const { objectsForValidations } = require('./validations-objects')
+let i = 0;
+const checkObjectValidations = async (body, objName) => {
+    try {
+        const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;
+        for (let v of values) {
+            i++
+            for (let valid of v.validation) {
+                if (body[v.propertyName]) {
 
-const checkObjectValidations = (body, objName) => {
-    const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;
-   
-    values.forEach(v => {
-        v.validations.forEach(valid => {
-            if (!valid.func(body[v.propertyName]))
-                return false;
-        });
-    });
-    return true;
+                    const val=await valid.func(body[v.propertyName], valid.arguments);
+
+
+                }
+
+            }
+        }
+        return true;
+    }
+    catch (error) {
+        throw error;
+    }
+
 
 };
 
