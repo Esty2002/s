@@ -1,30 +1,40 @@
 require('dotenv').config()
 const { getData, postData } = require('../../services/axios')
 
-async function findAll(filter = undefined) {
+async function findAll(type,disabled) {
+    console.log('------------------------',{ type,disabled });
     const found = await postData('/read/find', {
         collection: "areas",
-        filter: { type: filter }
+        filter: { type,disabled }
     })
     return found;
 }
 
 async function findByDistinct(collection, filter = undefined) {
-    console.log({ collection });
-    console.log({ filter });
+    // console.log({ collection });
+    // console.log({ filter });
 
     const found = await getData(`/read/distinct/${collection}/${filter}`)
-    console.log({ found });
+    // console.log({ found });
     return found;
 }
-
 async function findAreas(filter) {
-    console.log('findall cities', filter);
+    // console.log('findall cities', filter);
     const found = await postData('/read/find', {
         collection: "areas",
         filter: filter
     })
-    console.log({ found })
+    // console.log({ found })
+    return found.data
+}
+
+async function findAreas(filter) {
+    // console.log('findall cities', filter);
+    const found = await postData('/read/find', {
+        collection: "areas",
+        filter: filter
+    })
+    // console.log({ found })
     return found.data
 }
 
@@ -44,37 +54,37 @@ async function serachByAreas(obj) {
     const points = await findAreas({ point: obj.point, type: 'point' });
     const radius = await findAreas({ type: 'radius' });
     const polygon = await findInPolygon({ point: obj.point });
-    console.log("polygon.data",polygon.data);
-    areas = [...areas, ...citys, ...points, ...radius,...polygon.data];
-    console.log('areas---wwwwwwwwwwwwwwwwwwwww', areas);
+    // console.log("polygon.data",polygon.data);
+    areas = [...areas, ...citys, ...points, ...radius, ...polygon.data];
+    // console.log('areas---wwwwwwwwwwwwwwwwwwwww', areas);
     return areas;
 }
 
 async function findInPolygon(point) {
-    console.log({ point });
+    // console.log({ point });
     const found = await postData('/read/findpolygon', {
         collection: "areas",
-        filter:  { type: 'polygon' } ,
+        filter: { type: 'polygon' },
         // $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }]
         point
     });
 
-    console.log({ found: found.data });
+    // console.log({ found: found.data });
     return found;
 }
 
 async function findAreaWithRadius(point) {
     let areasWithRadius = []
     const radius = await findAreas({ type: 'radius' })
-    console.log('in radiussssssssssss', radius);
+    // console.log('in radiussssssssssss', radius);
     if (radius.length > 0) {
-        console.log('popopopopopopopopopopopopo');
+        // console.log('popopopopopopopopopopopopo');
         radius.forEach((par) => {
             if (par.point) {
-                console.log('ttytytytytyttytytytytytyt');
+                // console.log('ttytytytytyttytytytytytyt');
                 const distance = window.google.maps.geometry.spherical.computeDistanceBetween(point, par.point);
-                console.log({ distance });
-                console.log('dissssss');
+                // console.log({ distance });
+                // console.log('dissssss');
                 if (par.radius - distance * 1000 >= 0) {
                     areasWithRadius = [...areasWithRadius, per]
                 }
@@ -86,17 +96,17 @@ async function findAreaWithRadius(point) {
 }
 
 async function insertArea(obj = {}) {
-    console.log({ obj });
+    // console.log({ obj });
     const result = await postData('/create/insertone',
         {
             collection: "areas",
             data: obj
         });
-    console.log('mongo----', result.data, 'name', obj.name);
+    console.log('mongo----', result.data, 'name', obj.name, '  status code: ', result.status);
     if (result.data) {
         const resultToSql = await postData('/create/create',
             {
-                tableName: "tbl_Areas",
+                tableName: 'tbl_Areas',
                 values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
             })
         console.log({ resultToSql });
@@ -111,13 +121,13 @@ async function insertArea(obj = {}) {
             return resultToSql.data;
         }
         else {
-            const dropResult = await postData('/update/dropDocument',
+            const dropResult = await postData('/update/dropDocumentById',
                 {
                     collection: "areas",
                     data: { _id: result.data }
                 })
-            console.log("result.data***", result.data);
-            console.log("dropMongoResult--", dropResult);
+            // console.log("result.data***", result.data);
+            // console.log("dropMongoResult--", dropResult);
             console.log("dropMongoResult.data--", dropResult.data);
 
             throw new Error("Can't insert area to mongo and sql DB");
@@ -209,17 +219,18 @@ async function deleteArea(areaName) {
         {
             collection: "areas",
             filter: { name: areaName },
-            set: { $set: { disabled: false } }
+            set: { $set: { disabled: true } }
         })
+        console.log('&&&&&&&&&&&&&&&&&&&&&&',result.data);
     if (result.data) {
         console.log('AREANAME----', areaName);
         const resultSql = await postData('/update/update',
             {
                 tableName: 'tbl_Areas',
-                values: { Disabled: false },
-                condition: { Disabled: true, AreaName: areaName }
+                values: { Disabled: true },
+                condition: { Disabled: false, AreaName: areaName }
             })
-        console.log('delete from SQL----------------', resultSql.data.rowsAffected);
+        console.log('delete from SQL----------------', resultSql);
     }
     // return result
     else {
@@ -278,6 +289,13 @@ async function getTheDataOfTheArea(code, areaName) {
         throw new Error("not found supplier or client code")
 }
 
+async function getFromSql() {
+    const response = await postData('/read/readTopN', { tableName: 'tbl_Areas' ,columns: '*'})
+    // , condition: 'Disabled=true'
+    console.log('response-------------',response.data); 
+    return response.data
+}
+
 module.exports = {
     // findAreaByCode,
     insertArea,
@@ -294,5 +312,6 @@ module.exports = {
     findByDistinct,
     findAreas,
     findAreaWithRadius,
-    findInPolygon
+    findInPolygon,
+    getFromSql
 }

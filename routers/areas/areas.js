@@ -4,7 +4,7 @@ const express = require('express')
 
 const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAreas,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct, serachByAreas, findInPolygon } = require('../../modules/areas/areas')
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct, serachByAreas, findInPolygon, getFromSql } = require('../../modules/areas/areas')
 
 
 
@@ -13,34 +13,54 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/allcities', async (req, res) => {
-    console.log('allcities')
+    // console.log('allcities')
     const ans = await findAllCities()
-    console.log(ans);
+    // console.log(ans);
     res.send(ans)
 })
 
 router.post('/isExist', express.json(), async (req, res) => {
-    console.log("in isExist ", req.body);
+    // console.log("in isExist ", req.body);
     try {
         const result = await findArea(req.body)
-        console.log("result in isExist",result.data);
+        console.log("result in isExist", result.data);
 
         res.status(200).send(result.data)
     }
     catch (error) {
-        console.log({ error })
+        // console.log({ error })
         res.status(500).send(error)
     }
 })
 
+router.get('/readFromSql', async (req, res) => {
+    try {
+        
+        const result = await getFromSql()
+        res.status(200).send(result)
+    }
+    catch (err) {
+        res.status(404).send(err)
+    }
+})
+
+router.post('/readFromMongo', express.json(), async (req, res) => {
+    try {
+        const result = await findAreas()
+        res.status(200).send(result)
+    }
+    catch (err) {
+        res.status(404).send(err)
+    }
+})
 router.post('/isExistPoint', express.json(), async (req, res) => {
-    console.log("req.params.areaName", req.body);
+    // console.log("req.params.areaName", req.body);
     try {
         const result = await findArea(req.body)
-        console.log({ result })
+        // console.log({ result })
         res.status(200).send(result.data)
     } catch (error) {
-        console.log({ error })
+        // console.log({ error })
         res.status(500).send(error)
     }
 })
@@ -48,7 +68,7 @@ router.post('/isExistPoint', express.json(), async (req, res) => {
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     try {
-        
+
         const result = await insertArea(req.body)
         if (result) {
             console.log("result in router insertArea", result);
@@ -58,7 +78,7 @@ router.post('/insertArea', express.json(), async (req, res) => {
             res.status(500).send()
     }
     catch (error) {
-        console.log(error)
+        // console.log(error)
         res.status(500).send(error)
     }
 })
@@ -69,10 +89,10 @@ router.post('/searchAreas', express.json(), async (req, res) => {
         res.status(200).send(result)
     }
     catch (error) {
-        console.log({ error })
+        // console.log({ error })
         res.status(500).send(error)
     }
-    
+
 });
 
 router.post('/dropArea', express.json(), async (req, res) => {
@@ -100,11 +120,12 @@ router.post('/dropArea', express.json(), async (req, res) => {
 //     }
 // })
 
-router.get('/findAll/:filter', async (req, res) => {
-    let filter = req.params.filter
-    console.log("filter", filter);
+router.get('/findAll/:type/:disabled', async (req, res) => {
+    let type = req.params.type;
+    let disabled =  !req.params.disabled;
+    console.log("filter", type , disabled);
     try {
-        const result = await findAll(filter)
+        const result = await findAll(type,disabled)
         // console.log('***********************', result.data);
         res.status(200).send(result.data)
     }
@@ -118,7 +139,7 @@ router.get('/findAllTypes/:collection/:filter', async (req, res) => {
     let filter = req.params.filter
     try {
         const result = await findByDistinct(collection, filter)
-        console.log('***********************', result.data);
+        // console.log('***********************', result.data);
         res.status(200).send(result.data)
     }
     catch (err) {
@@ -129,7 +150,7 @@ router.get('/findAllTypes/:collection/:filter', async (req, res) => {
 router.post('/deleteArea', express.json(), async (req, res) => {
     try {
         const areaName = req.body.name
-        console.log('aaaaaaaaa', areaName);
+        // console.log('aaaaaaaaa', areaName);
         const response = await deleteArea(areaName)
         if (response)
             res.status(200).send(response)
@@ -229,7 +250,7 @@ router.get('/findAreasByCode/:code', async (req, res) => {
     }
 })
 router.post('/findInPolygon', express.json(), async (req, res) => {
-    console.log({ findInPolygon: req.body })
+    // console.log({ findInPolygon: req.body })
     try {
         const result = await findInPolygon(req.body)
         // console.log('***********************', result.data);
