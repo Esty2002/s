@@ -54,16 +54,18 @@ const createNewLead = async (obj = null) => {
 
 };
 let flag = false
-const readLead = async (filter) => {
+
+const readLead = async (filter,disable) => {
     
-    const obj = {
-        tableName: "tbl_Leads",
-        columns: '*',
-        condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
-    }
+   
     console.log("55555555555555555555555555555",filter);
 
     try {
+        const obj = {
+            tableName: "tbl_Leads",
+            columns: '*',
+            condition: filter ? `${filter} AND Disable='${disable}'` : `Disable='${disable}'`
+        }
         const values = await postData('read/readTopN', obj);
         // console.log("valuesssssssssss################################################################",values);
         if (values) {
@@ -122,7 +124,7 @@ const readforeignkeyvalue = async (filter) => {
     // }
     console.log("filter", filter);
     try {
-        const values = await getData(sqlServer, `read/foreignkeyvalue/${filter.tablename}/${filter.field}/${filter.id}`);
+        const values = await getData(`read/foreignkeyvalue/${filter.tablename}/${filter.field}/${filter.id}`);
         if (values) {
             // let result = [];
             // values.forEach(val => {
@@ -154,8 +156,12 @@ const readforeignkeyvalue = async (filter) => {
 
 const updateLead = async (obj = null) => {
     try {
+        console.log("pqpqpqpqpqpqpqp");
         if (obj.condition) {
             const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);
+            // console.log("baseLeadbaseLead",baseLead);
+            console.log("pqpqpqpqpqpqpqp33333333333333");
+
             if (baseLead.length > 0) {
                 const newObj = {
                     tableName: 'tbl_Leads',
@@ -163,6 +169,8 @@ const updateLead = async (obj = null) => {
                     condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
                 };
                 const result = await postData('update/update', newObj);
+                console.log("pqpqpqpqpqpqpqp4444444444444444444");
+
                 if (result) {
                     return result;
                 }
@@ -179,6 +187,8 @@ const updateLead = async (obj = null) => {
         }
     }
     catch (error) {
+        console.log("pqpqpqpqpqpqpqp2222222222222222");
+
         throw error;
     }
 
@@ -237,6 +247,7 @@ const deleteLead = async (id) => {
             condition: `Id=${id}`
         }
         try {
+            console.log("qqqqqqqqqqqqq");
             const result = await updateLead(obj);
             if (result) {
                 return result;
@@ -246,6 +257,8 @@ const deleteLead = async (id) => {
             }
         }
         catch (error) {
+            console.log("qqqqqqqqqqqqq22222222222222222222222");
+
             throw error;
         }
     }

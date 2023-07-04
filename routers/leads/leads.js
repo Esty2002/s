@@ -13,13 +13,11 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         res.status(404).send(error);
     }
 });
-// "/leads/getleads/{condition}"
-
-router.get('/getleads/:condition', express.json(), async (req, res) => {
+router.get('/getleads/:condition/:disable', express.json(), async (req, res) => {
     try {
 
         console.log("444444444444444444444444444444444444444444",req.params.condition);
-        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null);
+        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null,req.params.disable);
         // console.log(response);
         console.log("fffffffffffffffffffffffffffffffsssssssssssss");
 
@@ -30,6 +28,7 @@ router.get('/getleads/:condition', express.json(), async (req, res) => {
         res.status(404).send(error);
     }
 });
+// leads/getforeignkeyvalue/leads/OrdererCode/${val}
 
 router.get('/getforeignkeyvalue/:tablename/:field/:id', express.json(), async (req, res) => {
 

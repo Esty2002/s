@@ -18,13 +18,13 @@ const getData = async (url) => {
         throw error;
     }
     console.log(response.data,"response");
-    return response;
+    return response.data;
 }
 
 const postData = async (url, body) => {
     let response;
     try {
-        console.log("p,jkjhk:::::::::::::::::::::::");
+        console.log("p,jkjhk:::::::::::::::::::::::ggggggggggggggggggggggggggggggggggggggggggg7777777777777",url);
         response = await server.post(url, body);
         console.log("p,eeeeeeeeeeeeeeeeeeeee:::::::::::::::::::::::");
 
