@@ -1,7 +1,7 @@
 const express=require('express')
 const router=express.Router()
 const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId
-    ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill} =require('../../modules/pricelist/readPricelist')
+    ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill,getSupplierByNameProduct,getSupplierByNameProductBuyton} =require('../../modules/pricelist/readPricelist')
 
 router.get('/findAllPriceList', async (req, res) => {
     try {
@@ -142,6 +142,29 @@ router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
 router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
     try {
         const ans =await getPriceListByAdditionsForTruckFill(req.params.id)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+
+// חיפוש ספק ואזור לפי מוצר
+router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res) => {
+    try {
+        const ans =await getSupplierByNameProduct(req.params.nameTable,req.params.nameProduct)
+        console.log(ans);
+        res.status(200).send(ans)
+    } catch (error) {
+        res.status(404).send(error)
+
+    }
+})
+
+router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (req, res) => {
+    try {
+        const ans =await getSupplierByNameProductBuyton(req.params.nameTable,req.params.nameProduct)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {

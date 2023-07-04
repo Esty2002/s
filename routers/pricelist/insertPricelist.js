@@ -40,6 +40,10 @@ router.post('/addTruckFill', express.json(), async (req, res) => {
 //tbl_PricesListBySupplierOrClient
 router.post('/addPricesListBySupplierOrClient', express.json(), async (req, res) => {
     tableName = 'tbl_PricesListBySupplierOrClient'
+    console.log('oooooooooooooooooooo000000000000000000ooooooooo');
+    console.log(req.body);
+    console.log('oooooooooooooooooooo00000000000000ooooooooo');
+
     _ = await insert(req.body, tableName)
     res.status(200).send(true)
 })
