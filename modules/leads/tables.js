@@ -85,11 +85,7 @@ const getRecord = async (tableName = "", field = "") => {
             condition: field !== 'none' ? field : `Disable=0`
         };
         try {
-<<<<<<< HEAD
             const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}`);
-=======
-            const result = await postData('/sql/readTop20', obj);
->>>>>>> validations
             return result;
         }
         catch (error) {

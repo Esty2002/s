@@ -30,7 +30,6 @@ const api_router = require('./api/routers/readFile');
 const manage_branches_router = require('./routers/suppliers/branches');
 const manage_suppliers_router = require('./routers/suppliers/suppliers');
 // const delete_client_router = require('./routers/clients/deleteClient');
-<<<<<<< HEAD
 const readPriceList_router = require('./routers/pricelist/readPricelist')
 const creatPricelist_router = require('./routers/pricelist/insertPricelist');
 
@@ -45,14 +44,6 @@ app.use('/finishProducts', manageFinishProducts)
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
 
-=======
-// const createClient_router=require('./routers/clients/createClient')
-// const readClient_router=require('./routers/clients/readClient')
-const readPriceList_router=require('./routers/pricelist/readPricelist')
-const creatPricelist_router=require('./routers/pricelist/insertPricelist');
-
-app.use(cors());
->>>>>>> validations
 
 app.use('/pumps', pumps_router);
 app.use('/unitOfMeasure', manageUnitOfMeasure);
@@ -81,30 +72,14 @@ app.use('/auto_complete', auto_complete);
 
 
 // app.use('/leads', router_leads);
-<<<<<<< HEAD
 app.use('/areas', areas_router)
 app.use('/pricesNew', pricelist_router)
 app.use('/updateClient',updateClient_router)
-=======
-// app.use('/areas', areas_router)
-// app.use('/readClient', readClient_router);
-
-// app.use('/areas', areas_router);
-// app.use('/delete_client', delete_client_router);
-// app.use('/readClient', readClient_router)
-
-
-// app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
-
-// app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
-app.use('/updateClient', updateClient_router)
->>>>>>> validations
 app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
 app.use('/readClient', readClient_router);
 app.use('/statusesClient', status_router);
 app.use('/leads',router_leads);
-<<<<<<< HEAD
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 app.use('/auto_complete', auto_complete)
 
@@ -117,10 +92,6 @@ app.use('/readpricelist', readPriceList_router)
 
 // app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
 app.use('/creatPricelist', creatPricelist_router)
-=======
-// app.use('/api-swagger-suppliers', swaggerUi.serve, swaggerUi.setup(swaggerSuppliers));
-app.use('/updateClient', updateClient_router);
->>>>>>> validations
 
 app.use('/areas', areas_router);
 app.use('/pricesNew', pricelist_router);
@@ -138,10 +109,6 @@ app.use('/productsCombinations', productsCombinations_router);
 app.get('/', (req, res) => {
     res.status(200).send('hello buyton');
 });
-<<<<<<< HEAD
-
-=======
->>>>>>> validations
 app.get('/*', (req, res) => {
     res.status(200).send('request not found');
 });
