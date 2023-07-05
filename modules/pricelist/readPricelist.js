@@ -187,10 +187,9 @@ async function getPriceListByAdditionsForTruckFill(object) {
     }
 }
 
-// חיפוש ספק ואזור לפי מוצר
+// חיפוש בטבלת מוצרים וספקים לפי שם טבלה ותאור מוצר
+
 async function getSupplierByNameProduct(nameTable, nameProduct) {
-    console.log({ nameTable });
-    console.log({ nameProduct });
     try {
         let obj = { tableName: nameTable, columns: "Id", condition: `Name='${nameProduct}'` };
         const res = await postData("/read/readTopN", obj);
@@ -199,7 +198,6 @@ async function getSupplierByNameProduct(nameTable, nameProduct) {
             res.data.forEach(element => {
                 arrTemp.push(element.Id)
             });
-            console.log(arrTemp);
             let obj2 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `ProductId  in (${arrTemp}) And TableName='${nameTable}'` };
             const res2 = await postData("/read/readTopN", obj2);
             arrTemp2 = []
@@ -209,7 +207,6 @@ async function getSupplierByNameProduct(nameTable, nameProduct) {
                 });
                 let obj3 = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${arrTemp2}) ` };
                 const res3 = await postData("/read/readTopN", obj3);
-                console.log(res3.data);
                 return res3.data;
             }
             else {
@@ -224,40 +221,36 @@ async function getSupplierByNameProduct(nameTable, nameProduct) {
         throw error;
     }
 }
-
+// חיפוש בטבלת מוצרים וספקים לפי טבלת מוצרי בטון ולפי שם המוצר
 async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
     console.log({ nameTable });
     console.log({ nameProduct });
     try {
         let obj = { tableName: BUYTONITEMS, columns: "*", condition: `ItemDescribe='${nameProduct}'` };
         const res = await postData("/read/readTopN", obj);
-        console.log(res.data);
         if (res.data != undefined) {
-            let obj2 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonStrength' AND product=${res.data[0].ItemStrength}` };
+            let obj2 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonStrength' AND ProductId=${res.data[0].ItemStrength}` };
             const res2 = await postData("/read/readTopN", obj2);
-            let obj3 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonDegree' AND product=${res.data[0].ItemDegreeExposure}` };
+            let obj3 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonDegree' AND ProductId=${res.data[0].ItemDegreeExposure}` };
             const res3 = await postData("/read/readTopN", obj3);
-            let obj4 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonSomech' AND product=${res.data[0].SomechBuyton}` };
+            let obj4 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonSomech' AND ProductId=${res.data[0].SomechBuyton}` };
             const res4 = await postData("/read/readTopN", obj4);
-            let obj5 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonGrain' AND product=${res.data[0].ItemType}` };
+            let obj5 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonGrain' AND ProductId=${res.data[0].ItemType}` };
             const res5 = await postData("/read/readTopN", obj5);
             temp = checkValid(res2.data, res3.data)
             temp2 = checkValid(temp, res4.data)
             temp3 = checkValid(temp2, res5.data)
-
-            console.log(res2.data);
-            console.log(res3.data);
-            console.log(res4.data);
-            console.log(res5.data);
-            if (res2.data[0] === res3.data[0] && res4.data[0] === res5.data[0] && res2.data[0] === res4.data[0]) {
-                let obj6 = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${temp3}) ` };
-                const res3 = await postData("/read/readTopN", obj6);
-                console.log(res3.data);
+            arrTemp2 = []
+            if (temp3 != undefined) {
+                temp3.forEach(element => {
+                    arrTemp2.push(element.PriceListId)
+                });
+                let obj3 = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${arrTemp2}) ` };
+                const res3 = await postData("/read/readTopN", obj3);
+                console.log(res3.data + "            res3.data");
                 return res3.data;
             }
         }
-
-        return res.data;
     }
     catch (error) {
         throw error;
@@ -266,8 +259,8 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
         arrTemp = []
         arr1.forEach(b => {
             arr2.forEach(c => {
-                if (b === c) {
-                    arrTemp.push
+                if (b.PriceListId === c.PriceListId) {
+                    arrTemp.push(b)
                 }
             });
         });
@@ -294,28 +287,3 @@ module.exports = {
 
 
 
-
-
-//בדיקות תקינות של מוצרי בטון
- //     console.log(res.data[0].ItemStrength + "           ItemStrength");
-            // let obj2 = { tableName: 'tbl_BuytonStrength', columns: "*", condition: `StrengthNumber=${res.data[0].ItemStrength}` };
-            //     const res2 = await postData("/read/readTopN", obj2);
-            //     console.log(res2.data);
-            //     if (res2.data != undefined) {
-            //         console.log(res.data[0].ItemDegreeExposure + "           ItemDegreeExposure");
-            //         let obj3 = { tableName: 'tbl_BuytonDegree', columns: "*", condition: `DegreeNumber=${res.data[0].ItemDegreeExposure}` };
-            //         const res3 = await postData("/read/readTopN", obj3);
-            //         if (res3.data != undefined) {
-            //             console.log(res.data[0].SomechBuyton + "           SomechBuyton");
-            //             let obj4 = { tableName: 'tbl_BuytonSomech', columns: "*", condition: `SomechNumber=${res.data[0].SomechBuyton}` };
-            //             const res4 = await postData("/read/readTopN", obj4);
-            //             if (res4.data != undefined) {
-            //                 console.log(res.data[0].ItemType + "           ItemType");
-            //                 let obj4 = { tableName: 'tbl_BuytonGrain', columns: "*", condition: `GrainNumber=${res.data[0].ItemType}` };
-            //                 const res4 = await postData("/read/readTopN", obj4);
-            //                 console.log(res4.data);
-            //                 console.log("i m tovi");
-
-            //             }
-            //         }
-            //     }
