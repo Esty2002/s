@@ -17,7 +17,8 @@ async function getStatusNumber() {
         'tableName': 'tbl_Status',
         'columns': '*',
     }
-    const result = await postData('/read/readTopN', obj);
+    const result = await postData('/read/readTopN',obj);
+    console.log({result})
     return result;
 }
 

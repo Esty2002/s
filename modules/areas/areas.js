@@ -19,7 +19,7 @@ async function findInPolygon(point) {
         point
     }
     )
-    console.log({found:found.data})
+    console.log({ found: found.data })
     return found;
 }
 async function findByDistinct(collection, filter = undefined) {
@@ -50,17 +50,16 @@ async function insertArea(obj = {}) {
             console.log({ obj })
             let points = obj.points
             let arraymap = []
-
             for (let i = 0; i < points.length; i++) {
                 let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng)
                 if (!find) {
-                    arraymap.push({ point:points[i], index: i })
+                    arraymap.push({ point: points[i], index: i })
                 }
-                else{
-                    if(i!=points.length-1){
-                    points.splice(i, 1)
-                    console.log(points.length)
-                    i--
+                else {
+                    if (i != points.length - 1) {
+                        points.splice(i, 1)
+                        console.log(points.length)
+                        i--
                     }
                 }
             }
@@ -179,7 +178,7 @@ async function deleteArea(areaName) {
             const resultSql = await postData('/update/update',
                 {
                     tableName: 'tbl_Areas',
-                    values: { Disabled: true },
+                    values: { Disabled: 'true' },
                     condition: { AreaName: areaName }
                 })
             return resultSql
@@ -205,20 +204,6 @@ async function findArea(filter = {}) {
 
     return result
 }
-async function findAreaByCode(code) {
-    let filter = {};
-    const result = await postData('/read/find',
-        {
-            collection: "Areas",
-            filter: { supplierOrClientCode: code },
-            project: {}
-        })
-    if (result)
-        return result
-    else
-        throw new Error("not found area")
-}
-
 
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");
