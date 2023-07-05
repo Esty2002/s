@@ -19,7 +19,7 @@ async function findInPolygon(point) {
         point
     }
     )
-    console.log({found:found.data})
+    console.log({ found: found.data })
     return found;
 }
 async function findByDistinct(collection, filter = undefined) {
@@ -54,13 +54,13 @@ async function insertArea(obj = {}) {
             for (let i = 0; i < points.length; i++) {
                 let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng)
                 if (!find) {
-                    arraymap.push({ point:points[i], index: i })
+                    arraymap.push({ point: points[i], index: i })
                 }
-                else{
-                    if(i!=points.length-1){
-                    points.splice(i, 1)
-                    console.log(points.length)
-                    i--
+                else {
+                    if (i != points.length - 1) {
+                        points.splice(i, 1)
+                        console.log(points.length)
+                        i--
                     }
                 }
             }
@@ -102,6 +102,32 @@ async function insertArea(obj = {}) {
         throw error
     }
 
+}
+
+async function updateArea(obj = {}) {
+    console.log('update module before dbbbbbbbbbbbb');
+    const result = await postData('/update/mongo/',
+        {
+            collection: "areas",
+            filter: { placeId: obj.placeId },
+            set: { obj }
+        })
+    if (result) {
+
+        const resSql = await postData('/update/updateOne',
+            {
+                tableName: "tbl_Areas",
+                values: { obj },
+                condition: { placeId: obj.placeId }
+            })
+        if (resSql)
+            return resSql
+        else
+            return result
+
+    }
+    else
+        throw new Error('Not Found area to update')
 }
 
 async function updateArea(obj = {}) {

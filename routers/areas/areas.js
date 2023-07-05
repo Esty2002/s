@@ -141,6 +141,8 @@ router.post('/deleteArea', express.json(), async (req, res) => {
 })
 
 router.post('/updateArea', express.json(), async (req, res) => {
+    console.log('update area serverrrrrrrrrr');
+    console.log(req.body);
     try {
         const response = await updateArea(req.body)
         if (response)
