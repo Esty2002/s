@@ -7,6 +7,8 @@ async function getAllPriceList() {
     try {
         let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
         const res = await postData("/read/readTopN", obj);
+        
+
         return res.data;
     }
     catch (error) {
@@ -114,7 +116,7 @@ async function getPriceListByIdPriceListId(object) {
     try {
         let obj = { tableName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
-        console.log(res.data);
+        console.log(res ,"rrrrrrrrrrrrrrrrrrrrrrrrrreeeeeeeeeeeee");
         return res.data;
     }
     catch (error) {
