@@ -1,7 +1,10 @@
 require('dotenv').config()
+const { ObjectId } = require('mongodb');
 const { getData, postData } = require('../../services/axios')
 
 async function findAll(filter = undefined) {
+    console.log('im hhhhhhhhhhh');
+
     console.log({ filter })
     const found = await postData('/read/find', {
         collection: "areas",
@@ -49,7 +52,7 @@ async function insertArea(obj = {}) {
         if (obj.type === 'polygon') {
             console.log({ obj })
             let points = obj.points
-            let arraymap = []
+            let arraymap = [];
             for (let i = 0; i < points.length; i++) {
                 let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng)
                 if (!find) {
@@ -85,8 +88,9 @@ async function insertArea(obj = {}) {
                     })
                 return dropResult;
             }
-            if (resultToSql.status === 201)
+            if (resultToSql.status === 201) {
                 return resultToSql
+            }
             else
                 throw new Error("Can't insert area to mongo and sql DB");
 
@@ -100,27 +104,30 @@ async function insertArea(obj = {}) {
         console.log(error.message)
         throw error
     }
-
 }
 
 async function updateArea(obj = {}) {
     console.log('update module before dbbbbbbbbbbbb');
+    let originalId = obj._id;
+    delete obj._id;
     const result = await postData('/update/mongo/',
         {
             collection: "areas",
-            filter: { placeId: obj.placeId },
-            set: { obj }
+            filter: { _id: originalId },
+            set: { $set: obj }
         })
-    if (result) {
-
-        const resSql = await postData('/update/updateOne',
+    if (result.status == 200) {
+        console.log('monogo ooooookkkkkkkk', result);
+        const resSql = await postData('/update/update',
             {
                 tableName: "tbl_Areas",
-                values: { obj },
-                condition: { placeId: obj.placeId }
+                values: { AreaName: obj.name },
+                condition: { AreaIdFromMongo: originalId }
             })
-        if (resSql)
+        if (resSql) {
+            console.log('sql oooooookkkkkkkkkkk', resSql);
             return resSql
+        }
         else
             return result
 
@@ -129,20 +136,49 @@ async function updateArea(obj = {}) {
         throw new Error('Not Found area to update')
 }
 
-async function updateArea(obj = {}) {
-    const result = await postData('/mongo/updateone',
-        {
-            collection: "areas",
-            filter: { supplierOrClientCode: obj.supplierOrClientCode },
-            set: { $set: { 'areasList.$[u]': obj.area } },
-            arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
-        })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found area to update')
+async function deleteArea(areaName) {
+    try {
+        const result = await postData('/update/mongo',
+            {
+                collection: "areas",
+                filter: { name: areaName },
+                set: { $set: { disabled: true } }
+
+            })
+        if (result.data) {
+            const resultSql = await postData('/update/update',
+                {
+                    tableName: 'tbl_Areas',
+                    values: { Disabled: 'true' },
+                    condition: { AreaName: areaName }
+                })
+            return resultSql
+        }
+        // return result
+        else {
+            throw new Error('cannot delete area')
+        }
+    }
+    catch (error) {
+        throw error
+    }
 
 }
+
+// async function updateArea(obj = {}) {
+//     const result = await postData('/mongo/updateone',
+//         {
+//             collection: "areas",
+//             filter: { supplierOrClientCode: obj.supplierOrClientCode },
+//             set: { $set: { 'areasList.$[u]': obj.area } },
+//             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
+//         })
+//     if (result)
+//         return result
+//     else
+//         throw new Error('Not Found area to update')
+
+// }
 
 async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
@@ -191,34 +227,7 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 //         throw new Error('Not Found supplier or client code to delete his areas')
 // }
 
-async function deleteArea(areaName) {
-    try {
-        const result = await postData('/update/mongo',
-            {
-                collection: "areas",
-                filter: { name: areaName },
-                set: { $set: { disabled: true } }
 
-            })
-        if (result.data) {
-            const resultSql = await postData('/update/update',
-                {
-                    tableName: 'tbl_Areas',
-                    values: { Disabled: 'true' },
-                    condition: { AreaName: areaName }
-                })
-            return resultSql
-        }
-        // return result
-        else {
-            throw new Error('cannot delete area')
-        }
-    }
-    catch (error) {
-        throw error
-    }
-
-}
 
 async function findArea(filter = {}) {
     // let query = {}
@@ -230,6 +239,19 @@ async function findArea(filter = {}) {
 
     return result
 }
+
+
+// async function findAreame(filter = {}) {
+//     // let query = {}
+//     // query[name] = value   
+//     const result = await postData('/read/findme', {
+//         collection: "areas",
+//         filter
+//     })
+
+//     return result
+// }
+
 
 async function findSupplierOrClient(code) {
     console.log(" in isExist module");

@@ -3,7 +3,7 @@ const express = require('express')
 
 const { insertArea, findSupplierOrClient, findArea,
     deleteSupplierOrClient, deleteArea, updateArea, findAllCities,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct,findInPolygon } = require('../../modules/areas/areas')
+    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct, findInPolygon } = require('../../modules/areas/areas')
 
 
 
@@ -12,6 +12,8 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/allcities', async (req, res) => {
+    console.log('im hhhhhhhhhhhereeeeeeeeee');
+
     try {
         const ans = await findAllCities()
         console.log(ans);
@@ -49,10 +51,9 @@ router.post('/isExistPoint', express.json(), async (req, res) => {
 // o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     try {
-        const result = await insertArea(req.body)
-
-        res.status(result.status).send(result.data)
-
+        const result = await insertArea(req.body);
+        console.log("+++++++++++++++++++++",result);
+        res.status(result.status).send(result.data);
     }
     catch (error) {
         console.log(error)
@@ -76,6 +77,7 @@ router.post('/dropArea', express.json(), async (req, res) => {
 
 
 router.get('/findAll/:filter', async (req, res) => {
+    console.log('iiiiiiiiiim');
     let filter = req.params.filter
     console.log("filter", filter);
     try {
@@ -88,8 +90,8 @@ router.get('/findAll/:filter', async (req, res) => {
     }
 })
 
-router.post('/findInPolygon' ,express.json(), async (req, res) => {
-   console.log({findInPolygon:req.body})
+router.post('/findInPolygon', express.json(), async (req, res) => {
+    console.log({ findInPolygon: req.body })
     try {
         const result = await findInPolygon(req.body)
         // console.log('***********************', result.data);
@@ -101,12 +103,13 @@ router.post('/findInPolygon' ,express.json(), async (req, res) => {
 })
 
 router.get('/findAllTypes/:collection/:filter', async (req, res) => {
+    console.log('im hhhhhhhhhhhere');
     let collection = req.params.collection;
     let filter = req.params.filter
     try {
         const result = await findByDistinct(collection, filter)
         // console.log('***********************', result.data);
-        console.log({result})
+        console.log({ result })
         res.status(200).send(result.data)
     }
     catch (err) {
@@ -134,13 +137,17 @@ router.post('/updateArea', express.json(), async (req, res) => {
     console.log('update area serverrrrrrrrrr');
     console.log(req.body);
     try {
+        console.log('in tryyyyy');
         const response = await updateArea(req.body)
+        console.log("response in updateArea",response);
         if (response)
-            res.status(200).send(response)
+            res.status(204).send(response)
         else {
+            // console.log('ifffffelse');
             res.status(500).send(response)
         }
     } catch (error) {
+        console.log('didnt manageeeeeeeeeeeee');
         res.status(500).send(error.message)
     }
 })
