@@ -1,7 +1,8 @@
 const { postData } = require('../../services/axios')
 
 async function addOneClient(obj) {
-    
+    const values = {...obj}
+    delete values.Id
     let newObj = {
         'tableName': 'tbl_Clients',
         'values': obj
