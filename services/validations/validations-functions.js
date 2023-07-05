@@ -27,7 +27,7 @@ const hourType = (data) => {
 const correctPhone = (number) => {
     if (/^0\d{8,9}$/.test(number) && number.length <= 10)
         return true
-    throw new Error(`the number  not correct`)
+    throw new Error(`the number ${number}  not correct`)
 }
 
 const positiveNumber = (number) => {
@@ -41,26 +41,50 @@ const onlyLetters = (word) => {
         return true;
     throw new Error("the comment contain not valid characters")
 }
+const EnglishLetters = (word) => {
+    return /^\w[a-z,A-Z]*$/.test(word)
+}
 
 const onlyNumbersInString = (numbersString) => {
-    return /^\d*$/.test(numbersString)
+
+    if( /^\d*$/.test(numbersString))
+        return true
+    throw new Error(`the value ${numbersString} not only string`)
 }
 
 const notCheck = () => {
     return true;
 }
-
 const type = (value, arg) => {
-    if (typeof value == arg)
+    console.log(typeof value, arg, "llllllllllllllllllllllllllllllllllllllllllllllllll");
+     
+    if( isNaN(value)){
+        if(arg=="string"){
+            console.log('string@@@@');
+            return true
+        }
+        throw new Error(`the value ${value} not typeof value`)
+
+    }
+    if(arg=="number"){
+        console.log('num@@@');
         return true
-    throw new Error(`not ${value} typeof ${arg}`)
+
+    }
+    throw new Error(`the value ${value} not typeof value`)
+
+        
+        
+      
+     
+
 }
 
 const maxLength = (value, max) => {
-    if (value.length < max)
-        return true;
-    else
-        throw new Error("the length of the string is too long");
+    if( value.length < max)
+        return true
+    throw new Error(`the value ${value} too long `)
+    
 }
 
 const bit = (value) => {
@@ -70,15 +94,15 @@ const bit = (value) => {
 }
 
 const minLength = (value, min) => {
-    if (value.length > min)
-        return true;
-    throw new Error("the length of the string is too short");
+    if( value.length > min)
+        return true
+    throw new Error(`the value ${value} too short`)
 }
 
 const betweenLength = (value, arg) => {
-    if (value.length > arg.min && value.length < arg.max)
-        return true;
-    throw new Error(`the length of the ${value} is too short or too long`);
+    if( value.length > arg.min && value.length < arg.max)
+        return true
+    throw new Error(`the value ${value} not betweenLength`)
 }
 
 const specificLength = (value, len) => {
@@ -165,6 +189,29 @@ const correctTable = async (value) => {
     }
     throw new Error(`you cant connect to ${value} table`)
 }
+const theDateBeforToday=(value)=>{
+    console.log('dateeeeeee');
+    let date2 = new Date(value)
+        console.log(date2,new Date(),'new date');
+
+    if(date2- new Date>0){
+        throw new Error('the date after today ')
+    }
+
+    console.log('yes date');
+    return true
+}
+const theDateAfterToday=(value)=>{
+    console.log('dateeeeeee');
+    let date3 = new Date(value)
+    if((date3-new Date())>0){
+        console.log('yyyuu date');
+        return true
+    }
+
+    throw new Error('the date befor today ')
+
+}
 const validation = {
     required: required,
     dateType: dateType,
@@ -185,7 +232,8 @@ const validation = {
     checkConcretItem: checkConcretItem,
     recordExistInTable: recordExistInTable,
     correctTable: correctTable,
-    onlyLetters: onlyLetters
+    onlyLetters: onlyLetters,
+    theDateAfterToday:theDateAfterToday
 }
 
 module.exports = { validation }

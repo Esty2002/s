@@ -1,7 +1,12 @@
 require('dotenv').config();
 // const { setDate } = require('./functions');
+<<<<<<< HEAD
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 const { getData, postData } = require('../../services/axios');
+=======
+const { SQL_DB_SUPPLIERS } = process.env;
+const { getData, postData,   } = require('../../services/axios');
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
 
 async function insertOneSupplier(object) {
     console.log("insrtSupplier - module",{object});
@@ -12,10 +17,16 @@ async function insertOneSupplier(object) {
             console.log("object - new",object.CreationDate)
             let obj = { tableName: 'tbl_Suppliers', values: object };
 
+<<<<<<< HEAD
             console.log("obj module suppliers",obj)
             const res = await postData( "/create/create", obj);
             console.log('pppppppppppppppppppppppppppppp',{res});
             return res.data;
+=======
+            console.log({obj})
+            const res = await postData(  "/create/create", obj);
+            return res.recordset;
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         }
         else {
             return false;
@@ -30,6 +41,7 @@ async function getAllSuppliers(num) {
     console.log("getAllSuppliers - modules" ,num);
 
     try {
+<<<<<<< HEAD
         const res = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/Disabled=${num}`);
         for (let item of res.data) {
             const res = await countRowes(item.Id,num);
@@ -37,6 +49,11 @@ async function getAllSuppliers(num) {
                 item.countBraches = res[0].countRows;
             }
         }
+=======
+        console.log("getAllSuppliers - modules");
+        const res = await getData(  `/read/readAll/${SQL_DB_SUPPLIERS}/Disabled=0`);
+        // console.log("data",res);
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return res.data;
     }
     catch (error) {
@@ -49,7 +66,11 @@ async function getAllSuppliers(num) {
 
 async function getSupplier(object) {
     try {
+<<<<<<< HEAD
         const res = await getData( `/read/readAll/tbl_Suppliers/${object.option}='${object.text}' AND Disabled=0`);
+=======
+        const res = await getData(  `/read/readAll/tbl_Suppliers/${object.option}='${object.text}' AND Disabled=0`);
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return res.data;
     }
     catch (error) {
@@ -81,7 +102,11 @@ async function updateDetail(code, setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: `SupplierCode='${code}' AND SupplierName='${setting.OldSupplierName}'`
         };
+<<<<<<< HEAD
         const result = await postData( '/update/update', object);
+=======
+        const result = await postData(  '/update/update', object);
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return result.recordset;
     }
     catch {
@@ -92,9 +117,15 @@ async function updateDetail(code, setting) {
 async function deleteSupplier(object) {
     try {
         let obj = { supplierCode: object.SupplierCode, name: object.DisableUser, id: object.Id }
+<<<<<<< HEAD
         // console.log("obj", obj);
         const result = await postData( '/update/updateSuppliersBranches', obj);
         // console.log("result", result);
+=======
+        console.log("obj", obj);
+        const result = await postData(  '/update/updateSuppliersBranches', obj);
+        console.log("result", result);
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
 
         return result.data
     }
@@ -117,6 +148,7 @@ function checkValid(object) {
 }
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
+<<<<<<< HEAD
     let resultSupplierCode = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
     return resultSupplierCode.data.length === 0
 
@@ -124,6 +156,19 @@ async function checkUniqueCode(code) {
 async function checkUniqueName(name) {
     let resultSuppliersName = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
     return resultSuppliersName.data.length === 0
+=======
+    console.log("check - unique - code", code);
+    let resultSupplierCode = await getData(  `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
+   
+    return resultSupplierCode.data.length===0
+
+}
+async function checkUniqueName(name) {
+    console.log("check - unique - name", name);
+    let resultSuppliersName = await getData(  `/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
+ 
+    return resultSuppliersName.data.length===0
+>>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
 }
 
 async function checkUnique(setting) {
