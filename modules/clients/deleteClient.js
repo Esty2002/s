@@ -11,7 +11,7 @@ async function deletedClientByCode(clientCode, userName) {
     let result;
     if (exist) {
 
-        obj['condition'] = `clientCode=${clientCode}`
+        obj['condition'] = {clientCode}
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
 
         result = await postData('/update/update', obj)
