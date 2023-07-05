@@ -5,8 +5,6 @@ const {findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll}
 router.get('/findMeasureName/:id', async (req, res) => {
     try {
         const response = await findMeasureName(req.params.id)
-        console.log('--------------');
-        console.log(response);
         if (response)
             res.status(200).send(response.data)
         else {
@@ -61,7 +59,7 @@ router.get('/all', async (req, res) => {
     try {
         const response = await getAll()
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response.data)
         }
