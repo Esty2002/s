@@ -1,9 +1,9 @@
-const {  postData } = require('../../services/axios');
+const {  postData ,getData} = require('../../services/axios');
 
 const values = [
     {
-        entityName: "orderers",
-        func: ({ ordererName, ordererPhone }) => {
+        entityName: "Orderers",
+        func: ({ ordererName=null, ordererPhone=null }) => {
             return {
                 tableName: "Orderers",
                 values: {
@@ -19,7 +19,7 @@ const values = [
 
     },
     {
-        entityName: "pouringsTypes",
+        entityName: "PouringsTypes",
         func: ({ pouringName }) => {
             return {
                 tableName: "PouringsTypes",
@@ -77,15 +77,16 @@ const newRecord = async (obj = null) => {
     }
 };
 
-const getRecord = async (tableName = "", field = "") => {
-    const table = values.find((v) => v.tableName === tableName);
-    if (table) {
+const getRecord = async (entityName = "", prop = "") => {
+    const entity = values.find((v) => v.entityName === entityName);
+    if (entity) {
         obj = {
-            tableName: tableName,
-            condition: field !== 'none' ? field : `Disable=0`
+            entityName:entity.entityName,
+            condition: prop !== 'none' ? prop : `Disable=0`
         };
         try {
-            const result = await getData(sqlServer, `/read/readAll/${obj.tableName}/${obj.condition}`);
+
+            const result = await getData(`/read/readAll/${obj.entityName}/${obj.condition}`);
             return result;
         }
         catch (error) {

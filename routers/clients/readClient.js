@@ -5,19 +5,12 @@ const { getAllClient, getClientsByField, getClientsById , getAllDeletedClient} =
 
 router.get('/getAll', async (req, res) => {
     try {
-<<<<<<< HEAD
-        const response =await getAllClient()
-        console.log(response, "------------------------resd");
-        if (response)
-            res.status(200).send(response.data)
-=======
         
         const response = await getAllClient(req.body);
         if (response.data) {
             res.status(200).send(response.data)
             
         }
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         else {
             res.status(500).send(response.data)
         }

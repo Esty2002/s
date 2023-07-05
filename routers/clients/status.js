@@ -39,19 +39,9 @@ router.post('/deleteOneStatus',express.json(),async (req,res)=>{
 })
 
 router.get('/status', async (req, res) => {
-    console.log('status');
     try {
         const response =await getStatusNumber()
-<<<<<<< HEAD
-        if (response)
-            res.status(200).send(response.data)
-        else {
-            res.status(500).send(response.data)
-        }
-=======
-        console.log('ii',response.status,'statusu');
         res.status(response.status).send(response.data)
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
     } catch (error) {
         res.status(500).send(error.message)
     }

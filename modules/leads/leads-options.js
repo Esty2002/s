@@ -81,16 +81,14 @@ const readLead = async (filter, disable) => {
     }
 
     try {
-        const values = await postData('read/readTopN', obj);
-        // console.log("valuesssssssssss################################################################",values);
-        if (values) {
+        const res = await postData('read/readTopN', obj);
+        if (res.data) {
+            const values = res.data;
             let result = [];
-            // values.forEach(async val => {
-            // _ = Promise.all(values.map(async val => {
-            // console.log("values", values);
             for (let i = 0; i < values.length; i++) {
                 const sameRecord = values.filter(v => v.SupplyDate.toString() === values[i].SupplyDate.toString() && v.SupplyHour.toString() === values[i].SupplyHour.toString() &&
                     v.Address === values[i].Address && v.OrdererCode === values[i].OrdererCode);
+
                 const keys = Object.keys(sameRecord[0]);
                 const temp = {}
                 for (let key of keys) {
@@ -98,29 +96,8 @@ const readLead = async (filter, disable) => {
                 }
                 result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
                     r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
-                // let filterr = { tablename: "tbl_Leads", field: "OrdererCode", id: "1" }
-                // console.log(readforeignkeyvalue(filter));
-                // getBuytonData("/leads/getforeignkeyvalue/tbl_Leads/OrdererCode/1")
-                // result.map(async r => {
-                // for (let k = 0; k < result.length; k++) {
-                //     // result[k].nameOrdererCode = await getData(`read/foreignkeyvalue/${filterr.tablename}/${filterr.field}/${filterr.id}`);
-                //     result[k].valueOrdererCode = await getData(`read/foreignkeyvalue/tbl_Leads/OrdererCode/${result[k].OrdererCode}`);
-                //     result[k].valueClientCode = await getData(`read/foreignkeyvalue/tbl_Leads/ClientCode/${result[k].ClientCode}`);
-                //     // result[k].valuePump = await getData(`read/foreignkeyvalue/tbl_Leads/Pump/${result[k].Pump}`);
-                //     result[k].valuePouringType = await getData(`read/foreignkeyvalue/tbl_Leads/PouringType/${result[k].PouringType}`);
-                //     result[k].valueStatusLead = await getData(`read/foreignkeyvalue/tbl_Leads/StatusLead/${result[k].StatusLead}`);
-
-
-                //     // console.log("rrrrrrrrrrrrrrrrrrrrrrrrlll", result[k]);
-                //     // result = result[k]
-                //     // flag = true
-                //     // console.log("resulteeeeeeeeeeeeee", result);
-                // }
-                // })
-                // }));
             }
-            // console.log("resulteejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjeeeeeeeeeeee", result[0]);
-            return result;
+            return { data: result, status: 200, message: "success" };
         }
         else {
             return false;

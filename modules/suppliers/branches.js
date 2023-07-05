@@ -1,24 +1,15 @@
 require('dotenv').config();
 const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
 // const { setDate } = require('./functions');
-<<<<<<< HEAD
-const { getData, postData } = require('../../services/axios');
-=======
 const { getData, postData,   } = require('../../services/axios');
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
 
 /////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
     try {
         if (checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] = new Date().toISOString();
-<<<<<<< HEAD
-            let obj = { tableName: 'tbl_Branches', values: object };
-            const res = await postData( "/create/create", obj);
-=======
             let obj = { tableName: 'tbl_Branches',values: object};
             const res = await postData(  "/create/create",obj);
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
             return res.recordset;
         }
         else {
@@ -32,11 +23,7 @@ async function insertOneBranch(object) {
 ///////////////////////////////////////////////////////////////////
 async function getAllBranches() {
     try {
-<<<<<<< HEAD
-        const res = await getData( `/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
-=======
         const res = await getData(  `/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return res.data;
     }
     catch (error) {
@@ -47,11 +34,7 @@ async function getAllBranches() {
 async function getBranchesByCondition(column, code , num) {
     console.log("getBranchesByCondition - module");
     try {
-<<<<<<< HEAD
-        const res = await getData( `/read/readAll/tbl_Branches/${column}='${code}' AND  Disabled=${num}`);
-=======
         const res = await getData(  `/read/readAll/tbl_Branches/${column}='${code}' AND  Disabled='0'`);
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return res.data;
     }
     catch (error) {
@@ -76,11 +59,7 @@ async function updateDetail(code, setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: `SupplierCode=${code} AND BranchName='${setting.OldBranchName}' AND Disabled = '0'`
         }
-<<<<<<< HEAD
-        const res = await postData( "/update/update", obj);
-=======
         const res = await postData(  "/update/update",obj);
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         console.log(res);
         return res;
     }
@@ -93,11 +72,7 @@ async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
         let obj = { tableName: 'tbl_Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: `SupplierCode= ${object.Id} AND BranchName = '${object.BranchName}' ` };
-<<<<<<< HEAD
-        const res = await postData( "/update/update", obj);
-=======
         const res = await postData(  "/update/update",obj);
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return res.data;
     }
     catch (error) {
@@ -118,13 +93,8 @@ function checkValid(object) {
 ///////////////////////////////////////////////////////////////////
 async function checkUnique(object) {
     try {
-<<<<<<< HEAD
-        const resultSupplierExist = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/Id=${object.SupplierCode } AND  Disabled='0'`);
-        const resultBranchName = await getData( `/read/readAll/tbl_Branches/BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0'`);
-=======
         const resultSupplierExist = await getData(  `/read/readAll/${SQL_DB_SUPPLIERS}/Id=${object.SupplierCode } AND  Disabled='0'`);
         const resultBranchName = await getData(  `/read/readAll/tbl_Branches/BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0'`);
->>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 
     }
