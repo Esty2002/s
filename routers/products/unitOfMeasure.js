@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll} = require('../../modules/products/measure')
+const {findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll, deleteItem} = require('../../modules/products/measure')
 router.get('/findMeasureName/:id', async (req, res) => {
     try {
         const response = await findMeasureName(req.params.id)
@@ -61,7 +61,7 @@ router.get('/all', async (req, res) => {
     try {
         const response = await getAll()
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
             res.status(500).send(response.data)
         }
