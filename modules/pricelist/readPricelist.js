@@ -116,7 +116,6 @@ async function getPriceListByIdPriceListId(object) {
     try {
         let obj = { tableName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
-        console.log(res ,"rrrrrrrrrrrrrrrrrrrrrrrrrreeeeeeeeeeeee");
         return res.data;
     }
     catch (error) {

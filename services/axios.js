@@ -9,7 +9,7 @@ const server = axios.create({
 
 const getData = async (url) => {
     let response;
-    console.log({ url });
+    // console.log({ url });
     try {
         response = await server.get(url);
 
