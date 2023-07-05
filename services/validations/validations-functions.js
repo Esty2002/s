@@ -36,8 +36,10 @@ const correctPhone = (number) => {
 const positiveNumber = (number) => {
     return number > 0
 }
-const EnglishLetters = (word) => {
-    return /^\w[a-z,A-Z]*$/.test(word)
+const EnglishLettersOrHebrewLetters  = (word) => {
+    if( /^\w[a-z,A-Z]*$/.test(word))
+        return true
+    throw new Error(`the value ${word} not `)
 }
 
 const onlyNumbersInString = (numbersString) => {
@@ -170,7 +172,8 @@ const validation = {
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
     concretEmail: concretEmail,
     // theDateBeforToday:theDateBeforToday,
-    theDateAfterToday:theDateAfterToday
+    theDateAfterToday:theDateAfterToday,
+    EnglishLettersOrHebrewLetters:EnglishLettersOrHebrewLetters
 }
 
 module.exports = { validation }

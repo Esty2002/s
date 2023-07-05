@@ -105,7 +105,7 @@ const objectsForValidations = [
                     { func: validation.clientCodeIsExistInSQL, arguments: { tableName: "tbl_Clients", field: "ClientCode" } }
                 ]
             },
-            { propertyName: "ClientName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "ClientName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
             { propertyName: "PrivaetCompanyNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "DestinationBank", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
@@ -116,30 +116,21 @@ const objectsForValidations = [
             { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "AccountantClassifiedCode", validation: [{ func: validation.type, arguments: "number" },] },
             { propertyName: "Status", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "Description", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" }] },
-            { propertyName: "Street", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" }] },
+            { propertyName: "Description", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
+            { propertyName: "Street", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
             { propertyName: "House", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
             { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null}] },
             { propertyName: "Telephone1", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Telephone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "MobilePhone", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Fax", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Email", validation: [{ func: validation.required, arguments: null }, { func: validation.concretEmail, arguments: null }] },
-            { propertyName: "Comments", validation: [{ func: validation.notCheck, arguments: null },{ func: validation.type, arguments: "string" }] },
+            { propertyName: "Comments", validation: [{ func: validation.notCheck, arguments: null },{ func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
             // { propertyName: "CreationDate", validation: [{ func: validation.required, arguments: null}, ] },
             // { propertyName: "UserThatAdd", validation: [{ func: validation.required, arguments: null}, ] },
 
         ]
-
-    
-
     }
-
 ]
-
-
-
-
-
 module.exports = { objectsForValidations };
