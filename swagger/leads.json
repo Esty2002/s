@@ -2,7 +2,7 @@
     "openapi": "3.0.3",
     "info": {
         "title": "swagger of leads",
-        "description": "A simple todos API",
+        "description": "A simple leads API",
         "version": "1.0.0",
         "contact": {
             "name": "leads",
@@ -32,7 +32,7 @@
             "tableName": {
                 "type": "string",
                 "description": "TableName",
-                "example": "orderers"
+                "example": "tbl_Orderers"
             },
             "columnsNames": {
                 "type": "string",
@@ -42,7 +42,7 @@
             "fieldName": {
                 "type": "string",
                 "description": "Field name to match by filter",
-                "example": "OrdererName='משה'"
+                "example": "OrdererName='חיים'"
             },
             "Serialnumber": {
                 "type": "string",
@@ -60,7 +60,7 @@
                     "tableName": {
                         "type": "string",
                         "description": "TableName",
-                        "example": "orderers"
+                        "example": "tbl_Orderers"
                     },
                     "values": {
                         "type": "object",
@@ -85,7 +85,7 @@
                     "tableName": {
                         "type": "string",
                         "description": "TableName",
-                        "example": "orderers"
+                        "example": "tbl_Orderers"
                     },
                     "update": {
                         "type": "object",
@@ -93,14 +93,14 @@
                             "OrdererName": {
                                 "type": "string",
                                 "description": "OrdererName",
-                                "example": "חיים"
+                                "example": "דב"
                             }
                         }
                     },
                     "condition": {
                         "type": "string",
                         "description": "condition",
-                        "example": "OrdererName='דב'"
+                        "example": "OrdererName='חיים'"
                     }
                 }
             },
@@ -110,12 +110,12 @@
                     "tableName": {
                         "type": "string",
                         "description": "TableName",
-                        "example": "orderers"
+                        "example": "tbl_PouringsTypes"
                     },
                     "condition": {
                         "type": "string",
                         "description": "condition",
-                        "example": "OrdererName='דב'"
+                        "example": "serialNumber=1"
                     }
                 }
             },
@@ -125,19 +125,19 @@
                     "supplyDate": {
                         "type": "date",
                         "description": "supplyDate",
-                        "example": "2023-06-08"
+                        "example": "2023-07-08"
                     },
                     "supplyHour": {
                         "type": "date",
                         "description": "supplyHour",
-                        "example": "13:40"
+                        "example": "2023-07-08"
                     },
                     "ordererCode": {
                         "type": "number",
                         "description": "the orderer code",
-                        "example": "sari"
+                        "example": 1
                     },
-                    "supplyAddress": {
+                    "address": {
                         "type": "string",
                         "description": "the address to supply the concret",
                         "example": "Halochamim 8 BeneBrak"
@@ -153,9 +153,9 @@
                         "example": "12457845"
                     },
                     "clientCode": {
-                        "type": "string",
+                        "type": "number",
                         "description": "the client id",
-                        "example": "112233"
+                        "example": 2
                     },
                     "baseConcretProduct": {
                         "type": "list",
@@ -182,20 +182,19 @@
                         "description": "the length of the  pipe of the pump",
                         "example": 5
                     },
-                    "morePorducts": {
-                        "type": "object",
-                        "properties": {
-                            "productCode": {
-                                "type": "number",
-                                "description": "the product code",
-                                "example": 48
+                    "morePorductsItems": {
+                        "type": "list",
+                        "description": "more products items",
+                        "example": [
+                            {
+                                "productCode": 48,
+                                "amount": 18.5
                             },
-                            "amount": {
-                                "type": "number",
-                                "description": "the amount of the product",
-                                "example": 18.5
+                            {
+                                "productCode": 85,
+                                "amount": 45.85
                             }
-                        }
+                        ]
                     },
                     "pouringType": {
                         "type": "number",
@@ -204,14 +203,20 @@
                     },
                     "pouringTypesComments": {
                         "type": "string",
-                        "description": "the comments about the pouring type"
+                        "description": "the comments about the pouring type",
+                        "example": "the comments about the pouring"
                     },
                     "comments": {
                         "type": "string",
                         "description": "notes",
-                        "example": "SAsadsdsfdsfdf"
+                        "example": "hello I must conncret"
                     }
                 }
+            },
+            "condition": {
+                "type": "string",
+                "description": "the condition which lead to update",
+                "example": "SerialNumber=1"
             },
             "updateleadsdetails": {
                 "type": "object",
@@ -312,10 +317,10 @@
         }
     },
     "paths": {
-        "/leads/getrecord/{table}/{columns}/{field}": {
+        "/leads/getrecord/{table}/{field}": {
             "get": {
                 "tags": [
-                    "Leads CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "get record",
                 "operationId": "getrecord",
@@ -328,15 +333,6 @@
                         },
                         "required": true,
                         "description": "Table name"
-                    },
-                    {
-                        "name": "columns",
-                        "in": "path",
-                        "schema": {
-                            "$ref": "#/components/schemas/columnsNames"
-                        },
-                        "required": true,
-                        "description": "Columns names"
                     },
                     {
                         "name": "field",
@@ -375,7 +371,7 @@
         "/leads/insertrecord": {
             "post": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "Insert a record",
                 "operationId": "insertRecord",
@@ -414,9 +410,9 @@
             }
         },
         "/leads/updaterecord": {
-            "post": {
+            "put": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "update a record",
                 "operationId": "updateRecord",
@@ -454,23 +450,33 @@
                 }
             }
         },
-        "/leads/deleterecord": {
-            "post": {
+        "/leads/deleterecord/{tablename}/{condition}": {
+            "delete": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "delete a record",
                 "operationId": "deleteRecord",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/objectToDeleteRecord"
-                            }
-                        }
+                "parameters": [
+                    {
+                        "name": "tablename",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/tableName"
+                        },
+                        "required": true,
+                        "description": "Table name"
+                    },
+                    {
+                        "name": "condition",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/condition"
+                        },
+                        "required": true,
+                        "description": "Field name"
                     }
-                },
+                ], 
                 "responses": {
                     "200": {
                         "description": "filtered data",
@@ -498,7 +504,7 @@
         "/leads/createnewlead": {
             "post": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "create a leads",
                 "operationId": "createnewlead",
@@ -539,7 +545,7 @@
         "/leads/updateleadsdetails": {
             "post": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "updateleadsdetails",
                 "operationId": "updateleadsdetails",
@@ -577,51 +583,10 @@
                 }
             }
         },
-        "/leads/updatestatuslead": {
-            "post": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "updateleadsdetails",
-                "operationId": "updateleadsdetails",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/updatestatuslead"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "filtered data",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/empty"
-                                }
-                            }
-                        }
-                    }
-                },
-                "404": {
-                    "description": "came back with an error",
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/Error"
-                            }
-                        }
-                    }
-                }
-            }
-        },
         "/leads/deletelead": {
             "post": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "updateleadsdetails",
                 "operationId": "updateleadsdetails",
@@ -662,7 +627,7 @@
         "/leads/getleadsdetails": {
             "post": {
                 "tags": [
-                    "Todo CRUD operations"
+                    "leads CRUD operations"
                 ],
                 "description": "updateleadsdetails",
                 "operationId": "updateleadsdetails",

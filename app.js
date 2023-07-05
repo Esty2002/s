@@ -5,11 +5,10 @@ require('dotenv').config();
 const cors = require('cors');
 
 
-const swaggerLeads = require('./swagger/leads.json');
 const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger/products.json');
-const pricelist_swagger=require('./services/swagger.json')
-const manageUnitOfMeasure = require('./routers/products/unit_of_measure');
+const swaggerDocument = require('./swagger/price-list.json');
+
+const manageUnitOfMeasure = require('./routers/products/unitOfMeasure');
 const pumps_router = require('./routers/products/pumps');
 const manageAdditions = require('./routers/products/additions');
 const manageBasicProducts = require('./routers/products/basicProducts');
@@ -28,14 +27,10 @@ const areas_router = require('./routers/areas/areas');
 
 const api_router = require('./api/routers/readFile');
 
-// const swaggerSuppliers = require('./swagger/supplier.json');
 const manage_branches_router = require('./routers/suppliers/branches');
 const manage_suppliers_router = require('./routers/suppliers/suppliers');
-// const delete_client_router = require('./routers/clients/deleteClient');
-// const readClient_router=require('./routers/clients/readClient')
 const readPriceList_router=require('./routers/pricelist/readPricelist')
 const creatPricelist_router=require('./routers/pricelist/insertPricelist');
-
 app.use(cors());
 
 app.use('/pumps', pumps_router);
@@ -60,10 +55,10 @@ app.use('/api', api_router);
 app.use('/productsCombinations', productsCombinations_router);
 
 
+
 app.get('/', (req, res) => {
     res.status(200).send('hello buyton');
 });
-
 app.get('/*', (req, res) => {
     res.status(200).send('request not found');
 });

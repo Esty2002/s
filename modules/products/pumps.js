@@ -19,12 +19,11 @@ async function insertPump(obj) {
 }
 
 async function findPump(project = [], filter = {}) {
-    console.log(project, filter, "************************************************");
+    console.log({filter});
     if (!Object.keys(filter).includes('Enabled'))
         filter['Enabled'] = 1
 
     let columnsStr = project.length > 0 ? project.join(',') : '*'
-
     let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' AND ')
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
@@ -65,7 +64,6 @@ async function updatePump(obj) {
 async function findPumpName(num) {
     console.log({ num })
     const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
-    // console.log({ pump })
     return pump
 }
 
