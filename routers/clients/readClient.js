@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { getAllClient, getClientsByField, getClientsById, getAllDeletedClient } = require('../../modules/clients/readClient')
+const { conversionQueryToObject } = require('../../services/middlewears/conversions')
 
 
 router.get('/getAll', async (req, res) => {
@@ -42,9 +43,9 @@ router.get('/findClient/:id', async (req, res) => {
     }
 })
 
-router.get('/searchClient/:field/:value', async (req, res) => {
+router.get('/searchClient',conversionQueryToObject(), async (req, res) => {
     try {
-        const response = await getClientsByField(req.params.field, req.params.value)
+        const response = await getClientsByField(req.query)
         if (response)
             res.status(200).send(response.data)
         else {
