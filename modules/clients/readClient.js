@@ -27,13 +27,13 @@ async function getClientsById(id) {
 
 
 async function getClientsByField(field, value) {
-    let obj={}
-    obj['tableName']='tbl_Clients'
-    obj['condition']=`${field}=${value}`
-    obj['columns']='*'
-    const result= await postData(sqlServer,'/read/readTopN', obj);
+    let obj = {}
+    obj['tableName'] = 'tbl_Clients'
+    obj['condition'] = `${field}=${value}`
+    obj['columns'] = '*'
+    const result = await postData(sqlServer, '/read/readTopN', obj);
     // console.log(result,' result');
-    if (result==undefined)
+    if (result == undefined)
         return null
     return result
 }
