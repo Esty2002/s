@@ -5,7 +5,7 @@ async function addOneClient(obj) {
     delete values.Id
     let newObj = {
         'tableName': 'tbl_Clients',
-        'values': obj
+        'values': values
     }
     let object = {
         'tableName': 'tbl_Clients',
