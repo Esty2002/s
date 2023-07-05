@@ -10,8 +10,8 @@ const required = (value = null) => {
 const dateType = (date) => {
     let date1 = new Date(date);
     if (date1 == 'Invalid Date')
-        return false;
-    throw new Error(`the date ${date} not valid`);
+        throw new Error(`the date ${date} not valid`);
+    return true
 
 };
 const hourType = (data) => {
@@ -25,7 +25,6 @@ const hourType = (data) => {
 
 }
 const correctPhone = (number) => {
-    console.log('concret phone');
     if (/^0\d{8,9}$/.test(number) && number.length <= 10)
         return true
     throw new Error(`the number  not correct`)
@@ -37,9 +36,11 @@ const positiveNumber = (number) => {
     throw new Error("the number not positive")
 }
 
-// const EnglishLetters = (word) => {
-//     return /^\w[a-z,A-Z]*$/.test(word)
-// }
+const onlyLetters = (word) => {
+    if (/^\w[a-z,A-Z,א-ת,0-9]*$/.test(word))
+        return true;
+    throw new Error("the comment contain not valid characters")
+}
 
 const onlyNumbersInString = (numbersString) => {
     return /^\d*$/.test(numbersString)
@@ -52,7 +53,7 @@ const notCheck = () => {
 const type = (value, arg) => {
     if (typeof value == arg)
         return true
-    throw new Error('not typeof value')
+    throw new Error(`not ${value} typeof ${arg}`)
 }
 
 const maxLength = (value, max) => {
@@ -101,7 +102,7 @@ const clientCodeIsExistInSQL = async (field, arg) => {
 
 
 }
-const RecordExistInTable = async (value, arg) => {
+const recordExistInTable = async (value, arg) => {
 
     const { tableName, field } = arg;
     let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
@@ -146,11 +147,11 @@ const dateInFuture = (value) => {
 const checkConcretItem = async (value) => {
     try {
         if (parseInt(value).toString() != 'NaN') {
-            RecordNotExistInTable(value, { tableName: "tbl_FinishProducts", field: "id" });
+            recordExistInTable(value, { tableName: "tbl_FinishProducts", field: "id" });
         }
         else {
             console.log({ value });
-            RecordNotExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode" });
+            recordExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode" });
         }
     }
     catch (error) {
@@ -182,8 +183,9 @@ const validation = {
     dateInFuture: dateInFuture,
     hourType: hourType,
     checkConcretItem: checkConcretItem,
-    RecordExistInTable: RecordExistInTable,
-    correctTable:correctTable
+    recordExistInTable: recordExistInTable,
+    correctTable: correctTable,
+    onlyLetters: onlyLetters
 }
 
 module.exports = { validation }

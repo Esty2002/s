@@ -13,7 +13,6 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         else {
             res.status(500).send(response.message);
         }
-
     }
     catch (error) {
         res.status(500).send(error.message);

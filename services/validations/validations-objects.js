@@ -4,27 +4,27 @@ const objectsForValidations = [
     {
         objectName: "leads",
         values: [
-            { propertyName: "SupplyDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: "date" }, { func: validation.dateInFuture, arguments: null }] },
-            { propertyName: "SupplyHour", validation: [{ func: validation.notCheck, arguments: null }, { func: validation.hourType, arguments: null }] },
-            { propertyName: "OrdererCode", validation: [{ func: validation.required, arguments: null }, { func: validation.RecordExistInTable, arguments: { tableName: "tbl_Orderers", field: "Id" } }] },
-            { propertyName: "SupplyAddress", validation: { func: validation.type, arguments: 'string' } },
-            { propertyName: "MapReferenceLongitude", validation: [{ func: validation.positiveNumber, arguments: null }] },
-            { propertyName: "MapReferenceLatitude", validation: [{ func: validation.positiveNumber, arguments: null }] },
-            { propertyName: "ClientCode", validation: [{ func: validation.RecordExistInTable, arguments: { tableName: "tbl_Clients", field: "Id" } }] },
-            { propertyName: "BaseConcretProduct", validation: [{ func: validation.checkConcretItem, arguments: null }] },
-            { propertyName: "Tablename", validation: [{ func: validation.correctTable, arguments: null }] },
-            { propertyName: "ConcretAmount", validation: [{ func: validation.type, arguments: "number" }, { func: validation.positiveNumber, arguments: null }] },
-            { propertyName: "Pump", validation: [{ func: validation.RecordExistInTable, arguments: { tableName: "tbl_Pumps", field: "id" } }] },
-            { propertyName: "PumpPipeLength", validation: [{ func: validation.type, arguments: "number" }, { func: validation.positiveNumber, arguments: null }] },
-            { propertyName: "PouringType", validation: [{ func: validation.RecordExistInTable, arguments: { tableName: "tbl_PouringsTypes", field: "id" } }] },
-            { propertyName: "PouringTypeComments", validation: [{ func: validation.type, arguments: "string" }, { func: validation.maxLength, arguments: 8000 }] },
-            { propertyName: "comments", validation: [{ func: validation.type, arguments: "string" }, { func: validation.maxLength, arguments: 10000 }] },
-            { propertyName: "statusLead", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "orderNumber", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "addedDate", validation: [{ func: validation.type, arguments: "date" }] },
-            { propertyName: "disable", validation: [{ func: validation.bit, arguments: null }] },
-            { propertyName: "deletingDate", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "moreConcretItems", validation: [{ func: validation.notCheck, arguments: null }] }
+            { propertyName: "SupplyDate", validation: [{ func: validation.dateType, arguments: "date" }, { func: validation.dateInFuture, arguments: null }], require: true },
+            { propertyName: "SupplyHour", validation: [{ func: validation.hourType, arguments: null }], require: false },
+            { propertyName: "OrdererCode", validation: [{ func: validation.required, arguments: null }, { func: validation.recordExistInTable, arguments: { tableName: "tbl_Orderers", field: "id" } }], require: true },
+            { propertyName: "SupplyAddress", validation: [{ func: validation.type, arguments: 'string' }], require: false },
+            { propertyName: "MapReferenceLongitude", validation: [{ func: validation.positiveNumber, arguments: null }], require: false },
+            { propertyName: "MapReferenceLatitude", validation: [{ func: validation.positiveNumber, arguments: null }], require: false },
+            { propertyName: "ClientCode", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Clients", field: "id" } }], require: false },
+            { propertyName: "BaseConcretProduct", validation: [{ func: validation.checkConcretItem, arguments: null }], require: false },
+            { propertyName: "Tablename", validation: [{ func: validation.correctTable, arguments: null }], require: false },
+            { propertyName: "ConcretAmount", validation: [{ func: validation.type, arguments: "number" }, { func: validation.positiveNumber, arguments: null }], require: false },
+            { propertyName: "Pump", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Pumps", field: "id" } }], require: false },
+            { propertyName: "PumpPipeLength", validation: [{ func: validation.type, arguments: "number" }, { func: validation.positiveNumber, arguments: null }], require: false },
+            { propertyName: "PouringType", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_PouringsTypes", field: "id" } }], require: false },
+            { propertyName: "PouringTypeComments", validation: [{ func: validation.type, arguments: "string" }, { func: validation.maxLength, arguments: 8000 }, { func: validation.onlyLetters, arguments: null }], require: false },
+            { propertyName: "Comments", validation: [{ func: validation.type, arguments: "string" }, { func: validation.maxLength, arguments: 8000 }, { func: validation.onlyLetters, arguments: null }], require: false },
+            { propertyName: "StatusLead", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_StatusesLead", field: "id" } }], require: true },
+            { propertyName: "OrderNumber", validation: [{ func: validation.notCheck, arguments: null }], require: false },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true },
+            { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }], require: true },
+            { propertyName: "DeletingDate", validation: [{ func: validation.notCheck, arguments: null }], require: false },
+
         ]
     },
     {
@@ -53,6 +53,15 @@ const objectsForValidations = [
             { propertyName: "addedDate", validation: [{ func: validation.notCheck, arguments: null }] },
             { propertyName: "disable", validation: [{ func: validation.notCheck, arguments: null }] },
             { propertyName: "deletingDate", validation: [{ func: validation.type, arguments: "date" }] }
+        ]
+    },
+    {
+        objectName: "moreProductsItems",
+        values: [
+            { propertyName: "LeadNumber", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Leads", field: "id" } }],require:true },
+            { propertyName: "Product", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Additions", field: "id" } },], require: false },
+            { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }],require:false },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true }
         ]
     },
     {

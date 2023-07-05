@@ -12,12 +12,15 @@ const createNewLead = async (obj = null) => {
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
         }];
     });
-    // for (let item of vals) {
-    //     const valid=checkObjectValidations(item);
-    //     if(!valid){
+    try {
 
-    //     }
-    // };
+        for (let item of vals) {
+            _ = checkObjectValidations(item, 'leads');
+        };
+    }
+    catch (error) {
+        throw error;
+    }
     let newObj = {
         tableName: 'Leads',
         values: vals
@@ -50,7 +53,14 @@ const insertMoreProductsItems = async (obj, result) => {
             AddedDate: new Date().toISOString()
         }]
     })
-
+    try {
+        for (let item of morePorductsItems) {
+            _ = checkObjectValidations(item, 'moreProductsItems');
+        };
+    }
+    catch (error) {
+        throw error;
+    }
     objMpi = {
         tableName: 'moreProductsItems',
         values: morePorductsItems
