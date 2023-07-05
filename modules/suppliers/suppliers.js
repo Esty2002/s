@@ -11,7 +11,6 @@ async function insertOneSupplier(object) {
             console.log(object.CreationDate)
             let obj = { tableName: 'tbl_Suppliers', values: object };
 
-            console.log({obj})
             const res = await postData(  "/create/create", obj);
             return res.recordset;
         }

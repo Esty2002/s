@@ -7,13 +7,13 @@ const sqlServer = axios.create({
 })
 
 
-const getData = async ( url) => {
+const getData = async (url) => {
     console.log("getData");
     let response;
     try {
         console.log("urlee", url);
         response = await sqlServer.get(url);
-        console.log(response.data,'resssssssss');
+        console.log(response.data, 'resssssssss');
     }
 
     catch (error) {
@@ -23,20 +23,17 @@ const getData = async ( url) => {
     return response;
 }
 
-const postData = async ( url, body) => {
+const postData = async (url, body) => {
     let response;
-
     try {
-        console.log('$4$');
-        console.log(url,body,'ulul');
-
         response = await sqlServer.post(url, body);
-        // console.log(response.data,'ospe');
+
     }
     catch (error) {
-        // console.log(error.message,'mmmmmmmm');
+        console.log(error.message, 'mmmmmmmm');
         throw error;
     }
     return response;
+
 }
-module.exports = {  getData, postData }
+module.exports = { getData, postData }

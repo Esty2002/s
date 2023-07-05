@@ -60,8 +60,8 @@ const objectsForValidations = [
         objectName: "tbl_FinishProducts",
         values: [
  
-            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
+            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" },] },
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
       
         ]
@@ -114,7 +114,7 @@ const objectsForValidations = [
             { propertyName: "Ovligo", validation: [{ func: validation.type, arguments: "number" },] },
             { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "AccountantClassifiedCode", validation: [{ func: validation.type, arguments: "number" },] },
+            { propertyName: "AccountantClassifiedCode", validation: [{ func: validation.type, arguments: "number" },{ func: validation.betweenNumbers, arguments: {"min":1,"max":50}}] },
             { propertyName: "Status", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "Description", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
             { propertyName: "Street", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" },{ func: validation.EnglishLettersOrHebrewLetters, arguments: null}] },
