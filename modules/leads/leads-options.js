@@ -19,7 +19,7 @@ const createNewLead = async (obj = null) => {
     //     }
     // };
     let newObj = {
-        tableName: 'Leads',
+        tableName: 'tbl_Leads',
         values: vals
     };
 
@@ -64,30 +64,29 @@ const insertMoreProductsItems = async (obj, result) => {
 
 
 }
-const readLead = async (filter, disable) => {
-
+const readLead = async (filter) => {
+console.log("-++++++-+-++--++++-++++-+-+-++-+-");
     const obj = {
         tableName: "tbl_Leads",
         columns: '*',
-        condition: filter ? `${filter} AND Disable='${disable}'` : `Disable='${disable}'`
+        condition: filter ? filter : `1=1`
     }
 
     try {
         const obj = {
             tableName: "tbl_Leads",
             columns: '*',
-            condition: filter ? `${filter} AND Disable='${disable}'` : `Disable='${disable}'`
+            condition: filter ?  filter : `1=1`
         }
         const values = await postData('read/readTopN', obj);
-        // console.log("valuesssssssssss################################################################",values);
         if (values) {
             let result = [];
             // values.forEach(async val => {
             // _ = Promise.all(values.map(async val => {
             // console.log("values", values);
-            for (let i = 0; i < values.length; i++) {
-                const sameRecord = values.filter(v => v.SupplyDate.toString() === values[i].SupplyDate.toString() && v.SupplyHour.toString() === values[i].SupplyHour.toString() &&
-                    v.Address === values[i].Address && v.OrdererCode === values[i].OrdererCode);
+            for (let i = 0; i < values.data.length; i++) {
+                const sameRecord = values.data.filter(v => v.SupplyDate.toString() === values.data[i].SupplyDate.toString() && v.SupplyHour.toString() === values.data[i].SupplyHour.toString() &&
+                    v.Address === values.data[i].Address && v.OrdererCode === values.data[i].OrdererCode);
                 const keys = Object.keys(sameRecord[0]);
                 const temp = {}
                 for (let key of keys) {
@@ -95,28 +94,8 @@ const readLead = async (filter, disable) => {
                 }
                 result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
                     r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
-                // let filterr = { tablename: "tbl_Leads", field: "OrdererCode", id: "1" }
-                // console.log(readforeignkeyvalue(filter));
-                // getBuytonData("/leads/getforeignkeyvalue/tbl_Leads/OrdererCode/1")
-                // result.map(async r => {
-                // for (let k = 0; k < result.length; k++) {
-                //     // result[k].nameOrdererCode = await getData(`read/foreignkeyvalue/${filterr.tablename}/${filterr.field}/${filterr.id}`);
-                //     result[k].valueOrdererCode = await getData(`read/foreignkeyvalue/tbl_Leads/OrdererCode/${result[k].OrdererCode}`);
-                //     result[k].valueClientCode = await getData(`read/foreignkeyvalue/tbl_Leads/ClientCode/${result[k].ClientCode}`);
-                //     // result[k].valuePump = await getData(`read/foreignkeyvalue/tbl_Leads/Pump/${result[k].Pump}`);
-                //     result[k].valuePouringType = await getData(`read/foreignkeyvalue/tbl_Leads/PouringType/${result[k].PouringType}`);
-                //     result[k].valueStatusLead = await getData(`read/foreignkeyvalue/tbl_Leads/StatusLead/${result[k].StatusLead}`);
-
-
-                //     // console.log("rrrrrrrrrrrrrrrrrrrrrrrrlll", result[k]);
-                //     // result = result[k]
-                //     // flag = true
-                //     // console.log("resulteeeeeeeeeeeeee", result);
-                // }
-                // })
-                // }));
+             
             }
-            // console.log("resulteejjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjeeeeeeeeeeee", result[0]);
             return result;
         }
         else {
@@ -128,13 +107,34 @@ const readLead = async (filter, disable) => {
     }
 
 }
+const readMoreProductsItems = async (filter) => {
+      
+        try {
+            const obj = {
+                tableName: "tbl_MoreProductsItems",
+                columns: '*',
+                condition: filter ?  filter : `1=1`
+            }
+            const result = await postData('read/readTopN', obj);
+            
+            if (result) {
+                return result;
+            }
+            else {
+                return false;
+            }
+        }
+        catch (error) {
+            throw error;
+        }
+    
+    }
 const readforeignkeyvalue = async (filter) => {
     // const obj = {
     //     tableName: "tbl_Leads",
     //     columns: '*',
     //     condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
     // }
-    console.log("filter", filter);
     try {
         const values = await getData(`read/foreignkeyvalue/${filter.tablename}/${filter.field}/${filter.id}`);
         if (values) {
@@ -152,7 +152,7 @@ const readforeignkeyvalue = async (filter) => {
             //         r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
             // });
             // return result;
-            return values;
+            return values.data;
 
         }
         else {
@@ -168,21 +168,15 @@ const readforeignkeyvalue = async (filter) => {
 
 const updateLead = async (obj = null) => {
     try {
-        console.log("pqpqpqpqpqpqpqp");
         if (obj.condition) {
-            const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);
-            // console.log("baseLeadbaseLead",baseLead);
-            console.log("pqpqpqpqpqpqpqp33333333333333");
-
-            if (baseLead.length > 0) {
+            const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);         
+            if (baseLead.data.length > 0) {
                 const newObj = {
                     tableName: 'tbl_Leads',
                     values: obj.values,
-                    condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
+                    condition: `Address='${baseLead.data[0].Address}' AND OrdererCode=${baseLead.data[0].OrdererCode} AND SupplyDate='${baseLead.data[0].SupplyDate}' AND SupplyHour='${baseLead.data[0].SupplyHour}'`
                 };
                 const result = await postData('update/update', newObj);
-                console.log("pqpqpqpqpqpqpqp4444444444444444444");
-
                 if (result) {
                     return result;
                 }
@@ -199,44 +193,20 @@ const updateLead = async (obj = null) => {
         }
     }
     catch (error) {
-        console.log("pqpqpqpqpqpqpqp2222222222222222");
-
         throw error;
     }
 
 };
-const updateOneLead = async (obj = null) => {
-    // const obj = {
-    //     values: {
-    //         Disable: 1,
-    //         DeletingDate: new Date().toISOString()
-    //     },
-    //     condition: `Id=${id}`
-    // }
+const updateOneLead = async (obj = null) => {   
     try {
-        if (obj.condition) {
-            // const baseLead = await getData(sqlServer, `read/readAll/tbl_Leads/${obj.condition}`);
-            // console.log(baseLead, "baseLead");
-            // if (baseLead.length > 0) {
-            // const newObj = {
-            //     tableName: 'tbl_Leads',
-            //     values: obj.values,
-            //     condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
-            // };
-            // console.log("newObj=-=-=-=-=-=====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=",newObj);
-            // console.log("oooooooooojjjjooooooooo");
+        if (obj.condition) {           
             const result = await postData('update/updateOne', obj);
-            // console.log("resulttttttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyt",result);
             if (result) {
                 return result;
             }
             else {
                 return false;
-            }
-            // }
-            // else {
-            //     throw new Error("this id is not exist");
-            // }
+            }           
         }
         else {
             throw new Error('the condition not exist');
@@ -259,7 +229,6 @@ const deleteLead = async (id) => {
             condition: `Id=${id}`
         }
         try {
-            console.log("qqqqqqqqqqqqq");
             const result = await updateLead(obj);
             if (result) {
                 return result;
@@ -269,8 +238,6 @@ const deleteLead = async (id) => {
             }
         }
         catch (error) {
-            console.log("qqqqqqqqqqqqq22222222222222222222222");
-
             throw error;
         }
     }
@@ -309,4 +276,4 @@ const deleteOneLead = async (id) => {
 
 
 
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue,readMoreProductsItems }

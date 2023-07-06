@@ -21,8 +21,6 @@ const hourType = (data) => {
         return true;
     }
     throw new Error("the hour not correct")
-
-
 }
 const correctPhone = (number) => {
     console.log('concret phone');

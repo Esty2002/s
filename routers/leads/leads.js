@@ -1,36 +1,47 @@
 const express = require('express');
 const router = require('express').Router();
 
-const { createNewLead, updateLead, readLead, deleteOneLead, deleteLead, readforeignkeyvalue } = require('../../modules/leads/leads-options');
+const { createNewLead, updateLead, readLead, deleteOneLead, deleteLead, readforeignkeyvalue,readMoreProductsItems } = require('../../modules/leads/leads-options');
 const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modules/leads/tables');
 
 router.post('/createnewlead', express.json(), async (req, res) => {
     try {
         const response = await createNewLead(req.body);
         if (response.status === 201) {
+            console.log({response});
             res.status(response.status).send(response.data);
         }
         else {
+            console.log({response});
+
             res.status(500).send(response.message);
         }
 
     }
     catch (error) {
+        console.log({error:error.message});
+
         res.status(500).send(error.message);
     }
 });
-router.get('/getleads/:condition/:disable', express.json(), async (req, res) => {
+router.get('/getleads/:condition', express.json(), async (req, res) => {
     try {
-
-        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null,req.params.disable);
-
+        const response = await readLead(req.params.condition !== "{condition}" ? req.params.condition : null);
         res.status(200).send(response);
     }
     catch (error) {
         res.status(404).send(error);
     }
 });
-
+router.get('/getmoreproductsitems/:condition', express.json(), async (req, res) => {
+    try {
+        const response = await readMoreProductsItems(req.params.condition !== "{condition}" ? req.params.condition : null);
+        res.status(200).send(response.data);
+    }
+    catch (error) {
+        res.status(404).send(error);
+    }
+});
 router.get('/getforeignkeyvalue/:tablename/:field/:id', express.json(), async (req, res) => {
 
     try {
@@ -56,18 +67,16 @@ router.put('/updatelead', express.json(), async (req, res) => {
 router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
     try {
         const response = await deleteLead(req.params.serialNumber);
-        res.status(200).send(response);
+        res.status(200).send(response.data);
     }
     catch (error) {
         res.status(404).send(error);
     }
 });
-
 router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) => {
     try {
-
         const response = await deleteOneLead(req.params.serialNumber);
-        res.status(200).send(response);
+        res.status(200).send(response.data);
     }
     catch (error) {
         console.log(error);
