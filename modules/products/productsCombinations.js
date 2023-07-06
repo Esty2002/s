@@ -34,13 +34,13 @@ async function getAll() {
 }
 
 async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: `Id=${object.Id}` })
+    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: {Id:object.Id} })
     return response
 }
 
 async function updateNames(object) {
 
-    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: `ParentId=${object.idP} and ChildId=${object.idC}` })
+    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: {ParentId:object.idP, ChildId:object.idC} })
     return response.data
 }
 // async function getChildrenByParent(parent) {

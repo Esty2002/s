@@ -49,10 +49,8 @@ async function findPump(project = [], filter = {}) {
 }
 
 async function updatePump(obj) {
-    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    console.log({ obj });
-    console.log({ conditionStr });
-    const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: conditionStr })
+   
+    const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
     console.log(response, 'in delete function');
     if (response)
         return true

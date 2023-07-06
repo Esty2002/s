@@ -1,7 +1,8 @@
 const { postData } = require('../../services/axios')
 
 async function addOneClient(obj) {
-    
+    delete obj.Id
+
     let newObj = {
         'tableName': 'tbl_Clients',
         'values': obj
@@ -16,6 +17,9 @@ async function addOneClient(obj) {
     if (unique.data.length === 0) {
         const result = await postData('/create/create',newObj)
         return result;
+    }
+    else{
+        return false
     }
 }
 
