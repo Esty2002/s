@@ -58,19 +58,19 @@
                                         "type": "string",
                                         "example": "Buyton",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new name"
                                     },
                                     "UnitOfMeasure": {
                                         "type": "int",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
                                     },
                                     "BookkeepingCode": {
                                         "type": "string",
                                         "example": "1234",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new book keeping code"
                                     }
                                 },
                                 "where": {
@@ -86,7 +86,7 @@
                                         "type": "string",
                                         "example": "Buyton",
                                         "required": "",
-                                        "description": ""
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Name"
                                     }
                                 }
                             },
@@ -106,7 +106,7 @@
                                         "type": "bit",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
                                 }
                             },
@@ -134,19 +134,19 @@
                                     "type": "string",
                                     "example": "Buyton",
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the name for the new finished product"
                                 },
                                 "UnitOfMeasure": {
                                     "type": "int",
                                     "example": 1,
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the unit of measure for the new finished product. Notice! it must exist a unit of measure wuth this Id in the DB"
                                 },
                                 "BookkeepingCode": {
                                     "type": "string",
                                     "example": "1234",
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the book keeping code for the new finished product"
                                 }
                             },
                             "response": "boolean"
@@ -167,19 +167,19 @@
                                         "type": "string",
                                         "example": "Buyton",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new name"
                                     },
                                     "UnitOfMeasure": {
                                         "type": "int",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
                                     },
                                     "BookkeepingCode": {
                                         "type": "string",
                                         "example": "1234",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new book keeping code"
                                     }
                                 },
                                 "where": {
@@ -193,7 +193,7 @@
                                         "type": "string",
                                         "example": "Buyton",
                                         "required": "",
-                                        "description": ""
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Name"
                                     }
                                 }
                             },
@@ -205,8 +205,8 @@
                                 "Id": {
                                     "type": "int",
                                     "example": 1,
-                                    "required": "",
-                                    "description": ""
+                                    "required": true,
+                                    "description": "Send the Id of the row wich you want to delete. You are aloud to send any of the headers in this table instead of Id"
                                 }
                             },
                             "response": "boolean"
@@ -225,7 +225,7 @@
                                         "type": "bit",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
                                 }
                             },
@@ -265,7 +265,7 @@
                                     "type": "boolean",
                                     "example": false,
                                     "required": "",
-                                    "description": "Each row is seposedto be false in the begining. When you want to delete, send true"
+                                    "description": "Each row is seposed to be false in the begining. When you want to delete, send true"
                                 }
                             },
                             "response": [
@@ -280,12 +280,7 @@
                         },
                         {
                             "key": "readAll",
-                            "arguments": {
-                                "type": "",
-                                "example": "",
-                                "required": "",
-                                "description": "No arguments"
-                            },
+                            "arguments": "",
                             "response": [
                                 {
                                     "Id": "int",
@@ -308,7 +303,7 @@
                                     "type": "boolean",
                                     "example": true,
                                     "required": "",
-                                    "description": "Each row is seposedto be true in the begining. When you want to delete, send false"
+                                    "description": "Each row is seposed to be true in the begining. When you want to delete, send false"
                                 }
                             },
                             "response": {
@@ -369,7 +364,7 @@
                                     "type": "boolean",
                                     "example": true,
                                     "required": "",
-                                    "description": "Each row is seposedto be true in the begining. When you want to delete, send false"
+                                    "description": "Each row is seposed to be true in the begining. When you want to delete, send false"
                                 }
                             },
                             "response": ""
@@ -386,7 +381,7 @@
                                     "type": "int",
                                     "example": 1,
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the Id of the row wich you want to filter"
                                 }
                             },
                             "response": [
@@ -409,25 +404,25 @@
                                     "type": "string",
                                     "example": "Buyton",
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the name for the new pump"
                                 },
                                 "UnitOfMeasure": {
                                     "type": "int",
                                     "example": 1,
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the unit of measure for the new pump. Notice! it must exist a unit of measure wuth this Id in the DB"
                                 },
                                 "Addition": {
                                     "type": "bit",
                                     "example": 1,
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send 1 if the new pump is an ascendant and 0 if it's an addition of an other pump"
                                 },
                                 "BookkeepingCode": {
                                     "type": "string",
                                     "example": "1234",
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the book keeping code for the new pump"
                                 }
                             },
                             "response": "boolean"
@@ -446,7 +441,7 @@
                                         "type": "bit",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
                                 }
                             },
@@ -480,25 +475,25 @@
                                         "type": "string",
                                         "example": "Buyton",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new name"
                                     },
                                     "UnitOfMeasure": {
                                         "type": "int",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
                                     },
                                     "BookkeepingCode": {
                                         "type": "string",
                                         "example": "1234",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new book keeping code"
                                     },
                                     "Addition": {
                                         "type": "boolean",
                                         "example": true,
                                         "required": "",
-                                        "description": ""
+                                        "description": "Send the new type of pump - ascendant or addition of pump"
                                     }
                                 },
                                 "where": {
@@ -512,7 +507,7 @@
                                         "type": "int",
                                         "example": 1,
                                         "required": "",
-                                        "description": ""
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Id"
                                     }
                                 }
                             },
@@ -525,7 +520,7 @@
                                     "type": "int",
                                     "example": 1,
                                     "required": "",
-                                    "description": ""
+                                    "description": "Send the Id of the row wich you want to delete"
                                 }
                             },
                             "response": "boolean"
@@ -613,7 +608,7 @@
                                         "type": "",
                                         "example": "",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Not uptodated"
                                     }
                                 },
                                 "new": {
@@ -627,7 +622,7 @@
                                         "type": "",
                                         "example": "",
                                         "required": "",
-                                        "description": ""
+                                        "description": "Not uptodated"
                                     }
                                 }
                             },
@@ -635,12 +630,7 @@
                         },
                         {
                             "key": "all",
-                            "arguments": {
-                                "type": "",
-                                "example": "",
-                                "required": "",
-                                "description": "No arguments"
-                            },
+                            "arguments": "",
                             "response": [
                                 {
                                     "Id": 1,
@@ -874,55 +864,58 @@
                                     "description": "id"
                                 }
                             },
-                            "response": [{
-                                "clientCode":"156",
-                                "ClientName": "peri",
-                                "PrivaetCompanyNumber": "124554",
-                                "BookkeepingNumber": "8555",
-                                "DestinationBank": "1455",
-                                "PaymentTermsFluent": "56",
-                                "PreferredPaymentDate": "01/05/2023",
-                                "Ovligo": 4,
-                                "ReceiptIssueTerm": "46",
-                                "ReceiptCentralism": "612",
-                                "AccountantClassifiedCode": 1,
-                                "Status": 3,
-                                "Description": "fzdsf",
-                                "Street": "ben yair",
-                                "House": 14,
-                                "City": "arad",
-                                "ZipCode": "1234",
-                                "Telephone1": "0583224511",
-                                "Telephone2": "0583286511",
-                                "MobilePhone": "088647798",
-                                "Fax": "088647798",
-                                "Email": "fd2656@.gmail.com",
-                                "Comments": "czx czx"
-                            },{
-                                "clientCode":"156",
-                                "ClientName": "dina",
-                                "PrivaetCompanyNumber": "12444",
-                                "BookkeepingNumber": "8555",
-                                "DestinationBank": "1455",
-                                "PaymentTermsFluent": "56",
-                                "PreferredPaymentDate": "01/05/2023",
-                                "Ovligo": 4,
-                                "ReceiptIssueTerm": "46",
-                                "ReceiptCentralism": "612",
-                                "AccountantClassifiedCode": 1,
-                                "Status": 3,
-                                "Description": "fzdsf",
-                                "Street": "ben yair",
-                                "House": 14,
-                                "City": "arad",
-                                "ZipCode": "1234",
-                                "Telephone1": "0583224511",
-                                "Telephone2": "0583286511",
-                                "MobilePhone": "088647798",
-                                "Fax": "088647798",
-                                "Email": "fd2656@.gmail.com",
-                                "Comments": "czx czx"  
-                            }]
+                            "response": [
+                                {
+                                    "clientCode": "156",
+                                    "ClientName": "peri",
+                                    "PrivaetCompanyNumber": "124554",
+                                    "BookkeepingNumber": "8555",
+                                    "DestinationBank": "1455",
+                                    "PaymentTermsFluent": "56",
+                                    "PreferredPaymentDate": "01/05/2023",
+                                    "Ovligo": 4,
+                                    "ReceiptIssueTerm": "46",
+                                    "ReceiptCentralism": "612",
+                                    "AccountantClassifiedCode": 1,
+                                    "Status": 3,
+                                    "Description": "fzdsf",
+                                    "Street": "ben yair",
+                                    "House": 14,
+                                    "City": "arad",
+                                    "ZipCode": "1234",
+                                    "Telephone1": "0583224511",
+                                    "Telephone2": "0583286511",
+                                    "MobilePhone": "088647798",
+                                    "Fax": "088647798",
+                                    "Email": "fd2656@.gmail.com",
+                                    "Comments": "czx czx"
+                                },
+                                {
+                                    "clientCode": "156",
+                                    "ClientName": "dina",
+                                    "PrivaetCompanyNumber": "12444",
+                                    "BookkeepingNumber": "8555",
+                                    "DestinationBank": "1455",
+                                    "PaymentTermsFluent": "56",
+                                    "PreferredPaymentDate": "01/05/2023",
+                                    "Ovligo": 4,
+                                    "ReceiptIssueTerm": "46",
+                                    "ReceiptCentralism": "612",
+                                    "AccountantClassifiedCode": 1,
+                                    "Status": 3,
+                                    "Description": "fzdsf",
+                                    "Street": "ben yair",
+                                    "House": 14,
+                                    "City": "arad",
+                                    "ZipCode": "1234",
+                                    "Telephone1": "0583224511",
+                                    "Telephone2": "0583286511",
+                                    "MobilePhone": "088647798",
+                                    "Fax": "088647798",
+                                    "Email": "fd2656@.gmail.com",
+                                    "Comments": "czx czx"
+                                }
+                            ]
                         },
                         {
                             "key": "searchClient",
@@ -941,7 +934,7 @@
                                 }
                             },
                             "response": {
-                                "ClientCode":"miri",
+                                "ClientCode": "miri",
                                 "ClientName": "111",
                                 "PrivaetCompanyNumber": "124554",
                                 "BookkeepingNumber": "8555",
@@ -1136,13 +1129,12 @@
                         {
                             "document": "status",
                             "functions": [
-                                
                                 {
                                     "key": "status",
                                     "arguments": {
                                         "type": "int",
                                         "required": "",
-                                        "example":3,
+                                        "example": 3,
                                         "description": "the status"
                                     },
                                     "response": 3
@@ -1761,7 +1753,7 @@
                                     "type": "string",
                                     "example": "333",
                                     "required": true,
-                                    "description": "send the zip code of the new branch"
+                                    "description": "Send the zip code of the new branch"
                                 }
                             },
                             "response": {
@@ -1802,19 +1794,19 @@
                                     "type": "string",
                                     "example": "SupplierCode",
                                     "required": true,
-                                    "description": "send the condition that you need to see the brances - in params"
+                                    "description": "Send the condition that you need to see the brances - in params"
                                 },
                                 "value": {
                                     "type": "int",
                                     "example": 1001,
                                     "required": true,
-                                    "description": "send the value of the condition - in params"
+                                    "description": "Send the value of the condition - in params"
                                 },
                                 "num": {
                                     "type": "int",
                                     "example": 1,
                                     "required": true,
-                                    "description": "send the num 1/0 to display branches or the delete branches - in params"
+                                    "description": "Send the num 1/0 to display branches or the delete branches - in params"
                                 }
                             },
                             "response": [
@@ -1848,22 +1840,22 @@
                                     "type": "string",
                                     "example": "trey",
                                     "required": true,
-                                    "description": "send the name of the branch that you need delete"
+                                    "description": "Send the name of the branch that you need delete"
                                 },
                                 "DisableUser": {
                                     "type": "string",
                                     "example": "develop",
                                     "required": false,
-                                    "description": "send the name of the who delete the branch"
+                                    "description": "Send the name of the who delete the branch"
                                 },
                                 "Id": {
                                     "type": "string",
                                     "example": "1017",
                                     "required": true,
-                                    "description": "send the id of the branch that you need delete"
+                                    "description": "Send the id of the branch that you need delete"
                                 }
                             },
-                            "response": "i dont knooooooooooooooooooow:("
+                            "response": "I dont knooooooooooooooooooow:("
                         },
                         {
                             "key": "updatebranch",
@@ -1877,16 +1869,16 @@
                                     "type": "string",
                                     "example": 1007,
                                     "required": true,
-                                    "description": "send the suppliercode that you need check - in params"
+                                    "description": "Send the suppliercode that you need check - in params"
                                 },
                                 "BranchName": {
                                     "type": "string",
                                     "example": "smallbranch",
                                     "required": true,
-                                    "description": "send the suppliercode that you need check - in params"
+                                    "description": "Send the suppliercode that you need check - in params"
                                 }
                             },
-                            "response": "i dont knooooooooooooooooooow:("
+                            "response": "I dont knooooooooooooooooooow:("
                         }
                     ]
                 },
@@ -1894,27 +1886,25 @@
                     "document": "suppliers",
                     "functions": [
                         {
-
-
                             "key": "deletesupplier",
                             "arguments": {
-                                "DisableUser":{
+                                "DisableUser": {
                                     "type": "string",
                                     "example": "Ari",
                                     "required": true,
-                                    "description": "send the user name that delete thesupplier"
+                                    "description": "Send the user name that delete thesupplier"
                                 },
-                                "Id":{
+                                "Id": {
                                     "type": "string",
                                     "example": "1051",
                                     "required": true,
-                                    "description": "send the supplier id"
+                                    "description": "Send the supplier id"
                                 },
-                                "SupplierCode":{
+                                "SupplierCode": {
                                     "type": "string",
                                     "example": "1234",
                                     "required": true,
-                                    "description": "send the supplier code"
+                                    "description": "Send the supplier code"
                                 }
                             },
                             "response": ""
