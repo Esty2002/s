@@ -30,8 +30,7 @@ const postData = async (url, body) => {
     try {
         console.log({ url, body: JSON.stringify(body) })
         response = await server.post(url, body);
-        console.log({ response: response.data })
-        return response;
+        return response
     }
     catch (error) {
         console.log({ error: error.message })
