@@ -1,21 +1,40 @@
 
 const { postData, getData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { getRecord } = require('./tables');
 const createNewLead = async (obj = null) => {
     let vals = [];
+    let status;
+    try {
+        status = await getRecord('StatusesLead', "StatusName='חדש'");
+        if (status.status === 200) {
+            status = status.data[0].Id;
+        }
+        else {
+            throw new Error("not exist this status of leads");
+        }
+    }
+    catch (error) {
+        throw error;
+    }
     obj.baseConcretProduct.forEach(bcp => {
         vals = [...vals, {
             SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
             Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
             ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: obj.pumpPipeLength,
-            PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: 1,
+            PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
         }];
     });
     try {
 
         for (let item of vals) {
-            _ = checkObjectValidations(item, 'leads');
+            try {
+                _= await checkObjectValidations(item, 'leads');
+            }
+            catch (error) {
+                throw error;
+            }
         };
     }
     catch (error) {

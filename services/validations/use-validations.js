@@ -20,9 +20,11 @@ const checkObjectValidations = async (body, objName) => {
                 throw new Error(`the ${v.propertyName} is required but not exist`);
             }
         }
-        return true;
+        // if (!error)
+            return true;
     }
     catch (error) {
+        // console.log({err:error.message});
         throw error;
     }
 

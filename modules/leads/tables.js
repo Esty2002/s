@@ -1,9 +1,9 @@
-const {  postData ,getData} = require('../../services/axios');
+const { postData, getData } = require('../../services/axios');
 
 const values = [
     {
         entityName: "Orderers",
-        func: ({ ordererName=null, ordererPhone=null }) => {
+        func: ({ ordererName = null, ordererPhone = null }) => {
             return {
                 tableName: "Orderers",
                 values: {
@@ -81,8 +81,8 @@ const getRecord = async (entityName = "", prop = "") => {
     const entity = values.find((v) => v.entityName === entityName);
     if (entity) {
         obj = {
-            entityName:entity.entityName,
-            condition: prop !== 'none' ? prop : `Disable=0`
+            entityName: entity.entityName,
+            condition: prop !== 'none' ? prop : `1=1`
         };
         try {
 
@@ -100,17 +100,16 @@ const getRecord = async (entityName = "", prop = "") => {
 
 const updateRecord = async (obj = null) => {
     if (obj) {
-        const table = values.find(({ tableName }) => tableName === obj.tableName);
-        if (table) {
+        const entity = values.find(({ entityName }) => entityName === obj.entityName);
+        if (entity) {
             let result;
-            const val = obj.tableName;
             const newObj = {
-                tableName: val,
+                tableName: obj.entityName,
                 values: obj.update,
                 condition: obj.condition
             };
             try {
-                result = await postData( '/sql/update', newObj);
+                result = await postData('/update/update', newObj);
                 return result;
             }
             catch (error) {
@@ -118,7 +117,7 @@ const updateRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the table name is not exist");
+            throw new Error(`the entity name ${obj.entityName} is not exist`);
         }
     }
     else {
@@ -128,12 +127,11 @@ const updateRecord = async (obj = null) => {
 
 const deleteRecord = async (obj) => {
     if (obj) {
-        const table = values.find(({ tableName }) => tableName === obj.tableName);
+        const table = values.find(({ entityName }) => entityName === obj.entity);
         if (table) {
             let result;
-            const val = obj.tableName;
             const newObj = {
-                tableName: val,
+                tableName: table.entityName,
                 values: {
                     Disable: 'True',
                     DeletingDate: new Date().toISOString()
@@ -141,7 +139,7 @@ const deleteRecord = async (obj) => {
                 condition: obj.condition
             };
             try {
-                result = await postData( '/sql/update', newObj);
+                result = await postData('/update/update', newObj);
                 return result;
             }
             catch (error) {
