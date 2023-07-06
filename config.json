@@ -1,0 +1,767 @@
+{
+    "obj": [
+        {
+            "directory": "products",
+            "documents": [
+                {
+                    "document": "additions",
+                    "functions": [
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "Name": "string",
+                                "UnitOfMeasure": "int",
+                                "BookkeepingCode": "string"
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "delete",
+                            "arguments": {
+                                "Id": "int"
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "update": {
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "BookkeepingCode": "string"
+                                },
+                                "where": {
+                                    "Name": "string"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "find",
+                            "arguments": {
+                                "where": {
+                                    "Enabled": "int"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "date",
+                                    "Enabled": "boolean",
+                                    "DeleteDate": "date"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "document": "finishProducts",
+                    "functions": [
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "Name": "string",
+                                "UnitOfMeasure": "int",
+                                "BookkeepingCode": "string"
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "update": {
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "BookkeepingCode": "string"
+                                },
+                                "where": {
+                                    "Name": "string"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "delete",
+                            "arguments": {
+                                "Id": "int"
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "find",
+                            "arguments": {
+                                "where": {
+                                    "Enabled": "int"
+                                }
+                            },
+                            "response":[
+                                {
+                                    "Id": 1,
+                                    "Name": "string",
+                                    "UnitOfMeasure": 1,
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "2023-06-29T14:11:55.423Z",
+                                    "Enabled": true,
+                                    "DeleteDate": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "document": "productsCombinations",
+                    "functions": [
+                        {
+                            "key": "insertRow",
+                            "arguments": {
+                                "parent": "int",
+                                "child": "int",
+                                "disable": false
+                            },
+                            "response": [
+                                {
+                                    "Id": "int"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "readAll",
+                            "arguments": null,
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "ParentId": "int",
+                                    "ChildId": "int",
+                                    "Disable": "boolean"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "deleteItem",
+                            "arguments": {
+                                "Id": "int",
+                                "Disable": true
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    "int"
+                                ]
+                            }
+                        },
+                        {
+                            "key": "updateNames",
+                            "arguments": {
+                                "idP": "int",
+                                "idC": "int",
+                                "parent": {
+                                    "value": "string",
+                                    "id": "int"
+                                },
+                                "child": {
+                                    "value": "string",
+                                    "id": "int"
+                                },
+                                "disable": true
+                            },
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "pumps",
+                    "functions": [
+                        {
+                            "key": "pumpNameById",
+                            "arguments": {
+                                "id": "int"
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "Addition": "boolean",
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "date",
+                                    "Enabled": "boolean",
+                                    "DeleteDate": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "Name": "string",
+                                "UnitOfMeasure": "int",
+                                "Addition": "bit",
+                                "BookkeepingCode": "string"
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "find",
+                            "arguments": {
+                                "where": {
+                                    "Enabled": "int"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "Addition": "boolean",
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "date",
+                                    "Enabled": "boolean",
+                                    "DeleteDate": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "update": {
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "BookkeepingCode": "string",
+                                    "Addition": "boolean"
+                                },
+                                "where": {
+                                    "Id": "int"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "delete",
+                            "arguments": {
+                                "Id": "int"
+                            },
+                            "response": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "document": "unitOfMeasure",
+                    "functions": [
+                        {
+                            "key": "deleteItem",
+                            "arguments": {
+                                "Id": "int",
+                                "Disable": true
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "findMeasureName",
+                            "arguments": {
+                                "id": "int"
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Measure": "string",
+                                    "Disable": "boolean"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "findMeasureId",
+                            "arguments": {
+                                "name": "string"
+                            },
+                            "response": "int"
+                        },
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "new": "string"
+                            },
+                            "response": [
+                                {
+                                    "Id": "int"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "prev": {
+                                    "change": "change------------"
+                                },
+                                "new": {
+                                    "change": "change------------"
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "all",
+                            "arguments": null,
+                            "response": [
+                                {
+                                    "Id": 1,
+                                    "Measure": "maaa",
+                                    "Disable": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "clients",
+            "documents": [
+                {
+                    "document": "createClient",
+                    "functions": [
+                        {
+                            "key": "add",
+                            "arguments": {
+                                "clientCode": "string",
+                                "clientName": "string",
+                                "privaetCompanyNumber": "string",
+                                "bookkeepingNumber": "string",
+                                "destinationBank": "string",
+                                "paymentTermsFluent": "string",
+                                "preferredPaymentDate": "string",
+                                "ovligo": "string",
+                                "receiptIssueTerm": "string",
+                                "receiptCentralism": "string",
+                                "accountantClassifiedCode": "string",
+                                "status": "string",
+                                "description": "string",
+                                "street": "string",
+                                "house": "string",
+                                "city": "string",
+                                "zipCode": "string",
+                                "telephone1": "string",
+                                "telephone2": "string",
+                                "mobilePhone": "string",
+                                "fax": "string",
+                                "email": "string",
+                                "comments": "string",
+                                "creationDate": "string",
+                                "userThatAdd": "string"
+                            },
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "deleteClients",
+                    "functions": [
+                        {
+                            "key": "deleteClient",
+                            "arguments": {
+                                "code": "string",
+                                "user": "string"
+                            },
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "readClients",
+                    "functions": [
+                        {
+                            "key": "getAll",
+                            "arguments": null,
+                            "response": ""
+                        },
+                        {
+                            "key": "findClient",
+                            "arguments": {
+                                "id": "string"
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "searchClient",
+                            "arguments": {
+                                "field": "string",
+                                "value": "string"
+                            },
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "updateClient",
+                    "functions": [
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "clientCode": "string",
+                                "clientName": "string",
+                                "privaetCompanyNumber": "string",
+                                "bookkeepingNumber": "string",
+                                "destinationBank": "string",
+                                "paymentTermsFluent": "string",
+                                "preferredPaymentDate": "string",
+                                "ovligo": "string",
+                                "receiptIssueTerm": "string",
+                                "receiptCentralism": "string",
+                                "accountantClassifiedCode": "string",
+                                "status": "string",
+                                "description": "string",
+                                "street": "string",
+                                "house": "string",
+                                "city": "string",
+                                "zipCode": "string",
+                                "telephone1": "string",
+                                "telephone2": "string",
+                                "mobilePhone": "string",
+                                "fax": "string",
+                                "email": "string",
+                                "comments": "string",
+                                "creationDate": "string",
+                                "userThatAdd": "string"
+                            },
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "status",
+                    "functions": [
+                        {
+                            "key": "status",
+                            "arguments": null,
+                            "response": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "areas",
+            "documents": [
+                {
+                    "document": "areas",
+                    "functions": [
+                        {
+                            "key": "allcities",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "isExist",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "insertArea",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "findAll",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "findAllTypes",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updateArea",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updatePointsInArea",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updatePointsAndRadiusInArea",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "deleteAreaDetail",
+                            "arguments": {
+                                "phone": "string",
+                                "nameArea": "string"
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "findAreasByCode",
+                            "arguments": {
+                                "phone": "string"
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "findPointArray",
+                            "arguments": "",
+                            "response": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "pricelist",
+            "documents": [
+                {
+                    "document": "insertPricelist",
+                    "functions": [
+                        {
+                            "key": "addPriceList",
+                            "arguments": {
+                                "Name": "string",
+                                "Pumps": "boolean",
+                                "Beton": "boolean",
+                                "AddedDate": "date",
+                                "UserName": "string",
+                                "Disabled": "boolean"
+                              },
+                            "response": ""
+                        },
+                        {
+                            "key": "addCitiesAdditions",
+                            "arguments": {
+                                "PriceListId": "int",
+                                "ProductId": "int",
+                                "AreaId": "string",
+                                "Price": "int",
+                                "CountPrecent": "int",
+                                "AddedDate": "date",
+                                "UserName": "string"
+                              },
+                            "response": [
+                                "boolean"
+                              ]
+                        },
+                        {
+                            "key": "addTimeAdditions",
+                            "arguments": {
+                                "PriceListId": "int",
+                                "ProductId": "int",
+                                "Price": "int",
+                                "CountPrecent":"int",
+                                "DayOfWeek": "int",
+                                "StartDate": "date",
+                                "EndDate": "date",
+                                "AddedDate": "date",
+                                "UserName": "string"
+                              },
+                            "response": [
+                                "boolean"
+                              ]
+                        },
+                        {
+                            "key": "addAdditionsForDistance",
+                            "arguments": {
+                                "PriceListId": "int",
+                                "ProductId": "int",
+                                "Distance": "float",
+                                "Price": "int",
+                                "CountPrecent": "int",
+                                "AddedDate": "date",
+                                "UserName": "string"
+                              },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "addTruckFill",
+                            "arguments": {
+                                "PriceListId": "int",
+                                "ProductId": "int",
+                                "TransportDiff": "int",
+                                "MaxTransportDiff": "int",
+                                "AddedDate": "date",
+                                "UserName": "string"
+                              },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "addPricesListBySupplierOrClient",
+                            "arguments": {
+                                "PriceListId": "int",
+                                "SupplierOrClient": "int",
+                                "Debit": "boolean",
+                                "Credit": "boolean",
+                                "AreaId": "string",
+                                "StartDate": "date",
+                                "EndDate": "date",
+                                "AddedDate": "date",
+                                "UserName": "string"
+                              },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "addPricelistForProducts",
+                            "arguments": {
+                                "PriceListId":"int",
+                                "ProductId": "int",
+                                "Price": "int",
+                                "Discount": "int",
+                                "AddedDate": "date",
+                                "UserName": "string",
+                                "Disabled": "boolean"
+                              },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "detailsOfProfucts",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updateFieldInTable",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "getIdForPricelistName",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "getIdForProductName",
+                            "arguments": "",
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "readPricelist",
+                    "functions": [
+                        {
+                            "key": "findAllPriceList",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByIdSupplierOrClientCode",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByProduct",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForDistance",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForCities",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForTime",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForTruckFill",
+                            "arguments": "",
+                            "response": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "suppliers",
+            "documents": [
+                {
+                    "document":"branches",
+                    "functions":[
+                        {
+                            "key":"deletebranches",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"getallbranches",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"getBranchesWithCondition",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"insertbranch",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"updatebranch",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"checkUnique",
+                            "arguments":"",
+                            "response":""
+                        }
+                    ]
+                },
+                {
+                    "document":"suppliers",
+                    "functions":[
+                        {
+                            "key":"deletesupplier",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"insertsupplier",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"updatesupplier",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"checkUnique",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"checkUniqueCode",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"checkUniqueName",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"getallSuppliers",
+                            "arguments":"",
+                            "response":""
+                        },
+                        {
+                            "key":"getSuppliers",
+                            "arguments":"",
+                            "response":""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

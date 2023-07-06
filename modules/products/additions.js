@@ -33,8 +33,7 @@ async function findAddition(project = [], filter = {}) {
 }
 
 async function updateAddition(obj = {}, filter = {}) {
-    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    const response = await postData('/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj.data, condition: conditionStr })
+    const response = await postData('/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
     if (response.data)
         return true
     else
