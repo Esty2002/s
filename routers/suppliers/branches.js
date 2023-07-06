@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const {checkObjectValidations}=require('../../services/validations/use-validations')
+
 
 const { getAllBranches, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../../modules/suppliers/branches');
 
@@ -30,7 +32,7 @@ router.get('/getallbranches', async (req, res) => {
 })
 
 router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
-
+console.log("----------------",req.params.condition, req.params.value, req.params.num);
     try {
         const response = await getBranchesByCondition(req.params.condition, req.params.value, req.params.num)
         if (response)
@@ -46,9 +48,11 @@ router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) 
 
 
 router.post('/insertbranch', express.json(), async (req, res) => {
-    try {
-        const response = await insertOneBranch(req.body)
 
+    try {
+        let ans=await checkObjectValidations(req.body,'tbl_Branches')
+        console.log("---------------",{ans},"----------------");
+        const response = await insertOneBranch(req.body)
         if (response) {
             res.status(201).send(response.data)
         }
@@ -63,7 +67,6 @@ router.post('/insertbranch', express.json(), async (req, res) => {
 })
 
 router.post('/updatebranch', express.json(), async (req, res) => {
-    console.log(req.body.SupplierCode, req.body.BranchName);
     try {
         const response = await updateDetail(req.body.SupplierCode, req.body)
         if (response)
