@@ -3,8 +3,8 @@ async function deletedClientByCode(clientCode, userName) {
     
     let obj = {
         'tableName': 'tbl_Clients',
-        'columns': '*',
-        'conditio.3n': `ClientCode=${clientCode}`
+        'condition': `ClientCode=${clientCode}`,
+        'columns': '*'
     }
     const exist = await postData('http://127.0.0.1:1313/read/readTopN',obj)
     let result;

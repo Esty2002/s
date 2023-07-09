@@ -36,8 +36,10 @@ const correctPhone = (number) => {
 const positiveNumber = (number) => {
     return number > 0
 }
-const EnglishLetters = (word) => {
-    return /^\w[a-z,A-Z]*$/.test(word)
+const EnglishLettersOrHebrewLetters  = (word) => {
+    if( /^\w[a-z,A-Z]*$/.test(word))
+        return true
+    throw new Error(`the value ${word} not `)
 }
 
 const onlyNumbersInString = (numbersString) => {
@@ -66,17 +68,12 @@ const type = (value, arg) => {
 
     }
     throw new Error(`the value ${value} not typeof value`)
-
-        
-        
-      
-     
-     
     // if (typeof value === arg)
     //     return true
     // throw new Error('not typeof value')
     // console.log(`not typeof ${value}`);
 }
+
 const maxLength = (value, max) => {
     if( value.length < max)
         return true
@@ -98,6 +95,12 @@ const betweenLength = (value, arg) => {
     if( value.length > arg.min && value.length < arg.max)
         return true
     throw new Error(`the value ${value} not betweenLength`)
+}
+const betweenNumbers = (value, arg) => {
+    if( value>arg.min&&value<arg.max)
+        return true
+    throw new Error(`the value ${value} not betweenNumbers `)
+    
 }
 const specificLength = (value, len) => {
     if (value.length == len) {
@@ -125,7 +128,6 @@ const clientCodeIsExistInSQL = async (field, arg) => {
 }
 
 const concretEmail = (value) => {
-    console.log('qqqqqqqqq');
     if (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value))
         return true
     // console.log('vvvvvfffffffffff');
@@ -170,7 +172,10 @@ const validation = {
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
     concretEmail: concretEmail,
     // theDateBeforToday:theDateBeforToday,
-    theDateAfterToday:theDateAfterToday
+    theDateAfterToday:theDateAfterToday,
+    EnglishLettersOrHebrewLetters:EnglishLettersOrHebrewLetters,
+    betweenNumbers:betweenNumbers
+    
 }
 
 module.exports = { validation }

@@ -150,15 +150,13 @@ async function findAreaByCode(code) {
 
 
 async function findSupplierOrClient(code) {
-    console.log(" in isExist module");
-    const result = await postData('/read/find',
+    const result = await postData(server, '/read/find',
         {
             dbName: "Buyton",
             collection: "Areas",
             filter: { supplierOrClientCode: code },
             project: {}
         })
-    console.log("result ", result);
     if (result)
         return result
 
@@ -175,7 +173,6 @@ async function getTheDataOfTheArea(code, areaName) {
             project: { areas: { $elemMatch: { "areaName": areaName } } }
 
         })
-    console.log({ result });
     if (result)
         return result
 
