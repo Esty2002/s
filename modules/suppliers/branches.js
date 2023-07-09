@@ -12,10 +12,6 @@ async function insertOneBranch(object) {
             object['CreationDate'] = new Date().toISOString();
             let obj = { tableName: 'tbl_Branches', values: object };
             const res = await postData( "/create/create", obj);
-<<<<<<< HEAD
-=======
-            console.log("resssssssssssss",res);
->>>>>>> logger
             return res;
         }
         else {
@@ -23,11 +19,7 @@ async function insertOneBranch(object) {
         }
     }
     catch (error) {
-<<<<<<< HEAD
         console.log(error)
-=======
-        console.log("caaaaaaaaaaant be go in !!!!!!!!!!");
->>>>>>> logger
         throw new Error('can not insert branch');
     }
 }

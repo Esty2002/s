@@ -1,14 +1,6 @@
-<<<<<<< HEAD
 const { getData, sqlServer } = require("../axios");
 
 const required = (value = null) => {
-=======
-// const { readAll } = require("../../../dbserver/services/sql/sql-operations");
-const { getData } = require("../axios");
-
-const required = (value = null) => {
-    console.log('required');
->>>>>>> logger
     if (value) {
         return true
     }
@@ -19,14 +11,8 @@ const dateType = (date) => {
     let date1 = new Date(date)
     console.log(date1,'ddddaaattee');
     if (date1 == 'Invalid Date')
-<<<<<<< HEAD
         return false
     throw new Error(`the date ${date} not valid`)
-=======
-         throw new Error(`the date ${date} not valid`)
-
-    return true
->>>>>>> logger
 
 };
 
@@ -34,19 +20,8 @@ const correctPhone = (number) => {
     console.log('concret phone');
     if (/^0\d{8,9}$/.test(number))
         return true
-<<<<<<< HEAD
     throw new Error(`the number  not correctttt`)
     // console.log('tttttttttttt');
-=======
-    else{
-        console.log('tttttttttttt');
-
-        throw new Error(`the number ${number} not correctttt`)
-
-
-
-    }
->>>>>>> logger
 }
 
 const positiveNumber = (number) => {
@@ -147,32 +122,6 @@ const concretEmail = (value) => {
     // console.log('vvvvvfffffffffff');
     throw new Error('the email not concret')
 }
-<<<<<<< HEAD
-=======
-const theDateBeforToday=(value)=>{
-    console.log('dateeeeeee');
-    let date2 = new Date(value)
-        console.log(date2,new Date(),'new date');
-
-    if(date2- new Date>0){
-        throw new Error('the date after today ')
-    }
-
-    console.log('yes date');
-    return true
-}
-const theDateAfterToday=(value)=>{
-    console.log('dateeeeeee');
-    let date3 = new Date(value)
-    if((date3-new Date())>0){
-        console.log('yyyuu date');
-        return true
-    }
-
-    throw new Error('the date befor today ')
-
-}
->>>>>>> logger
 const validation = {
     required: required,
     dateType: dateType,
@@ -187,13 +136,7 @@ const validation = {
     specificLength: specificLength,
     bit: bit,
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
-<<<<<<< HEAD
     concretEmail: concretEmail
-=======
-    concretEmail: concretEmail,
-    // theDateBeforToday:theDateBeforToday,
-    theDateAfterToday:theDateAfterToday
->>>>>>> logger
 }
 
 module.exports = { validation }

@@ -29,19 +29,12 @@ router.get('/getallbranches', async (req, res) => {
     }
 })
 
-<<<<<<< HEAD
 router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 
     try {
         const filter = {}
         filter[req.params.condition] = req.params.value
         const response = await getBranchesByCondition({ ...filter, ...req.query })
-=======
-router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
-console.log("----------------",req.params.condition, req.params.value, req.params.num);
-    try {
-        const response = await getBranchesByCondition(req.params.condition, req.params.value, req.params.num)
->>>>>>> logger
         if (response)
             res.status(200).send(response)
         else {
@@ -55,22 +48,12 @@ console.log("----------------",req.params.condition, req.params.value, req.param
 
 
 router.post('/insertbranch', express.json(), async (req, res) => {
-<<<<<<< HEAD
-=======
-
->>>>>>> logger
     try {
         let ans=await checkObjectValidations(req.body,'tbl_Branches')
         console.log("---------------",{ans},"----------------");
         const response = await insertOneBranch(req.body)
-<<<<<<< HEAD
         if (response)
             res.status(201).send(response.data)
-=======
-        if (response) {
-            res.status(201).send(response.data)
-        }
->>>>>>> logger
         else {
 
             res.status(500).send(response)
