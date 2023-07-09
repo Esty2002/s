@@ -1283,36 +1283,40 @@
                             "arguments": {
                                 "Name": {
                                     "type": "string",
-                                    "required": "",
-                                    "description": ""
+                                    "example": "priceList1",
+                                    "required": true,
+                                    "description": "Send the name of the price list"
                                 },
                                 "Pumps": {
                                     "type": "boolean",
-                                    "required": "",
-                                    "description": ""
+                                    "example": true,
+                                    "required": true,
+                                    "description": "Do you want a pump"
                                 },
                                 "Beton": {
                                     "type": "boolean",
-                                    "required": "",
-                                    "description": ""
-                                },
-                                "AddedDate": {
-                                    "type": "date",
-                                    "required": "",
-                                    "description": ""
+                                    "example": true,
+                                    "required": true,
+                                    "description": "Do you want beton"
                                 },
                                 "UserName": {
                                     "type": "string",
-                                    "required": "",
-                                    "description": ""
+                                    "example": "tony",
+                                    "required": true,
+                                    "description": "Send the user name that added the price list"
                                 },
                                 "Disabled": {
                                     "type": "boolean",
-                                    "required": "",
-                                    "description": ""
+                                    "example": false,
+                                    "required": true,
+                                    "description": "pricelist is disabled or not"
                                 }
                             },
-                            "response": ""
+                            "response": [
+                                {
+                                    "Id": 291
+                                }
+                            ]
                         },
                         {
                             "key": "addCitiesAdditions",
@@ -1892,7 +1896,7 @@
                                     "type": "string",
                                     "example": "Ari",
                                     "required": true,
-                                    "description": "Send the user name that delete thesupplier"
+                                    "description": "Send the user name that delete the supplier"
                                 },
                                 "Id": {
                                     "type": "string",

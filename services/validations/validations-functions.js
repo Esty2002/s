@@ -130,7 +130,6 @@ const recordExistInTable = async (value, arg) => {
     else {
         throw new Error('the Record is not exist');
     }
-
 };
 
 const corectEmail = (value) => {

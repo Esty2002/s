@@ -1,25 +1,49 @@
-
 const { postData, getData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
-async function insert(data, tableName) {
-    let obj = {}
-    obj['tableName'] = tableName
-    obj['values'] = data
-    obj['columns'] = '*'
-    let object={}
-    try {
-        object = {
-            name: 'addPriceList',
-            description: 'insert in module',
-            dataThatRecived: data
+const { checkObjectValidations } = require('../../services/validations/use-validations')
+const values = [
+    {
+        entity: "PriceList",
+        func: ({ Name = null, Pumps = null, Beton = null, UserName = null }) => {
+            return {
+                tableName: "PriceList",
+                values: {
+                    Name: Name,
+                    Pumps: Pumps,
+                    Beton: Beton,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName,
+                    Finish: false,
+                    Disabled: false
+                }
+            }
         }
-        logToFile(object)
+    }
+]
+async function insert(data, entityName) {
+    let obj = {}
+    let objectForLog = {
+        name: 'addPriceList',
+        description: 'insert in module',
+        dataThatRecived: data
+    }
+    logToFile(objectForLog)
+    try {
+        const checkValidObj = values.find(({ entity }) => entityName === entity);
+        let newObj = checkValidObj.func(data)
+        if (checkValidObj) {
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+            data = newObj.values
+        }
+        obj.tableName = entityName
+        obj.columns = '*'
+        obj.values = data
         const result = await postData('/create/create', obj)
         return result;
     }
     catch (error) {
-        object.error=error.message
-        logToFile(object)
+        objectForLog.error = error.message
+        logToFile(objectForLog)
         throw error
     }
 }
@@ -84,7 +108,7 @@ async function isFieldExistinTable(field, tableName, value) {
     try {
 
         const response = await getData(`read/exist/${tableName}/${field}/${value}`)
-        console.log({response});
+        console.log({ response });
         if (response)
             return true
         else
@@ -110,11 +134,11 @@ async function getIdForBuytonDescribe(name, tbName) {
     let condition = `${field}='${name}'`
     // const ans = await isFieldExistinTable(field, tbName, name)
     // if (ans) {
-        const response = await getData(`/read/readAll/${tbName}/${condition}`)
-        return response.data
+    const response = await getData(`/read/readAll/${tbName}/${condition}`)
+    return response.data
     // }
     // else{
-        // console.log('there is a problem!');
+    // console.log('there is a problem!');
     // }
 
 }

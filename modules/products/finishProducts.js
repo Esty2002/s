@@ -1,21 +1,46 @@
 require('dotenv').config()
-const {   getData, postData } = require('../../services/axios')
+const { getData, postData } = require('../../services/axios')
 const { SQL_FINISH_PRODUCTS_TABLE } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 
-async function insertFinishProduct(obj) {
-    // const measure = await findMeasureNumber(obj['unitOfMeasure'])
-    // obj['unitOfMeasure'] = measure
+const values = [
+    {
+        entity: "FinishProducts",
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null }) => {
+            return {
+                tableName: "FinishProducts",
+                values: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    AddedDate: new Date().toISOString(),
+                    Enabled: true,
+                    DeleteDate: false,
+                }
+            }
+        }
+    }
+]
+
+async function insertFinishProduct(obj, tableName) {
+    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    let newObj = checkValidObj.func(obj)
+    if (checkValidObj) {
+        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+        obj = newObj.values
+    }
+    console.log({ obj });
+    const measure = await findMeasureNumber(obj['UnitOfMeasure'])
+    obj.UnitOfMeasure = measure
     // obj['ordinalNumber'] = await (getData( , '/')) + 1
     obj.enabled = true
     obj.addedDate = new Date().toISOString()
-    const response = await postData( '/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
-    if (response.data.rowsAffected[0] === 1){
+    const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+    if (response.data)
         return true
-    }
-    else{
+    else
         return false
-    }
 }
 
 async function updateFinishProduct(obj) {
@@ -25,9 +50,9 @@ async function updateFinishProduct(obj) {
     //     string += `${k}='${data.update[k]}',`
     // }
     // string = string.slice(0, -1)
-    let conditionStr= data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : "" 
-    const response = await postData(  '/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data,condition:conditionStr })
-    if(response.data)
+    let conditionStr = data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
+    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
+    if (response.data)
         return true
     else
         return false
@@ -35,24 +60,19 @@ async function updateFinishProduct(obj) {
 
 async function findFinishProduct(project = [], filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
-        filter['Enabled'] = 1
+        filter.Enabled = 1
 
     let columnsStr = project.length > 0 ? project.join(',') : '*'
-    let conditionStr=filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" 
-    const response = await postData(  "/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr})
-    if(response){
-        for (const finish of response) {
-            if (Object.keys(finish).includes('unitOfMeasure')) {
-                finish.unitOfMeasure = await findMeasureName(finish['unitOfMeasure'])
-            }
-        }
-        return response
+    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+    const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
+    if (response) {
+        for (const finish of response.data)
+            if (Object.keys(finish).includes('UnitOfMeasure'))
+                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
+        return response.data
     }
     else
         return false
-    // else{
-    //     return false
-    // }
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

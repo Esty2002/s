@@ -8,6 +8,7 @@ const checkObjectValidations = async (body, objName) => {
         for (let v of values) {
             i++
             for (let valid of v.validation) {
+
                 if (body[v.propertyName]) {
                     try {
                         _ = await valid.func(body[v.propertyName], valid.arguments);
@@ -22,6 +23,7 @@ const checkObjectValidations = async (body, objName) => {
             }
         }
         if (errors.length > 0) {
+            console.log(errors,' errors');
             throw errors
         }
         return true;
@@ -29,8 +31,6 @@ const checkObjectValidations = async (body, objName) => {
     catch (error) {
         throw error;
     }
-
-
 };
 
 

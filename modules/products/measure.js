@@ -27,15 +27,13 @@ async function insertMeasure(name) {
 
 
 async function findMeasureNumber(name) {
-    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
-    return a.data[0].id
+    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure ='${name}'`)
+    console.log(a,' a');
+    return a.data[0].Id
 }
 async function findMeasureName(num) {
-
-    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`))
-    return measure
-
-
+    const measure = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`)
+    return measure.data[0].Measure
 }
 
 async function deleteItem(object) {

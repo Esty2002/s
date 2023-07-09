@@ -1,0 +1,540 @@
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:31:36  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: lllll, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:33:34  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: lllll, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+next function:
+last time login in the action 'find' : Sun Jul 09 2023 - 19:34:16  
+        
+description: find product in router
+        
+dataThatRecived: 
+Enabled: true, 
+
+
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:54:59  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:54:59  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:55:39  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:55:39  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:55:57  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:55:57  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:56:30  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:56:30  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:57:08  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:57:08  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:57:39  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:57:39  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:58:21  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:58:21  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 19:59:15  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 19:59:15  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'Id')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:01:26  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:01:26  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'Id')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:01:42  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:01:42  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'Id')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:02:19  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:02:19  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'Id')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:04:20  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:04:20  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'Id')
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:06:56  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:06:56  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:07:26  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: rrrrr, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:07:26  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:08:28  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:08:28  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:10:58  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: 1, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:10:58  
+        
+description: insert product in router
+        
+error: Cannot read properties of undefined (reading 'Id')
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:12:40  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:12:40  
+        
+description: insert product in router
+        
+error: 
+
+
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:13:34  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:13:34  
+        
+description: insert product in router
+        
+error: 
+
+
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:14:40  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:14:40  
+        
+description: insert product in router
+        
+error: 
+
+
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:15:00  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:15:00  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:17:16  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:17:16  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:18:33  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:18:34  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:19:04  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:19:04  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:19:44  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:19:44  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:21:30  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:21:30  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:22:18  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:22:19  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:24:06  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:24:06  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'create' : Sun Jul 09 2023 - 20:25:08  
+        
+description: insert product in router
+        
+dataThatRecived: 
+Name: iygty, 
+UnitOfMeasure: mmm, 
+BookkeepingCode: 1234, 
+
+
+----------------------------------
+last time login in the action 'create' : Sun Jul 09 2023 - 20:25:08  
+        
+description: insert product in router
+        
+error: Request failed with status code 500
+----------------------------------

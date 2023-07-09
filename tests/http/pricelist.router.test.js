@@ -1,8 +1,6 @@
 const request = require('supertest');
 const { app } = require('../../app')
 
-
-
 // const { insert} = require('../../modules/pricelist/insertPricelist')
 jest.mock('../../modules/pricelist/insertPricelist', () => {
     return {
@@ -15,9 +13,6 @@ jest.mock('../../modules/pricelist/insertPricelist', () => {
         })
     }
 })
-
-
-    
 describe('POST',()=>{
     it('shuold insret the object to db', async () => {
         const res = await request(app).post('/creatPricelist/addPriceList').send({ name: "tamy", customerCode: 1000 })

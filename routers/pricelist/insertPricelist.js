@@ -1,7 +1,6 @@
 const express = require('express')
 const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
-
 const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = require('../../modules/pricelist/insertPricelist')
 let tableName
 let object
@@ -14,7 +13,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
             dataThatRecived: req.body,
         }
         logToFile(object)
-        const result = await insert(req.body, 'tbl_PriceList')
+        const result = await insert(req.body, 'PriceList')
         res.status(result.status).send(result.data);
     }
     catch (error) {

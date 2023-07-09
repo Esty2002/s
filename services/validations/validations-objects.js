@@ -58,11 +58,12 @@ const objectsForValidations = [
 
 
     {
-        objectName: "tbl_FinishProducts",
+        objectName: "FinishProducts",
         values: [
 
             { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }
+            ] },
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
 
         ]
@@ -146,7 +147,7 @@ const objectsForValidations = [
 
     },
     {
-        objectName: "pricelist",
+        objectName: "PriceList",
         values: [
             { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.EnglishLetters, arguments: null }] },
             { propertyName: "Pumps", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
