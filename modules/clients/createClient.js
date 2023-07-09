@@ -1,23 +1,29 @@
-const { postData, sqlServer } = require('../../services/axios')
+const { postData } = require('../../services/axios')
 
 async function addOneClient(obj) {
+
+   
+    const values = {...obj}
+    delete values.Id
+
     let newObj = {
         'tableName': 'tbl_Clients',
-        'values': obj
+        'values': values
     }
     let object = {
         'tableName': 'tbl_Clients',
         'columns': '*',
         'condition': `ClientCode=${obj.ClientCode}`
     }
-    console.log(object,'rrrrrrrrrrrrrrr');
 
-    let unique = await postData(sqlServer,'/read/readTopN', object)
-    console.log(unique);
+    let unique = await postData('/read/readTopN', object)
     if (unique.data.length === 0) {
-        console.log(newObj, ' newObj in createClient');
-        const result = await postData(sqlServer,'/create/create',newObj)
+        const result = await postData('/create/create',newObj)
         return result;
     }
+    else{
+        return false
+    }
 }
+
 module.exports = { addOneClient }
