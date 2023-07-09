@@ -58,9 +58,9 @@ async function updateArea(obj = {}) {
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
         })
     if (result)
-        return result
+        return result;
     else
-        throw new Error('Not Found area to update')
+        throw new Error('Not Found area to update');
 
 }
 
