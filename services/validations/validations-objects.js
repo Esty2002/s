@@ -28,6 +28,15 @@ const objectsForValidations = [
         ]
     },
     {
+        objectName: "moreProductsItems",
+        values: [
+            { propertyName: "LeadNumber", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Leads", field: "id" } }], require: true },
+            { propertyName: "Product", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Additions", field: "id" } },], require: false },
+            { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }], require: false },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true }
+        ]
+    },
+    {
         objectName: "Orderers",
         values: [
             { propertyName: "OrdererName", validation: [{ func: validation.onlyLetters, arguments: null }], require: true },
@@ -94,15 +103,6 @@ const objectsForValidations = [
             { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
 
-        ]
-    },
-    {
-        objectName: "moreProductsItems",
-        values: [
-            { propertyName: "LeadNumber", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Leads", field: "id" } }], require: true },
-            { propertyName: "Product", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Additions", field: "id" } },], require: false },
-            { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }], require: false },
-            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true }
         ]
     },
     {

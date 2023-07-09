@@ -15,7 +15,7 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         }
     }
     catch (error) {
-        res.status(500).send(error);
+        res.status(500).send(error.message)
     }
 });
 
@@ -130,21 +130,18 @@ router.put('/updaterecord', express.json(), async (req, res) => {
     }
 });
 
-router.delete('/deleterecord/:entityname/:condition', express.json(), async (req, res) => {
+router.delete('/deleterecord/:entityname', express.json(), async (req, res) => {
     try {
-        const response = await deleteRecord({ entity: req.params.entityname, condition: req.params.condition })
-        if (response.status == 200) {
-            console.log(response.data);
+        const response = await deleteRecord({ entity: req.params.entityname, condition: req.query })
+        if (response.status == 204) {
             res.status(204).send(response.data);
 
         }
         else {
-            console.log(response.message);
             res.status(500).send(response.message)
         }
     }
     catch (error) {
-        console.log(error.message);
         res.status(500).send(error.message);
     }
 });

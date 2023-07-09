@@ -74,7 +74,6 @@ const createNewLead = async (obj = null) => {
 
 const insertMoreProductsItems = async (obj, result) => {
     let morePorductsItems = [];
-
     obj.morePorductsItems.forEach(mpi => {
         morePorductsItems = [...morePorductsItems, {
             Product: mpi.productCode,
@@ -84,8 +83,9 @@ const insertMoreProductsItems = async (obj, result) => {
         }]
     })
     try {
+        console.log({morePorductsItems});
         for (let item of morePorductsItems) {
-            _ = checkObjectValidations(item, 'moreProductsItems');
+            _ = await checkObjectValidations(item, 'moreProductsItems');
         };
     }
     catch (error) {
@@ -95,9 +95,14 @@ const insertMoreProductsItems = async (obj, result) => {
         tableName: 'moreProductsItems',
         values: morePorductsItems
     };
+    try{
 
-    const res = await postData('create/createManySql', objMpi);
-    return res;
+        const res = await postData('create/createManySql', objMpi);
+        return res;
+    }
+    catch(error){
+        throw error;
+    }
 
 
 }
