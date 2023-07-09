@@ -1,4 +1,5 @@
 const { postData, getData } = require('../../services/axios');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
 
 const values = [
     {
@@ -59,7 +60,9 @@ const newRecord = async (obj = null) => {
         const entity = values.find(({ entityName }) => entityName === obj.entityName);
         if (entity) {
             const newObj = entity.func(obj.values);
+
             try {
+                _ = await checkObjectValidations(newObj.values, entity.entityName);
                 result = await postData('/create/create', newObj);
                 return result;
             }

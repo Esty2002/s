@@ -17,20 +17,31 @@ const createNewLead = async (obj = null) => {
     catch (error) {
         throw error;
     }
-    obj.baseConcretProduct.forEach(bcp => {
-        vals = [...vals, {
+    if (obj.baseConcretProduct.length > 0) {
+        obj.baseConcretProduct.forEach(bcp => {
+            vals = [...vals, {
+                SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
+                Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
+                ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: bcp.pumpPipeLength,
+                PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+                OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
+            }];
+        });
+    }
+    else {
+        vals = [{
             SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
             Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-            ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: obj.pumpPipeLength,
-            PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+            ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
+            PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-        }];
-    });
+        }]
+    }
     try {
 
         for (let item of vals) {
             try {
-                _= await checkObjectValidations(item, 'leads');
+                _ = await checkObjectValidations(item, 'leads');
             }
             catch (error) {
                 throw error;

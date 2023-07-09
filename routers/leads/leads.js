@@ -15,7 +15,7 @@ router.post('/createnewlead', express.json(), async (req, res) => {
         }
     }
     catch (error) {
-        res.status(500).send(error.message);
+        res.status(500).send(error);
     }
 });
 
@@ -104,21 +104,22 @@ router.post('/insertrecord', express.json(), async (req, res) => {
             res.status(201).send(response.data);
         }
         else {
-            console.log(response.message);
+            console.log(response);
             res.status(500).send(response.message);
 
         }
 
     }
     catch (error) {
-        res.status(500).send(error.message);
+        console.log({error});
+        res.status(500).send(error);
     }
 });
 
 router.put('/updaterecord', express.json(), async (req, res) => {
     try {
         const response = await updateRecord(req.body)
-        if (response.status === 200)
+        if (response.status === 204)
             res.status(204).send(response.data);
         else{
             res.status(500).send(response.message);

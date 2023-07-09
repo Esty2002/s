@@ -28,31 +28,31 @@ const objectsForValidations = [
         ]
     },
     {
-        objectName: "orderers",
+        objectName: "Orderers",
         values: [
-            { propertyName: "ordererName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
-            { propertyName: "ordererPhone", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
-            { propertyName: "addedDate", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "disable", validation: [{ func: validation.bit, arguments: null }] },
-            { propertyName: "deletingDate", validation: [{ func: validation.type, arguments: "date" }] }
+            { propertyName: "OrdererName", validation: [{ func: validation.onlyLetters, arguments: null }], require: true },
+            { propertyName: "OrdererPhone", validation: [{ func: validation.clientCodeIsExistInSQL, arguments: { tableName: "Orderers", field: "OrdererPhone" } }, { func: validation.correctPhone, arguments: null }], require: true },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: "null" }], require: true },
+            { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }], require: true },
+            { propertyName: "DeletingDate", validation: [{ func: validation.notCheck, arguments: null }], require: false }
         ],
     },
     {
-        objectName: "pouringType",
+        objectName: "PouringType",
         values: [
-            { propertyName: "pouringName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
-            { propertyName: "addedDate", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "disable", validation: [{ func: validation.bit, arguments: null }] },
+            { propertyName: "PouringName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
+            { propertyName: "AddedDate", validation: [{ func: validation.notCheck, arguments: null }] },
+            { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }] },
             { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }] }
         ]
     },
     {
-        objectName: "statusLead",
+        objectName: "StatusesLeads",
         values: [
-            { propertyName: "statusName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
-            { propertyName: "addedDate", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "disable", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "deletingDate", validation: [{ func: validation.type, arguments: "date" }] }
+            { propertyName: "StatusName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
+            { propertyName: "AddedDate", validation: [{ func: validation.notCheck, arguments: null }] },
+            { propertyName: "Disable", validation: [{ func: validation.notCheck, arguments: null }] },
+            { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }] }
         ]
     },
 
@@ -60,22 +60,22 @@ const objectsForValidations = [
     {
         objectName: "tbl_FinishProducts",
         values: [
- 
+
             { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-      
+
         ]
 
-    
+
 
     },
-    
+
     {
         objectName: "tbl_PricelistForProducts",
         values: [
- 
-            { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments:null }] },
+
+            { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "ProductId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "TableName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "Price", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
@@ -84,24 +84,24 @@ const objectsForValidations = [
         ]
     },
 
-{
-    objectName: "tbl_Pumps",
-    values: [
+    {
+        objectName: "tbl_Pumps",
+        values: [
 
-        { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-        { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-        { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-        { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-        { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
 
-    ]
-},
+        ]
+    },
     {
         objectName: "moreProductsItems",
         values: [
-            { propertyName: "LeadNumber", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Leads", field: "id" } }],require:true },
+            { propertyName: "LeadNumber", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Leads", field: "id" } }], require: true },
             { propertyName: "Product", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Additions", field: "id" } },], require: false },
-            { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }],require:false },
+            { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }], require: false },
             { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true }
         ]
     },
@@ -111,38 +111,38 @@ const objectsForValidations = [
             {
                 propertyName: "ClientCode", validation: [
                     { func: validation.required, arguments: null },
-                    { func: validation.onlyNumbersInString, arguments:null },
+                    { func: validation.onlyNumbersInString, arguments: null },
                     { func: validation.clientCodeIsExistInSQL, arguments: { tableName: "tbl_Clients", field: "ClientCode" } }
                 ]
             },
             { propertyName: "ClientName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "PrivaetCompanyNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "DestinationBank", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "PaymentTermsFluent", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "PreferredPaymentDate", validation: [{ func: validation.dateType, arguments: null},{ func: validation.theDateAfterToday, arguments: null }] },
+            { propertyName: "DestinationBank", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "PaymentTermsFluent", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "PreferredPaymentDate", validation: [{ func: validation.dateType, arguments: null }, { func: validation.theDateAfterToday, arguments: null }] },
             { propertyName: "Ovligo", validation: [{ func: validation.type, arguments: "number" },] },
-            { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "AccountantClassifiedCode", validation: [{ func: validation.type, arguments: "number" },] },
             { propertyName: "Status", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "Description", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" }] },
-            { propertyName: "Street", validation: [{ func: validation.required, arguments: null },{ func: validation.type, arguments: "string" }] },
+            { propertyName: "Description", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "Street", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "House", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null },{ func: validation.onlyNumbersInString, arguments: null}] },
+            { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "Telephone1", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Telephone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "MobilePhone", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Fax", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Email", validation: [{ func: validation.required, arguments: null }, { func: validation.concretEmail, arguments: null }] },
-            { propertyName: "Comments", validation: [{ func: validation.notCheck, arguments: null },{ func: validation.type, arguments: "string" }] },
+            { propertyName: "Comments", validation: [{ func: validation.notCheck, arguments: null }, { func: validation.type, arguments: "string" }] },
             // { propertyName: "CreationDate", validation: [{ func: validation.required, arguments: null}, ] },
             // { propertyName: "UserThatAdd", validation: [{ func: validation.required, arguments: null}, ] },
 
         ]
 
-    
+
 
     }
 

@@ -110,18 +110,15 @@ const specificLength = (value, len) => {
 }
 
 const clientCodeIsExistInSQL = async (field, arg) => {
-    let tableName1 = arg.tableName
-    let val = arg.field
+    let tableName1 = arg.tableName;
+    let val = arg.field;
     let ans = await getData(`/read/readAll/${tableName1}/${val}=${field}`)
     if (ans.data.length == 0) {
-        return true
-
+        return true;
     }
     else {
-        throw new Error('the client is exist');
+        throw new Error(`the ${val}: ${field} is not unique`);
     }
-
-
 }
 const recordExistInTable = async (value, arg) => {
 
