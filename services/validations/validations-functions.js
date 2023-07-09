@@ -26,9 +26,9 @@ const correctPhone = (number) => {
 const positiveNumber = (number) => {
     return number > 0
 }
-// const EnglishLetters = (word) => {
-//     return /^\w[a-z,A-Z]*$/.test(word)
-// }
+const EnglishLetters = (word) => {
+    return /^\w[a-z,A-Z]*$/.test(word)
+}
 
 const onlyNumbersInString = (numbersString) => {
     return /^\d*$/.test(numbersString)
@@ -96,6 +96,7 @@ const validation = {
     correctPhone: correctPhone,
     type: type,
     positiveNumber: positiveNumber,
+    EnglishLetters:EnglishLetters,
     onlyNumbersInString: onlyNumbersInString,
     notCheck: notCheck,
     maxLength: maxLength,

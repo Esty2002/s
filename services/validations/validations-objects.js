@@ -91,37 +91,20 @@ const objectsForValidations = [
 
         ]
 
-        // serialNumber
-        // clientCode
-        // clientName
-        // privaetCompanyNumber
-        // bookkeepingNumber
-        // destinationBank
-        // paymentTermsFluent
-        // preferredPaymentDate
-        // ovligo
-        // receiptIssueTerm
-        // receiptCentralism
-        // accountantClassifiedCode
-        // status
-        // description
-        // street
-        // house
-        // city
-        // zipCode
-        // telephone1
-        // telephone2
-        // mobilePhone
-        // fax
-        // email
-        // comments
-        // creationDate
-        // userThatAdd
-        // disabled
-        // deletionDate
-        // userThatDelete
 
-    }
+    },
+    {
+        objectName: "pricelist",
+        values: [
+            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.EnglishLetters, arguments: null }] },
+            { propertyName: "Pumps", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "Beton", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "AddedDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
+            { propertyName: "UserName", validation: [{ func: validation.required, arguments: null }, { func: validation.EnglishLetters, arguments: null }] },
+            { propertyName: "Finish", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
+        ]
+    },
 
 ]
 
