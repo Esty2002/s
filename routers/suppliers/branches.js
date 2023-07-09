@@ -32,7 +32,6 @@ router.get('/getallbranches', async (req, res) => {
 })
 
 router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
-console.log("----------------",req.params.condition, req.params.value, req.params.num);
     try {
         const response = await getBranchesByCondition(req.params.condition, req.params.value, req.params.num)
         if (response)
@@ -48,10 +47,8 @@ console.log("----------------",req.params.condition, req.params.value, req.param
 
 
 router.post('/insertbranch', express.json(), async (req, res) => {
-
     try {
         let ans=await checkObjectValidations(req.body,'tbl_Branches')
-        console.log("---------------",{ans},"----------------");
         const response = await insertOneBranch(req.body)
         if (response) {
             res.status(201).send(response.data)
@@ -61,7 +58,6 @@ router.post('/insertbranch', express.json(), async (req, res) => {
             res.status(500).send(response)
         }
     } catch (error){
-        console.log("you cant insert this branch to the data:(");
         res.status(500).send(error.message)
     }
 })
@@ -75,13 +71,11 @@ router.post('/updatebranch', express.json(), async (req, res) => {
             res.status(500).send(response)
         }
     } catch (error) {
-        console.log("cant update branch:(");
         res.status(500).send(error.message)
     }
 })
 
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
-    console.log("in chckUniqe");
     try {
         const response = await checkUnique({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname })
         if (response)
