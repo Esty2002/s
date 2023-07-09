@@ -38,21 +38,21 @@ const objectsForValidations = [
         ],
     },
     {
-        objectName: "PouringType",
+        objectName: "PouringsTypes",
         values: [
-            { propertyName: "PouringName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
-            { propertyName: "AddedDate", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }] },
-            { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }] }
+            { propertyName: "PouringName", validation: [{ func: validation.onlyLetters, arguments: null }], require: true },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true },
+            { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }], require: true },
+            { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }], require: false }
         ]
     },
     {
         objectName: "StatusesLeads",
         values: [
-            { propertyName: "StatusName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
-            { propertyName: "AddedDate", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "Disable", validation: [{ func: validation.notCheck, arguments: null }] },
-            { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }] }
+            { propertyName: "StatusName", validation: [{ func: validation.onlyLetters, arguments: null }], require: true },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true },
+            { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }], require: true },
+            { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }], require: false }
         ]
     },
 

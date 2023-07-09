@@ -106,13 +106,13 @@ router.post('/insertrecord', express.json(), async (req, res) => {
         else {
             console.log(response);
             res.status(500).send(response.message);
-
         }
-
     }
     catch (error) {
-        console.log({error});
-        res.status(500).send(error);
+        if (error instanceof Array)
+            res.status(500).send(error);
+        else
+            res.status(500).send(error.message);
     }
 });
 
@@ -121,7 +121,7 @@ router.put('/updaterecord', express.json(), async (req, res) => {
         const response = await updateRecord(req.body)
         if (response.status === 204)
             res.status(204).send(response.data);
-        else{
+        else {
             res.status(500).send(response.message);
         }
     }

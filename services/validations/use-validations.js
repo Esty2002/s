@@ -22,7 +22,7 @@ const checkObjectValidations = async (body, objName) => {
             }
         }
         if (errors.length > 0) {
-            throw errors
+            throw errors;
         }
         return true;
     }
