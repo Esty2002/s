@@ -1,15 +1,15 @@
-const { postData} = require('../../services/axios')
+const { postData } = require('../../services/axios')
 async function deletedClientByCode(clientCode, userName) {
-
+    
     let obj = {
         'tableName': 'tbl_Clients',
         'columns': '*',
-        'condition': `ClientCode=${clientCode}`
+        'conditio.3n': `ClientCode=${clientCode}`
     }
 
     const exist = await postData(`/read/readTopN`,obj)
+    if (exist.rowsAffected != 0) {
     let result;
-    if (exist) {
 
         obj['condition'] = {clientCode}
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
@@ -17,7 +17,7 @@ async function deletedClientByCode(clientCode, userName) {
         result = await postData('/update/update', obj)
         return result.data;
     }
-    
+
     return false
 }
 

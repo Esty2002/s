@@ -37,14 +37,8 @@ const postData = async (url, body) => {
         return response
     }
     catch (error) {
-        console.log({ error: error.message })
         throw error;
     }
 }
 module.exports = { getData, postData }
-// ----1
-// url====== /read/distinct
-// body====== { collection: 'areas', distinct: 'type' }
-// ----2
-// url====== /read/find
-// body====== { collection: 'areas', filter: { type: 'poligon' } }
+
