@@ -36,10 +36,11 @@ app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
 
 
-app.use('/pumps', pumps_router);
 app.use('/unitOfMeasure', manageUnitOfMeasure);
-app.use('/additions', manageAdditions);
 app.use('/basicProducts', manageBasicProducts);
+app.use('/pumps', pumps_router);
+app.use('/additions', manageAdditions);
+app.use('/productsCombinations', productsCombinations_router);
 app.use('/finishProducts', manageFinishProducts);
 app.use('/productsCombinations', productsCombinations_router);
 
