@@ -1,14 +1,19 @@
 const express = require('express');
 const router = express.Router();
-
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUnique, updateDetail, checkUniqueCode, checkUniqueName, countRowes } = require('../../modules/suppliers/suppliers');
 
 router.post('/deletesupplier', express.json(), async (req, res) => {
     try {
         const response = await deleteSupplier(req.body)
+<<<<<<< HEAD
         if (response.status===200)
             res.status(200).send(response.data)
         // res.status(200).send(true);
+=======
+        if (response)
+            res.status(200).send(response.data)
+>>>>>>> logger
         else {
             res.status(500).send(response.data)
         }
@@ -18,25 +23,50 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
 })
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
-    console.log("suppliers - router", req.body);
+    console.log("---suppliers - router---", req.body);
     try {
+<<<<<<< HEAD
         const response = await insertOneSupplier(req.body)
         if (response)
             res.status(201).send(response.data)
         else {
             res.status(500).send(response.data)
+=======
+        console.log("-----------@---------")
+        let ans = await checkObjectValidations(req.body, 'tbl_Suppliers')
+        console.log("----------------------------" );
+        if (ans) {
+            const response = await insertOneSupplier(req.body)
+            console.log("+++++++++++++++",{response});
+
+            if (response)
+                res.status(201).send(response.data)
+            else {
+                res.status(500).send(response.data)
+            }
+>>>>>>> logger
         }
+        console.log("errrrrrrrrrrrrror");
     } catch (error) {
+        console.log(error.message)
         res.status(500).send(error.message)
     }
 })
 
 router.post('/updatesupplier', express.json(), async (req, res) => {
+    console.log("req.bodyyyyy-----", req.body);
     try {
         const response = await updateDetail( req.body)
         if (response)
+<<<<<<< HEAD
             res.status(response.status).send(response.data)
       
+=======
+            res.status(200).send(response.data)
+        else {
+            res.status(500).send(response)
+        }
+>>>>>>> logger
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -81,7 +111,12 @@ router.get('/checkUniqueName/:suppliername', async (req, res) => {
     }
 })
 
+<<<<<<< HEAD
 router.get('/getallSuppliers', async (req, res) => {
+=======
+router.get('/getallSuppliers/:num', async (req, res) => {
+    console.log("getallsuppliers - router", req.params.num);
+>>>>>>> logger
     try {
         console.log(req.query)
         const response = await getAllSuppliers(req.query)

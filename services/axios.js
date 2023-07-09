@@ -31,6 +31,7 @@ const getData = async (url, query) => {
 
 const postData = async (url, body) => {
     let response;
+
     try {
         console.log({ url, body: JSON.stringify(body) })
         response = await server.post(url, body);

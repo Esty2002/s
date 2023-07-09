@@ -6,10 +6,16 @@ const { getData, postData } = require('../../services/axios');
 /////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
     try {
+        console.log("inmsertBranch - module");
         if (checkValid(object) && await checkUnique(object)) {
+            console.log("inserttttttt");
             object['CreationDate'] = new Date().toISOString();
             let obj = { tableName: 'tbl_Branches', values: object };
             const res = await postData( "/create/create", obj);
+<<<<<<< HEAD
+=======
+            console.log("resssssssssssss",res);
+>>>>>>> logger
             return res;
         }
         else {
@@ -17,7 +23,11 @@ async function insertOneBranch(object) {
         }
     }
     catch (error) {
+<<<<<<< HEAD
         console.log(error)
+=======
+        console.log("caaaaaaaaaaant be go in !!!!!!!!!!");
+>>>>>>> logger
         throw new Error('can not insert branch');
     }
 }
@@ -47,6 +57,7 @@ async function getBranchesByCondition(query) {
 ///////////////////////////////////////////////////////////////////
 async function updateDetail(code, setting) {
     try {
+        console.log("updatadetails",setting.BranchName);
         if (setting.OldBranchName !== setting.BranchName) {
             const result = await getData( `/read/readAll/tbl_Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
             if (result.data.length !== 0) {
