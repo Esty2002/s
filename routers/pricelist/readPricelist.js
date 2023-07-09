@@ -16,6 +16,7 @@ router.get('/findAllPriceList', async (req, res) => {
 
 
 })
+//FindPriceListByProduct/
 // חיפוש מחירון לפי ID
 router.get('/FindPriceListById/:id', async (req, res) => {
     try {
@@ -41,8 +42,9 @@ router.get('/FindPriceListByAddedDate/date', async (req, res) => {
 
 })
 // פונקציית חיפוש על פי מוצר
-router.get('/FindPriceListByProduct/product', async (req, res) => {
+router.get('/FindPriceListByProduct/:product', async (req, res) => {
     try {
+        console.log(req.params.product,' req.params.product');
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);
     } 

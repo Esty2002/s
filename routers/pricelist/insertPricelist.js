@@ -8,8 +8,8 @@ let tableName
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
         let object = {
-            name: 'create',
-            description: 'addPriceList in router',
+            name: 'addPriceList',
+            description: 'addPriceList in router- in try',
             dataThatRecived: req.body,
         }
         logToFile(object)
@@ -17,7 +17,14 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         res.status(result.status).send(result.data);
     }
     catch (error) {
-
+        let object = {
+            name: 'addPriceList',
+            description: 'addPriceList in router -in catch',
+            dataThatRecived: req.body,
+            error: error.message
+        }
+        logToFile(object)
+        console.log({object});
         res.status(500).send(error.message)
     }
 })
