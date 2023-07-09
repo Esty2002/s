@@ -7,30 +7,19 @@ async function insert(data, tableName) {
     obj['values'] = data
     obj['columns'] = '*'
     try {
-        // let object = {
-        //     name: 'create',
-        //     description: ' insert in module',
-        //     dataThatRecived: data
-        // }
+        let object = {
+            name: 'addPriceList',
+            description: 'insert in module',
+            dataThatRecived: data
+        }
 
-        // logToFile(object)
+        logToFile(object)
         const result = await postData('/create/create', obj)
-        // let id = result.data[0].Id
-        // object = {
-        //     name: 'create',
-        //     description: ' insert in module, after sending to dbserver',
-        //     result: id
-        // }
-        // logToFile(object)
+        console.log({result});
         return result;
     }
     catch (error) {
-        let object = {
-            name: 'create',
-            description: 'create in module -you have an error!',
-            error: error.message,
-            dataThatRecived: data,
-        }
+        object.error=error.message
         logToFile(object)
         throw error
     }

@@ -16,6 +16,7 @@ router.get('/findAllPriceList', async (req, res) => {
 
 
 })
+//FindPriceListByProduct/
 // חיפוש מחירון לפי ID
 // router.get('/FindPriceListById/:id', async (req, res) => {
 //     try {
@@ -41,16 +42,17 @@ router.get('/findAllPriceList', async (req, res) => {
 
 // })
 // פונקציית חיפוש על פי מוצר
-// router.get('/FindPriceListByProduct/product', async (req, res) => {
-//     try {
-//         const result = await getPriceListbyProduct(req.params.product);
-//             res.status(200).send(result);
-//     } 
-//     catch (error) {
-//         res.status(500).send(error);
-//     }
+router.get('/FindPriceListByProduct/:product', async (req, res) => {
+    try {
+        console.log(req.params.product,' req.params.product');
+        const result = await getPriceListbyProduct(req.params.product);
+            res.status(200).send(result);
+    } 
+    catch (error) {
+        res.status(500).send(error);
+    }
 
-// })
+})
 // הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
 // router.get('/FindPriceListByAreaId/:area', async (req, res) => {
 //     console.log(req.params.area);

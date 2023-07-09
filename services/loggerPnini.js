@@ -1,50 +1,44 @@
 const fs = require('fs')
 const path = require('path')
+const url='services/logger/logger.txt'
+
 function newLine(url) {
     fs.appendFileSync(url, '\n')
 }
-
 function parseObjectToText(object) {
-
-    console.log(object, 'llll');
     let txtObj = '\n';
     for (let key in object) {
         txtObj += `${key}: ${object[key]}, \n`
-        console.log(txtObj, ' txtObj');
-
     }
     txtObj+=`${'\n'}`
     return txtObj;
 }
-
+let lastName='read'
 function logToFile(object) {
-    let txt = ''
     let text = ''
-    console.log(object, ' object in start');
     for (let i in object) {
-        console.log(object[i], ' object[i]');
         if (typeof (object[i]) != 'string' && typeof (object[i]) != 'boolean' && typeof (object[i]) != 'number') {
-            txt+= parseObjectToText(object[i])
+            object[i]= parseObjectToText(object[i])
         }
-        else {
-            txt = object[i]
-        }
+        text = `last time login in the action '${object.name}' : ${new Date().toDateString()} - ${new Date().toLocaleTimeString()}  
+        ${'\n'}description: ${object.description}
+        ${'\n'}${i}: ${object[i]}`
 
-        text = `last time login in the function ${object.name} : ${new Date().toDateString()} - ${new Date().toLocaleTimeString()}  ${'\n'}description: ${object.description}
-        ${'\n'}${i}: {${txt}}`
     }
-
-    console.log(text, ' text');
-
     if (!fs.existsSync(path.join(__dirname, '../services/logger'))) {
         fs.mkdirSync(path.join(__dirname, '../services/logger'))
-        fs.writeFileSync('services/logger/logger.txt', '')
+        fs.writeFileSync(url, '')
     }
 
-    fs.appendFileSync('services/logger/logger.txt', text)
-    newLine('services/logger/logger.txt')
-    fs.appendFileSync('services/logger/logger.txt', '----------------------------------')
-    newLine('services/logger/logger.txt')
+    if(lastName!=object.name){
+        lastName=object.name;
+        fs.appendFileSync(url, 'next function:')
+        newLine(url)
+    }
+    fs.appendFileSync(url, text)
+    newLine(url)
+    fs.appendFileSync(url, '----------------------------------')
+    newLine(url)
 
 }
 module.exports = { logToFile }
