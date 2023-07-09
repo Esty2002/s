@@ -17,14 +17,10 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
 })
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
-    console.log("---suppliers - router---", req.body);
     try {
-        console.log("-----------@---------")
         let ans = await checkObjectValidations(req.body, 'tbl_Suppliers')
-        console.log("----------------------------" );
         if (ans) {
             const response = await insertOneSupplier(req.body)
-            console.log("+++++++++++++++",{response});
 
             if (response)
                 res.status(201).send(response.data)
@@ -32,15 +28,12 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
                 res.status(500).send(response.data)
             }
         }
-        console.log("errrrrrrrrrrrrror");
     } catch (error) {
-        console.log(error.message)
         res.status(500).send(error.message)
     }
 })
 
 router.post('/updatesupplier', express.json(), async (req, res) => {
-    console.log("req.bodyyyyy-----", req.body);
     try {
         const response = await updateDetail(req.body.OldSupplierCode, req.body)
         if (response)
@@ -93,11 +86,8 @@ router.get('/checkUniqueName/:suppliername', async (req, res) => {
 })
 
 router.get('/getallSuppliers/:num', async (req, res) => {
-    console.log("getallsuppliers - router", req.params.num);
     try {
-        console.log(req.params.num);
         const response = await getAllSuppliers(req.params.num)
-        console.log({ response })
         if (response)
             res.status(200).send(response)
         else {
