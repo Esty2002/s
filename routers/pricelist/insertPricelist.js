@@ -18,12 +18,6 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         res.status(result.status).send(result.data);
     }
     catch (error) {
-        // let object = {
-        //     name: 'addPriceList',
-        //     description: 'addPriceList in router -in catch',
-        //     dataThatRecived: req.body,
-        //     error: error.message
-        // }
         object.error=error.message
         logToFile(object)
         console.log({object});

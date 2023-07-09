@@ -1,7 +1,7 @@
 require('dotenv').config();
 // const { setDate } = require('./functions');
-const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
-const { getData, postData } = require('../../services/axios');
+const { SQL_DB_SUPPLIERS } = process.env;
+const { getData, postData,   } = require('../../services/axios');
 
 async function insertOneSupplier(object) {
     console.log("insrtSupplier - module", { object });
@@ -10,8 +10,9 @@ async function insertOneSupplier(object) {
             object.CreationDate = new Date().toISOString();
             let obj = { tableName: 'tbl_Suppliers', values: object };
 
-            const res = await postData("/create/create", obj);
-            return res;
+            console.log({obj})
+            const res = await postData(  "/create/create", obj);
+            return res.recordset;
         }
         else {
             throw new Error('validation')
@@ -81,9 +82,8 @@ async function updateDetail( setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: { Id: setting.Id }
         };
-        console.log({object})
-        const result = await postData('/update/update', object);
-        return result;
+        const result = await postData(  '/update/update', object);
+        return result.recordset;
     }
     catch (error) {
         console.log(error.message)

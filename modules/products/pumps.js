@@ -1,20 +1,19 @@
 require('dotenv').config()
-const { postData, getData} = require('../../services/axios')
-const { findMeasureName } = require('./measure')
+const { postData,   } = require('../../services/axios')
+const { findMeasureNumber, findMeasureName } = require('./measure')
 
 const { SQL_PUMPS_TABLE } = process.env
 
 async function insertPump(obj) {
-    obj.enabled = true
-    obj.addedDate = new Date().toISOString()
-    // obj.addition = obj.Addition ? 1 : 0
-
-    const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
-    if (response.status === 201)
-        return true
-    else
-        return false
-
+    // obj['unitOfMeasure'] = (await findMeasureNumber(obj['unitOfMeasure']))
+    obj['addedDate'] = new Date().toISOString()
+    obj['enabled'] = 1
+    obj['addition'] = obj['addition'] ? 1 : 0
+    // for (let k in obj) {
+    //     obj[k] = "'" + obj[k] + "'"
+    // }
+    console.log(obj, 'in insertPump');
+    return (await postData(  "/create/create", { tableName: SQL_PUMPS_TABLE, values: obj })).data
 }
 
 async function findPump(project = [], filter = {}) {
@@ -48,14 +47,22 @@ async function findPump(project = [], filter = {}) {
     // }
 }
 
-async function updatePump(obj) {
+// async function updatePump(obj) {
    
-    const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
-    console.log(response, 'in delete function');
-    if (response)
-        return true
-    else
-        return false
+//     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
+//     console.log(response, 'in delete function');
+//     if (response)
+//         return true
+//     else
+//         return false
+// }
+async function updatePump(obj, filter) {
+    let string = ""
+    for (let k in obj) {
+        string += `${k}='${obj[k]}',`
+    }
+    string = string.slice(0, -1)
+    return (await postData(  'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
 
@@ -65,5 +72,4 @@ async function findPumpName(num) {
     return pump
 }
 
-
-module.exports = { updatePump, insertPump, findPump, findPumpName }
+module.exports = { updatePump, insertPump, findPump }

@@ -3,24 +3,31 @@ const { objectsForValidations } = require('./validations-objects')
 let i = 0;
 const checkObjectValidations = async (body, objName) => {
     try {
-        console.log(body, objName, 'bodyAndObjectname');
+        let errors = []
         const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;
         for (let v of values) {
             i++
             for (let valid of v.validation) {
                 if (body[v.propertyName]) {
-                    if (!(await valid.func(body[v.propertyName], valid.arguments))) {
-                        return false;
-
+                    try {
+                        _ = await valid.func(body[v.propertyName], valid.arguments);
+                    }
+                    catch (error) {
+                        errors = [...errors, { propertyName: v.propertyName, error: error.message }];
                     }
                 }
-
             }
+            if (v.require && !body[v.propertyName]) {
+                errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but not exist` }];
+            }
+        }
+        if (errors.length > 0) {
+            throw errors
         }
         return true;
     }
     catch (error) {
-        throw error
+        throw error;
     }
 
 
