@@ -5,6 +5,7 @@ const { logToFile } = require('../../services/loggerPnini')
 const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId
     ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill} =require('../../modules/pricelist/readPricelist')
 
+
 router.get('/findAllPriceList', async (req, res) => {
     try {
         const result = await getAllPriceList();
@@ -43,6 +44,7 @@ router.get('/FindPriceListByAddedDate/date', async (req, res) => {
 // פונקציית חיפוש על פי מוצר
 router.get('/FindPriceListByProduct/:product', async (req, res) => {
     try {
+        console.log(req.params.product,' req.params.product');
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);
     } 
