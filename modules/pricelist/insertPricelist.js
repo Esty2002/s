@@ -1,36 +1,24 @@
 
 const { postData, getData } = require('../../services/axios')
-const { logToFile } = require('../../services/loggerPnini')
+const { logToFile } = require('../../services/logger/logTxt')
 async function insert(data, tableName) {
     let obj = {}
     obj['tableName'] = tableName
     obj['values'] = data
     obj['columns'] = '*'
+    let object={}
     try {
-        // let object = {
-        //     name: 'create',
-        //     description: ' insert in module',
-        //     dataThatRecived: data
-        // }
-
-        // logToFile(object)
+        object = {
+            name: 'addPriceList',
+            description: 'insert in module',
+            dataThatRecived: data
+        }
+        logToFile(object)
         const result = await postData('/create/create', obj)
-        let id = result.data[0].Id
-        // object = {
-        //     name: 'create',
-        //     description: ' insert in module, after sending to dbserver',
-        //     result: id
-        // }
-        // logToFile(object)
         return result;
     }
     catch (error) {
-        let object = {
-            name: 'create',
-            description: 'create in module -you have an error!',
-            error: error.message,
-            dataThatRecived: data,
-        }
+        object.error=error.message
         logToFile(object)
         throw error
     }

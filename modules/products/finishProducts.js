@@ -16,9 +16,8 @@ async function insertFinishProduct(obj) {
 }
 
 async function updateFinishProduct(obj) {
-    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
-    console.log(response, 'in delete function');
+    
+    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: obj.condition })
     if (response.data)
         return true
     else
@@ -36,7 +35,6 @@ async function findFinishProduct(project = [], filter = {}) {
         conditionStr = "1=1"
 
     const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
-    console.log({ response }, 'in find');
     if (response.status === 200)
         return response.data
     else

@@ -18,21 +18,30 @@ async function insertPump(obj) {
 }
 
 async function findPump(project = [], filter = {}) {
+    console.log({filter});
     if (!Object.keys(filter).includes('Enabled'))
         filter['Enabled'] = 1
 
     let columnsStr = project.length > 0 ? project.join(',') : '*'
-
     let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' AND ')
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
-
-    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
-    if (response.status === 200)
-        return response.data
-    else {
-        return false
+    try {
+        const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+        console.log({ response }, 'in find');
+        // response.data
+        return response
     }
+    catch (error) {
+        throw error
+    }
+    // if (response.length > 0) {
+    //     for (const finish of response) {
+    //         if (Object.keys(finish).includes('UnitOfMeasure')) {
+    //             finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
+    //         }
+    //     }
+    //     return response
     // }
     // else {
     //     return false
@@ -40,12 +49,10 @@ async function findPump(project = [], filter = {}) {
 }
 
 async function updatePump(obj) {
-    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    console.log({ obj });
-    console.log({ conditionStr });
-    const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: conditionStr })
+   
+    const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
     console.log(response, 'in delete function');
-    if (response.data)
+    if (response)
         return true
     else
         return false
@@ -55,7 +62,6 @@ async function updatePump(obj) {
 async function findPumpName(num) {
     console.log({num})
     const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
-    console.log({ pump })
     return pump
 }
 
