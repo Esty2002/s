@@ -13,7 +13,7 @@ const getData = async (url, query) => {
         condition = convertCondition(query)
     }
     try {
-        response = await server.get(url + condition);
+        response = await server.get(url +''+ condition);
         return response;
     }
     catch (error) {
@@ -36,11 +36,11 @@ const postData = async (url, body) => {
         throw error;
     }
 }
-function convertCondition() {
+function convertCondition(obj) {
     // let obj = {AND:[{ClientCode:885417},{City:'אשדוד'}],OR:[{Ovligo:4},{ZipCode:77452}]}
     //{ AND: [{ Ovligo: 4 }, { OR: [{ City: אשדוד }, { City: בני-ברק }] }], OR: [{ ZipCode: 77452 }, { ZipCode: 74522 }] }
     // /read/readAll?start=AND&Ovligo=4&start=OR&City=אשדוד&City=בני-ברק&end=OR&end=AND&start=OR&ZipCode=77452&ZipCode=74522&end=OR
-    let obj = { AND: [{ Ovligo: 4 }, { OR: [{ City: 'אשדוד' }, { City: 'בני-ברק' }] }], OR: [{ ZipCode: 77452 }, { ZipCode: 74522 }] }
+    // let obj = { AND: [{ Ovligo: 4 }, { OR: [{ City: 'אשדוד' }, { City: 'בני-ברק' }] }], OR: [{ ZipCode: 77452 }, { ZipCode: 74522 }] }
     let str = '?'
     let i = 0;
     const getArgumentsStr = (arg, str) => {
@@ -48,15 +48,12 @@ function convertCondition() {
         if (arg && arg.length == undefined) { //arg is object
             if (Object.keys(arg).length == 1 && typeof (arg[Object.keys(arg)[0]]) != 'object') { // arg is simple object
                 let objKey = Object.keys(arg)[0]
-                i++;
-                return str + `${objKey}${i}=${arg[objKey]}&`
+                return str + `${objKey}${i++}=${arg[objKey]}&`
             }
             Object.keys(arg).map(a => {
-                str += `start${i}=${a}&`
-                i++;
+                str += `start${i++}=${a}&`
                 str = getArgumentsStr(arg[a], str)
-                str += `end${i}=${a}&`
-                i++;
+                str += `end${i++}=${a}&`
 
             })
         }

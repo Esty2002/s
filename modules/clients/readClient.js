@@ -27,7 +27,6 @@ async function getClientsById(id) {
 
 
 async function getClientsByField(field, value) {
-    console.log(field, " ---field\n",value, "---value\n module - getClientsByField");
     let obj = {}
     obj['tableName'] = 'tbl_Clients'
     obj['condition'] = `${field}=${value}`
