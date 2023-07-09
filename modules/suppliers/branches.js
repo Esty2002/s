@@ -35,6 +35,7 @@ async function getAllBranches() {
 }
 ///////////////////////////////////////////////////////////////////
 async function getBranchesByCondition(query) {
+    console.log({query});
     console.log("getBranchesByCondition - module");
     try {
         const res = await getData( `/read/readAllEntity/Branches`, query);

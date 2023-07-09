@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const {checkObjectValidations}=require('../../services/validations/use-validations')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 
 
 const { getAllBranches, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../../modules/suppliers/branches');
@@ -29,12 +29,15 @@ router.get('/getallbranches', async (req, res) => {
     }
 })
 
-router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
+router.get('/getBranchesWithCondition', async (req, res) => {
 
     try {
         const filter = {}
-        filter[req.params.condition] = req.params.value
-        const response = await getBranchesByCondition({ ...filter, ...req.query })
+        console.log({ q: req.query });
+        // filter[req.params.condition] = req.params.value
+        // filter[Object.keys(req.query)[0]]=req.query[0]
+        req.query['Disabled'] = parseInt(req.query['Disabled'])
+        const response = await getBranchesByCondition(req.query)
         if (response)
             res.status(200).send(response)
         else {
@@ -49,8 +52,8 @@ router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 
 router.post('/insertbranch', express.json(), async (req, res) => {
     try {
-        let ans=await checkObjectValidations(req.body,'tbl_Branches')
-        console.log("---------------",{ans},"----------------");
+        let ans = await checkObjectValidations(req.body, 'tbl_Branches')
+        console.log("---------------", { ans }, "----------------");
         const response = await insertOneBranch(req.body)
         if (response)
             res.status(201).send(response.data)
@@ -58,7 +61,7 @@ router.post('/insertbranch', express.json(), async (req, res) => {
 
             res.status(500).send(response)
         }
-    } catch (error){
+    } catch (error) {
         console.log("you cant insert this branch to the data:(");
         res.status(500).send(error.message)
     }
