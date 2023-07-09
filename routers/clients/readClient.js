@@ -6,7 +6,7 @@ const { getAllClient, getClientsByField, getClientsById, getAllDeletedClient } =
 
 router.get('/getAll', async (req, res) => {
     try {
-        const response = await getAllClient(req.query)
+        const response = await getAllClient()
         if (response)
             res.status(200).send(response.data)
         else {
@@ -28,10 +28,10 @@ router.get('/getAllDeleted', async (req, res) => {
     }
 
 })
-router.get('/findClient', async (req, res) => {
-    // console.log(req.params.id, "req.params.id");
+router.get('/findClient/:id', async (req, res) => {
+    console.log(req.params.id, "req.params.id");
     try {
-        const response = await getClientsById(req.query)
+        const response = await getClientsById(req.params.id)
         if (response)
             res.status(200).send(response.data)
         else {
