@@ -1,13 +1,14 @@
 const express = require('express')
 const router = express.Router()
-const { logToFile } = require('../../services/loggerPnini')
+const { logToFile } = require('../../services/logger/logTxt')
 
 const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = require('../../modules/pricelist/insertPricelist')
 let tableName
+let object
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
-        let object = {
+        object = {
             name: 'addPriceList',
             description: 'addPriceList in router- in try',
             dataThatRecived: req.body,
@@ -17,12 +18,13 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         res.status(result.status).send(result.data);
     }
     catch (error) {
-        let object = {
-            name: 'addPriceList',
-            description: 'addPriceList in router -in catch',
-            dataThatRecived: req.body,
-            error: error.message
-        }
+        // let object = {
+        //     name: 'addPriceList',
+        //     description: 'addPriceList in router -in catch',
+        //     dataThatRecived: req.body,
+        //     error: error.message
+        // }
+        object.error=error.message
         logToFile(object)
         console.log({object});
         res.status(500).send(error.message)

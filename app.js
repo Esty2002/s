@@ -24,13 +24,7 @@ const auto_complete=require('./routers/utils/auto_complete');
 const productsCombinations_router = require('./routers/products/productsCombinations');
 const pricelist_router=require('./routers/price-list/pricelist');
 const areas_router = require('./routers/areas/areas');
-const updateClient_router = require('./routers/clients/updateClient')
-const status_router = require('./routers/clients/status')
-const auto_complete=require('./routers/utils/auto_complete')
-const productsCombinations_router = require('./routers/products/productsCombinations')
-const pricelist_router=require('./routers/price-list/pricelist')
 const {  reqLogger } = require('./services/logger/logger');
-
 const api_router = require('./api/routers/readFile');
 
 const manage_branches_router = require('./routers/suppliers/branches');

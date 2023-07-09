@@ -1,21 +1,20 @@
 
 const { postData, getData } = require('../../services/axios')
-const { logToFile } = require('../../services/loggerPnini')
+const { logToFile } = require('../../services/logger/logTxt')
 async function insert(data, tableName) {
     let obj = {}
     obj['tableName'] = tableName
     obj['values'] = data
     obj['columns'] = '*'
+    let object={}
     try {
-        let object = {
+        object = {
             name: 'addPriceList',
             description: 'insert in module',
             dataThatRecived: data
         }
-
         logToFile(object)
         const result = await postData('/create/create', obj)
-        console.log({result});
         return result;
     }
     catch (error) {
