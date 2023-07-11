@@ -12,18 +12,20 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        console.log(req.body)
-        const response = await insertFinishProduct(req.body,'FinishProducts')
-        console.log({response});
-        if (response===true)
+        const response = await insertFinishProduct(req.body, 'FinishProducts')
+        if (response === true)
             res.status(201).send(response)
-        else 
+        else
             res.status(500).send(response)
     }
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
-        res.status(500).send(error.message)
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
+
     }
 })
 
@@ -56,15 +58,14 @@ router.post('/find', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find product in router',
-        dataThatRecived: req.body
+        arr: req.body.arr,
+        condition: req.body.where
     }
     logToFile(objectForLog)
     try {
-        const response = await findFinishProduct(req.body.arr, req.body.where,'FinishProducts')
-        if (response)
-            res.status(200).send(response)
-        else
-            res.status(500).send(response)
+        const response = await findFinishProduct(req.body.arr, req.body.where, 'FinishProducts')
+        res.status(200).send(response)
+
     }
     catch (error) {
         objectForLog.error = error.message

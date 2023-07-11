@@ -1,1712 +1,246 @@
 next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:31:36  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: lllll, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:33:34  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: lllll, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'find' : Sun Jul 09 2023 - 19:34:16  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:08:17  
         
 description: find product in router
         
-dataThatRecived: 
-Enabled: true, 
-
-
+condition: [object Object]
+----------------------------------
+last time login in the action 'find' : Tue Jul 11 2023 - 17:08:17  
+        
+description: find finish products 
+        
+project: *
 ----------------------------------
 next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:54:59  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:54:59  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:55:39  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:55:39  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:55:57  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:55:57  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:56:30  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:56:30  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:57:08  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:57:08  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:57:39  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:57:39  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:58:21  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:58:21  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'values')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 19:59:15  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 19:59:15  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:01:26  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:01:26  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:01:42  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:01:42  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:02:19  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:02:19  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:04:20  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:04:20  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:06:56  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:06:56  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:07:26  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: rrrrr, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:07:26  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:08:28  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:08:28  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:10:58  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:10:58  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:12:40  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:12:40  
-        
-description: insert product in router
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:13:34  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:13:34  
-        
-description: insert product in router
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:14:40  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:14:40  
-        
-description: insert product in router
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:15:00  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:15:00  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:17:16  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:17:16  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:18:33  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:18:34  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:19:04  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:19:04  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:19:44  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:19:44  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:21:30  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:21:30  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:22:18  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:22:19  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:24:06  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:24:06  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Sun Jul 09 2023 - 20:25:08  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Sun Jul 09 2023 - 20:25:08  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 10:41:45  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 10:41:46  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 10:44:08  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: 1, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 10:44:09  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 10:45:46  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 10:45:46  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 10:47:52  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'find' : Tue Jul 11 2023 - 10:53:35  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:08:39  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+condition: [object Object]
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 10:54:10  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:08:39  
+        
+description: find finish products 
+        
+project: *
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:09:47  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+condition: [object Object]
+----------------------------------
+last time login in the action 'find' : Tue Jul 11 2023 - 17:09:47  
+        
+description: find finish products 
+        
+project: *
 ----------------------------------
 next function:
-last time login in the action 'find' : Tue Jul 11 2023 - 11:29:18  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:10:51  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+condition: [object Object]condition :{{"Enabled":1}} 
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:29:18  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:10:51  
+        
+description: find finish products 
+        
+project: *
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:11:46  
         
 description: find product in router
         
-error: obj is not defined
+condition: [object Object]{condition :{"Enabled":1}} 
+ 
+----------------------------------
+last time login in the action 'find' : Tue Jul 11 2023 - 17:11:46  
+        
+description: find finish products 
+        
+project: *
 ----------------------------------
 next function:
-last time login in the action 'find' : Tue Jul 11 2023 - 11:30:19  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:12:47  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+condition: arr :{{"Name":1}} condition :{{"Enabled":1}} 
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:30:19  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:12:47  
+        
+description: find finish products 
+        
+project: 
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:15:00  
         
 description: find product in router
         
-error: obj is not defined
+arr :{{"Name":1}} condition :{{"Enabled":1}} 
 ----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:38:23  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:15:00  
         
-description: insert product in router
+description: find finish products 
         
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
 
 ----------------------------------
 next function:
-last time login in the action 'find' : Tue Jul 11 2023 - 11:40:46  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:17:00  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: arr :{{"Name":1}} condition :{{"Enabled":1}} 
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:40:52  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:17:00  
+        
+description: find finish products 
+        
+data: 
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:18:26  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: arr :{"Name":1} condition :{"Enabled":1} 
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:40:52  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:18:26  
+        
+description: find finish products 
+        
+data: 
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:19:07  
         
 description: find product in router
         
-error: read ECONNRESET
+data: {arr :{"Name":1} condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:41:19  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:19:07  
+        
+description: find finish products 
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:20:49  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {arr :{"Name":1} condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:41:19  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:20:49  
+        
+description: find finish products 
+        
+data: {}
+----------------------------------
+last time login in the action 'find' : Tue Jul 11 2023 - 17:21:23  
         
 description: find product in router
         
-error: connect ECONNREFUSED 127.0.0.1:1313
+data: {arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:43:24  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:21:23  
+        
+description: find finish products 
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:22:42  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:43:32  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:22:42  
+        
+description: find finish products 
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:24:20  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:43:41  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:24:20  
+        
+description: find finish products 
+        
+data: {*}
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:26:03  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {[object Object]arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:43:53  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:26:03  
+        
+description: find finish products 
+        
+data: {*}
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:45:32  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {name :find description :find product in router arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:44:06  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:45:32  
+        
+description: find finish products 
+        
+data: {name :find description :find finish products  filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:47:37  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 11:44:06  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:47:37  
+        
+description: find finish products 
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 11 2023 - 17:52:05  
         
 description: find product in router
         
-error: read ECONNRESET
+data: {arr :undefined condition :{"Enabled":1} }
 ----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:46:36  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:52:05  
         
-description: insert product in router
+description: find finish products 
         
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
+data: {filter :Enabled='1' project :* }
 ----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:49:25  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:52:41  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:54:21  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:55:52  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 11:55:52  
-        
-description: insert product in router
-        
-error: BookkeepingCode is not defined
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:57:21  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 11:57:21  
-        
-description: insert product in router
-        
-error: BookkeepingCode is not defined
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:57:46  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:58:43  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:59:21  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 11:59:46  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: BuytonWow, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'find' : Tue Jul 11 2023 - 12:12:45  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:52:54  
         
 description: find product in router
         
-dataThatRecived: 
-where: [object Object], 
-
-
+data: {arr :["Name"] condition :{"Enabled":1} }
 ----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:12:54  
+last time login in the action 'find' : Tue Jul 11 2023 - 17:52:54  
         
-description: find product in router
+description: find finish products 
         
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:12:54  
-        
-description: find product in router
-        
-error: read ECONNRESET
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:21  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:21  
-        
-description: find product in router
-        
-error: connect ECONNREFUSED 127.0.0.1:1313
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:23  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:23  
-        
-description: find product in router
-        
-error: connect ECONNREFUSED 127.0.0.1:1313
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:25  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:25  
-        
-description: find product in router
-        
-error: connect ECONNREFUSED 127.0.0.1:1313
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:13:42  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:14:06  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:14:17  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:14:30  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:24:42  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:24:42  
-        
-description: find product in router
-        
-error: read ECONNRESET
-----------------------------------
-next function:
-last time login in the action 'find' : Tue Jul 11 2023 - 12:32:41  
-        
-description: find product in router
-        
-dataThatRecived: 
-where: [object Object], 
-
-
-----------------------------------
-last time login in the action 'find' : Tue Jul 11 2023 - 12:32:41  
-        
-description: find product in router
-        
-error: connect ECONNREFUSED 127.0.0.1:1313
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:22:12  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:22:30  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: ddddd, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:22:30  
-        
-description: insert product in router
-        
-error: Cannot read properties of undefined (reading 'Id')
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:24:15  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: ddddd, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:24:15  
-        
-description: insert product in router
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:24:22  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:25:30  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: seawqe, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:27:34  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: seawqe, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:28:40  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: seawqe, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:28:50  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: seawqe, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:31:15  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: seawqe, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:31:22  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:32:29  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:33:33  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:35:08  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:35:30  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:36:16  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:38:08  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:38:18  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: gdfg, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:38:41  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: gdfg, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:38:48  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: iygty, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:39:30  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: true, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:39:30  
-        
-description: insert product in router
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:40:11  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: true, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:40:11  
-        
-description: insert product in router
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'create' : Tue Jul 11 2023 - 14:41:34  
-        
-description: insert product in router
-        
-dataThatRecived: 
-Name: true, 
-UnitOfMeasure: mmm, 
-BookkeepingCode: 1234, 
-
-
-----------------------------------
-last time login in the action 'create' : Tue Jul 11 2023 - 14:41:34  
-        
-description: insert product in router
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:48:44  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: ppp, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:48:44  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: ppp, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:48:58  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:48:58  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:51:54  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:51:54  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:51:54  
-        
-description: insert in module
-        
-error: 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:51:54  
-        
-description: addPriceList in router- in try
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:53:59  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:53:59  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:54:00  
-        
-description: insert in module
-        
-error: 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:54:00  
-        
-description: addPriceList in router- in try
-        
-error: 
-
-
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:54:31  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:54:31  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: true, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:54:31  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:54:31  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:57:24  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:57:24  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:57:24  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:57:24  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:58:08  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:58:08  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:58:08  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:58:08  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:59:28  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:59:28  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:59:28  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 14:59:28  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:00:01  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:00:01  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:00:02  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:00:02  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:02:33  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:02:34  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:02:34  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:02:34  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
-----------------------------------
-next function:
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:03:01  
-        
-description: addPriceList in router- in try
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:03:01  
-        
-description: insert in module
-        
-dataThatRecived: 
-Name: null, 
-Pumps: true, 
-Beton: false, 
-UserName: UserName, 
-
-
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:03:01  
-        
-description: insert in module
-        
-error: Request failed with status code 500
-----------------------------------
-last time login in the action 'addPriceList' : Tue Jul 11 2023 - 15:03:01  
-        
-description: addPriceList in router- in try
-        
-error: Request failed with status code 500
+data: {filter :Enabled='1' project :Name }
 ----------------------------------

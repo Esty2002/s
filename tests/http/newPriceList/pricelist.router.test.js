@@ -1,5 +1,5 @@
 const request = require('supertest');
-const { app } = require('../../app')
+const { app } = require('../../../app')
 
 // const { insert} = require('../../modules/pricelist/insertPricelist')
 jest.mock('../../modules/pricelist/insertPricelist', () => {

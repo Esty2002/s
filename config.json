@@ -108,6 +108,12 @@
                                         "required": "",
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
+                                },
+                                "arr": {
+                                    "type": "array:string",
+                                    "example": ["Name"],
+                                    "required":false,
+                                    "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
                             "response": [
@@ -227,6 +233,12 @@
                                         "required": "",
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
+                                },
+                                "arr": {
+                                    "type": "array:string",
+                                    "example": ["Name"],
+                                    "required":false,
+                                    "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
                             "response": [
@@ -443,6 +455,12 @@
                                         "required": "",
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
+                                },
+                                "arr": {
+                                    "type": "array:string",
+                                    "example": ["Name"],
+                                    "required":false,
+                                    "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
                             "response": [

@@ -3,6 +3,7 @@ const { getData, postData } = require('../../services/axios')
 const { SQL_FINISH_PRODUCTS_TABLE } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
+const { logToFile } = require('../../services/logger/logTxt')
 
 const values = [
     {
@@ -24,21 +25,36 @@ const values = [
 ]
 
 async function insertFinishProduct(obj, tableName) {
+    let objectForLog = {
+        name: 'create',
+        description: 'insert product in module',
+        obj: obj,
+        tableName: tableName
+    }
+    logToFile(objectForLog)
+
     const checkValidObj = values.find(({ entity }) => tableName === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
-        _= await checkObjectValidations(newObj.values, checkValidObj.entity)
+        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
         obj = newObj.values
     }
+
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     const { error } = measure
     if (error)
         return error;
     obj.UnitOfMeasure = measure
-    const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
-    if (response.data)
-        return true
-    return false
+    try {
+        const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+        if (response.data)
+            return true
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
 }
 
 async function updateFinishProduct(obj) {
@@ -62,15 +78,28 @@ async function findFinishProduct(project = [], filter = {}) {
 
     let columnsStr = project.length > 0 ? project.join(',') : '*'
     let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+
+    let objForLog = {
+        name: "find",
+        description: "find finish products ",
+        filter: conditionStr,
+        project: columnsStr
+    }
+    logToFile(objForLog)
+    
     const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
-    if (response) {
+    try {
         for (const finish of response.data)
             if (Object.keys(finish).includes('UnitOfMeasure'))
                 finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
         return response.data
     }
-    else
-        return false
+    catch (error) {
+        objForLog.error = error.message
+        logToFile(objForLog)
+        throw error
+    }
+
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

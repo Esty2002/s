@@ -17,10 +17,13 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         res.status(result.status).send(result.data);
     }
     catch (error) {
-        object.error=error.message
+        object.error = error.message
         logToFile(object)
-        console.log({object});
-        res.status(500).send(error.message)
+        console.log({ object });
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message);
     }
 })
 //tbl_CitiesAdditions

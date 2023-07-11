@@ -1,10 +1,11 @@
 const { getData, sqlServer } = require("../axios");
 
 const required = (value = null) => {
+    console.log('throooo');
     if (value) {
         return true;
     }
-    return false;
+    throw new Error(`the value ${value} is required`);
 };
 
 const dateType = (date) => {
