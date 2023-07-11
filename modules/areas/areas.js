@@ -35,9 +35,8 @@ async function findAllCities() {
     const found = await postData('/read/find', {
         collection: "areas",
         filter: { $and: [{ type: 'city' }, { $or: [{ disabled: { $exist: false } }, { disabled: false }] }] }
-    }
-    )
-    return found
+    })
+    return found;
 }
 
 async function insertArea(obj = {}) {
