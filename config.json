@@ -1,0 +1,2478 @@
+{
+    "obj": [
+        {
+            "directory": "products",
+            "documents": [
+                {
+                    "document": "additions",
+                    "functions": [
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "Name": {
+                                    "jsType": "string",
+                                    "example": "Buyton",
+                                    "required": true,
+                                    "description": "Send the name for the new addition"
+                                },
+                                "UnitOfMeasure": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the unit of measure for the new addition. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                },
+                                "BookkeepingCode": {
+                                    "jsType": "string",
+                                    "example": "1234",
+                                    "required": false,
+                                    "description": "Send the book keeping code for the new addition"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "delete",
+                            "arguments": {
+                                "Id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "You are aloud to send any of the headers in this table instead of Id"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "update": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "jsType": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "Send the new name"
+                                    },
+                                    "UnitOfMeasure": {
+                                        "jsType": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    },
+                                    "BookkeepingCode": {
+                                        "jsType": "string",
+                                        "example": "1234",
+                                        "required": "",
+                                        "description": "Send the new book keeping code"
+                                    }
+                                },
+                                "where": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "jsType": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Name"
+                                    }
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "find",
+                            "arguments": {
+                                "where": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Enabled": 1
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Enabled": {
+                                        "jsType": "bit",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
+                                    }
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "date",
+                                    "Enabled": "boolean",
+                                    "DeleteDate": "date"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "document": "finishProducts",
+                    "functions": [
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "Name": {
+                                    "jsType": "string",
+                                    "example": "Buyton",
+                                    "required": "",
+                                    "description": "Send the name for the new finished product"
+                                },
+                                "UnitOfMeasure": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send the unit of measure for the new finished product. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                },
+                                "BookkeepingCode": {
+                                    "jsType": "string",
+                                    "example": "1234",
+                                    "required": "",
+                                    "description": "Send the book keeping code for the new finished product"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "update": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "jsType": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "Send the new name"
+                                    },
+                                    "UnitOfMeasure": {
+                                        "jsType": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    },
+                                    "BookkeepingCode": {
+                                        "jsType": "string",
+                                        "example": "1234",
+                                        "required": "",
+                                        "description": "Send the new book keeping code"
+                                    }
+                                },
+                                "where": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Name": "Buyton"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "jsType": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Name"
+                                    }
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "delete",
+                            "arguments": {
+                                "Id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the Id of the row wich you want to delete. You are aloud to send any of the headers in this table instead of Id"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "find",
+                            "arguments": {
+                                "where": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Enabled": 1
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Enabled": {
+                                        "jsType": "bit",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
+                                    }
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1,
+                                    "Name": "string",
+                                    "UnitOfMeasure": 1,
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "2023-06-29T14:11:55.423Z",
+                                    "Enabled": true,
+                                    "DeleteDate": null
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "document": "productsCombinations",
+                    "functions": [
+                        {
+                            "key": "insertRow",
+                            "arguments": {
+                                "parent": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "child": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "disable": {
+                                    "jsType": "boolean",
+                                    "example": false,
+                                    "required": "",
+                                    "description": "Each row is seposed to be false in the begining. When you want to delete, send true"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": {
+                                        "jsType": "int",
+                                        "required": "",
+                                        "description": ""
+                                    }
+                                }
+                            ]
+                        },
+                        {
+                            "key": "readAll",
+                            "arguments": "",
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "ParentId": "int",
+                                    "ChildId": "int",
+                                    "Disable": "boolean"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "deleteItem",
+                            "arguments": {
+                                "Id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Disable": {
+                                    "jsType": "boolean",
+                                    "example": true,
+                                    "required": "",
+                                    "description": "Each row is seposed to be true in the begining. When you want to delete, send false"
+                                }
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    "int"
+                                ]
+                            }
+                        },
+                        {
+                            "key": "updateNames",
+                            "arguments": {
+                                "idP": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "idC": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "parent": {
+                                    "jsType": "object",
+                                    "required": "",
+                                    "description": "",
+                                    "value": {
+                                        "jsType": "string",
+                                        "example": "pump",
+                                        "required": "",
+                                        "description": "A pump Name"
+                                    },
+                                    "id": {
+                                        "jsType": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": ""
+                                    }
+                                },
+                                "child": {
+                                    "value": {
+                                        "jsType": "string",
+                                        "example": "pump",
+                                        "required": "",
+                                        "description": ""
+                                    },
+                                    "id": {
+                                        "jsType": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": ""
+                                    }
+                                },
+                                "disable": {
+                                    "jsType": "boolean",
+                                    "example": true,
+                                    "required": "",
+                                    "description": "Each row is seposed to be true in the begining. When you want to delete, send false"
+                                }
+                            },
+                            "response": ""
+                        }
+                    ]
+                },
+                {
+                    "document": "pumps",
+                    "functions": [
+                        {
+                            "key": "pumpNameById",
+                            "arguments": {
+                                "id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send the Id of the row wich you want to filter"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "Addition": "boolean",
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "date",
+                                    "Enabled": "boolean",
+                                    "DeleteDate": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "Name": {
+                                    "jsType": "string",
+                                    "example": "Buyton",
+                                    "required": "",
+                                    "description": "Send the name for the new pump"
+                                },
+                                "UnitOfMeasure": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send the unit of measure for the new pump. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                },
+                                "Addition": {
+                                    "jsType": "bit",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send 1 if the new pump is an ascendant and 0 if it's an addition of an other pump"
+                                },
+                                "BookkeepingCode": {
+                                    "jsType": "string",
+                                    "example": "1234",
+                                    "required": "",
+                                    "description": "Send the book keeping code for the new pump"
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "find",
+                            "arguments": {
+                                "where": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Enabled": 1
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Enabled": {
+                                        "jsType": "bit",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
+                                    }
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Name": "string",
+                                    "UnitOfMeasure": "int",
+                                    "Addition": "boolean",
+                                    "BookkeepingCode": "string",
+                                    "AddedDate": "date",
+                                    "Enabled": "boolean",
+                                    "DeleteDate": "date"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "update": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234",
+                                        "Addition": true
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "jsType": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "Send the new name"
+                                    },
+                                    "UnitOfMeasure": {
+                                        "jsType": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    },
+                                    "BookkeepingCode": {
+                                        "jsType": "string",
+                                        "example": "1234",
+                                        "required": "",
+                                        "description": "Send the new book keeping code"
+                                    },
+                                    "Addition": {
+                                        "jsType": "boolean",
+                                        "example": true,
+                                        "required": "",
+                                        "description": "Send the new type of pump - ascendant or addition of pump"
+                                    }
+                                },
+                                "where": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "Id": 1
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Id": {
+                                        "jsType": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Id"
+                                    }
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "delete",
+                            "arguments": {
+                                "Id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send the Id of the row wich you want to delete"
+                                }
+                            },
+                            "response": "boolean"
+                        }
+                    ]
+                },
+                {
+                    "document": "unitOfMeasure",
+                    "functions": [
+                        {
+                            "key": "deleteItem",
+                            "arguments": {
+                                "Id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the Id of the row wich you want to delete"
+                                },
+                                "Disable": {
+                                    "jsType": "boolean",
+                                    "example": true,
+                                    "required": false,
+                                    "description": "If you don't send this argument - it will be true by defualt"
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "findMeasureName",
+                            "arguments": {
+                                "id": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int",
+                                    "Measure": "string",
+                                    "Disable": "boolean"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "findMeasureId",
+                            "arguments": {
+                                "name": {
+                                    "jsType": "string",
+                                    "example": "Measure",
+                                    "required": true,
+                                    "description": "Send as query string the Name wich it's Id you are looking for."
+                                }
+                            },
+                            "response": "int"
+                        },
+                        {
+                            "key": "create",
+                            "arguments": {
+                                "new": {
+                                    "jsType": "string",
+                                    "example": "Measure",
+                                    "required": true,
+                                    "description": "send the name for the new row."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": "int"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "prev": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "change": ""
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "change": {
+                                        "jsType": "",
+                                        "example": "",
+                                        "required": "",
+                                        "description": "Not uptodated"
+                                    }
+                                },
+                                "new": {
+                                    "jsType": "object",
+                                    "example": {
+                                        "change": ""
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "change": {
+                                        "jsType": "",
+                                        "example": "",
+                                        "required": "",
+                                        "description": "Not uptodated"
+                                    }
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "all",
+                            "arguments": "",
+                            "response": [
+                                {
+                                    "Id": 1,
+                                    "Measure": "maaa",
+                                    "Disable": true
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "clients",
+            "documents": [
+                {
+                    "document": "createClient",
+                    "functions": [
+                        {
+                            "key": "addOneClient",
+                            "arguments": {
+                                "ClientCode": {
+                                    "jsType": "string",
+                                    "example": "1144",
+                                    "required": "",
+                                    "description": "clientcode"
+                                },
+                                "ClientName": {
+                                    "jsType": "string",
+                                    "example": "chana",
+                                    "required": "",
+                                    "description": "the name of client"
+                                },
+                                "PrivaetCompanyNumber": {
+                                    "jsType": "string",
+                                    "example": "45864",
+                                    "required": "",
+                                    "description": "PrivaetCompanyNumber"
+                                },
+                                "BookkeepingNumber": {
+                                    "jsType": "string",
+                                    "example": "2121",
+                                    "required": "",
+                                    "description": "BookkeepingNumber"
+                                },
+                                "DestinationBank": {
+                                    "jsType": "string",
+                                    "example": "3256445",
+                                    "required": "",
+                                    "description": "DestinationBank"
+                                },
+                                "PaymentTermsFluent": {
+                                    "jsType": "string",
+                                    "example": "45454",
+                                    "required": "",
+                                    "description": "PaymentTermsFluent"
+                                },
+                                "PreferredPaymentDate": {
+                                    "jsType": "date",
+                                    "example": "01/02/2023",
+                                    "required": "",
+                                    "description": "PreferredPaymentDate"
+                                },
+                                "Ovligo": {
+                                    "jsType": "int",
+                                    "example": "3",
+                                    "required": "",
+                                    "description": "Ovligo"
+                                },
+                                "ReceiptIssueTerm": {
+                                    "jsType": "string",
+                                    "example": "78554",
+                                    "required": "",
+                                    "description": "ReceiptIssueTerm"
+                                },
+                                "ReceiptCentralism": {
+                                    "jsType": "string",
+                                    "example": "42533",
+                                    "required": "",
+                                    "description": "ReceiptCentralism"
+                                },
+                                "AccountantClassifiedCode": {
+                                    "jsType": "int",
+                                    "example": "12",
+                                    "required": "",
+                                    "description": "AccountantClassifiedCode"
+                                },
+                                "Status": {
+                                    "jsType": "int",
+                                    "example": "1",
+                                    "required": "",
+                                    "description": "status"
+                                },
+                                "Description": {
+                                    "jsType": "string",
+                                    "example": "the bank is:",
+                                    "required": "",
+                                    "description": "Description"
+                                },
+                                "Street": {
+                                    "jsType": "string",
+                                    "example": "chalafta",
+                                    "required": "",
+                                    "description": "street"
+                                },
+                                "House": {
+                                    "jsType": "int",
+                                    "example": 10,
+                                    "required": "",
+                                    "description": "house"
+                                },
+                                "City": {
+                                    "jsType": "string",
+                                    "example": "ashdod",
+                                    "required": "",
+                                    "description": "city"
+                                },
+                                "ZipCode": {
+                                    "jsType": "string",
+                                    "example": "12345",
+                                    "required": "",
+                                    "description": "ZipCode"
+                                },
+                                "Telephone1": {
+                                    "jsType": "string",
+                                    "example": "0583286455",
+                                    "required": "",
+                                    "description": "the telephone1 "
+                                },
+                                "Telephone2": {
+                                    "jsType": "string",
+                                    "example": "0533110452",
+                                    "required": "",
+                                    "description": "the telephone2 "
+                                },
+                                "MobilePhone": {
+                                    "jsType": "string",
+                                    "example": "088647725",
+                                    "required": "",
+                                    "description": "MobilePhone"
+                                },
+                                "Fax": {
+                                    "jsType": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Email": {
+                                    "jsType": "string",
+                                    "example": "l088645254@gmail.com",
+                                    "required": "",
+                                    "description": "email"
+                                },
+                                "Comments": {
+                                    "jsType": "string",
+                                    "example": "g fg",
+                                    "required": "",
+                                    "description": "Comments"
+                                },
+                                "CreationDate": {
+                                    "jsType": "string",
+                                    "example": "01/05/2023",
+                                    "required": "",
+                                    "description": "CreationDate"
+                                },
+                                "UserThatAdd": {
+                                    "jsType": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": "UserThatAdd"
+                                }
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    "object"
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "deleteclients",
+                    "functions": [
+                        {
+                            "key": "deleteClient",
+                            "arguments": {
+                                "code": {
+                                    "jsType": "string",
+                                    "example": "4577",
+                                    "required": "",
+                                    "description": "clientCode"
+                                },
+                                "user": {
+                                    "jsType": "string",
+                                    "example": "tbl_clients",
+                                    "required": "",
+                                    "description": "userName"
+                                }
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    1
+                                ]
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "readClient",
+                    "functions": [
+                        {
+                            "key": "getAll",
+                            "arguments": {
+                                "jsType": "object",
+                                "required": "",
+                                "description": "get all the clients"
+                            },
+                            "response": {}
+                        },
+                        {
+                            "key": "findClient",
+                            "arguments": {
+                                "id": {
+                                    "jsType": "string",
+                                    "example": "1235460",
+                                    "required": "",
+                                    "description": "id"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "clientCode": "156",
+                                    "ClientName": "peri",
+                                    "PrivaetCompanyNumber": "124554",
+                                    "BookkeepingNumber": "8555",
+                                    "DestinationBank": "1455",
+                                    "PaymentTermsFluent": "56",
+                                    "PreferredPaymentDate": "01/05/2023",
+                                    "Ovligo": 4,
+                                    "ReceiptIssueTerm": "46",
+                                    "ReceiptCentralism": "612",
+                                    "AccountantClassifiedCode": 1,
+                                    "Status": 3,
+                                    "Description": "fzdsf",
+                                    "Street": "ben yair",
+                                    "House": 14,
+                                    "City": "arad",
+                                    "ZipCode": "1234",
+                                    "Telephone1": "0583224511",
+                                    "Telephone2": "0583286511",
+                                    "MobilePhone": "088647798",
+                                    "Fax": "088647798",
+                                    "Email": "fd2656@.gmail.com",
+                                    "Comments": "czx czx"
+                                },
+                                {
+                                    "clientCode": "156",
+                                    "ClientName": "dina",
+                                    "PrivaetCompanyNumber": "12444",
+                                    "BookkeepingNumber": "8555",
+                                    "DestinationBank": "1455",
+                                    "PaymentTermsFluent": "56",
+                                    "PreferredPaymentDate": "01/05/2023",
+                                    "Ovligo": 4,
+                                    "ReceiptIssueTerm": "46",
+                                    "ReceiptCentralism": "612",
+                                    "AccountantClassifiedCode": 1,
+                                    "Status": 3,
+                                    "Description": "fzdsf",
+                                    "Street": "ben yair",
+                                    "House": 14,
+                                    "City": "arad",
+                                    "ZipCode": "1234",
+                                    "Telephone1": "0583224511",
+                                    "Telephone2": "0583286511",
+                                    "MobilePhone": "088647798",
+                                    "Fax": "088647798",
+                                    "Email": "fd2656@.gmail.com",
+                                    "Comments": "czx czx"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "searchClient",
+                            "arguments": {
+                                "field": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "example": "clientName",
+                                    "description": "the field"
+                                },
+                                "value": {
+                                    "jsType": "string",
+                                    "example": "sara",
+                                    "required": "",
+                                    "description": "the value of"
+                                }
+                            },
+                            "response": {
+                                "ClientCode": "miri",
+                                "ClientName": "111",
+                                "PrivaetCompanyNumber": "124554",
+                                "BookkeepingNumber": "8555",
+                                "DestinationBank": "1455",
+                                "PaymentTermsFluent": "56",
+                                "PreferredPaymentDate": "01/05/2023",
+                                "Ovligo": 4,
+                                "ReceiptIssueTerm": "46",
+                                "ReceiptCentralism": "612",
+                                "AccountantClassifiedCode": 1,
+                                "Status": 3,
+                                "Description": "fzdsf",
+                                "Street": "ben yair",
+                                "House": 14,
+                                "City": "arad",
+                                "ZipCode": "1234",
+                                "Telephone1": "0583224511",
+                                "Telephone2": "0583286511",
+                                "MobilePhone": "088647798",
+                                "Fax": "088647798",
+                                "Email": "fd2656@.gmail.com",
+                                "Comments": "czx czx"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "updateClient",
+                    "functions": [
+                        {
+                            "key": "update",
+                            "arguments": {
+                                "ClientCode": {
+                                    "jsType": "string",
+                                    "example": "1144",
+                                    "required": "",
+                                    "description": "clientcode"
+                                },
+                                "ClientName": {
+                                    "jsType": "string",
+                                    "example": "chana",
+                                    "required": "",
+                                    "description": "the name of client"
+                                },
+                                "PrivaetCompanyNumber": {
+                                    "jsType": "string",
+                                    "example": "2222",
+                                    "required": "",
+                                    "description": "PrivaetCompanyNumber"
+                                },
+                                "BookkeepingNumber": {
+                                    "jsType": "string",
+                                    "example": "2121",
+                                    "required": "",
+                                    "description": "BookkeepingNumber"
+                                },
+                                "DestinationBank": {
+                                    "jsType": "string",
+                                    "example": "3256445",
+                                    "required": "",
+                                    "description": "DestinationBank"
+                                },
+                                "PaymentTermsFluent": {
+                                    "jsType": "string",
+                                    "example": "45454",
+                                    "required": "",
+                                    "description": "PaymentTermsFluent"
+                                },
+                                "PreferredPaymentDate": {
+                                    "jsType": "date",
+                                    "example": "01/02/2023",
+                                    "required": "",
+                                    "description": "PreferredPaymentDate"
+                                },
+                                "Ovligo": {
+                                    "jsType": "int",
+                                    "example": "3",
+                                    "required": "",
+                                    "description": "Ovligo"
+                                },
+                                "ReceiptIssueTerm": {
+                                    "jsType": "string",
+                                    "example": "78554",
+                                    "required": "",
+                                    "description": "ReceiptIssueTerm"
+                                },
+                                "ReceiptCentralism": {
+                                    "jsType": "string",
+                                    "example": "42533",
+                                    "required": "",
+                                    "description": "ReceiptCentralism"
+                                },
+                                "AccountantClassifiedCode": {
+                                    "jsType": "int",
+                                    "example": "12",
+                                    "required": "",
+                                    "description": "AccountantClassifiedCode"
+                                },
+                                "Status": {
+                                    "jsType": "int",
+                                    "example": "1",
+                                    "required": "",
+                                    "description": "status"
+                                },
+                                "Description": {
+                                    "jsType": "string",
+                                    "example": "the bank is:",
+                                    "required": "",
+                                    "description": "Description"
+                                },
+                                "Street": {
+                                    "jsType": "string",
+                                    "example": "chalafta",
+                                    "required": "",
+                                    "description": "street"
+                                },
+                                "House": {
+                                    "jsType": "int",
+                                    "example": 10,
+                                    "required": "",
+                                    "description": "house"
+                                },
+                                "City": {
+                                    "jsType": "string",
+                                    "example": "ashdod",
+                                    "required": "",
+                                    "description": "city"
+                                },
+                                "ZipCode": {
+                                    "jsType": "string",
+                                    "example": "12345",
+                                    "required": "",
+                                    "description": "ZipCode"
+                                },
+                                "Telephone1": {
+                                    "jsType": "string",
+                                    "example": "0583286455",
+                                    "required": "",
+                                    "description": "the telephone1 "
+                                },
+                                "Telephone2": {
+                                    "jsType": "string",
+                                    "example": "0533110452",
+                                    "required": "",
+                                    "description": "the telephone2 "
+                                },
+                                "MobilePhone": {
+                                    "jsType": "string",
+                                    "example": "088647725",
+                                    "required": "",
+                                    "description": "MobilePhone"
+                                },
+                                "Fax": {
+                                    "jsType": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Email": {
+                                    "jsType": "string",
+                                    "example": "l088645254@gmail.com",
+                                    "required": "",
+                                    "description": "email"
+                                },
+                                "Comments": {
+                                    "jsType": "string",
+                                    "example": "g fg",
+                                    "required": "",
+                                    "description": "Comments"
+                                },
+                                "CreationDate": {
+                                    "jsType": "string",
+                                    "example": "01/05/2023",
+                                    "required": "",
+                                    "description": "CreationDate"
+                                },
+                                "UserThatAdd": {
+                                    "jsType": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": "UserThatAdd"
+                                }
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    "object"
+                                ]
+                            }
+                        },
+                        {
+                            "document": "status",
+                            "functions": [
+                                {
+                                    "key": "status",
+                                    "arguments": {
+                                        "jsType": "int",
+                                        "required": "",
+                                        "example": 3,
+                                        "description": "the status"
+                                    },
+                                    "response": 3
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "areas",
+            "documents": [
+                {
+                    "document": "areas",
+                    "functions": [
+                        {
+                            "key": "insertArea",
+                            "arguments": {
+                                "name": {
+                                    "jsType": "string",
+                                    "required": true,
+                                    "example": "ערד",
+                                    "description": "area name"
+                                },
+                                "type": {
+                                    "jsType": "string",
+                                    "required": true,
+                                    "example": "poligon",
+                                    "description": "area type"
+                                },
+                                "disabled": {
+                                    "jsType": "boolean",
+                                    "required": true,
+                                    "example": true,
+                                    "description": "enabled area or not"
+                                },
+                                "addedDate": {
+                                    "jsType": "date",
+                                    "required": true,
+                                    "example": "04/05/2024",
+                                    "description": "added date area"
+                                },
+                                "point": {
+                                    "jsType": "object",
+                                    "required": false,
+                                    "example": {
+                                        "lat": 111.4545,
+                                        "lng": 45.554
+                                    },
+                                    "description": "indication area by point",
+                                    "lat": {
+                                        "jsType": "double",
+                                        "required": true,
+                                        "example": 111.4545,
+                                        "description": "latitude of the point"
+                                    },
+                                    "lng": {
+                                        "jsType": "double",
+                                        "required": true,
+                                        "example": 345.554,
+                                        "description": "longitude of the point"
+                                    }
+                                },
+                                "radius": {
+                                    "jsType": "int",
+                                    "required": false,
+                                    "example": 3,
+                                    "description": "indication area by point and radius"
+                                },
+                                "basicName": {
+                                    "jsType": "string",
+                                    "required": false,
+                                    "example": "Ashdod",
+                                    "description": "basic name of area from google maps"
+                                },
+                                "placeId": {
+                                    "jsType": "string",
+                                    "required": false,
+                                    "example": "4f5545dfd57g8ghf",
+                                    "description": "place id of point from google maps"
+                                },
+                                "placesId": {
+                                    "jsType": "array:string",
+                                    "required": false,
+                                    "example": [
+                                        "jhhg45j4h5j"
+                                    ],
+                                    "description": "places id array of points array from google maps"
+                                },
+                                "points": {
+                                    "jsType": "array:object",
+                                    "required": false,
+                                    "example": [
+                                        {
+                                            "lat": 55.55,
+                                            "lng": 7897.454584
+                                        }
+                                    ],
+                                    "description": "places id array of points array from google maps",
+                                    "lat": {
+                                        "jsType": "double",
+                                        "required": true,
+                                        "example": 123.456,
+                                        "description": "latitude of the point"
+                                    },
+                                    "lng": {
+                                        "jsType": "double",
+                                        "required": true,
+                                        "example": 250.24525,
+                                        "description": "longitude of the point"
+                                    }
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "findAreas",
+                            "arguments": {
+                                "filter": {
+                                    "jsType": "object",
+                                    "required": false,
+                                    "description": "area name",
+                                    "name": {
+                                        "jsType": "string",
+                                        "required": false,
+                                        "example": "ערד",
+                                        "description": "area name, This is an example of a variable that can be sent as a filter condition. Additional variables can be sent."
+                                    },
+                                    "disabled": {
+                                        "jsType": "boolean",
+                                        "required": false,
+                                        "example": true,
+                                        "description": "enabled area or not, This is an example of a variable that can be sent as a filter condition. Additional variables can be sent."
+                                    }
+                                }
+                            },
+                            "response": "the response that request"
+                        },
+                        {
+                            "key": "searchAreas",
+                            "arguments": {
+                                "city": {
+                                    "jsType": "strig",
+                                    "required": true,
+                                    "example": "אשדוד",
+                                    "description": "The selected long city name"
+                                },
+                                "point": {
+                                    "jsType": "object",
+                                    "required": true,
+                                    "example": {
+                                        "lat": 111.4545,
+                                        "lng": 45.554
+                                    },
+                                    "description": "indication area by point",
+                                    "lat": {
+                                        "jsType": "double",
+                                        "required": true,
+                                        "example": 111.4545,
+                                        "description": "latitude of the point"
+                                    },
+                                    "lng": {
+                                        "jsType": "double",
+                                        "required": true,
+                                        "example": 345.554,
+                                        "description": "longitude of the point"
+                                    }
+                                }
+                            },
+                            "response": "the response that request"
+                        },
+                        {
+                            "key": "findAllTypes",
+                            "arguments": {
+                                "collection": {
+                                    "jsType": "string",
+                                    "required": true,
+                                    "example": "areas",
+                                    "description": "collection to search"
+                                },
+                                "field": {
+                                    "jsType": "string",
+                                    "required": true,
+                                    "example": "type",
+                                    "description": "type area"
+                                },
+                                "filter": {
+                                    "jsType": "object",
+                                    "required": true,
+                                    "example": {
+                                        "disabelsd":false
+                                    },
+                                    "description": "area type",
+                                    "disabelsd": {
+                                        "jsType": "boolean",
+                                        "required": true,
+                                        "example": true,
+                                        "description": "enabled area or not"
+                                    }
+                                }
+                            },
+                            "response": "the response that request"
+                        },
+                        {
+                            "key": "updateArea",
+                            "arguments": {
+                                "area":{
+                                    "jsType": "object",
+                                    "required": true,
+                                    "example": {
+                                        "lat": 111.4545,
+                                        "lng": 45.554
+                                    },
+                                    "description": "area detales to update",
+                                    "name": {
+                                        "jsType": "string",
+                                        "required": false,
+                                        "example": "ערד",
+                                        " ": "area name, This is an example of a variable that can be sent as a filter condition. Additional variables can be sent."
+                                    },
+                                    "disabled": {
+                                        "jsType": "boolean",
+                                        "required": false,
+                                        "example": true,
+                                        "description": "enabled area or not, This is an example of a variable that can be sent as a filter condition. Additional variables can be sent."
+                                    }
+                                }
+                            },
+                            "response": "the response that request"
+                        },
+                        {
+                            "key": "deleteArea",
+                            "arguments": {
+                                "name": {
+                                    "jsType": "string",
+                                    "required": true,
+                                    "example": "באר שבע",
+                                    "description": "The name of the area you want to delete"
+                                },
+                                "disabelsd": {
+                                    "jsType": "boolean",
+                                    "required": true,
+                                    "example": true,
+                                    "description": "enabled area or not"
+                                }
+                            },
+                            "response": "the response that request"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "pricelist",
+            "documents": [
+                {
+                    "document": "insertPricelist",
+                    "functions": [
+                        {
+                            "key": "addPriceList",
+                            "arguments": {
+                                "Name": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Pumps": {
+                                    "jsType": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Beton": {
+                                    "jsType": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Disabled": {
+                                    "jsType": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "addCitiesAdditions",
+                            "arguments": {
+                                "PriceListId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AreaId": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "CountPrecent": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": [
+                                "boolean"
+                            ]
+                        },
+                        {
+                            "key": "addTimeAdditions",
+                            "arguments": {
+                                "PriceListId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "CountPrecent": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "DayOfWeek": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "StartDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "EndDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": [
+                                "boolean"
+                            ]
+                        },
+                        {
+                            "key": "addAdditionsForDistance",
+                            "arguments": {
+                                "PriceListId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Distance": {
+                                    "jsType": "float",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "CountPrecent": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "addTruckFill",
+                            "arguments": {
+                                "PriceListId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "TransportDiff": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "MaxTransportDiff": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "addPricesListBySupplierOrClient",
+                            "arguments": {
+                                "PriceListId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "SupplierOrClient": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Debit": {
+                                    "jsType": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Credit": {
+                                    "jsType": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AreaId": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "StartDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "EndDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "addPricelistForProducts",
+                            "arguments": {
+                                "PriceListId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Discount": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "jsType": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Disabled": {
+                                    "jsType": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": "boolean"
+                        },
+                        {
+                            "key": "detailsOfProfucts",
+                            "arguments": {
+                                "tbname": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "updateFieldInTable",
+                            "arguments": {
+                                "id": {
+                                    "jsType": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "tbName": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "getIdForPricelistName",
+                            "arguments": {
+                                "name": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "tablename": {
+                                    "jsType": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": {
+                                "name": "string"
+                            }
+                        }
+                    ]
+                },
+                {
+                    "document": "readPricelist",
+                    "functions": [
+                        {
+                            "key": "findAllPriceList",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByIdSupplierOrClientCode",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByProduct",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForDistance",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForCities",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForTime",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "FindPriceListByAdditionsForTruckFill",
+                            "arguments": "",
+                            "response": ""
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "suppliers",
+            "documents": [
+                {
+                    "document": "branches",
+                    "functions": [
+                        {
+                            "key": "insertbranch",
+                            "arguments": {
+                                "BranchName": {
+                                    "jsType": "string",
+                                    "example": "miriam",
+                                    "required": true,
+                                    "description": "Send the name for the new branch"
+                                },
+                                "City": {
+                                    "jsType": "string",
+                                    "example": "Ashdod",
+                                    "required": true,
+                                    "description": "Send the name of the city for the new branch"
+                                },
+                                "Fax": {
+                                    "jsType": "string",
+                                    "example": "8641898",
+                                    "required": false,
+                                    "description": "Send the fax number of the new branch"
+                                },
+                                "HomeNumber": {
+                                    "jsType": "int",
+                                    "example": 12,
+                                    "required": true,
+                                    "description": "Send the number house of the new branch"
+                                },
+                                "Mail": {
+                                    "jsType": "string",
+                                    "example": "m@gmail.com",
+                                    "required": false,
+                                    "description": "Send the email of the new branch"
+                                },
+                                "Mobile": {
+                                    "jsType": "string",
+                                    "example": "0533112731",
+                                    "required": false,
+                                    "description": "Send the mobile telephone of the new branch"
+                                },
+                                "Phone1": {
+                                    "jsType": "string",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the phone number for the new branch"
+                                },
+                                "Phone2": {
+                                    "jsType": "string",
+                                    "example": 1,
+                                    "required": false,
+                                    "description": "Send the second phone number for the new branch"
+                                },
+                                "Status": {
+                                    "jsType": "int",
+                                    "example": 2,
+                                    "required": true,
+                                    "description": "Send the status of the new branch"
+                                },
+                                "Street": {
+                                    "jsType": "string",
+                                    "example": "ynai",
+                                    "required": true,
+                                    "description": "Send the street name of the new branch"
+                                },
+                                "SupplierCode": {
+                                    "jsType": "string",
+                                    "example": 36341,
+                                    "required": true,
+                                    "description": "Send the supplier code that this branch is him notic! the supplier code must be decleard "
+                                },
+                                "UserThatInsert": {
+                                    "jsType": "string",
+                                    "example": "moshe",
+                                    "required": true,
+                                    "description": "Send the user name that insert this branch"
+                                },
+                                "ZipCode": {
+                                    "jsType": "string",
+                                    "example": "333",
+                                    "required": true,
+                                    "description": "Send the zip code of the new branch"
+                                }
+                            },
+                            "response": {
+                                "Id": 1063
+                            }
+                        },
+                        {
+                            "key": "getallbranches",
+                            "arguments": "",
+                            "response": [
+                                {
+                                    "Id": 1063,
+                                    "SupplierCode": 1017,
+                                    "BranchName": "Miri",
+                                    "Status": 1,
+                                    "Street": "fdsghd",
+                                    "HomeNumber": 5,
+                                    "City": "אשדוד",
+                                    "ZipCode": "543",
+                                    "Phone1": "4135235",
+                                    "Phone2": "24354343",
+                                    "Mobile": "54351435",
+                                    "Fax": "435435",
+                                    "Mail": "43534@4qwr.sfdg",
+                                    "Notes": null,
+                                    "CreationDate": "2023-07-04T13:04:10.747Z",
+                                    "UserThatInsert": "develop",
+                                    "Disabled": false,
+                                    "DisabledDate": null,
+                                    "DisableUser": null
+                                }
+                            ]
+                        },
+                        {
+                            "key": "getBranchesWithCondition",
+                            "arguments": {
+                                "condition": {
+                                    "jsType": "string",
+                                    "example": "SupplierCode",
+                                    "required": true,
+                                    "description": "Send the condition that you need to see the brances - in params"
+                                },
+                                "value": {
+                                    "jsType": "int",
+                                    "example": 1001,
+                                    "required": true,
+                                    "description": "Send the value of the condition - in params"
+                                },
+                                "num": {
+                                    "jsType": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the num 1/0 to display branches or the delete branches - in params"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1020,
+                                    "SupplierCode": 1007,
+                                    "BranchName": "firstbranch",
+                                    "Status": 1,
+                                    "Street": "hyasmin",
+                                    "HomeNumber": 6,
+                                    "City": "אשדוד",
+                                    "ZipCode": "456",
+                                    "Phone1": "64646464",
+                                    "Phone2": null,
+                                    "Mobile": null,
+                                    "Fax": null,
+                                    "Mail": "464646@etr.jhgh",
+                                    "Notes": null,
+                                    "CreationDate": "2023-06-29T13:00:45.880Z",
+                                    "UserThatInsert": "develop",
+                                    "Disabled": true,
+                                    "DisabledDate": "2023-07-02T12:01:58.283Z",
+                                    "DisableUser": "develop"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "deletebrances",
+                            "arguments": {
+                                "BranchName": {
+                                    "jsType": "string",
+                                    "example": "trey",
+                                    "required": true,
+                                    "description": "Send the name of the branch that you need delete"
+                                },
+                                "DisableUser": {
+                                    "jsType": "string",
+                                    "example": "develop",
+                                    "required": false,
+                                    "description": "Send the name of the who delete the branch"
+                                },
+                                "Id": {
+                                    "jsType": "string",
+                                    "example": "1017",
+                                    "required": true,
+                                    "description": "Send the id of the branch that you need delete"
+                                }
+                            },
+                            "response": "I dont knooooooooooooooooooow:("
+                        },
+                        {
+                            "key": "updatebranch",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "checkUnique",
+                            "arguments": {
+                                "SupplierCode": {
+                                    "jsType": "string",
+                                    "example": 1007,
+                                    "required": true,
+                                    "description": "Send the suppliercode that you need check - in params"
+                                },
+                                "BranchName": {
+                                    "jsType": "string",
+                                    "example": "smallbranch",
+                                    "required": true,
+                                    "description": "Send the suppliercode that you need check - in params"
+                                }
+                            },
+                            "response": "I dont knooooooooooooooooooow:("
+                        }
+                    ]
+                },
+                {
+                    "document": "suppliers",
+                    "functions": [
+                        {
+                            "key": "deletesupplier",
+                            "arguments": {
+                                "DisableUser": {
+                                    "jsType": "string",
+                                    "example": "Ari",
+                                    "required": true,
+                                    "description": "Send the user name that delete thesupplier"
+                                },
+                                "Id": {
+                                    "jsType": "string",
+                                    "example": "1051",
+                                    "required": true,
+                                    "description": "Send the supplier id"
+                                },
+                                "SupplierCode": {
+                                    "jsType": "string",
+                                    "example": "1234",
+                                    "required": true,
+                                    "description": "Send the supplier code"
+                                }
+                            },
+                            "response": ""
+                        },
+                        {
+                            "key": "insertsupplier",
+                            "arguments": {
+                                "BookkeepingNumber": {
+                                    "jsType": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send the number of the bookking number of the supplier"
+                                },
+                                "City": {
+                                    "jsType": "string",
+                                    "example": "Arad",
+                                    "required": true,
+                                    "description": "Send city name of the supplier"
+                                },
+                                "ConditionGushyPayment": {
+                                    "jsType": "string",
+                                    "example": "cova",
+                                    "required": false,
+                                    "description": "Send the condition paymanet"
+                                },
+                                "Disabled": {
+                                    "jsType": "int",
+                                    "example": "1",
+                                    "required": false,
+                                    "description": "Send the number 1/0 to dispaly the suppliers or the delete suppliers"
+                                },
+                                "Fax": {
+                                    "jsType": "string",
+                                    "example": "8641898",
+                                    "required": false,
+                                    "description": "Send the fax number of the supplier"
+                                },
+                                "HomeNumber": {
+                                    "jsType": "string",
+                                    "example": "12",
+                                    "required": true,
+                                    "description": "Send the house number of the supplier"
+                                },
+                                "InsertUser": {
+                                    "jsType": "string",
+                                    "example": "develpo",
+                                    "required": true,
+                                    "description": "Send the user name that insert the supplier"
+                                },
+                                "LicensedDealerNumber": {
+                                    "jsType": "string",
+                                    "example": "3456",
+                                    "required": true,
+                                    "description": "Send the license dealer number of the supplier"
+                                },
+                                "Mobile": {
+                                    "jsType": "string",
+                                    "example": "0533112731",
+                                    "required": false,
+                                    "description": "Send the mobile telephone of the supplier"
+                                },
+                                "ObjectiveBank": {
+                                    "jsType": "string",
+                                    "example": "pagi",
+                                    "required": false,
+                                    "description": "Send the bank name of the supplier"
+                                },
+                                "Ovligo": {
+                                    "jsType": "string",
+                                    "example": "12",
+                                    "required": false,
+                                    "description": "Send the ovligo number of the supplier"
+                                },
+                                "Phone1": {
+                                    "jsType": "string",
+                                    "example": "088641898",
+                                    "required": true,
+                                    "description": "Send the first phone number of the supplier"
+                                },
+                                "Phone2": {
+                                    "jsType": "string",
+                                    "example": "088659214",
+                                    "required": false,
+                                    "description": "Send the second phone number of the supplier"
+                                },
+                                "PreferredPaymentDate": {
+                                    "jsType": "string",
+                                    "example": "6",
+                                    "required": true,
+                                    "description": "Send the day in the month  - the prefer paymant date"
+                                },
+                                "Status": {
+                                    "jsType": "string",
+                                    "example": "1",
+                                    "required": true,
+                                    "description": "Send the status of the supplier"
+                                },
+                                "Street": {
+                                    "jsType": "string",
+                                    "example": "tarfon",
+                                    "required": true,
+                                    "description": "Send the street name of the supplier"
+                                },
+                                "SupplierCode": {
+                                    "jsType": "string",
+                                    "example": "1234",
+                                    "required": true,
+                                    "description": "Send the supplier code"
+                                },
+                                "SupplierName": {
+                                    "jsType": "string",
+                                    "example": "Moshe Choen",
+                                    "required": true,
+                                    "description": "Send the name of the supplier"
+                                },
+                                "ZipCode": {
+                                    "jsType": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send zip code of the supplier"
+                                }
+                            },
+                            "response": {
+                                "Id": 1049
+                            }
+                        },
+                        {
+                            "key": "updatesupplier",
+                            "arguments": {
+                                "SupplierCode": {
+                                    "jsType": "string",
+                                    "example": "1234",
+                                    "required": false,
+                                    "description": "Send the supplier code"
+                                },
+                                "SupplierName": {
+                                    "jsType": "string",
+                                    "example": "Rivka shpira",
+                                    "required": false,
+                                    "description": "Send the update name of the supplier"
+                                },
+                                "LicensedDealerNumber": {
+                                    "jsType": "string",
+                                    "example": "23244",
+                                    "required": false,
+                                    "description": "Send the license dealer number of the supplier"
+                                },
+                                "BookkeepingNumber": {
+                                    "jsType": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send the number of the bookking number of the supplier"
+                                },
+                                "ObjectiveBank": {
+                                    "jsType": "string",
+                                    "example": "pagi",
+                                    "required": false,
+                                    "description": "Send the bank name of the supplier"
+                                },
+                                "ConditionGushyPayment": {
+                                    "jsType": "string",
+                                    "example": "cova",
+                                    "required": false,
+                                    "description": "Send the condition paymanet"
+                                },
+                                "PreferredPaymentDate": {
+                                    "jsType": "string",
+                                    "example": "6",
+                                    "required": false,
+                                    "description": "Send the day in the month  - the prefer paymant date"
+                                },
+                                "Ovligo": {
+                                    "jsType": "string",
+                                    "example": "12",
+                                    "required": false,
+                                    "description": "Send the ovligo number of the supplier"
+                                },
+                                "Status": {
+                                    "jsType": "string",
+                                    "example": "1",
+                                    "required": true,
+                                    "description": "Send the status of the supplier"
+                                },
+                                "Street": {
+                                    "jsType": "string",
+                                    "example": "tarfon",
+                                    "required": false,
+                                    "description": "Send the street name of the supplier"
+                                },
+                                "HomeNumber": {
+                                    "jsType": "string",
+                                    "example": "12",
+                                    "required": false,
+                                    "description": "Send the house number of the supplier"
+                                },
+                                "City": {
+                                    "jsType": "string",
+                                    "example": "Arad",
+                                    "required": false,
+                                    "description": "Send city name of the supplier"
+                                },
+                                "ZipCode": {
+                                    "jsType": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send zip code of the supplier"
+                                },
+                                "Phone1": {
+                                    "jsType": "string",
+                                    "example": "088641898",
+                                    "required": false,
+                                    "description": "Send the first phone number of the supplier"
+                                },
+                                "Phone2": {
+                                    "jsType": "string",
+                                    "example": "088659214",
+                                    "required": false,
+                                    "description": "Send the second phone number of the supplier"
+                                },
+                                "Mobile": {
+                                    "jsType": "string",
+                                    "example": "0533112731",
+                                    "required": false,
+                                    "description": "Send the mobile telephone of the supplier"
+                                },
+                                "Fax": {
+                                    "jsType": "string",
+                                    "example": "8641898",
+                                    "required": false,
+                                    "description": "Send the fax number of the supplier"
+                                },
+                                "Mail": {
+                                    "jsType": "string",
+                                    "example": "gil@gmail.com",
+                                    "required": false,
+                                    "description": "Send the email of the supplier"
+                                },
+                                "Notes": {
+                                    "jsType": "string",
+                                    "example": "this is a old man",
+                                    "required": false,
+                                    "description": "Send notes of the supplier"
+                                },
+                                "InsertUser": {
+                                    "jsType": "string",
+                                    "example": "develpo",
+                                    "required": false,
+                                    "description": "Send the user name that insert the supplier"
+                                },
+                                "OldSupplierCode": {
+                                    "jsType": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the old supplier code of this supplier"
+                                },
+                                "OldSupplierName": {
+                                    "jsType": "string",
+                                    "example": "Moshe",
+                                    "required": false,
+                                    "description": "Send the old supplier name of this supplier"
+                                }
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": {},
+                                "rowsAffected": [
+                                    1
+                                ]
+                            }
+                        },
+                        {
+                            "key": "checkUnique",
+                            "arguments": {
+                                "suppliercode": {
+                                    "jsType": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the supplier code that you need to check - in params"
+                                },
+                                "suppliername": {
+                                    "jsType": "string",
+                                    "example": "Gila lev",
+                                    "required": true,
+                                    "description": "Send the supplier name that you need to check - in params"
+                                }
+                            },
+                            "response": true
+                        },
+                        {
+                            "key": "checkUniqueCode",
+                            "arguments": {
+                                "suppliercode": {
+                                    "jsType": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the supplier code that you need to check - in params"
+                                }
+                            },
+                            "response": {}
+                        },
+                        {
+                            "key": "checkUniqueName",
+                            "arguments": {
+                                "suppliername": {
+                                    "jsType": "string",
+                                    "example": "Gila lev",
+                                    "required": true,
+                                    "description": "Send the supplier name that you need to check - in params"
+                                }
+                            },
+                            "response": true
+                        },
+                        {
+                            "key": "getSuppliers",
+                            "arguments": {
+                                "option": {
+                                    "jsType": "string",
+                                    "example": "SupplierCode",
+                                    "required": true,
+                                    "description": "Send the name from the column - in params"
+                                },
+                                "text": {
+                                    "jsType": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the value of the option - in params"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1032,
+                                    "SupplierCode": "22",
+                                    "SupplierName": "gil",
+                                    "LicensedDealerNumber": "6",
+                                    "BookkeepingNumber": null,
+                                    "ObjectiveBank": "ghfg",
+                                    "ConditionGushyPayment": null,
+                                    "PreferredPaymentDate": 5,
+                                    "Ovligo": 5,
+                                    "Status": 1,
+                                    "Street": "ghgfhg",
+                                    "HomeNumber": 5,
+                                    "City": "asdod",
+                                    "ZipCode": "543",
+                                    "Phone1": "4352345",
+                                    "Phone2": "45325",
+                                    "Mobile": "435",
+                                    "Fax": null,
+                                    "Mail": null,
+                                    "Notes": null,
+                                    "CreationDate": "2023-07-04T16:59:53.560Z",
+                                    "InsertUser": "develop",
+                                    "Disabled": false,
+                                    "DisabledDate": null,
+                                    "DisableUser": null
+                                }
+                            ]
+                        },
+                        {
+                            "key": "getallSuppliers",
+                            "arguments": {
+                                "num": {
+                                    "jsType": "int",
+                                    "example": 0,
+                                    "required": true,
+                                    "description": "send the num 1 or 0 for see the suppliers that disabled or to see the suppliers that delete - in params"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1009,
+                                    "SupplierCode": "23",
+                                    "SupplierName": "Dvory nosboim",
+                                    "LicensedDealerNumber": "3",
+                                    "BookkeepingNumber": "3",
+                                    "ObjectiveBank": "3",
+                                    "ConditionGushyPayment": "3",
+                                    "PreferredPaymentDate": 3,
+                                    "Ovligo": 3,
+                                    "Status": 1,
+                                    "Street": "3",
+                                    "HomeNumber": 3,
+                                    "City": "3",
+                                    "ZipCode": "3",
+                                    "Phone1": "088641898",
+                                    "Phone2": "3",
+                                    "Mobile": "3",
+                                    "Fax": "3",
+                                    "Mail": "h@g.iuykji",
+                                    "Notes": "3",
+                                    "CreationDate": "2023-06-25T17:29:51.000Z",
+                                    "InsertUser": "develop",
+                                    "Disabled": true,
+                                    "DisabledDate": "Jul  2 2023  2:21PM",
+                                    "DisableUser": "hgf",
+                                    "countBraches": 13
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "leads",
+            "documents": [
+                {
+                    "document": "leads",
+                    "functions": [
+                        {
+                            "key": "createnewlead",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "getleadsdetails",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updatelead",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "deletelead/:serialNumber",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "getrecord/:table/:field",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "insertrecord",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updaterecord",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "/deleterecord/:tablename/:condition",
+                            "arguments": "",
+                            "response": ""
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

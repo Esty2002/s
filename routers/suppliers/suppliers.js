@@ -22,9 +22,9 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
     try {
         const response = await insertOneSupplier(req.body)
         if (response)
-            res.status(201).send(response)
+            res.status(201).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
         res.status(500).send(error.message)
@@ -85,9 +85,7 @@ router.get('/checkUniqueName/:suppliername', async (req, res) => {
 
 router.get('/getallSuppliers/:num', async (req, res) => {
     try {
-        console.log(req.params.num);
-        const response = await getAllSuppliers(req.params.num)
-        console.log({ response })
+        const response = await getAllSuppliers()
         if (response)
             res.status(200).send(response)
         else {

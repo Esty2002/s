@@ -1,35 +1,34 @@
-const {  postData } = require('../../services/axios');
+const { sqlServer, postData } = require('../../services/axios');
 
 const values = [
     {
-        tableName: "tbl_Orderers",
+        tableName: "orderers",
         values: {
             OrdererName: "",
             OrdererPhone: "",
-            AddedDate: new Date().toISOString(),
-            Disable:'False',
+            AddedDate: new Date(),
+            Disable: 0,
             DeletingDate: null
         }
     },
     {
-        tableName: "tbl_PouringsTypes",
+        tableName: "pouringsTypes",
         values: {
             PouringName: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
+            AddedDate: new Date(),
+            Disable: 0,
             DeletingDate: null
         }
-    },
-    {
-        tableName: "tbl_StatusesLead",
+    }
+    , {
+        tableName: "statusesLead",
         values: {
             StatusName: "",
-            AddedDate: new Date().toISOString(),
-            Disable: 'False',
+            AddedDate: new Date(),
+            Disable: 0,
             DeletingDate: null
         }
     },
-    
 ];
 
 
@@ -43,11 +42,12 @@ const newRecord = async (obj = null) => {
                 values: val.values
             };
             for (let key in newObj['values']) {
-                newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
+                typeof newObj.values[key] === 'string' ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
             }
+
             try {
-                // console.log(newObj,"newObj");
-                result = await postData( '/create/create', newObj);
+                console.log(newObj,"newObj");
+                result = await postData(sqlServer, '/create/create', newObj);
                 return result;
             }
             catch (error) {
@@ -63,15 +63,16 @@ const newRecord = async (obj = null) => {
     }
 };
 
-const getRecord = async (tableName = "", field = "") => {
+const getRecord = async (tableName = "", columns = "", field = "") => {
     const table = values.find((v) => v.tableName === tableName);
     if (table) {
         obj = {
             tableName: tableName,
+            columns: columns,
             condition: field !== 'none' ? field : `Disable=0`
         };
         try {
-            const result = await postData('/sql/readTop20', obj);
+            const result = await postData(sqlServer, '/sql/readTop20', obj);
             return result;
         }
         catch (error) {
@@ -95,7 +96,7 @@ const updateRecord = async (obj = null) => {
                 condition: obj.condition
             };
             try {
-                result = await postData( '/sql/update', newObj);
+                result = await postData(sqlServer, '/sql/update', newObj);
                 return result;
             }
             catch (error) {
@@ -120,13 +121,13 @@ const deleteRecord = async (obj) => {
             const newObj = {
                 tableName: val,
                 values: {
-                    Disable: 'True',
-                    DeletingDate: new Date().toISOString()
+                    disable: 1,
+                    deletingDate:new Date()
                 },
                 condition: obj.condition
             };
             try {
-                result = await postData( '/sql/update', newObj);
+                result = await postData(sqlServer, '/sql/update', newObj);
                 return result;
             }
             catch (error) {
@@ -142,7 +143,5 @@ const deleteRecord = async (obj) => {
 
     }
 };
-
-
 
 module.exports = { newRecord, updateRecord, getRecord, deleteRecord };

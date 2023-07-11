@@ -5,7 +5,7 @@ const router = express.Router()
 router.post('/create', express.json(), async (req, res) => {
     try {
         const response = await insertAddition(req.body)
-        console.log(response);
+        ;
         if (response)
             res.status(201).send(response)
         else {

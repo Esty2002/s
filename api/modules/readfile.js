@@ -5,12 +5,11 @@ async function readFile(filename) {
 
     const arr = await pathForRouter(filename);
     let arr2 = await fullRouterPath(filename, arr)
+
     await arr2.forEach(async r => {
         const ans = await enterRouter(r)
-        r['api'] = ans;
+        r.apiRequests = ans;
     });
-
-    // console.log(arr2, "sof");
     return arr2;
 }
 

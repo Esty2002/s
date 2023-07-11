@@ -56,7 +56,7 @@ async function insertArea(obj = {}) {
                     data: { _id: result.data }
                 })
             throw new Error("Can't insert area to mongo and sql DB");
-        }
+            }
     }
     else {
         throw new Error("Can't insert area");
@@ -79,12 +79,11 @@ async function updateArea(obj) {
                 values: { Disabled: true },
                 condition: { Disabled: false, AreaName: areaName }
             })
+            return result
     }
-    // return result
     else {
         throw new Error('cannot delete area')
     }
-
 }
 
 async function getFromSql() {
