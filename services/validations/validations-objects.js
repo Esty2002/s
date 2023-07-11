@@ -125,7 +125,7 @@ const objectsForValidations = [
     {
         objectName: "tbl_Areas",
         values: [{ propertyName: "AreaIdFromMongo", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-        { propertyName: "AreaName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+        { propertyName: "AreaName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }, { func: validation.notOnlyNumbersInString, arguments: null }] },
         { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
         ]
     }

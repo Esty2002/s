@@ -33,6 +33,13 @@ const positiveNumber = (number) => {
 const onlyNumbersInString = (numbersString) => {
     return /^\d*$/.test(numbersString)
 }
+
+const notOnlyNumbersInString = (numbersString) => {
+    return !(/^\d*$/.test(numbersString))
+}
+
+
+
 const notCheck = () => {
     return true;
 }
@@ -104,7 +111,8 @@ const validation = {
     specificLength: specificLength,
     bit: bit,
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
-    concretEmail: concretEmail
+    concretEmail: concretEmail,
+    notOnlyNumbersInString:notOnlyNumbersInString
 }
 
 module.exports = { validation }
