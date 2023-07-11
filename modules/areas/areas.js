@@ -130,7 +130,6 @@ async function updateArea(obj = {}) {
         }
         else
             return result
-
     }
     else
         throw new Error('Not Found area to update')
