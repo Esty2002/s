@@ -9,14 +9,21 @@ const server = axios.create({
 
 const getData = async (url, query) => {
     let response;
-    console.log({ url });
-
-    if (query) {
-        url += Object.entries(query).reduce((q, i) => q = q == '?' ? `${q}${i[0]}=${i[1]}` : `${q}&${i[0]}=${i[1]}`, '?')
-    }
-    console.log({url})
+    // console.log({url});
     try {
         response = await server.get(url);
+    }
+    catch (error) {
+        throw error;
+    }
+    // console.log(response.data,"response");
+    return response;
+}
+
+const postData=async(url,body)=>{
+    let response;
+    try {
+        response = await server.post(url, body);
         return response;
     }
     catch (error) {
@@ -25,19 +32,19 @@ const getData = async (url, query) => {
     }
 }
 
-const postData = async (url, body) => {
-    let response;
-    try {
-        console.log({ url, body: JSON.stringify(body) })
-        response = await server.post(url, body);
-        console.log({ response: response.data })
-        return response;
-    }
-    catch (error) {
-        console.log({ error: error.message })
-        throw error;
-    }
-}
+// const postData = async (url, body) => {
+//     let response;
+//     try {
+//         console.log({ url, body: JSON.stringify(body) })
+//         response = await server.post(url, body);
+//         console.log({ response: response.data })
+//         return response;
+//     }
+//     catch (error) {
+//         console.log({ error: error.message })
+//         throw error;
+//     }
+// }
 module.exports = { getData, postData }
 // ----1
 // url====== /read/distinct

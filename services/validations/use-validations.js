@@ -10,6 +10,7 @@ const checkObjectValidations = async (body, objName) => {
             for (let valid of v.validation) {
                 if (body[v.propertyName]) {
                     if (!(await valid.func(body[v.propertyName], valid.arguments))) {
+                        console.log('im falseeeeeeeeeeee');
                         return false;
 
                     }

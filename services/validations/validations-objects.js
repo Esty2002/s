@@ -46,7 +46,7 @@ const objectsForValidations = [
         ]
     },
     {
-        objectName: "statusLead",
+        objectName: "sttausLead",
         values: [
             { propertyName: "statusName", validation: [{ func: validation.required, arguments: null }, { func: validation.containsOnlyLetters, arguments: null }] },
             { propertyName: "addedDate", validation: [{ func: validation.notCheck, arguments: null }] },
@@ -121,6 +121,13 @@ const objectsForValidations = [
         // deletionDate
         // userThatDelete
 
+    },
+    {
+        objectName: "tbl_Areas",
+        values: [{ propertyName: "AreaIdFromMongo", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+        { propertyName: "AreaName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+        { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
+        ]
     }
 
 ]

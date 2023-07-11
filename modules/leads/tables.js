@@ -46,8 +46,8 @@ const newRecord = async (obj = null) => {
             }
 
             try {
-                console.log(newObj,"newObj");
-                result = await postData(sqlServer, '/create/create', newObj);
+                // console.log(newObj,"newObj");
+                result = await postData( '/create/create', newObj);
                 return result;
             }
             catch (error) {
