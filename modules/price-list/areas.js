@@ -1,7 +1,7 @@
 require('dotenv').config()
 const  mongoDBOperations  = require('../../services-price-list/db/mongo/mongo-operations')
-const mongo_collection_areas =mongoDBOperations
-const {MONGO_COLLECTION_AREAS}=process.env
+
+
 async function insertArea(obj={}) {
     mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
     let filter = { supplierOrClientCode: obj.supplierOrClientCode }
@@ -59,32 +59,12 @@ async function findSupplierOrClient(code) {
 
 
 
-async function deleteSupplierOrClient(phone) {
-    mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
 
-    const result = await mongo_collection_areas.updateOne(phone, { $set: { disable: false } })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found supplier or client code to delete his areas')
-}
-async function deleteArea(phone, area) {
-    mongo_collection_areas.collectionName=MONGO_COLLECTION_AREAS
-
-    const result = await mongo_collection_areas.updateOne(phone, { $set: { 'areas.$[u].delete': true } }, { arrayFilters: [{ 'u.areaName': area }] })
-    if (result)
-        return result
-    else
-        throw new Error('Not Found area to delete')
-
-}
 
 module.exports = {
     findAreaByCode,
     updateSupplierOrClient,
     insertArea,
     findSupplierOrClient,
-    deleteSupplierOrClient,
-    deleteArea,
     updateArea
 }

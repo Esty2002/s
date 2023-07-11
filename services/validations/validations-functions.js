@@ -1,8 +1,6 @@
-// const { readAll } = require("../../../dbserver/services/sql/sql-operations");
-const { getData } = require("../axios");
+const { getData, sqlServer } = require("../axios");
 
 const required = (value = null) => {
-    console.log('required');
     if (value) {
         return true
     }
@@ -13,9 +11,8 @@ const dateType = (date) => {
     let date1 = new Date(date)
     console.log(date1,'ddddaaattee');
     if (date1 == 'Invalid Date')
-         throw new Error(`the date ${date} not valid`)
-
-    return true
+        return false
+    throw new Error(`the date ${date} not valid`)
 
 };
 
@@ -23,14 +20,8 @@ const correctPhone = (number) => {
     console.log('concret phone');
     if (/^0\d{8,9}$/.test(number))
         return true
-    else{
-        console.log('tttttttttttt');
-
-        throw new Error(`the number ${number} not correctttt`)
-
-
-
-    }
+    throw new Error(`the number  not correctttt`)
+    // console.log('tttttttttttt');
 }
 
 const positiveNumber = (number) => {
@@ -133,29 +124,6 @@ const concretEmail = (value) => {
     // console.log('vvvvvfffffffffff');
     throw new Error('the email not concret')
 }
-const theDateBeforToday=(value)=>{
-    console.log('dateeeeeee');
-    let date2 = new Date(value)
-        console.log(date2,new Date(),'new date');
-
-    if(date2- new Date>0){
-        throw new Error('the date after today ')
-    }
-
-    console.log('yes date');
-    return true
-}
-const theDateAfterToday=(value)=>{
-    console.log('dateeeeeee');
-    let date3 = new Date(value)
-    if((date3-new Date())>0){
-        console.log('yyyuu date');
-        return true
-    }
-
-    throw new Error('the date befor today ')
-
-}
 const validation = {
     required: required,
     dateType: dateType,
@@ -170,12 +138,16 @@ const validation = {
     specificLength: specificLength,
     bit: bit,
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
+<<<<<<< HEAD
     concretEmail: concretEmail,
     // theDateBeforToday:theDateBeforToday,
     theDateAfterToday:theDateAfterToday,
     EnglishLettersOrHebrewLetters:EnglishLettersOrHebrewLetters,
     betweenNumbers:betweenNumbers
     
+=======
+    concretEmail: concretEmail
+>>>>>>> e45a66bed567be18de31875371d1e77f1e5cc7a6
 }
 
 module.exports = { validation }

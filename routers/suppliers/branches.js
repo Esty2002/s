@@ -9,10 +9,8 @@ router.post('/deletebranches', express.json(), async (req, res) => {
     try {
         const response = await deleteBranches(req.body)
         if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
+            res.status(response.status).send(response.data)
+
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -31,9 +29,16 @@ router.get('/getallbranches', async (req, res) => {
     }
 })
 
+<<<<<<< HEAD
 router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
+=======
+router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
+
+>>>>>>> e45a66bed567be18de31875371d1e77f1e5cc7a6
     try {
-        const response = await getBranchesByCondition(req.params.condition, req.params.value, req.params.num)
+        const filter = {}
+        filter[req.params.condition] = req.params.value
+        const response = await getBranchesByCondition({ ...filter, ...req.query })
         if (response)
             res.status(200).send(response)
         else {
@@ -50,9 +55,8 @@ router.post('/insertbranch', express.json(), async (req, res) => {
     try {
         let ans=await checkObjectValidations(req.body,'tbl_Branches')
         const response = await insertOneBranch(req.body)
-        if (response) {
+        if (response)
             res.status(201).send(response.data)
-        }
         else {
 
             res.status(500).send(response)

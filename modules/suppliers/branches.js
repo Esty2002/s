@@ -12,7 +12,6 @@ async function insertOneBranch(object) {
             object['CreationDate'] = new Date().toISOString();
             let obj = { tableName: 'tbl_Branches', values: object };
             const res = await postData( "/create/create", obj);
-            console.log("resssssssssssss",res);
             return res;
         }
         else {
@@ -20,7 +19,7 @@ async function insertOneBranch(object) {
         }
     }
     catch (error) {
-        console.log("caaaaaaaaaaant be go in !!!!!!!!!!");
+        console.log(error)
         throw new Error('can not insert branch');
     }
 }
@@ -35,10 +34,10 @@ async function getAllBranches() {
     }
 }
 ///////////////////////////////////////////////////////////////////
-async function getBranchesByCondition(column, code , num) {
+async function getBranchesByCondition(query) {
     console.log("getBranchesByCondition - module");
     try {
-        const res = await getData( `/read/readAll/tbl_Branches/${column}='${code}' AND  Disabled=${num}`);
+        const res = await getData( `/read/readAllEntity/Branches`, query);
         return res.data;
     }
     catch (error) {
@@ -76,11 +75,12 @@ async function updateDetail(code, setting) {
 async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
-        let obj = { tableName: 'tbl_Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: `SupplierCode= ${object.Id} AND BranchName = '${object.BranchName}' ` };
+        let obj = { tableName: 'tbl_Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: {Id:object.Id} };
         const res = await postData( "/update/update", obj);
-        return res.data;
+        return res;
     }
     catch (error) {
+        console.log(error.message)
         throw new Error('can not delete branch');
     }
 }

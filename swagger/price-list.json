@@ -1,343 +1,717 @@
 {
     "openapi": "3.0.3",
     "info": {
-        "title": "Simple Todos API",
-        "description": "A simple todos API",
-        "version": "1.0.0",
+        "title": "Swagger Petstore - OpenAPI 3.0",
+        "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\n_If you're looking for the Swagger 2.0/OAS 2.0 version of Petstore, then click [here](                                                                          ). Alternatively, you can load via the `Edit > Load Petstore OAS 2.0` menu option!_\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
+        "termsOfService": "http://swagger.io/terms/",
         "contact": {
-            "name": "",
-            "email": "areas@web.com",
-            "url": "web.com"
-        }
+            "email": "apiteam@swagger.io"
+        },
+        "license": {
+            "name": "Apache 2.0",
+            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+        },
+        "version": "1.0.11"
+    },
+    "externalDocs": {
+        "description": "Find out more about Swagger",
+        "url": "http://swagger.io"
     },
     "servers": [
         {
-            "url": "http://localhost:2222",
-            "description": "Local server"
+            "url": "http://127.0.0.1:8081"
         }
     ],
     "tags": [
         {
-            "name": "areas options",
-            "url": ""
+            "name": "CRUD",
+            "description": "Everything about your CRUD for pricelist"
         }
     ],
-    "components": {
-        "schemas": {
-            "code": {
-                "type": "string",
-                "description": "code of supplier or client",
-                "example": "1234"
-            },
-            "codeByObject": {
-                "type": "object",
-                "properties": {
-                    "supplierOrClientCode": {
-                        "type": "string",
-                        "description": "code of supplier or client",
-                        "example": "1234"
-                    }
-                }
-            },
-            "areaName": {
-                "type": "string",
-                "description": "the area name",
-                "example": "ashdod"
-            },
-            "numOfTimes": {
-                "type": "object",
-                "properties": {
-                    "int": {
-                        "type": "int",
-                        "description": "number of times",
-                        "example": "0"
-                    }
-                }
-            },
-            "areaToDelete": {
-                "type": "object",
-                "properties": {
-                    "phone": {
-                        "type": "string",
-                        "description": "supply code",
-                        "example": "055-2222222"
-                    },
-                    "areaName": {
-                        "type": "string",
-                        "description": "area name to delete",
-                        "example": "ashdod"
-                    }
-                }
-            },
-            "area": {
-                "type": "object",
-                "properties": {
-                    "supplierOrClientCode": {
-                        "type": "string",
-                        "description": "code",
-                        "example": "1234"
-                    },
-                    "area": {
-                        "type": "object",
-                        "properties": {
-                            "areaName": {
-                                "type": "string",
-                                "description": "area name",
-                                "example": "ashdod"
-                            },
-                            "location": {
-                                "type": "object",
-                                "properties": {
-                                    "type": {
-                                        "type": "string",
-                                        "description": "the type of the area",
-                                        "example": "point"
-                                    },
-                                    "coordinates": {
-                                        "type": "array",
-                                        "description": "array of x and y values",
-                                        "example": "[10,20]"
-                                    }
-                                }
-                            },
-                            "radius": {
-                                "type": "float",
-                                "description": "radius value",
-                                "example": "100"
-                            },
-                            "delete": {
-                                "type": "booleat",
-                                "description": "",
-                                "example": "false"
+    "paths": {
+        "/creatPricelist/addPriceList": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "create a new BasePricelist",
+                "description": "create a new BasePricelist",
+                "operationId": "create a new BasePricelist",
+                "requestBody": {
+                    "description": "create a new BasePricelist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BasePricelist"
                             }
                         }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": " not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addCitiesAdditions": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of city to pricelist ",
+                "description": "insert additions of city to pricelist ",
+                "operationId": "insert additions of city to pricelist ",
+                "requestBody": {
+                    "description": "insert additions of city to pricelist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CitiesAdditionsForPricelist"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseForInsert"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addTimeAdditions": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of city to pricelist ",
+                "description": "insert additions of city to pricelist ",
+                "operationId": "insert additions of city to pricelist ",
+                "requestBody": {
+                    "description": "insert additions of city to pricelist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TimeAdditionsForPricelist"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseForInsert"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "security": [
+                        {
+                            "petstore_auth": [
+                                "write:pets",
+                                "read:pets"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "/creatPricelist/addAdditionsForDistance": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of distance to pricelist",
+                "description": "insert additions of distance to pricelist",
+                "operationId": "insert additions of distance to pricelist",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DistanceAdditionsForPricelist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addTruckFill": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of truck fill to pricelist",
+                "description": "insert additions of truck fill to pricelist",
+                "operationId": "insert additions of truck fill to pricelist",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TruckFillAdditionsForPricelist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addPricesListBySupplierOrClient": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert pricelist for product",
+                "description": "insert pricelist for product",
+                "operationId": "insert pricelist for product",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricesListBySupplierOrClient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addPricelistForProducts": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert pricelist by Supplier Or Client",
+                "description": "insert pricelist by Supplier Or Client",
+                "operationId": "insert pricelist by Supplier Or Client",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForProducts",
+                                "format": "date-time"
+                            }
+                        }
+                    }  
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/user/login": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Logs user into the system",
+                "description": "",
+                "operationId": "loginUser",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "The user name for login",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "The password for login in clear text",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "headers": {
+                            "X-Rate-Limit": {
+                                "description": "calls per hour allowed by the user",
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "X-Expires-After": {
+                                "description": "date in UTC when token expires",
+                                "schema": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/xml": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/logout": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Logs out current logged in user session",
+                "description": "",
+                "operationId": "logoutUser",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
                     }
                 }
             }
         }
     },
-    "paths": {
-        "/areas/isExist/{code}": {
-            "get": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Get todos",
-                "operationId": "isExist",
-                "parameters": [
-                    {
-                        "name": "code",
-                        "in": "path",
-                        "schema": {
-                            "$ref": "#/components/schemas/code"
-                        },
-                        "required": true,
-                        "description": "A single todo id"
+    "components": {
+        "schemas": {
+            "BasePricelist": {
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string",
+                        "example": "Meyr"
+                    },
+                    "Pumps": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Beton": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "pnini"
+                    },
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
                     }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Todos were obtained"
+                }
+            },
+            "ResponseBasepricelist": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseBasepricelist"
+                }
+            },
+            "CitiesAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "AreaId": {
+                        "type": "string",
+                        "example": "Ganey_Tikva"
+                    },
+                    "Price": {
+                        "type": "float",
+                        "example": 3000
+                    },
+                    "CountPrecent": {
+                        "type": "float",
+                        "example": 8
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/06/2022"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Ramy"
                     }
+                }
+            },
+            "ResponseForCitiesadditions": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForCitiesadditions"
+                }
+            },
+            "TimeAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Price": {
+                        "type": "integer",
+                        "example": 1878
+                    },
+                    "CountPrecent": {
+                        "type": "float",
+                        "example": 8
+                    },
+                    "DayOfWeek": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "StartDate": {
+                        "type": "string",
+                        "example": "07/05/2022"
+                    },
+                    "EndDate": {
+                        "type": "string",
+                        "example": "07/05/2024"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/04/2022"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Ramy"
+                    }
+                }
+            },
+            "ResponseFortimeAdditions": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForCitiesadditions"
+                }
+            },
+            "DistanceAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Distance": {
+                        "type": "float",
+                        "example": 401.2
+                    },
+                    "Price": {
+                        "type": "integer",
+                        "example": 4000
+                    },
+                    "CountPrecent": {
+                        "type": "float",
+                        "example": 8
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/04/2022"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Ramy"
+                    }
+                }
+            },
+            "TruckFillAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "TransportDiff": {
+                        "type": "float",
+                        "example": 10
+                    },
+                    "MaxTransportDiff": {
+                        "type": "float",
+                        "example": 12
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Nirush"
+                    }
+                }
+            },
+            "PricesListBySupplierOrClient": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "SupplierOrClient": {
+                        "type": "integer",
+                        "example": 1001
+                    },
+                    "Debit": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Credit": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "AreaId": {
+                        "type": "string",
+                        "example": "Ashdod"
+                    },
+                    "StartDate": {
+                        "type": "string",
+                        "example": "01/01/2000"
+                    },
+                    "EndDate": {
+                        "type": "string",
+                        "example": "01/01/2030"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Nava"
+                    }
+                }
+            },
+            "PricelistForProducts": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Price": {
+                        "type": "float",
+                        "example": 1200
+                    },
+                    "Discount": {
+                        "type": "float",
+                        "example": 10
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "10/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Mali"
+                    }
+                    ,
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                    
+                }
+            },
+            "ResponseForInsert": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForCitiesadditions"
                 }
             }
         },
-        "/areas/findAreaOfSupplierOrClient?code={code}&areaName={areaName}": {
-            "get": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Get todos",
-                "operationId": "findAreaOfSupplierOrClient",
-                "parameters": [
-                    {
-                        "name": "code",
-                        "in": "path",
+        "requestBodies": {
+            "UserArray": {
+                "description": "List of user object",
+                "content": {
+                    "application/json": {
                         "schema": {
-                            "$ref": "#/components/schemas/code"
-                        },
-                        "required": true,
-                        "description": "The supplier Or Client Code"
-                    },
-                    {
-                        "name": "areaName",
-                        "in": "path",
-                        "schema": {
-                            "$ref": "#/components/schemas/areaName"
-                        },
-                        "required": true,
-                        "description": "area name"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Todos were obtained",
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/numOfTimes"
-                                }
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
                             }
                         }
                     }
                 }
             }
         },
-        "/areas/findAllAreas/{code}": {
-            "get": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Get todos",
-                "operationId": "isExist",
-                "parameters": [
-                    {
-                        "name": "code",
-                        "in": "path",
-                        "schema": {
-                            "$ref": "#/components/schemas/code"
-                        },
-                        "required": true,
-                        "description": "A single todo id"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Todos were obtained"
-                    }
-                }
-            }
-        },
-        "/areas/findAreasByCode/{code}": {
-            "get": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Get todos",
-                "operationId": "isExist",
-                "parameters": [
-                    {
-                        "name": "code",
-                        "in": "path",
-                        "schema": {
-                            "$ref": "#/components/schemas/code"
-                        },
-                        "required": true,
-                        "description": "A single todo id"
-                    }
-                ],
-                "responses": {
-                    "200": {
-                        "description": "Todos were obtained"
-                    }
-                }
-            }
-        },
-        "/areas/insertArea": {
-            "post": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Create todo",
-                "operationId": "insertArea",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/area"
-                            }
+        "securitySchemes": {
+            "petstore_auth": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": null,
+                        "scopes": {
+                            "write:pets": "modify pets in your account",
+                            "read:pets": "read your pets"
                         }
                     }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Todo created successfully"
-                    },
-                    "500": {
-                        "description": "Server error"
-                    }
                 }
-            }
-        },
-        "/areas/updateArea": {
-            "post": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Create todo",
-                "operationId": "updateArea",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/area"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Todo created successfully"
-                    },
-                    "500": {
-                        "description": "Server error"
-                    }
-                }
-            }
-        },
-        "/areas/deleteAreaDetail": {
-            "post": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Create todo",
-                "operationId": "updateArea",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/areaToDelete"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Todo created successfully"
-                    },
-                    "500": {
-                        "description": "Server error"
-                    }
-                }
-            }
-        },
-        "/areas/deleteArea": {
-            "post": {
-                "tags": [
-                    "Todo CRUD operations"
-                ],
-                "description": "Create todo",
-                "operationId": "updateArea",
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/codeByObject"
-                            }
-                        }
-                    }
-                },
-                "responses": {
-                    "200": {
-                        "description": "Todo created successfully"
-                    },
-                    "500": {
-                        "description": "Server error"
-                    }
-                }
+            },
+            "api_key": {
+                "type": "apiKey",
+                "name": "api_key",
+                "in": "header"
             }
         }
     }
