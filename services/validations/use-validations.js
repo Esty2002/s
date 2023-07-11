@@ -8,7 +8,6 @@ const checkObjectValidations = async (body, objName) => {
         for (let v of values) {
             i++
             for (let valid of v.validation) {
-
                 if (body[v.propertyName]) {
                     try {
                         _ = await valid.func(body[v.propertyName], valid.arguments);
@@ -18,14 +17,11 @@ const checkObjectValidations = async (body, objName) => {
                     }
                 }
             }
-            if (v.require && !body[v.propertyName]) {
+            if (v.require && !body[v.propertyName]) 
                 errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but not exist` }];
-            }
         }
-        if (errors.length > 0) {
-            console.log(errors,' errors');
+        if (errors.length > 0) 
             throw errors
-        }
         return true;
     }
     catch (error) {

@@ -29,7 +29,9 @@ async function insertMeasure(name) {
 async function findMeasureNumber(name) {
     let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure ='${name}'`)
     console.log(a,' a');
-    return a.data[0].Id
+    if(a.data[0])
+         return a.data[0].Id;
+   return {error:'no matching unit of measure'}
 }
 async function findMeasureName(num) {
     const measure = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`)

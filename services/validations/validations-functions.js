@@ -70,11 +70,6 @@ const type = (value, arg) => {
     }
     throw new Error(`the value ${value} not typeof value`)
 
-
-
-
-
-
 }
 
 const maxLength = (value, max) => {

@@ -14,12 +14,11 @@ router.post('/create', express.json(), async (req, res) => {
     try {
         console.log(req.body)
         const response = await insertFinishProduct(req.body,'FinishProducts')
-        if (response)
+        console.log({response});
+        if (response===true)
             res.status(201).send(response)
-        else {
-            console.log('in else');
+        else 
             res.status(500).send(response)
-        }
     }
     catch (error) {
         objectForLog.error = error.message
@@ -61,7 +60,7 @@ router.post('/find', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await findFinishProduct(req.body.arr, req.body.where)
+        const response = await findFinishProduct(req.body.arr, req.body.where,'FinishProducts')
         if (response)
             res.status(200).send(response)
         else

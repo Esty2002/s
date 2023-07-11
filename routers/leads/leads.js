@@ -4,7 +4,7 @@ const router = require('express').Router();
 const { createNewLead, updateLead, readLead, deleteOneLead, deleteLead, readforeignkeyvalue } = require('../../modules/leads/leads-options');
 const { newRecord, getRecord, deleteRecord, updateRecord } = require('../../modules/leads/tables');
 
-router.post('/createnewlead', express.json(), async (req, res) => {
+router.post('/cretenewlead', express.json(), async (req, res) => {
     try {
         const response = await createNewLead(req.body);
         if (response.status === 201) {

@@ -16,7 +16,7 @@ const values = [
                     BookkeepingCode: BookkeepingCode,
                     AddedDate: new Date().toISOString(),
                     Enabled: true,
-                    DeleteDate: false,
+                    DeleteDate: null,
                 }
             }
         }
@@ -27,20 +27,18 @@ async function insertFinishProduct(obj, tableName) {
     const checkValidObj = values.find(({ entity }) => tableName === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
-        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+        _= await checkObjectValidations(newObj.values, checkValidObj.entity)
         obj = newObj.values
     }
-    console.log({ obj });
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
+    const { error } = measure
+    if (error)
+        return error;
     obj.UnitOfMeasure = measure
-    // obj['ordinalNumber'] = await (getData( , '/')) + 1
-    obj.enabled = true
-    obj.addedDate = new Date().toISOString()
     const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
     if (response.data)
         return true
-    else
-        return false
+    return false
 }
 
 async function updateFinishProduct(obj) {

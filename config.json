@@ -222,8 +222,8 @@
                                     "required": "",
                                     "description": "",
                                     "Enabled": {
-                                        "type": "bit",
-                                        "example": 1,
+                                        "type": "boolean",
+                                        "example": true,
                                         "required": "",
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
