@@ -46,7 +46,7 @@ const newRecord = async (obj = null) => {
                 newObj.values[key] === "" ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
             }
             try {
-                console.log(newObj,"newObj");
+                // console.log(newObj,"newObj");
                 result = await postData( '/create/create', newObj);
                 return result;
             }
