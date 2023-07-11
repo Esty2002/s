@@ -190,6 +190,8 @@ async function getPriceListByAdditionsForTruckFill(object) {
 // חיפוש בטבלת מוצרים וספקים לפי שם טבלה ותאור מוצר
 
 async function getSupplierByNameProduct(nameTable, nameProduct) {
+    console.log({nameTable});
+    console.log({nameProduct});
     try {
         let obj = { tableName: nameTable, columns: "Id", condition: `Name='${nameProduct}'` };
         const res = await postData("/read/readTopN", obj);
