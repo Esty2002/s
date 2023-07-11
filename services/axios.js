@@ -36,4 +36,4 @@ module.exports = {  getData, postData }
 // body====== { collection: 'areas', distinct: 'type' }
 // ----2
 // url====== /read/find
-// body====== { collection: 'areas', filter: { type: 'poligon' } }
+// body====== { collection: 'areas', filter: { type: 'Polygon' } }

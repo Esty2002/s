@@ -44,7 +44,7 @@ async function serachByAreas(obj) {
     const points = await findAreas({ point: obj.point, type: 'point' });
     const radius = await findAreas({ type: 'radius' });
     const polygon = await findInPolygon({ point: obj.point });
-    areas = [...areas, ...citys, ...points, ...radius,...polygon];
+    areas = [...areas, ...citys, ...points, ...radius, ...polygon];
     // console.log('areas-----------', areas);
     return areas;
 }
@@ -53,7 +53,7 @@ async function findInPolygon(point) {
     console.log({ point });
     const found = await postData('/read/findpolygon', {
         collection: "areas",
-        filter:  { type: 'polygon' } ,
+        filter: { type: 'polygon' },
         // $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }]
         point
     });
@@ -96,14 +96,14 @@ async function insertArea(obj = {}) {
                 tableName: "tbl_Areas",
                 values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
             })
+        console.log("*-*-*-*-*-*-*-", resultToSql);
+
         //-------------------------------------- לשאול את המורה איזו שאלה הכי נחוצה
-        if (resultToSql && resultToSql.status === 201 && resultToSql.data.rowsAffected != undefined && resultToSql.data.rowsAffected[0] > 0) {
-            // console.log("resultToSql-------------", resultToSql);
-            // console.log("resultToSql.rowsAffected", resultToSql.data.rowsAffected);
-            // console.log("resultToSql.data.rowsAffected[0]", resultToSql.data.rowsAffected[0]);
-            // console.log("resultToSql.data", resultToSql.data);
-            console.log("-------------------------------------");
-            const dropResult = await postData('/update/dropDocument',
+        if (resultToSql) {
+            return resultToSql.data;
+        }
+        else {
+            const dropResult = await postData('/update/dropDocumentById',
                 {
                     collection: "areas",
                     data: { _id: result.data }
@@ -111,18 +111,10 @@ async function insertArea(obj = {}) {
             console.log("result.data***", result.data);
             console.log("dropMongoResult--", dropResult);
             console.log("dropMongoResult.data--", dropResult.data);
-            return resultToSql.data;
-        }
-        else {
-
-            if (resultToSql.status === 201)
-                return resultToSql.data
-
             throw new Error("Can't insert area to mongo and sql DB");
         }
     }
     else {
-
         throw new Error("Can't insert area");
     }
 
