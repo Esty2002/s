@@ -4,7 +4,7 @@ const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
 
-// const { SQL_PUMPS_TABLE } = process.env
+const { SQL_PUMPS_TABLE } = process.env
 
 const values = [
     {
