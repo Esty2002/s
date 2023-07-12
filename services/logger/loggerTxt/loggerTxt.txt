@@ -1361,3 +1361,1359 @@ description: updateFieldInTable in router expect to get id and table name
         
 data: {dataThatRecived :{"name":"2","tbname":"tbl_PriceList"} values :{} }
 ----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 12:47:38  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 12:47:38  
+        
+description: insert product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 12:48:31  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 12:48:31  
+        
+description: insert product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 12:48:39  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 12:48:39  
+        
+description: insert product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 12:53:51  
+        
+description: find product in router
+        
+data: {arr :success condition :where }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 12:53:51  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 12:53:51  
+        
+description: find product in router
+        
+data: {arr :error condition :where }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 12:53:51  
+        
+description: find product in router
+        
+data: {arr :error condition :where error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:38:19  
+        
+description: find product in router
+        
+data: {arr :error condition :where }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:38:19  
+        
+description: find product in router
+        
+data: {arr :error condition :where error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:40:44  
+        
+description: find product in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:40:44  
+        
+description: find product in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:43:15  
+        
+description: find product in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:43:15  
+        
+description: find product in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:44:21  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:45:26  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:46:16  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:46:16  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot destructure property 'obj' of 'undefined' as it is undefined. }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:47:43  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:47:43  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot destructure property 'obj' of 'undefined' as it is undefined. }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:49:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:50:30  
+        
+description: find product in router
+        
+data: {arr :error condition :where }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:50:30  
+        
+description: find product in router
+        
+data: {arr :error condition :where error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 13:51:32  
+        
+description: find product in router
+        
+data: {arr :success condition :where }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:51:32  
+        
+description: find product in router
+        
+data: {arr :error condition :where }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 13:51:32  
+        
+description: find product in router
+        
+data: {arr :error condition :where error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 13:56:25  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 13:56:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 13:56:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 13:56:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 13:57:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 13:57:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 13:57:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 13:57:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:02:01  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:02:01  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:02:01  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:02:01  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:04:14  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:04:14  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:04:14  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:04:15  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:04:15  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:04:15  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:04:15  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:06:32  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:06:32  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:06:32  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:06:32  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:06:32  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:06:32  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:06:32  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:11:10  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:11:10  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:11:10  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:11:10  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:11:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:11:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:11:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:11:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:11:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:11:10  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:13:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:13:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:13:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:13:26  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:13:26  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:13:26  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:13:26  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:13:27  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:13:27  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:13:27  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:15:35  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:15:35  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:15:35  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:15:35  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:15:35  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:15:35  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:15:35  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:15:35  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:15:35  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:15:35  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:17:27  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:17:27  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:17:27  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:17:27  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:17:27  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:17:27  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:17:28  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:17:28  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:17:28  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:17:28  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:20:00  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:20:00  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:20:00  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:20:00  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:20:00  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:20:00  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:20:00  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:20:00  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:21:45  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:21:45  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:21:45  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:21:45  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:21:45  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:21:45  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:21:45  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:21:45  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:21:46  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:21:46  
+        
+description: find product in router
+        
+data: {arr :undefined condition :undefined error :Cannot read properties of undefined (reading 'name') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:24:05  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:24:05  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:24:05  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:24:06  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:24:06  
+        
+description: find product in router
+        
+data: {arr :{"arr":"nnn"} condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:24:06  
+        
+description: find product in router
+        
+data: {arr :{"arr":"nnn"} condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:24:06  
+        
+description: find product in router
+        
+data: {arr :{"arr":"nnn"} condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:25:48  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:25:48  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:25:48  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:25:48  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:25:49  
+        
+description: find product in router
+        
+data: {arr :{"arr":"nnn"} condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:25:49  
+        
+description: find product in router
+        
+data: {arr :{"arr":"nnn"} condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:25:49  
+        
+description: find product in router
+        
+data: {arr :{"arr":"nnn"} condition :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 14:28:19  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:28:19  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:28:19  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 14:28:19  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 14:28:19  
+        
+description: find product in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:28:20  
+        
+description: find product in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:28:20  
+        
+description: find product in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 14:28:20  
+        
+description: find product in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 15:41:06  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:41:07  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :tableName is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 15:42:22  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:42:22  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :tableName is not defined }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:44:10  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:44:10  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :tableName is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 15:47:47  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:47:47  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :tableName is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:00  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:00  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :logToFile is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:27  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:27  
+        
+description: insert addition in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :Additions }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:27  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :checkObjectValidations is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:57  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:49:57  
+        
+description: insert addition in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :Additions }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:56:22  
+        
+description: insert product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 15:56:22  
+        
+description: insert addition in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :Additions }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 16:07:48  
+        
+description: find  Addition in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:07:48  
+        
+description: find Addition in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 16:18:10  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:18:11  
+        
+description: insert pump in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} tableName :Pumps }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:18:11  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} error :Cannot read properties of undefined (reading 'validation') }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:23:59  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:23:59  
+        
+description: insert pump in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} tableName :Pumps }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:23:59  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} error :Cannot read properties of undefined (reading 'validation') }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:25:51  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":1} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:25:51  
+        
+description: insert pump in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":1} tableName :Pumps }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:25:51  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":1} error :Cannot read properties of undefined (reading 'validation') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 16:28:47  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:28:47  
+        
+description: insert pump in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} tableName :Pumps }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:28:47  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} error :Cannot read properties of undefined (reading 'validation') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 16:32:22  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:32:22  
+        
+description: insert pump in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} tableName :Pumps }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:32:22  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} error :Cannot read properties of undefined (reading 'validation') }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 16:33:58  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 16:33:59  
+        
+description: insert pump in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234","Addition":true} tableName :Pumps }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 16:53:45  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:53:45  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:54:39  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:54:40  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:55:39  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:55:39  
+        
+description: find Addition in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 16:57:58  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 16:57:58  
+        
+description: find pumps in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 17:19:41  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:19:42  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:19:42  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:19:42  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 17:19:42  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:19:42  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:19:42  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:19:42  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 17:22:19  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:22:19  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:22:19  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:22:19  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 17:22:19  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:22:19  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:22:19  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:22:19  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 17:29:23  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:29:27  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:29:29  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:29:30  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 17:29:36  
+        
+description: find pumps in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:29:38  
+        
+description: find pumps in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:29:38  
+        
+description: find pumps in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:29:38  
+        
+description: find pumps in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 17:32:27  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:32:27  
+        
+description: insert pump in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 17:32:27  
+        
+description: find pumps in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:32:27  
+        
+description: find pumps in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:32:27  
+        
+description: find pumps in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:32:27  
+        
+description: find pumps in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 12 2023 - 17:33:03  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:33:03  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:33:03  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 12 2023 - 17:33:03  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 17:33:03  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:33:03  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:33:03  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 17:33:03  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------

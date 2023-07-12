@@ -27,7 +27,7 @@ const values = [
 async function insertFinishProduct(obj, tableName) {
     let objectForLog = {
         name: 'create',
-        description: 'insert product in module',
+        description: 'insert  finished product in module',
         obj: obj,
         tableName: tableName
     }
@@ -81,7 +81,7 @@ async function findFinishProduct(project = [], filter = {}) {
 
     let objForLog = {
         name: "find",
-        description: "find finish products ",
+        description: "find finish products in module",
         filter: conditionStr,
         project: columnsStr
     }
@@ -99,7 +99,6 @@ async function findFinishProduct(project = [], filter = {}) {
         logToFile(objForLog)
         throw error
     }
-
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }
