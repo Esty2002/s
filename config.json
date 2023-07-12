@@ -16,10 +16,10 @@
                                     "description": "Send the name for the new addition"
                                 },
                                 "UnitOfMeasure": {
-                                    "type": "int",
-                                    "example": 1,
+                                    "type": "string",
+                                    "example": "mmm",
                                     "required": true,
-                                    "description": "Send the unit of measure for the new addition. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    "description": "Send the unit of measure for the new addition. Notice! it must exist a unit of measure with this Name in the DB"
                                 },
                                 "BookkeepingCode": {
                                     "type": "string",
@@ -28,7 +28,7 @@
                                     "description": "Send the book keeping code for the new addition"
                                 }
                             },
-                            "response": "boolean"
+                            "response": true
                         },
                         {
                             "key": "delete",
@@ -61,10 +61,10 @@
                                         "description": "Send the new name"
                                     },
                                     "UnitOfMeasure": {
-                                        "type": "int",
-                                        "example": 1,
-                                        "required": "",
-                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                        "type": "string",
+                                        "example": "mmm",
+                                        "required": true,
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure with this Name in the DB"
                                     },
                                     "BookkeepingCode": {
                                         "type": "string",
@@ -77,7 +77,7 @@
                                     "type": "object",
                                     "example": {
                                         "Name": "Buyton",
-                                        "UnitOfMeasure": 1,
+                                        "UnitOfMeasure": "mmm",
                                         "BookkeepingCode": "1234"
                                     },
                                     "required": "",
@@ -98,14 +98,14 @@
                                 "where": {
                                     "type": "object",
                                     "example": {
-                                        "Enabled": 1
+                                        "Enabled": true
                                     },
-                                    "required": "",
+                                    "required": false,
                                     "description": "",
                                     "Enabled": {
-                                        "type": "bit",
-                                        "example": 1,
-                                        "required": "",
+                                        "type": "boolean",
+                                        "example": true,
+                                        "required": false,
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
                                 },
@@ -117,15 +117,17 @@
                                 }
                             },
                             "response": [
-                                {
-                                    "Id": "int",
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "BookkeepingCode": "string",
-                                    "AddedDate": "date",
-                                    "Enabled": "boolean",
-                                    "DeleteDate": "date"
-                                }
+                                [
+                                    {
+                                        "Id": 1,
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": "mmm",
+                                        "BookkeepingCode": "1234",
+                                        "AddedDate": "2023-07-12T13:33:59.093Z",
+                                        "Enabled": true,
+                                        "DeleteDate": null
+                                    }
+                                ]
                             ]
                         }
                     ]
@@ -139,23 +141,23 @@
                                 "Name": {
                                     "type": "string",
                                     "example": "Buyton",
-                                    "required": "",
+                                    "required": true,
                                     "description": "Send the name for the new finished product"
                                 },
                                 "UnitOfMeasure": {
-                                    "type": "int",
-                                    "example": 1,
-                                    "required": "",
-                                    "description": "Send the unit of measure for the new finished product. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    "type": "string",
+                                    "example": "mmm",
+                                    "required": true,
+                                    "description": "Send the unit of measure for the new finished product. Notice! it must exist a unit of measure with this Name in the DB"
                                 },
                                 "BookkeepingCode": {
                                     "type": "string",
                                     "example": "1234",
-                                    "required": "",
+                                    "required": false,
                                     "description": "Send the book keeping code for the new finished product"
                                 }
                             },
-                            "response": "boolean"
+                            "response": true
                         },
                         {
                             "key": "update",
@@ -223,14 +225,14 @@
                                 "where": {
                                     "type": "object",
                                     "example": {
-                                        "Enabled": 1
+                                        "Enabled": true
                                     },
-                                    "required": "",
+                                    "required": false,
                                     "description": "",
                                     "Enabled": {
                                         "type": "boolean",
                                         "example": true,
-                                        "required": "",
+                                        "required": false,
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
                                 },
@@ -245,7 +247,7 @@
                                 {
                                     "Id": 1,
                                     "Name": "string",
-                                    "UnitOfMeasure": 1,
+                                    "UnitOfMeasure": "mmm",
                                     "BookkeepingCode": "string",
                                     "AddedDate": "2023-06-29T14:11:55.423Z",
                                     "Enabled": true,
@@ -415,29 +417,29 @@
                                 "Name": {
                                     "type": "string",
                                     "example": "Buyton",
-                                    "required": "",
+                                    "required": true,
                                     "description": "Send the name for the new pump"
                                 },
                                 "UnitOfMeasure": {
-                                    "type": "int",
-                                    "example": 1,
-                                    "required": "",
-                                    "description": "Send the unit of measure for the new pump. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    "type": "string",
+                                    "example": "mmm",
+                                    "required": true,
+                                    "description": "Send the unit of measure for the new pump. Notice! it must exist a unit of measure with this Name in the DB"
                                 },
                                 "Addition": {
-                                    "type": "bit",
-                                    "example": 1,
+                                    "type": "boolean",
+                                    "example": true,
                                     "required": "",
-                                    "description": "Send 1 if the new pump is an ascendant and 0 if it's an addition of an other pump"
+                                    "description": "Send true if the new pump is an ascendant and false if it's an addition of an other pump"
                                 },
                                 "BookkeepingCode": {
                                     "type": "string",
                                     "example": "1234",
-                                    "required": "",
+                                    "required": false,
                                     "description": "Send the book keeping code for the new pump"
                                 }
                             },
-                            "response": "boolean"
+                            "response": true
                         },
                         {
                             "key": "find",
@@ -445,14 +447,14 @@
                                 "where": {
                                     "type": "object",
                                     "example": {
-                                        "Enabled": 1
+                                        "Enabled": true
                                     },
-                                    "required": "",
+                                    "required": false,
                                     "description": "",
                                     "Enabled": {
-                                        "type": "bit",
-                                        "example": 1,
-                                        "required": "",
+                                        "type": "boolean",
+                                        "example": true,
+                                        "required": false,
                                         "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
                                     }
                                 },
@@ -463,16 +465,16 @@
                                     "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
-                            "response": [
+                            "response":[
                                 {
-                                    "Id": "int",
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "Addition": "boolean",
-                                    "BookkeepingCode": "string",
-                                    "AddedDate": "date",
-                                    "Enabled": "boolean",
-                                    "DeleteDate": "date"
+                                    "Id": 1,
+                                    "Name": "Buyton",
+                                    "UnitOfMeasure": "mmm",
+                                    "Addition": true,
+                                    "BookkeepingCode": "1234",
+                                    "AddedDate": "2023-07-12T13:33:59.093Z",
+                                    "Enabled": true,
+                                    "DeleteDate": null
                                 }
                             ]
                         },

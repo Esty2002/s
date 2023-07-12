@@ -7,7 +7,7 @@ const { logToFile } = require('../../services/logger/logTxt')
 router.post('/create', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'create',
-        description: 'insert product in router',
+        description: 'insert finished product in router',
         dataThatRecived: req.body
     }
     logToFile(objectForLog)
@@ -57,16 +57,14 @@ router.post('/delete', express.json(), async (req, res) => {
 router.post('/find', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'find',
-        description: 'find product in router',
+        description: 'find  finished product in router',
         arr: req.body.arr,
         condition: req.body.where
     }
     logToFile(objectForLog)
     try {
-        const response = await findFinishProduct(req.body.arr, req.body.where, 'FinishProducts')
-        console.log(response,'responseeeeeeeeeeeeee');
+        const response = await findFinishProduct(req.body.arr, req.body.where)
         res.status(200).send(response)
-
     }
     catch (error) {
         objectForLog.error = error.message

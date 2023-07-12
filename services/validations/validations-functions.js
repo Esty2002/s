@@ -1,4 +1,4 @@
-const { getData, sqlServer } = require("../axios");
+const { getData } = require("../axios");
 
 const required = (value = null) => {
     if (value) {
