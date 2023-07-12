@@ -9,41 +9,28 @@ async function updateMeasure(condition, obj) {
 
 async function insertMeasure(name) {
     const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
-    console.log(exist.data, '---------------------------------')
-
+    console.log('after exist');
     const { status, data } = exist
-    if (status == 200)
-        if (exist.data.length == 0) {
-
-            const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: name, disable: false } })
-            return response
-
-
-        }
-        else {
-
-            if (data[0].Disable) {
-                const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { disable: false }, condition:`id = ${data[0].Id}` })
-                return response
-            }
-            else{
-
-                throw new Error(`data exist`)
-            }
-        }
-
-
-
-
+    console.log({ status, data });
+    console.log(!data, '!');
+    if (status === 200 && !data[0]) {
+        console.log({ name });
+        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Measure: name, Disable: 0 } })
+        console.log(response + 'hjhfdefjhg');
+        return response
+    }
+    else {
+        throw new Error(`data exist`)
+    }
 }
 
 async function findMeasureNumber(name) {
-    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/measure ='${name}'`)
-    return a.data[0].id
+    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure ='${name}'`)
+    return a.data[0]
 }
 async function findMeasureName(num) {
-    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/id =${num}`))
-    console.log({ measure })
+
+    const measure = (await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`))
     return measure
 }
 
@@ -53,7 +40,7 @@ async function getAll() {
 }
 
 async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: `Id=${object.Id}` })
+    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
     return response
 }
 

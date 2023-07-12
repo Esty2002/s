@@ -7,7 +7,7 @@ const server = axios.create({
 })
 
 
-const getData = async (url) => {
+const getData = async (url, query) => {
     let response;
     // console.log({url});
     try {
@@ -27,10 +27,13 @@ const postData=async(url,body)=>{
         return response;
     }
     catch (error) {
-        return error;
+        console.log({ error: error.message })
+        throw error;
     }
 }
-module.exports = {  getData, postData }
+
+
+module.exports = { getData, postData }
 // ----1
 // url====== /read/distinct
 // body====== { collection: 'areas', distinct: 'type' }

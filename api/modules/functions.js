@@ -1,7 +1,16 @@
 const fs = require('fs')
 const path = require('path')
-
+const config = require('../../config.json')
 const { HOST, PORT } = process.env;
+
+// async function getArguments() {
+//     config.obj.forEach(a => {
+//         a.documnts.forEach(b => {
+//             // console.log(b.functions.arguments);
+//             return b.functions.arguments
+//         })
+//     })
+// }
 
 async function pathForRouter(filename) {
 
@@ -83,8 +92,23 @@ async function enterRouter(router) {
 
         for (let j = 0; j < Itype; j++) { obj.type += arr[i][j] }
         for (let j = Itype + 2; j < endPath - 1; j++) { obj.pathName += arr[i][j] }
-
+        let oldPathName = obj.pathName
         obj.pathName = `http://${HOST}:${PORT}${router.path}${obj.pathName}`
+        try {
+            let splitedPathName = router.routerPath.split('/').slice(2, 3)
+            let allRoutersInCurrentDirectory = config.obj.filter(a => a = a).find(b => b.directory == splitedPathName).documents
+            let allFunctions = allRoutersInCurrentDirectory.find(c => c.document == router.path.slice(1))
+            allFunctions.functions.forEach(d => {
+                if (d.key === oldPathName.slice(1).split('/')[0]) {
+                    obj.arguments = d.arguments
+                    obj.response = d.response
+                }
+            })
+
+        }
+        catch { console.log('didnt filter') }
+
+        // obj.response=''
         arr[i] = obj
     }
     return arr;
@@ -100,7 +124,6 @@ async function filterBasisArr(filename, string) {
     const filterArr = arr.filter(m =>
         (m + '').includes(string)
     )
-    console.log(filterArr, "filterArr");
     return filterArr;
 }
 

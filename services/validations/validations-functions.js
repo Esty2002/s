@@ -9,6 +9,7 @@ const required = (value = null) => {
 
 const dateType = (date) => {
     let date1 = new Date(date)
+    console.log(date1,'ddddaaattee');
     if (date1 == 'Invalid Date')
         return false
     throw new Error(`the date ${date} not valid`)
@@ -26,26 +27,52 @@ const correctPhone = (number) => {
 const positiveNumber = (number) => {
     return number > 0
 }
-// const EnglishLetters = (word) => {
-//     return /^\w[a-z,A-Z]*$/.test(word)
-// }
+const EnglishLetters = (word) => {
+    return /^\w[a-z,A-Z]*$/.test(word)
+}
 
 const onlyNumbersInString = (numbersString) => {
-    return /^\d*$/.test(numbersString)
+
+    if( /^\d*$/.test(numbersString))
+        return true
+    throw new Error(`the value ${numbersString} not only string`)
 }
 const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
-    console.log(value, arg, "llllllllllllllllllllllllllllllllllllllllllllllllll");
+    console.log(typeof value, arg, "llllllllllllllllllllllllllllllllllllllllllllllllll");
+     
+    if( isNaN(value)){
+        if(arg=="string"){
+            console.log('string@@@@');
+            return true
+        }
+        throw new Error(`the value ${value} not typeof value`)
 
-    if (typeof value == arg)
+    }
+    if(arg=="number"){
+        console.log('num@@@');
         return true
+
+    }
+    throw new Error(`the value ${value} not typeof value`)
+
+        
+        
+      
+     
+     
+    // if (typeof value === arg)
+    //     return true
     // throw new Error('not typeof value')
-    console.log(`not typeof ${value}`);
+    // console.log(`not typeof ${value}`);
 }
 const maxLength = (value, max) => {
-    return value.length < max
+    if( value.length < max)
+        return true
+    throw new Error(`the value ${value} too long `)
+    
 }
 const bit = (value) => {
     if (value == 0 || value == 1 || value == 'True' || value == 'False')
@@ -54,10 +81,14 @@ const bit = (value) => {
 }
 
 const minLength = (value, min) => {
-    return value.length > min
+    if( value.length > min)
+        return true
+    throw new Error(`the value ${value} too short`)
 }
 const betweenLength = (value, arg) => {
-    return value.length > arg.min && value.length < arg.max
+    if( value.length > arg.min && value.length < arg.max)
+        return true
+    throw new Error(`the value ${value} not betweenLength`)
 }
 const specificLength = (value, len) => {
     if (value.length == len) {
@@ -66,11 +97,11 @@ const specificLength = (value, len) => {
     throw new Error(`the length of the ${value} not correct`);
 }
 const clientCodeIsExistInSQL = async (field, arg) => {
-    console.log("in clientCodeIsExistInSQL ");
+    console.log(" in clientCodeIsExistInSQL ");
     let tableName1 = arg.tableName
     let val = arg.field
     console.log(field, tableName1, 'tableName1');
-    let ans = await getData(sqlServer, `read/readAll/${tableName1}/${val}=${field}`)
+    let ans = await getData(  `read/readAll/${tableName1}/${val}=${field}`)
     console.log(ans.data, 'aaannnsss');
     if (ans.data.length == 0) {
         return true
@@ -78,11 +109,12 @@ const clientCodeIsExistInSQL = async (field, arg) => {
     }
     else {
         console.log('before error')
-        throw new Error('the client is exist')
+        throw new Error('the client is exists')
     }
 
 
 }
+
 const concretEmail = (value) => {
     console.log('qqqqqqqqq');
     if (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value))

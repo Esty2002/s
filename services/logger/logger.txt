@@ -1,0 +1,3558 @@
+last time login in the function findAreas : Wed Jul 12 2023 - 14:18:04  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:18:04  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:18:04  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:18:04  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:18:04  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:18:04  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:18:04  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:18:04  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:18:27  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+name: struma, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: point, 
+basicName: סטרומה, 
+_id: 64ae8ab6f829f3151f9cf0b1, 
+addedDate: 2023-07-12T11:18:27.787Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:18:27  
+description: updateArea in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:15  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:15  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:21:15  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:21:15  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:15  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:15  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:21:15  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:21:15  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:16  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:21:16  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:16  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:21:16  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:21:16  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:21:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:21:16  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:22:41  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+name: Struma, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: point, 
+basicName: סטרומה, 
+_id: 64ae8ab6f829f3151f9cf0b1, 
+addedDate: 2023-07-12T11:22:41.554Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:22:41  
+description: updateArea in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:23:17  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:23:17  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:23:17  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:23:17  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:23:17  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:23:17  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:23:17  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:23:17  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:33  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: Hifa Struma, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:33  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: Hifa Struma, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 14:29:33  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: Hifa Struma, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: city, 
+basicName: סטרומה, 
+addedDate: 2023-07-12T11:29:33.152Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 14:29:33  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: Hifa Struma, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: city, 
+basicName: סטרומה, 
+addedDate: 2023-07-12T11:29:33.152Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:29:35  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:29:35  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:29:35  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:29:35  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:36  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:36  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:36  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:36  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:38  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:38  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:41  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:29:41  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:30:24  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+name: struma, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: point, 
+basicName: סטרומה, 
+_id: 64ae8ab6f829f3151f9cf0b1, 
+addedDate: 2023-07-12T11:30:24.000Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:30:24  
+description: updateArea in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:31:00  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:31:00  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:31:00  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:31:00  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:31:00  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:31:00  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:31:00  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:31:00  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:34:37  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:34:37  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:34:37  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:34:37  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:34:45  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:34:45  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:35:27  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:35:27  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:35:32  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:35:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:35:39  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+name: struma, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: point, 
+basicName: סטרומה, 
+_id: 64ae8ab6f829f3151f9cf0b1, 
+addedDate: 2023-07-12T11:35:39.694Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function updateArea : Wed Jul 12 2023 - 14:35:39  
+description: updateArea in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:24  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:54:24  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:54:24  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:24  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:24  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:54:24  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:54:24  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:24  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:28  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:54:28  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:28  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:54:28  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:54:28  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:54:28  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:32  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 14:54:48  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: חיפה, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:48  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: חיפה, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:48  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:54:48  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 14:54:48  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 14:55:16  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: חיפה, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: חיפה, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 14:55:16  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 14:55:30  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: חיפה, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:30  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: חיפה, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:30  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:30  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 14:55:30  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:55:31  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:55:31  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:55:31  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:55:31  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:32  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:32  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:33  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:55:33  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 14:56:56  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: חיפה, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:56:56  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: חיפה, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:56:56  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:56:56  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 14:56:56  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:20  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: SSTTRRUUMMAA, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:20  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: SSTTRRUUMMAA, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 14:57:20  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: SSTTRRUUMMAA, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: point, 
+basicName: סטרומה, 
+addedDate: 2023-07-12T11:57:20.657Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 14:57:20  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: SSTTRRUUMMAA, 
+point: [object Object], 
+placeId: EhhTdHJ1bWEgU3QsIEhhaWZhLCBJc3JhZWwiLiosChQKEgkhkhz6kbsdFRE9UiOnF0QSpRIUChIJRegNdUy6HRURmlKBKpgjXcM, 
+type: point, 
+basicName: סטרומה, 
+addedDate: 2023-07-12T11:57:20.657Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 14:57:35  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: חיפה, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:35  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: חיפה, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:35  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:35  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 14:57:35  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:57:40  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:57:40  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:57:40  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:57:40  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:41  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:41  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:41  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:41  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:43  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:43  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:57:49  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:57:49  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:57:49  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:57:49  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:50  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:50  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:50  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:50  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:50  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:50  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 14:57:52  
+description: deleteArea in router- in try
+        
+dataThatRecived: {deleteArea in router- in try
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 14:57:52  
+description: deleteArea in module
+        
+dataThatRecived: {deleteArea in module
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:52  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:52  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:54  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:54  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:57:54  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 14:57:54  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:54  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:57:54  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:57:54  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 14:57:54  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:58:21  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:58:21  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 14:58:25  
+description: deleteArea in router- in try
+        
+dataThatRecived: {deleteArea in router- in try
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 14:58:25  
+description: deleteArea in module
+        
+dataThatRecived: {deleteArea in module
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:58:25  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 14:58:25  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:30  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:30  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:34  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:34  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:00:34  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:00:34  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:34  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:34  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:00:34  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:00:34  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 15:00:35  
+description: deleteArea in router- in try
+        
+dataThatRecived: {deleteArea in router- in try
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 15:00:36  
+description: deleteArea in module
+        
+dataThatRecived: {deleteArea in module
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:36  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:00:36  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:05  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:05  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:20  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:20  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:02:20  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:02:20  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:20  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:20  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:02:20  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:02:20  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:21  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:02:21  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:21  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:02:21  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:21  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:02:21  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:21  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:02:21  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 15:02:24  
+description: deleteArea in router- in try
+        
+dataThatRecived: {deleteArea in router- in try
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function deleteArea : Wed Jul 12 2023 - 15:02:24  
+description: deleteArea in module
+        
+dataThatRecived: {deleteArea in module
+filter: [object Object], 
+set: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:24  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:24  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:35  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:02:35  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 15:03:28  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:03:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:03:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:03:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 15:03:28  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:28:11  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 15:28:11  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:28:11  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 15:28:11  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:13  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:13  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:13  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:13  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:14  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:14  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:15  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: radius, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:15  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:17  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:28:17  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:34:38  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 15:34:38  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 19:25:42  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 19:25:42  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 19:25:42  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 19:25:42  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 19:25:44  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAllTypes : Wed Jul 12 2023 - 19:25:44  
+description: findAllTypes in router- in try
+        
+dataThatRecived: {findAllTypes in router- in try
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 19:25:44  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Wed Jul 12 2023 - 19:25:44  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:25:45  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:25:46  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:25:46  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:25:46  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: point, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:25:47  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:25:47  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: city, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 19:33:18  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:33:18  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:33:18  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 19:33:18  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 19:33:57  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:33:57  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:33:57  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 19:33:57  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 19:35:33  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:35:33  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:35:33  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:35:33  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 19:35:33  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:36:39  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: זרזיר -מעוף, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:36:39  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: זרזיר -מעוף, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 19:36:39  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: זרזיר -מעוף, 
+point: [object Object], 
+placeId: EhdaYXJ6aXIgU3QsIEFyYWQsIElzcmFlbCIuKiwKFAoSCWeEIMrj_wIVETbuOND39VB5EhQKEgkL6qgAAgADFRGXwSF6O2UyAg, 
+radius: 702000, 
+type: radius, 
+basicName: זרזיר, 
+addedDate: 2023-07-12T16:36:39.751Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 19:36:39  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: זרזיר -מעוף, 
+point: [object Object], 
+placeId: EhdaYXJ6aXIgU3QsIEFyYWQsIElzcmFlbCIuKiwKFAoSCWeEIMrj_wIVETbuOND39VB5EhQKEgkL6qgAAgADFRGXwSF6O2UyAg, 
+radius: 702000, 
+type: radius, 
+basicName: זרזיר, 
+addedDate: 2023-07-12T16:36:39.751Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 19:37:05  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:37:05  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:37:05  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:37:05  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+type: radius, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 19:37:05  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:40:49  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: רבי עקיבא, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:40:49  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: רבי עקיבא, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 19:40:49  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: רבי עקיבא, 
+point: [object Object], 
+placeId: EiBSYWJpIEFraXZhIFN0LCBCbmVpIEJyYWssIElzcmFlbCIuKiwKFAoSCTfLCEwkSh0VEX1tC1aBDuf0EhQKEgl5csxbI0odFRGHOUKMF8ovow, 
+radius: 3065000, 
+type: radius, 
+basicName: רבי עקיבא, 
+addedDate: 2023-07-12T16:40:49.646Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 19:40:49  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: רבי עקיבא, 
+point: [object Object], 
+placeId: EiBSYWJpIEFraXZhIFN0LCBCbmVpIEJyYWssIElzcmFlbCIuKiwKFAoSCTfLCEwkSh0VEX1tC1aBDuf0EhQKEgl5csxbI0odFRGHOUKMF8ovow, 
+radius: 3065000, 
+type: radius, 
+basicName: רבי עקיבא, 
+addedDate: 2023-07-12T16:40:49.646Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:45:32  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: , 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 19:45:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: , 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 19:45:32  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: , 
+point: [object Object], 
+placeId: EhZIb2hpdCBTdCwgQXJhZCwgSXNyYWVsIi4qLAoUChIJRY-pPOL_AhUR08pdeJKXO9oSFAoSCQvqqAACAAMVEZfBIXo7ZTIC, 
+type: point, 
+basicName: חוחית, 
+addedDate: 2023-07-12T16:45:32.390Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 19:45:32  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: , 
+point: [object Object], 
+placeId: EhZIb2hpdCBTdCwgQXJhZCwgSXNyYWVsIi4qLAoUChIJRY-pPOL_AhUR08pdeJKXO9oSFAoSCQvqqAACAAMVEZfBIXo7ZTIC, 
+type: point, 
+basicName: חוחית, 
+addedDate: 2023-07-12T16:45:32.390Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:16:16  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:16:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:16:16  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:16:16  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:16:52  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:16:52  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:16:52  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:16:52  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:17:32  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:17:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:17:32  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:17:32  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:18:14  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:18:14  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:18:14  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:18:14  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:29:05  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:29:05  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:29:05  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:29:05  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:39:26  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: mali, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:39:26  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: mali, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:39:26  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: mali, 
+point: [object Object], 
+placeId: EhrXkNep15PXldeTLCBaYXJ6aXIsIElzcmFlbCIuKiwKFAoSCQsOKNg6TRwVEWrh82qbvwViEhQKEgk9dRN9KU0cFREurg3UxLLRjg, 
+type: point, 
+basicName: אשדוד, 
+addedDate: 2023-07-12T17:39:26.322Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:39:26  
+description: insertArea in router- in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:43:19  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: אאאנננייי, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:43:19  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: אאאנננייי, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:43:19  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: אאאנננייי, 
+point: [object Object], 
+placeId: ChIJ7-RHdRGjAhURL2OGWhptgJc, 
+type: point, 
+basicName: אשדוד, 
+addedDate: 2023-07-12T17:43:19.937Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:43:20  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: אאאנננייי, 
+point: [object Object], 
+placeId: ChIJ7-RHdRGjAhURL2OGWhptgJc, 
+type: point, 
+basicName: אשדוד, 
+addedDate: 2023-07-12T17:43:19.937Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:43:54  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:43:54  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:43:54  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:43:54  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:46:15  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: ccc, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:46:15  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: ccc, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:46:15  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: ccc, 
+point: [object Object], 
+placeId: ChIJuyXRUkISHRURPeSPe4UTvjo, 
+type: point, 
+basicName: חדרה, 
+addedDate: 2023-07-12T17:46:15.113Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:46:15  
+description: insertArea in router- in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:47:26  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: ערד, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:47:26  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: ערד, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:47:26  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: ערד, 
+point: [object Object], 
+placeId: ChIJC-qoAAIAAxURl8EhejtlMgI, 
+type: city, 
+basicName: ערד, 
+addedDate: 2023-07-12T17:47:26.016Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:47:26  
+description: insertArea in router- in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:48:10  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: ערד, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:48:10  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: ערד, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:48:10  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: ערד, 
+point: [object Object], 
+placeId: ChIJC-qoAAIAAxURl8EhejtlMgI, 
+type: city, 
+basicName: ערד, 
+addedDate: 2023-07-12T17:48:10.049Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:48:10  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: ערד, 
+point: [object Object], 
+placeId: ChIJC-qoAAIAAxURl8EhejtlMgI, 
+type: city, 
+basicName: ערד, 
+addedDate: 2023-07-12T17:48:10.049Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:48:33  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: דוכיפת, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:48:33  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: דוכיפת, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:48:33  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: דוכיפת, 
+point: [object Object], 
+placeId: EhlEdWtoaWZhdCBTdCwgQXJhZCwgSXNyYWVsIi4qLAoUChIJtZm2quP_AhURxLmD7VxmH9ISFAoSCQvqqAACAAMVEZfBIXo7ZTIC, 
+radius: 1647000, 
+type: radius, 
+basicName: דוכיפת, 
+addedDate: 2023-07-12T17:48:33.928Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:48:33  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: דוכיפת, 
+point: [object Object], 
+placeId: EhlEdWtoaWZhdCBTdCwgQXJhZCwgSXNyYWVsIi4qLAoUChIJtZm2quP_AhURxLmD7VxmH9ISFAoSCQvqqAACAAMVEZfBIXo7ZTIC, 
+radius: 1647000, 
+type: radius, 
+basicName: דוכיפת, 
+addedDate: 2023-07-12T17:48:33.928Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:48:51  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: ירושלים, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:48:51  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: ירושלים, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:48:51  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: ירושלים, 
+point: [object Object], 
+placeId: ChIJExWBsd4pAxURiXYyvYJLzUc, 
+radius: 2474000, 
+type: radius, 
+basicName: גאולה, 
+addedDate: 2023-07-12T17:48:51.071Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:48:51  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: ירושלים, 
+point: [object Object], 
+placeId: ChIJExWBsd4pAxURiXYyvYJLzUc, 
+radius: 2474000, 
+type: radius, 
+basicName: גאולה, 
+addedDate: 2023-07-12T17:48:51.071Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:49:11  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: חוחית, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:49:11  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: חוחית, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:49:11  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: חוחית, 
+point: [object Object], 
+placeId: EhZIb2hpdCBTdCwgQXJhZCwgSXNyYWVsIi4qLAoUChIJRY-pPOL_AhUR08pdeJKXO9oSFAoSCQvqqAACAAMVEZfBIXo7ZTIC, 
+type: point, 
+basicName: חוחית, 
+addedDate: 2023-07-12T17:49:11.351Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:49:11  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: חוחית, 
+point: [object Object], 
+placeId: EhZIb2hpdCBTdCwgQXJhZCwgSXNyYWVsIi4qLAoUChIJRY-pPOL_AhUR08pdeJKXO9oSFAoSCQvqqAACAAMVEZfBIXo7ZTIC, 
+type: point, 
+basicName: חוחית, 
+addedDate: 2023-07-12T17:49:11.351Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:49:30  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: אשדוד, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:49:30  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: אשדוד, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:49:30  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: אשדוד, 
+point: [object Object], 
+placeId: ChIJ7-RHdRGjAhURL2OGWhptgJc, 
+type: city, 
+basicName: אשדוד, 
+addedDate: 2023-07-12T17:49:30.047Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:49:30  
+description: insertArea in router- in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:54:43  
+description: findAreas in router- in try
+        
+dataThatRecived: {findAreas in router- in try
+name: ee, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:54:43  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+name: ee, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:54:43  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+name: ee, 
+point: [object Object], 
+placeId: ChIJddBLzzmkHRURkMOC5V8NBjc, 
+type: point, 
+basicName: עין הוד, 
+addedDate: 2023-07-12T17:54:43.239Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function insertArea : Wed Jul 12 2023 - 20:54:43  
+description: insertArea in module
+        
+dataThatRecived: {insertArea in module
+name: ee, 
+point: [object Object], 
+placeId: ChIJddBLzzmkHRURkMOC5V8NBjc, 
+type: point, 
+basicName: עין הוד, 
+addedDate: 2023-07-12T17:54:43.239Z, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:55:00  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:55:00  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:55:00  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:55:00  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:57:25  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:57:25  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:57:25  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:57:25  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:58:42  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:58:42  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 20:58:42  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 20:58:42  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:01:40  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:01:40  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:01:40  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:01:40  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:03:28  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:03:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:03:28  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:03:28  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:04:26  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:04:26  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:04:26  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:04:26  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:04:53  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:04:53  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:04:53  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:04:53  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:06:58  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:06:58  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:06:58  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 21:06:58  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:06:58  
+description: searchAreas in router- in try
+        
+error: {radius is not iterable}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:09:01  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:09:01  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:09:01  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:09:01  
+description: searchAreas in router- in try
+        
+error: {.......}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:09:35  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:09:35  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:09:35  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:09:35  
+description: searchAreas in router- in try
+        
+error: {Request failed with status code 404}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:10:12  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:10:12  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:10:12  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 21:10:12  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:10:12  
+description: searchAreas in router- in try
+        
+error: {radius is not iterable}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:10:20  
+description: searchAreas in router- in try
+        
+dataThatRecived: {searchAreas in router- in try
+city: ערד, 
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:10:20  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+basicName: ערד, 
+
+}
+----------------------------------
+last time login in the function findAreas : Wed Jul 12 2023 - 21:10:20  
+description: findAreas in module
+        
+dataThatRecived: {findAreas in module
+point: [object Object], 
+type: point, 
+
+}
+----------------------------------
+last time login in the function findInPolygon : Wed Jul 12 2023 - 21:10:20  
+description: findInPolygon in module
+        
+dataThatRecived: {findInPolygon in module
+point: [object Object], 
+
+}
+----------------------------------
+last time login in the function searchAreas : Wed Jul 12 2023 - 21:10:20  
+description: searchAreas in router- in try
+        
+error: {radius is not iterable}
+----------------------------------

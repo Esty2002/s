@@ -4,6 +4,7 @@ const { app } = require('../../../app');
 jest.mock('../../../modules/clients/deleteClient', () => {
     return {
         deletedClientByCode: jest.fn((clientCode, userName) => {
+            // console.log("test : mock deletedClientByCode module");
             if (clientCode && userName)
                 return true;
             return false
