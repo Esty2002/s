@@ -30,7 +30,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
 router.post('/addCitiesAdditions', express.json(), async (req, res) => {
     tableName = 'tbl_CitiesAdditions'
     let object = {
-        name: 'create',
+        name: 'addCitiesAdditions',
         description: 'addCitiesAdditions in router',
         dataThatRecived: req.body,
     }
@@ -151,7 +151,7 @@ router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
     let object = {
         name: 'read',
         description: 'detailsOfProfucts in router expect to get table name',
-        dataThatRecived: tbName,
+        dataThatRecived: tbName
     }
     logToFile(object)
     const result = await getProducts(tbName)

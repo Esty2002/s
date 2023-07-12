@@ -1,6 +1,5 @@
 const request = require('supertest');
 const { app } = require('../../../app')
-
 // const { insert} = require('../../../modules/pricelist/insertPricelist')
 jest.mock('../../../modules/pricelist/insertPricelist', () => {
     return {
@@ -10,6 +9,34 @@ jest.mock('../../../modules/pricelist/insertPricelist', () => {
             else {
                 throw new Error('one or more details are missing. the creation was fail.')
             }
+        }),
+
+        getId: jest.fn((name, tbname) => {
+            console.log(name, tbname);
+            if (name && tbname)
+                return true
+            else
+                throw new Error('you didnt insert name of pricelist or preffer table name')
+        }),
+        getProducts: jest.fn((tbname) => {
+            if (tbname)
+                return true;
+            else
+                throw new Error('you didnt insert name of preffer table name')
+
+        }),
+        updateField: jest.fn((id,tbname)=>{
+            if (id && tbname)
+                return true;
+            else
+                throw new Error('you didnt send id or name of preffer table name')
+        }),
+        getIdForBuytonDescribe:jest.fn((name,tbname)=>{
+            console.log(name,tbname,' yyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
+            if (name && tbname)
+                return true;
+            else
+                throw new Error('you didnt send name or name of preffer table name')
         })
     }
 })
@@ -158,7 +185,7 @@ describe('insert additions for distance to price list', () => {
 //////////////////////////////////addTruckFill
 describe('insert additions for truck fill to price list', () => {
     it('shuold insert the object to db ', async () => {
-        const response = await request(app).post('/creatPricelist/addTruckFill').send({ name: "pricelist1", userName: "Rony", price: 3000 });
+        const response = await request(app).post('/creatPricelist/addTruckFill').send({ name: "pricelist1", userName: "Tony", price: 3000 });
         expect(response.statusCode).toBe(200);
         expect(response).toBeDefined();
         expect(response.notFound).toBeFalsy();
@@ -167,70 +194,351 @@ describe('insert additions for truck fill to price list', () => {
     it('should execute insert once ', async () => {
         jest.setTimeout(async _ => {
             const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist')
-            _ = await request(app).post('/creatPricelist/addTruckFill', { name: "pricelist1", userName: "Rony", price: 6090 })
+            _ = await request(app).post('/creatPricelist/addTruckFill', { name: "pricelist1", userName: "Tony", price: 8000, maxFill: 35 })
             expect(insert).toHaveBeenCalled();
         }, 6000);
     })
 
-    it('should return a json object', async () => {
+    it('should return an error for object that not include the must fields ', async () => {
         jest.setTimeout(async _ => {
-            const response = await request(app).post('/creatPricelist/addTruckFill', { clientCode: '123', clientName: 'Gidon' })
+            const response = await request(app).post('/creatPricelist/addTruckFill', { name: "pricelist1", price: 6090, maxFill: 35 });
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addTruckFill', { name: "pricelist1", userName: "Tony", maxFill: 35 })
             expect(response.headers['content-type'])
-                .toBe("application/json; charset=utf-8")
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
         }, 6000);
     })
 })
 
-// describe('insert additions for supplier or client to price list', () => {
-//     //  ////////////////////////////////addPricesListBySupplierOrClient
-//     it('shuold insert the object to db', async () => {
-//         const res = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient').send({ name: "tamy", customerCode: 1000 ,clientCode:"32467"})
-//         expect(res.statusCode).toBe(200)
-//         expect(res).toBeDefined()
-//     })
+/////////////////////////////////addPricesListBySupplierOrClient
+describe('insert additions for supplier or client to price list', () => {
+    it('shuold insert the object to db ', async () => {
+        const response = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient').send({ name: "pricelist1", userName: "Avi", clientName: "Gidi" });
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
 
+    it('should execute insert once', async () => {
+        jest.setTimeout(async _ => {
+            const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist');
+            _ = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient').send({ name: "pricelist1", userName: "Avi", clientName: "Gidi" });
+            expect(insert).toHaveBeenCalled();
+        }, 6000);
+    })
 
-//     it('should execute insert once ', async () => {
-//         const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist')
-//         const res = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient', { clientCode: '123', clientName: 'Gidon' })
-//         expect(insert).toHaveBeenCalled();
-//         expect(res).toBeDefined()
-//     })
+    it('should return an error for object that not include the must fields ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient', { clientName: "Gidi" });
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
 
-//     it('should return a json object', async () => {
-//         const response = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient', { clientCode: '123', clientName: 'Gidon' })
-//         expect(response.headers['content-type'])
-//             .toBe("application/json; charset=utf-8")
-//     })
-// })
-// describe('insert products to price list', () => {
-//     it('shuold insert the object to db', async () => {
-//         const res = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "tamy", customerCode: 1000, clientCode: "32467" })
-//         expect(res.statusCode).toBe(200)
-//         expect(res).toBeDefined()
-//         expect(res.headers['content-type'])
-//             .toBe("application/json; charset=utf-8")
-//     })
-    // it('should execute insert once ', async () => {
-    //     jest.setTimeout(5000)
-    //     const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist')
-    //     _ = await request(app).post('/creatPricelist/addPricelistForProducts', { clientCode: '123', clientName: 'Gidon' })
-    //     expect(insert).toHaveBeenCalled();
-    // })
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient', { name: "pricelist1", userName: "Avi", clientName: "Gidi" })
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
 
-    // it('should return a json object', async () => {
-    //     jest.setTimeout(5000)
-    //     const response = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "error" })
-    //     // expect(response).toBe
-    //     expect(response.statusCode).toBe(500)
+    })
+})
 
-    // })
-// })
+describe('insert products to price list', () => {
+    it('shuold insert the object to db ', async () => {
+        const response = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "pricelist1", userName: "Avi", clientName: "Gidi" });
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute insert once', async () => {
+        jest.setTimeout(async _ => {
+            const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist');
+            _ = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "pricelist1", userName: "Avi", productCode: 968 });
+            expect(insert).toHaveBeenCalled();
+        }, 6000);
+    })
 
-// describe('insert finish products to price list', () => {
-//     it('should insert the object to db', async () => {
-//         const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts', {clientCode:"32467", name: "1" })
-//         expect(response.statusCode).toBe(200)
-//         expect(response).toBeDefined()
-//     })
-// })
+    it('should return an error for object that not include the must fields ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addPricelistForProducts', { productCode: 968 });
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addPricelistForProducts', { name: "pricelist1", userName: "Avi", productCode: 968 })
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+})
+
+////////////////////////////addPricelistForFinishProducts
+describe('insert finish products to price list', () => {
+    it('shuold insert the object to db ', async () => {
+        const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts').send({ name: "pricelist1", userName: "Avi", finishProductCode: 23 });
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute insert once ', async () => {
+        jest.setTimeout(async _ => {
+            const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).post('/creatPricelist/addPricelistForFinishProducts', { name: "pricelist1", userName: "Avi", finishProductCode: 23 })
+            expect(insert).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error for object that not include the must fields ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts', {});
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts', { name: "pricelist1", userName: "Avi", finishProductCode: 23 })
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+
+})
+
+describe('insert additions to price list', () => {
+    it('shuold insert the object to db ', async () => {
+        const response = await request(app).post('/creatPricelist/addAdditionsForPricelist').send({ name: "pricelist1", userName: "Avi" });
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute insert once ', async () => {
+        jest.setTimeout(async _ => {
+            const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).post('/creatPricelist/addAdditionsForPricelist', { name: "pricelist1", userName: "Avi" })
+            expect(insert).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error for object that not include the must fields ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addAdditionsForPricelist', {});
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addAdditionsForPricelist', { name: "pricelist1", userName: "Avi" })
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+
+})
+
+describe('insert additions to price list', () => {
+    it('shuold insert the object to db ', async () => {
+        const response = await request(app).post('/creatPricelist/addAdditionsForPricelist').send({ name: "pricelist1", userName: "Avi" });
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute insert once ', async () => {
+        jest.setTimeout(async _ => {
+            const { insert } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).post('/creatPricelist/addAdditionsForPricelist', { name: "pricelist1", userName: "Avi" })
+            expect(insert).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error for object that not include the must fields ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addAdditionsForPricelist', {});
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/addAdditionsForPricelist', { name: "pricelist1", userName: "Avi" })
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+
+})
+
+describe('get id for Pricelist Name', () => {
+    it('shuold return id for price list-name ', async () => {
+        const response = await request(app).get(`/creatPricelist/getIdForPricelistName/${'pricelist1'}/${'tbl_PriceList'}`);
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute insert once ', async () => {
+        jest.setTimeout(async _ => {
+            const { getId } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).get('/creatPricelist/getIdForPricelistName/pricelist1/tbl_PriceList')
+            expect(getId).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error for object that not include the must fields ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).get('/creatPricelist/getIdForPricelistName/pricelist1/tbl_PriceList');
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/getIdForPricelistName/pricelist1/tbl_PriceList')
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+
+})
+
+describe('details of profucts', () => {
+    it('shuold return details of profucts ', async () => {
+        const response = await request(app).post('/creatPricelist/detailsOfProfucts/tbl_PriceList');
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute getProducts once', async () => {
+        jest.setTimeout(async _ => {
+            const { getProducts } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).post('/creatPricelist/detailsOfProfucts/tbl_PriceList')
+            expect(getProducts).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error if table name wasn`t send ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/detailsOfProfucts');
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/detailsOfProfucts/tbl_PriceList')
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+})
+
+describe('update field in table', () => {
+    it('shuold update field in a table ', async () => {
+        const response = await request(app).post('/creatPricelist/updateFieldInTable/2/tbl_PriceList', { name: "pricelist1", userName: "Avi" });
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    })
+    it('should execute getProducts once', async () => {
+        jest.setTimeout(async _ => {
+            const { getProducts } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).post('/creatPricelist/updateFieldInTable/2/tbl_PriceList', { name: "pricelist1", userName: "Avi" })
+            expect(getProducts).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error if table name wasn`t send ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/updateFieldInTable/2', { name: "pricelist1", userName: "Avi" });
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/updateFieldInTable/2/tbl_PriceList', { name: "pricelist1", userName: "Avi" })
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+})
+
+describe('get Id For Buyton Describe', () => {
+    it('shuold return id for buyton describe ', async () => {
+        jest.setTimeout(async _ => {
+        const response = await request(app).get(`/creatPricelist/getIdForBuytonDescribe/grain/tbl_BuytonGrain`);
+        expect(response.statusCode).toBe(200);
+        expect(response).toBeDefined();
+        expect(response.notFound).toBeFalsy();
+        expect(response.serverError).toBeFalsy();
+    }, 6000);
+    })
+    it('should execute getIdForBuytonDescribe once ', async () => {
+        jest.setTimeout(async _ => {
+            const { getIdForBuytonDescribe } = jest.requireMock('../../../modules/pricelist/insertPricelist')
+            _ = await request(app).get('/creatPricelist/getIdForBuytonDescribe/grain/tbl_BuytonGrain')
+            expect(getIdForBuytonDescribe).toHaveBeenCalled();
+        }, 6000);
+    })
+
+    it('should return an error if table name wasnt send ', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).get('/creatPricelist/getIdForBuytonDescribe/grain');
+            expect(response).toBeDefined();
+            expect(response.statusCode).toBe(500);
+            expect(response.serverError).toBeTruthy();
+        }, 6000);
+    })
+
+    it('should return an answer from type text-html, and true for good request', async () => {
+        jest.setTimeout(async _ => {
+            const response = await request(app).post('/creatPricelist/getIdForBuytonDescribe/grain/tbl_BuytonGrain')
+            expect(response.headers['content-type'])
+                .toBe("text/html; charset=utf-8")
+            expect(response).toBeTruthy()
+        }, 6000);
+    })
+
+})
