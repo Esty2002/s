@@ -14,7 +14,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         }
         logToFile(object)
         const result = await insert(req.body, 'PriceList')
-        res.status(result.status).send(result.data);
+        res.status(200).send(result);
     }
     catch (error) {
         object.error = error.message

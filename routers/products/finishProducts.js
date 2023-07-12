@@ -64,6 +64,7 @@ router.post('/find', express.json(), async (req, res) => {
     logToFile(objectForLog)
     try {
         const response = await findFinishProduct(req.body.arr, req.body.where, 'FinishProducts')
+        console.log(response,'responseeeeeeeeeeeeee');
         res.status(200).send(response)
 
     }

@@ -1,7 +1,6 @@
 const { getData, sqlServer } = require("../axios");
 
 const required = (value = null) => {
-    console.log('throooo');
     if (value) {
         return true;
     }

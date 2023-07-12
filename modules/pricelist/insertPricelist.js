@@ -39,7 +39,7 @@ async function insert(data, entityName) {
         obj.columns = '*'
         obj.values = data
         const result = await postData('/create/create', obj)
-        return result;
+        return result.data;
     }
     catch (error) {
         objectForLog.error = error.message
