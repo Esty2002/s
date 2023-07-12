@@ -101,7 +101,7 @@ async function insertArea(obj = {}) {
 async function updateArea(obj = {}) {
     let originalId = obj._id;
     delete obj._id;
-    const mongoObj = { addedDate: obj.addedDate, basicName: obj.basicName, disabled: obj.disabled, name: obj.name, radius: obj.radius }
+    const mongoObj = { addedDate: obj.addedDate, name: obj.name }
 
     console.log('before');
     const checkV = await checkObjectValidations(mongoObj, "areas")
