@@ -109,10 +109,8 @@ router.post('/insertrecord', express.json(), async (req, res) => {
         }
     }
     catch (error) {
-        if (error instanceof Array)
-            res.status(500).send(error);
-        else
-            res.status(500).send(error.message);
+        console.log(error);
+        res.status(500).send(error.message);
     }
 });
 

@@ -56,7 +56,7 @@ const objectsForValidations = [
         ]
     },
     {
-        objectName: "StatusesLeads",
+        objectName: "StatusesLead",
         values: [
             { propertyName: "StatusName", validation: [{ func: validation.onlyLetters, arguments: null }], require: true },
             { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true },

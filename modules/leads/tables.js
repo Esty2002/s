@@ -4,12 +4,12 @@ const { checkObjectValidations } = require('../../services/validations/use-valid
 const values = [
     {
         entityName: "Orderers",
-        func: ({ ordererName = null, ordererPhone = null }) => {
+        func: ({ name = null, phone = null }) => {
             return {
                 tableName: "Orderers",
                 values: {
-                    OrdererName: ordererName,
-                    OrdererPhone: ordererPhone,
+                    OrdererName: name,
+                    OrdererPhone: phone,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -21,11 +21,11 @@ const values = [
     },
     {
         entityName: "PouringsTypes",
-        func: ({ pouringName }) => {
+        func: ({ name }) => {
             return {
                 tableName: "PouringsTypes",
                 values: {
-                    PouringName: pouringName,
+                    PouringName: name,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -37,11 +37,11 @@ const values = [
     {
 
         entityName: "StatusesLead",
-        func: ({ statusName }) => {
+        func: ({ name }) => {
             return {
                 tableName: "StatusesLead",
                 values: {
-                    StatusName: statusName,
+                    StatusName: name,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -50,6 +50,7 @@ const values = [
         }
 
     },
+    
 ];
 
 
