@@ -19,7 +19,7 @@ async function getClientsById(id) {
     obj['condition']=`id=${id}`
     obj['columns']='*'
     const result= await postData('/read/readTopN', obj);
-//    console.log(result,' result');
+   console.log(result,' result');
     if (result==undefined) 
         return null
     return result

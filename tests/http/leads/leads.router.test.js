@@ -28,34 +28,36 @@ jest.mock('../../../modules/leads/leads-options', () => {
 
 })
 
-jest.mock('../../../modules/leads/tables', () => {
+jest.mock('../../../modules/leads/orderers', () => {
     return {
-        newRecord: jest.fn(({ tableName, values }) => {
-            if (tableName ==='orderers'||tableName==='pouringsTypes'||tableName==='statusesLead' && typeof values ==='object') {
+        newOrderer: jest.fn(({ name, phone }) => {
+            if (name && phone) {
                 return 'insert'
             }
             else {
-                throw new Error("one or more arguments not correct");
+                throw new Error("the name or phone are not defined");
             }
         }),
-        getRecord: jest.fn((table, columns, condition) => {
-            if (table ==='orderers'||table==='pouringsTypes'||table==='statusesLead' && columns && condition)
-                return { tablename: "test" };
-            else
-                throw new Error("the params not correct")
+        getOrderers: jest.fn(() => {
+            return { tablename: "test" };
         }),
-       
-        updateRecord: jest.fn(({ tableName,update, condition }) => {
-            if (tableName ==='orderers'||tableName==='pouringsTypes'||tableName==='statusesLead' && typeof update==='object'&&typeof condition==='string') {
+        getOrdererByPhone: jest.fn(({ phone }) => {
+            if (phone) {
+                return phone;
+            }
+            return false
+        }),
+        updateOrderer: jest.fn(({ set, phone }) => {
+            if (set && phone) {
                 return true;
             }
             else {
-                throw new Error('one argument or more not correct');
+                throw new Error('the serial number or set are not defined');
             }
         }),
-        deleteRecord: jest.fn(({ tableName, condition }) => {
-            if (tableName ==='orderers'||tableName==='pouringsTypes'||tableName==='statusesLead'&&typeof condition==='string') {
-                return "delete";
+        deleteOrderer: jest.fn(({ phone }) => {
+            if (phone) {
+                return true;
             }
             else {
                 throw new Error("the serialNumber is not defined");

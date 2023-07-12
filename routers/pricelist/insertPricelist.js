@@ -1,31 +1,36 @@
 const express = require('express')
 const router = express.Router()
-const { logToFile } = require('../../services/loggerPnini')
-
+const { logToFile } = require('../../services/logger/logTxt')
 const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = require('../../modules/pricelist/insertPricelist')
 let tableName
+let object
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
     try {
-        let object = {
-            name: 'create',
-            description: 'addPriceList in router',
+        object = {
+            name: 'addPriceList',
+            description: 'addPriceList in router- in try',
             dataThatRecived: req.body,
         }
         logToFile(object)
-        const result = await insert(req.body, 'tbl_PriceList')
-        res.status(result.status).send(result.data);
+        const result = await insert(req.body, 'PriceList')
+        res.status(200).send(result);
     }
     catch (error) {
-
-        res.status(500).send(error.message)
+        object.error = error.message
+        logToFile(object)
+        console.log({ object });
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message);
     }
 })
 //tbl_CitiesAdditions
 router.post('/addCitiesAdditions', express.json(), async (req, res) => {
     tableName = 'tbl_CitiesAdditions'
     let object = {
-        name: 'create',
+        name: 'addCitiesAdditions',
         description: 'addCitiesAdditions in router',
         dataThatRecived: req.body,
     }
@@ -146,7 +151,7 @@ router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
     let object = {
         name: 'read',
         description: 'detailsOfProfucts in router expect to get table name',
-        dataThatRecived: tbName,
+        dataThatRecived: tbName
     }
     logToFile(object)
     const result = await getProducts(tbName)
