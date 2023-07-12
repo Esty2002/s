@@ -45,43 +45,55 @@ async function findInPolygon(point) {
 };
 
 async function insertArea(obj = {}) {
-    const result = await postData('/create/insertone',
-        {
-            collection: "areas",
-            data: obj
-        });
-    if (result.data) {
-        const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-        console.log('before vali modulessssssss', sqlObj);
-        const checkVali = await checkObjectValidations(
-            sqlObj, "tbl_Areas")
-        console.log('after vali modulessssssss', checkVali);
+    console.log(obj);
+    const mongoObj = { addedDate: obj.addedDate, basicName: obj.basicName, disabled: obj.disabled, name: obj.name, radius: obj.radius }
 
-        if (checkVali) {
-            console.log('im fineeeeeeeee');
-            const resultToSql = await postData('/create/create',
-                {
-                    tableName: 'tbl_Areas',
-                    values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-                })
-            if (resultToSql) {
-                console.log('inserted to sql');
-                return resultToSql.data;
-            }
-            else {
-                const dropResult = await postData('/update/dropDocumentById',
+    console.log('before');
+    const checkV = await checkObjectValidations(mongoObj, "areas")
+    console.log('after', checkV);
+    if (checkV) {
+        console.log('mongo vali fine', checkV);
+        const result = await postData('/create/insertone',
+            {
+                collection: "areas",
+                data: obj
+            });
+        if (result.data) {
+            const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
+            console.log('before vali modulessssssss', sqlObj);
+            const checkVali = await checkObjectValidations(
+                sqlObj, "tbl_Areas")
+            console.log('after vali modulessssssss', checkVali);
+
+            if (checkVali) {
+                console.log('im fineeeeeeeee');
+                const resultToSql = await postData('/create/create',
                     {
-                        tableName: "tbl_Areas",
-                        values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                        tableName: 'tbl_Areas',
+                        values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
                     })
-                throw new Error("Can't insert area to mongo and sql DB");
+                if (resultToSql) {
+                    console.log('inserted to sql');
+                    return resultToSql.data;
+                }
+                else {
+                    const dropResult = await postData('/update/dropDocumentById',
+                        {
+                            tableName: "tbl_Areas",
+                            values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                        })
+                    throw new Error("Can't insert area to mongo and sql DB");
+                }
             }
+            else
+                console.log('sql object not valid');
         }
-        else
-            console.log('object not valid');
+        else {
+            throw new Error("Can't insert area");
+        }
     }
     else {
-        throw new Error("Can't insert area");
+        console.log('mongo object not valid');
     }
 };
 
@@ -89,78 +101,56 @@ async function insertArea(obj = {}) {
 async function updateArea(obj = {}) {
     let originalId = obj._id;
     delete obj._id;
-    const result = await postData('/update/mongo/',
-        {
-            collection: "areas",
-            filter: { _id: originalId },
-            set: { $set: obj }
-        })
-    if (result.data) {
-        console.log('monogo ooooookkkkkkkk', result);
+    const mongoObj = { addedDate: obj.addedDate, basicName: obj.basicName, disabled: obj.disabled, name: obj.name, radius: obj.radius }
 
-        const sqlObj = { AreaIdFromMongo: originalId, AreaName: obj.name }
-        console.log('before vali modulessssssss', sqlObj);
-        const checkVali = await checkObjectValidations(
-            sqlObj, "tbl_Areas")
-        console.log('after vali modulessssssss', checkVali);
+    console.log('before');
+    const checkV = await checkObjectValidations(mongoObj, "areas")
+    console.log('after', checkV);
+    if (checkV) {
+        console.log('mongo vali fine', checkV);
+        const result = await postData('/update/mongo/',
+            {
+                collection: "areas",
+                filter: { _id: originalId },
+                set: { $set: obj }
+            })
+        if (result.data) {
+            console.log('monogo ooooookkkkkkkk', result);
 
-        if (checkVali) {
-            console.log('im fineeeeeeeee');
+            const sqlObj = { AreaIdFromMongo: originalId, AreaName: obj.name }
+            console.log('before vali modulessssssss', sqlObj);
+            const checkVali = await checkObjectValidations(
+                sqlObj, "tbl_Areas")
+            console.log('after vali modulessssssss', checkVali);
 
-            const resSql = await postData('/update/update',
-                {
-                    tableName: "tbl_Areas",
-                    values: { AreaName: obj.name },
-                    condition: { AreaIdFromMongo: originalId }
-                })
-            if (resSql) {
-                console.log('sql oooooookkkkkkkkkkk', resSql);
-                return resSql
+            if (checkVali) {
+                console.log('im fineeeeeeeee');
+
+                const resSql = await postData('/update/update',
+                    {
+                        tableName: "tbl_Areas",
+                        values: { AreaName: obj.name },
+                        condition: { AreaIdFromMongo: originalId }
+                    })
+                if (resSql) {
+                    console.log('sql oooooookkkkkkkkkkk', resSql);
+                    return resSql
+                }
+                else
+                    return result
             }
             else
-                return result
+                console.log('object not valid');
         }
         else
-            console.log('object not valid');
+            throw new Error('Not Found area to update')
     }
-    else
-        throw new Error('Not Found area to update')
+    else {
+        console.log('mongo object not valid');
+    }
+
 }
-// async function updateArea(obj) {
-//     const result = await postData('/update/mongo',
-//         {
-//             collection: "areas",
-//             filter: { $and: [obj.filter, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] },
-//             set: { $set: obj.set }
-//         })
-//     if (result.data) {
-//         console.log('insertad to mongo');
-//         // const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-//         // console.log('before vali modulessssssss', sqlObj);
-//         // const checkVali = await checkObjectValidations(
-//         //     sqlObj, "tbl_Areas")
-//         // console.log('after vali modulessssssss', checkVali);
-//         // if (checkVali) {
-//         // console.log('im fineeeeeeeee');
 
-//         const resultSql = await postData('/update/update',
-//             {
-//                 tableName: 'tbl_Areas',
-//                 values: obj.sql,
-//                 condition: { Disabled: false, aaa }
-//             })
-//         // }
-//         // else {
-//         //     console.log('object not valid');
-//         // }
-
-//     }
-//     // return result
-//     else {
-//         throw new Error('cannot delete area')
-//     }
-
-// }
 
 async function getFromSql() {
     // .............sql פונקציה זו שייכת לרי"ף - אין שם 
