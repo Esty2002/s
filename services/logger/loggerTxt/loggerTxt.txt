@@ -2717,3 +2717,22 @@ description: find Addition in router
         
 data: {arr :error condition :undefined error :wow }
 ----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 12 2023 - 18:50:38  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 18:50:38  
+        
+description: find pumps in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 12 2023 - 18:50:38  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :SQL_PUMPS_TABLE is not defined }
+----------------------------------
