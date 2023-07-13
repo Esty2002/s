@@ -13479,3 +13479,424 @@ description: find Addition in router
         
 data: {arr :error condition :undefined error :wow }
 ----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:40:53  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:40:53  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:53:40  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:53:40  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:56:30  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:56:30  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:56:52  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:56:52  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:56:52  
+        
+description: get all unit of measure in module
+        
+data: {error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:56:52  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:58:34  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:58:34  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:59:45  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:59:45  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Thu Jul 13 2023 - 19:59:45  
+        
+description: get all unit of measure in module
+        
+data: {error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 19:59:45  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 20:01:32  
+        
+description: all units of measure in router
+        
+data: {dataThatRecived : }
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 20:01:32  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Jul 13 2023 - 20:02:01  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Jul 13 2023 - 20:02:01  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:04:34  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:04:34  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:07:38  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:07:38  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:07:38  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:08:31  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"q"} }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:08:31  
+        
+description: find finish products in module
+        
+data: {filter :Name='q' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:08:31  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"q","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:09:33  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"q"} }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:09:33  
+        
+description: find finish products in module
+        
+data: {filter :Name='q' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:09:33  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"q","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:09:46  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:09:46  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:09:46  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:10:15  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:10:15  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:10:15  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:10:37  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:10:37  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:12:18  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:12:18  
+        
+description: find pumps in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:13:28  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:13:28  
+        
+description: find pumps in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:13:40  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:13:40  
+        
+description: find Addition in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Thu Jul 13 2023 - 20:17:11  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Thu Jul 13 2023 - 20:17:11  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 20:23:29  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:23:29  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:23:29  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} error :undefined }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:23:39  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:23:39  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:24:24  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:24:24  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:10  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:10  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:10  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":1,"BookkeepingCode":"1234"} error :undefined }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:21  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:21  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:54  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:54  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:54  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} tableName :FinishProducts error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 20:25:54  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"Buyton","UnitOfMeasure":"mmm","BookkeepingCode":"1234"} error :Request failed with status code 404 }
+----------------------------------

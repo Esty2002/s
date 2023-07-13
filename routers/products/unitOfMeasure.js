@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 
-const {findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll, deleteItem} = require('../../modules/products/measure')
+const { findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll, deleteItem } = require('../../modules/products/measure')
 const { logToFile } = require('../../services/logger/logTxt')
 
 router.get('/findMeasureName/:id', async (req, res) => {
@@ -20,7 +20,7 @@ router.get('/findMeasureName/:id', async (req, res) => {
 router.get('/findMeasureId', async (req, res) => {
     try {
         const response = await findMeasureNumber(req.query.name)
-        if (response.status ===200)
+        if (response.status === 200)
             res.status(200).send(response.data)
         else {
             res.status(500).send(response)
@@ -37,7 +37,7 @@ router.post('/create', express.json(), async (req, res) => {
         dataThatRecived: req.body
     }
     logToFile(objectForLog)
-    
+
     try {
         const response = await insertMeasure(req.body.new, 'UnitOfMeasure')
         if (response === true)
@@ -69,14 +69,21 @@ router.post('/update', express.json(), async (req, res) => {
 })
 
 router.get('/all', async (req, res) => {
+    let objectForLog = {
+        name: 'all',
+        description: 'all units of measure in router',
+    }
+    logToFile(objectForLog)
     try {
         const response = await getAll()
-        if (response)
+        if (response.status == 200)
             res.status(200).send(response.data)
-        else {
-            res.status(500).send(response.data)
-        }
-    } catch (error) {
+        else
+            res.status(response.status).send(response)
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
         res.status(500).send(error.message)
     }
 })

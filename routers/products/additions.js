@@ -65,7 +65,10 @@ router.post('/find', express.json(), async (req, res) => {
     logToFile(objectForLog)
     try {
         const response = await findAddition(req.body.arr, req.body.where)
-        res.status(200).send(response)
+        if (response.status == 200)
+            res.status(200).send(response.data)
+        else
+        res.status(response.status ).send(response)
     } catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)

@@ -40,7 +40,7 @@ router.post('/create', express.json(), async (req, res) => {
             res.status(500).send(error)
         else
             res.status(500).send(error.message)
-    }   
+    }
 })
 
 router.post('/find', express.json(), async (req, res) => {
@@ -53,7 +53,10 @@ router.post('/find', express.json(), async (req, res) => {
     logToFile(objectForLog)
     try {
         const response = await findPump(req.body.arr, req.body.where)
-        res.status(200).send(response)
+        if (response.status == 200)
+            res.status(200).send(response.data)
+        else
+            res.status(response.status).send(response)
     }
     catch (error) {
         objectForLog.error = error.message

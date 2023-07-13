@@ -28,7 +28,7 @@ async function updateMeasure(condition, obj) {
 
 async function insertMeasure(name, tableName) {
     let objectForLog = {
-        name: 'create',
+        name: 'insertMeasure',
         description: 'insert an unit of measure in module',
         obj: name,
         tableName: tableName
@@ -38,7 +38,6 @@ async function insertMeasure(name, tableName) {
     const checkValidObj = values.find(({ entity }) => tableName === entity);
     let newObj = checkValidObj.func({ Name: name })
     if (checkValidObj) {
-        console.log(newObj.values);
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
         name = newObj.values
     }
@@ -49,7 +48,6 @@ async function insertMeasure(name, tableName) {
             return true
     }
     catch (error) {
-        console.log('hhhhhhere');
         objectForLog.error = error.message
         logToFile(objectForLog)
         throw error
@@ -76,8 +74,22 @@ async function deleteItem(object) {
     return response
 }
 async function getAll() {
-    const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
-    return response.data
+    let objectForLog = {
+        name: 'getAll',
+        description: 'get all unit of measure in module'
+    }
+    logToFile(objectForLog)
+
+    try {
+        const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
+        if (response)
+            return response
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll, deleteItem }                

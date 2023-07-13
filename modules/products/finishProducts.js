@@ -96,7 +96,7 @@ async function findFinishProduct(project = [], filter = {}) {
                 finish['UnitOfMeasure'] = measureName
             }
         }
-        return response.data
+        return response
     }
     catch (error) {
         objForLog.error = error.message
