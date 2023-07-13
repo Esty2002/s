@@ -45,7 +45,6 @@ const EnglishLetters = (word) => {
 }
 
 const onlyNumbersInString = (numbersString) => {
-
     if (/^\d*$/.test(numbersString))
         return true
     throw new Error(`the value ${numbersString} is not only string`)
@@ -75,7 +74,7 @@ const type = (value, arg) => {
 const maxLength = (value, max) => {
     if (value.length < max)
         return true
-    throw new Error(`the value ${value} too long `)
+    throw new Error(`the value ${value} is too long`)
 
 }
 
@@ -119,9 +118,12 @@ const clientCodeIsExistInSQL = async (field, arg) => {
 const recordExistInTable = async (value, arg) => {
     const { tableName, field, exist } = arg;
     try {
+        console.log(tableName, field, exist,'tableName, field, exist');
         let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
+        console.log('recordExistInTable aaaaaa');
+
         if (exist) {
-            if (ans.data) {
+            if (ans.data.length > 0) {
                 return true
             }
             else {
@@ -129,7 +131,7 @@ const recordExistInTable = async (value, arg) => {
             }
         }
         else {
-            if (!ans.data) {
+            if (ans.data.length == 0) {
                 return true
             }
             else {

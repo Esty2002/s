@@ -5,6 +5,11 @@ const { app } = require('../../../app')
 jest.mock('../../../modules/products/additions', () => {
     return {
         insertAddition: jest.fn((obj) => {
+            if (obj.name == 'Array of Errors') {
+                let a = new Error('wow1')
+                let b = new Error('wow2')
+                throw [a.message, b.message]
+            }
             if (obj.name == "error")
                 throw new Error('wow')
             else
@@ -38,6 +43,16 @@ describe('/additions/create', () => {
     it('should fali inserting', async () => {
         const response = await request(app).post('/additions/create').send({ name: "error" })
         expect(response.statusCode).toBe(500)
+    })
+    it('should fali inserting because of validations', async () => {
+        let response = ''
+        try {
+            response = await request(app).post('/additions/create').send({ name: "Array of Errors" })
+            expect(response.statusCode).toBe(500)
+        }
+        catch (error) {
+            expect(error).toBeInstanceOf(Array)
+        }
     })
 })
 

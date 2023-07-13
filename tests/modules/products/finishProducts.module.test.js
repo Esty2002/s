@@ -17,7 +17,6 @@ jest.mock('../../../services/validations/use-validations', () => {
 jest.mock('../../../modules/products/measure', () => {
     return {
         findMeasureNumber: jest.fn((obj) => {
-            console.log({ obj });
             if (obj == "error")
                 return { error: 'no matching unit of measure' }
             return 1
@@ -32,7 +31,6 @@ jest.mock('../../../modules/products/measure', () => {
 jest.mock('../../../services/axios', () => {
     return {
         postData: jest.fn((obj,b) => {
-            console.log(obj,b,'in axios   vfg');
             if (b.condition=="Name='error'")
                 return { data: [{ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }] }
             return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }] }

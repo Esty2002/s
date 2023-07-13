@@ -39,7 +39,6 @@ async function insertFinishProduct(obj, tableName) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
         obj = newObj.values
     }
-    console.log(obj['UnitOfMeasure'], "obj['UnitOfMeasure']");
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     const { error } = measure
     if (error) {

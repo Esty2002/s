@@ -109,33 +109,89 @@ const objectsForValidations = [
     {
         objectName: "FinishProducts",
         values: [
-            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }] },
-            { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ]
+            },
+            {
+                propertyName: "UnitOfMeasure", validation:
+                    [
+                        { func: validation.required, arguments: null },
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+
+                    ]
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }]
+            },
         ]
     },
     {
         objectName: "Additions",
         values: [
-            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }] },
-            { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ]
+            },
+            {
+                propertyName: "UnitOfMeasure", validation:
+                    [
+                        { func: validation.required, arguments: null },
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                    ]
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }]
+            },
         ]
     },
     {
         objectName: "Pumps",
         values: [
-            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }] },
-            { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ]
+            },
+            {
+                propertyName: "UnitOfMeasure", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                ]
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }]
+            },
             { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
         ]
     },
     {
         objectName: "UnitOfMeasure",
         values: [
-
-            { propertyName: "Measure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }, { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: false } }] },
+            {
+                propertyName: "Measure", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: false } }]
+            },
         ]
     },
     {

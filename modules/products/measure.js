@@ -38,9 +38,9 @@ async function insertMeasure(name, tableName) {
     const checkValidObj = values.find(({ entity }) => tableName === entity);
     let newObj = checkValidObj.func({ Name: name })
     if (checkValidObj) {
+        console.log(newObj.values);
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
         name = newObj.values
-
     }
 
     try {
@@ -49,6 +49,7 @@ async function insertMeasure(name, tableName) {
             return true
     }
     catch (error) {
+        console.log('hhhhhhere');
         objectForLog.error = error.message
         logToFile(objectForLog)
         throw error
@@ -59,7 +60,6 @@ async function insertMeasure(name, tableName) {
 
 async function findMeasureNumber(name) {
     let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure ='${name}'`)
-    console.log(a, ' a');
     if (a.data[0])
         return a.data[0].Id;
     return { error: 'no matching unit of measure' }
