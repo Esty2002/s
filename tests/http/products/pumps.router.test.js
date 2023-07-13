@@ -36,11 +36,8 @@ describe('/pumps/create', () => {
     })
 
     it('should fali inserting', async () => {
-        jest.setTimeout(async _ => {
-            const response = await request(app).post('/pumps/create').send({ name: "error" })
-            expect(response.statusCode).toBe(500)
-        }, 6000);
-
+        const response = await request(app).post('/pumps/create').send({ name: "error" })
+        expect(response.statusCode).toBe(500)
     })
 })
 

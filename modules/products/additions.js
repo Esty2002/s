@@ -74,9 +74,15 @@ async function findAddition(project = [], filter = {}) {
 
     const response = await postData("/read/readTopN", { tableName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
     try {
-        for (const finish of response.data)
-            if (Object.keys(finish).includes('UnitOfMeasure'))
-                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
+        for (const finish of response.data) {
+            if (Object.keys(finish).includes('UnitOfMeasure')) {
+                const measureName = await findMeasureName(finish.UnitOfMeasure)
+                const { error } = measureName
+                if (error) 
+                    return error;
+                finish['UnitOfMeasure'] = measureName
+            }
+        }
         return response.data
     }
     catch (error) {

@@ -2,7 +2,6 @@
 const { objectsForValidations } = require('./validations-objects')
 let i = 0;
 const checkObjectValidations = async (body, objName) => {
-    console.log("insert to use - validation");
     try {
         let errors = []
         const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;

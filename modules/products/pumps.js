@@ -4,7 +4,7 @@ const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
 
-// const { SQL_PUMPS_TABLE } = process.env
+const { SQL_PUMPS_TABLE } = process.env
 
 const values = [
     {
@@ -77,9 +77,15 @@ async function findPump(project = [], filter = {}) {
 
     const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
     try {
-        for (const finish of response.data)
-            if (Object.keys(finish).includes('UnitOfMeasure'))
-                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
+        for (const finish of response.data) {
+            if (Object.keys(finish).includes('UnitOfMeasure')) {
+                const measureName = await findMeasureName(finish.UnitOfMeasure)
+                const { error } = measureName
+                if (error) 
+                    return error;
+                finish['UnitOfMeasure'] = measureName
+            }
+        }
         return response.data
     }
     catch (error) {
@@ -107,21 +113,7 @@ async function updatePump(obj, filter) {
     return (await postData('update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
-// async function findPumpName(num) {
-//     console.log({num})
-//     const pump = await getData(`/read/readAll/${SQL_PUMPS_TABLE}/id =${num}`)
-//     console.log({ pump })
-//     return pump
-// =======
-// async function updatePump(obj, filter) {
-//     let string = ""
-//     for (let k in obj) {
-//         string += `${k}='${obj[k]}',`
-//     }
-//     string = string.slice(0, -1)
-//     return (await postData(  'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-// >>>>>>> 63a33c51915dfc6cb6ef698b866160b8181b9741
-// }
+
 
 
 module.exports = { updatePump, insertPump, findPump }
