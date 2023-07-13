@@ -1,26 +1,57 @@
 // require('dotenv').config()
 const { postData, getData } = require('../../services/axios')
+const { logToFile } = require('../../services/logger/logTxt')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 
 const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
+
+
+const values = [
+    {
+        entity: "UnitOfMeasure",
+        func: ({ Name = null }) => {
+            return {
+                tableName: "UnitOfMeasure",
+                values: {
+                    Measure: Name,
+                    Disable: false,
+                }
+            }
+        }
+    }
+]
+
 
 async function updateMeasure(condition, obj) {
     return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
 }
 
-async function insertMeasure(name) {
-    const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
-    console.log('after exist');
-    const { status, data } = exist
-    console.log({ status, data });
-    console.log(!data, '!');
-    if (status === 200 && !data[0]) {
-        console.log({ name });
-        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Measure: name, Disable: 0 } })
-        console.log(response + 'hjhfdefjhg');
-        return response
+async function insertMeasure(name, tableName) {
+    let objectForLog = {
+        name: 'create',
+        description: 'insert an unit of measure in module',
+        obj: name,
+        tableName: tableName
     }
-    else {
-        throw new Error(`data exist`)
+    logToFile(objectForLog)
+
+    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    let newObj = checkValidObj.func({ Name: name })
+    if (checkValidObj) {
+        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+        name = newObj.values
+
+    }
+
+    try {
+        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
+        if (response.data)
+            return true
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
     }
 }
 

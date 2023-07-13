@@ -4666,3 +4666,654 @@ data: {arr :error condition :undefined error :wow }
 
 --------------------------------------------------------------------
 
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:38:20  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":{"Measure":"Measure"}} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:38:20  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"new":{"Measure":"Measure"}} tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:38:20  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"new":{"Measure":"Measure"}} tableName :UnitOfMeasure error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:38:20  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":{"Measure":"Measure"}} error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:39:40  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:39:40  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"new":"Measure"} tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:39:40  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"new":"Measure"} tableName :UnitOfMeasure error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:39:40  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:40:50  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:40:50  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"new":"Measure"} tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:40:50  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"new":"Measure"} tableName :UnitOfMeasure error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:40:50  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:42:00  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:42:00  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:42:59  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:42:59  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:42:59  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure error :data exist }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:42:59  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :data exist }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:49:48  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:49:48  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:49:48  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :obj is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:51:48  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:51:48  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:51:48  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :obj is not defined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:52:37  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:52:37  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:52:37  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:55:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:55:34  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:55:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:56:44  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:56:44  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:56:44  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:57:29  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:57:29  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:57:29  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 13:59:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:59:34  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 13:59:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :Cannot read properties of undefined (reading 'func') }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:03  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:03  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:03  
+        
+description: insert an unit of measure in module
+        
+data: {obj :Measure tableName :UnitOfMeasure error :data exist }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:03  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"Measure"} error :data exist }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:12  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"wowowow"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:12  
+        
+description: insert an unit of measure in module
+        
+data: {obj :wowowow tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:12  
+        
+description: insert an unit of measure in module
+        
+data: {obj :wowowow tableName :UnitOfMeasure error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:01:12  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"wowowow"} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:03:05  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"wowowow"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:03:05  
+        
+description: insert an unit of measure in module
+        
+data: {obj :wowowow tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:03:05  
+        
+description: insert an unit of measure in module
+        
+data: {obj :wowowow tableName :UnitOfMeasure error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:03:05  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"wowowow"} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:04:04  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"wowowow"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:04:04  
+        
+description: insert an unit of measure in module
+        
+data: {obj :wowowow tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:04:38  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":471} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:04:38  
+        
+description: insert an unit of measure in module
+        
+data: {obj :471 tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:04:38  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":471} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:10:02  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:10:02  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:10:02  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:11:20  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:11:20  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:11:20  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:12:35  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:12:35  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:12:35  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:17:50  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:17:50  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:18:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:18:34  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:23:32  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnnkji"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:23:32  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnnkji tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:23:32  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnnkji"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:24:53  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:24:53  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:24:53  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:33:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:33:34  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:33:34  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure error :data exist }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:33:34  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :data exist }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:25  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:25  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:25  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:25  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:54  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:54  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:54  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure error :data exist }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:34:54  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :data exist }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:35:39  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:35:39  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:35:39  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure error :data exist }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:35:39  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :data exist }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:24  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:24  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:40  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:40  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:51  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:51  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:37:51  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:50:48  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:50:48  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:50:48  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Jul 13 2023 - 14:51:26  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:51:26  
+        
+description: insert an unit of measure in module
+        
+data: {obj :nnn tableName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'create' : Thu Jul 13 2023 - 14:51:26  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"nnn"} error :undefined }
+----------------------------------
