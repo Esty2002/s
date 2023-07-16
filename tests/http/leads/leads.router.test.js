@@ -38,6 +38,21 @@ jest.mock('../../../modules/leads/tables', () => {
             else {
                 throw new Error(`the entity name ${obj.entityName} not exist`);
             }
+        }),
+        getRecord: jest.fn((entityName, condition) => {
+
+            if (entityName && (entityName === "Orderers" || entityName === "StatusesLead" || entityName === "PouringsTypes" || entityName === "moreProductsItems")) {
+                if (condition === 'none') {
+                    return { status: 200, data: [{ all: true }, { entityName }] };
+                }
+                else {
+                    return { status: 200, data: [{ all: false }, { entityName }, { condition }] };
+                }
+            }
+            else {
+                throw new Error(`the entity name ${entityName} not exist`);
+
+            }
         })
     }
 })
@@ -146,4 +161,41 @@ describe('Check request /leads/insertrecord', () => {
     })
 
 
-})
+});
+
+describe('Check request /leads/getrecord', () => {
+    it('Should request return status 200 if all the arguments are correct and the request found', async () => {
+        const response = await request(app).get('/leads/getrecord/StatusesLead/none');
+        expect(response).toBeDefined();
+        expect(response.status).toBe(200);
+        const {getRecord}=jest.requireMock('../../../modules/leads/tables');
+        expect(getRecord).toHaveBeenCalled();
+        expect(response.serverError).toBeFalsy();
+        expect(response.text).toBe("[{\"all\":true},{\"entityName\":\"StatusesLead\"}]");
+    });
+
+    it('Should request return status 200 with the condition',async()=>{
+        const response=await request(app).get('/leads/getrecord/Orderers/Id=5');
+        expect(response).toBeDefined();
+        expect(response.status).toBe(200);
+        expect(response.serverError).toBeFalsy();
+        expect(response.text).toBe("[{\"all\":false},{\"entityName\":\"Orderers\"},{\"condition\":\"Id=5\"}]");
+    });
+
+    it('Should request return status 500 if the entity name not exist',async()=>{
+        const response=await request(app).get('/leads/getrecord/balblabla/none');
+        expect(response).toBeDefined();
+        expect(response.serverError).toBeTruthy();
+        expect(response.status).toBe(500);
+        expect(response.text).toBe( "the entity name balblabla not exist");
+    });
+
+    it('Should request return status 200',async()=>{
+        const response=await request(app).get('/leads/getrecord/bla');
+        expect(response).toBeDefined();
+        expect(response.status).toBe(200);
+        expect(response.notFound).toBeFalsy();
+        expect(response.text).toBe("request not found")
+    });
+});
+

@@ -73,7 +73,6 @@ router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) =
         res.status(200).send(response);
     }
     catch (error) {
-        console.log(error);
         res.status(404).send(error);
     }
 });
@@ -88,8 +87,6 @@ router.get('/getrecord/:entity/:prop', async (req, res) => {
         else {
             res.status(500).send(response.message);
         }
-
-
     }
     catch (error) {
         res.status(500).send(error.message);
@@ -104,12 +101,10 @@ router.post('/insertrecord', express.json(), async (req, res) => {
             res.status(201).send(response.data);
         }
         else {
-            console.log(response);
             res.status(500).send(response.message);
         }
     }
     catch (error) {
-        console.log(error);
         res.status(500).send(error.message);
     }
 });

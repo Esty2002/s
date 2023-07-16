@@ -22,9 +22,24 @@ jest.mock('../../../services/axios', () => {
                 throw new Error(`The url ${url} or body ${body} not correct`);
             }
         }),
-
-
-
+        getData: jest.fn((url) => {
+            if (url) {
+                if (!url.includes('undefined')) {
+                    if (url.includes('1=1')) {
+                        return { status: 200, data: [{ url }] };
+                    }
+                    else {
+                        return { status: 200, data: [{ url }, { condition: url.slice(url.lastIndexOf('/')+1, url.length) }] };
+                    }
+                }
+                else {
+                    return { status: 500, message: "not exist tablename undefined" };
+                }
+            }
+            else {
+                throw new Error("url is not defined");
+            }
+        })
     }
 });
 
@@ -42,25 +57,25 @@ jest.mock('../../../services/validations/use-validations', () => {
     }
 });
 
-const { newRecord, values } = require('../../../modules/leads/tables');
+const { newRecord, values, getRecord } = require('../../../modules/leads/tables');
 
 describe("Check functions in 'values' object Orderers", () => {
     it('Should function return an object to new Orderer', async () => {
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'Orderers'), 'func');
-        const result = values.find(({ entityName }) => entityName === 'Orderers').func({name:"Test",phone:"0504789654"});
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'Orderers'), 'func');
+        const result = values.find(({ entityName }) => entityName === 'Orderers').func({ name: "Test", phone: "0504789654" });
         expect(spy).toHaveBeenCalled();
         expect(result.tableName).toBe("Orderers");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.OrdererName).toBe("Test");
     });
 
-    it('Should function throw error if its not recived anything',async()=>{
+    it('Should function throw error if its not recived anything', async () => {
         let result;
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'Orderers'), 'func');
-        try{
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'Orderers'), 'func');
+        try {
             result = values.find(({ entityName }) => entityName === 'Orderers').func();
         }
-        catch(error){
+        catch (error) {
             expect(spy).toHaveBeenCalled();
             expect(error).toBeDefined()
             expect(result).not.toBeDefined();
@@ -69,8 +84,8 @@ describe("Check functions in 'values' object Orderers", () => {
         }
     });
 
-    it('Should function not throw error if its recived an empty object',async()=>{
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'Orderers'), 'func');
+    it('Should function not throw error if its recived an empty object', async () => {
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'Orderers'), 'func');
         const result = values.find(({ entityName }) => entityName === 'Orderers').func({});
         expect(spy).toHaveBeenCalled();
         expect(result.tableName).toBe("Orderers");
@@ -80,22 +95,22 @@ describe("Check functions in 'values' object Orderers", () => {
     });
 });
 
-describe('Check function in values object PouringsTypes',()=>{
+describe('Check function in values object PouringsTypes', () => {
     it('Should function return an object to new PouringType', async () => {
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
-        const result = values.find(({ entityName }) => entityName === 'PouringsTypes').func({name:"Pouring"});
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
+        const result = values.find(({ entityName }) => entityName === 'PouringsTypes').func({ name: "Pouring" });
         expect(spy).toHaveBeenCalled();
         expect(result.tableName).toBe("PouringsTypes");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.PouringName).toBe("Pouring");
     });
-    it('Should function throw error if its not recived anything',async()=>{
+    it('Should function throw error if its not recived anything', async () => {
         let result;
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
-        try{
-         result = values.find(({ entityName }) => entityName === 'PouringsTypes').func();
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
+        try {
+            result = values.find(({ entityName }) => entityName === 'PouringsTypes').func();
         }
-        catch(error){
+        catch (error) {
             expect(spy).toHaveBeenCalled();
             expect(error).toBeDefined();
             expect(result).not.toBeDefined();
@@ -104,8 +119,8 @@ describe('Check function in values object PouringsTypes',()=>{
 
         };
     });
-    it('Should function not throw error if its recived an empty object',async()=>{
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
+    it('Should function not throw error if its recived an empty object', async () => {
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
         result = values.find(({ entityName }) => entityName === 'PouringsTypes').func({});
         expect(spy).toHaveBeenCalled();
         expect(result.tableName).toBe("PouringsTypes");
@@ -113,25 +128,25 @@ describe('Check function in values object PouringsTypes',()=>{
         expect(result.values.PouringName).toBeNull();
     });
 
-    
+
 });
 
-describe('Check function in values object StatusesLead',()=>{
+describe('Check function in values object StatusesLead', () => {
     it('Should function return an object to new PouringType', async () => {
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
-        const result = values.find(({ entityName }) => entityName === 'StatusesLead').func({name:"status"});
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
+        const result = values.find(({ entityName }) => entityName === 'StatusesLead').func({ name: "status" });
         expect(spy).toHaveBeenCalled();
         expect(result.tableName).toBe("StatusesLead");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.StatusName).toBe("status");
     });
-    it('Should function throw error if its not recived anything',async()=>{
+    it('Should function throw error if its not recived anything', async () => {
         let result;
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
-        try{
-         result = values.find(({ entityName }) => entityName === 'StatusesLead').func();
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
+        try {
+            result = values.find(({ entityName }) => entityName === 'StatusesLead').func();
         }
-        catch(error){
+        catch (error) {
             expect(spy).toHaveBeenCalled();
             expect(error).toBeDefined();
             expect(result).not.toBeDefined();
@@ -140,14 +155,14 @@ describe('Check function in values object StatusesLead',()=>{
 
         };
     });
-    it('Should function not throw error if its recived an empty object',async()=>{
-        const spy = jest.spyOn( values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
+    it('Should function not throw error if its recived an empty object', async () => {
+        const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
         result = values.find(({ entityName }) => entityName === 'StatusesLead').func({});
         expect(spy).toHaveBeenCalled();
         expect(result.tableName).toBe("StatusesLead");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.StatusName).toBeNull();
-    }); 
+    });
 })
 
 describe('Check function newRecord', () => {
@@ -223,6 +238,34 @@ describe('Check function newRecord', () => {
 
 });
 
-// describe('Check function getRecord', ()=>{
+describe('Check function getRecord', () => {
+    it('Should function get the record when the entity name is correct', async () => {
+        const result = await getRecord('StatusesLead', "none");
+        expect(result).toBeDefined();
+        expect(result).toBeInstanceOf(Object);
+        expect(result.status).toBe(200);
+        expect(result.data[0]).toStrictEqual({ url: '/read/readAll/StatusesLead/1=1' });
+    });
 
-// })
+    it('Should function get the record with conditions', async () => {
+        const result = await getRecord('PouringsTypes', "PouringName='יסודות'");
+        expect(result).toBeDefined();
+        expect(result).toBeInstanceOf(Object);
+        expect(result.status).toBe(200);
+        expect(result.data[1]).toStrictEqual({condition:"PouringName='יסודות'"})
+    });
+    
+    it('Should function throw error if the entity name not correct',async()=>{
+        let result;
+        try{
+             result=await getRecord('blablabla',"none");
+        }
+        catch(error){
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Object);
+            expect(result).not.toBeDefined();
+            expect(error.message.length).toBe(36);
+            expect(error.message).toBe("the entity name: blablabla not exist")
+        }
+    });
+});

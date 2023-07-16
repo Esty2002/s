@@ -1,11 +1,11 @@
 const { postData, getData } = require('../../services/axios');
-const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { checkObjectValidations, checkValidationsUpdate } = require('../../services/validations/use-validations');
 
 const values = [
     {
         entityName: "Orderers",
         func: ({ name = null, phone = null }) => {
-            console.log({name,phone});
+            console.log({ name, phone });
             return {
                 tableName: "Orderers",
                 values: {
@@ -54,8 +54,6 @@ const values = [
 
 ];
 
-
-
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
@@ -90,7 +88,6 @@ const getRecord = async (entityName = "", prop = "") => {
             condition: prop !== 'none' ? prop : `1=1`
         };
         try {
-
             const result = await getData(`/read/readAll/${obj.entityName}/${obj.condition}`);
             return result;
         }
@@ -99,7 +96,7 @@ const getRecord = async (entityName = "", prop = "") => {
         }
     }
     else {
-        throw new Error("the table name is not exist");
+        throw new Error(`the entity name: ${entityName} not exist`);
     }
 };
 
@@ -109,15 +106,18 @@ const updateRecord = async (obj = null) => {
         if (entity) {
             let result;
             const newObj = {
-                tableName: obj.entityName,
+                entityName: entity.entityName,
                 values: obj.update,
                 condition: obj.condition
             };
             try {
+                // console.log({newObj});
+                // _ = await checkValidationsUpdate(newObj.values, entity.entityName);
                 result = await postData('/update/update', newObj);
                 return result;
             }
             catch (error) {
+                console.log({error});
                 throw error;
             }
         }
@@ -129,7 +129,6 @@ const updateRecord = async (obj = null) => {
         throw new Error("the object is null");
     }
 };
-
 const deleteRecord = async (obj) => {
     if (obj) {
         const table = values.find(({ entityName }) => entityName === obj.entity);

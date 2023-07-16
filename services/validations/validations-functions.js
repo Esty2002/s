@@ -177,11 +177,10 @@ const dateInFuture = (value) => {
 const checkConcretItem = async (value) => {
     try {
         if (parseInt(value).toString() != 'NaN') {
-            recordExistInTable(value, { tableName: "tbl_FinishProducts", field: "id" });
+            recordExistInTable(value, { tableName: "tbl_FinishProducts", field: "id", exist: true });
         }
         else {
-            console.log({ value });
-            recordExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode" });
+            recordExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode", exist: true });
         }
     }
     catch (error) {

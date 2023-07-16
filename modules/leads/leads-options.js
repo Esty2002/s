@@ -38,12 +38,12 @@ const createNewLead = async (obj = null) => {
         };
 
         let newObj = {
-            tableName: 'Leads',
+            entityName: 'Leads',
             values: vals
         };
 
-        const result = await postData('create/createManySql', newObj);
-        if (result.status === 201 && obj.morePorductsItems) {
+        const result = await postData('create/createmany', newObj);
+        if (result.status === 201 && obj.morePorductsItems.length>0) {
             const result1 = await insertMoreProductsItems(obj.morePorductsItems, result.data[0].Id);
             return result1;
         }
@@ -74,7 +74,7 @@ const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
             _ = await checkObjectValidations(item, 'moreProductsItems');
         };
         objMpi = {
-            tableName: 'moreProductsItems',
+            entityName: 'moreProductsItems',
             values: morePorductsItems
         };
         const res = await postData('create/createManySql', objMpi);

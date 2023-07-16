@@ -40,7 +40,7 @@ const objectsForValidations = [
         objectName: "Orderers",
         values: [
             { propertyName: "OrdererName", validation: [{ func: validation.onlyLetters, arguments: null }], require: true },
-            { propertyName: "OrdererPhone", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "Orderers", field: "OrdererPhone", exist: false } }, { func: validation.correctPhone, arguments: null }], require: true },
+            { propertyName: "OrdererPhone", validation: [{ func: validation.correctPhone, arguments: null },{ func: validation.recordExistInTable, arguments: { tableName: "Orderers", field: "OrdererPhone", exist: false } }], require: true },
             { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: "null" }], require: true },
             { propertyName: "Disable", validation: [{ func: validation.bit, arguments: null }], require: true },
             { propertyName: "DeletingDate", validation: [{ func: validation.notCheck, arguments: null }], require: false }
