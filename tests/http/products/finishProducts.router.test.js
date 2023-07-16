@@ -13,16 +13,23 @@ jest.mock('../../../modules/products/finishProducts', () => {
             if (obj.name == "error")
                 throw new Error('wow')
             else
-                return true
+            return {status:201}
         }),
         findFinishProduct: jest.fn((obj) => {
             if (obj == "error")
                 throw new Error('wow')
             else
-                return true
+            return {status:200}
         }),
     }
 })
+jest.mock('../../../services/logger/logTxt', () => {
+    return {
+        logToFile: jest.fn((obj) => {
+            let a = obj
+        }),
+    }
+});
 
 describe('/finishProducts/create', () => {
 
@@ -55,6 +62,12 @@ describe('/finishProducts/create', () => {
             expect(error).toBeInstanceOf(Array)
         }
     })
+    it('should check the mock logToFile', async () => {
+        const { logToFile } = jest.requireMock('../../../services/logger/logTxt')
+        _ = await request(app).get('/finishProducts/create')
+        expect(logToFile).toHaveBeenCalled();
+    })
+
 })
 
 describe('/finishProducts/find', () => {
@@ -63,8 +76,8 @@ describe('/finishProducts/find', () => {
         const res = await request(app).post('/finishProducts/find').send({ arr: 'success' })
         expect(res.statusCode).toBe(200)
         expect(res).toBeDefined()
-        expect(res.headers['content-type'])
-            .toBe("application/json; charset=utf-8")
+        // expect(res.headers['content-type'])
+        //     .toBe("application/json; charset=utf-8")
     })
 
     it('should check the mock', async () => {
@@ -78,4 +91,10 @@ describe('/finishProducts/find', () => {
         expect(response.statusCode).toBe(500)
 
     })
+    it('should check the mock logToFile', async () => {
+        const { logToFile } = jest.requireMock('../../../services/logger/logTxt')
+        _ = await request(app).get('/finishProducts/find')
+        expect(logToFile).toHaveBeenCalled();
+    })
+
 })

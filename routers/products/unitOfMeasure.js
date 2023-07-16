@@ -5,27 +5,41 @@ const { findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll
 const { logToFile } = require('../../services/logger/logTxt')
 
 router.get('/findMeasureName/:id', async (req, res) => {
+    let objectForLog = {
+        name: 'findMeasureName:id',
+        description: 'findMeasureName:id in router',
+    }
+    logToFile(objectForLog)
     try {
         const response = await findMeasureName(req.params.id)
-        if (response)
-            res.status(200).send(response.data)
-        else {
-            res.status(500).send(response.data)
-        }
-    } catch (error) {
+        if (response.status == 200)
+            res.status(200).send(JSON.stringify(response.data[0].Measure))
+        else
+            res.status(response.status).send(response)
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
         res.status(500).send(error.message)
     }
 })
 
 router.get('/findMeasureId', async (req, res) => {
+    let objectForLog = {
+        name: 'findMeasureId',
+        description: 'findMeasureId in router',
+    }
+    logToFile(objectForLog)
     try {
         const response = await findMeasureNumber(req.query.name)
-        if (response.status === 200)
-            res.status(200).send(response.data)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
+        if (response.status == 200)
+            res.status(200).send(JSON.stringify(response.data[0].Id))
+        else
+            res.status(response.status).send(response)
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
         res.status(500).send(error.message)
     }
 })
@@ -40,10 +54,10 @@ router.post('/create', express.json(), async (req, res) => {
 
     try {
         const response = await insertMeasure(req.body.new, 'UnitOfMeasure')
-        if (response === true)
-            res.status(201).send(response)
+        if (response.status === 201)
+            res.status(201).send(true)
         else
-            res.status(500).send(response)
+            res.status(response.status).send(response)
     }
     catch (error) {
         objectForLog.error = error.message

@@ -8,10 +8,8 @@ const server = axios.create({
 
 
 const getData = async (url, query) => {
+    console.log('in get data');
     let response;
-
-
-
     if (query) {
         url += Object.entries(query).reduce((q, i) => q = q == '?' ? `${q}${i[0]}=${i[1]}` : `${q}&${i[0]}=${i[1]}`, '?')
     }

@@ -45,7 +45,7 @@ async function insertMeasure(name, tableName) {
     try {
         const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
         if (response.data)
-            return true
+            return response
     }
     catch (error) {
         objectForLog.error = error.message
@@ -54,19 +54,55 @@ async function insertMeasure(name, tableName) {
     }
 }
 
-
-
 async function findMeasureNumber(name) {
-    let a = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure ='${name}'`)
-    if (a.data[0])
-        return a.data[0].Id;
-    return { error: 'no matching unit of measure' }
+    let objectForLog = {
+        name: 'findMeasureNumber',
+        description: 'findMeasureNumber in module measure',
+        obj: name
+    }
+    logToFile(objectForLog)
+    try {
+        if (name) {
+            let res = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure='${name}'`)
+            if (res.data[0])
+                return res;
+            else
+                throw new Error('no matching unit of measure')
+        }
+        else
+            throw new Error('The name of the unit of measure is reuired')
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
 }
+
 async function findMeasureName(num) {
-    const measure = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`)
-    if (measure.data[0])
-        return measure.data[0].Measure;
-    return { error: 'no matching unit of measure' }
+    let objectForLog = {
+        name: 'findMeasureName',
+        description: 'findMeasureName in module measure',
+        obj: num
+    }
+    logToFile(objectForLog)
+    try {
+        if (num && parseInt(num)) {
+            const measure = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`)
+            if (measure.data[0])
+                return measure;
+            else
+                throw new Error('no matching unit of measure')
+        }
+        else
+            throw new Error('The id of the unit of measure is reuired with type int')
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
+
 }
 
 async function deleteItem(object) {
@@ -82,7 +118,7 @@ async function getAll() {
 
     try {
         const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
-        if (response)
+        if (response.data)
             return response
     }
     catch (error) {

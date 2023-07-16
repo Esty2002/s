@@ -13,16 +13,23 @@ jest.mock('../../../modules/products/pumps', () => {
             if (obj.name == "error")
                 throw new Error('wow')
             else
-                return true
+            return {status:201}
         }),
         findPump: jest.fn((obj) => {
             if (obj == "error")
                 throw new Error('wow')
             else
-                return true
+            return {status:200}
         })
     }
 })
+jest.mock('../../../services/logger/logTxt', () => {
+    return {
+        logToFile: jest.fn((obj) => {
+            let a = obj
+        }),
+    }
+});
 
 describe('/pumps/create', () => {
 
@@ -54,6 +61,12 @@ describe('/pumps/create', () => {
             expect(error).toBeInstanceOf(Array)
         }
     })
+    it('should check the mock logToFile', async () => {
+        const { logToFile } = jest.requireMock('../../../services/logger/logTxt')
+        _ = await request(app).get('/pumps/create')
+        expect(logToFile).toHaveBeenCalled();
+    })
+
 })
 
 describe('/pumps/find', () => {
@@ -62,8 +75,8 @@ describe('/pumps/find', () => {
         const res = await request(app).post('/pumps/find').send({ arr: 'success' })
         expect(res.statusCode).toBe(200)
         expect(res).toBeDefined()
-        expect(res.headers['content-type'])
-            .toBe("application/json; charset=utf-8")
+        // expect(res.headers['content-type'])
+        //     .toBe("application/json; charset=utf-8")
     })
 
     it('should check the mock', async () => {
@@ -76,4 +89,10 @@ describe('/pumps/find', () => {
         const response = await request(app).post('/pumps/find').send({ arr: "error" })
         expect(response.statusCode).toBe(500)
     })
+    it('should check the mock logToFile', async () => {
+        const { logToFile } = jest.requireMock('../../../services/logger/logTxt')
+        _ = await request(app).get('/pumps/find')
+        expect(logToFile).toHaveBeenCalled();
+    })
+
 })

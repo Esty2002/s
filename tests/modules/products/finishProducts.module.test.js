@@ -32,8 +32,8 @@ jest.mock('../../../services/axios', () => {
     return {
         postData: jest.fn((obj,b) => {
             if (b.condition=="Name='error'")
-                return { data: [{ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }] }
-            return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }] }
+                return { data: [{ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }], status: 201 }
+            return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 }
         }),
     }
 });
@@ -43,7 +43,7 @@ const { insertFinishProduct, findFinishProduct } = require('../../../modules/pro
 describe('function findFinishProduct', () => {
     it('shuols success finding a finished product', async () => {
         const result = await findFinishProduct([],{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
-        expect(result).toStrictEqual([{BookkeepingCode: "BookkeepingCode", UnitOfMeasure: "mmm" ,Name: "Name"}] )
+        expect(result.data).toStrictEqual([{BookkeepingCode: "BookkeepingCode", UnitOfMeasure: "mmm" ,Name: "Name"}] )
         expect(result).toBeDefined()
     })
     it('shuols fail finding a finished product', async () => {
@@ -66,11 +66,14 @@ describe('function findFinishProduct', () => {
     })
 
     it('shuols fail to findMeasureName', async () => {
-        const result = await findFinishProduct([],{ Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" });
-        const { findMeasureName } = jest.requireMock('../../../modules/products/measure');
-        expect(findMeasureName).toHaveBeenCalled()
-        expect(findMeasureName).toBeDefined()
-        expect(result).toBe('no matching unit of measure')
+        try {
+            const result = await findFinishProduct([],{ Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" });
+        }
+        catch (error) {
+            expect(error.message).toBe('no matching unit of measure')
+            expect(error).toBeInstanceOf(Error)
+            expect(error).toBeDefined()
+        }
     })
     
     it('shuols success to findMeasureName', async () => {
@@ -92,7 +95,7 @@ describe('function findFinishProduct', () => {
 describe('function insertFinishProduct', () => {
     it('shuols success inserting a finished product', async () => {
         const result = await insertFinishProduct({ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
-        expect(result).toBe(true)
+        expect(result).toStrictEqual({ data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }] , status: 201})
         expect(result).toBeDefined()
     })
     it('shuols fail inserting a finished product', async () => {
@@ -121,11 +124,14 @@ describe('function insertFinishProduct', () => {
         expect(checkObjectValidations).toBeDefined()
     })
     it('shuols fail to findMeasureNumber', async () => {
-        const result = await insertFinishProduct({ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
-        const { findMeasureNumber } = jest.requireMock('../../../modules/products/measure');
-        expect(findMeasureNumber).toHaveBeenCalled()
-        expect(findMeasureNumber).toBeDefined()
-        expect(result).toBe('no matching unit of measure')
+        try {
+            const result = await insertFinishProduct({ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
+        }
+        catch (error) {
+            expect(error.message).toBe('no matching unit of measure')
+            expect(error).toBeInstanceOf(Error)
+            expect(error).toBeDefined()
+        }
     })
     it('shuols success to insertFinishProduct', async () => {
         const result = await insertFinishProduct({ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");

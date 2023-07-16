@@ -12,10 +12,10 @@ router.post('/create', express.json(), async (req, res) => {
     logToFile(objectForLog)
     try {
         const response = await insertAddition(req.body, 'Additions')
-        if (response)
-            res.status(201).send(response)
+        if (response.status == 201)
+            res.status(201).send(true)
         else {
-            res.status(500).send(response)
+            res.status(response.status).send(response)
         }
     }
     catch (error) {
@@ -68,7 +68,7 @@ router.post('/find', express.json(), async (req, res) => {
         if (response.status == 200)
             res.status(200).send(response.data)
         else
-        res.status(response.status ).send(response)
+            res.status(response.status).send(response)
     } catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)

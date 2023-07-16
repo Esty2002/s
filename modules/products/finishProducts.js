@@ -40,15 +40,11 @@ async function insertFinishProduct(obj, tableName) {
         obj = newObj.values
     }
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    const { error } = measure
-    if (error) {
-        return error;
-    }
     obj.UnitOfMeasure = measure
     try {
         const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
         if (response.data)
-            return true
+            return response
     }
     catch (error) {
         objectForLog.error = error.message
@@ -90,9 +86,6 @@ async function findFinishProduct(project = [], filter = {}) {
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)
-                const { error } = measureName
-                if (error) 
-                    return error;
                 finish['UnitOfMeasure'] = measureName
             }
         }

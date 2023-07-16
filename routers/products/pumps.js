@@ -28,10 +28,10 @@ router.post('/create', express.json(), async (req, res) => {
     logToFile(objectForLog)
     try {
         const response = await insertPump(req.body, 'Pumps')
-        if (response === true)
-            res.status(201).send(response)
+        if (response.status === 201)
+            res.status(201).send(true)
         else
-            res.status(500).send(response)
+            res.status(response.status).send(response)
     }
     catch (error) {
         objectForLog.error = error.message
