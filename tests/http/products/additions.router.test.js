@@ -31,7 +31,7 @@ describe('/additions/create', () => {
         expect(res.statusCode).toBe(201)
         expect(res).toBeDefined()
         expect(res.headers['content-type'])
-            .toBe("application/json; charset=utf-8")
+            .                                          ("application/json; charset=utf-8")
     })
 
     it('should check the mock', async () => {
