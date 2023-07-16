@@ -4,11 +4,13 @@ const { app } = require('../../../app')
 jest.mock('../../modules/quotation/read', () => {
     return {
         getQuotationByConditions: jest.fn((arr) => {
+            console.log("arr:  yyyyyyyyyyyyyyyyyyyyytttttttttt ",arr);
             if ( arr === undefined) {
                 console.log("errrrror!!");
                 throw new Error('the array is not define, or sent uncorrect values');
             }
             if(arr.length==0){
+                console.log();
                 return "empty arr";
             }
             else {
@@ -51,6 +53,7 @@ describe('GET QUOTATION BY CONDITIONS', () => {
 
     it('should the request successful without sends the deteils', async () => {
         const response = await request(app).post('/quoatation/getQuotationsByConditions').send([]);
+        console.log("response in tests:  ",response);
         expect(response).toBeDefined();
         expect(response.text).toBe("empty arr");
         expect(response.statusCode).toBe(200);

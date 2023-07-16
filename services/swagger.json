@@ -1,0 +1,1078 @@
+{
+    "openapi": "3.0.3",
+    "servers": [
+        {
+            "url": "http://127.0.0.1:8081"
+        }
+    ],
+    "tags": [
+        {
+            "name": "CRUD",
+            "description": "Everything about your CRUD for pricelist"
+        }
+    ],
+    "paths": {
+        "/creatPricelist/addPriceList": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "create a new BasePricelist",
+                "description": "create a new BasePricelist",
+                "operationId": "create a new BasePricelist",
+                "requestBody": {
+                    "description": "create a new BasePricelist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/BasePricelist"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "Successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": " not found"
+                    },
+                    "405": {
+                        "description": "Validation exception"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addCitiesAdditions": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of city to pricelist ",
+                "description": "insert additions of city to pricelist ",
+                "operationId": "insert additions of city to pricelist ",
+                "requestBody": {
+                    "description": "insert additions of city to pricelist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/CitiesAdditionsForPricelist"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseForInsert"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addTimeAdditions": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of city to pricelist ",
+                "description": "insert additions of city to pricelist ",
+                "operationId": "insert additions of city to pricelist ",
+                "requestBody": {
+                    "description": "insert additions of city to pricelist",
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TimeAdditionsForPricelist"
+                            }
+                        }
+                    },
+                    "required": true
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "items": {
+                                        "$ref": "#/components/schemas/ResponseForInsert"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid status value"
+                    },
+                    "security": [
+                        {
+                            "petstore_auth": [
+                                "write:pets",
+                                "read:pets"
+                            ]
+                        }
+                    ]
+                }
+            }
+        },
+        "/creatPricelist/addAdditionsForDistance": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of distance to pricelist",
+                "description": "insert additions of distance to pricelist",
+                "operationId": "insert additions of distance to pricelist",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/DistanceAdditionsForPricelist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addTruckFill": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert additions of truck fill to pricelist",
+                "description": "insert additions of truck fill to pricelist",
+                "operationId": "insert additions of truck fill to pricelist",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/TruckFillAdditionsForPricelist"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addPricesListBySupplierOrClient": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert pricelist for product",
+                "description": "insert pricelist for product",
+                "operationId": "insert pricelist for product",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricesListBySupplierOrClient"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addPricelistForProducts": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert pricelist by Supplier Or Client",
+                "description": "insert pricelist by Supplier Or Client",
+                "operationId": "insert pricelist by Supplier Or Client",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForProducts",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addPricelistForFinishProducts": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert for pricelist of finish products ",
+                "description": "insert for pricelist of finish products",
+                "operationId": "insert for pricelist of finish products",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForFinishProducts",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addAdditionsForPricelist": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert for pricelist some additions",
+                "description": "insert for pricelist some additions",
+                "operationId": "insert for pricelist some additions",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForAdditions",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/getIdForPricelistName/{name}/{tbname}": {
+            "get": {
+                "tags": [
+                    "CRUD"
+                ],
+                "description": "Get todos",
+                "operationId": "getIdForPricelistName",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "201"
+                        },
+                        "required": true,
+                        "description": "name of pricelist"
+                    },
+                    {
+                        "name": "tbname",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_pricelist"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
+            }
+        },
+        "/creatPricelist/detailsOfProfucts/{tbname}": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "get detailsOfProfucts by table",
+                "description": "get detailsOfProfucts by table",
+                "operationId": "get detailsOfProfucts by table",
+                "parameters": [
+                    {
+                        "name": "tbname",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_Pumps"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDetailsOfProducts"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/updateFieldInTable/{id}/{tbName}": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "update Field In Table",
+                "description": "update Field In Table",
+                "operationId": "update Field In Table",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "integer",
+                            "example": "40"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    },
+                    {
+                        "name": "tbName",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_PriceList"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateFieldInTable",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForUpdateField"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/getIdForBuytonDescribe/{name}/{tbName}": {
+            "get": {
+                "tags": [
+                    "CRUD"
+                ],
+                "description": "Get todos",
+                "operationId": "getIdForPricelistName",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "ש5"
+                        },
+                        "required": true,
+                        "description": "name of pricelist"
+                    },
+                    {
+                        "name": "tbName",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_BuytonSomech"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
+            }
+        },
+        "/user/login": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Logs user into the system",
+                "description": "",
+                "operationId": "loginUser",
+                "parameters": [
+                    {
+                        "name": "username",
+                        "in": "query",
+                        "description": "The user name for login",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    },
+                    {
+                        "name": "password",
+                        "in": "query",
+                        "description": "The password for login in clear text",
+                        "required": false,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "headers": {
+                            "X-Rate-Limit": {
+                                "description": "calls per hour allowed by the user",
+                                "schema": {
+                                    "type": "integer",
+                                    "format": "int32"
+                                }
+                            },
+                            "X-Expires-After": {
+                                "description": "date in UTC when token expires",
+                                "schema": {
+                                    "type": "string",
+                                    "format": "date-time"
+                                }
+                            }
+                        },
+                        "content": {
+                            "application/xml": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            },
+                            "application/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "400": {
+                        "description": "Invalid username/password supplied"
+                    }
+                }
+            }
+        },
+        "/user/logout": {
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "Logs out current logged in user session",
+                "description": "",
+                "operationId": "logoutUser",
+                "parameters": [],
+                "responses": {
+                    "default": {
+                        "description": "successful operation"
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "BasePricelist": {
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string",
+                        "example": "Meyr"
+                    },
+                    "Pumps": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Beton": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "pnini"
+                    },
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                }
+            },
+            "ResponseBasepricelist": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseBasepricelist"
+                }
+            },
+            "CitiesAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "AreaId": {
+                        "type": "string",
+                        "example": "Ganey_Tikva"
+                    },
+                    "Price": {
+                        "type": "float",
+                        "example": 3000
+                    },
+                    "CountPrecent": {
+                        "type": "float",
+                        "example": 8
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/06/2022"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Ramy"
+                    }
+                }
+            },
+            "ResponseForCitiesadditions": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForCitiesadditions"
+                }
+            },
+            "TimeAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Price": {
+                        "type": "integer",
+                        "example": 1878
+                    },
+                    "CountPrecent": {
+                        "type": "float",
+                        "example": 8
+                    },
+                    "DayOfWeek": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "StartDate": {
+                        "type": "string",
+                        "example": "07/05/2022"
+                    },
+                    "EndDate": {
+                        "type": "string",
+                        "example": "07/05/2024"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/04/2022"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Ramy"
+                    }
+                }
+            },
+            "ResponseFortimeAdditions": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForCitiesadditions"
+                }
+            },
+            "DistanceAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Distance": {
+                        "type": "float",
+                        "example": 401.2
+                    },
+                    "Price": {
+                        "type": "integer",
+                        "example": 4000
+                    },
+                    "CountPrecent": {
+                        "type": "float",
+                        "example": 8
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/04/2022"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Ramy"
+                    }
+                }
+            },
+            "TruckFillAdditionsForPricelist": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "TransportDiff": {
+                        "type": "float",
+                        "example": 10
+                    },
+                    "MaxTransportDiff": {
+                        "type": "float",
+                        "example": 12
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Nirush"
+                    }
+                }
+            },
+            "PricesListBySupplierOrClient": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "SupplierOrClient": {
+                        "type": "integer",
+                        "example": 1001
+                    },
+                    "Debit": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Credit": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "AreaId": {
+                        "type": "string",
+                        "example": "Ashdod"
+                    },
+                    "StartDate": {
+                        "type": "string",
+                        "example": "01/01/2000"
+                    },
+                    "EndDate": {
+                        "type": "string",
+                        "example": "01/01/2030"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Nava"
+                    }
+                }
+            },
+            "PricelistForProducts": {
+                "type": "object",
+                "properties": {
+                    "PriceListId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "ProductId": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "Price": {
+                        "type": "float",
+                        "example": 1200
+                    },
+                    "Discount": {
+                        "type": "float",
+                        "example": 10
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "10/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "Mali"
+                    },
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                }
+            },
+            "PricelistForFinishProducts": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "zokini"
+                    },
+                    "unitOfMeasure": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "bookkeepingCode": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/08/2028"
+                    },
+                    "Enabled": {
+                        "type": "boolean",
+                        "example": true
+                    }
+                }
+            },
+            "PricelistForAdditions": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "g2"
+                    },
+                    "unitOfMeasure": {
+                        "type": "integer",
+                        "example": "2"
+                    },
+                    "bookkeepingCode": {
+                        "type": "integer",
+                        "example": "1254"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "02/07/2028"
+                    },
+                    "Enabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                }
+            },
+            "updateFieldInTable": {
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string",
+                        "example": "dsa"
+                    },
+                    "Pumps": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Beton": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "pnini"
+                    },
+                    "Finish": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                }
+            },
+            "ResponseDetailsOfProducts": {
+                "required": [],
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string",
+                        "example": "ssss"
+                    },
+                    "UnitOfMeasure": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "Addition": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "BookkeepingCode": {
+                        "type": "integer",
+                        "example": "122"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "01/03/2023"
+                    },
+                    "Enabled": {
+                        "type": "boolean",
+                        "example": "true"
+                    }
+                },
+                "xml": {
+                    "name": "ResponseDetailsOfProducts"
+                }
+            },
+            "ResponseForUpdateField": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForUpdateField"
+                }
+            },
+            "ResponseForInsert": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForCitiesadditions"
+                }
+            }
+        },
+        "requestBodies": {
+            "UserArray": {
+                "description": "List of user object",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/components/schemas/User"
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "securitySchemes": {
+            "petstore_auth": {
+                "type": "oauth2",
+                "flows": {
+                    "implicit": {
+                        "authorizationUrl": null,
+                        "scopes": {
+                            "write:pets": "modify pets in your account",
+                            "read:pets": "read your pets"
+                        }
+                    }
+                }
+            },
+            "api_key": {
+                "type": "apiKey",
+                "name": "api_key",
+                "in": "header"
+            }
+        }
+    }
+}

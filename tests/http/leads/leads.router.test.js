@@ -2,24 +2,24 @@ const request = require('supertest');
 const { app } = require('../../../app');
 jest.mock('../../../modules/leads/leads-options', () => {
     return {
-        createNewLead: jest.fn(({ name }) => {
-            if (name)
-                return '123456';
+        createNewLead: jest.fn((obj) => {
+            if (obj.name && obj.phone)
+                return true;
             else {
-                throw new Error("the lead details is not defined");
+                throw new Error("the lead details are not correct");
             }
         }),
-        updateLead: jest.fn(({ serialNumber }) => {
-            if (serialNumber)
-                return 'updateTheLead';
+        updateLead: jest.fn((filter, obj) => {
+            if (filter && obj)
+                return 'update the lead';
             else
-                throw new Error("the serialNumber is not defined")
+                throw new Error("the filter or obj are not defined")
         }),
-        allLeadsDetails: jest.fn(({ filter }) => {
-            if (filter)
-                return [{ "phone": "0583286577", "supplyAddress": "chisda" }, { "phone": "5555555555", "supplyAddress": "sss" }];
+        allLeadsDetails: jest.fn(({ filter, project }) => {
+            if (filter && project)
+                return "success!!";
             else {
-                throw new Error("the body is not defind")
+                throw new Error("the body is not defined")
 
             }
         })
@@ -28,36 +28,34 @@ jest.mock('../../../modules/leads/leads-options', () => {
 
 })
 
-jest.mock('../../../modules/leads/orderers', () => {
+jest.mock('../../../modules/leads/tables', () => {
     return {
-        newOrderer: jest.fn(({ name, phone }) => {
-            if (name && phone) {
+        newRecord: jest.fn(({ tableName, values }) => {
+            if (tableName ==='orderers'||tableName==='pouringsTypes'||tableName==='statusesLead' && typeof values ==='object') {
                 return 'insert'
             }
             else {
-                throw new Error("the name or phone are not defined");
+                throw new Error("one or more arguments not correct");
             }
         }),
-        getOrderers: jest.fn(() => {
-            return { tablename: "test" };
+        getRecord: jest.fn((table, columns, condition) => {
+            if (table ==='orderers'||table==='pouringsTypes'||table==='statusesLead' && columns && condition)
+                return { tablename: "test" };
+            else
+                throw new Error("the params not correct")
         }),
-        getOrdererByPhone: jest.fn(({ phone }) => {
-            if (phone) {
-                return phone;
-            }
-            return false
-        }),
-        updateOrderer: jest.fn(({ set, phone }) => {
-            if (set && phone) {
+       
+        updateRecord: jest.fn(({ tableName,update, condition }) => {
+            if (tableName ==='orderers'||tableName==='pouringsTypes'||tableName==='statusesLead' && typeof update==='object'&&typeof condition==='string') {
                 return true;
             }
             else {
-                throw new Error('the serial number or set are not defined');
+                throw new Error('one argument or more not correct');
             }
         }),
-        deleteOrderer: jest.fn(({ phone }) => {
-            if (phone) {
-                return true;
+        deleteRecord: jest.fn(({ tableName, condition }) => {
+            if (tableName ==='orderers'||tableName==='pouringsTypes'||tableName==='statusesLead'&&typeof condition==='string') {
+                return "delete";
             }
             else {
                 throw new Error("the serialNumber is not defined");
