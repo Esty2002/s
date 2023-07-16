@@ -46,11 +46,87 @@ async function findInPolygon(point) {
 
 async function insertArea(obj = {}) {
     console.log(obj);
-    const mongoObj = { addedDate: obj.addedDate, basicName: obj.basicName, disabled: obj.disabled, name: obj.name, radius: obj.radius }
+    if (obj.type == 'polygon') {
+        let latpobj
+        let lngpobj
+        let pvali
+        let place
+        let placev
+        // console.log(obj.points[0].lat);
 
-    console.log('before');
+        for (let point of obj.points) {
+            latpobj = { point: point.lat }
+            pvali = await checkObjectValidations(latpobj, "areas_point")
+            if (pvali) {
+                console.log('lat', latpobj);
+                lngpobj = { point: point.lng }
+                pvali = await checkObjectValidations(lngpobj, "areas_point")
+                if (pvali) {
+                    console.log('lng', lngpobj);
+                    console.log('I will continue');
+                }
+                else {
+                    throw new Error("One of the points is uncorrect");
+                }
+            }
+            else {
+                throw new Error("One of the points is uncorrect");
+            }
+        }
+        obj.placesId.forEach(element => {
+            place = { placeId: element }
+            placev = checkObjectValidations(place, "areas_placeId")
+            if (placev) {
+                console.log(placev, 'I will continue');
+            }
+            else {
+                throw new Error("One of the places_id is uncorrect");
+            }
+        });
+        console.log('Im correct lets continue');
+    }
+    else {
+        let pvali
+        const onelatp = { point: obj.point.lat }
+        pvali = await checkObjectValidations(onelatp, "areas_point")
+        if (pvali) {
+            const onelngp = { point: obj.point.lng }
+            pvali = await checkObjectValidations(onelngp, "areas_point")
+            if (pvali) {
+                console.log('Im correct lets continue');
+            }
+            else {
+                throw new Error("lng is uncorrect");
+            }
+        }
+        else {
+            throw new Error("lat is uncorrect");
+        }
+        const place = { placeId: obj.placeId }
+        const placev = checkObjectValidations(place, "areas_placeId")
+        if (placev) {
+            console.log(placev, 'I will continue');
+        }
+        else {
+            throw new Error("the place_id is uncorrect");
+        }
+    }
+    if (obj.type == 'radius') {
+        console.log(obj.radius);
+        const radobj = { radius: obj.radius / 1000 }
+        const checkVr = await checkObjectValidations(radobj, "areas_radius")
+        if (checkVr) {
+            console.log('Im correct lets continue');
+        }
+        else {
+            throw new Error("radius is uncorrect");
+        }
+    }
+
+    const mongoObj = { addedDate: obj.addedDate, disabled: obj.disabled, basicName: obj.basicName, name: obj.name, type: obj.type }
+
     const checkV = await checkObjectValidations(mongoObj, "areas")
-    console.log('after', checkV);
+
     if (checkV) {
         console.log('mongo vali fine', checkV);
         const result = await postData('/create/insertone',
@@ -59,14 +135,13 @@ async function insertArea(obj = {}) {
                 data: obj
             });
         if (result.data) {
+            console.log('inserted to mongo');
             const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-            console.log('before vali modulessssssss', sqlObj);
-            const checkVali = await checkObjectValidations(
-                sqlObj, "tbl_Areas")
-            console.log('after vali modulessssssss', checkVali);
+
+            const checkVali = await checkObjectValidations(sqlObj, "tbl_Areas")
 
             if (checkVali) {
-                console.log('im fineeeeeeeee');
+                console.log('sql vali fine', checkVali);
                 const resultToSql = await postData('/create/create',
                     {
                         tableName: 'tbl_Areas',
@@ -85,8 +160,15 @@ async function insertArea(obj = {}) {
                     throw new Error("Can't insert area to mongo and sql DB");
                 }
             }
-            else
+            else {
                 console.log('sql object not valid');
+                const dropResult2 = await postData('/update/dropDocumentById',
+                    {
+                        tableName: "tbl_Areas",
+                        values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                    })
+                throw new Error("Can't insert area to mongo and sql DB");
+            }
         }
         else {
             throw new Error("Can't insert area");
@@ -101,11 +183,84 @@ async function insertArea(obj = {}) {
 async function updateArea(obj = {}) {
     let originalId = obj._id;
     delete obj._id;
-    const mongoObj = { addedDate: obj.addedDate, name: obj.name }
 
-    console.log('before');
+    if (obj.type == 'polygon') {
+        let latpobj
+        let lngpobj
+        let pvali
+        console.log(obj.points);
+
+
+        for (let i of obj.points) {
+            latpobj = { point: points[i].lat }
+            pvali = await checkObjectValidations(latpobj, "areas_point")
+            if (pvali) {
+                lngpobj = { point: points[i].lng }
+                pvali = await checkObjectValidations(lngpobj, "areas_point")
+                if (pvali) {
+                    console.log('I will continue');
+                }
+                else {
+                    throw new Error("One of the points is uncorrect");
+                }
+            }
+            else {
+                throw new Error("One of the points is uncorrect");
+            }
+        }
+        obj.placesId.array.forEach(element => {
+            const place = { placeId: element }
+            const placev = checkObjectValidations(place, "areas_placeId")
+            if (placev) {
+                console.log(placev, 'I will continue');
+            }
+            else {
+                throw new Error("One of the places_id is uncorrect");
+            }
+        });
+        console.log('Im correct lets continue');
+    }
+    else {
+        let pvali
+        const onelatp = { point: obj.point.lat }
+        pvali = await checkObjectValidations(onelatp, "areas_point")
+        if (pvali) {
+            const onelngp = { point: obj.point.lng }
+            pvali = await checkObjectValidations(onelngp, "areas_point")
+            if (pvali) {
+                console.log('Im correct lets continue');
+            }
+            else {
+                throw new Error("lng is uncorrect");
+            }
+        }
+        else {
+            throw new Error("lat is uncorrect");
+        }
+        const place = { placeId: obj.placeId }
+        const placev = checkObjectValidations(place, "areas_placeId")
+        if (placev) {
+            console.log(placev, 'I will continue');
+        }
+        else {
+            throw new Error("the place_id is uncorrect");
+        }
+    }
+    if (obj.type == 'radius') {
+        console.log(obj.radius);
+        const radobj = { radius: obj.radius }
+        const checkVr = await checkObjectValidations(radobj, "areas_radius")
+        if (checkVr) {
+            console.log('Im correct lets continue');
+        }
+        else {
+            throw new Error("radius is uncorrect");
+        }
+    }
+
+    const mongoObj = { addedDate: obj.addedDate, disabled: obj.disabled, basicName: obj.basicName, name: obj.name, type: obj.type }
+
     const checkV = await checkObjectValidations(mongoObj, "areas")
-    console.log('after', checkV);
     if (checkV) {
         console.log('mongo vali fine', checkV);
         const result = await postData('/update/mongo/',
@@ -117,14 +272,12 @@ async function updateArea(obj = {}) {
         if (result.data) {
             console.log('monogo ooooookkkkkkkk', result);
 
-            const sqlObj = { AreaIdFromMongo: originalId, AreaName: obj.name }
-            console.log('before vali modulessssssss', sqlObj);
+            const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
             const checkVali = await checkObjectValidations(
                 sqlObj, "tbl_Areas")
-            console.log('after vali modulessssssss', checkVali);
 
             if (checkVali) {
-                console.log('im fineeeeeeeee');
+                console.log('sql vali fine', checkVali);
 
                 const resSql = await postData('/update/update',
                     {
@@ -136,11 +289,15 @@ async function updateArea(obj = {}) {
                     console.log('sql oooooookkkkkkkkkkk', resSql);
                     return resSql
                 }
-                else
+                else {
+                    //יש לדאוג שגם המונגו לא ישתנה
                     return result
+                }
             }
-            else
-                console.log('object not valid');
+            else {
+                //יש לדאוג שגם המונגו לא ישתנה
+                console.log('sql object not valid');
+            }
         }
         else
             throw new Error('Not Found area to update')
@@ -148,7 +305,6 @@ async function updateArea(obj = {}) {
     else {
         console.log('mongo object not valid');
     }
-
 }
 
 

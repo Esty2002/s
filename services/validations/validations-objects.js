@@ -125,8 +125,9 @@ const objectsForValidations = [
     {
         objectName: "tbl_Areas",
         values: [
-            { propertyName: "AreaIdFromMongo", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "AreaName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }, { func: validation.notOnlyNumbersInString, arguments: null }] },
+            { propertyName: "AreaIdFromMongo", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }], require: true },
+            { propertyName: "AreaName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }, { func: validation.notOnlyNumbersInString, arguments: null }], require: true },
+            //because disabled is false, if require:true then the function bit does not activated
             { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
         ]
     },
@@ -134,25 +135,32 @@ const objectsForValidations = [
         objectName: "areas",
         values: [
             { propertyName: "addedDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: "date" }], require: true },
+
             //because disabled is false, if require:true then the function bit does not activated
             { propertyName: "disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+
             { propertyName: "name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }, { func: validation.notOnlyNumbersInString, arguments: null }], require: true },
             { propertyName: "basicName", validation: [{ func: validation.required, arguments: null }], require: true },
-
-            //if I have the basicName then I for sure have the placeId and point/points- in case of polygon
-            // { propertyName: "placeId", validation: [{ func: validation.required, arguments: null }], require: true },
-            // { propertyName: "point", validation: [{ func: validation.required, arguments: null }], require: true },
-            //only when its a polygon:
-            // { propertyName: "points", validation: [{ func: validation.required, arguments: null }] , require: true },
-
-            //there is no need sending the type because its anyway sent from the component I came from
-            // { propertyName: "type", validation: [{ func: validation.required, arguments: null }] , require: true },
-
-            //only when its a point and radius, but it makes problems if its not a point and radius:
-            // { propertyName: "radius", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }], require: true }
-
+            { propertyName: "type", validation: [{ func: validation.required, arguments: null }], require: true },
         ]
-
+    },
+    {
+        objectName: "areas_point",
+        values: [
+            { propertyName: "point", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "double" }], require: true }
+        ]
+    },
+    {
+        objectName: "areas_radius",
+        values: [
+            { propertyName: "radius", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }], require: true }
+        ]
+    },
+    {
+        objectName: "areas_placeId",
+        values: [
+            { propertyName: "placeId", validation: [{ func: validation.required, arguments: null }], require: true },
+        ]
     }
 
 ]

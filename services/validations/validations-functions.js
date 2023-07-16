@@ -1,4 +1,3 @@
-const { isEmpty } = require("lodash");
 const { getData, sqlServer } = require("../axios");
 
 const required = (value = null) => {
@@ -70,6 +69,12 @@ const type = (value, arg) => {
     if (arg == "number") {
         console.log('num@@@');
         return true
+    }
+    if (arg == "double") {
+        if (!Number.isInteger(value)) {
+            console.log('double@@@');
+            return true
+        }
     }
 
     throw new Error(`the value ${value} not typeof value`)

@@ -16,18 +16,18 @@ router.post('/insertArea', express.json(), async (req, res) => {
         // console.log('after valiiii');
 
         // if (ans) {
-            // console.log(ans);
-            const result = await insertArea(req.body);
-            if (result) {
-                res.status(201).send(result);
-            }
-            else {
-                res.status(500).send();
-            }
+        // console.log(ans);
+        const result = await insertArea(req.body);
+        if (result) {
+            res.status(201).send(result);
+        }
+        else {
+            res.status(500).send();
+        }
         // }
         // else
 
-            // console.log('not validate');
+        // console.log('not validate');
 
     }
     catch (error) {
@@ -78,12 +78,11 @@ router.post('/findAllTypes', express.json(), async (req, res) => {
 });
 
 router.post('/updateArea', express.json(), async (req, res) => {
-    console.log('update area serverrrrrrrrrr');
     console.log(req.body);
     try {
         const response = await updateArea(req.body);
         if (response)
-        
+
             res.status(200).send(response);
         else {
             res.status(500).send(response);
