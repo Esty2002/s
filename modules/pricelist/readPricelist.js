@@ -1,13 +1,24 @@
 require('dotenv').config();
 const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PUMPS, BUYTONITEMS } = process.env;
-const { postData } = require('../../services/axios');
+const { postData , getData} = require('../../services/axios');
+
+async function getRecordPriceList(entity, condition) {
+    try {
+        const result = await getData(`/read/readAllEntity/${entity}`, condition)
+        return result
+    }
+    catch (error) {
+        throw error
+    }
+}
+
 
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
     try {
         let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
         const res = await postData("/read/readTopN", obj);
-        
+
 
         return res.data;
     }
@@ -19,9 +30,10 @@ async function getAllPriceList() {
 async function getPriceListById(object) {
     //  ומחזירה את כל השורות בטבלאות שמחוברות אליו ID מקבלת 
     try {
-        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
-        const res = await postData("/read/readandjoin", obj);
-        return res.data;
+            let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object}' AND  Disabled=0` };
+            // const res = await postData("/read/readandjoin", obj);
+            const res = await getData("/read/readAllEntity/PriceList", {Id:object.id, Disabled:0})
+            return res.data;
     }
     catch (error) {
         throw error;
@@ -270,8 +282,22 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
 }
 
 module.exports = {
-    getPriceListByAdditionsForDistance, getNameOfProduvtsById, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
-    getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListById, getPriceListByAddedDate, getPriceListbyProduct, getPriceListByAreaId, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId
+    getRecordPriceList,
+    getPriceListByAdditionsForDistance,
+    getNameOfProduvtsById,
+    getPriceListByAdditionsForCities,
+    getPriceListByAdditionsForTime,
+    getPriceListByAdditionsForTruckFill,
+    getSupplierByNameProduct,
+    getSupplierByNameProductBuyton,
+    getPriceListByIdSupplierOrClientCode,
+    getAllPriceList,
+    getPriceListById,
+    getPriceListByAddedDate,
+    getPriceListbyProduct,
+    getPriceListByAreaId,
+    getPriceListbySupplierCodeOrClientCode,
+    getPriceListByIdPriceListId
 };
 
 

@@ -6296,3 +6296,1436 @@ Finish: true,
 
 }
 ----------------------------------
+last time login in the function create : Thu Jul 06 2023 - 22:17:54  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+name: יוני 2023, 
+pumps: true, 
+beton: true, 
+addedDate: 07/02/2023, 
+userName: devloper, 
+finish: false, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:01  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: יוני 2023, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:01  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: יוני 2023, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:01  
+description: getId after sending to db
+        
+result: {1}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:01  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: יוני 2023, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:01  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: יוני 2023, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:01  
+description: getId after sending to db
+        
+result: {1}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:17  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 06 2023 - 22:18:17  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Thu Jul 06 2023 - 23:46:50  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יוני 2023 1, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Thu Jul 06 2023 - 23:46:51  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: יוני 2023 1, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Thu Jul 06 2023 - 23:59:26  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יוני 2023 1, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:07:43  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יוני 23 4, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:09:54  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יוני 6 , 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:10:55  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: נסיון, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:11:52  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יולי 4, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:12:34  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יולי ספיר 4, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:13:02  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: ספיר 6, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:14:59  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יולי ספיר 5, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:15:29  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: יולי 2024, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:27:27  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: ניביון, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:35:10  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: זהב, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:36:23  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: זהב 2, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:37:12  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: שבע, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:55:48  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: מה , 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:55:51  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: מה , 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:55:51  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: מה , 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:56:25  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: מה  יש, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 0:57:47  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: מה  יש לנו, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:10:07  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: מה  יש לנו, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:10:08  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: מה  יש לנו, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:10:20  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: מה  יש לנו עכשיו, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:11:55  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: xxx, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:12:42  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: hi, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:21:16  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: try again, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:25:37  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: new price, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:33:33  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: ראש, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 1:59:05  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: ראשון, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:25  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:25  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:25  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:23:25  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 2:25:11  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: נסיון 2, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:11  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:11  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:11  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:11  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 2:25:34  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: בטון יוני 2023, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:37  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:37  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:37  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:37  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 2:25:54  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: בטון ומשאבות, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:54  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:54  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:55  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Fri Jul 07 2023 - 2:25:55  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Fri Jul 07 2023 - 2:27:55  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: רק בטון, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 23:40:46  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: tctc, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:40:53  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:40:53  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:40:53  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:40:53  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 23:42:27  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: ההה, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:42:28  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:42:28  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:42:28  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:42:28  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 23:47:29  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: עעע, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:47:31  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:47:31  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:47:31  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:47:31  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 23:50:43  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: , 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:50:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:50:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:50:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:50:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 23:58:29  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: xx, 
+Pumps: false, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:58:29  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:58:29  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:58:29  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:58:29  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 23:59:28  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: hello, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:59:28  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:59:28  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:59:28  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 23:59:28  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:57  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:57  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:57  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:57  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:59  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:59  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:59  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:01:59  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:14  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:14  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:14  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:14  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:20  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:20  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:20  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:04:20  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:39  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:39  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:39  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:39  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:59  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:59  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:59  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:05:59  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:00  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:00  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:00  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:00  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 0:06:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:13:00  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: aaa, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:13:26  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: hgytj, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:14:02  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: uyhu, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:14:46  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: 545ff, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:22:44  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: try54, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:23:29  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: listitem, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:24:00  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: section trye, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:24:44  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: well enough, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:44:13  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: xsxsxs, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:45:03  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: shsh, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:45:59  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: tryeury, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:50:21  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: sora, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 0:51:54  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: mea100, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:03:53  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: let see it it helped, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:05:03  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: grtrftrgfu88, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:05:59  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: try09876, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:06:18  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: retwye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:07:54  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: what is the time, 
+Pumps: true, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:11:26  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:11:26  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:11:26  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:11:26  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:11:43  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:11:43  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:14  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:14  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:30  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:30  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:38  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:38  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:41  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:41  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:47  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:47  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:59  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:12:59  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:13:01  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Mon Jul 17 2023 - 1:13:01  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:19:08  
+description: addPricelistForProducts in router
+        
+dataThatRecived: {addPricelistForProducts in router
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:19:08  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 404
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:25:25  
+description: addPricelistForProducts in router
+        
+dataThatRecived: {addPricelistForProducts in router
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:25:25  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 404
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:32:24  
+description: addPricelistForProducts in router
+        
+dataThatRecived: {addPricelistForProducts in router
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:32:25  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:34:07  
+description: addPricelistForProducts in router
+        
+dataThatRecived: {addPricelistForProducts in router
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------
+last time login in the function create : Mon Jul 17 2023 - 1:34:07  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+ProductId: [object Object], 
+TableName: tbl_Pumps, 
+Price: 150, 
+Discount: 0, 
+
+}
+----------------------------------

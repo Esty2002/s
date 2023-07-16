@@ -1,10 +1,18 @@
-const express=require('express')
-const router=express.Router()
+const express = require('express')
+const router = express.Router()
 const { logToFile } = require('../../services/loggerPnini')
 
-const{getAllPriceList,getPriceListById,getPriceListByAddedDate,getPriceListbyProduct,getNameOfProduvtsById,getPriceListByAreaId,getPriceListbySupplierCodeOrClientCode,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId
-    ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill,getSupplierByNameProduct,getSupplierByNameProductBuyton} =require('../../modules/pricelist/readPricelist')
+const { 
+    getRecordPriceList,
+    getAllPriceList,
+    getPriceListById,
 
+    getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
+    , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
+const { reqLogger } = require('../../services/logger/logger')
+
+
+    router.use(reqLogger())
 router.get('/findAllPriceList', async (req, res) => {
     try {
         const result = await getAllPriceList();
@@ -17,17 +25,18 @@ router.get('/findAllPriceList', async (req, res) => {
 
 })
 // חיפוש מחירון לפי ID
-// router.get('/FindPriceListById/:id', async (req, res) => {
-//     try {
-//         const result = await getPriceListById(req.params.id);
-//             res.status(200).send(result);
-//     } 
-//     catch (error) {
-//         res.status(500).send(error);
-//     }
+router.get('/pricelistRecords/:entity/:id', async (req, res) => {
+    try {
+        console.log(req.params)
+        const result = await getPriceListById(req.params);
+        res.status(200).send(result);
+    }
+    catch (error) {
+        res.status(500).send(error);
+    }
 
 
-// })
+})
 // פונקצית חיפוש מחירון לפי תאריך הוספה
 // router.get('/FindPriceListByAddedDate/date', async (req, res) => {
 //     try {
@@ -155,7 +164,7 @@ router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
 // חיפוש ספק ואזור לפי מוצר
 router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res) => {
     try {
-        const ans =await getSupplierByNameProduct(req.params.nameTable,req.params.nameProduct)
+        const ans = await getSupplierByNameProduct(req.params.nameTable, req.params.nameProduct)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
@@ -166,7 +175,7 @@ router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res
 
 router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (req, res) => {
     try {
-        const ans =await getSupplierByNameProductBuyton(req.params.nameTable,req.params.nameProduct)
+        const ans = await getSupplierByNameProductBuyton(req.params.nameTable, req.params.nameProduct)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
@@ -175,4 +184,4 @@ router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (re
     }
 })
 
-module.exports=router;
+module.exports = router;

@@ -4,24 +4,9 @@ const { logToFile } = require('../../services/loggerPnini')
 async function insert(data, tableName) {
     let obj = {}
     obj['tableName'] = tableName
-    obj['values'] = data
-    obj['columns'] = '*'
+    obj['values'] = {...data, disabled:false, addedDate:new Date().toISOString(), userName:'developer'}
     try {
-        // let object = {
-        //     name: 'create',
-        //     description: ' insert in module',
-        //     dataThatRecived: data
-        // }
-
-        // logToFile(object)
         const result = await postData('/create/create', obj)
-        // let id = result.data[0].Id
-        // object = {
-        //     name: 'create',
-        //     description: ' insert in module, after sending to dbserver',
-        //     result: id
-        // }
-        // logToFile(object)
         return result;
     }
     catch (error) {
