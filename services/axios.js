@@ -32,19 +32,6 @@ const postData=async(url,body)=>{
     }
 }
 
-// const postData = async (url, body) => {
-//     let response;
-//     try {
-//         console.log({ url, body: JSON.stringify(body) })
-//         response = await server.post(url, body);
-//         console.log({ response: response.data })
-//         return response;
-//     }
-//     catch (error) {
-//         console.log({ error: error.message })
-//         throw error;
-//     }
-// }
 module.exports = { getData, postData }
 // ----1
 // url====== /read/distinct

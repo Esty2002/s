@@ -59,8 +59,10 @@ const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
-    if (isNaN(value)) {
-        if (arg == "string") {
+    console.log(typeof value, arg, "llllllllllllllllllllllllllllllllllllllllllllllllll");
+     
+    if( isNaN(value)){
+        if(arg=="string"){
             console.log('string@@@@');
             return true
         }
@@ -81,10 +83,10 @@ const type = (value, arg) => {
 }
 
 const maxLength = (value, max) => {
-    if (value.length < max)
+    if( value.length < max)
         return true
     throw new Error(`the value ${value} too long `)
-
+    
 }
 
 const bit = (value) => {
@@ -94,13 +96,13 @@ const bit = (value) => {
 }
 
 const minLength = (value, min) => {
-    if (value.length > min)
+    if( value.length > min)
         return true
     throw new Error(`the value ${value} too short`)
 }
 
 const betweenLength = (value, arg) => {
-    if (value.length > arg.min && value.length < arg.max)
+    if( value.length > arg.min && value.length < arg.max)
         return true
     throw new Error(`the value ${value} not betweenLength`)
 }
@@ -111,13 +113,15 @@ const specificLength = (value, len) => {
     }
     throw new Error(`the length of the ${value} not correct`);
 }
-
 const clientCodeIsExistInSQL = async (field, arg) => {
-    let tableName1 = arg.tableName;
-    let val = arg.field;
-    let ans = await getData(`/read/readAll/${tableName1}/${val}=${field}`)
+    console.log(" in clientCodeIsExistInSQL ");
+    let tableName1 = arg.tableName
+    let val = arg.field
+    console.log(field, tableName1, 'tableName1');
+    let ans = await getData(  `read/readAll/${tableName1}/${val}=${field}`)
+    console.log(ans.data, 'aaannnsss');
     if (ans.data.length == 0) {
-        return true;
+        return true
     }
     else {
         throw new Error(`the ${val}: ${field} is not unique`);
