@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { getData, postData } = require('../../services/axios');
 const { logToFile } = require('../../services/loggerPnini');
-
+const {checkObjectValidations} = require('../../services/validations/use-validations')
 
 async function findByDistinct(obj) {
     let object = {
@@ -47,9 +47,9 @@ async function findInRadius(filter) {
 
 
     )
-    
+
     if (response.data) {
-        console.log("~~~~~~~~~~~~~~~~",response.data);
+        console.log("~~~~~~~~~~~~~~~~", response.data);
         return response.data
     }
     else {
@@ -239,8 +239,8 @@ async function insertArea(obj = {}) {
                 else {
                     const dropResult = await postData('/update/dropDocumentById',
                         {
-                            tableName: "tbl_Areas",
-                            values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                            collection: "areas",
+                            data: { _id: result.data }
                         })
                     throw new Error("Can't insert area to mongo and sql DB");
                 }
@@ -249,8 +249,8 @@ async function insertArea(obj = {}) {
                 console.log('sql object not valid');
                 const dropResult2 = await postData('/update/dropDocumentById',
                     {
-                        tableName: "tbl_Areas",
-                        values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                        collection: "areas",
+                        data: { _id: result.data }
                     })
                 throw new Error("Can't insert area to mongo and sql DB");
             }
@@ -375,13 +375,22 @@ async function updateArea(obj = {}) {
                     return resSql
                 }
                 else {
-                    //יש לדאוג שגם המונגו לא ישתנה
-                    return result
+                    const dropResult = await postData('/update/dropDocumentById',
+                        {
+                            collection: "areas",
+                            data: { _id: result.data }
+                        })
+                    throw new Error("Can't insert area to mongo and sql DB");
                 }
             }
             else {
-                //יש לדאוג שגם המונגו לא ישתנה
                 console.log('sql object not valid');
+                const dropResult2 = await postData('/update/dropDocumentById',
+                    {
+                        collection: "areas",
+                        data: { _id: result.data }
+                    })
+                throw new Error("Can't insert area to mongo and sql DB");
             }
         }
         else
@@ -415,7 +424,6 @@ module.exports = {
     findInPolygon,
     getFromSql,
     getFromMongo,
-    deleteArea,
     findInRadius,
     startt
 }
