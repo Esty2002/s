@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { getData, postData } = require('../../services/axios');
 const { logToFile } = require('../../services/loggerPnini');
-const {checkObjectValidations} = require('../../services/validations/use-validations')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 
 async function findByDistinct(obj) {
     let object = {
