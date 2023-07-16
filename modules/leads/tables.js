@@ -5,6 +5,7 @@ const values = [
     {
         entityName: "Orderers",
         func: ({ name = null, phone = null }) => {
+            console.log({name,phone});
             return {
                 tableName: "Orderers",
                 values: {
@@ -21,7 +22,7 @@ const values = [
     },
     {
         entityName: "PouringsTypes",
-        func: ({ name }) => {
+        func: ({ name = null }) => {
             return {
                 tableName: "PouringsTypes",
                 values: {
@@ -37,7 +38,7 @@ const values = [
     {
 
         entityName: "StatusesLead",
-        func: ({ name }) => {
+        func: ({ name = null }) => {
             return {
                 tableName: "StatusesLead",
                 values: {
@@ -50,7 +51,7 @@ const values = [
         }
 
     },
-    
+
 ];
 
 
@@ -72,7 +73,7 @@ const newRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the entity name not exist");
+            throw new Error(`the entity name: ${obj.entityName} not exist`);
         }
 
     }
@@ -162,4 +163,4 @@ const deleteRecord = async (obj) => {
 
 
 
-module.exports = { newRecord, updateRecord, getRecord, deleteRecord };
+module.exports = { newRecord, updateRecord, getRecord, deleteRecord, values };
