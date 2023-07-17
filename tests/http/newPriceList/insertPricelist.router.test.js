@@ -16,7 +16,6 @@ jest.mock('../../../modules/pricelist/insertPricelist', () => {
             }
         }),
         getId: jest.fn((name) => {
-            console.log('iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiinnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn');
             if (name != 'error') {
                 let result = { data: [5], status: 200 }
                 return result
@@ -42,7 +41,6 @@ jest.mock('../../../modules/pricelist/insertPricelist', () => {
         }),
         getIdForBuytonDescribe: jest.fn((name, tbname) => {
             if (name != 'error') {
-                // let data={succes:'true'}
                 return { status: 201 }
             }
             else {

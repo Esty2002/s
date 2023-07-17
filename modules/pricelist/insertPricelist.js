@@ -227,7 +227,6 @@ async function updateField(id, entityName, value) {
         const checkValidObj = values.find(({ entity }) => entityName === entity);
         let newObj = checkValidObj.func(value)
         if (checkValidObj) {
-            console.log(checkValidObj,' checkValidObj');
             _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
             value = newObj.values
         }

@@ -3,7 +3,6 @@ jest.mock('../../../services/axios', () => {
         postData: jest.fn((url, obj) => {
             if (url.includes('create') || url.includes('update')) {
                 if (obj.values['Name'] != 'error') {
-                    console.log('in if');
                     let data = {
                         rowsAffected: ['true from create']
                     }
