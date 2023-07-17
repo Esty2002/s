@@ -1,13 +1,24 @@
 require('dotenv').config();
 const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PUMPS, BUYTONITEMS } = process.env;
-const { postData } = require('../../services/axios');
+const { postData, getData } = require('../../services/axios');
+
+async function getRecordPriceList(entity, condition) {
+    try {
+        const result = await getData(`/read/readAllEntity/${entity}`, condition)
+        return result
+    }
+    catch (error) {
+        throw error
+    }
+}
+
 
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
     try {
         let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
         const res = await postData("/read/readTopN", obj);
-        
+
 
         return res.data;
     }
@@ -15,10 +26,66 @@ async function getAllPriceList() {
         throw new Error('can not get all pricelist');
     }
 }
+// חיפוש הצעת מחיר לפי ID
+async function getPriceListById(object) {
+    //  ומחזירה את כל השורות בטבלאות שמחוברות אליו ID מקבלת 
+    try {
+        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object}' AND  Disabled=0` };
+        // const res = await postData("/read/readandjoin", obj);
+        const res = await getData("/read/readAllEntity/PriceList", { Id: object.id, Disabled: 0 })
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+// פונקצית חיפוש הצעת מחיר לפי תאריך הוספה
+async function getPriceListByAddedDate(object) {
+    try {
+        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
+        const res = await postData("/read/readTopN", obj);
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+// פונקציית חיפוש על פי מוצר
+async function getPriceListbyProduct(object) {
+    try {
+        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
+        const res = await postData("/read/readTopN", obj);
+        return res.data;
+    }
+    catch (error) {
+        throw error;
+    }
+}
+// פונקציית חיפוש על פי קוד ספק או לקוח
+async function getPriceListbySupplierCodeOrClientCode(object) {
+    try {
+        let obj = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "PriceListId", condition: `SupplierOrClient=${object}` };
+        const res = await postData("/read/readTopN", obj);
+        console.log(res.data);
+        arrTempPriceListId = []
+        if (res.data != undefined) {
+            res.data.forEach(element => {
+                arrTempPriceListId.push(element.PriceListId)
+            });
+            console.log(arrTempPriceListId);
+            let obj2 = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `Id  in (${arrTempPriceListId})` };
+            const res2 = await postData("/read/readTopN", obj2);
+            console.log(res2.data);
+            return res2.data;
 
 
 
-
+        }
+    }
+    catch(error){
+        throw error;
+    }
+}
 
 async function getPriceListByIdSupplierOrClientCode(object) {
     console.log(object);
@@ -165,6 +232,7 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
     catch (error) {
         throw error;
     }
+}
     function checkValid(arr1, arr2) {
         arrTemp = []
         arr1.forEach(b => {
@@ -176,12 +244,26 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
         });
         return arrTemp
     }
-}
 
-module.exports = {
-    getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
-    getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListByIdPriceListId
-};
+
+    module.exports = {
+        getRecordPriceList,
+        getPriceListByAdditionsForDistance,
+        getNameOfProduvtsById,
+        getPriceListByAdditionsForCities,
+        getPriceListByAdditionsForTime,
+        getPriceListByAdditionsForTruckFill,
+        getSupplierByNameProduct,
+        getSupplierByNameProductBuyton,
+        getPriceListByIdSupplierOrClientCode,
+        getAllPriceList,
+        getPriceListById,
+        getPriceListByAddedDate,
+        getPriceListbyProduct,
+        getPriceListByAreaId,
+        getPriceListbySupplierCodeOrClientCode,
+        getPriceListByIdPriceListId
+    };
 
 
 

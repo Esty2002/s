@@ -6,13 +6,14 @@ const { insert, getProducts, getId, getIdForBuytonDescribe, updateField } = requ
 let tableName
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
+    let object = {
+        name: 'create',
+        description: 'addPriceList in router',
+        dataThatRecived: req.body,
+    }
+    logToFile(object)
     try {
-        let object = {
-            name: 'create',
-            description: 'addPriceList in router',
-            dataThatRecived: req.body,
-        }
-        logToFile(object)
+      
         const result = await insert(req.body, 'tbl_PriceList')
         res.status(result.status).send(result.data);
     }
