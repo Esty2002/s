@@ -23,7 +23,6 @@ router.post('/addPriceList', express.json(), async (req, res) => {
     catch (error) {
         object.error = error.message
         logToFile(object)
-        console.log({ object });
         if (error instanceof Array)
             res.status(500).send(error)
         else
@@ -251,11 +250,10 @@ router.get('/getIdForPricelistName/:name', async (req, res) => {
             res.status(200).send(obj);
         }
         else
-            res.status(500).send(obj);
-
+        res.status(500).send(obj);
+        
     }
     catch (error) {
-        console.log(error, ' 77777777777777777777777777777777');
         objForLog.error = error.message
         logToFile(objForLog)
         res.status(500).send(error.message)
