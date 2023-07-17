@@ -34,4 +34,33 @@ const checkObjectValidations = async (body, objName) => {
 };
 
 
-module.exports = { checkObjectValidations };
+const checkValidationsUpdate = async (body, entityName) => {
+    let errors = []
+    try {
+        const values = objectsForValidations.find(({ objectName }) => objectName === entityName).values;
+        for (let item in body) {
+            const validations = values.find(({ propertyName }) => propertyName === item);
+            if (validations) {
+                try {
+                    for (let valid of validations.validation) {
+                        _ = await valid.func(body[item], valid.arguments);
+                    }
+                }
+                catch (error) {
+                    errors = [...errors, error.message];
+                }
+            }
+        }
+        if (errors.length > 0) {
+            throw errors;
+        }
+        else {
+            return true;
+        }
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { checkObjectValidations, checkValidationsUpdate };

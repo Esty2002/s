@@ -13,53 +13,38 @@ const createNewLead = async (obj = null) => {
         else {
             throw new Error("not exist this status of leads");
         }
-    }
-    catch (error) {
-        throw error;
-    }
-    if (obj.baseConcretProduct.length > 0) {
-        obj.baseConcretProduct.forEach(bcp => {
-            vals = [...vals, {
+        if (obj.baseConcretProduct && obj.baseConcretProduct.length > 0) {
+            obj.baseConcretProduct.forEach(bcp => {
+                vals = [...vals, {
+                    SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
+                    Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
+                    ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: bcp.pumpPipeLength,
+                    PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+                    OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
+                }];
+            });
+        }
+        else {
+            vals = [{
                 SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
                 Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-                ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: bcp.pumpPipeLength,
-                PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+                ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
+                PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
                 OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-            }];
-        });
-    }
-    else {
-        vals = [{
-            SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
-            Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-            ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
-            PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
-            OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-        }]
-    }
-    try {
-
+            }]
+        }
         for (let item of vals) {
-            try {
-                _ = await checkObjectValidations(item, 'leads');
-            }
-            catch (error) {
-                throw error;
-            }
+            _ = await checkObjectValidations(item, 'leads');
         };
-    }
-    catch (error) {
-        throw error;
-    }
-    let newObj = {
-        tableName: 'tbl_Leads',
-        values: vals
-    };
 
-    try {
-        const result = await postData('create/createManySql', newObj);
-        if (result.status === 201 && obj.morePorductsItems) {
-            const result1 = await insertMoreProductsItems(obj, result.data);
+        let newObj = {
+            entityName: 'Leads',
+            values: vals
+        };
+
+        const result = await postData('create/createmany', newObj);
+        if (result.status === 201 && obj.morePorductsItems.length>0) {
+            const result1 = await insertMoreProductsItems(obj.morePorductsItems, result.data[0].Id);
             return result1;
         }
         else {
@@ -75,34 +60,34 @@ let flag = false
 
 
 
-const insertMoreProductsItems = async (obj, result) => {
-    let morePorductsItems = [];
-
-    obj.morePorductsItems.forEach(mpi => {
-        morePorductsItems = [...morePorductsItems, {
-            Product: mpi.productCode,
-            Amount: mpi.amount,
-            LeadNumber: result[0].Id,
-            AddedDate: new Date().toISOString(),
-            Disable:'False',
-            DeletingDate:null
-        }]
-    })
+const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
     try {
+
+
+        let morePorductsItems = [];
+        items.forEach(mpi => {
+            morePorductsItems = [...morePorductsItems, {
+                Product: mpi.productCode,
+                Amount: mpi.amount,
+                LeadNumber,
+                AddedDate: new Date().toISOString()
+            }]
+        });
         for (let item of morePorductsItems) {
-            _ = checkObjectValidations(item, 'moreProductsItems');
+            _ = await checkObjectValidations(item, 'moreProductsItems');
         };
+        objMpi = {
+            entityName: 'moreProductsItems',
+            values: morePorductsItems
+        };
+        const res = await postData('create/createManySql', objMpi);
+        return res;
+
+
     }
     catch (error) {
         throw error;
     }
-    objMpi = {
-        tableName: 'moreProductsItems',
-        values: morePorductsItems
-    };
-
-    const res = await postData('create/createManySql', objMpi);
-    return res;
 
 
 }
@@ -317,4 +302,4 @@ const deleteOneLead = async (id) => {
 
 
 
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue, readMoreProductsItems }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue,readMoreProductsItems, insertMoreProductsItems }

@@ -51,14 +51,14 @@ async function updatePump(obj) {
         return false
 }
 
-async function updatePump(obj, filter) {
-    let string = ""
-    for (let k in obj) {
-        string += `${k}='${obj[k]}',`
-    }
-    string = string.slice(0, -1)
-    return (await postData(  'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-}
+// async function updatePump(obj, filter) {
+//     let string = ""
+//     for (let k in obj) {
+//         string += `${k}='${obj[k]}',`
+//     }
+//     string = string.slice(0, -1)
+//     return (await postData(  'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+// }
 
 
 module.exports = { updatePump, insertPump, findPump }

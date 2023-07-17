@@ -1,15 +1,16 @@
 const { postData, getData } = require('../../services/axios');
-const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { checkObjectValidations, checkValidationsUpdate } = require('../../services/validations/use-validations');
 
 const values = [
     {
         entityName: "Orderers",
-        func: ({ ordererName = null, ordererPhone = null }) => {
+        func: ({ name = null, phone = null }) => {
+            console.log({ name, phone });
             return {
                 tableName: "Orderers",
                 values: {
-                    OrdererName: ordererName,
-                    OrdererPhone: ordererPhone,
+                    OrdererName: name,
+                    OrdererPhone: phone,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -21,11 +22,11 @@ const values = [
     },
     {
         entityName: "PouringsTypes",
-        func: ({ pouringName }) => {
+        func: ({ name = null }) => {
             return {
                 tableName: "PouringsTypes",
                 values: {
-                    PouringName: pouringName,
+                    PouringName: name,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -37,11 +38,11 @@ const values = [
     {
 
         entityName: "StatusesLead",
-        func: ({ statusName }) => {
+        func: ({ name = null }) => {
             return {
                 tableName: "StatusesLead",
                 values: {
-                    StatusName: statusName,
+                    StatusName: name,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -72,6 +73,7 @@ const values = [
 
 
 
+
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
@@ -89,7 +91,7 @@ const newRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the entity name not exist");
+            throw new Error(`the entity name: ${obj.entityName} not exist`);
         }
 
     }
@@ -114,7 +116,7 @@ const getRecord = async (entityName = "", prop = "") => {
         }
     }
     else {
-        throw new Error("the table name is not exist");
+        throw new Error(`the entity name: ${entityName} not exist`);
     }
 };
 
@@ -124,15 +126,18 @@ const updateRecord = async (obj = null) => {
         if (entity) {
             let result;
             const newObj = {
-                tableName: obj.entityName,
+                entityName: entity.entityName,
                 values: obj.update,
                 condition: obj.condition
             };
             try {
+                // console.log({newObj});
+                // _ = await checkValidationsUpdate(newObj.values, entity.entityName);
                 result = await postData('/update/update', newObj);
                 return result;
             }
             catch (error) {
+                console.log({error});
                 throw error;
             }
         }
@@ -144,7 +149,6 @@ const updateRecord = async (obj = null) => {
         throw new Error("the object is null");
     }
 };
-
 const deleteRecord = async (obj) => {
     if (obj) {
         const table = values.find(({ entityName }) => entityName === obj.entity);
@@ -178,4 +182,4 @@ const deleteRecord = async (obj) => {
 
 
 
-module.exports = { newRecord, updateRecord, getRecord, deleteRecord };
+module.exports = { newRecord, updateRecord, getRecord, deleteRecord, values };

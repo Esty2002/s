@@ -119,14 +119,26 @@ const clientCodeIsExistInSQL = async (field, arg) => {
     }
 }
 const recordExistInTable = async (value, arg) => {
-
-    const { tableName, field } = arg;
-    let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
-    if (ans.data) {
-        return true
+    try {
+        const { tableName, field, exist } = arg;
+        let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
+        if (exist) {
+            if (ans.data.length > 0)
+                return true;
+            else {
+                throw new Error(`the ${field}: ${value} in ${tableName} is not exist`);
+            }
+        }
+        else {
+            if (ans.data.length === 0)
+                return true;
+            else {
+                throw new Error(`the ${field}: ${value} in ${tableName} is exist`);
+            }
+        }
     }
-    else {
-        throw new Error('the Record is not exist');
+    catch (error) {
+        throw error;
     }
 
 };
@@ -163,11 +175,10 @@ const dateInFuture = (value) => {
 const checkConcretItem = async (value) => {
     try {
         if (parseInt(value).toString() != 'NaN') {
-            recordExistInTable(value, { tableName: "tbl_FinishProducts", field: "id" });
+            recordExistInTable(value, { tableName: "tbl_FinishProducts", field: "id", exist: true });
         }
         else {
-            console.log({ value });
-            recordExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode" });
+            recordExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode", exist: true });
         }
     }
     catch (error) {
