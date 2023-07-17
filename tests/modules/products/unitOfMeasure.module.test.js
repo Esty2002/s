@@ -19,17 +19,22 @@ jest.mock('../../../services/axios', () => {
     return {
         postData: jest.fn((obj, b) => {
             if (b.values.Measure == 'error')
-                throw new Error ('oooh')
+                throw new Error('oooh')
             return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 }
         }),
-        getData: jest.fn((obj,b) => {
+        getData: jest.fn((obj, b) => {
+            console.log(obj, 'gffffff');
+            let arr = obj.split('/')
+            console.log(arr[arr.length - 1], 'aaaaarrrrr');
+            if (arr[arr.length - 1] == 'Id=-1' || arr[arr.length-1]=="Measure='error'")
+                return { data: [] }
             return { data: [{ Id: 1, Measure: "mmm", Disable: true }, { Id: 2, Measure: "aaa", Disable: false }], status: 200 }
         }),
     }
 });
 
 
-const { insertMeasure ,getAll} = require('../../../modules/products/measure');
+const { insertMeasure, getAll, findMeasureName ,findMeasureNumber} = require('../../../modules/products/measure');
 
 describe('function insertMeasure', () => {
     it('shuols success inserting a measure', async () => {
@@ -54,7 +59,7 @@ describe('function insertMeasure', () => {
         expect(logToFile).toHaveBeenCalled()
         expect(logToFile).toBeDefined()
     })
-    
+
     it('shuols check the mock checkObjectValidations', async () => {
         _ = await insertMeasure("Name", "UnitOfMeasure");
         const { checkObjectValidations } = jest.requireMock('../../../services/validations/use-validations');
@@ -68,7 +73,7 @@ describe('function insertMeasure', () => {
         expect(postData).toHaveBeenCalled()
         expect(postData).toBeDefined()
     })
-    
+
     it('shuols fail to post data', async () => {
         let result = ''
         try {
@@ -116,4 +121,101 @@ describe('function getAll', () => {
         expect(getData).toBeDefined()
     })
 
+})
+
+describe('function findMeasureName', () => {
+    it('shuols success finding measures name', async () => {
+        const result = await findMeasureName(1);
+        expect(result.data).toStrictEqual([{ Id: 1, Measure: "mmm", Disable: true }, { Id: 2, Measure: "aaa", Disable: false }])
+        expect(result.data[0]).toBeDefined()
+    })
+
+    it('shuols fail finding measures name', async () => {
+        let result = ''
+        try {
+            result = await findMeasureName(-1);
+        }
+        catch (error) {
+
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+            expect(error.message).toBe('no matching unit of measure');
+            expect(result).toBe('');
+        }
+    })
+    it('shuols fail finding measures name', async () => {
+        let result = ''
+        try {
+            result = await findMeasureName('validation error');
+        }
+        catch (error) {
+
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+            expect(error.message).toBe('The id of the unit of measure is reuired with type int');
+            expect(result).toBe('');
+        }
+    })
+
+    it('shuols check the mock logToFile', async () => {
+        _ = await findMeasureName(1);
+        const { logToFile } = jest.requireMock('../../../services/logger/logTxt');
+        expect(logToFile).toHaveBeenCalled()
+        expect(logToFile).toBeDefined()
+    })
+
+    it('shuols check the mock getData', async () => {
+        _ = await findMeasureName(1);
+        const { getData } = jest.requireMock('../../../services/axios');
+        expect(getData).toHaveBeenCalled()
+        expect(getData).toBeDefined()
+    })
+})
+
+describe('function findMeasureNumber', () => {
+    it('shuols success finding measures number', async () => {
+        const result = await findMeasureNumber("mmm");
+        expect(result.data).toStrictEqual([{ Id: 1, Measure: "mmm", Disable: true }, { Id: 2, Measure: "aaa", Disable: false }])
+        expect(result.data[0]).toBeDefined()
+    })
+
+    it('shuols fail finding measures number', async () => {
+        let result = ''
+        try {
+            result = await findMeasureNumber("error");
+        }
+        catch (error) {
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+            expect(error.message).toBe('no matching unit of measure');
+            expect(result).toBe('');
+        }
+    })
+    it('shuols fail finding measures number', async () => {
+        let result = ''
+        try {
+            result = await findMeasureNumber();
+        }
+        catch (error) {
+
+            expect(error).toBeDefined();
+            expect(error).toBeInstanceOf(Error);
+            expect(error.message).toBe('The name of the unit of measure is reuired');
+            expect(result).toBe('');
+        }
+    })
+
+    it('shuols check the mock logToFile', async () => {
+        _ = await findMeasureNumber("mmm");
+        const { logToFile } = jest.requireMock('../../../services/logger/logTxt');
+        expect(logToFile).toHaveBeenCalled()
+        expect(logToFile).toBeDefined()
+    })
+
+    it('shuols check the mock getData', async () => {
+        _ = await findMeasureNumber("mmm");
+        const { getData } = jest.requireMock('../../../services/axios');
+        expect(getData).toHaveBeenCalled()
+        expect(getData).toBeDefined()
+    })
 })
