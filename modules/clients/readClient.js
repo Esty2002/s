@@ -1,4 +1,4 @@
-const { postData} = require('../../services/axios')
+const { postData } = require('../../services/axios')
 
 async function getAllClient() {
     let obj={}
@@ -24,7 +24,7 @@ async function getClientsById(id) {
     obj['condition']=`clientCode=${id}`
     obj['columns']='*'
     const result= await postData('/read/readTopN', obj);
-//    console.log(result,' result');
+   console.log(result,' result');
     if (result==undefined) 
         return null
     return result
@@ -36,8 +36,8 @@ async function getClientsByField(field, value) {
     obj['tableName']='tbl_Clients'
     obj['condition']=`${field}=${value}`
     obj['columns']='*'
-    const result= await postData(sqlServer,'/read/readTopN', obj);
-    // console.log(result,' result');
+    const result= await postData('/read/readTopN', obj);
+    console.log(result,' result');
     if (result==undefined)
         return null
     return result

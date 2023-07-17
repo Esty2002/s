@@ -1,23 +1,56 @@
 
 const { postData, getData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { getRecord } = require('./tables');
 const createNewLead = async (obj = null) => {
     let vals = [];
-    obj.baseConcretProduct.forEach(bcp => {
-        vals = [...vals, {
+    let status;
+    try {
+        status = await getRecord('StatusesLead', "StatusName='חדש'");
+        if (status.status === 200) {
+            status = status.data[0].Id;
+        }
+        else {
+            throw new Error("not exist this status of leads");
+        }
+    }
+    catch (error) {
+        throw error;
+    }
+    if (obj.baseConcretProduct.length > 0) {
+        obj.baseConcretProduct.forEach(bcp => {
+            vals = [...vals, {
+                SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
+                Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
+                ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: bcp.pumpPipeLength,
+                PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+                OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
+            }];
+        });
+    }
+    else {
+        vals = [{
             SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
             Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-            ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: obj.pumpPipeLength,
-            PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: 1,
+            ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
+            PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-        }];
-    });
-    // for (let item of vals) {
-    //     const valid=checkObjectValidations(item);
-    //     if(!valid){
+        }]
+    }
+    try {
 
-    //     }
-    // };
+        for (let item of vals) {
+            try {
+                _ = await checkObjectValidations(item, 'leads');
+            }
+            catch (error) {
+                throw error;
+            }
+        };
+    }
+    catch (error) {
+        throw error;
+    }
     let newObj = {
         tableName: 'tbl_Leads',
         values: vals
@@ -50,10 +83,19 @@ const insertMoreProductsItems = async (obj, result) => {
             Product: mpi.productCode,
             Amount: mpi.amount,
             LeadNumber: result[0].Id,
-            AddedDate: new Date().toISOString()
+            AddedDate: new Date().toISOString(),
+            Disable:'False',
+            DeletingDate:null
         }]
     })
-
+    try {
+        for (let item of morePorductsItems) {
+            _ = checkObjectValidations(item, 'moreProductsItems');
+        };
+    }
+    catch (error) {
+        throw error;
+    }
     objMpi = {
         tableName: 'moreProductsItems',
         values: morePorductsItems
@@ -65,37 +107,58 @@ const insertMoreProductsItems = async (obj, result) => {
 
 }
 const readLead = async (filter) => {
-console.log("-++++++-+-++--++++-++++-+-+-++-+-");
-    const obj = {
-        tableName: "tbl_Leads",
-        columns: '*',
-        condition: filter ? filter : `1=1`
-    }
-
     try {
         const obj = {
             tableName: "tbl_Leads",
             columns: '*',
-            condition: filter ?  filter : `1=1`
+            condition: filter ? filter : `1=1`
         }
-        const values = await postData('read/readTopN', obj);
-        if (values) {
-            let result = [];
-            // values.forEach(async val => {
-            // _ = Promise.all(values.map(async val => {
-            // console.log("values", values);
-            for (let i = 0; i < values.data.length; i++) {
-                const sameRecord = values.data.filter(v => v.SupplyDate.toString() === values.data[i].SupplyDate.toString() && v.SupplyHour.toString() === values.data[i].SupplyHour.toString() &&
-                    v.Address === values.data[i].Address && v.OrdererCode === values.data[i].OrdererCode);
-                const keys = Object.keys(sameRecord[0]);
-                const temp = {}
-                for (let key of keys) {
-                    temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
+        const res = await postData('read/readTopN', obj);
+        if (res.status == 200) {
+            if (res.data.length > 0) {
+                const values = res.data;
+                let result = [];
+                for (let i = 0; i < values.length; i++) {
+                    const sameRecord = values.filter(v => v.SupplyDate.toString() === values[i].SupplyDate.toString() && v.SupplyHour.toString() === values[i].SupplyHour.toString() &&
+                        v.Address === values[i].Address && v.OrdererCode === values[i].OrdererCode);
+
+                    const keys = Object.keys(sameRecord[0]);
+                    const temp = {}
+                    for (let key of keys) {
+                        if (key !== "Disable")
+                            temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
+                        else
+                            {                               
+                                temp[key] = (sameRecord.map(sr => { return sr[key] }));
+                            }
+                    }
+                    result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
+                        r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
                 }
-                result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
-                    r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
-             
+                return { data: result, status: 200, message: "success" };
             }
+            else {
+                return false;
+            }
+        }
+    }
+
+    catch (error) {
+        throw error;
+    }
+
+}
+const readMoreProductsItems = async (filter) => {
+
+    try {
+        const obj = {
+            tableName: "tbl_MoreProductsItems",
+            columns: '*',
+            condition: filter ? filter : `1=1`
+        }
+        const result = await postData('read/readTopN', obj);
+
+        if (result) {
             return result;
         }
         else {
@@ -107,28 +170,6 @@ console.log("-++++++-+-++--++++-++++-+-+-++-+-");
     }
 
 }
-const readMoreProductsItems = async (filter) => {
-      
-        try {
-            const obj = {
-                tableName: "tbl_MoreProductsItems",
-                columns: '*',
-                condition: filter ?  filter : `1=1`
-            }
-            const result = await postData('read/readTopN', obj);
-            
-            if (result) {
-                return result;
-            }
-            else {
-                return false;
-            }
-        }
-        catch (error) {
-            throw error;
-        }
-    
-    }
 const readforeignkeyvalue = async (filter) => {
     // const obj = {
     //     tableName: "tbl_Leads",
@@ -169,7 +210,7 @@ const readforeignkeyvalue = async (filter) => {
 const updateLead = async (obj = null) => {
     try {
         if (obj.condition) {
-            const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);         
+            const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);
             if (baseLead.data.length > 0) {
                 const newObj = {
                     tableName: 'tbl_Leads',
@@ -197,16 +238,16 @@ const updateLead = async (obj = null) => {
     }
 
 };
-const updateOneLead = async (obj = null) => {   
+const updateOneLead = async (obj = null) => {
     try {
-        if (obj.condition) {           
+        if (obj.condition) {
             const result = await postData('update/updateOne', obj);
             if (result) {
                 return result;
             }
             else {
                 return false;
-            }           
+            }
         }
         else {
             throw new Error('the condition not exist');
@@ -276,4 +317,4 @@ const deleteOneLead = async (id) => {
 
 
 
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue,readMoreProductsItems }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue, readMoreProductsItems }

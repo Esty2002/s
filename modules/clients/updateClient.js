@@ -1,4 +1,4 @@
-const { postData} = require('../../services/axios')
+const { postData , } = require('../../services/axios')
 
 async function updateClient(obj) {
     let object={
@@ -6,8 +6,7 @@ async function updateClient(obj) {
         "condition":`ClientCode=${obj.ClientCode}`,
         "values":obj
     }
-    const response = await postData('/update/update', object)
-    return response;
+    _= await postData( '/update/update', object)
    
 }
 module.exports = { updateClient } 
