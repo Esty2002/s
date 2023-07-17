@@ -1863,37 +1863,197 @@
                         {
                             "key": "findAllPriceList",
                             "arguments": "",
-                            "response": ""
-                        },
-                        {
-                            "key": "FindPriceListByIdSupplierOrClientCode",
-                            "arguments": "",
-                            "response": ""
+                            "response": [
+                                {
+                                    "Id": 1,
+                                    "Name": "2",
+                                    "Pumps": false,
+                                    "Beton": true,
+                                    "AddedDate": "2023-07-02T00:00:00.000Z",
+                                    "UserName": "devloper",
+                                    "Finish": false,
+                                    "Disabled": false
+                                }
+                            ]
                         },
                         {
                             "key": "FindPriceListByProduct",
-                            "arguments": "",
-                            "response": ""
+                            "arguments": {
+                                "id": {
+                                    "type": "int",
+                                    "example": 7,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1,
+                                    "PriceListId": 7,
+                                    "ProductId": "6",
+                                    "TableName": "tbl_BuytonDegree",
+                                    "Price": 6666,
+                                    "Discount": 6,
+                                    "AddedDate": "2023-06-28T00:00:00.000Z",
+                                    "UserName": "devloper",
+                                    "Disabled": false
+                                }
+                            ]
                         },
                         {
                             "key": "FindPriceListByAdditionsForDistance",
-                            "arguments": "",
-                            "response": ""
+                            "arguments": {
+                                "id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 5,
+                                    "PriceListId": 1,
+                                    "ProductId": 3,
+                                    "Distance": 6000,
+                                    "Price": 3598,
+                                    "CountPrecent": 15,
+                                    "AddedDate": "2023-01-01T00:00:00.000Z",
+                                    "UserName": "devloper"
+                                }
+                            ]
                         },
                         {
                             "key": "FindPriceListByAdditionsForCities",
-                            "arguments": "",
-                            "response": ""
+                            "arguments": {
+                                "id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 11,
+                                    "PriceListId": 1,
+                                    "ProductId": 2,
+                                    "AreaId": "BetShemesh",
+                                    "Price": 369,
+                                    "CountPrecent": 12,
+                                    "AddedDate": "2022-01-01T00:00:00.000Z",
+                                    "UserName": "devloper"
+                                }
+                            ]
                         },
                         {
                             "key": "FindPriceListByAdditionsForTime",
-                            "arguments": "",
-                            "response": ""
+                            "arguments": {
+                                "id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 3,
+                                    "PriceListId": 1,
+                                    "ProductId": 3,
+                                    "Price": 400,
+                                    "CountPrecent": 0.5,
+                                    "DayOfWeek": 3,
+                                    "StartDate": "2023-06-01T00:00:00.000Z",
+                                    "EndDate": "2023-06-08T00:00:00.000Z",
+                                    "AddedDate": "2020-03-03T00:00:00.000Z",
+                                    "UserName": "devloper"
+                                }
+                            ]
                         },
                         {
                             "key": "FindPriceListByAdditionsForTruckFill",
-                            "arguments": "",
-                            "response": ""
+                            "arguments": {
+                                "id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1000,
+                                    "PriceListId": 1,
+                                    "ProductId": 2,
+                                    "AmountTransportDiff": 22,
+                                    "MaxTransportDiff": 2222,
+                                    "Price": 222222,
+                                    "Disabled": false
+                                }
+                            ]
+                        },
+                        {
+                            "key": "FindSupplierByNameProduct",
+                            "arguments": {
+                                "nameTable": {
+                                    "type": "string",
+                                    "example": "tbl_Pumps",
+                                    "required": true,
+                                    "description": "Send as params the nameTable ."
+                                },
+                                "nameProduct": {
+                                    "type": "string",
+                                    "example": "tovi",
+                                    "required": true,
+                                    "description": "Send as params the Id nameProduct."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 4,
+                                    "PriceListId": 36,
+                                    "SupplierOrClient": 1001,
+                                    "Debit": false,
+                                    "Credit": false,
+                                    "AreaId": "BetShemesh",
+                                    "StartDate": "2021-01-01T00:00:00.000Z",
+                                    "EndDate": "2022-02-02T00:00:00.000Z",
+                                    "AddedDate": "1999-01-08T00:00:00.000Z",
+                                    "UserName": "devloper"
+                                }
+                            ]
+                        },
+                        {
+                            "key": "FindSupplierByNameProductBuyton",
+                            "arguments": {
+                                "nameTable": {
+                                    "type": "string",
+                                    "example": "tbl_BuytonItems",
+                                    "required": true,
+                                    "description": "Send as params the nameTable ."
+                                },
+                                "nameProduct": {
+                                    "type": "string",
+                                    "example": "ב15 פוליה ש4 ח1",
+                                    "required": true,
+                                    "description": "Send as params the Id nameProduct."
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 3,
+                                    "PriceListId": 7,
+                                    "SupplierOrClient": 1001,
+                                    "Debit": false,
+                                    "Credit": false,
+                                    "AreaId": "BetShemesh",
+                                    "StartDate": "2000-01-08T00:00:00.000Z",
+                                    "EndDate": "2023-01-02T00:00:00.000Z",
+                                    "AddedDate": "1999-01-08T00:00:00.000Z",
+                                    "UserName": "devloper"
+                                }
+                            ]
                         }
                     ]
                 }
