@@ -9,6 +9,9 @@ jest.mock('../../../modules/pricelist/insertPricelist', () => {
                 let err2 = new Error('error2')
                 throw [err1.message, err2.message]
             }
+            if (obj.name == 'status not found')
+                return { status: 500 }
+
             if (obj.name != 'error')
                 return { status: 201 }
             else {
@@ -16,30 +19,47 @@ jest.mock('../../../modules/pricelist/insertPricelist', () => {
             }
         }),
         getId: jest.fn((name) => {
+            if (name == 'status not found') {
+                let result = { data: [5], status: 500 }
+                return result;
+            }
             if (name != 'error') {
                 let result = { data: [5], status: 200 }
                 return result
             }
             else {
-                let result = { data: [5], status: 500 }
-                throw new Error(result)
+                // let result = { data: [5], status: 500 }
+                throw new Error({status:500})
             }
         }),
         getProducts: jest.fn((tbname) => {
+            if (tbname == 'status_not_found') {
+                return { status: 500 }
+            }
             if (tbname != 'error')
                 return { status: 201 };
             else
                 throw new Error({ status: 500 })
 
         }),
-        updateField: jest.fn((id) => {
+        updateField: jest.fn((id, tbname, obj) => {
+            if (obj.name == 'Array of Errors') {
+                let err1 = new Error('err1')
+                let err2 = new Error('err2')
+                throw [err1.message, err2.message]
+            }
+            if (obj.name == 'status not found') {
+                return { status: 500 }
+            }
             if (id != 'error') {
                 return { status: 204 };
             }
             else
                 throw new Error({ status: 500 })
         }),
-        getIdForBuytonDescribe: jest.fn((name, tbname) => {
+        getIdForBuytonDescribe: jest.fn((name) => {
+            if (name == 'status_not_found')
+                return { status: 500 }
             if (name != 'error') {
                 return { status: 201 }
             }
@@ -80,6 +100,11 @@ describe('insert base price list', () => {
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addPriceList').send({ name: "status not found", userName: "Avi" });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     // it('should return an answer from type text-html, and true for good request', async () => {
@@ -130,6 +155,12 @@ describe('insert additions for city to price list', () => {
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addCitiesAdditions').send({ name: "status not found", userName: "Avi", city: "Jerusalem" });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -187,6 +218,12 @@ describe('insert additions for time to price list', () => {
         expect(response.serverError).toBeTruthy();
     })
 
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addTimeAdditions').send({ name: "status not found", userName: "Avi", city: "Jerusalem" });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
+    })
+
     it('should return an answer from type text-html, and true for good request', async () => {
         jest.setTimeout(async _ => {
             const response = await request(app).post('/creatPricelist/addTimeAdditions', { name: "pl4", userName: "Dan", price: 30000 })
@@ -242,6 +279,12 @@ describe('insert additions for distance to price list', () => {
         expect(response.serverError).toBeTruthy();
     })
 
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addAdditionsForDistance').send({ name: "status not found", distance: 80, price: 6090 });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
+    })
+
     it('should return an answer from type text-html, and true for good request', async () => {
         jest.setTimeout(async _ => {
             const response = await request(app).post('/creatPricelist/addAdditionsForDistance', { name: "pricelist1", userName: "Ramy", price: 50000 })
@@ -294,6 +337,13 @@ describe('insert additions for truck fill to price list', () => {
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addTruckFill').send({ name: "status not found", price: 6090, maxFill: 35 });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -351,6 +401,12 @@ describe('insert additions for supplier or client to price list', () => {
         expect(response.serverError).toBeTruthy();
     })
 
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient').send({ name: "status not found", clientName: "Gidi" });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
+    })
+
     it('should return an answer from type text-html, and true for good request', async () => {
         jest.setTimeout(async _ => {
             const response = await request(app).post('/creatPricelist/addPricesListBySupplierOrClient', { name: "pricelist1", userName: "Avi", clientName: "Gidi" })
@@ -399,10 +455,16 @@ describe('insert products to price list', () => {
     })
 
     it('should return an error for object that have some worng fields ', async () => {
-        const response = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "Array of Errors", productCode: 968});
+        const response = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "Array of Errors", productCode: 968 });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "status not found", productCode: 968 });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -448,17 +510,23 @@ describe('insert finish products to price list', () => {
 
     it('should return an error for object that not include the must fields ', async () => {
         jest.setTimeout(async _ => {
-            const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts', {name:"error"});
+            const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts', { name: "error" });
             expect(response).toBeDefined();
             expect(response.statusCode).toBe(500);
             expect(response.serverError).toBeTruthy();
         }, 6000);
     })
     it('should return an error for object that have some worng fields ', async () => {
-        const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts').send({ name: "Array of Errors", userName: "Avi", finishProductCode: 23});
+        const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts').send({ name: "Array of Errors", userName: "Avi", finishProductCode: 23 });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addPricelistForFinishProducts').send({ name: "status not found", userName: "Avi", finishProductCode: 23 });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -508,10 +576,16 @@ describe('insert additions to price list', () => {
     })
 
     it('should return an error for object that have some worng fields ', async () => {
-        const response = await request(app).post('/creatPricelist/addAdditionsForPricelist').send({ name: "Array of Errors", userName: "Avi"});
+        const response = await request(app).post('/creatPricelist/addAdditionsForPricelist').send({ name: "Array of Errors", userName: "Avi" });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/addAdditionsForPricelist').send({ name: "status not found", userName: "Avi" });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -605,13 +679,19 @@ describe('get id for Pricelist Name', () => {
             expect(getId).toHaveBeenCalled();
         }, 6000);
     })
-    it('should return an error for object that not include the must fields ', async () => {
+    it('should return an error for worng price-list name ', async () => {
         jest.setTimeout(async _ => {
             const response = await request(app).get('/creatPricelist/getIdForPricelistName/error');
             expect(response).toBeDefined();
             expect(response.statusCode).toBe(500);
             expect(response.serverError).toBeTruthy();
         }, 6000);
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).get('/creatPricelist/getIdForPricelistName/status not found');
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -665,6 +745,12 @@ describe('details of profucts', () => {
         expect(response.serverError).toBeTruthy();
     })
 
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/detailsOfProfucts/status_not_found');
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
+    })
+
     it('should return an answer from type text-html, and true for good request', async () => {
         jest.setTimeout(async _ => {
             const response = await request(app).post('/creatPricelist/detailsOfProfucts/tbl_PriceList')
@@ -713,10 +799,16 @@ describe('update field in table', () => {
     })
 
     it('should return an error for object that have some worng fields ', async () => {
-        const response = await request(app).post('/creatPricelist/updateFieldInTable/error/tbl_PriceList').send({ name: "Array of Errors", userName: "Avi"});
+        const response = await request(app).post('/creatPricelist/updateFieldInTable/2/tbl_PriceList').send({ name: "Array of Errors", userName: "Avi" });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).post('/creatPricelist/updateFieldInTable/2/tbl_PriceList').send({ name: "status not found", userName: "Avi" });
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
@@ -757,11 +849,17 @@ describe('get Id For Buyton Describe', () => {
         expect(getIdForBuytonDescribe).toHaveBeenCalled();
     })
 
-    it('should return an error if table name wasnt send ', async () => {
+    it('should return an error if table name is worng ', async () => {
         const response = await request(app).get('/creatPricelist/getIdForBuytonDescribe/error/error');
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
         expect(response.serverError).toBeTruthy();
+    })
+
+    it('should return an error for object with another status ', async () => {
+        const response = await request(app).get('/creatPricelist/getIdForBuytonDescribe/status_not_found/tbl_BuytonGrain')
+        expect(response).toBeDefined();
+        expect(response.statusCode).toBe(500);
     })
 
     it('should return an answer from type text-html, and true for good request', async () => {
