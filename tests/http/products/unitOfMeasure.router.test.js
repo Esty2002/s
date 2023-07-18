@@ -17,6 +17,7 @@ jest.mock('../../../modules/products/measure', () => {
                 return { status: 201 }
         }),
         getAll: jest.fn(() => {
+            
             return { data: [{ Id: 1, Measure: "mmm", Disable: true }, { Id: 2, Measure: "aaa", Disable: false }], status: 200 }
         }),
         findMeasureName: jest.fn((obj) => {
