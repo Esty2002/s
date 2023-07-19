@@ -147,12 +147,14 @@ const readMoreProductsItems = async (filter) => {
             return result;
         }
         else {
-            return false;
+            throw new Error("one or more of the arguments are not valid");
         }
     }
     catch (error) {
-        throw error;
+        throw error
     }
+
+
 
 }
 const readforeignkeyvalue = async (filter) => {

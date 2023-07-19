@@ -1,16 +1,16 @@
-const { getData, sqlServer } = require("../axios");
+const { getData } = require("../axios");
 
 const required = (value = null) => {
     if (value) {
         return true;
     }
-    return false;
+    throw new Error(`the value ${value} is required`);
 };
 
 const dateType = (date) => {
     let date1 = new Date(date);
     if (date1 == 'Invalid Date')
-        throw new Error(`the date ${date} not valid`);
+        throw new Error(`the date ${date} is not valid`);
     return true
 
 };
@@ -43,10 +43,9 @@ const EnglishLetters = (word) => {
 }
 
 const onlyNumbersInString = (numbersString) => {
-
     if (/^\d*$/.test(numbersString))
         return true
-    throw new Error(`the value ${numbersString} not only string`)
+    throw new Error(`the value ${numbersString} is not only string`)
 }
 
 const notCheck = () => {
@@ -58,7 +57,7 @@ const type = (value, arg) => {
             console.log('string@@@@');
             return true
         }
-        throw new Error(`the value ${value} not typeof value`)
+        throw new Error(`the value ${value} is not typeof value`)
 
     }
     if (arg == "number") {
@@ -66,45 +65,40 @@ const type = (value, arg) => {
         return true
 
     }
-    throw new Error(`the value ${value} not typeof value`)
-
-
-
-
-
+    throw new Error(`the value ${value} is not typeof value`)
 
 }
 
 const maxLength = (value, max) => {
     if (value.length < max)
         return true
-    throw new Error(`the value ${value} too long `)
+    throw new Error(`the value ${value} is too long`)
 
 }
 
 const bit = (value) => {
     if (value == 0 || value == 1 || value == 'True' || value == 'False')
         return true;
-    throw new Error(`the  ${value} it's not bit`);
+    throw new Error(`the ${value} is not bit`);
 }
 
 const minLength = (value, min) => {
     if (value.length > min)
         return true
-    throw new Error(`the value ${value} too short`)
+    throw new Error(`the value ${value} is too short`)
 }
 
 const betweenLength = (value, arg) => {
     if (value.length > arg.min && value.length < arg.max)
         return true
-    throw new Error(`the value ${value} not betweenLength`)
+    throw new Error(`the value ${value} is not betweenLength`)
 }
 
 const specificLength = (value, len) => {
     if (value.length == len) {
         return true;
     }
-    throw new Error(`the length of the ${value} not correct`);
+    throw new Error(`the length of the ${value} is not correct`);
 }
 
 const clientCodeIsExistInSQL = async (field, arg) => {
@@ -118,27 +112,33 @@ const clientCodeIsExistInSQL = async (field, arg) => {
         throw new Error(`the ${val}: ${field} is not unique`);
     }
 }
+
 const recordExistInTable = async (value, arg) => {
+    const { tableName, field, exist } = arg;
     try {
-        const { tableName, field, exist } = arg;
+        console.log(tableName, field, exist,'tableName, field, exist');
         let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
+        console.log('recordExistInTable aaaaaa');
+
         if (exist) {
-            if (ans.data.length > 0)
-                return true;
+            if (ans.data.length > 0) {
+                return true
+            }
             else {
-                throw new Error(`the ${field}: ${value} in ${tableName} is not exist`);
+                throw new Error('The record does not exist');
             }
         }
         else {
-            if (ans.data.length === 0)
-                return true;
+            if (ans.data.length == 0) {
+                return true
+            }
             else {
-                throw new Error(`the ${field}: ${value} in ${tableName} is exist`);
+                throw new Error('The record already exists');
             }
         }
     }
     catch (error) {
-        throw error;
+        throw error
     }
 
 };
@@ -221,6 +221,7 @@ const validation = {
     correctPhone: correctPhone,
     type: type,
     positiveNumber: positiveNumber,
+    EnglishLetters: EnglishLetters,
     onlyNumbersInString: onlyNumbersInString,
     notCheck: notCheck,
     maxLength: maxLength,

@@ -6,18 +6,18 @@ async function deletedClientByCode(clientCode, userName) {
         'columns': '*',
         'conditio.3n': `ClientCode=${clientCode}`
     }
-    const exist = await postData('http://127.0.0.1:1212/read/readTopN',obj)
+
+    const exist = await postData(`/read/readTopN`,obj)
+    if (exist.rowsAffected != 0) {
     let result;
 
-    if (exist.rowsAffected != 0) {
-        obj['condition'] = `ClientCode=${clientCode}`
+        obj['condition'] = {clientCode}
         obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
-        console.log(obj,'oopppopopopo');
-        result = await postData('http://127.0.0.1:1212/update/update', obj)
-        console.log(result.data,'rererererere');
+
+        result = await postData('/update/update', obj)
         return result.data;
     }
-    
+
     return false
 }
 

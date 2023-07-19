@@ -1,27 +1,22 @@
-const { postData } = require('../../services/axios')
+const { postData, getData} = require('../../services/axios')
 
 async function getAllClient() {
-    let obj={}
-    obj['tableName']='tbl_Clients'
-    obj['condition']=`disabled='False'`
-    obj['columns']='*'
-    const result= await postData('/read/readTopN',obj);
+    
+    let query = {disabled:0}
+    const result= await getData('/read/readAllEntity/Clients',query);
     return result
 }
 
 async function getAllDeletedClient() {
-    let obj={}
-    obj['tableName']='tbl_Clients'
-    obj['condition']=`disabled='True'`
-    obj['columns']='*'
-    const result= await postData('/read/readTopN',obj);
+    let query = {disabled:1}
+    const result= await getData('/read/readAllEntity/Clients',query);
     return result
 }
 
 async function getClientsById(id) {
     let obj={}
     obj['tableName']='tbl_Clients'
-    obj['condition']=`clientCode=${id}`
+    obj['condition']=`id=${id}`
     obj['columns']='*'
     const result= await postData('/read/readTopN', obj);
    console.log(result,' result');

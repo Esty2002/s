@@ -46,6 +46,57 @@ const objectsForValidations = [
             { propertyName: "DeletingDate", validation: [{ func: validation.notCheck, arguments: null }], require: false }
         ],
     },
+
+    {
+        objectName: "tbl_Suppliers",
+
+        values: [
+            { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }], require: false },
+            { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }], require: true },
+            { propertyName: "ConditionGushyPayment", validation: [{ func: validation.required, arguments: null },], require: false },
+            { propertyName: "HomeNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }], require: true },
+            { propertyName: "InsertUser", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }], require: false },
+            { propertyName: "LicensedDealerNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }], require: true },
+            { propertyName: "ObjectiveBank", validation: [{ func: validation.required, arguments: null }], require: false },
+            { propertyName: "Ovligo", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }], require: false },
+            { propertyName: "Phone1", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }], require: true },
+            { propertyName: "Phone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }], require: false },
+            { propertyName: "PreferredPaymentDate", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }], require: false },
+            // , { func: validation.betweenNumbers, arguments: { "min": 1, "max": 30 } }
+            { propertyName: "Status", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }], require: true },
+            { propertyName: "Street", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }], require: true },
+            { propertyName: "SupplierCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }], require: true },
+            { propertyName: "SupplierName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }], require: true },
+            { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }], require: false },
+            { propertyName: "Fax", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }], require: false },
+            { propertyName: "Mail", validation: [{ func: validation.required, arguments: null }, { func: validation.concretEmail, arguments: null }], require: false },
+            { propertyName: "Notes", validation: [{ func: validation.required, arguments: null }], require: false },
+            { propertyName: "Mobile", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }], require: false },
+
+        ],
+    },
+
+    {
+        objectName: "tbl_Branches",
+        values: [
+            { propertyName: "BranchName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "Fax", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "HomeNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "Mail", validation: [{ func: validation.required, arguments: null }, { func: validation.concretEmail, arguments: null }] },
+            { propertyName: "Mobile", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
+            { propertyName: "Notes", validation: [{ func: validation.required, arguments: null }] },
+            { propertyName: "Phone1", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
+            { propertyName: "Phone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
+            { propertyName: "Status", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+            { propertyName: "Street", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "SupplierCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "UserThatInsert", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+
+        ],
+    },
+
     {
         objectName: "PouringsTypes",
         values: [
@@ -64,22 +115,94 @@ const objectsForValidations = [
             { propertyName: "DeletingDate", validation: [{ func: validation.type, arguments: "date" }], require: false }
         ]
     },
-
-
     {
-        objectName: "tbl_FinishProducts",
+        objectName: "FinishProducts",
         values: [
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ]
+            },
+            {
+                propertyName: "UnitOfMeasure", validation:
+                    [
+                        { func: validation.required, arguments: null },
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
 
-            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-
+                    ]
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }]
+            },
         ]
-
-
-
     },
-
+    {
+        objectName: "Additions",
+        values: [
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ]
+            },
+            {
+                propertyName: "UnitOfMeasure", validation:
+                    [
+                        { func: validation.required, arguments: null },
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                    ]
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }]
+            },
+        ]
+    },
+    {
+        objectName: "Pumps",
+        values: [
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ]
+            },
+            {
+                propertyName: "UnitOfMeasure", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                ]
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }]
+            },
+            { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
+        ]
+    },
+    {
+        objectName: "UnitOfMeasure",
+        values: [
+            {
+                propertyName: "Measure", validation: [
+                    { func: validation.required, arguments: null },
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: false } }]
+            },
+        ]
+    },
     {
         objectName: "tbl_PricelistForProducts",
         values: [
@@ -89,20 +212,27 @@ const objectsForValidations = [
             { propertyName: "TableName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "Price", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-
         ]
     },
+    // {
+    //     objectName: "tbl_Pumps",
+    //     values: [
 
+    //         { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+    //         { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+    //         { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+    //         { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+    //         { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
+
+    //     ]
+    // },
     {
-        objectName: "tbl_Pumps",
+        objectName: "moreProductsItems",
         values: [
-
-            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-
+            { propertyName: "LeadNumber", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Leads", field: "id", exist: true } }], require: true },
+            { propertyName: "Product", validation: [{ func: validation.recordExistInTable, arguments: { tableName: "tbl_Additions", field: "id", exist: true } },], require: false },
+            { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }], require: false },
+            { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true }
         ]
     },
     {
@@ -143,8 +273,19 @@ const objectsForValidations = [
         ]
 
 
-
-    }
+    },
+    {
+        objectName: "PriceList",
+        values: [
+            { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
+            { propertyName: "Pumps", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "Beton", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "AddedDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
+            { propertyName: "UserName", validation: [{ func: validation.required, arguments: null }, { func: validation.EnglishLetters, arguments: null }] },
+            { propertyName: "Finish", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
+        ]
+    },
 
 ]
 

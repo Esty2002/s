@@ -1,16 +1,15 @@
 const express = require('express')
 const router = express.Router()
-const { getAllClient, getClientsByField, getClientsById , getAllDeletedClient} = require('../../modules/clients/readClient')
+const { getAllClient, getClientsByField, getClientsById, getAllDeletedClient } = require('../../modules/clients/readClient')
 
 
 router.get('/getAll', async (req, res) => {
     try {
-        
-        const response = await getAllClient(req.body);
-        if (response.data) {
+        const response = await getAllClient()
+        if (response)
             res.status(200).send(response.data)
             
-        }
+        
         else {
             res.status(500).send(response.data)
         }
@@ -19,12 +18,16 @@ router.get('/getAll', async (req, res) => {
         res.status(500).send(error.message)
     }
 })
-router.get('/getAllDeleted', async (req, res) => {   
-    const allClients = await getAllDeletedClient();
-    if (allClients)
-        res.status(200).send(allClients.data)
-    else
-        res.status(404).send({message:'NOT FOUND'})
+router.get('/getAllDeleted', async (req, res) => {
+    try {
+        const allClients = await getAllDeletedClient();
+        if (allClients)
+            res.status(200).send(allClients.data)
+        else
+            res.status(404).send({ message: 'NOT FOUND' })
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
 
 })
 router.get('/findClient/:id', async (req, res) => {

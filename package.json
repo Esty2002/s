@@ -605,6 +605,7 @@
   },
   "scripts": {
     "test": "jest",
+    "test:coverage":"npm test -- --coverage",
     "start": "node server.js",
     "dev":"nodemon server.js"
   },

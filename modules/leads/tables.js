@@ -157,8 +157,8 @@ const deleteRecord = async (obj) => {
             const newObj = {
                 tableName: table.entityName,
                 values: {
-                    Disable: 'True',
-                    DeletingDate: new Date().toISOString()
+                    disable: 1,
+                    deletingDate:new Date()
                 },
                 condition: obj.condition
             };
@@ -180,6 +180,4 @@ const deleteRecord = async (obj) => {
     }
 };
 
-
-
-module.exports = { newRecord, updateRecord, getRecord, deleteRecord, values };
+module.exports = { newRecord, updateRecord, getRecord, deleteRecord };

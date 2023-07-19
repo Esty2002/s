@@ -8,4 +8,4 @@ async function getTraits(project = [], filter = {}) {
     return response.data
 }
 
-module.exports = { getTraits }
+// module.exports = { getTraits }

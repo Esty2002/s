@@ -1,0 +1,281 @@
+next function:
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"Array of Errors"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"Array of Errors"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:12:08  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:13:11  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:00  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:00  
+        
+description: findMeasureName:id in router
+        
+data: {error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:17  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:17  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:26  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:26  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:31  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:31  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:29:40  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:29:40  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:06  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:12  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:12  
+        
+description: findMeasureName:id in router
+        
+data: {error :no matching unit of measure }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:18  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:18  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+next function:
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 18:34:46  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 18:34:46  
+        
+description: findMeasureId in router
+        
+data: {error :no matching unit of measure }
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 18:34:55  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 19:20:13  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 19:20:13  
+        
+description: findMeasureId in router
+        
+data: {error :no matching unit of measure }
+----------------------------------
+next function:
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 19:23:20  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findMeasureNumber' : Sun Jul 16 2023 - 19:23:20  
+        
+description: findMeasureNumber in module measure
+        
+data: {obj :mmm }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 19:23:48  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Sun Jul 16 2023 - 19:23:48  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
