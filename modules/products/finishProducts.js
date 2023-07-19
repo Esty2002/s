@@ -8,7 +8,7 @@ const { logToFile } = require('../../services/logger/logTxt')
 const values = [
     {
         entity: "FinishProducts",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null }) => {
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate=null,Enabled=null,DeleteDate=null,}) => {
             return {
                 tableName: "FinishProducts",
                 values: {
@@ -18,6 +18,14 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     Enabled: true,
                     DeleteDate: null,
+                },
+                valuesFind: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    AddedDate: AddedDate,
+                    Enabled: Enabled,
+                    DeleteDate: DeleteDate,
                 }
             }
         }
@@ -40,7 +48,7 @@ async function insertFinishProduct(obj, tableName) {
         obj = newObj.values
     }
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    obj.UnitOfMeasure = measure
+    obj.UnitOfMeasure = measure.data[0].Id
     try {
         const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
         if (response.data)
@@ -68,7 +76,12 @@ async function updateFinishProduct(obj) {
         return false
 }
 
-async function findFinishProduct(project = [], filter = {}) {
+async function findFinishProduct(project = [], filter = {},tableName) {
+    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    let newObj = checkValidObj.func(filter)
+    if (checkValidObj) 
+        _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
+
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
     let columnsStr = project.length > 0 ? project.join(',') : '*'
@@ -86,7 +99,7 @@ async function findFinishProduct(project = [], filter = {}) {
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)
-                finish['UnitOfMeasure'] = measureName
+                finish['UnitOfMeasure'] = measureName.data[0].measure
             }
         }
         return response

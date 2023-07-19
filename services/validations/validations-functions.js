@@ -12,7 +12,6 @@ const dateType = (date) => {
     if (date1 == 'Invalid Date')
         throw new Error(`the date ${date} is not valid`);
     return true
-
 };
 const hourType = (data) => {
     if (data.length === 5 && data.indexOf(":") == 2 && (((data.slice(0, 1) === '0') && (/\d$/.test(data.slice(1, 2))) ||
@@ -193,12 +192,10 @@ const correctTable = async (value) => {
     throw new Error(`you cant connect to ${value} table`)
 }
 const theDateBeforToday = (value) => {
-    console.log('dateeeeeee');
     let date2 = new Date(value)
-    console.log(date2, new Date(), 'new date');
 
     if (date2 - new Date > 0) {
-        throw new Error('the date after today ')
+        throw new Error('the date is in the future while it has to be in the past')
     }
 
     console.log('yes date');
@@ -237,7 +234,8 @@ const validation = {
     recordExistInTable: recordExistInTable,
     correctTable: correctTable,
     onlyLetters: onlyLetters,
-    theDateAfterToday: theDateAfterToday
+    theDateAfterToday: theDateAfterToday,
+    theDateBeforToday:theDateBeforToday
 }
 
 module.exports = { validation }

@@ -6,15 +6,16 @@ let tableName
 let object
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
+    let object = {
+        name: 'create',
+        description: 'addPriceList in router',
+        dataThatRecived: req.body,
+    }
+    logToFile(object)
     try {
-        object = {
-            name: 'addPriceList',
-            description: 'addPriceList in router- in try',
-            dataThatRecived: req.body,
-        }
-        logToFile(object)
-        const result = await insert(req.body, 'PriceList')
-        res.status(200).send(result);
+      
+        const result = await insert(req.body, 'tbl_PriceList')
+        res.status(result.status).send(result.data);
     }
     catch (error) {
         object.error = error.message

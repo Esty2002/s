@@ -1,6 +1,6 @@
 const { validation } = require('./validations-functions');
 
-const objectsForValidations = [
+const createUpdateModulesValidations = [
     {
         objectName: "leads",
         values: [
@@ -120,75 +120,72 @@ const objectsForValidations = [
         values: [
             {
                 propertyName: "Name", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.type, arguments: "string" },
                     { func: validation.maxLength, arguments: 20 },
-                ]
+                ], require: true
             },
             {
                 propertyName: "UnitOfMeasure", validation:
                     [
-                        { func: validation.required, arguments: null },
                         { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
 
-                    ]
+                    ], require: true
             },
             {
                 propertyName: "BookkeepingCode", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.maxLength, arguments: 20 },
                     { func: validation.onlyNumbersInString, arguments: null }]
             },
-        ]
+        ], require: true
     },
     {
         objectName: "Additions",
         values: [
             {
                 propertyName: "Name", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.type, arguments: "string" },
                     { func: validation.maxLength, arguments: 20 },
-                ]
+                ], require: true
             },
             {
                 propertyName: "UnitOfMeasure", validation:
                     [
-                        { func: validation.required, arguments: null },
+
                         { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
-                    ]
+                    ], require: true
             },
             {
                 propertyName: "BookkeepingCode", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.maxLength, arguments: 20 },
                     { func: validation.onlyNumbersInString, arguments: null }]
             },
-        ]
+        ], require: true
     },
     {
         objectName: "Pumps",
         values: [
             {
                 propertyName: "Name", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.type, arguments: "string" },
                     { func: validation.maxLength, arguments: 20 },
-                ]
+                ], require: true
             },
             {
                 propertyName: "UnitOfMeasure", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
-                ]
+                ], require: true
             },
             {
                 propertyName: "BookkeepingCode", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }]
+                    { func: validation.onlyNumbersInString, arguments: null }
+                ], require: true
             },
-            { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
+            {
+                propertyName: "Addition", validation: [
+                    { func: validation.bit, arguments: null }
+                ], require: true
+            }
         ]
     },
     {
@@ -196,12 +193,11 @@ const objectsForValidations = [
         values: [
             {
                 propertyName: "Measure", validation: [
-                    { func: validation.required, arguments: null },
                     { func: validation.type, arguments: "string" },
                     { func: validation.maxLength, arguments: 20 },
                     { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: false } }]
             },
-        ]
+        ], require: true
     },
     {
         objectName: "tbl_PricelistForProducts",
@@ -271,8 +267,6 @@ const objectsForValidations = [
             // { propertyName: "UserThatAdd", validation: [{ func: validation.required, arguments: null}, ] },
 
         ]
-
-
     },
     {
         objectName: "PriceList",
@@ -288,9 +282,161 @@ const objectsForValidations = [
     },
 
 ]
+const findModulesValidations = [
+    {
+        objectName: "FinishProducts",
+        values: [
+            {
+                propertyName: "Name",
+                validation: [
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ],
+                require: false
+            },
+            {
+                propertyName: "UnitOfMeasure", validation:
+                    [
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                    ], require: false
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }
+                ], require: false
+            },
+            {
+                propertyName: "AddedDate", validation: [
+                    { func: validation.dateType, arguments: null },
+                    { func: validation.theDateBeforToday, arguments: null },
+                ], require: false
+            },
+            {
+                propertyName: "Enabled", validation: [
+                    { func: validation.bit, arguments: null },
+                ], require: false
+            },
+
+            {
+                propertyName: "DeleteDate", validation: [
+                    { func: validation.dateType, arguments: null },
+                    { func: validation.theDateBeforToday, arguments: null },
+                    
+                ], require: false
+            },
+        ]
+    },
+    {
+        objectName: "Additions",
+        values: [
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ], require: false
+            },
+            {
+                propertyName: "UnitOfMeasure", validation:
+                    [
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                    ], require: false
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }
+                ], require: false
+            },
+            {
+                propertyName: "AddedDate", validation: [
+                    { func: validation.dateType, arguments: null },
+                    { func: validation.theDateBeforToday, arguments: null },
+                ], require: false
+            },
+            {
+                propertyName: "Enabled", validation: [
+                    { func: validation.bit, arguments: null },
+                ], require: false
+            },
+
+            {
+                propertyName: "DeleteDate", validation: [
+                    { func: validation.dateType, arguments: null },
+                    { func: validation.theDateBeforToday, arguments: null },
+                    
+                ], require: false
+            },
+        ]
+    },
+    {
+        objectName: "Pumps",
+        values: [
+            {
+                propertyName: "Name", validation: [
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                ], require: false
+            },
+            {
+                propertyName: "UnitOfMeasure", validation: [
+                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                ], require: false
+            },
+            {
+                propertyName: "BookkeepingCode", validation: [
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.onlyNumbersInString, arguments: null }
+                ], require: false
+            },
+            {
+                propertyName: "Addition", validation: [
+                    { func: validation.bit, arguments: null }
+                ], require: false
+            },
+            {
+                propertyName: "AddedDate", validation: [
+                    { func: validation.dateType, arguments: null },
+                    { func: validation.theDateBeforToday, arguments: null },
+                ], require: false
+            },
+            {
+                propertyName: "Enabled", validation: [
+                    { func: validation.bit, arguments: null },
+                ], require: false
+            },
+
+            {
+                propertyName: "DeleteDate", validation: [
+                    { func: validation.dateType, arguments: null },
+                    { func: validation.theDateBeforToday, arguments: null },
+                    
+                ], require: false
+            },
+        ]
+    },
+    {
+        objectName: "UnitOfMeasure",
+        values: [
+            {
+                propertyName: "Measure", validation: [
+                    { func: validation.type, arguments: "string" },
+                    { func: validation.maxLength, arguments: 20 },
+                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: false } }
+                ], require: false
+            },
+            {
+                propertyName: "Disable", validation: [
+                    { func: validation.bit, arguments: null },
+                ], require: false
+            },
+        ]
+    },
+]
+
+function getValidationsModule(find) {
+    return find ? findModulesValidations : createUpdateModulesValidations
+}
 
 
-
-
-
-module.exports = { objectsForValidations };
+module.exports = { getValidationsModule };

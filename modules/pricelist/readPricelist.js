@@ -1,13 +1,24 @@
 require('dotenv').config();
 const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PUMPS, BUYTONITEMS } = process.env;
-const { postData } = require('../../services/axios');
+const { postData, getData } = require('../../services/axios');
+
+async function getRecordPriceList(entity, condition) {
+    try {
+        const result = await getData(`/read/readAllEntity/${entity}`, condition)
+        return result
+    }
+    catch (error) {
+        throw error
+    }
+}
+
 
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
     try {
         let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
         const res = await postData("/read/readTopN", obj);
-        
+
 
         return res.data;
     }
@@ -256,6 +267,7 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
     catch (error) {
         throw error;
     }
+}
     function checkValid(arr1, arr2) {
         arrTemp = []
         arr1.forEach(b => {
@@ -267,7 +279,6 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
         });
         return arrTemp
     }
-}
 
 module.exports = {
     getPriceListByAdditionsForDistance, getNameOfProduvtsById, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,

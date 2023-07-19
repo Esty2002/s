@@ -57,23 +57,27 @@ router.post('/delete', express.json(), async (req, res) => {
 router.post('/find', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'find',
-        description: 'find  finished product in router',
+        description: 'find finished product in router',
         arr: req.body.arr,
         condition: req.body.where
     }
     logToFile(objectForLog)
     try {
-        const response = await findFinishProduct(req.body.arr, req.body.where)
+        const response = await findFinishProduct(req.body.arr, req.body.where,'FinishProducts')
+        console.log(response.data,'response.data');
         if (response.status == 200)
             res.status(200).send(response.data)
         else
             res.status(response.status).send(response)
-
     }
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
+        if (error instanceof Array)
+        res.status(500).send(error)
+    else
         res.status(500).send(error.message)
+
     }
 })
 
