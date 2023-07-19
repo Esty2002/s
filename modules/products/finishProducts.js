@@ -98,10 +98,13 @@ async function findFinishProduct(project = [], filter = {},tableName) {
     try {
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
-                const measureName = await findMeasureName(finish.UnitOfMeasure)
+                console.log(finish['UnitOfMeasure'],"finish['UnitOfMeasure']");
+                const measureName = await findMeasureName(finish['UnitOfMeasure'])
+                console.log({measureName});
                 finish['UnitOfMeasure'] = measureName.data[0].measure
             }
         }
+        console.log(response,'22222222222222222222222222222222222222222222');
         return response
     }
     catch (error) {
