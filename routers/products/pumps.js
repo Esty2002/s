@@ -1,6 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { findPump, insertPump, updatePump, findPumpName } = require('../../modules/products/pumps')
+const { logToFile } = require('../../services/logger/logTxt')
 
 
 router.get('/pumpNameById/:id', async (req, res) => {
@@ -19,27 +20,47 @@ router.get('/pumpNameById/:id', async (req, res) => {
 })
 
 router.post('/create', express.json(), async (req, res) => {
-    try {
-        const response = await insertPump(req.body)
-        if (response)
-            res.status(201).send(response)
-        else {
-            res.status(500).send(response)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
+    let objectForLog = {
+        name: 'create',
+        description: 'insert pump in router',
+        dataThatRecived: req.body
     }
-})
-
-router.post('/find', express.json(), async (req, res) => {
+    logToFile(objectForLog)
     try {
-        const response = await findPump(req.body.arr, req.body.where)
-        if (response || response === false)
-            res.status(200).send(response)
+        const response = await insertPump(req.body, 'Pumps')
+        if (response === true)
+            res.status(201).send(response)
         else
             res.status(500).send(response)
     }
-    catch (error) { res.status(500).send(error.message) }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
+
+    }   
+})
+
+router.post('/find', express.json(), async (req, res) => {
+    let objectForLog = {
+        name: 'find',
+        description: 'find pumps in router',
+        arr: req.body.arr,
+        condition: req.body.where
+    }
+    logToFile(objectForLog)
+    try {
+        const response = await findPump(req.body.arr, req.body.where)
+        res.status(200).send(response)
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        res.status(500).send(error.message)
+    }
 })
 
 router.post('/update', express.json(), async (req, res) => {
