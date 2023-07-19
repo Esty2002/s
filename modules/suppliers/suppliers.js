@@ -20,7 +20,6 @@ async function insertOneSupplier(object) {
         console.log({ error })
         throw error;
     }
-    // /suppliers/getSuppliers/SupplierCode/${code}
 }
 async function getAllSuppliers(query) {
     console.log({ query })
@@ -152,7 +151,6 @@ async function checkUniqueName(name) {
 async function checkUnique(setting) {
     let resultSuppliersCode = checkUniqueCode(setting.SupplierCode);
     let resultSuppliersName = checkUniqueName(setting.SupplierName);
-    // console.log(resultSuppliersCode && resultSuppliersName);
     return resultSuppliersCode && resultSuppliersName;
 }
 

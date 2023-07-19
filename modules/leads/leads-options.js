@@ -25,6 +25,25 @@ const { checkObjectValidations } = require('../../services/validations/use-valid
 //             disable: false,
 //             deletingDate: null,
 
+//     }
+//     else {
+//         throw new Error("the obj or filter are not defined");
+//     }
+// };
+
+// const deleteLead = async (serialNumber) => {
+//     if (serialNumber) {
+//         const obj = {
+//             tableName: 'leads',
+//             values: {
+//                 disable: 1,
+//                 deletingDate: new Date()
+//             },
+//             condition: `SerialNumber=${serialNumber}`
+//         }
+//         try {
+//             const result = await postData( '', obj);
+//             return result;
 //         }
 //     },
 // ]

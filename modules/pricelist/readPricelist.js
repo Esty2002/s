@@ -1,6 +1,6 @@
 require('dotenv').config();
 const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PUMPS, BUYTONITEMS } = process.env;
-const { postData , getData} = require('../../services/axios');
+const { postData, getData } = require('../../services/axios');
 
 async function getRecordPriceList(entity, condition) {
     try {
@@ -78,9 +78,8 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
             console.log(res2.data);
             return res2.data;
 
-        }
-        else {
-            throw new Error('can not found this city');
+
+
         }
     }
     catch (error) {
@@ -111,6 +110,7 @@ async function getPriceListByAreaId(object) {
         throw error;
     }
 }
+
 async function getPriceListByIdSupplierOrClientCode(object) {
     console.log(object);
     try {
@@ -268,6 +268,7 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
     catch (error) {
         throw error;
     }
+}
     function checkValid(arr1, arr2) {
         arrTemp = []
         arr1.forEach(b => {
@@ -279,26 +280,26 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
         });
         return arrTemp
     }
-}
 
-module.exports = {
-    getRecordPriceList,
-    getPriceListByAdditionsForDistance,
-    getNameOfProduvtsById,
-    getPriceListByAdditionsForCities,
-    getPriceListByAdditionsForTime,
-    getPriceListByAdditionsForTruckFill,
-    getSupplierByNameProduct,
-    getSupplierByNameProductBuyton,
-    getPriceListByIdSupplierOrClientCode,
-    getAllPriceList,
-    getPriceListById,
-    getPriceListByAddedDate,
-    getPriceListbyProduct,
-    getPriceListByAreaId,
-    getPriceListbySupplierCodeOrClientCode,
-    getPriceListByIdPriceListId
-};
+
+    module.exports = {
+        getRecordPriceList,
+        getPriceListByAdditionsForDistance,
+        getNameOfProduvtsById,
+        getPriceListByAdditionsForCities,
+        getPriceListByAdditionsForTime,
+        getPriceListByAdditionsForTruckFill,
+        getSupplierByNameProduct,
+        getSupplierByNameProductBuyton,
+        getPriceListByIdSupplierOrClientCode,
+        getAllPriceList,
+        getPriceListById,
+        getPriceListByAddedDate,
+        getPriceListbyProduct,
+        getPriceListByAreaId,
+        getPriceListbySupplierCodeOrClientCode,
+        getPriceListByIdPriceListId
+    };
 
 
 

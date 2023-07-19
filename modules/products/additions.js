@@ -1,9 +1,10 @@
 require('dotenv').config()
-const { postData } = require("../../services/axios");
+const { getData,   postData } = require("../../services/axios");
 const { SQL_ADDITIONS_TABLE } = process.env
 const { findMeasureName } = require('./measure')
 
 async function insertAddition(obj) {
+
     obj.enabled = true
     obj.addedDate = new Date().toISOString()
     const response = await postData('/create/createone', { entityName: SQL_ADDITIONS_TABLE, values: obj })

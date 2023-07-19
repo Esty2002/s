@@ -106,16 +106,6 @@ router.get('/FindPriceListByProduct/:id', async (req, res) => {
 
     }
 })
-// router.get('/FindPriceListByProduct/:id', async (req, res) => {
-//     try {
-//         const ans =await getNameOfProduvtsById(req.params.id)
-//         console.log(ans);
-//         res.status(200).send(ans)
-//     } catch (error) {
-//         res.status(404).send(error)
-
-//     }
-// })
 //  חיפוש מחירון לפי תוספת לפי מרחק
 router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
     try {

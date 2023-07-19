@@ -1,10 +1,10 @@
 const { postData} = require('../../services/axios')
 async function deletedClientByCode(clientCode, userName) {
-
+    
     let obj = {
         'entityName': 'tbl_Clients',
         'columns': '*',
-        'condition': `ClientCode=${clientCode}`
+        'conditio.3n': `ClientCode=${clientCode}`
     }
 
     const exist = await postData(`/read/readTopN`,obj)
