@@ -24,13 +24,13 @@ jest.mock('../../../modules/suppliers/branches', () => {
 
         }),
         updateDetail: jest.fn((supplierCode, obj) => {
-           
-                    console.log("updateobject", { supplierCode, obj });
-                    if (obj.isValid)
-                        return { status: 204 }
-                    console.log({ valid: obj.isValid });
-                    return { status: 500, message: "validation or status from dbserver - not update" }
-            
+
+            console.log("updateobject", { supplierCode, obj });
+            if (obj.isValid)
+                return { status: 204 }
+            console.log({ valid: obj.isValid });
+            return { status: 500, message: "validation or status from dbserver - not update" }
+
         }),
         getallbranches: jest.fn((obj) => {
             if (obj.Disables == 1 || obj.Disabled == 0)
@@ -52,11 +52,11 @@ jest.mock('../../../modules/suppliers/branches', () => {
         getBranchesByCondition: jest.fn((obj) => {
             // try {
             //     if (obj.SupplierName == 'Racel') {
-                    if (obj.SupplierCode == 1000)
-                        return { status: 200, data: { SupplierCode: 1000, SupplierName: "Racel" } };
-                    else
-                        return { status: 500, data: "there is not such branches for this supplier" }
-                // }
+            if (obj.SupplierCode == 1000)
+                return { status: 200, data: { SupplierCode: 1000, SupplierName: "Racel" } };
+            else
+                return { status: 500, data: "there is not such branches for this supplier" }
+            // }
 
             // } catch (error) {
             //     throw new Error('the branch isnt with agood condition')
@@ -66,19 +66,19 @@ jest.mock('../../../modules/suppliers/branches', () => {
         }),
         checkUnique: jest.fn((obj) => {
             try {
-                if( obj.BranchName == 'Racel'){
+                if (obj.BranchName == 'Racel') {
                     if (obj.SupplierCode && obj.BranchName)
-                        if (obj.SupplierCode == 1000 )
+                        if (obj.SupplierCode == 1000)
                             return { status: 200, data: true };
                         else {
                             return { status: 500, data: "not uniqe" };
-                    }
+                        }
                 }
             } catch (error) {
                 console.log("i am in uniqe");
                 throw new Error('not recived suppliercode')
             }
-           
+
         })
 
     }
@@ -277,7 +277,7 @@ describe(('CHECK UNIQUE BRANCH'), () => {
         expect(response.text).toBe('{\"status\":500,\"data\":\"not uniqe\"}')
 
     });
-    
+
     it('should return status 500 to empty params', async () => {
         const response = await request(app).get('/branches/checkUnique/1000/ester')
         expect(response).toBeDefined();
