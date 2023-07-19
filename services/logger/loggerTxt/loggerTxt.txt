@@ -1,0 +1,3340 @@
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:21:44  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 565, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:21:45  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 565, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:21:45  
+        
+description: check that unique
+        
+result: 
+
+
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:26:54  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 75, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:26:56  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 75, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:26:59  
+        
+description: check if the recived object is unique
+        
+dataThatRecived: 
+ClientCode: 75, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:27:29  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 75, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:27:30  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 75, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:27:34  
+        
+description: check if the recived object is unique
+        
+error: the client is already exist!
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:27:36  
+        
+description: add in router
+        
+error: the client is already exist!
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:29:34  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 878, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:29:34  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 878, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:29:34  
+        
+description: check if the recived object is unique
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:31:20  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: ut, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:31:21  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: ut, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:31:21  
+        
+description: check if the recived object is unique
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:32:22  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: ut, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:32:27  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: ut, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:32:33  
+        
+description: check if the recived object is unique
+        
+result: false
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:32:34  
+        
+description: check if the recived object is unique
+        
+error: the client is already exist!
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:32:35  
+        
+description: add in router
+        
+error: the client is already exist!
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:33:32  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: ut, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:33:34  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: ut, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+CreationDate: 03/03/2022, 
+UserThatAdd: devloper, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:33:40  
+        
+description: check if the recived object is unique
+        
+result: false
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:33:41  
+        
+description: check if the recived object is unique
+        
+error: the client is already exist!
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:33:42  
+        
+description: add in router
+        
+error: the client is already exist!
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:59:20  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:59:21  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 17:59:21  
+        
+description: addOneClient in modules
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 17:59:21  
+        
+description: add in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:00:34  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:00:34  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:00:34  
+        
+description: addOneClient in modules
+        
+error: values is not iterable
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:00:35  
+        
+description: add in router
+        
+error: values is not iterable
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:02:12  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:02:14  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:02:18  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:02:18  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:04:30  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:04:30  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: rtr, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: ter, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: ll, 
+ReceiptCentralism: ghj, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:04:31  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:04:31  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:09:17  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: 3, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: 3, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: 3, 
+ReceiptCentralism: 3, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:09:17  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: 3, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: 3, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: 3, 
+ReceiptCentralism: 3, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:09:17  
+        
+description: addOneClient in modules
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:09:18  
+        
+description: add in router
+        
+error: Cannot read properties of undefined (reading 'values')
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:09:55  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: 3, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: 3, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: 3, 
+ReceiptCentralism: 3, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:09:55  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: 3, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: 3, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: 3, 
+ReceiptCentralism: 3, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:09:56  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:09:56  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:10:33  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: 3, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: 3, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: 3, 
+ReceiptCentralism: 3, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:10:34  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 231, 
+ClientName: pp, 
+PrivateCompanyNumber: 3, 
+BookkeepingNumber: 111, 
+DestinationBank: 65, 
+PaymentTermsFluent: 3, 
+PreferredPaymentDate: 1, 
+Ovligo: 123, 
+ReceiptIssueTerm: 3, 
+ReceiptCentralism: 3, 
+AccountantClassifiedCode: 56, 
+Status: 2, 
+Description: ty, 
+Street: d5r6yde, 
+House: 1, 
+City: rt6y, 
+ZipCode: 5e, 
+Telephone1: 000000, 
+Telephone2: 3535, 
+MobilePhone: 54554, 
+Fax: 988, 
+Email: @gmail, 
+Comments: 6, 
+UserThatAdd: devloper, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:10:34  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:10:34  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:25:25  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: kkl, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:25:25  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: kkl, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:25:25  
+        
+description: addOneClient in modules
+        
+error: the value kkl not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:25:25  
+        
+description: add in router
+        
+error: the value kkl not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:25:54  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 235, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:25:54  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 235, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:25:54  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:25:54  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:26:07  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: dsfsdf, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:26:07  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: dsfsdf, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:26:07  
+        
+description: addOneClient in modules
+        
+error: the value dsfsdf not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:26:07  
+        
+description: add in router
+        
+error: the value dsfsdf not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:26:16  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: dsfsdf66, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:26:16  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: dsfsdf66, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:26:16  
+        
+description: addOneClient in modules
+        
+error: the value dsfsdf66 not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:26:16  
+        
+description: add in router
+        
+error: the value dsfsdf66 not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:26:33  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:26:33  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:26:33  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:26:33  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:28:14  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:28:14  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:28:15  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:28:15  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:31:26  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:31:26  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:31:28  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:31:28  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:35:33  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:35:34  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 6666, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:35:34  
+        
+description: addOneClient in modules
+        
+error: the client is exists
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:35:34  
+        
+description: add in router
+        
+error: the client is exists
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:35:56  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 124, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:35:57  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 124, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:35:57  
+        
+description: addOneClient in modules
+        
+error: the client is exists
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:35:57  
+        
+description: add in router
+        
+error: the client is exists
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:36:09  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 9999, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:36:09  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 9999, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:36:10  
+        
+description: addOneClient in modules
+        
+error: the client is exists
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:36:10  
+        
+description: add in router
+        
+error: the client is exists
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:39:25  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 9999, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:39:25  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 9999, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:39:25  
+        
+description: addOneClient in modules
+        
+error: the value 1234 not typeof value
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:39:25  
+        
+description: add in router
+        
+error: the value 1234 not typeof value
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:41:29  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:41:29  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: 1234, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:41:30  
+        
+description: addOneClient in modules
+        
+error: the value 1234 not typeof value
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:41:30  
+        
+description: add in router
+        
+error: the value 1234 not typeof value
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:01  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:01  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: fd, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:01  
+        
+description: addOneClient in modules
+        
+error: the value fd not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:01  
+        
+description: add in router
+        
+error: the value fd not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:20  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:20  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: fdg, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:20  
+        
+description: addOneClient in modules
+        
+error: the value fdg not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:20  
+        
+description: add in router
+        
+error: the value fdg not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:29  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:34  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: fdg, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:34  
+        
+description: addOneClient in modules
+        
+error: the value fdg not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:35  
+        
+description: add in router
+        
+error: the value fdg not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:40  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:40  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 5, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:42:41  
+        
+description: addOneClient in modules
+        
+error: the date 5 not valid
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:42:41  
+        
+description: add in router
+        
+error: the date 5 not valid
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:44:56  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/01/2020, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:44:56  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/01/2020, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:44:57  
+        
+description: addOneClient in modules
+        
+error: the date 01/01/2020 not valid
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:44:57  
+        
+description: add in router
+        
+error: the date 01/01/2020 not valid
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:45:07  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/05/2020, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:45:10  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/05/2020, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:45:28  
+        
+description: addOneClient in modules
+        
+error: the date 01/05/2020 not valid
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:45:38  
+        
+description: add in router
+        
+error: the date 01/05/2020 not valid
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:47:02  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 20/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:47:07  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 20/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:47:25  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:47:34  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:47:41  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:54:27  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 20/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:54:27  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 20/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:54:28  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:54:28  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:54:28  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:54:55  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:54:56  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:54:57  
+        
+description: addOneClient in modules
+        
+error: the date 01/07/2023 not valid
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:54:58  
+        
+description: add in router
+        
+error: the date 01/07/2023 not valid
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:58:40  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:58:40  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: ReceiptCentralism, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:58:41  
+        
+description: addOneClient in modules
+        
+error: the value ReceiptCentralism not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:58:41  
+        
+description: add in router
+        
+error: the value ReceiptCentralism not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:59:13  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:59:13  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: ZipCode, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:59:14  
+        
+description: addOneClient in modules
+        
+error: the value ZipCode not only string
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:59:14  
+        
+description: add in router
+        
+error: the value ZipCode not only string
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 18:59:29  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:59:29  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: Telephone1, 
+Telephone2: Telephone2, 
+MobilePhone: MobilePhone, 
+Fax: Fax, 
+Email: @Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 18:59:29  
+        
+description: addOneClient in modules
+        
+error: the number  not correctttt
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 18:59:29  
+        
+description: add in router
+        
+error: the number  not correctttt
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 19:01:54  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:01:56  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@Email, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:02:00  
+        
+description: addOneClient in modules
+        
+error: the email not concret
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 19:02:05  
+        
+description: add in router
+        
+error: the email not concret
+----------------------------------
+last time login in the action 'add' : Wed Jul 19 2023 - 19:02:29  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:02:30  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 8974, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:02:31  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 19:05:51  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 125567, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:05:51  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 125567, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:05:52  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 19:06:22  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:06:22  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Wed Jul 19 2023 - 19:06:23  
+        
+description: addOneClient in modules
+        
+error: the date 01/07/2023 not valid
+----------------------------------
+next function:
+last time login in the action 'add' : Wed Jul 19 2023 - 19:06:23  
+        
+description: add in router
+        
+error: the date 01/07/2023 not valid
+----------------------------------

@@ -7,27 +7,20 @@ async function deletePriceList({ id }) {
     obj['condition'] = `Id=${id}`
     obj['values'] = { 'Disabled': true }
     const result = await postData('/update/update', obj)
-    console.log('finish1')
     if (result.data.rowsAffected[0] > 0) {
         let table = [ADDITIONSFORDISTANCE, CITIESADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, TIMEADDITIONS, PRICElISTFORPRODUCTS]
         let res
         const answer = await Promise.all(table.map(async (t) => {
-            // console.log({ obj })
             obj['tableName'] = t
             obj['condition'] = `PriceListId=${id}`
             obj['values'] = { 'Disabled': true }
-            // console.log({ obj })
-            // console.log(obj.tableName)
             res = await postData('/update/update', obj)
             return res
-        }
-        ))
-        // console.log(answer.length)
+        }))
         return true
     }
     else
         return false
-
 }
 
 async function updateOne({ id, update }) {
@@ -124,7 +117,7 @@ async function deleteItems({ tbName, id, del, newname }) {
             const resultMany = await postData('/create/createManySql', obj)
             console.log({ resultMany: resultMany.data });
             const dataMany = await getData(`/read/readAll/${tbName}/PriceListId=${pricelistId}`)
-            console.log({dataMany});
+            console.log({ dataMany });
             return dataMany.data
         }
 

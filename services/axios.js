@@ -35,6 +35,7 @@ const postData = async (url, body) => {
     try {
         console.log({ url, body: JSON.stringify(body) })
         response = await server.post(url, body);
+        console.log({response});
         return response
     }
     catch (error) {

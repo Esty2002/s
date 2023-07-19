@@ -1,4 +1,4 @@
-const { getData, sqlServer } = require("../axios");
+const { getData, sqlServer, postData } = require("../axios");
 
 const required = (value = null) => {
     if (value) {
@@ -33,8 +33,11 @@ const EnglishLetters = (word) => {
 
 const onlyNumbersInString = (numbersString) => {
 
-    if( /^\d*$/.test(numbersString))
+    if( /^\d*$/.test(numbersString)){
+        console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
         return true
+    }
+        
     throw new Error(`the value ${numbersString} not only string`)
 }
 const notCheck = () => {
@@ -99,9 +102,11 @@ const specificLength = (value, len) => {
 const clientCodeIsExistInSQL = async (field, arg) => {
     console.log(" in clientCodeIsExistInSQL ");
     let tableName1 = arg.tableName
-    let val = arg.field
-    console.log(field, tableName1, 'tableName1');
-    let ans = await getData(  `read/readAll/${tableName1}/${val}=${field}`)
+    const val = arg.field
+    console.log(field, tableName1,arg, 'tableName1');
+    let obj={}
+    obj.condition={[val]:field}
+    let ans = await postData(`read/readMany/${tableName1}`,obj)
     console.log(ans.data, 'aaannnsss');
     if (ans.data.length == 0) {
         return true

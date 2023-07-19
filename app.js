@@ -5,8 +5,8 @@ require('dotenv').config();
 const cors = require('cors');
 
 
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger/price-list.json');
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger/price-list.json');
 
 const manageUnitOfMeasure = require('./routers/products/unitOfMeasure');
 const pumps_router = require('./routers/products/pumps');
@@ -52,7 +52,7 @@ app.use(cors());
 // app.use('/leads', router_leads);
 app.use('/pricesNew', pricelist_router)
 app.use('/updateClient',updateClient_router)
-// app.use('/createClient', createClient_router)
+app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
 app.use('/statusesClient', status_router);
 app.use('/auto_complete', auto_complete);

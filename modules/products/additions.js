@@ -45,4 +45,4 @@ async function updateAddition(obj = {}, filter = {}) {
         return false
 }
 
-module.exports = { insertAddition, findAddition, updateAddition }
+module.exports = { updateAddition }

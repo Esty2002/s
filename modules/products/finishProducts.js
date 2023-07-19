@@ -48,15 +48,17 @@ async function updateFinishProduct(obj) {
 //     let conditionStr = Object.entries(filter).map(f => `${f[0]}='${f[1]}'`).join(' ')
 //     if (conditionStr.trim() == '')
 //         conditionStr = "1=1"
-
-    const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
-    if (response.status === 200)
-        return response.data
-    else
-        return false
+/////////////////////////////////////////////////////////////////////////////////////////////////
+    // const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
+    // if (response.status === 200)
+    //     return response.data
+    // else
+    //     return false
+    ////////////////////////////////////////////////////////////////////////////////////////////////
     // else{
     //     return false
     // }
 // }
 
+module.exports = { updateFinishProduct }
 // module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

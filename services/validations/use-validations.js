@@ -5,10 +5,12 @@ const checkObjectValidations = async (body, objName) => {
     console.log("insert to use - validation");
     try {
         console.log(body, objName, 'bodyAndObjectname');
-        const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;
+        const values = objectsForValidations.find(({ objectName }) => objName === objectName).values
         for (let v of values) {
             i++
             for (let valid of v.validation) {
+                console.log(valid,'vvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvvv');
+
                 if (body[v.propertyName]) {
                     if (!(await valid.func(body[v.propertyName], valid.arguments))) {
                         return false;
