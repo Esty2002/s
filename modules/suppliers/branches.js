@@ -8,8 +8,8 @@ async function insertOneBranch(object) {
     try {
         if (checkValid(object) && await checkUnique(object)) {
             object['CreationDate'] = new Date().toISOString();
-            let obj = { tableName: 'tbl_Branches', values: object };
-            const res = await postData( "/create/create", obj);
+            let obj = { entityName: 'Branches', values: object };
+            const res = await postData("/create/createone", obj);
             return res;
         }
         else {
@@ -24,18 +24,33 @@ async function insertOneBranch(object) {
 ///////////////////////////////////////////////////////////////////
 async function getAllBranches() {
     try {
-        const res = await getData( `/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
+        const res = await getData(`/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
         return res.data;
     }
     catch (error) {
         throw new Error('can not get all the branches')
     }
 }
+
+async function getBranches(supplierid, disabled) {
+    try {
+        const response = await postData('/read/count', {
+            entityName: 'branches', condition: {
+                supplierid, disabled
+            }
+        })
+        return response.data
+    }
+    catch (error) {
+        console.log(error.message)
+        throw error
+    }
+}
 ///////////////////////////////////////////////////////////////////
 async function getBranchesByCondition(query) {
     console.log("getBranchesByCondition - module");
     try {
-        const res = await getData( `/read/readAllEntity/Branches`, query);
+        const res = await getData(`/read/readMany/Branches`, query);
         return res.data;
     }
     catch (error) {
@@ -48,19 +63,19 @@ async function getBranchesByCondition(query) {
 async function updateDetail(code, setting) {
     try {
         if (setting.OldBranchName !== setting.BranchName) {
-            const result = await getData( `/read/readAll/tbl_Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
+            const result = await getData(`/read/readAll/Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
             if (result.data.length !== 0) {
                 return false;
             }
         }
         let obj = {
-            tableName: 'tbl_Branches', values: {
+            entityName: 'tbl_Branches', values: {
                 SupplierCode: setting.SupplierCode, BranchName: setting.BranchName, Status: setting.Status,
                 Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: `SupplierCode=${code} AND BranchName='${setting.OldBranchName}' AND Disabled = '0'`
         }
-        const res = await postData( "/update/update", obj);
+        const res = await postData("/update/update", obj);
         console.log(res);
         return res;
     }
@@ -72,8 +87,8 @@ async function updateDetail(code, setting) {
 async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
-        let obj = { tableName: 'tbl_Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: {Id:object.Id} };
-        const res = await postData( "/update/update", obj);
+        let obj = { entityName: 'Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: { Id: object.Id } };
+        const res = await postData("/update/update", obj);
         return res;
     }
     catch (error) {
@@ -95,8 +110,8 @@ function checkValid(object) {
 ///////////////////////////////////////////////////////////////////
 async function checkUnique(object) {
     try {
-        const resultSupplierExist = await getData( `/read/readAll/${SQL_DB_SUPPLIERS}/Id=${object.SupplierCode } AND  Disabled='0'`);
-        const resultBranchName = await getData( `/read/readAll/tbl_Branches/BranchName ='${object.BranchName}' AND SupplierCode=${object.SupplierCode} AND Disabled='0'`);
+        const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { Id:object.SupplierCode ,  Disabled:0});
+        const resultBranchName = await getData(`/read/readOne/${SQL_DB_BRANCHES}`, {BranchName :object.BranchName , SupplierCode:object.SupplierCode,  Disabled:0});
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 
     }

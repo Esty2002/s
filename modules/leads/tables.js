@@ -2,7 +2,7 @@ const { sqlServer, postData } = require('../../services/axios');
 
 const values = [
     {
-        tableName: "orderers",
+        entityName: "orderers",
         values: {
             OrdererName: "",
             OrdererPhone: "",
@@ -12,7 +12,7 @@ const values = [
         }
     },
     {
-        tableName: "pouringsTypes",
+        entityName: "pouringsTypes",
         values: {
             PouringName: "",
             AddedDate: new Date(),
@@ -21,7 +21,7 @@ const values = [
         }
     }
     , {
-        tableName: "statusesLead",
+        entityName: "statusesLead",
         values: {
             StatusName: "",
             AddedDate: new Date(),
@@ -38,7 +38,7 @@ const newRecord = async (obj = null) => {
         const val = values.find(({ tableName }) => tableName === obj.tableName);
         if (val) {
             let newObj = {
-                tableName: val.tableName,
+                entityName: val.tableName,
                 values: val.values
             };
             for (let key in newObj['values']) {
@@ -47,7 +47,7 @@ const newRecord = async (obj = null) => {
 
             try {
                 console.log(newObj,"newObj");
-                result = await postData(sqlServer, '/create/create', newObj);
+                result = await postData(sqlServer, '/create/createone', newObj);
                 return result;
             }
             catch (error) {
@@ -67,7 +67,7 @@ const getRecord = async (tableName = "", columns = "", field = "") => {
     const table = values.find((v) => v.tableName === tableName);
     if (table) {
         obj = {
-            tableName: tableName,
+            entityName: tableName,
             columns: columns,
             condition: field !== 'none' ? field : `Disable=0`
         };
@@ -91,7 +91,7 @@ const updateRecord = async (obj = null) => {
             let result;
             const val = obj.tableName;
             const newObj = {
-                tableName: val,
+                entityName: val,
                 values: obj.update,
                 condition: obj.condition
             };
@@ -119,7 +119,7 @@ const deleteRecord = async (obj) => {
             let result;
             const val = obj.tableName;
             const newObj = {
-                tableName: val,
+                entityName: val,
                 values: {
                     disable: 1,
                     deletingDate:new Date()

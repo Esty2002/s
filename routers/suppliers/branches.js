@@ -27,6 +27,10 @@ router.get('/getallbranches', async (req, res) => {
     }
 })
 
+router.get('/countbranchesforSuplier/:supplierid/:disabled', async(req, res)=>{
+
+})
+
 router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
 
     try {

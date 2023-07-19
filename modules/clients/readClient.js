@@ -3,19 +3,19 @@ const { postData, getData} = require('../../services/axios')
 async function getAllClient() {
     
     let query = {disabled:0}
-    const result= await getData('/read/readAllEntity/Clients',query);
+    const result= await getData('/read/readMany/Clients',query);
     return result
 }
 
 async function getAllDeletedClient() {
     let query = {disabled:1}
-    const result= await getData('/read/readAllEntity/Clients',query);
+    const result= await getData('/read/readMany/Clients',query);
     return result
 }
 
 async function getClientsById(id) {
     let obj={}
-    obj['tableName']='tbl_Clients'
+    obj['entityName']='tbl_Clients'
     obj['condition']=`id=${id}`
     obj['columns']='*'
     const result= await postData('/read/readTopN', obj);
@@ -28,7 +28,7 @@ async function getClientsById(id) {
 
 async function getClientsByField(field, value) {
     let obj={}
-    obj['tableName']='tbl_Clients'
+    obj['entityName']='tbl_Clients'
     obj['condition']=`${field}=${value}`
     obj['columns']='*'
     const result= await postData(sqlServer,'/read/readTopN', obj);

@@ -9,7 +9,7 @@ async function insertPump(obj) {
     obj.addedDate = new Date().toISOString()
     // obj.addition = obj.Addition ? 1 : 0
 
-    const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
+    const response = await postData('/create/createone', { entityName: SQL_PUMPS_TABLE, values: obj })
     if (response.status === 201)
         return true
     else
@@ -27,7 +27,7 @@ async function findPump(project = [], filter = {}) {
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
     try {
-        const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+        const response = await postData("/read/readTopN", { entityName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
         console.log({ response }, 'in find');
         // response.data
         return response
@@ -50,7 +50,7 @@ async function findPump(project = [], filter = {}) {
 
 async function updatePump(obj) {
    
-    const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
+    const response = await postData('/update/update', { entityName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
     console.log(response, 'in delete function');
     if (response)
         return true

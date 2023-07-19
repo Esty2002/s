@@ -41,7 +41,34 @@ const postData = async (url, body) => {
         throw error;
     }
 }
-module.exports = { getData, postData }
+
+
+const putData = async (url, body) => {
+    let response;
+    try {
+        console.log({ url, body: JSON.stringify(body) })
+        response = await server.put(url, body);
+        return response
+    }
+    catch (error) {
+        console.log({ error: error.message })
+        throw error;
+    }
+}
+
+const deleteData = async (url, body) => {
+    let response;
+    try {
+        console.log({ url, body: JSON.stringify(body) })
+        response = await server.delete(url, {data:body});
+        return response
+    }
+    catch (error) {
+        console.log({ error: error.message })
+        throw error;
+    }
+}
+module.exports = { getData, postData, putData , deleteData}
 // ----1
 // url====== /read/distinct
 // body====== { collection: 'areas', distinct: 'type' }

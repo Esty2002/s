@@ -6,7 +6,7 @@ const { findMeasureNumber, findMeasureName } = require('./measure')
 async function insertFinishProduct(obj) {
     obj.enabled = true
     obj.addedDate = new Date().toISOString()
-    const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+    const response = await postData('/create/createone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
     if(response.status === 201){
         return true
     }
@@ -17,7 +17,7 @@ async function insertFinishProduct(obj) {
 
 async function updateFinishProduct(obj) {
     
-    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: obj.condition })
+    const response = await postData('/update/update', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: obj.condition })
     if (response.data)
         return true
     else
@@ -34,7 +34,7 @@ async function findFinishProduct(project = [], filter = {}) {
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
 
-    const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
+    const response = await postData("/read/readTopN", { entityName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
     if (response.status === 200)
         return response.data
     else

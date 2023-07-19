@@ -13,8 +13,8 @@ router.post('/addPriceList', express.json(), async (req, res) => {
     }
     logToFile(object)
     try {
-      
-        const result = await insert(req.body, 'tbl_PriceList')
+      const data = {...req.body, finish:false}
+        const result = await insert(data, 'tbl_PriceList')
         res.status(result.status).send(result.data);
     }
     catch (error) {

@@ -5,20 +5,22 @@ const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUn
 
 router.post('/deletesupplier', express.json(), async (req, res) => {
     try {
+        console.log('delete', new Date().toISOString())
         const response = await deleteSupplier(req.body)
-        if (response.status===200)
-            res.status(200).send(response.data)
+        console.log(response.status)
+        if (response.status===204)
+            res.status(response.status).send({message:'deleted'})
         // res.status(200).send(true);
         else {
-            res.status(500).send(response.data)
+            res.status(500).send({message:'not deleted'})
         }
     } catch (error) {
+        console.log({error})
         res.status(500).send(error.message)
     }
 })
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
-    console.log("suppliers - router", req.body);
     try {
         const response = await insertOneSupplier(req.body)
         if (response)

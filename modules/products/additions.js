@@ -6,7 +6,7 @@ const { findMeasureName } = require('./measure')
 async function insertAddition(obj) {
     obj.enabled = true
     obj.addedDate = new Date().toISOString()
-    const response = await postData('/create/create', { tableName: SQL_ADDITIONS_TABLE, values: obj })
+    const response = await postData('/create/createone', { entityName: SQL_ADDITIONS_TABLE, values: obj })
     if (response.status === 201)
         return true
     else
@@ -23,7 +23,7 @@ async function findAddition(project = [], filter = {}) {
     if (conditionStr.trim() == '')
         conditionStr = "1=1"
 
-    const response = await postData("/read/readTopN", { tableName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
+    const response = await postData("/read/readTopN", { entityName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
     if(response.status===200)
         return response.data
     
@@ -33,7 +33,7 @@ async function findAddition(project = [], filter = {}) {
 }
 
 async function updateAddition(obj = {}, filter = {}) {
-    const response = await postData('/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
+    const response = await postData('/update/update', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
     if (response.data)
         return true
     else

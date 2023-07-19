@@ -64,7 +64,7 @@ const readLead = async(filter)=>{
 const updateLead = async (obj = null) => {
     if (obj) {
         const newObj = {
-            tableName: 'leads',
+            entityName: 'leads',
             values: obj.values,
             condition: obj.condition
         };
@@ -90,7 +90,7 @@ const updateLead = async (obj = null) => {
 const deleteLead = async (serialNumber) => {
     if (serialNumber) {
         const obj = {
-            tableName: 'leads',
+            entityName: 'leads',
             values: {
                 disable: 1,
                 deletingDate: new Date()
