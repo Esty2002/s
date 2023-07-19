@@ -9,7 +9,7 @@ const { SQL_PUMPS_TABLE } = process.env
 const values = [
     {
         entity: "Pumps",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null }) => {
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null,AddedDate=null ,Enabled=null,DeleteDate=null}) => {
             return {
                 tableName: "Pumps",
                 values: {
@@ -20,6 +20,15 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     Enabled: true,
                     DeleteDate: null,
+                },
+                valuesFind: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    Addition: Addition,
+                    AddedDate: AddedDate,
+                    Enabled: Enabled,
+                    DeleteDate: DeleteDate,
                 }
             }
         }
@@ -42,7 +51,7 @@ async function insertPump(obj, tableName) {
     }
 
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    obj.UnitOfMeasure = measure
+    obj.UnitOfMeasure = measure.data[0].Id
     try {
         const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
         if (response.data)
@@ -55,7 +64,12 @@ async function insertPump(obj, tableName) {
     }
 }
 
-async function findPump(project = [], filter = {}) {
+async function findPump(project = [], filter = {},tableName) {
+    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    let newObj = checkValidObj.func(filter)
+    if (checkValidObj) 
+        _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
+
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
@@ -75,7 +89,7 @@ async function findPump(project = [], filter = {}) {
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)
-                finish['UnitOfMeasure'] = measureName
+                finish['UnitOfMeasure'] = measureName.data[0].measure
             }
         }
         return response
