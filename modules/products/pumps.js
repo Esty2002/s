@@ -55,22 +55,21 @@ async function insertPump(obj, tableName) {
     }
 }
 
-async function findPump(project = [], filter = {}) {
+async function findPump(filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-    let columnsStr = project.length > 0 ? project.join(',') : '*'
-    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+    let condition = {}
+     filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {
         name: "find",
         description: "find pumps in module",
-        filter: conditionStr,
-        project: columnsStr
+        filter: condition
     }
     logToFile(objForLog)
 
-    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+    const response = await getData(`/read/readMany/${SQL_PUMPS_TABLE}`, condition )
     try {
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {

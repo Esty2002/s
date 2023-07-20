@@ -47,12 +47,11 @@ router.post('/find', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find pumps in router',
-        arr: req.body.arr,
         condition: req.body.where
     }
     logToFile(objectForLog)
     try {
-        const response = await findPump(req.body.arr, req.body.where)
+        const response = await findPump(req.body.where)
         if (response.status == 200)
             res.status(200).send(response.data)
         else

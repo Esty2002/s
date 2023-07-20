@@ -12,9 +12,9 @@ async function insertRow(object) {
             let updateObject = {
                 "tableName": SQL_PRODUCTS_COMBINATIONS_TABLE,
                 "condition": `Id=${rowId}`,
-                "values": {Disable:'false'}
+                "values": { Disable: 'false' }
             }
-            console.log({updateObject})
+            console.log({ updateObject })
             const updateResponse = await postData('/update/update', updateObject)
             return updateResponse
         }
@@ -29,18 +29,26 @@ async function insertRow(object) {
 }
 
 async function getAll() {
-    const response = await getData(`/read/readAll/${SQL_PRODUCTS_COMBINATIONS_TABLE}`)
-    return response.data
+    try {
+        const response = await getData(`/read/readMany/${SQL_PRODUCTS_COMBINATIONS_TABLE}`)
+        if (response.status == 200)
+            return response.data
+        else
+            return false
+    }
+    catch (error) {
+        throw error
+    }
 }
 
 async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: {Id:object.Id} })
+    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
     return response
 }
 
 async function updateNames(object) {
 
-    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: {ParentId:object.idP, ChildId:object.idC} })
+    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC } })
     return response.data
 }
 // async function getChildrenByParent(parent) {
