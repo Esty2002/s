@@ -54,24 +54,22 @@ async function insertAddition(obj, tableName) {
     }
 }
 
-async function findAddition(project = [], filter = {}) {
+async function findAddition(filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-    let columnsStr = project.length > 0 ? project.join(',') : '*'
-    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+     let condition = {}
+    filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {
         name: "find",
         description: "find Addition in module",
-        filter: conditionStr,
-        project: columnsStr
+        filter: condition,
     }
     logToFile(objForLog)
-
-    const response = await postData("/read/readTopN", { tableName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
+    const response = await getData(`/read/readMany/${SQL_ADDITIONS_TABLE}`, { condition })
     try {
-        for (const finish of response.data) {
+        for (let finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)
                 finish['UnitOfMeasure'] = measureName

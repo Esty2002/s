@@ -1,11 +1,12 @@
 require('dotenv').config()
-const { postData,   } = require('../../services/axios')
+const { getData } = require('../../services/axios')
 const { SQL_PRODUCTS_TABLE } = process.env
 
-async function getTraits(project = [], filter = {}) {
-    const response = await postData(  '/read/readTopN',  
-    { tableName: SQL_PRODUCTS_TABLE, columns: project.length>0 ? project.join(',') : '*', condition: Object.keys(filter).length > 0 ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "1=1" })
-    return response.data
+async function getTraits(filter = {}) {
+    let condition = {}
+    Object.keys(filter).length > 0 ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
+    const response = await getData( `/read/readMany/${SQL_PRODUCTS_TABLE}`, condition )  
+    return response
 }
 
-// module.exports = { getTraits }
+module.exports = { getTraits }
