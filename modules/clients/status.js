@@ -1,11 +1,6 @@
 const { postData } = require('../../services/axios')
 const { SQL_STATUS_TABLE } = process.env
 
-async function deleteOneStatus(statusName) {
-    // const result = await deleteStatus(statusName)
-    // return result.rowsAffected
-};
-
 async function getStatusNumber() {
     try {
         const result = await getData(`/read/readMany/${SQL_STATUS_TABLE}`);

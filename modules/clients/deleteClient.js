@@ -1,21 +1,28 @@
-const { postData, getData } = require('../../services/axios')
+const { getData, deleteData } = require('../../services/axios')
 const { SQL_CLIENTS_TABLE } = process.env
 
 
 async function deletedClientByCode(clientCode, userName) {
-    
-    const exist = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: ClientCode })
-    if (exist.rowsAffected != 0) {
-    let result;
+    try {
+        const exist = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: clientCode })
+        if (exist.status == 200) {
+            let result;
 
-        obj['condition'] = {clientCode}
-        obj['values'] = {'Disabled':true,'deletionDate':new Date(),'userThatDelete':'Gpree'}
+            let obj = {
+                entityName: SQL_CLIENTS_TABLE,
+                values: { Disabled: true, deletionDate: new Date(), userThatDelete: userName },
+                condition: { clientCode }
+            }
 
-        result = await postData('/update/update', obj)
-        return result.data;
+            result = await deleteData('/delete/deleteone', obj)
+            return result.data;
+        }
+
+        return false
     }
-
-    return false
+    catch(error){
+        throw error;
+    }
 }
 
 module.exports = { deletedClientByCode }   
