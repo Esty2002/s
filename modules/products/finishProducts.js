@@ -61,14 +61,21 @@ async function insertFinishProduct(obj, tableName) {
     }
 }
 
-async function updateFinishProduct(obj) {
+async function updateFinishProduct(obj,tableName) {
+    let objForLog = {
+        name: "updateFinishProduct",
+        description: "update finish products in module",
+        obj: obj,
+        tableName: tableName
+    }
+    logToFile(objForLog)
     // console.log('upFiPr');
     // let string = ""
     // for (let k in data.update) {
     //     string += `${k}='${data.update[k]}',`
     // }
     // string = string.slice(0, -1)
-    let conditionStr = data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
+    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
     const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
     if (response.data)
         return true
