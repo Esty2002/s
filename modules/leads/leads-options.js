@@ -2,6 +2,9 @@
 const { postData, getData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
 const { getRecord } = require('./tables');
+
+const { SQL_LEADS_TABLE, SQL_MOREPRODUCTSITEM_TABLE } = process.env
+
 const createNewLead = async (obj = null) => {
     let vals = [];
     let status;
@@ -43,7 +46,7 @@ const createNewLead = async (obj = null) => {
         };
 
         const result = await postData('create/createmany', newObj);
-        if (result.status === 201 && obj.morePorductsItems.length>0) {
+        if (result.status === 201 && obj.morePorductsItems.length > 0) {
             const result1 = await insertMoreProductsItems(obj.morePorductsItems, result.data[0].Id);
             return result1;
         }
@@ -56,9 +59,6 @@ const createNewLead = async (obj = null) => {
     }
 
 };
-let flag = false
-
-
 
 const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
     try {
@@ -90,15 +90,14 @@ const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
     }
 
 
-}
+};
+
 const readLead = async (filter) => {
     try {
-        const obj = {
-            tableName: "tbl_Leads",
-            columns: '*',
-            condition: filter ? filter : `1=1`
-        }
-        const res = await postData('read/readTopN', obj);
+        let condition;
+        filter ? condition = filter : null
+
+        const res = await getData(`read/readMany/${SQL_LEADS_TABLE}`, condition);
         if (res.status == 200) {
             if (res.data.length > 0) {
                 const values = res.data;
@@ -112,10 +111,9 @@ const readLead = async (filter) => {
                     for (let key of keys) {
                         if (key !== "Disable")
                             temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
-                        else
-                            {                               
-                                temp[key] = (sameRecord.map(sr => { return sr[key] }));
-                            }
+                        else {
+                            temp[key] = (sameRecord.map(sr => { return sr[key] }));
+                        }
                     }
                     result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
                         r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
@@ -132,16 +130,15 @@ const readLead = async (filter) => {
         throw error;
     }
 
-}
+};
+
 const readMoreProductsItems = async (filter) => {
 
-    try {
-        const obj = {
-            tableName: "tbl_MoreProductsItems",
-            columns: '*',
-            condition: filter ? filter : `1=1`
-        }
-        const result = await postData('read/readTopN', obj);
+    try {     
+        let condition;
+        filter ? condition = filter : null
+        
+        const result = await postData(`read/readMany/${SQL_MOREPRODUCTSITEM_TABLE}`, condition);
 
         if (result) {
             return result;
@@ -156,7 +153,8 @@ const readMoreProductsItems = async (filter) => {
 
 
 
-}
+};
+
 const readforeignkeyvalue = async (filter) => {
     // const obj = {
     //     tableName: "tbl_Leads",
@@ -191,8 +189,7 @@ const readforeignkeyvalue = async (filter) => {
         throw error;
     }
 
-}
-
+};
 
 const updateLead = async (obj = null) => {
     try {
@@ -225,6 +222,7 @@ const updateLead = async (obj = null) => {
     }
 
 };
+
 const updateOneLead = async (obj = null) => {
     try {
         if (obj.condition) {
@@ -245,7 +243,6 @@ const updateOneLead = async (obj = null) => {
     }
 
 };
-
 
 const deleteLead = async (id) => {
     if (id) {
@@ -272,8 +269,7 @@ const deleteLead = async (id) => {
     else {
         throw new Error('the serialNumber is not defined');
     }
-}
-
+};
 
 const deleteOneLead = async (id) => {
     if (id) {
@@ -300,8 +296,6 @@ const deleteOneLead = async (id) => {
     else {
         throw new Error('the serialNumber is not defined');
     }
-}
+};
 
-
-
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue,readMoreProductsItems, insertMoreProductsItems }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue, readMoreProductsItems, insertMoreProductsItems }

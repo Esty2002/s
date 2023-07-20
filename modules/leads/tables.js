@@ -71,9 +71,6 @@ const values = [
     },
 ];
 
-
-
-
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
@@ -102,13 +99,11 @@ const newRecord = async (obj = null) => {
 
 const getRecord = async (entityName = "", prop = "") => {
     const entity = values.find((v) => v.entityName === entityName);
-    if (entity) {
-        obj = {
-            entityName: entity.entityName,
-            condition: prop !== 'none' ? prop : `1=1`
-        };
+    if (entity) {      
+        let condition;
+        prop ? condition = prop : null
         try {
-            const result = await getData(`/read/readAll/${obj.entityName}/${obj.condition}`);
+            const result = await getData(`/read/readMany/${entity.entityName}`,condition);
             return result;
         }
         catch (error) {
@@ -149,6 +144,7 @@ const updateRecord = async (obj = null) => {
         throw new Error("the object is null");
     }
 };
+
 const deleteRecord = async (obj) => {
     if (obj) {
         const table = values.find(({ entityName }) => entityName === obj.entity);

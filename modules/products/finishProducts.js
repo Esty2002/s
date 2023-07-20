@@ -72,7 +72,7 @@ async function findFinishProduct(filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-    let condition = {}
+    let condition ;
     filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {

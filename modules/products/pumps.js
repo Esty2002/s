@@ -59,7 +59,7 @@ async function findPump(filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-    let condition = {}
+    let condition ;
      filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {
@@ -103,6 +103,7 @@ async function findPump(filter = {}) {
 //     else
 //         return false
 // }
+
 async function updatePump(obj, filter) {
     let string = ""
     for (let k in obj) {
@@ -111,8 +112,5 @@ async function updatePump(obj, filter) {
     string = string.slice(0, -1)
     return (await postData('update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
-
-
-
 
 module.exports = { updatePump, insertPump, findPump }
