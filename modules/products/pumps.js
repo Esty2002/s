@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData, } = require('../../services/axios')
+const { postData, putData, } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
@@ -88,22 +88,15 @@ async function findPump(filter = {}) {
 }
 
 async function updatePump(obj) {
-   
-    const response = await postData('/update/update', { entityName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
-    console.log(response, 'in delete function');
-    if (response)
-        return true
-    else
+    try {
+        const response = await putData('/update/updateone', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition})
+        if (response.status == 204)
+            return response.data
         return false
-}
 
-async function updatePump(obj, filter) {
-    let string = ""
-    for (let k in obj) {
-        string += `${k}='${obj[k]}',`
+    } catch (error) {
+        throw error;
     }
-    string = string.slice(0, -1)
-    return (await postData('update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
 
 module.exports = { updatePump, insertPump, findPump }

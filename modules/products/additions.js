@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData } = require("../../services/axios");
+const { postData, putData } = require("../../services/axios");
 const { logToFile } = require('../../services/logger/logTxt');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
 const { SQL_ADDITIONS_TABLE } = process.env
@@ -58,7 +58,7 @@ async function findAddition(filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-     let condition;
+    let condition;
     filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {
@@ -93,12 +93,16 @@ async function findAddition(filter = {}) {
     // }
 }
 
-async function updateAddition(obj = {}, filter = {}) {
-    const response = await postData('/update/update', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
-    if (response.data)
-        return true
-    else
-        return false
+async function updateAddition(obj = {}) {
+    try {
+        const response = await putData('/update/updateone', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
+        if (response.status == 204)
+            return response.data
+        else
+            return false
+    } catch (error) {
+        throw error;
+    }
 }
 
 module.exports = { insertAddition, findAddition, updateAddition }

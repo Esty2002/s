@@ -19,8 +19,17 @@ const values = [
         }
     }
 ]
+
 async function updateMeasure(condition, obj) {
-    return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
+    try {
+        const response = await putData('/update/updateone', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition })
+        if (response.status == 204)
+            return response.data
+        return false
+
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function insertMeasure(name) {
@@ -60,8 +69,17 @@ async function insertMeasure(name) {
 }
 
 async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
-    return response
+    try {
+        const response = await deleteData('/delete/deleteone', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+        if (response.status == 204) {
+            return response.data
+        }
+        return false
+    }
+    catch (error) {
+        throw error
+    }
+
 }
 
 async function getAll() {
@@ -73,9 +91,7 @@ async function getAll() {
 
     try {
         const response = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`)
-        // if (response.data)
         return response
-
     }
     catch (error) {
         objectForLog.error = error.message
@@ -132,11 +148,6 @@ async function findMeasureName(num) {
         logToFile(objectForLog)
         throw error
     }
-}
-
-async function deleteItem(object) {
-    const response = await postData('/update/update', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
-    return response
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll, deleteItem }                

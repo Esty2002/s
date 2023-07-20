@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData } = require('../../services/axios')
+const { postData, putData } = require('../../services/axios')
 const { SQL_FINISH_PRODUCTS_TABLE } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
@@ -61,18 +61,18 @@ async function insertFinishProduct(obj) {
 }
 
 async function updateFinishProduct(obj) {
-    // console.log('upFiPr');
-    // let string = ""
-    // for (let k in data.update) {
-    //     string += `${k}='${data.update[k]}',`
-    // }
-    // string = string.slice(0, -1)
-    let conditionStr = data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
-    if (response.data)
-        return true
-    else
-        return false
+    try {
+        let condition;
+        obj.condition ? condition[Object.keys(obj.condition)[0]] = Object.values(obj.condition)[0] : null
+        const response = await putData('/update/updateone', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: condition })
+        if (response.status == 204)
+            return response.data
+        else
+            return false
+
+    } catch (error) {
+        throw error;
+    }
 }
 
 async function findFinishProduct(filter = {}) {
