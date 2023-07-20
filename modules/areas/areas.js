@@ -129,91 +129,100 @@ async function startt() {
     const t = await postData('/update/createIndex', { collection: 'areas' })
     return t
 }
-async function insertArea(obj = {}) {
-    console.log(obj);
-    if (obj.type == 'polygon') {
-        let latpobj
-        let lngpobj
-        let pvali
-        let place
-        let placev
-        // console.log(obj.points[0].lat);
 
-        for (let point of obj.points) {
-            latpobj = { point: point.lat }
-            pvali = await checkObjectValidations(latpobj, "areas_point")
-            if (pvali) {
-                console.log('lat', latpobj);
-                lngpobj = { point: point.lng }
-                pvali = await checkObjectValidations(lngpobj, "areas_point")
-                if (pvali) {
-                    console.log('lng', lngpobj);
-                    console.log('I will continue');
-                }
-                else {
-                    throw new Error("One of the points is uncorrect");
-                }
+async function checkPolygon(obj) {
+    let latPointObj
+    let lngPointObj
+    let pointValidation
+    let place
+    let placeValidation
+
+    for (let point of obj.points) {
+        latPointObj = { point: point.lat }
+        pointValidation = await checkObjectValidations(latPointObj, "areas_point")
+        if (pointValidation) {
+            console.log('lat', latPointObj);
+            lngPointObj = { point: point.lng }
+            pointValidation = await checkObjectValidations(lngPointObj, "areas_point")
+            if (pointValidation) {
+                console.log('lng', lngPointObj);
             }
             else {
                 throw new Error("One of the points is uncorrect");
             }
         }
-        obj.placesId.forEach(element => {
-            place = { placeId: element }
-            placev = checkObjectValidations(place, "areas_placeId")
-            if (placev) {
-                console.log(placev, 'I will continue');
-            }
-            else {
-                throw new Error("One of the places_id is uncorrect");
-            }
-        });
+        else {
+            throw new Error("One of the points is uncorrect");
+        }
+    }
+    obj.placesId.forEach(element => {
+        place = { placeId: element }
+        placeValidation = checkObjectValidations(place, "areas_placeId")
+        if (placeValidation) {
+            console.log(placeValidation, 'I will continue');
+        }
+        else {
+            throw new Error("One of the places_id is uncorrect");
+        }
+    });
+}
+
+async function checkRadius(obj) {
+    const radiusObj = { radius: obj.radius / 1000 }
+    const checkValidationRadius = await checkObjectValidations(radiusObj, "areas_radius")
+    if (checkValidationRadius) {
         console.log('Im correct lets continue');
     }
     else {
-        let pvali
-        const onelatp = { point: obj.point.lat }
-        pvali = await checkObjectValidations(onelatp, "areas_point")
-        if (pvali) {
-            const onelngp = { point: obj.point.lng }
-            pvali = await checkObjectValidations(onelngp, "areas_point")
-            if (pvali) {
-                console.log('Im correct lets continue');
-            }
-            else {
-                throw new Error("lng is uncorrect");
-            }
-        }
-        else {
-            throw new Error("lat is uncorrect");
-        }
-        const place = { placeId: obj.placeId }
-        const placev = checkObjectValidations(place, "areas_placeId")
-        if (placev) {
-            console.log(placev, 'I will continue');
-        }
-        else {
-            throw new Error("the place_id is uncorrect");
-        }
+        throw new Error("radius is uncorrect");
     }
-    if (obj.type == 'radius') {
-        console.log(obj.radius);
-        const radobj = { radius: obj.radius / 1000 }
-        const checkVr = await checkObjectValidations(radobj, "areas_radius")
-        if (checkVr) {
+}
+
+async function checkPointAndPlaceId(obj) {
+    let pointValidation
+    const latPoint = { point: obj.point.lat }
+    pointValidation = await checkObjectValidations(latPoint, "areas_point")
+    if (pointValidation) {
+        const lngPoint = { point: obj.point.lng }
+        pointValidation = await checkObjectValidations(lngPoint, "areas_point")
+        if (pointValidation) {
             console.log('Im correct lets continue');
         }
         else {
-            throw new Error("radius is uncorrect");
+            throw new Error("lng is uncorrect");
         }
+    }
+    else {
+        throw new Error("lat is uncorrect");
+    }
+    const place = { placeId: obj.placeId }
+    const placeValidation = checkObjectValidations(place, "areas_placeId")
+    if (placeValidation) {
+        console.log(placeValidation, 'I will continue');
+    }
+    else {
+        throw new Error("the place_id is uncorrect");
+    }
+}
+
+async function insertArea(obj = {}) {
+    console.log(obj);
+    if (obj.type == 'polygon') {
+        await checkPolygon(obj)
+    }
+    else {
+        await checkPointAndPlaceId(obj)
+    }
+    if (obj.type == 'radius') {
+        await checkRadius(obj)
     }
 
     const mongoObj = { addedDate: obj.addedDate, disabled: obj.disabled, basicName: obj.basicName, name: obj.name, type: obj.type }
 
-    const checkV = await checkObjectValidations(mongoObj, "areas")
+    const checkValidationMongo = await checkObjectValidations(mongoObj, "areas")
 
-    if (checkV) {
-        console.log('mongo vali fine', checkV);
+    if (checkValidationMongo) {
+        console.log('mongo vali fine', checkValidationMongo);
         const result = await postData('/create/insertone',
             {
                 collection: "areas",
@@ -223,10 +232,10 @@ async function insertArea(obj = {}) {
             console.log('inserted to mongo');
             const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
 
-            const checkVali = await checkObjectValidations(sqlObj, "tbl_Areas")
+            const checkValidationSql = await checkObjectValidations(sqlObj, "tbl_Areas")
 
-            if (checkVali) {
-                console.log('sql vali fine', checkVali);
+            if (checkValidationSql) {
+                console.log('sql vali fine', checkValidationSql);
                 const resultToSql = await postData('/create/create',
                     {
                         tableName: 'tbl_Areas',
@@ -243,6 +252,7 @@ async function insertArea(obj = {}) {
                             data: { _id: result.data }
                         })
                     throw new Error("Can't insert area to mongo and sql DB");
+
                 }
             }
             else {
@@ -270,84 +280,20 @@ async function updateArea(obj = {}) {
     delete obj._id;
 
     if (obj.type == 'polygon') {
-        let latpobj
-        let lngpobj
-        let pvali
-        console.log(obj.points);
-
-
-        for (let i of obj.points) {
-            latpobj = { point: points[i].lat }
-            pvali = await checkObjectValidations(latpobj, "areas_point")
-            if (pvali) {
-                lngpobj = { point: points[i].lng }
-                pvali = await checkObjectValidations(lngpobj, "areas_point")
-                if (pvali) {
-                    console.log('I will continue');
-                }
-                else {
-                    throw new Error("One of the points is uncorrect");
-                }
-            }
-            else {
-                throw new Error("One of the points is uncorrect");
-            }
-        }
-        obj.placesId.array.forEach(element => {
-            const place = { placeId: element }
-            const placev = checkObjectValidations(place, "areas_placeId")
-            if (placev) {
-                console.log(placev, 'I will continue');
-            }
-            else {
-                throw new Error("One of the places_id is uncorrect");
-            }
-        });
-        console.log('Im correct lets continue');
+        await checkPolygon(obj)
     }
     else {
-        let pvali
-        const onelatp = { point: obj.point.lat }
-        pvali = await checkObjectValidations(onelatp, "areas_point")
-        if (pvali) {
-            const onelngp = { point: obj.point.lng }
-            pvali = await checkObjectValidations(onelngp, "areas_point")
-            if (pvali) {
-                console.log('Im correct lets continue');
-            }
-            else {
-                throw new Error("lng is uncorrect");
-            }
-        }
-        else {
-            throw new Error("lat is uncorrect");
-        }
-        const place = { placeId: obj.placeId }
-        const placev = checkObjectValidations(place, "areas_placeId")
-        if (placev) {
-            console.log(placev, 'I will continue');
-        }
-        else {
-            throw new Error("the place_id is uncorrect");
-        }
+        await checkPointAndPlaceId(obj)
     }
     if (obj.type == 'radius') {
-        console.log(obj.radius);
-        const radobj = { radius: obj.radius }
-        const checkVr = await checkObjectValidations(radobj, "areas_radius")
-        if (checkVr) {
-            console.log('Im correct lets continue');
-        }
-        else {
-            throw new Error("radius is uncorrect");
-        }
+        await checkRadius(obj)
     }
 
     const mongoObj = { addedDate: obj.addedDate, disabled: obj.disabled, basicName: obj.basicName, name: obj.name, type: obj.type }
 
-    const checkV = await checkObjectValidations(mongoObj, "areas")
-    if (checkV) {
-        console.log('mongo vali fine', checkV);
+    const checkValidationMongo = await checkObjectValidations(mongoObj, "areas")
+    if (checkValidationMongo) {
+        console.log('mongo vali fine', checkValidationMongo);
         const result = await postData('/update/mongo/',
             {
                 collection: "areas",
@@ -358,11 +304,11 @@ async function updateArea(obj = {}) {
             console.log('monogo ooooookkkkkkkk', result);
 
             const sqlObj = { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-            const checkVali = await checkObjectValidations(
+            const checkValidationSql = await checkObjectValidations(
                 sqlObj, "tbl_Areas")
 
-            if (checkVali) {
-                console.log('sql vali fine', checkVali);
+            if (checkValidationSql) {
+                console.log('sql vali fine', checkValidationSql);
 
                 const resSql = await postData('/update/update',
                     {
