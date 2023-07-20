@@ -23,15 +23,20 @@ const values = [
 
 
 async function updateMeasure(condition, obj) {
-    return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
+    return (await postData('/update/update', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` }))
 }
 
-async function insertMeasure(name, tableName) {
-    let objectForLog = {
-        name: 'insertMeasure',
-        description: 'insert an unit of measure in module',
-        obj: name,
-        tableName: tableName
+async function insertMeasure(name) {
+    const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
+    console.log('after exist');
+    const { status, data } = exist
+    console.log({ status, data });
+    console.log(!data, '!');
+    if (status === 200 && !data[0]) {
+        console.log({ name });
+        const response = await postData('/create/createone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Measure: name, Disable: 0 } })
+        console.log(response + 'hjhfdefjhg');
+        return response
     }
     logToFile(objectForLog)
 
@@ -105,7 +110,7 @@ async function findMeasureName(num) {
 }
 
 async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+    const response = await postData('/update/update', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
     return response
 }
 async function getAll() {

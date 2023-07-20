@@ -69,7 +69,36 @@ router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
 router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) => {
     try {
 
-        const response = await deleteOneLead(req.params.serialNumber);
+    }
+    catch (error) {
+        res.status(404).send(error);
+
+    }
+});
+
+router.post('/insertrecord', express.json(), async (req, res) => {
+    try {
+        const response = await newRecord(req.body);
+        res.status(200).send(response);
+    }
+    catch (error) {
+        res.status(404).send(error);
+    }
+});
+
+router.put('/updaterecord', express.json(), async (req, res) => {
+    try {
+        const response = await updateRecord(req.body)
+        res.status(200).send(response);
+    }
+    catch (error) {
+        res.status(404).send(error);
+    }
+});
+
+router.delete('/deleterecord/:tablename/:condition', express.json(), async (req, res) => {
+    try {
+        const response = await deleteRecord({ entityName: req.params.tablename, condition: req.params.condition })
         res.status(200).send(response);
     }
     catch (error) {

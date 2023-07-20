@@ -3,7 +3,7 @@ const router = express.Router();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 
 
-const { getAllBranches, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../../modules/suppliers/branches');
+const { getAllBranches, getBranchById, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../../modules/suppliers/branches');
 
 router.post('/deletebranches', express.json(), async (req, res) => {
     try {
@@ -34,10 +34,22 @@ router.get('/getBranchesWithCondition', async (req, res) => {
     try {
         const filter = {}
         console.log({ q: req.query });
-        // filter[req.params.condition] = req.params.value
-        // filter[Object.keys(req.query)[0]]=req.query[0]
-        req.query['Disabled'] = parseInt(req.query['Disabled'])
         const response = await getBranchesByCondition(req.query)
+        if (response)
+            res.status(200).send(response)
+        else {
+            res.status(500).send(response)
+        }
+    } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.get('/getBranchById/:id', async (req, res) => {
+
+    try {
+       
+        const response = await getBranchById({Id: req.params.id})
         if (response)
             res.status(200).send(response)
         else {

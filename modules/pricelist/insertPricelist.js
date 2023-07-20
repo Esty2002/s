@@ -38,7 +38,7 @@ async function insert(data, entityName) {
         obj.tableName = entityName
         obj.columns = '*'
         obj.values = data
-        const result = await postData('/create/create', obj)
+        const result = await postData('/create/createone', obj)
         return result.data;
     }
     catch (error) {
@@ -57,7 +57,7 @@ async function getProducts(tbName) {
     }
     logToFile(object)
     let obj = {}
-    obj['tableName'] = tbName
+    obj['entityName'] = tbName
     obj['columns'] = '*'
 
     const response = await postData('/read/readTopN', obj)

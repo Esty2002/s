@@ -13,7 +13,7 @@ async function deleteOneStatus(statusName) {
 
 async function getStatusNumber() {
     let obj = {
-        'tableName': 'tbl_Status',
+        'entityName': 'tbl_Status',
         'columns': '*',
     }
     const result = await postData('/read/readTopN',obj);
@@ -24,7 +24,7 @@ async function getStatusNumber() {
 async function getStatusNameById(id) {
     try {
         let obj = {
-            'tableName': 'tbl_Status',
+            'entityName': 'tbl_Status',
             'columns': '*',
             condition: `Id = ${id}`
         }

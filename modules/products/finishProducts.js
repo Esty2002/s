@@ -60,23 +60,10 @@ async function insertFinishProduct(obj, tableName) {
         throw error
     }
 }
+async function updateFinishProduct(obj) {
+    
+    const response = await postData('/update/update', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: obj.condition })
 
-async function updateFinishProduct(obj,tableName) {
-    let objForLog = {
-        name: "updateFinishProduct",
-        description: "update finish products in module",
-        obj: obj,
-        tableName: tableName
-    }
-    logToFile(objForLog)
-    // console.log('upFiPr');
-    // let string = ""
-    // for (let k in data.update) {
-    //     string += `${k}='${data.update[k]}',`
-    // }
-    // string = string.slice(0, -1)
-    let conditionStr = obj.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
     if (response.data)
         return true
     else
@@ -101,24 +88,15 @@ async function findFinishProduct(project = [], filter = {},tableName) {
     }
     logToFile(objForLog)
 
-    const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
-    try {
-        for (const finish of response.data) {
-            if (Object.keys(finish).includes('UnitOfMeasure')) {
-                console.log(finish['UnitOfMeasure'],"finish['UnitOfMeasure']");
-                const measureName = await findMeasureName(finish['UnitOfMeasure'])
-                console.log({measureName});
-                finish['UnitOfMeasure'] = measureName.data[0].measure
-            }
-        }
-        console.log(response,'22222222222222222222222222222222222222222222');
-        return response
-    }
-    catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
-    }
+    const response = await postData("/read/readTopN", { entityName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
+    if (response.status === 200)
+        return response.data
+    else
+        return false
+    // else{
+    //     return false
+    // }
+
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

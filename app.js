@@ -42,10 +42,9 @@ app.use('/pumps', pumps_router);
 app.use('/additions', manageAdditions);
 app.use('/productsCombinations', productsCombinations_router);
 app.use('/finishProducts', manageFinishProducts);
-app.use('/productsCombinations', productsCombinations_router);
-
-app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
+app.use('/branches', branches_router);
+app.use('/updateClient', updateClient_router);
 
 app.use('/leads',router_leads);
 

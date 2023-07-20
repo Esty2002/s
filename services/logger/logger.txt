@@ -7729,3 +7729,267 @@ Discount: 0,
 
 }
 ----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:20:30  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:20:30  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 404
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:26:06  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:26:06  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:28:20  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:28:20  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:28:51  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:28:51  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:30:37  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:30:37  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:32:41  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:32:41  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:42:53  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 0:42:53  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: trye, 
+Pumps: true, 
+Beton: false, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:28:43  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:28:43  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:30:51  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:30:51  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:31:47  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:31:48  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:39:37  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:39:37  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:41:44  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:41:44  
+description: create in module -you have an error!
+        
+dataThatRecived: {Request failed with status code 500
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function create : Tue Jul 18 2023 - 6:42:16  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+Name: טאור, 
+Pumps: false, 
+Beton: true, 
+
+}
+----------------------------------
+last time login in the function read : Tue Jul 18 2023 - 6:42:21  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Tue Jul 18 2023 - 6:42:21  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Tue Jul 18 2023 - 6:42:21  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Tue Jul 18 2023 - 6:42:21  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------

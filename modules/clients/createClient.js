@@ -7,20 +7,18 @@ async function addOneClient(obj) {
     delete values.Id
 
     let newObj = {
-        'tableName': 'tbl_Clients',
+        'entityName': 'Clients',
         'values': values
     }
     let object = {
-        'tableName': 'tbl_Clients',
+        'entityName': 'Clients',
         'columns': '*',
         'condition': `ClientCode=${obj.ClientCode}`
     }
 
     let unique = await postData('/read/readTopN', object)
     if (unique.data.length === 0) {
-        console.log(newObj, ' newObj in createClient');
-        const result = await postData('/create/create',newObj)
-        
+        const result = await postData('/create/createone',newObj)
         return result;
     }
     else{

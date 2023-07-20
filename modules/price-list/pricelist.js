@@ -8,7 +8,7 @@ async function addPriceList(values, tableName) {
         try {
             const result = await postData( '/create',
                 {
-                    tableName: tableName,
+                    entityName: tableName,
                     values: values
                 })
             return result
@@ -35,7 +35,7 @@ async function deletePriceList(tableName, PriceListId, ProductId) {
     try {
         const result = await postData( '/update',
             {
-                tableName: tableName,
+                entityName: tableName,
                 values: { Disabled: false },
                 condition: con
             })
@@ -58,7 +58,7 @@ async function findPriceList(tableName, PriceListId, ProductId) {
     try {
         const result = await postData( '/readTopN',
             {
-                tableName: tableName,
+                entityName: tableName,
                 columns: '*',
                 condition: con
             })
