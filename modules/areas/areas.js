@@ -3,6 +3,51 @@ const { getData, postData } = require('../../services/axios');
 const { logToFile } = require('../../services/loggerPnini');
 
 
+
+async function insertArea(obj = {}) {
+    const t = await postData('/update/createIndex', { collection: "areas" })
+    console.log('/*/*/*/*/*//*/*/**/', t);
+
+
+    let object = {
+        name: "insertArea",
+        description: 'insertArea in module',
+        dataThatRecived: obj
+    };
+    const result = await postData('/create/insertone',
+        {
+            collection: "areas",
+            data: obj
+        });
+    if (result.data) {
+        const resultToSql = await postData('/create/create',
+            {
+                tableName: 'tbl_Areas',
+                values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
+            })
+        if (resultToSql) {
+            logToFile(object)
+
+            return resultToSql.data;
+        }
+        else {
+            const dropResult = await postData('/update/dropDocumentById',
+                {
+                    collection: "areas",
+                    data: { _id: result.data }
+                })
+            object.error = "Can't insert area to mongo and sql DB"
+            logToFile(object)
+            throw new Error("Can't insert area to mongo and sql DB");
+        }
+    }
+    else {
+        object.error = "Can't insert area"
+        logToFile(object)
+        throw new Error("Can't insert area");
+    }
+};
+
 async function findByDistinct(obj) {
     let object = {
         name: "findByDistinct",
@@ -22,38 +67,42 @@ async function findByDistinct(obj) {
 };
 
 async function findInRadius(filter) {
+    console.log("hhhhhhhhhhh", filter);
     const response = await postData('/read/aggregate',
         {
             collection: 'areas',
             aggregate: [
-                {
-                    $geoNear:
-                    {
-                        near:
-                        {
-                            type: "Point",
-                            coordinates: filter.point
-                        },
-                        distanceField: "calculatedDist",
-                        maxDistance: 4500,
-                        spherical: true
-                    }
-                },
-                {
-                    $match: { $expr: { $gte: ['$radius', '$calculatedDist'], type: filter.type } }
-                }
+            //     {
+            //         $geoNear:
+            //         {
+            //             near:
+            //             {
+            //                 type: "Point",
+            //                 coordinates: { lat: 31.2712026, lng: 35.2130481 }
+            //             },
+            //             distanceField: "calculatedDist",
+            //             maxDistance: 4500,
+            //             spherical: true
+            //         }
+            //     },
+            //     {
+            //         $match: { $expr: { $gte: ['$radius', '$calculatedDist'] },type:'radius' }
+            //     }
+            //     // {
+            //     //     $match: {  type: 'radius' } 
+            //     // }
             ]
         }
 
 
     )
-    
+
     if (response.data) {
-        console.log("~~~~~~~~~~~~~~~~",response.data);
+        console.log("~~~~~~~~~~~~~~~~", response.data);
         return response.data
     }
     else {
-        throw new Error(".......")
+        throw new Error("can't find point in polygon")
     }
 
     // db.getCollection('tA').aggregate([
@@ -129,51 +178,6 @@ async function startt() {
     const t = await postData('/update/createIndex', { collection: 'areas' })
     return t
 }
-async function insertArea(obj = {}) {
-    const t = await postData('/update/createIndex', { collection: "areas" })
-    console.log('tttttttttttttttttttt',t);
-    
-
-    let object = {
-        name: "insertArea",
-        description: 'insertArea in module',
-        dataThatRecived: obj
-    };
-    const result = await postData('/create/insertone',
-        {
-            collection: "areas",
-            data: obj
-        });
-    if (result.data) {
-        const resultToSql = await postData('/create/create',
-            {
-                tableName: 'tbl_Areas',
-                values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: obj.disabled }
-            })
-        if (resultToSql) {
-            logToFile(object)
-            
-            return resultToSql.data;
-        }
-        else {
-            const dropResult = await postData('/update/dropDocumentById',
-                {
-                    collection: "areas",
-                    data: { _id: result.data }
-                })
-            object.error = "Can't insert area to mongo and sql DB"
-            logToFile(object)
-            throw new Error("Can't insert area to mongo and sql DB");
-        }
-    }
-    else {
-        object.error = "Can't insert area"
-        logToFile(object)
-        throw new Error("Can't insert area");
-    }
-};
-
-
 
 async function updateArea(obj) {
     let object = {

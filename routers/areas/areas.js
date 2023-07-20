@@ -91,8 +91,8 @@ router.post('/searchAreas', express.json(), async (req, res) => {
         let areas = [];
         const citys = await findAreas({ basicName: obj.city });
         const points = await findAreas({ point: obj.point, type: 'point' });
-        // const radius = await findAreas({ type: 'radius' });
-        const radius = await findInRadius({ point: obj.point,type: 'radius' });
+        const radius = await findAreas({ type: 'radius' });
+        // const radius = await findInRadius({ point: obj.point,type: 'radius' });
         // //--------------------------------------
         // db.getCollection('tA').aggregate([
         //     {
