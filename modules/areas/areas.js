@@ -13,26 +13,27 @@ async function findByDistinct(collection, filter = undefined) {
     console.log({ collection });
     console.log({ filter });
 
-    const found = await getData(`/read/distinct/${collection}/${filter}`)
+    const found = await getData(`/read/distinct/${collection}/${filter}`);
     console.log({ found });
     return found;
 }
+
 async function findAllCities() {
     console.log('findall cities');
     const found = await postData('/read/find', {
-        collection: "Areas", filter: { city: true }
+        collection: "areas", filter: { city: true }
     })
-    console.log(found.data);
+    console.log({ found })
     return found.data
 }
 
 async function insertArea(obj = {}) {
-    console.log({ obj })
+    console.log({ obj });
     const result = await postData('/create/insertone',
         {
             collection: "areas",
             data: obj
-        })
+        });
     console.log('mongo----', result.data, 'name', obj.name);
     if (result.data) {
         const resultToSql = await postData('/create/create',
@@ -40,22 +41,42 @@ async function insertArea(obj = {}) {
                 tableName: "tbl_Areas",
                 values: { AreaIdFromMongo: result.data, AreaName: obj.name }
             })
-        if (resultToSql) {
-            console.log("resultToSql.rowsAffected", resultToSql);
-            return resultToSql.data
+        //-------------------------------------- לשאול את המורה איזו שאלה הכי נחוצה
+        if (resultToSql && resultToSql.status === 201 && resultToSql.data.rowsAffected != undefined && resultToSql.data.rowsAffected[0] > 0) {
+            // console.log("resultToSql-------------", resultToSql);
+            // console.log("resultToSql.rowsAffected", resultToSql.data.rowsAffected);
+            // console.log("resultToSql.data.rowsAffected[0]", resultToSql.data.rowsAffected[0]);
+            // console.log("resultToSql.data", resultToSql.data);
+            console.log("-------------------------------------");
+            const dropResult = await postData('/update/dropDocument',
+                {
+                    collection: "areas",
+                    data: { _id: result.data }
+                })
+            console.log("result.data***", result.data);
+            console.log("dropMongoResult--", dropResult);
+            console.log("dropMongoResult.data--", dropResult.data);
+            return resultToSql.data;
         }
-        if (resultToSql.status === 201)
+        else {
+
+        if (resultToSql.status===201)
             return resultToSql.data
 
+            throw new Error("Can't insert area to mongo and sql DB");
+        }
     }
-    else
+    else {
+
         throw new Error("Can't insert area");
+    }
+
 }
 
 async function updateArea(obj = {}) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
             set: { $set: { 'areasList.$[u]': obj.area } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
@@ -71,7 +92,7 @@ async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: obj.code },
             set: { $set: { 'areas.$[u].location.coordinates': obj.coordination } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.areaName }] }
@@ -85,7 +106,7 @@ async function updateLocation(obj) {
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: code },
             set: {
                 $set: {
@@ -104,7 +125,7 @@ async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
 async function deleteSupplierOrClient(phone) {
     const result = await postData('/mongo/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { SupplierOrClientCode: phone },
             set: { $set: { disable: false } }
         })
@@ -117,7 +138,7 @@ async function deleteSupplierOrClient(phone) {
 async function deleteArea(phone, area) {
     const result = await postData('/update/updateone',
         {
-            collection: "Areas",
+            collection: "areas",
             filter: { supplierOrClientCode: phone },
             set: { $set: { 'areas.$[u].delete': true } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': area }] }
@@ -129,17 +150,16 @@ async function deleteArea(phone, area) {
 
 }
 
-async function findArea(areaName) {
+async function findArea(body) {
+    // let query = {}
+    // query[name] = value   
     const result = await postData('/read/find', {
         collection: "areas",
-        filter: { name: areaName }
+        filter: body
     })
-    if (result)
-        return result
-    else
-        throw new Error('city does not exist in db')
-}
 
+    return result
+}
 async function findAreaByCode(code) {
     let filter = {};
     const result = await postData('/read/find',
@@ -167,6 +187,7 @@ async function findSupplierOrClient(code) {
     console.log("result ", result);
     if (result)
         return result
+
     else
         throw new Error("not found supplier or client code")
 }
@@ -194,7 +215,8 @@ module.exports = {
     findSupplierOrClient,
     deleteSupplierOrClient,
     deleteArea,
-    updateArea, updateLocation,
+    updateArea,
+    updateLocation,
     updatePointAndRadius,
     findArea,
     getTheDataOfTheArea,
