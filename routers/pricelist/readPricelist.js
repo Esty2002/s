@@ -1,18 +1,17 @@
 const express = require('express')
 const router = express.Router()
-const { logToFile } = require('../../services/loggerPnini')
+const { logToFile } = require('../../services/logger/logTxt')
 
-const { 
+const {
     getRecordPriceList,
     getAllPriceList,
     getPriceListById,
-
     getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
     , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
 const { reqLogger } = require('../../services/logger/logger')
 
 
-    router.use(reqLogger())
+router.use(reqLogger())
 router.get('/findAllPriceList', async (req, res) => {
     try {
         const result = await getAllPriceList();

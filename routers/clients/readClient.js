@@ -8,6 +8,8 @@ router.get('/getAll', async (req, res) => {
         const response = await getAllClient()
         if (response)
             res.status(200).send(response.data)
+            
+        
         else {
             res.status(500).send(response.data)
         }

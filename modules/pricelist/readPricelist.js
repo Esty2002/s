@@ -51,9 +51,9 @@ async function getPriceListByAddedDate(object) {
     }
 }
 // פונקציית חיפוש על פי מוצר
-async function getPriceListbyProduct(object) {
+async function getPriceListbyProduct(id) {
     try {
-        let obj = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
+        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `PriceListId='${id}' AND  Disabled=0` };
         const res = await postData("/read/readTopN", obj);
         return res.data;
     }
@@ -78,8 +78,9 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
             console.log(res2.data);
             return res2.data;
 
-
-
+        }
+        else {
+            throw new Error('can not found this city');
         }
     }
     catch (error) {
@@ -89,7 +90,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
 // הפונקציה מקבלת ID אזור ומחזירה הצעת מחיר שקשורה אליו
 async function getPriceListByAreaId(object) {
     try {
-        let obj = { entityName: PRICESLISTBYSUPPLIERORCLIENT, columns: "PriceListId", condition: `AreaId='${object}'` };
+        let obj = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "PriceListId", condition: `AreaId='${object}'` };
         const res = await postData("/read/readTopN", obj);
         arrTempPriceListId = []
         if (res.data != undefined) {
@@ -97,7 +98,7 @@ async function getPriceListByAreaId(object) {
                 arrTempPriceListId.push(element.PriceListId)
             });
             console.log(arrTempPriceListId);
-            let obj2 = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `Id  in (${arrTempPriceListId})` };
+            let obj2 = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `Id  in (${arrTempPriceListId})` };
             const res2 = await postData("/read/readTopN", obj2);
             console.log(res2.data);
             return res2.data;
@@ -110,7 +111,6 @@ async function getPriceListByAreaId(object) {
         throw error;
     }
 }
-
 async function getPriceListByIdSupplierOrClientCode(object) {
     console.log(object);
     try {
@@ -138,7 +138,7 @@ async function getPriceListByIdPriceListId(object) {
 async function getNameOfProduvtsById(object) {
     console.log(object);
     try {
-        let obj = { entityName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { tableName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/foreignkeyvalue", obj);
         console.log(res.data);
         return res.data;
@@ -281,25 +281,10 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
         return arrTemp
     }
 
-
-    module.exports = {
-        getRecordPriceList,
-        getPriceListByAdditionsForDistance,
-        getNameOfProduvtsById,
-        getPriceListByAdditionsForCities,
-        getPriceListByAdditionsForTime,
-        getPriceListByAdditionsForTruckFill,
-        getSupplierByNameProduct,
-        getSupplierByNameProductBuyton,
-        getPriceListByIdSupplierOrClientCode,
-        getAllPriceList,
-        getPriceListById,
-        getPriceListByAddedDate,
-        getPriceListbyProduct,
-        getPriceListByAreaId,
-        getPriceListbySupplierCodeOrClientCode,
-        getPriceListByIdPriceListId
-    };
+module.exports = {
+    getPriceListByAdditionsForDistance, getNameOfProduvtsById, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
+    getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListById, getPriceListByAddedDate, getPriceListbyProduct, getPriceListByAreaId, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId
+};
 
 
 

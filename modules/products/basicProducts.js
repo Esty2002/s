@@ -1,7 +1,6 @@
-// require('dotenv').config()
-// <<<<<<< HEAD
-// const { postData } = require('../../services/axios')
-// const { SQL_PRODUCTS_TABLE } = process.env
+require('dotenv').config()
+const { postData,   } = require('../../services/axios')
+const { SQL_PRODUCTS_TABLE } = process.env
 
 async function getTraits(project = [], filter = {}) {
     const response = await postData( '/read/readTopN',  

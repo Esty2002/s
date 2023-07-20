@@ -44,11 +44,6 @@
                 "description": "Field name to match by filter",
                 "example": "OrdererName='חיים'"
             },
-            "Serialnumber": {
-                "type": "string",
-                "description": "Field name to match by filter",
-                "example": "OrdererName='משה'"
-            },
             "id": {
                 "type": "string",
                 "description": "an identity",
@@ -115,7 +110,7 @@
                     "condition": {
                         "type": "string",
                         "description": "condition",
-                        "example": "serialNumber=1"
+                        "example": "Id=1"
                     }
                 }
             },
@@ -161,10 +156,23 @@
                         "type": "list",
                         "description": "the products of the concrets",
                         "example": [
-                            1,
-                            5,
-                            8,
-                            7
+                           {
+                            "tableReference":"tbl_FinishProducts",
+                            "id":1
+                           },
+                           {
+                            "tableReference":"tbl_FinishProducts",
+                            "id":2
+                           },
+                           {
+                            "tableReference":"tbl_FinishProducts",
+                            "id":3
+                           },
+                           {
+                            "tableReference":"tbl_FinishProducts",
+                            "id":4
+                           }
+                           
                         ]
                     },
                     "concretAmount": {
@@ -216,89 +224,35 @@
             "condition": {
                 "type": "string",
                 "description": "the condition which lead to update",
-                "example": "SerialNumber=1"
+                "example": "OrdererCode=1"
             },
             "updateleadsdetails": {
                 "type": "object",
                 "properties": {
                     "values": {
-                        "type": "string",
+                        "type": "object",
                         "description": "the values to update",
-                        "example": "ordererCode=1"
+                        "properties": {
+                            "Address": {
+                                "type": "string",
+                                "descritipon": "update address",
+                                "example": "Yavetz 1 BeneBrak"
+                            }
+                        }
                     },
                     "condition": {
                         "type": "string",
                         "description": "the condition which lead to update",
-                        "example": "serialNumber=1"
+                        "example": "Id=1"
                     }
                 }
             },
-            "deletelead": {
-                "type": "object",
-                "properties": {
-                    "filter": {
-                        "type": "object",
-                        "properties": {
-                            "serialNumber": {
-                                "type": "int",
-                                "example": 1
-                            }
-                        }
-                    }
-                }
+            "deleteLead": {
+                "type": "number",
+                "description": "the number of lead",
+                "example": 1
             },
-            "getleadsdetails": {
-                "type": "object",
-                "properties": {
-                    "filter": {
-                        "type": "object",
-                        "properties": {
-                            "serialNumber": {
-                                "type": "int",
-                                "example": 1
-                            }
-                        }
-                    },
-                    "sort": {
-                        "type": "object",
-                        "properties": {
-                            "serialNumber": {
-                                "type": "int",
-                                "example": 1
-                            }
-                        }
-                    },
-                    "skip": {
-                        "type": "int",
-                        "example": 0
-                    },
-                    "limit": {
-                        "type": "int",
-                        "example": 2
-                    },
-                    "project": {
-                        "type": "object",
-                        "properties": {
-                            "_id": {
-                                "type": "int",
-                                "example": 0
-                            },
-                            "serialNumber": {
-                                "type": "int",
-                                "example": 1
-                            },
-                            "supplyDate": {
-                                "type": "int",
-                                "example": 1
-                            },
-                            "supplyAddress": {
-                                "type": "int",
-                                "example": 1
-                            }
-                        }
-                    }
-                }
-            },
+
             "Error": {
                 "type": "object",
                 "properties": {
@@ -476,7 +430,7 @@
                         "required": true,
                         "description": "Field name"
                     }
-                ], 
+                ],
                 "responses": {
                     "200": {
                         "description": "filtered data",
@@ -542,8 +496,8 @@
                 }
             }
         },
-        "/leads/updateleadsdetails": {
-            "post": {
+        "/leads/updatelead": {
+            "put": {
                 "tags": [
                     "leads CRUD operations"
                 ],
@@ -583,23 +537,24 @@
                 }
             }
         },
-        "/leads/deletelead": {
-            "post": {
+        "/leads/deletelead/{number}": {
+            "delete": {
                 "tags": [
                     "leads CRUD operations"
                 ],
                 "description": "updateleadsdetails",
-                "operationId": "updateleadsdetails",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/deletelead"
-                            }
-                        }
+                "operationId": "delete lead",
+                "parameters": [
+                    {
+                        "name": "number",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/deleteLead"
+                        },
+                        "required": false,
+                        "description": "the number of lead"
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "filtered data",
@@ -624,23 +579,24 @@
                 }
             }
         },
-        "/leads/getleadsdetails": {
-            "post": {
+        "/leads/getleads/{condition}": {
+            "get": {
                 "tags": [
                     "leads CRUD operations"
                 ],
                 "description": "updateleadsdetails",
-                "operationId": "updateleadsdetails",
-                "parameters": [],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/getleadsdetails"
-                            }
-                        }
+                "operationId": "get leads",
+                "parameters": [
+                    {
+                        "name": "condition",
+                        "in": "path",
+                        "schema": {
+                            "$ref": "#/components/schemas/condition"
+                        },
+                        "required": false,
+                        "description": "the condition"
                     }
-                },
+                ],
                 "responses": {
                     "200": {
                         "description": "filtered data",

@@ -1,24 +1,49 @@
-
 const { postData, getData } = require('../../services/axios')
-const { logToFile } = require('../../services/loggerPnini')
-async function insert(data, tableName) {
+const { logToFile } = require('../../services/logger/logTxt')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
+const values = [
+    {
+        entity: "PriceList",
+        func: ({ Name = null, Pumps = null, Beton = null, UserName = null }) => {
+            return {
+                tableName: "PriceList",
+                values: {
+                    Name: Name,
+                    Pumps: Pumps,
+                    Beton: Beton,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName,
+                    Finish: false,
+                    Disabled: false
+                }
+            }
+        }
+    }
+]
+async function insert(data, entityName) {
     let obj = {}
-    obj['entityName'] = tableName
-    obj['values'] = {...data, disabled:false, addedDate:new Date().toISOString(), userName:'developer'}
-    console.log({obj})
+    let objectForLog = {
+        name: 'addPriceList',
+        description: 'insert in module',
+        dataThatRecived: data
+    }
+    logToFile(objectForLog)
     try {
+        const checkValidObj = values.find(({ entity }) => entityName === entity);
+        let newObj = checkValidObj.func(data)
+        if (checkValidObj) {
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+            data = newObj.values
+        }
+        obj.tableName = entityName
+        obj.columns = '*'
+        obj.values = data
         const result = await postData('/create/createone', obj)
-        return result;
+        return result.data;
     }
     catch (error) {
-        console.log(error.message)
-        let object = {
-            name: 'create',
-            description: 'create in module -you have an error!',
-            error: error.message,
-            dataThatRecived: data,
-        }
-        logToFile(object)
+        objectForLog.error = error.message
+        logToFile(objectForLog)
         throw error
     }
 }
@@ -70,6 +95,7 @@ async function getId(name, tbName) {
     let condition = `Name='${name}'`
     console.log({ condition });
     const response = await getData(`/read/readAll/${tbName}/${condition}`)
+    console.log(response, ' res');
     object = {
         name: 'read',
         description: 'getId after sending to db',
@@ -77,6 +103,22 @@ async function getId(name, tbName) {
     }
     logToFile(object)
     return response.data[0].Id
+}
+async function isFieldExistinTable(field, tableName, value) {
+    try {
+
+        const response = await getData(`read/exist/${tableName}/${field}/${value}`)
+        console.log({ response });
+        if (response)
+            return true
+        else
+            return false
+    }
+    catch (error) {
+        return error.message
+    }
+
+
 }
 
 async function getIdForBuytonDescribe(name, tbName) {
@@ -87,12 +129,18 @@ async function getIdForBuytonDescribe(name, tbName) {
         dataThatRecived: params
     }
     logToFile(object)
-    let t = tbName.substring(10)
-    t = t + 'Describe'
-    let condition = `${t}='${name}'`
-    console.log('888888888888888888888888888888888888888888888',condition);
+    let field = tbName.substring(10)
+    field = field + 'Describe'
+    let condition = `${field}='${name}'`
+    // const ans = await isFieldExistinTable(field, tbName, name)
+    // if (ans) {
     const response = await getData(`/read/readAll/${tbName}/${condition}`)
     return response.data
+    // }
+    // else{
+    // console.log('there is a problem!');
+    // }
+
 }
 
 module.exports = { insert, getProducts, getId, getIdForBuytonDescribe, updateField }

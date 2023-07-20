@@ -1,41 +1,39 @@
 
-const { objectsForValidations } = require('./validations-objects')
+const { getValidationsModule } = require('./validations-objects')
 let i = 0;
-const checkObjectValidations = async (body, objName) => {
+const checkObjectValidations = async (body, objName, find=false) => {
     console.log("insert to use - validation");
+    let errors=[]
     try {
         console.log(body, objName, 'bodyAndObjectname');
-        const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;
+        const values = getValidationsModule(find).find(({ objectName }) => objName === objectName).values;
         for (let v of values) {
+            if (!v.require && !body[v.propertyName]){
+                continue
+            }
             i++
             for (let valid of v.validation) {
-                if (body[v.propertyName]) {
-                    if (!(await valid.func(body[v.propertyName], valid.arguments))) {
-                        return false;
-
+                if (body[v.propertyName] || body[v.propertyName]===null ) {
+                    try {
+                        _ = await valid.func(body[v.propertyName], valid.arguments);
                     }
-
-                    // console.log(body[v.propertyName], 'yyyeeesss');
-                    // if (!(await valid.func(body[v.propertyName], valid.arguments))) {
-                    //     console.log('@@@@@@@@@@@@  nnnnnnnnnnno');
-                    // return false;
-                    // }
+                    catch (error) {
+                        errors = [...errors, { propertyName: v.propertyName, error: error.message }];
+                    }
                 }
             }
-           
-            if (v.require && !body[v.propertyName]) {
-                throw new Error(`the ${v.propertyName} is required but not exist`);
-            }
+            console.log(v.require,'v.require');
+            console.log(!body[v.propertyName],'!body[v.propertyName])');
+            if (v.require && !body[v.propertyName])
+                errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but not exist` }];
         }
-        console.log("yeeeeeeeeeeeeees:)))))))))))))");
+        if (errors.length > 0) 
+            throw errors
         return true;
     }
     catch (error) {
-        console.log(error.message)
-        throw error
+        throw error;
     }
-
-
 };
 
 

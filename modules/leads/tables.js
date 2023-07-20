@@ -1,7 +1,9 @@
-const { sqlServer, postData } = require('../../services/axios');
+const { postData, getData } = require('../../services/axios');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
 
 const values = [
     {
+<<<<<<< HEAD
         entityName: "orderers",
         values: {
             OrdererName: "",
@@ -9,9 +11,26 @@ const values = [
             AddedDate: new Date(),
             Disable: 0,
             DeletingDate: null
+=======
+        entityName: "Orderers",
+        func: ({ ordererName = null, ordererPhone = null }) => {
+            return {
+                tableName: "Orderers",
+                values: {
+                    OrdererName: ordererName,
+                    OrdererPhone: ordererPhone,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
+
+>>>>>>> products2
         }
+
     },
     {
+<<<<<<< HEAD
         entityName: "pouringsTypes",
         values: {
             PouringName: "",
@@ -27,14 +46,46 @@ const values = [
             AddedDate: new Date(),
             Disable: 0,
             DeletingDate: null
+=======
+        entityName: "PouringsTypes",
+        func: ({ pouringName }) => {
+            return {
+                tableName: "PouringsTypes",
+                values: {
+                    PouringName: pouringName,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
         }
+
+    },
+    {
+
+        entityName: "StatusesLead",
+        func: ({ statusName }) => {
+            return {
+                tableName: "StatusesLead",
+                values: {
+                    StatusName: statusName,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null
+                }
+            }
+>>>>>>> products2
+        }
+
     },
 ];
+
 
 
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
+<<<<<<< HEAD
         const val = values.find(({ tableName }) => tableName === obj.tableName);
         if (val) {
             let newObj = {
@@ -48,6 +99,15 @@ const newRecord = async (obj = null) => {
             try {
                 console.log(newObj,"newObj");
                 result = await postData(sqlServer, '/create/createone', newObj);
+=======
+        const entity = values.find(({ entityName }) => entityName === obj.entityName);
+        if (entity) {
+            const newObj = entity.func(obj.values);
+
+            try {
+                _ = await checkObjectValidations(newObj.values, entity.entityName);
+                result = await postData('/create/create', newObj);
+>>>>>>> products2
                 return result;
             }
             catch (error) {
@@ -55,24 +115,31 @@ const newRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the table name is not exist");
+            throw new Error("the entity name not exist");
         }
+
     }
     else {
         throw new Error("the object is null");
     }
 };
 
-const getRecord = async (tableName = "", columns = "", field = "") => {
-    const table = values.find((v) => v.tableName === tableName);
-    if (table) {
+const getRecord = async (entityName = "", prop = "") => {
+    const entity = values.find((v) => v.entityName === entityName);
+    if (entity) {
         obj = {
+<<<<<<< HEAD
             entityName: tableName,
             columns: columns,
             condition: field !== 'none' ? field : `Disable=0`
+=======
+            entityName: entity.entityName,
+            condition: prop !== 'none' ? prop : `1=1`
+>>>>>>> products2
         };
         try {
-            const result = await postData(sqlServer, '/sql/readTop20', obj);
+
+            const result = await getData(`/read/readAll/${obj.entityName}/${obj.condition}`);
             return result;
         }
         catch (error) {
@@ -86,17 +153,20 @@ const getRecord = async (tableName = "", columns = "", field = "") => {
 
 const updateRecord = async (obj = null) => {
     if (obj) {
-        const table = values.find(({ tableName }) => tableName === obj.tableName);
-        if (table) {
+        const entity = values.find(({ entityName }) => entityName === obj.entityName);
+        if (entity) {
             let result;
-            const val = obj.tableName;
             const newObj = {
+<<<<<<< HEAD
                 entityName: val,
+=======
+                tableName: obj.entityName,
+>>>>>>> products2
                 values: obj.update,
                 condition: obj.condition
             };
             try {
-                result = await postData(sqlServer, '/sql/update', newObj);
+                result = await postData('/update/update', newObj);
                 return result;
             }
             catch (error) {
@@ -104,7 +174,7 @@ const updateRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the table name is not exist");
+            throw new Error(`the entity name ${obj.entityName} is not exist`);
         }
     }
     else {
@@ -114,12 +184,15 @@ const updateRecord = async (obj = null) => {
 
 const deleteRecord = async (obj) => {
     if (obj) {
-        const table = values.find(({ tableName }) => tableName === obj.tableName);
+        const table = values.find(({ entityName }) => entityName === obj.entity);
         if (table) {
             let result;
-            const val = obj.tableName;
             const newObj = {
+<<<<<<< HEAD
                 entityName: val,
+=======
+                tableName: table.entityName,
+>>>>>>> products2
                 values: {
                     disable: 1,
                     deletingDate:new Date()
@@ -127,7 +200,7 @@ const deleteRecord = async (obj) => {
                 condition: obj.condition
             };
             try {
-                result = await postData(sqlServer, '/sql/update', newObj);
+                result = await postData('/update/update', newObj);
                 return result;
             }
             catch (error) {

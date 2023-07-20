@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
 // const { setDate } = require('./functions');
-const { getData, postData } = require('../../services/axios');
+const { getData, postData,   } = require('../../services/axios');
 
 /////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
@@ -90,7 +90,7 @@ async function updateDetail(code, setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: {SupplierCode:code, BranchName:setting.OldBranchName, Disabled : '0'}
         }
-        const res = await postData("/update/update", obj);
+        const res = await postData(  "/update/update",obj);
         console.log(res);
         return res;
     }

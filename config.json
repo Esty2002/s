@@ -9,16 +9,36 @@
                         {
                             "key": "create",
                             "arguments": {
-                                "Name": "string",
-                                "UnitOfMeasure": "int",
-                                "BookkeepingCode": "string"
+                                "Name": {
+                                    "type": "string",
+                                    "example": "Buyton",
+                                    "required": true,
+                                    "description": "Send the name for the new addition"
+                                },
+                                "UnitOfMeasure": {
+                                    "type": "string",
+                                    "example": "mmm",
+                                    "required": true,
+                                    "description": "Send the unit of measure for the new addition. Notice! it must exist a unit of measure with this Name in the DB"
+                                },
+                                "BookkeepingCode": {
+                                    "type": "string",
+                                    "example": "1234",
+                                    "required": false,
+                                    "description": "Send the book keeping code for the new addition"
+                                }
                             },
-                            "response": "boolean"
+                            "response": true
                         },
                         {
                             "key": "delete",
                             "arguments": {
-                                "Id": "int"
+                                "Id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "You are aloud to send any of the headers in this table instead of Id"
+                                }
                             },
                             "response": "boolean"
                         },
@@ -26,12 +46,48 @@
                             "key": "update",
                             "arguments": {
                                 "update": {
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "BookkeepingCode": "string"
+                                    "type": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "type": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "Send the new name"
+                                    },
+                                    "UnitOfMeasure": {
+                                        "type": "string",
+                                        "example": "mmm",
+                                        "required": true,
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure with this Name in the DB"
+                                    },
+                                    "BookkeepingCode": {
+                                        "type": "string",
+                                        "example": "1234",
+                                        "required": "",
+                                        "description": "Send the new book keeping code"
+                                    }
                                 },
                                 "where": {
-                                    "Name": "string"
+                                    "type": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": "mmm",
+                                        "BookkeepingCode": "1234"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "type": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Name"
+                                    }
                                 }
                             },
                             "response": "boolean"
@@ -40,19 +96,38 @@
                             "key": "find",
                             "arguments": {
                                 "where": {
-                                    "Enabled": "int"
+                                    "type": "object",
+                                    "example": {
+                                        "Enabled": true
+                                    },
+                                    "required": false,
+                                    "description": "",
+                                    "Enabled": {
+                                        "type": "boolean",
+                                        "example": true,
+                                        "required": false,
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
+                                    }
+                                },
+                                "arr": {
+                                    "type": "array:string",
+                                    "example": ["Name"],
+                                    "required":false,
+                                    "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
                             "response": [
-                                {
-                                    "Id": "int",
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "BookkeepingCode": "string",
-                                    "AddedDate": "date",
-                                    "Enabled": "boolean",
-                                    "DeleteDate": "date"
-                                }
+                                [
+                                    {
+                                        "Id": 1,
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": "mmm",
+                                        "BookkeepingCode": "1234",
+                                        "AddedDate": "2023-07-12T13:33:59.093Z",
+                                        "Enabled": true,
+                                        "DeleteDate": null
+                                    }
+                                ]
                             ]
                         }
                     ]
@@ -63,22 +138,71 @@
                         {
                             "key": "create",
                             "arguments": {
-                                "Name": "string",
-                                "UnitOfMeasure": "int",
-                                "BookkeepingCode": "string"
+                                "Name": {
+                                    "type": "string",
+                                    "example": "Buyton",
+                                    "required": true,
+                                    "description": "Send the name for the new finished product"
+                                },
+                                "UnitOfMeasure": {
+                                    "type": "string",
+                                    "example": "mmm",
+                                    "required": true,
+                                    "description": "Send the unit of measure for the new finished product. Notice! it must exist a unit of measure with this Name in the DB"
+                                },
+                                "BookkeepingCode": {
+                                    "type": "string",
+                                    "example": "1234",
+                                    "required": false,
+                                    "description": "Send the book keeping code for the new finished product"
+                                }
                             },
-                            "response": "boolean"
+                            "response": true
                         },
                         {
                             "key": "update",
                             "arguments": {
                                 "update": {
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "BookkeepingCode": "string"
+                                    "type": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "type": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "Send the new name"
+                                    },
+                                    "UnitOfMeasure": {
+                                        "type": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    },
+                                    "BookkeepingCode": {
+                                        "type": "string",
+                                        "example": "1234",
+                                        "required": "",
+                                        "description": "Send the new book keeping code"
+                                    }
                                 },
                                 "where": {
-                                    "Name": "string"
+                                    "type": "object",
+                                    "example": {
+                                        "Name": "Buyton"
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "type": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Name"
+                                    }
                                 }
                             },
                             "response": "boolean"
@@ -86,7 +210,12 @@
                         {
                             "key": "delete",
                             "arguments": {
-                                "Id": "int"
+                                "Id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the Id of the row wich you want to delete. You are aloud to send any of the headers in this table instead of Id"
+                                }
                             },
                             "response": "boolean"
                         },
@@ -94,14 +223,31 @@
                             "key": "find",
                             "arguments": {
                                 "where": {
-                                    "Enabled": "int"
+                                    "type": "object",
+                                    "example": {
+                                        "Enabled": true
+                                    },
+                                    "required": false,
+                                    "description": "",
+                                    "Enabled": {
+                                        "type": "boolean",
+                                        "example": true,
+                                        "required": false,
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
+                                    }
+                                },
+                                "arr": {
+                                    "type": "array:string",
+                                    "example": ["Name"],
+                                    "required":false,
+                                    "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
-                            "response":[
+                            "response": [
                                 {
                                     "Id": 1,
                                     "Name": "string",
-                                    "UnitOfMeasure": 1,
+                                    "UnitOfMeasure": "mmm",
                                     "BookkeepingCode": "string",
                                     "AddedDate": "2023-06-29T14:11:55.423Z",
                                     "Enabled": true,
@@ -117,19 +263,38 @@
                         {
                             "key": "insertRow",
                             "arguments": {
-                                "parent": "int",
-                                "child": "int",
-                                "disable": false
+                                "parent": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "child": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "disable": {
+                                    "type": "boolean",
+                                    "example": false,
+                                    "required": "",
+                                    "description": "Each row is seposed to be false in the begining. When you want to delete, send true"
+                                }
                             },
                             "response": [
                                 {
-                                    "Id": "int"
+                                    "Id": {
+                                        "type": "int",
+                                        "required": "",
+                                        "description": ""
+                                    }
                                 }
                             ]
                         },
                         {
                             "key": "readAll",
-                            "arguments": null,
+                            "arguments": "",
                             "response": [
                                 {
                                     "Id": "int",
@@ -142,8 +307,18 @@
                         {
                             "key": "deleteItem",
                             "arguments": {
-                                "Id": "int",
-                                "Disable": true
+                                "Id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Disable": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "required": "",
+                                    "description": "Each row is seposed to be true in the begining. When you want to delete, send false"
+                                }
                             },
                             "response": {
                                 "recordsets": [],
@@ -156,17 +331,55 @@
                         {
                             "key": "updateNames",
                             "arguments": {
-                                "idP": "int",
-                                "idC": "int",
+                                "idP": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "idC": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": ""
+                                },
                                 "parent": {
-                                    "value": "string",
-                                    "id": "int"
+                                    "type": "object",
+                                    "required": "",
+                                    "description": "",
+                                    "value": {
+                                        "type": "string",
+                                        "example": "pump",
+                                        "required": "",
+                                        "description": "A pump Name"
+                                    },
+                                    "id": {
+                                        "type": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": ""
+                                    }
                                 },
                                 "child": {
-                                    "value": "string",
-                                    "id": "int"
+                                    "value": {
+                                        "type": "string",
+                                        "example": "pump",
+                                        "required": "",
+                                        "description": ""
+                                    },
+                                    "id": {
+                                        "type": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": ""
+                                    }
                                 },
-                                "disable": true
+                                "disable": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "required": "",
+                                    "description": "Each row is seposed to be true in the begining. When you want to delete, send false"
+                                }
                             },
                             "response": ""
                         }
@@ -178,7 +391,12 @@
                         {
                             "key": "pumpNameById",
                             "arguments": {
-                                "id": "int"
+                                "id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send the Id of the row wich you want to filter"
+                                }
                             },
                             "response": [
                                 {
@@ -196,30 +414,67 @@
                         {
                             "key": "create",
                             "arguments": {
-                                "Name": "string",
-                                "UnitOfMeasure": "int",
-                                "Addition": "bit",
-                                "BookkeepingCode": "string"
+                                "Name": {
+                                    "type": "string",
+                                    "example": "Buyton",
+                                    "required": true,
+                                    "description": "Send the name for the new pump"
+                                },
+                                "UnitOfMeasure": {
+                                    "type": "string",
+                                    "example": "mmm",
+                                    "required": true,
+                                    "description": "Send the unit of measure for the new pump. Notice! it must exist a unit of measure with this Name in the DB"
+                                },
+                                "Addition": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "required": "",
+                                    "description": "Send true if the new pump is an ascendant and false if it's an addition of an other pump"
+                                },
+                                "BookkeepingCode": {
+                                    "type": "string",
+                                    "example": "1234",
+                                    "required": false,
+                                    "description": "Send the book keeping code for the new pump"
+                                }
                             },
-                            "response": "boolean"
+                            "response": true
                         },
                         {
                             "key": "find",
                             "arguments": {
                                 "where": {
-                                    "Enabled": "int"
+                                    "type": "object",
+                                    "example": {
+                                        "Enabled": true
+                                    },
+                                    "required": false,
+                                    "description": "",
+                                    "Enabled": {
+                                        "type": "boolean",
+                                        "example": true,
+                                        "required": false,
+                                        "description": "The condition for filtering. You are aloud to send any of the headers in this table instead of enabled"
+                                    }
+                                },
+                                "arr": {
+                                    "type": "array:string",
+                                    "example": ["Name"],
+                                    "required":false,
+                                    "description": "Send a list of fields wich you wich you want to see"
                                 }
                             },
-                            "response": [
+                            "response":[
                                 {
-                                    "Id": "int",
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "Addition": "boolean",
-                                    "BookkeepingCode": "string",
-                                    "AddedDate": "date",
-                                    "Enabled": "boolean",
-                                    "DeleteDate": "date"
+                                    "Id": 1,
+                                    "Name": "Buyton",
+                                    "UnitOfMeasure": "mmm",
+                                    "Addition": true,
+                                    "BookkeepingCode": "1234",
+                                    "AddedDate": "2023-07-12T13:33:59.093Z",
+                                    "Enabled": true,
+                                    "DeleteDate": null
                                 }
                             ]
                         },
@@ -227,13 +482,53 @@
                             "key": "update",
                             "arguments": {
                                 "update": {
-                                    "Name": "string",
-                                    "UnitOfMeasure": "int",
-                                    "BookkeepingCode": "string",
-                                    "Addition": "boolean"
+                                    "type": "object",
+                                    "example": {
+                                        "Name": "Buyton",
+                                        "UnitOfMeasure": 1,
+                                        "BookkeepingCode": "1234",
+                                        "Addition": true
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Name": {
+                                        "type": "string",
+                                        "example": "Buyton",
+                                        "required": "",
+                                        "description": "Send the new name"
+                                    },
+                                    "UnitOfMeasure": {
+                                        "type": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "Send the new unit of measure. Notice! it must exist a unit of measure wuth this Id in the DB"
+                                    },
+                                    "BookkeepingCode": {
+                                        "type": "string",
+                                        "example": "1234",
+                                        "required": "",
+                                        "description": "Send the new book keeping code"
+                                    },
+                                    "Addition": {
+                                        "type": "boolean",
+                                        "example": true,
+                                        "required": "",
+                                        "description": "Send the new type of pump - ascendant or addition of pump"
+                                    }
                                 },
                                 "where": {
-                                    "Id": "int"
+                                    "type": "object",
+                                    "example": {
+                                        "Id": 1
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "Id": {
+                                        "type": "int",
+                                        "example": 1,
+                                        "required": "",
+                                        "description": "The condition where to update. You are aloud to send any of the headers in this table instead of Id"
+                                    }
                                 }
                             },
                             "response": "boolean"
@@ -241,7 +536,12 @@
                         {
                             "key": "delete",
                             "arguments": {
-                                "Id": "int"
+                                "Id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": "",
+                                    "description": "Send the Id of the row wich you want to delete"
+                                }
                             },
                             "response": "boolean"
                         }
@@ -253,15 +553,30 @@
                         {
                             "key": "deleteItem",
                             "arguments": {
-                                "Id": "int",
-                                "Disable": true
+                                "Id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the Id of the row wich you want to delete"
+                                },
+                                "Disable": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "required": false,
+                                    "description": "If you don't send this argument - it will be true by defualt"
+                                }
                             },
                             "response": ""
                         },
                         {
                             "key": "findMeasureName",
                             "arguments": {
-                                "id": "int"
+                                "id": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send as params the Id wich it's Name you are looking for."
+                                }
                             },
                             "response": [
                                 {
@@ -274,14 +589,24 @@
                         {
                             "key": "findMeasureId",
                             "arguments": {
-                                "name": "string"
+                                "name": {
+                                    "type": "string",
+                                    "example": "name=mmm",
+                                    "required": true,
+                                    "description": "Send as query string the Name wich it's Id you are looking for."
+                                }
                             },
                             "response": "int"
                         },
                         {
                             "key": "create",
                             "arguments": {
-                                "new": "string"
+                                "new": {
+                                    "type": "string",
+                                    "example": "Measure",
+                                    "required": true,
+                                    "description": "send the name for the new row."
+                                }
                             },
                             "response": [
                                 {
@@ -293,17 +618,39 @@
                             "key": "update",
                             "arguments": {
                                 "prev": {
-                                    "change": "change------------"
+                                    "type": "object",
+                                    "example": {
+                                        "change": ""
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "change": {
+                                        "type": "",
+                                        "example": "",
+                                        "required": "",
+                                        "description": "Not uptodated"
+                                    }
                                 },
                                 "new": {
-                                    "change": "change------------"
+                                    "type": "object",
+                                    "example": {
+                                        "change": ""
+                                    },
+                                    "required": "",
+                                    "description": "",
+                                    "change": {
+                                        "type": "",
+                                        "example": "",
+                                        "required": "",
+                                        "description": "Not uptodated"
+                                    }
                                 }
                             },
                             "response": ""
                         },
                         {
                             "key": "all",
-                            "arguments": null,
+                            "arguments": "",
                             "response": [
                                 {
                                     "Id": 1,
@@ -323,73 +670,314 @@
                     "document": "createClient",
                     "functions": [
                         {
-                            "key": "add",
+                            "key": "addOneClient",
                             "arguments": {
-                                "clientCode": "string",
-                                "clientName": "string",
-                                "privaetCompanyNumber": "string",
-                                "bookkeepingNumber": "string",
-                                "destinationBank": "string",
-                                "paymentTermsFluent": "string",
-                                "preferredPaymentDate": "string",
-                                "ovligo": "string",
-                                "receiptIssueTerm": "string",
-                                "receiptCentralism": "string",
-                                "accountantClassifiedCode": "string",
-                                "status": "string",
-                                "description": "string",
-                                "street": "string",
-                                "house": "string",
-                                "city": "string",
-                                "zipCode": "string",
-                                "telephone1": "string",
-                                "telephone2": "string",
-                                "mobilePhone": "string",
-                                "fax": "string",
-                                "email": "string",
-                                "comments": "string",
-                                "creationDate": "string",
-                                "userThatAdd": "string"
+                                "ClientCode": {
+                                    "type": "string",
+                                    "example": "1144",
+                                    "required": "",
+                                    "description": "clientcode"
+                                },
+                                "ClientName": {
+                                    "type": "string",
+                                    "example": "chana",
+                                    "required": "",
+                                    "description": "the name of client"
+                                },
+                                "PrivaetCompanyNumber": {
+                                    "type": "string",
+                                    "example": "45864",
+                                    "required": "",
+                                    "description": "PrivaetCompanyNumber"
+                                },
+                                "BookkeepingNumber": {
+                                    "type": "string",
+                                    "example": "2121",
+                                    "required": "",
+                                    "description": "BookkeepingNumber"
+                                },
+                                "DestinationBank": {
+                                    "type": "string",
+                                    "example": "3256445",
+                                    "required": "",
+                                    "description": "DestinationBank"
+                                },
+                                "PaymentTermsFluent": {
+                                    "type": "string",
+                                    "example": "45454",
+                                    "required": "",
+                                    "description": "PaymentTermsFluent"
+                                },
+                                "PreferredPaymentDate": {
+                                    "type": "date",
+                                    "example": "01/02/2023",
+                                    "required": "",
+                                    "description": "PreferredPaymentDate"
+                                },
+                                "Ovligo": {
+                                    "type": "int",
+                                    "example": "3",
+                                    "required": "",
+                                    "description": "Ovligo"
+                                },
+                                "ReceiptIssueTerm": {
+                                    "type": "string",
+                                    "example": "78554",
+                                    "required": "",
+                                    "description": "ReceiptIssueTerm"
+                                },
+                                "ReceiptCentralism": {
+                                    "type": "string",
+                                    "example": "42533",
+                                    "required": "",
+                                    "description": "ReceiptCentralism"
+                                },
+                                "AccountantClassifiedCode": {
+                                    "type": "int",
+                                    "example": "12",
+                                    "required": "",
+                                    "description": "AccountantClassifiedCode"
+                                },
+                                "Status": {
+                                    "type": "int",
+                                    "example": "1",
+                                    "required": "",
+                                    "description": "status"
+                                },
+                                "Description": {
+                                    "type": "string",
+                                    "example": "the bank is:",
+                                    "required": "",
+                                    "description": "Description"
+                                },
+                                "Street": {
+                                    "type": "string",
+                                    "example": "chalafta",
+                                    "required": "",
+                                    "description": "street"
+                                },
+                                "House": {
+                                    "type": "int",
+                                    "example": 10,
+                                    "required": "",
+                                    "description": "house"
+                                },
+                                "City": {
+                                    "type": "string",
+                                    "example": "ashdod",
+                                    "required": "",
+                                    "description": "city"
+                                },
+                                "ZipCode": {
+                                    "type": "string",
+                                    "example": "12345",
+                                    "required": "",
+                                    "description": "ZipCode"
+                                },
+                                "Telephone1": {
+                                    "type": "string",
+                                    "example": "0583286455",
+                                    "required": "",
+                                    "description": "the telephone1 "
+                                },
+                                "Telephone2": {
+                                    "type": "string",
+                                    "example": "0533110452",
+                                    "required": "",
+                                    "description": "the telephone2 "
+                                },
+                                "MobilePhone": {
+                                    "type": "string",
+                                    "example": "088647725",
+                                    "required": "",
+                                    "description": "MobilePhone"
+                                },
+                                "Fax": {
+                                    "type": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Email": {
+                                    "type": "string",
+                                    "example": "l088645254@gmail.com",
+                                    "required": "",
+                                    "description": "email"
+                                },
+                                "Comments": {
+                                    "type": "string",
+                                    "example": "g fg",
+                                    "required": "",
+                                    "description": "Comments"
+                                },
+                                "CreationDate": {
+                                    "type": "string",
+                                    "example": "01/05/2023",
+                                    "required": "",
+                                    "description": "CreationDate"
+                                },
+                                "UserThatAdd": {
+                                    "type": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": "UserThatAdd"
+                                }
                             },
-                            "response": ""
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    "object"
+                                ]
+                            }
                         }
                     ]
                 },
                 {
-                    "document": "deleteClients",
+                    "document": "deleteclients",
                     "functions": [
                         {
                             "key": "deleteClient",
                             "arguments": {
-                                "code": "string",
-                                "user": "string"
+                                "code": {
+                                    "type": "string",
+                                    "example": "4577",
+                                    "required": "",
+                                    "description": "clientCode"
+                                },
+                                "user": {
+                                    "type": "string",
+                                    "example": "tbl_clients",
+                                    "required": "",
+                                    "description": "userName"
+                                }
                             },
-                            "response": ""
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    1
+                                ]
+                            }
                         }
                     ]
                 },
                 {
-                    "document": "readClients",
+                    "document": "readClient",
                     "functions": [
                         {
                             "key": "getAll",
-                            "arguments": null,
-                            "response": ""
+                            "arguments": {
+                                "type": "object",
+                                "required": "",
+                                "description": "get all the clients"
+                            },
+                            "response": {}
                         },
                         {
                             "key": "findClient",
                             "arguments": {
-                                "id": "string"
+                                "id": {
+                                    "type": "string",
+                                    "example": "1235460",
+                                    "required": "",
+                                    "description": "id"
+                                }
                             },
-                            "response": ""
+                            "response": [
+                                {
+                                    "clientCode": "156",
+                                    "ClientName": "peri",
+                                    "PrivaetCompanyNumber": "124554",
+                                    "BookkeepingNumber": "8555",
+                                    "DestinationBank": "1455",
+                                    "PaymentTermsFluent": "56",
+                                    "PreferredPaymentDate": "01/05/2023",
+                                    "Ovligo": 4,
+                                    "ReceiptIssueTerm": "46",
+                                    "ReceiptCentralism": "612",
+                                    "AccountantClassifiedCode": 1,
+                                    "Status": 3,
+                                    "Description": "fzdsf",
+                                    "Street": "ben yair",
+                                    "House": 14,
+                                    "City": "arad",
+                                    "ZipCode": "1234",
+                                    "Telephone1": "0583224511",
+                                    "Telephone2": "0583286511",
+                                    "MobilePhone": "088647798",
+                                    "Fax": "088647798",
+                                    "Email": "fd2656@.gmail.com",
+                                    "Comments": "czx czx"
+                                },
+                                {
+                                    "clientCode": "156",
+                                    "ClientName": "dina",
+                                    "PrivaetCompanyNumber": "12444",
+                                    "BookkeepingNumber": "8555",
+                                    "DestinationBank": "1455",
+                                    "PaymentTermsFluent": "56",
+                                    "PreferredPaymentDate": "01/05/2023",
+                                    "Ovligo": 4,
+                                    "ReceiptIssueTerm": "46",
+                                    "ReceiptCentralism": "612",
+                                    "AccountantClassifiedCode": 1,
+                                    "Status": 3,
+                                    "Description": "fzdsf",
+                                    "Street": "ben yair",
+                                    "House": 14,
+                                    "City": "arad",
+                                    "ZipCode": "1234",
+                                    "Telephone1": "0583224511",
+                                    "Telephone2": "0583286511",
+                                    "MobilePhone": "088647798",
+                                    "Fax": "088647798",
+                                    "Email": "fd2656@.gmail.com",
+                                    "Comments": "czx czx"
+                                }
+                            ]
                         },
                         {
                             "key": "searchClient",
                             "arguments": {
-                                "field": "string",
-                                "value": "string"
+                                "field": {
+                                    "type": "string",
+                                    "required": "",
+                                    "example": "clientName",
+                                    "description": "the field"
+                                },
+                                "value": {
+                                    "type": "string",
+                                    "example": "sara",
+                                    "required": "",
+                                    "description": "the value of"
+                                }
                             },
-                            "response": ""
+                            "response": {
+                                "ClientCode": "miri",
+                                "ClientName": "111",
+                                "PrivaetCompanyNumber": "124554",
+                                "BookkeepingNumber": "8555",
+                                "DestinationBank": "1455",
+                                "PaymentTermsFluent": "56",
+                                "PreferredPaymentDate": "01/05/2023",
+                                "Ovligo": 4,
+                                "ReceiptIssueTerm": "46",
+                                "ReceiptCentralism": "612",
+                                "AccountantClassifiedCode": 1,
+                                "Status": 3,
+                                "Description": "fzdsf",
+                                "Street": "ben yair",
+                                "House": 14,
+                                "City": "arad",
+                                "ZipCode": "1234",
+                                "Telephone1": "0583224511",
+                                "Telephone2": "0583286511",
+                                "MobilePhone": "088647798",
+                                "Fax": "088647798",
+                                "Email": "fd2656@.gmail.com",
+                                "Comments": "czx czx"
+                            }
                         }
                     ]
                 },
@@ -399,43 +987,179 @@
                         {
                             "key": "update",
                             "arguments": {
-                                "clientCode": "string",
-                                "clientName": "string",
-                                "privaetCompanyNumber": "string",
-                                "bookkeepingNumber": "string",
-                                "destinationBank": "string",
-                                "paymentTermsFluent": "string",
-                                "preferredPaymentDate": "string",
-                                "ovligo": "string",
-                                "receiptIssueTerm": "string",
-                                "receiptCentralism": "string",
-                                "accountantClassifiedCode": "string",
-                                "status": "string",
-                                "description": "string",
-                                "street": "string",
-                                "house": "string",
-                                "city": "string",
-                                "zipCode": "string",
-                                "telephone1": "string",
-                                "telephone2": "string",
-                                "mobilePhone": "string",
-                                "fax": "string",
-                                "email": "string",
-                                "comments": "string",
-                                "creationDate": "string",
-                                "userThatAdd": "string"
+                                "ClientCode": {
+                                    "type": "string",
+                                    "example": "1144",
+                                    "required": "",
+                                    "description": "clientcode"
+                                },
+                                "ClientName": {
+                                    "type": "string",
+                                    "example": "chana",
+                                    "required": "",
+                                    "description": "the name of client"
+                                },
+                                "PrivaetCompanyNumber": {
+                                    "type": "string",
+                                    "example": "2222",
+                                    "required": "",
+                                    "description": "PrivaetCompanyNumber"
+                                },
+                                "BookkeepingNumber": {
+                                    "type": "string",
+                                    "example": "2121",
+                                    "required": "",
+                                    "description": "BookkeepingNumber"
+                                },
+                                "DestinationBank": {
+                                    "type": "string",
+                                    "example": "3256445",
+                                    "required": "",
+                                    "description": "DestinationBank"
+                                },
+                                "PaymentTermsFluent": {
+                                    "type": "string",
+                                    "example": "45454",
+                                    "required": "",
+                                    "description": "PaymentTermsFluent"
+                                },
+                                "PreferredPaymentDate": {
+                                    "type": "date",
+                                    "example": "01/02/2023",
+                                    "required": "",
+                                    "description": "PreferredPaymentDate"
+                                },
+                                "Ovligo": {
+                                    "type": "int",
+                                    "example": "3",
+                                    "required": "",
+                                    "description": "Ovligo"
+                                },
+                                "ReceiptIssueTerm": {
+                                    "type": "string",
+                                    "example": "78554",
+                                    "required": "",
+                                    "description": "ReceiptIssueTerm"
+                                },
+                                "ReceiptCentralism": {
+                                    "type": "string",
+                                    "example": "42533",
+                                    "required": "",
+                                    "description": "ReceiptCentralism"
+                                },
+                                "AccountantClassifiedCode": {
+                                    "type": "int",
+                                    "example": "12",
+                                    "required": "",
+                                    "description": "AccountantClassifiedCode"
+                                },
+                                "Status": {
+                                    "type": "int",
+                                    "example": "1",
+                                    "required": "",
+                                    "description": "status"
+                                },
+                                "Description": {
+                                    "type": "string",
+                                    "example": "the bank is:",
+                                    "required": "",
+                                    "description": "Description"
+                                },
+                                "Street": {
+                                    "type": "string",
+                                    "example": "chalafta",
+                                    "required": "",
+                                    "description": "street"
+                                },
+                                "House": {
+                                    "type": "int",
+                                    "example": 10,
+                                    "required": "",
+                                    "description": "house"
+                                },
+                                "City": {
+                                    "type": "string",
+                                    "example": "ashdod",
+                                    "required": "",
+                                    "description": "city"
+                                },
+                                "ZipCode": {
+                                    "type": "string",
+                                    "example": "12345",
+                                    "required": "",
+                                    "description": "ZipCode"
+                                },
+                                "Telephone1": {
+                                    "type": "string",
+                                    "example": "0583286455",
+                                    "required": "",
+                                    "description": "the telephone1 "
+                                },
+                                "Telephone2": {
+                                    "type": "string",
+                                    "example": "0533110452",
+                                    "required": "",
+                                    "description": "the telephone2 "
+                                },
+                                "MobilePhone": {
+                                    "type": "string",
+                                    "example": "088647725",
+                                    "required": "",
+                                    "description": "MobilePhone"
+                                },
+                                "Fax": {
+                                    "type": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Email": {
+                                    "type": "string",
+                                    "example": "l088645254@gmail.com",
+                                    "required": "",
+                                    "description": "email"
+                                },
+                                "Comments": {
+                                    "type": "string",
+                                    "example": "g fg",
+                                    "required": "",
+                                    "description": "Comments"
+                                },
+                                "CreationDate": {
+                                    "type": "string",
+                                    "example": "01/05/2023",
+                                    "required": "",
+                                    "description": "CreationDate"
+                                },
+                                "UserThatAdd": {
+                                    "type": "string",
+                                    "example": "",
+                                    "required": "",
+                                    "description": "UserThatAdd"
+                                }
                             },
-                            "response": ""
-                        }
-                    ]
-                },
-                {
-                    "document": "status",
-                    "functions": [
+                            "response": {
+                                "recordsets": [],
+                                "output": null,
+                                "rowsAffected": [
+                                    "object"
+                                ]
+                            }
+                        },
                         {
-                            "key": "status",
-                            "arguments": null,
-                            "response": ""
+                            "document": "status",
+                            "functions": [
+                                {
+                                    "key": "status",
+                                    "arguments": {
+                                        "type": "int",
+                                        "required": "",
+                                        "example": 3,
+                                        "description": "the status"
+                                    },
+                                    "response": 3
+                                }
+                            ]
                         }
                     ]
                 }
@@ -448,18 +1172,74 @@
                     "document": "areas",
                     "functions": [
                         {
-                            "key": "allcities",
-                            "arguments": "",
-                            "response": ""
-                        },
-                        {
-                            "key": "isExist",
-                            "arguments": "",
-                            "response": ""
-                        },
-                        {
                             "key": "insertArea",
-                            "arguments": "",
+                            "arguments": {
+                                "name": {
+                                    "type": "string",
+                                    "required": true,
+                                    "description": "area name"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "required": true,
+                                    "description": "area type"
+                                },
+                                "disabled": {
+                                    "type": "string",
+                                    "required": true,
+                                    "description": "area is disabled or not"
+                                },
+                                "point": {
+                                    "type": "object",
+                                    "required": false,
+                                    "description": "indication area by point",
+                                    "lat": {
+                                        "type": "double",
+                                        "required": true,
+                                        "description": "latitude of the point"
+                                    },
+                                    "lng": {
+                                        "type": "double",
+                                        "required": true,
+                                        "description": "longitude of the point"
+                                    }
+                                },
+                                "radius": {
+                                    "type": "int",
+                                    "required": false,
+                                    "description": "indication area by point and radius"
+                                },
+                                "basicName": {
+                                    "type": "string",
+                                    "required": false,
+                                    "description": "basic name of area from google maps"
+                                },
+                                "placeId": {
+                                    "type": "string",
+                                    "required": false,
+                                    "description": "place id of point from google maps"
+                                },
+                                "placesId": {
+                                    "type": "array",
+                                    "required": false,
+                                    "description": "places id array of points array from google maps"
+                                },
+                                "points": {
+                                    "type": "array",
+                                    "required": false,
+                                    "description": "places id array of points array from google maps",
+                                    "lat": {
+                                        "type": "double",
+                                        "required": true,
+                                        "description": "latitude of the point"
+                                    },
+                                    "lng": {
+                                        "type": "double",
+                                        "required": true,
+                                        "description": "longitude of the point"
+                                    }
+                                }
+                            },
                             "response": ""
                         },
                         {
@@ -469,12 +1249,28 @@
                         },
                         {
                             "key": "findAllTypes",
-                            "arguments": "",
+                            "arguments": {
+                                "collection": {
+                                    "type": "string",
+                                    "required": true,
+                                    "description": "collection name"
+                                },
+                                "filter": {
+                                    "type": "string",
+                                    "required": true,
+                                    "description": "indicate the field to distinct"
+                                }
+                            },
                             "response": ""
                         },
                         {
                             "key": "updateArea",
                             "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "deleteArea",
+                            "arguments": {},
                             "response": ""
                         },
                         {
@@ -485,21 +1281,6 @@
                         {
                             "key": "updatePointsAndRadiusInArea",
                             "arguments": "",
-                            "response": ""
-                        },
-                        {
-                            "key": "deleteAreaDetail",
-                            "arguments": {
-                                "phone": "string",
-                                "nameArea": "string"
-                            },
-                            "response": ""
-                        },
-                        {
-                            "key": "findAreasByCode",
-                            "arguments": {
-                                "phone": "string"
-                            },
                             "response": ""
                         },
                         {
@@ -520,119 +1301,352 @@
                         {
                             "key": "addPriceList",
                             "arguments": {
-                                "Name": "string",
-                                "Pumps": "boolean",
-                                "Beton": "boolean",
-                                "AddedDate": "date",
-                                "UserName": "string",
-                                "Disabled": "boolean"
-                              },
-                            "response": ""
+                                "Name": {
+                                    "type": "string",
+                                    "example": "priceList1",
+                                    "required": true,
+                                    "description": "Send the name of the price list"
+                                },
+                                "Pumps": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "required": true,
+                                    "description": "Do you want a pump"
+                                },
+                                "Beton": {
+                                    "type": "boolean",
+                                    "example": true,
+                                    "required": true,
+                                    "description": "Do you want beton"
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "example": "tony",
+                                    "required": true,
+                                    "description": "Send the user name that added the price list"
+                                },
+                                "Disabled": {
+                                    "type": "boolean",
+                                    "example": false,
+                                    "required": true,
+                                    "description": "pricelist is disabled or not"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 291
+                                }
+                            ]
                         },
                         {
                             "key": "addCitiesAdditions",
                             "arguments": {
-                                "PriceListId": "int",
-                                "ProductId": "int",
-                                "AreaId": "string",
-                                "Price": "int",
-                                "CountPrecent": "int",
-                                "AddedDate": "date",
-                                "UserName": "string"
-                              },
+                                "PriceListId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AreaId": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "CountPrecent": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": [
                                 "boolean"
-                              ]
+                            ]
                         },
                         {
                             "key": "addTimeAdditions",
                             "arguments": {
-                                "PriceListId": "int",
-                                "ProductId": "int",
-                                "Price": "int",
-                                "CountPrecent":"int",
-                                "DayOfWeek": "int",
-                                "StartDate": "date",
-                                "EndDate": "date",
-                                "AddedDate": "date",
-                                "UserName": "string"
-                              },
+                                "PriceListId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "CountPrecent": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "DayOfWeek": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "StartDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "EndDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": [
                                 "boolean"
-                              ]
+                            ]
                         },
                         {
                             "key": "addAdditionsForDistance",
                             "arguments": {
-                                "PriceListId": "int",
-                                "ProductId": "int",
-                                "Distance": "float",
-                                "Price": "int",
-                                "CountPrecent": "int",
-                                "AddedDate": "date",
-                                "UserName": "string"
-                              },
+                                "PriceListId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Distance": {
+                                    "type": "float",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "CountPrecent": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": "boolean"
                         },
                         {
                             "key": "addTruckFill",
                             "arguments": {
-                                "PriceListId": "int",
-                                "ProductId": "int",
-                                "TransportDiff": "int",
-                                "MaxTransportDiff": "int",
-                                "AddedDate": "date",
-                                "UserName": "string"
-                              },
+                                "PriceListId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "TransportDiff": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "MaxTransportDiff": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": "boolean"
                         },
                         {
                             "key": "addPricesListBySupplierOrClient",
                             "arguments": {
-                                "PriceListId": "int",
-                                "SupplierOrClient": "int",
-                                "Debit": "boolean",
-                                "Credit": "boolean",
-                                "AreaId": "string",
-                                "StartDate": "date",
-                                "EndDate": "date",
-                                "AddedDate": "date",
-                                "UserName": "string"
-                              },
+                                "PriceListId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "SupplierOrClient": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Debit": {
+                                    "type": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Credit": {
+                                    "type": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AreaId": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "StartDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "EndDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": "boolean"
                         },
                         {
                             "key": "addPricelistForProducts",
                             "arguments": {
-                                "PriceListId":"int",
-                                "ProductId": "int",
-                                "Price": "int",
-                                "Discount": "int",
-                                "AddedDate": "date",
-                                "UserName": "string",
-                                "Disabled": "boolean"
-                              },
+                                "PriceListId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "ProductId": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Price": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Discount": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "Disabled": {
+                                    "type": "boolean",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": "boolean"
                         },
                         {
                             "key": "detailsOfProfucts",
-                            "arguments": "",
+                            "arguments": {
+                                "tbname": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": ""
                         },
                         {
                             "key": "updateFieldInTable",
-                            "arguments": "",
+                            "arguments": {
+                                "id": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "tbName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
                             "response": ""
                         },
                         {
                             "key": "getIdForPricelistName",
-                            "arguments": "",
-                            "response": ""
-                        },
-                        {
-                            "key": "getIdForProductName",
-                            "arguments": "",
-                            "response": ""
+                            "arguments": {
+                                "name": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "tablename": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
+                                }
+                            },
+                            "response": {
+                                "name": "string"
+                            }
                         }
                     ]
                 },
@@ -682,82 +1696,687 @@
             "directory": "suppliers",
             "documents": [
                 {
-                    "document":"branches",
-                    "functions":[
+                    "document": "branches",
+                    "functions": [
                         {
-                            "key":"deletebranches",
-                            "arguments":"",
-                            "response":""
+                            "key": "insertbranch",
+                            "arguments": {
+                                "BranchName": {
+                                    "type": "string",
+                                    "example": "miriam",
+                                    "required": true,
+                                    "description": "Send the name for the new branch"
+                                },
+                                "City": {
+                                    "type": "string",
+                                    "example": "Ashdod",
+                                    "required": true,
+                                    "description": "Send the name of the city for the new branch"
+                                },
+                                "Fax": {
+                                    "type": "string",
+                                    "example": "8641898",
+                                    "required": false,
+                                    "description": "Send the fax number of the new branch"
+                                },
+                                "HomeNumber": {
+                                    "type": "int",
+                                    "example": 12,
+                                    "required": true,
+                                    "description": "Send the number house of the new branch"
+                                },
+                                "Mail": {
+                                    "type": "string",
+                                    "example": "m@gmail.com",
+                                    "required": false,
+                                    "description": "Send the email of the new branch"
+                                },
+                                "Mobile": {
+                                    "type": "string",
+                                    "example": "0533112731",
+                                    "required": false,
+                                    "description": "Send the mobile telephone of the new branch"
+                                },
+                                "Phone1": {
+                                    "type": "string",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the phone number for the new branch"
+                                },
+                                "Phone2": {
+                                    "type": "string",
+                                    "example": 1,
+                                    "required": false,
+                                    "description": "Send the second phone number for the new branch"
+                                },
+                                "Status": {
+                                    "type": "int",
+                                    "example": 2,
+                                    "required": true,
+                                    "description": "Send the status of the new branch"
+                                },
+                                "Street": {
+                                    "type": "string",
+                                    "example": "ynai",
+                                    "required": true,
+                                    "description": "Send the street name of the new branch"
+                                },
+                                "SupplierCode": {
+                                    "type": "string",
+                                    "example": 36341,
+                                    "required": true,
+                                    "description": "Send the supplier code that this branch is him notic! the supplier code must be decleard "
+                                },
+                                "UserThatInsert": {
+                                    "type": "string",
+                                    "example": "moshe",
+                                    "required": true,
+                                    "description": "Send the user name that insert this branch"
+                                },
+                                "ZipCode": {
+                                    "type": "string",
+                                    "example": "333",
+                                    "required": true,
+                                    "description": "Send the zip code of the new branch"
+                                }
+                            },
+                            "response": {
+                                "Id": 1063
+                            }
                         },
                         {
-                            "key":"getallbranches",
-                            "arguments":"",
-                            "response":""
+                            "key": "getallbranches",
+                            "arguments": "",
+                            "response": [
+                                {
+                                    "Id": 1063,
+                                    "SupplierCode": 1017,
+                                    "BranchName": "Miri",
+                                    "Status": 1,
+                                    "Street": "fdsghd",
+                                    "HomeNumber": 5,
+                                    "City": "אשדוד",
+                                    "ZipCode": "543",
+                                    "Phone1": "4135235",
+                                    "Phone2": "24354343",
+                                    "Mobile": "54351435",
+                                    "Fax": "435435",
+                                    "Mail": "43534@4qwr.sfdg",
+                                    "Notes": null,
+                                    "CreationDate": "2023-07-04T13:04:10.747Z",
+                                    "UserThatInsert": "develop",
+                                    "Disabled": false,
+                                    "DisabledDate": null,
+                                    "DisableUser": null
+                                }
+                            ]
                         },
                         {
-                            "key":"getBranchesWithCondition",
-                            "arguments":"",
-                            "response":""
+                            "key": "getBranchesWithCondition",
+                            "arguments": {
+                                "condition": {
+                                    "type": "string",
+                                    "example": "SupplierCode",
+                                    "required": true,
+                                    "description": "Send the condition that you need to see the brances - in params"
+                                },
+                                "value": {
+                                    "type": "int",
+                                    "example": 1001,
+                                    "required": true,
+                                    "description": "Send the value of the condition - in params"
+                                },
+                                "num": {
+                                    "type": "int",
+                                    "example": 1,
+                                    "required": true,
+                                    "description": "Send the num 1/0 to display branches or the delete branches - in params"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1020,
+                                    "SupplierCode": 1007,
+                                    "BranchName": "firstbranch",
+                                    "Status": 1,
+                                    "Street": "hyasmin",
+                                    "HomeNumber": 6,
+                                    "City": "אשדוד",
+                                    "ZipCode": "456",
+                                    "Phone1": "64646464",
+                                    "Phone2": null,
+                                    "Mobile": null,
+                                    "Fax": null,
+                                    "Mail": "464646@etr.jhgh",
+                                    "Notes": null,
+                                    "CreationDate": "2023-06-29T13:00:45.880Z",
+                                    "UserThatInsert": "develop",
+                                    "Disabled": true,
+                                    "DisabledDate": "2023-07-02T12:01:58.283Z",
+                                    "DisableUser": "develop"
+                                }
+                            ]
                         },
                         {
-                            "key":"insertbranch",
-                            "arguments":"",
-                            "response":""
+                            "key": "deletebrances",
+                            "arguments": {
+                                "BranchName": {
+                                    "type": "string",
+                                    "example": "trey",
+                                    "required": true,
+                                    "description": "Send the name of the branch that you need delete"
+                                },
+                                "DisableUser": {
+                                    "type": "string",
+                                    "example": "develop",
+                                    "required": false,
+                                    "description": "Send the name of the who delete the branch"
+                                },
+                                "Id": {
+                                    "type": "string",
+                                    "example": "1017",
+                                    "required": true,
+                                    "description": "Send the id of the branch that you need delete"
+                                }
+                            },
+                            "response": "I dont knooooooooooooooooooow:("
                         },
                         {
-                            "key":"updatebranch",
-                            "arguments":"",
-                            "response":""
+                            "key": "updatebranch",
+                            "arguments": "",
+                            "response": ""
                         },
                         {
-                            "key":"checkUnique",
-                            "arguments":"",
-                            "response":""
+                            "key": "checkUnique",
+                            "arguments": {
+                                "SupplierCode": {
+                                    "type": "string",
+                                    "example": 1007,
+                                    "required": true,
+                                    "description": "Send the suppliercode that you need check - in params"
+                                },
+                                "BranchName": {
+                                    "type": "string",
+                                    "example": "smallbranch",
+                                    "required": true,
+                                    "description": "Send the suppliercode that you need check - in params"
+                                }
+                            },
+                            "response": "I dont knooooooooooooooooooow:("
                         }
                     ]
                 },
                 {
-                    "document":"suppliers",
-                    "functions":[
+                    "document": "suppliers",
+                    "functions": [
                         {
-                            "key":"deletesupplier",
-                            "arguments":"",
-                            "response":""
+                            "key": "deletesupplier",
+                            "arguments": {
+                                "DisableUser": {
+                                    "type": "string",
+                                    "example": "Ari",
+                                    "required": true,
+                                    "description": "Send the user name that delete the supplier"
+                                },
+                                "Id": {
+                                    "type": "string",
+                                    "example": "1051",
+                                    "required": true,
+                                    "description": "Send the supplier id"
+                                },
+                                "SupplierCode": {
+                                    "type": "string",
+                                    "example": "1234",
+                                    "required": true,
+                                    "description": "Send the supplier code"
+                                }
+                            },
+                            "response": ""
                         },
                         {
-                            "key":"insertsupplier",
-                            "arguments":"",
-                            "response":""
+                            "key": "insertsupplier",
+                            "arguments": {
+                                "BookkeepingNumber": {
+                                    "type": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send the number of the bookking number of the supplier"
+                                },
+                                "City": {
+                                    "type": "string",
+                                    "example": "Arad",
+                                    "required": true,
+                                    "description": "Send city name of the supplier"
+                                },
+                                "ConditionGushyPayment": {
+                                    "type": "string",
+                                    "example": "cova",
+                                    "required": false,
+                                    "description": "Send the condition paymanet"
+                                },
+                                "Disabled": {
+                                    "type": "int",
+                                    "example": "1",
+                                    "required": false,
+                                    "description": "Send the number 1/0 to dispaly the suppliers or the delete suppliers"
+                                },
+                                "Fax": {
+                                    "type": "string",
+                                    "example": "8641898",
+                                    "required": false,
+                                    "description": "Send the fax number of the supplier"
+                                },
+                                "HomeNumber": {
+                                    "type": "string",
+                                    "example": "12",
+                                    "required": true,
+                                    "description": "Send the house number of the supplier"
+                                },
+                                "InsertUser": {
+                                    "type": "string",
+                                    "example": "develpo",
+                                    "required": true,
+                                    "description": "Send the user name that insert the supplier"
+                                },
+                                "LicensedDealerNumber": {
+                                    "type": "string",
+                                    "example": "3456",
+                                    "required": true,
+                                    "description": "Send the license dealer number of the supplier"
+                                },
+                                "Mobile": {
+                                    "type": "string",
+                                    "example": "0533112731",
+                                    "required": false,
+                                    "description": "Send the mobile telephone of the supplier"
+                                },
+                                "ObjectiveBank": {
+                                    "type": "string",
+                                    "example": "pagi",
+                                    "required": false,
+                                    "description": "Send the bank name of the supplier"
+                                },
+                                "Ovligo": {
+                                    "type": "string",
+                                    "example": "12",
+                                    "required": false,
+                                    "description": "Send the ovligo number of the supplier"
+                                },
+                                "Phone1": {
+                                    "type": "string",
+                                    "example": "088641898",
+                                    "required": true,
+                                    "description": "Send the first phone number of the supplier"
+                                },
+                                "Phone2": {
+                                    "type": "string",
+                                    "example": "088659214",
+                                    "required": false,
+                                    "description": "Send the second phone number of the supplier"
+                                },
+                                "PreferredPaymentDate": {
+                                    "type": "string",
+                                    "example": "6",
+                                    "required": true,
+                                    "description": "Send the day in the month  - the prefer paymant date"
+                                },
+                                "Status": {
+                                    "type": "string",
+                                    "example": "1",
+                                    "required": true,
+                                    "description": "Send the status of the supplier"
+                                },
+                                "Street": {
+                                    "type": "string",
+                                    "example": "tarfon",
+                                    "required": true,
+                                    "description": "Send the street name of the supplier"
+                                },
+                                "SupplierCode": {
+                                    "type": "string",
+                                    "example": "1234",
+                                    "required": true,
+                                    "description": "Send the supplier code"
+                                },
+                                "SupplierName": {
+                                    "type": "string",
+                                    "example": "Moshe Choen",
+                                    "required": true,
+                                    "description": "Send the name of the supplier"
+                                },
+                                "ZipCode": {
+                                    "type": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send zip code of the supplier"
+                                }
+                            },
+                            "response": {
+                                "Id": 1049
+                            }
                         },
                         {
-                            "key":"updatesupplier",
-                            "arguments":"",
-                            "response":""
+                            "key": "updatesupplier",
+                            "arguments": {
+                                "SupplierCode": {
+                                    "type": "string",
+                                    "example": "1234",
+                                    "required": false,
+                                    "description": "Send the supplier code"
+                                },
+                                "SupplierName": {
+                                    "type": "string",
+                                    "example": "Rivka shpira",
+                                    "required": false,
+                                    "description": "Send the update name of the supplier"
+                                },
+                                "LicensedDealerNumber": {
+                                    "type": "string",
+                                    "example": "23244",
+                                    "required": false,
+                                    "description": "Send the license dealer number of the supplier"
+                                },
+                                "BookkeepingNumber": {
+                                    "type": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send the number of the bookking number of the supplier"
+                                },
+                                "ObjectiveBank": {
+                                    "type": "string",
+                                    "example": "pagi",
+                                    "required": false,
+                                    "description": "Send the bank name of the supplier"
+                                },
+                                "ConditionGushyPayment": {
+                                    "type": "string",
+                                    "example": "cova",
+                                    "required": false,
+                                    "description": "Send the condition paymanet"
+                                },
+                                "PreferredPaymentDate": {
+                                    "type": "string",
+                                    "example": "6",
+                                    "required": false,
+                                    "description": "Send the day in the month  - the prefer paymant date"
+                                },
+                                "Ovligo": {
+                                    "type": "string",
+                                    "example": "12",
+                                    "required": false,
+                                    "description": "Send the ovligo number of the supplier"
+                                },
+                                "Status": {
+                                    "type": "string",
+                                    "example": "1",
+                                    "required": true,
+                                    "description": "Send the status of the supplier"
+                                },
+                                "Street": {
+                                    "type": "string",
+                                    "example": "tarfon",
+                                    "required": false,
+                                    "description": "Send the street name of the supplier"
+                                },
+                                "HomeNumber": {
+                                    "type": "string",
+                                    "example": "12",
+                                    "required": false,
+                                    "description": "Send the house number of the supplier"
+                                },
+                                "City": {
+                                    "type": "string",
+                                    "example": "Arad",
+                                    "required": false,
+                                    "description": "Send city name of the supplier"
+                                },
+                                "ZipCode": {
+                                    "type": "string",
+                                    "example": "3456",
+                                    "required": false,
+                                    "description": "Send zip code of the supplier"
+                                },
+                                "Phone1": {
+                                    "type": "string",
+                                    "example": "088641898",
+                                    "required": false,
+                                    "description": "Send the first phone number of the supplier"
+                                },
+                                "Phone2": {
+                                    "type": "string",
+                                    "example": "088659214",
+                                    "required": false,
+                                    "description": "Send the second phone number of the supplier"
+                                },
+                                "Mobile": {
+                                    "type": "string",
+                                    "example": "0533112731",
+                                    "required": false,
+                                    "description": "Send the mobile telephone of the supplier"
+                                },
+                                "Fax": {
+                                    "type": "string",
+                                    "example": "8641898",
+                                    "required": false,
+                                    "description": "Send the fax number of the supplier"
+                                },
+                                "Mail": {
+                                    "type": "string",
+                                    "example": "gil@gmail.com",
+                                    "required": false,
+                                    "description": "Send the email of the supplier"
+                                },
+                                "Notes": {
+                                    "type": "string",
+                                    "example": "this is a old man",
+                                    "required": false,
+                                    "description": "Send notes of the supplier"
+                                },
+                                "InsertUser": {
+                                    "type": "string",
+                                    "example": "develpo",
+                                    "required": false,
+                                    "description": "Send the user name that insert the supplier"
+                                },
+                                "OldSupplierCode": {
+                                    "type": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the old supplier code of this supplier"
+                                },
+                                "OldSupplierName": {
+                                    "type": "string",
+                                    "example": "Moshe",
+                                    "required": false,
+                                    "description": "Send the old supplier name of this supplier"
+                                }
+                            },
+                            "response": {
+                                "recordsets": [],
+                                "output": {},
+                                "rowsAffected": [
+                                    1
+                                ]
+                            }
                         },
                         {
-                            "key":"checkUnique",
-                            "arguments":"",
-                            "response":""
+                            "key": "checkUnique",
+                            "arguments": {
+                                "suppliercode": {
+                                    "type": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the supplier code that you need to check - in params"
+                                },
+                                "suppliername": {
+                                    "type": "string",
+                                    "example": "Gila lev",
+                                    "required": true,
+                                    "description": "Send the supplier name that you need to check - in params"
+                                }
+                            },
+                            "response": true
                         },
                         {
-                            "key":"checkUniqueCode",
-                            "arguments":"",
-                            "response":""
+                            "key": "checkUniqueCode",
+                            "arguments": {
+                                "suppliercode": {
+                                    "type": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the supplier code that you need to check - in params"
+                                }
+                            },
+                            "response": {}
                         },
                         {
-                            "key":"checkUniqueName",
-                            "arguments":"",
-                            "response":""
+                            "key": "checkUniqueName",
+                            "arguments": {
+                                "suppliername": {
+                                    "type": "string",
+                                    "example": "Gila lev",
+                                    "required": true,
+                                    "description": "Send the supplier name that you need to check - in params"
+                                }
+                            },
+                            "response": true
                         },
                         {
-                            "key":"getallSuppliers",
-                            "arguments":"",
-                            "response":""
+                            "key": "getSuppliers",
+                            "arguments": {
+                                "option": {
+                                    "type": "string",
+                                    "example": "SupplierCode",
+                                    "required": true,
+                                    "description": "Send the name from the column - in params"
+                                },
+                                "text": {
+                                    "type": "string",
+                                    "example": "123",
+                                    "required": true,
+                                    "description": "Send the value of the option - in params"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1032,
+                                    "SupplierCode": "22",
+                                    "SupplierName": "gil",
+                                    "LicensedDealerNumber": "6",
+                                    "BookkeepingNumber": null,
+                                    "ObjectiveBank": "ghfg",
+                                    "ConditionGushyPayment": null,
+                                    "PreferredPaymentDate": 5,
+                                    "Ovligo": 5,
+                                    "Status": 1,
+                                    "Street": "ghgfhg",
+                                    "HomeNumber": 5,
+                                    "City": "asdod",
+                                    "ZipCode": "543",
+                                    "Phone1": "4352345",
+                                    "Phone2": "45325",
+                                    "Mobile": "435",
+                                    "Fax": null,
+                                    "Mail": null,
+                                    "Notes": null,
+                                    "CreationDate": "2023-07-04T16:59:53.560Z",
+                                    "InsertUser": "develop",
+                                    "Disabled": false,
+                                    "DisabledDate": null,
+                                    "DisableUser": null
+                                }
+                            ]
                         },
                         {
-                            "key":"getSuppliers",
-                            "arguments":"",
-                            "response":""
+                            "key": "getallSuppliers",
+                            "arguments": {
+                                "num": {
+                                    "type": "int",
+                                    "example": 0,
+                                    "required": true,
+                                    "description": "send the num 1 or 0 for see the suppliers that disabled or to see the suppliers that delete - in params"
+                                }
+                            },
+                            "response": [
+                                {
+                                    "Id": 1009,
+                                    "SupplierCode": "23",
+                                    "SupplierName": "Dvory nosboim",
+                                    "LicensedDealerNumber": "3",
+                                    "BookkeepingNumber": "3",
+                                    "ObjectiveBank": "3",
+                                    "ConditionGushyPayment": "3",
+                                    "PreferredPaymentDate": 3,
+                                    "Ovligo": 3,
+                                    "Status": 1,
+                                    "Street": "3",
+                                    "HomeNumber": 3,
+                                    "City": "3",
+                                    "ZipCode": "3",
+                                    "Phone1": "088641898",
+                                    "Phone2": "3",
+                                    "Mobile": "3",
+                                    "Fax": "3",
+                                    "Mail": "h@g.iuykji",
+                                    "Notes": "3",
+                                    "CreationDate": "2023-06-25T17:29:51.000Z",
+                                    "InsertUser": "develop",
+                                    "Disabled": true,
+                                    "DisabledDate": "Jul  2 2023  2:21PM",
+                                    "DisableUser": "hgf",
+                                    "countBraches": 13
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "directory": "leads",
+            "documents": [
+                {
+                    "document": "leads",
+                    "functions": [
+                        {
+                            "key": "createnewlead",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "getleadsdetails",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updatelead",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "deletelead/:serialNumber",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "getrecord/:table/:field",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "insertrecord",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "updaterecord",
+                            "arguments": "",
+                            "response": ""
+                        },
+                        {
+                            "key": "/deleterecord/:tablename/:condition",
+                            "arguments": "",
+                            "response": ""
                         }
                     ]
                 }

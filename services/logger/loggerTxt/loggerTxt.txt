@@ -1,0 +1,2284 @@
+next function:
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"success"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"error"} error :wow }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"Array of Errors"} }
+----------------------------------
+last time login in the action 'create' : Sun Jul 16 2023 - 15:36:51  
+        
+description: insert addition in router
+        
+data: {dataThatRecived :{"name":"Array of Errors"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :success condition :undefined }
+----------------------------------
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined }
+----------------------------------
+last time login in the action 'find' : Sun Jul 16 2023 - 15:36:51  
+        
+description: find Addition in router
+        
+data: {arr :error condition :undefined error :wow }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Sun Jul 16 2023 - 15:36:51  
+        
+description: get all unit of measure in module
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'all' : Sun Jul 16 2023 - 15:36:51  
+        
+description: all units of measure in router
+        
+data: {error :Invalid URL }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:12:08  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:13:11  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:00  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:00  
+        
+description: findMeasureName:id in router
+        
+data: {error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:17  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:17  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:26  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:26  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:31  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 16:39:31  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:29:40  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:29:40  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:06  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:12  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:12  
+        
+description: findMeasureName:id in router
+        
+data: {error :no matching unit of measure }
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:18  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 18:30:18  
+        
+description: findMeasureName:id in router
+        
+data: {error :The id of the unit of measure is reuired with type int }
+----------------------------------
+next function:
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 18:34:46  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 18:34:46  
+        
+description: findMeasureId in router
+        
+data: {error :no matching unit of measure }
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 18:34:55  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 19:20:13  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 19:20:13  
+        
+description: findMeasureId in router
+        
+data: {error :no matching unit of measure }
+----------------------------------
+next function:
+last time login in the action 'findMeasureId' : Sun Jul 16 2023 - 19:23:20  
+        
+description: findMeasureId in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findMeasureNumber' : Sun Jul 16 2023 - 19:23:20  
+        
+description: findMeasureNumber in module measure
+        
+data: {obj :mmm }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName:id' : Sun Jul 16 2023 - 19:23:48  
+        
+description: findMeasureName:id in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Sun Jul 16 2023 - 19:23:48  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 17:32:38  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:32:38  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='true' project :Name }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:32:55  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":false} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:32:55  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='false' project :Name }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:33:03  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:33:03  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='llll' project :Name }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:33:03  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 17:50:27  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:50:27  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :tableName is not defined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 17:51:10  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:51:11  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 17:51:41  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:51:41  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 17:52:41  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:52:41  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 17:58:05  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 17:58:05  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:00:13  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:00:13  
+        
+description: find  finished product in router
+        
+data: {arr :["Name"] condition :{"Enabled":"llll"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:00:35  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:00:35  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:00:49  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:00:49  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:11:03  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:11:03  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:12:50  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:12:51  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:13:53  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:13:54  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"jhgjhg"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:20:11  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:20:11  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:20:59  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:21:00  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:45:24  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:45:25  
+        
+description: find finish products in module
+        
+data: {filter :Name='jhgjhg' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:47:10  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:47:10  
+        
+description: find finish products in module
+        
+data: {filter :Name='jhgjhg' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:47:35  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:47:35  
+        
+description: find finish products in module
+        
+data: {filter :Name='jhgjhg' project :* }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 18:53:40  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 18:53:40  
+        
+description: find finish products in module
+        
+data: {filter :Name='jhgjhg' project :* }
+----------------------------------
+next function:
+last time login in the action 'create' : Tue Jul 18 2023 - 18:55:47  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 18:55:47  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"jhgjhg"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 18:55:47  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Tue Jul 18 2023 - 18:56:42  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 18:56:42  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"jhgjhg"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 18:56:42  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'create' : Tue Jul 18 2023 - 18:57:20  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 18:57:20  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"jhgjhg"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 18:57:21  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"jhgjhg"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 19:08:46  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgjhg"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:08:46  
+        
+description: find finish products in module
+        
+data: {filter :Name='jhgjhg' project :* }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:09:44  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":1} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:09:44  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Name":1} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:14:39  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"חיעטיחגכ"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:14:39  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='חיעטיחגכ' project :* }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:14:39  
+        
+description: find  finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"חיעטיחגכ"} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'create' : Tue Jul 18 2023 - 19:25:15  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"kjfhgl"} }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 19:25:15  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"kjfhgl"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Tue Jul 18 2023 - 19:25:15  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"kjfhgl"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 19:25:40  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:25:40  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:27:23  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:27:23  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 19:28:31  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:28:31  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 19:33:34  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:33:34  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 19:36:40  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:36:40  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"kjfhgl"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:36:53  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":6} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:36:53  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":6} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:37:07  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"ko"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:37:07  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"ko"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:37:23  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:37:23  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 19:41:42  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:41:42  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:42:58  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:42:58  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:43:10  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 19:43:10  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":true} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:34  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":true} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:34  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":true} error :undefined }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:46  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"jhgfjk"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:46  
+        
+description: find finish products in module
+        
+data: {filter :Name='jhgfjk' project :* }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:53  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:53  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:12:53  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:12:53  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:12:53  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:12:53  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:14:31  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:14:31  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:14:31  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:14:31  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:14:31  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:14:31  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:15:19  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:15:19  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:15:19  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:15:19  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:15:19  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:15:19  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:15:59  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Tue Jul 18 2023 - 20:15:59  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:15:59  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:15:59  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Tue Jul 18 2023 - 20:15:59  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Jul 18 2023 - 20:15:59  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:35:27  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:35:27  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:35:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:35:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:35:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:35:29  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:36:34  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:36:34  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:36:34  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:36:34  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:36:34  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:36:34  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:37:00  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:37:00  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:37:00  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:37:00  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:37:00  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:37:00  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton","Enabled":1} error :Converting circular structure to JSON
+    --> starting at object with constructor 'ClientRequest'
+    |     property 'socket' -> object with constructor 'Socket'
+    --- property '_httpMessage' closes the circle }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:37:44  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:37:45  
+        
+description: find finish products in module
+        
+data: {filter :Name='Buyton' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:37:45  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:37:45  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:37:45  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:38:20  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":4532} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:38:20  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":4532} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:38:25  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Name":"lll"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:38:25  
+        
+description: find finish products in module
+        
+data: {filter :Name='lll' project :* }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:15  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"lll","UnitOfMeasure":"mmm","BookkepingCode":"3254"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:15  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"lll","UnitOfMeasure":"mmm","BookkepingCode":"3254"} tableName :FinishProducts }
+----------------------------------
+next function:
+last time login in the action 'findMeasureNumber' : Wed Jul 19 2023 - 16:43:15  
+        
+description: findMeasureNumber in module measure
+        
+data: {obj :mmm }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:21  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"lll","UnitOfMeasure":"fff","BookkepingCode":"3254"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:21  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"lll","UnitOfMeasure":"fff","BookkepingCode":"3254"} tableName :FinishProducts }
+----------------------------------
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:21  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"lll","UnitOfMeasure":"fff","BookkepingCode":"3254"} error :undefined }
+----------------------------------
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:29  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"lll","UnitOfMeasure":"aaa","BookkepingCode":"3254"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 19 2023 - 16:43:29  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"lll","UnitOfMeasure":"aaa","BookkepingCode":"3254"} tableName :FinishProducts }
+----------------------------------
+next function:
+last time login in the action 'findMeasureNumber' : Wed Jul 19 2023 - 16:43:30  
+        
+description: findMeasureNumber in module measure
+        
+data: {obj :aaa }
+----------------------------------
+next function:
+last time login in the action 'create' : Wed Jul 19 2023 - 16:44:46  
+        
+description: insert finished product in router
+        
+data: {dataThatRecived :{"Name":"lll","UnitOfMeasure":"aaa","BookkeepingCode":"3254"} }
+----------------------------------
+last time login in the action 'create' : Wed Jul 19 2023 - 16:44:46  
+        
+description: insert  finished product in module
+        
+data: {obj :{"Name":"lll","UnitOfMeasure":"aaa","BookkeepingCode":"3254"} tableName :FinishProducts }
+----------------------------------
+next function:
+last time login in the action 'findMeasureNumber' : Wed Jul 19 2023 - 16:44:46  
+        
+description: findMeasureNumber in module measure
+        
+data: {obj :aaa }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:45:29  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:45:29  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:29  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:45:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:46:57  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"Buyton"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:46:57  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='Buyton' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:46:57  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"Buyton"} error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:47:13  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":1} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:47:13  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:47:13  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:54:53  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"kgjhok"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:54:53  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"kgjhok"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:02  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":true} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:02  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='true' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:02  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:08  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"true"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:08  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"true"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:16  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"True"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:16  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='True' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:55:16  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:57  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":0} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:55:57  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='0' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:56:17  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"dateType":0} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:56:17  
+        
+description: find finish products in module
+        
+data: {filter :dateType='0' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:56:17  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"dateType":0,"Enabled":1} error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:14  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":0} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:14  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='0' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:14  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":0,"Enabled":1} error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:27  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2023-07-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:27  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='2023-07-05' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:57  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2023-07-13 17:24:24.590"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:58:57  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='2023-07-13 17:24:24.590' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 16:58:57  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:04  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2023-07-13"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:04  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='2023-07-13' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:15  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2023-07-13"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:15  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='2023-07-13' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:29  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"yuthujhg"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:29  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"yuthujhg"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:41  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":321436} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:41  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='321436' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 16:59:41  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":321436,"Enabled":1} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:02:16  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":321436} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:02:16  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='321436' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:02:16  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":321436,"Enabled":1} error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:03:40  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2025-05-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:03:40  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='2025-05-05' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:03:48  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"hnhgdhjgfhj"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:03:48  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"hnhgdhjgfhj"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:04:03  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":54346365435647670000} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:04:03  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":54346365435647670000} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:04:07  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":54346} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:04:07  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='54346' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:04:07  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":54346,"Enabled":1} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:07:07  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":54346} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:07:08  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='54346' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:07:08  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":54346,"Enabled":1} error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:07:25  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2025-05-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:07:25  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2025-05-05"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:10:13  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2025-05-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:10:13  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2025-05-05"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:10:27  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"AddedDate":"2020-05-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:10:27  
+        
+description: find finish products in module
+        
+data: {filter :AddedDate='2020-05-05' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:12:16  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"2020-05-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:12:16  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"2020-05-05"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:12:47  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"2020-05-05"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:12:47  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"2020-05-05"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:12:55  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":1} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:12:55  
+        
+description: find finish products in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:12:55  
+        
+description: findMeasureName in module measure
+        
+data: {obj :2 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:30  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":1} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:30  
+        
+description: find Addition in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:30  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:36  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":675765} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:36  
+        
+description: find Addition in module
+        
+data: {filter :Enabled='675765' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:36  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:36  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:36  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:36  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:36  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:37  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:37  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:13:37  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:47  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:47  
+        
+description: find Addition in module
+        
+data: {filter :Enabled='yhrhgf' project :* }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:13:47  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:15:27  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:15:27  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :tableName is not defined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:47:18  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:47:18  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :tableName is not defined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:47:50  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:47:50  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :tableName is not defined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:48:23  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:48:23  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :AddedDate is not defined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:48:50  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:48:50  
+        
+description: find finished product in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:48:57  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:48:57  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :AddedDate is not defined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:50:26  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:50:26  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :undefined }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:17  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:17  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"yhrhgf"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:24  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"2"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:24  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":"2"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:28  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Enabled":1} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:28  
+        
+description: find pumps in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:51:28  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:51:28  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:48  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Addition":1} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:51:48  
+        
+description: find pumps in module
+        
+data: {filter :Addition='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:51:48  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:51:48  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:52:02  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Addition":"fgfdhth"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:52:02  
+        
+description: find pumps in router
+        
+data: {arr :undefined condition :{"Addition":"fgfdhth"} error :undefined }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:52:20  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":1} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:52:20  
+        
+description: find Addition in module
+        
+data: {filter :Enabled='1' project :* }
+----------------------------------
+next function:
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+last time login in the action 'findMeasureName' : Wed Jul 19 2023 - 17:52:20  
+        
+description: findMeasureName in module measure
+        
+data: {obj :1 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Jul 19 2023 - 17:52:25  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yt76t"} }
+----------------------------------
+last time login in the action 'find' : Wed Jul 19 2023 - 17:52:25  
+        
+description: find Addition in router
+        
+data: {arr :undefined condition :{"Enabled":"yt76t"} error :undefined }
+----------------------------------
