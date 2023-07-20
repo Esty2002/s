@@ -9005,3 +9005,603 @@ description: updateArea in router- in try
         
 error: {One or more required properties do not exist}
 ----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:51  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:50.984Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:51  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:51.033Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:51  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:51.038Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:51  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:51.042Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:51  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:51  
+description: insertArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:51  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:51.053Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:51  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:51.056Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:51  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:51.059Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:51  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:51.062Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:51  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:51  
+description: updateArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:58  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:58.762Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:58  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:58.802Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:58  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:58.807Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:58  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T14:58:58.811Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:58  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 17:58:58  
+description: insertArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:58  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:58.819Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:58  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:58.822Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:58  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:58.825Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:58  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T14:58:58.828Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:58  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 17:58:58  
+description: updateArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:10  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:10.932Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:10  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:10.985Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:10  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:10.994Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:11  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:11.000Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:11  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:11  
+description: insertArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:11  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:11.014Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:11  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:11.018Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:11  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:11.021Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:11  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:11.024Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:11  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:11  
+description: updateArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:31  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:31.049Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:31  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:31.097Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:31  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:31.104Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:31  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+addedDate: 2023-07-20T15:00:31.110Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:31  
+description: insertArea in router- in try
+        
+dataThatRecived: {insertArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function insertArea : Thu Jul 20 2023 - 18:00:31  
+description: insertArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:31  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:31.125Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:31  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:31.129Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+point: [object Object], 
+radius: 57000, 
+type: radius, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:31  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:31.133Z, 
+disabled: false, 
+name: אשדוד שלי, 
+basicName: אשדוד, 
+placesId: HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l,HT213CVf55rts6Iu4WDRFG82l, 
+points: [object Object],[object Object],[object Object],[object Object], 
+type: polygon, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:31  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+_id: 156fse78GBl54klS58TZXSy45bdf85, 
+addedDate: 2023-07-20T15:00:31.136Z, 
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:31  
+description: updateArea in router- in try
+        
+dataThatRecived: {updateArea in router- in try
+disabled: false, 
+name: we want mashiach now, 
+basicName: ירושלים, 
+placeId: HT213CVf55rts6Iu4WDRFG82l, 
+type: city, 
+
+}
+----------------------------------
+last time login in the function updateArea : Thu Jul 20 2023 - 18:00:31  
+description: updateArea in router- in try
+        
+error: {One or more required properties do not exist}
+----------------------------------
