@@ -107,7 +107,7 @@ router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
         objectLog.error = error.message
         logToFile(objectLog)
         res.status(500).send(error)
-
+console.log('llllllllllll');
     }
 })
 //  חיפוש מחירון לפי תוספת משאית
