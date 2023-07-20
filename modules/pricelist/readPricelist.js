@@ -254,19 +254,27 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
             description: 'getSupplierByNameProductBuyton in module- in try',
         }
         logToFile(objectLog)
-        let obj = {  columns: "*", condition: { ItemDescribe: nameProduct } };
+        let temp = {  columns: "*", condition: { ItemDescribe: nameProduct } };
+        const resTemp = await postData(`/read/count/${BUYTONITEMS}`, obj);
+        let obj = {  columns: "*", condition: { ItemDescribe: nameProduct },topn:{resTemp} };
         const res = await postData(`/read/readMany/${BUYTONITEMS}`, obj);
         console.log(res.data, '                           res.data');
         if (res.data != undefined) {
 
-            let obj2 = { columns: "PriceListId", conditioncondition: { AND: [{ TableName: 'tbl_BuytonStrength' }, { ProductId: res.data[0].ItemStrength }] } };
+            let temp2 = { columns: "PriceListId", condition: {1:1} };
+            // /count/:entityName
+
+            const count = await postData(`/read/count/${PRICElISTFORPRODUCTS}`, temp2);
+            let obj2 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonStrength' }, { ProductId: res.data[0].ItemStrength }] },topn:{count}};
+            // /count/:entityName
+
             const res2 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj2);
-            let obj3 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonDegree' }, { ProductId: res.data[0].ItemDegreeExposure }] } };
+            let obj3 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonDegree' }, { ProductId: res.data[0].ItemDegreeExposure }] },topn:{count} };
             const res3 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj3);
-            let obj4 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonSomech' }, { ProductId: res.data[0].BuytonSomech }] } };
+            let obj4 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonSomech' }, { ProductId: res.data[0].BuytonSomech }] },topn:{count} };
             const res4 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj4);
-            let obj5 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonGrain' }, { ProductId: res.data[0].ItemType }] } };
-            const res5 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj5);;
+            let obj5 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonGrain' }, { ProductId: res.data[0].ItemType }] },topn:{count} };
+            const res5 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj5);
             temp = checkValid(res2.data, res3.data)
             temp2 = checkValid(temp, res4.data)
             temp3 = checkValid(temp2, res5.data)

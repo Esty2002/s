@@ -822,3 +822,55 @@ description: getAllPriceList in module- in try
         
 data: {}
 ----------------------------------
+last time login in the action 'getAllPriceList' : Thu Jul 20 2023 - 13:52:48  
+        
+description: getAllPriceList in module- in try
+        
+data: {}
+----------------------------------
+last time login in the action 'getAllPriceList' : Thu Jul 20 2023 - 13:52:49  
+        
+description: getAllPriceList in module- in try
+        
+data: {}
+----------------------------------
+last time login in the action 'getAllPriceList' : Thu Jul 20 2023 - 13:52:54  
+        
+description: getAllPriceList in module- in try
+        
+data: {}
+----------------------------------
+last time login in the action 'getAllPriceList' : Thu Jul 20 2023 - 13:52:54  
+        
+description: getAllPriceList in module- in try
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findAllPriceList' : Thu Jul 20 2023 - 17:46:57  
+        
+description: findAllPriceList in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAllPriceList' : Thu Jul 20 2023 - 17:47:01  
+        
+description: getAllPriceList in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'findAllPriceList' : Thu Jul 20 2023 - 17:47:02  
+        
+description: findAllPriceList in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAllPriceList' : Thu Jul 20 2023 - 17:47:03  
+        
+description: getAllPriceList in module
+        
+data: {}
+----------------------------------
