@@ -11,7 +11,7 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await insertAddition(req.body, 'Additions')
+        const response = await insertAddition(req.body)
         if (response.status == 201)
             res.status(201).send(true)
         else {

@@ -80,7 +80,7 @@ const newRecord = async (obj = null) => {
 
             try {
                 _ = await checkObjectValidations(newObj.values, entity.entityName);
-                result = await postData('/create/create', newObj);
+                result = await postData('/create/createone', newObj);
                 return result;
             }
             catch (error) {

@@ -5,7 +5,7 @@ const { SQL_PRODUCTS_COMBINATIONS_TABLE } = process.env
 
 
 async function insertRow(object) {
-    const existResponse = await postData('/read/readTopN', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, columns: '*', condition: `parentId= ${object.parent} and  childId = ${object.child}` })
+    const existResponse = await getData(`/read/readMany/${SQL_PRODUCTS_COMBINATIONS_TABLE}`, {AND:[{parentId : object.parent} , {childId : object.child}] })
     if (existResponse.data.length > 0) {
         if (existResponse.data[0].Disable) {
             let rowId = existResponse.data[0].Id
@@ -22,7 +22,7 @@ async function insertRow(object) {
             throw new Error('already exist')
     }
     else {
-        const response = await postData('/create/create', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
+        const response = await postData('/create/createone', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
 
         return response
     }
@@ -51,6 +51,7 @@ async function updateNames(object) {
     const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC } })
     return response.data
 }
+
 // async function getChildrenByParent(parent) {
 //     const response = await getData(sqlServer, `/read/readAll/${SQL_PRODUCTS_COMBINATIONS_TABLE}/parentId=${parent}`)
 //     return response.data

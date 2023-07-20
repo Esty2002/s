@@ -24,16 +24,16 @@ const values = [
     }
 ]
 
-async function insertFinishProduct(obj, tableName) {
+async function insertFinishProduct(obj) {
     let objectForLog = {
         name: 'create',
         description: 'insert  finished product in module',
         obj: obj,
-        tableName: tableName
+        tableName: SQL_FINISH_PRODUCTS_TABLE
     }
     logToFile(objectForLog)
 
-    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    const checkValidObj = values.find(({ entity }) => SQL_FINISH_PRODUCTS_TABLE === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
@@ -42,7 +42,7 @@ async function insertFinishProduct(obj, tableName) {
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     obj.UnitOfMeasure = measure
     try {
-        const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+        const response = await postData('/create/createone', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
         if (response.data)
             return response
     }

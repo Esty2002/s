@@ -1,11 +1,6 @@
 const { postData } = require('../../services/axios')
 const { SQL_STATUS_TABLE } = process.env
 
-async function addOneStatus(statusName) {
-    // const result = await addStatus(statusName)
-    // return result.rowsAffected
-};
-
 async function deleteOneStatus(statusName) {
     // const result = await deleteStatus(statusName)
     // return result.rowsAffected
@@ -36,4 +31,4 @@ async function getStatusNameById(id) {
     }
 };
 
-module.exports = { addOneStatus, deleteOneStatus, getStatusNumber, getStatusNameById }
+module.exports = { deleteOneStatus, getStatusNumber, getStatusNameById }

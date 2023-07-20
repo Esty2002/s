@@ -26,15 +26,15 @@ const values = [
     }
 ]
 
-async function insertPump(obj, tableName) {
+async function insertPump(obj) {
     let objectForLog = {
         name: 'create',
         description: 'insert pump in module',
         obj: obj,
-        tableName: tableName
+        tableName: SQL_PUMPS_TABLE
     }
     logToFile(objectForLog)
-    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    const checkValidObj = values.find(({ entity }) => SQL_PUMPS_TABLE === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
@@ -44,7 +44,7 @@ async function insertPump(obj, tableName) {
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     obj.UnitOfMeasure = measure
     try {
-        const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
+        const response = await postData('/create/createone', { tableName: SQL_PUMPS_TABLE, values: obj })
         if (response.data)
             return response
     }

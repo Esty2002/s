@@ -1,13 +1,10 @@
-const { postData } = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
+const { SQL_CLIENTS_TABLE } = process.env
+
+
 async function deletedClientByCode(clientCode, userName) {
     
-    let obj = {
-        'tableName': 'tbl_Clients',
-        'columns': '*',
-        'conditio.3n': `ClientCode=${clientCode}`
-    }
-
-    const exist = await postData(`/read/readTopN`,obj)
+    const exist = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: ClientCode })
     if (exist.rowsAffected != 0) {
     let result;
 

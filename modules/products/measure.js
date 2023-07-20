@@ -21,21 +21,20 @@ const values = [
     }
 ]
 
-
 async function updateMeasure(condition, obj) {
     return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
 }
 
-async function insertMeasure(name, tableName) {
+async function insertMeasure(name) {
     let objectForLog = {
         name: 'insertMeasure',
         description: 'insert an unit of measure in module',
         obj: name,
-        tableName: tableName
+        tableName: SQL_UNIT_OF_MEASURE_TABLE
     }
     logToFile(objectForLog)
 
-    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    const checkValidObj = values.find(({ entity }) => SQL_UNIT_OF_MEASURE_TABLE === entity);
     let newObj = checkValidObj.func({ Name: name })
     if (checkValidObj) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
@@ -43,7 +42,7 @@ async function insertMeasure(name, tableName) {
     }
 
     try {
-        const response = await postData('/create/create', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
+        const response = await postData('/create/createone', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
         if (response.data)
             return response
     }

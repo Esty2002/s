@@ -41,7 +41,7 @@ const createNewLead = async (obj = null) => {
         };
 
         let newObj = {
-            entityName: 'Leads',
+            entityName: SQL_LEADS_TABLE,
             values: vals
         };
 
@@ -61,9 +61,7 @@ const createNewLead = async (obj = null) => {
 };
 
 const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
-    try {
-
-
+    try { 
         let morePorductsItems = [];
         items.forEach(mpi => {
             morePorductsItems = [...morePorductsItems, {
@@ -74,13 +72,13 @@ const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
             }]
         });
         for (let item of morePorductsItems) {
-            _ = await checkObjectValidations(item, 'moreProductsItems');
+            _ = await checkObjectValidations(item, SQL_MOREPRODUCTSITEM_TABLE);
         };
         objMpi = {
-            entityName: 'moreProductsItems',
+            entityName: SQL_MOREPRODUCTSITEM_TABLE,
             values: morePorductsItems
         };
-        const res = await postData('create/createManySql', objMpi);
+        const res = await postData('create/createmany', objMpi);
         return res;
 
 
@@ -137,7 +135,7 @@ const readMoreProductsItems = async (filter) => {
     try {     
         let condition;
         filter ? condition = filter : null
-        
+
         const result = await postData(`read/readMany/${SQL_MOREPRODUCTSITEM_TABLE}`, condition);
 
         if (result) {
@@ -194,7 +192,7 @@ const readforeignkeyvalue = async (filter) => {
 const updateLead = async (obj = null) => {
     try {
         if (obj.condition) {
-            const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);
+            const baseLead = await getData(`read/readMany/${SQL_LEADS_TABLE}`,obj.condition);
             if (baseLead.data.length > 0) {
                 const newObj = {
                     tableName: 'tbl_Leads',
