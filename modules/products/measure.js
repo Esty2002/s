@@ -54,6 +54,31 @@ async function insertMeasure(name, tableName) {
     }
 }
 
+async function deleteItem(object) {
+    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+    return response
+}
+
+async function getAll() {
+    let objectForLog = {
+        name: 'getAll',
+        description: 'get all unit of measure in module'
+    }
+    logToFile(objectForLog)
+
+    try {
+        const response = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`)
+        // if (response.data)
+            return response
+
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
+}
+
 async function findMeasureNumber(name) {
     let objectForLog = {
         name: 'findMeasureNumber',
@@ -63,7 +88,7 @@ async function findMeasureNumber(name) {
     logToFile(objectForLog)
     try {
         if (name) {
-            let res = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Measure='${name}'`)
+            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`,{Measure:name})
             if (res.data[0])
                 return res;
             else
@@ -88,9 +113,9 @@ async function findMeasureName(num) {
     logToFile(objectForLog)
     try {
         if (num && parseInt(num)) {
-            const measure = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}/Id=${num}`)
-            if (measure.data[0])
-                return measure;
+            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`,{Id:num})
+            if (res.data[0])
+                return res;
             else
                 throw new Error('no matching unit of measure')
         }
@@ -103,29 +128,6 @@ async function findMeasureName(num) {
         throw error
     }
 
-}
-
-async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
-    return response
-}
-async function getAll() {
-    let objectForLog = {
-        name: 'getAll',
-        description: 'get all unit of measure in module'
-    }
-    logToFile(objectForLog)
-
-    try {
-        const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
-        if (response.data)
-            return response
-    }
-    catch (error) {
-        objectForLog.error = error.message
-        logToFile(objectForLog)
-        throw error
-    }
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll, deleteItem }                
