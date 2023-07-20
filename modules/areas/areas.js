@@ -7,8 +7,7 @@ const { logToFile } = require('../../services/loggerPnini');
 async function insertArea(obj = {}) {
     const t = await postData('/update/createIndex', { collection: "areas" })
     console.log('/*/*/*/*/*//*/*/**/', t);
-
-
+ 
     let object = {
         name: "insertArea",
         description: 'insertArea in module',
@@ -173,6 +172,100 @@ async function findInPolygon(point) {
         object.error = "can't find point in polygon"
         throw new Error("can't find point in polygon")
     }
+    return found
+}
+
+async function insertArea(obj = {}) {
+    try {
+        const find = await findArea({ name: obj.name })
+        if (find.data?.length > 0) {
+            return { status: 409, data: 'duplicated values' }
+        }
+        if (obj.type === 'polygon') {
+            console.log({ obj })
+            let points = obj.points
+            let arraymap = []
+            for (let i = 0; i < points.length; i++) {
+                let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng)
+                if (!find) {
+                    arraymap.push({ point: points[i], index: i })
+                }
+                else {
+                    if (i != points.length - 1) {
+                        points.splice(i, 1)
+                        console.log(points.length)
+                        i--
+                    }
+                }
+            }
+
+            console.log({ points })
+        }
+        const result = await postData('/create/insertone',
+            {
+                entityName: "areas",
+                data: obj
+            });
+        if (result.data) {
+            const resultToSql = await postData('/create/createone',
+                {
+                    entityName: "tbl_Areas",
+                    values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
+                })
+            if (resultToSql && resultToSql.status !== 201) {
+                const dropResult = await postData('/update/dropDocumentById',
+                    {
+                        entityName: "areas",
+                        data: { _id: result.data }
+                    })
+                return dropResult;
+            }
+            if (resultToSql.status === 201)
+                return resultToSql
+            else
+                throw new Error("Can't insert area to mongo and sql DB");
+
+        }
+        else {
+
+            throw new Error("Can't insert area");
+        }
+    }
+    catch (error) {
+        console.log(error.message)
+        throw error
+    }
+
+}
+
+async function updateArea(obj = {}) {
+    const result = await postData('/mongo/updateone',
+        {
+            collection: "areas",
+            filter: { supplierOrClientCode: obj.supplierOrClientCode },
+            set: { $set: { 'areasList.$[u]': obj.area } },
+            arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
+        })
+    if (result)
+        return result;
+    else
+        throw new Error('Not Found area to update');
+
+}
+
+async function updateLocation(obj) {
+    console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
+    const result = await postData('/mongo/updateone',
+        {
+            collection: "areas",
+            filter: { supplierOrClientCode: obj.code },
+            set: { $set: { 'areas.$[u].location.coordinates': obj.coordination } },
+            arrayFilters: { arrayFilters: [{ 'u.areaName': obj.areaName }] }
+        })
+    if (result)
+        return result
+    else
+        throw new Error('Not Found area to update')
 };
 async function startt() {
     const t = await postData('/update/createIndex', { collection: 'areas' })

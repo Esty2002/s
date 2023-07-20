@@ -1,10 +1,18 @@
-const express=require('express')
-const router=express.Router()
+const express = require('express')
+const router = express.Router()
 const { logToFile } = require('../../services/loggerPnini')
 
-const{getAllPriceList,getPriceListByIdSupplierOrClientCode,getPriceListByIdPriceListId
-    ,getPriceListByAdditionsForDistance,getPriceListByAdditionsForCities,getPriceListByAdditionsForTime,getPriceListByAdditionsForTruckFill,getSupplierByNameProduct,getSupplierByNameProductBuyton} =require('../../modules/pricelist/readPricelist')
+const { 
+    getRecordPriceList,
+    getAllPriceList,
+    getPriceListById,
 
+    getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
+    , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
+const { reqLogger } = require('../../services/logger/logger')
+
+
+    router.use(reqLogger())
 router.get('/findAllPriceList', async (req, res) => {
     try {
         const result = await getAllPriceList();
@@ -16,6 +24,66 @@ router.get('/findAllPriceList', async (req, res) => {
 
 
 })
+// חיפוש מחירון לפי ID
+router.get('/pricelistRecords/:entity/:id', async (req, res) => {
+    try {
+        console.log(req.params)
+        const result = await getPriceListById(req.params);
+        res.status(200).send(result);
+    }
+    catch (error) {
+        res.status(500).send(error);
+    }
+
+
+})
+// פונקצית חיפוש מחירון לפי תאריך הוספה
+// router.get('/FindPriceListByAddedDate/date', async (req, res) => {
+//     try {
+//         const result = await getPriceListByAddedDate(req.params.date);
+//             res.status(200).send(result);
+//     } 
+//     catch (error) {
+//         res.status(500).send(error);
+//     }
+
+
+// })
+// פונקציית חיפוש על פי מוצר
+// router.get('/FindPriceListByProduct/product', async (req, res) => {
+//     try {
+//         const result = await getPriceListbyProduct(req.params.product);
+//             res.status(200).send(result);
+//     } 
+//     catch (error) {
+//         res.status(500).send(error);
+//     }
+
+// })
+// הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
+// router.get('/FindPriceListByAreaId/:area', async (req, res) => {
+//     console.log(req.params.area);
+
+//     try {
+//         const ans =await getPriceListByAreaId(req.params.area)
+//         res.status(200).send(ans)
+//     } catch (error) {
+//         res.status(500).send(error.message)
+
+//     }
+// })
+// הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
+// router.get('/FindPriceListBySupplerCodeOrClientCode/:code', async (req, res) => {
+//     console.log(req.params.code);
+//     try {
+//         const ans =await getPriceListbySupplierCodeOrClientCode(req.params.code)
+//         console.log(ans);
+//         res.status(200).send(ans)
+//     } catch (error) {
+//         res.status(404).send(error)
+
+//     }
+// })
 // חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
 router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
     console.log(req.params.id);
@@ -86,7 +154,7 @@ router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
 // חיפוש ספק ואזור לפי מוצר
 router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res) => {
     try {
-        const ans =await getSupplierByNameProduct(req.params.nameTable,req.params.nameProduct)
+        const ans = await getSupplierByNameProduct(req.params.nameTable, req.params.nameProduct)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
@@ -97,7 +165,7 @@ router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res
 
 router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (req, res) => {
     try {
-        const ans =await getSupplierByNameProductBuyton(req.params.nameTable,req.params.nameProduct)
+        const ans = await getSupplierByNameProductBuyton(req.params.nameTable, req.params.nameProduct)
         console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
@@ -106,4 +174,4 @@ router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (re
     }
 })
 
-module.exports=router;
+module.exports = router;

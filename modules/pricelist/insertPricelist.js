@@ -3,28 +3,15 @@ const { postData, getData } = require('../../services/axios')
 const { logToFile } = require('../../services/loggerPnini')
 async function insert(data, tableName) {
     let obj = {}
-    obj['tableName'] = tableName
-    obj['values'] = data
-    obj['columns'] = '*'
+    obj['entityName'] = tableName
+    obj['values'] = {...data, disabled:false, addedDate:new Date().toISOString(), userName:'developer'}
+    console.log({obj})
     try {
-        // let object = {
-        //     name: 'create',
-        //     description: ' insert in module',
-        //     dataThatRecived: data
-        // }
-
-        // logToFile(object)
-        const result = await postData('/create/create', obj)
-        // let id = result.data[0].Id
-        // object = {
-        //     name: 'create',
-        //     description: ' insert in module, after sending to dbserver',
-        //     result: id
-        // }
-        // logToFile(object)
+        const result = await postData('/create/createone', obj)
         return result;
     }
     catch (error) {
+        console.log(error.message)
         let object = {
             name: 'create',
             description: 'create in module -you have an error!',
@@ -45,7 +32,7 @@ async function getProducts(tbName) {
     }
     logToFile(object)
     let obj = {}
-    obj['tableName'] = tbName
+    obj['entityName'] = tbName
     obj['columns'] = '*'
 
     const response = await postData('/read/readTopN', obj)

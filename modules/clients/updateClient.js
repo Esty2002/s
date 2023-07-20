@@ -5,7 +5,7 @@ async function updateClient(obj) {
     delete clone.Id
 
     let object={
-        "tableName":"tbl_Clients",
+        "entityName":"tbl_Clients",
         "condition":{Id:obj.Id},
         "values":clone
     }

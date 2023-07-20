@@ -56,8 +56,8 @@ app.use('/unitOfMeasure', manageUnitOfMeasure);
 app.use('/additions', manageAdditions);
 app.use('/basicProducts', manageBasicProducts);
 app.use('/finishProducts', manageFinishProducts);
-app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
+app.use('/branches', branches_router);
 app.use('/updateClient', updateClient_router);
 
 

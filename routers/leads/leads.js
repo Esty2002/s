@@ -80,7 +80,7 @@ router.put('/updaterecord', express.json(), async (req, res) => {
 
 router.delete('/deleterecord/:tablename/:condition', express.json(), async (req, res) => {
     try {
-        const response = await deleteRecord({ tableName: req.params.tablename, condition: req.params.condition })
+        const response = await deleteRecord({ entityName: req.params.tablename, condition: req.params.condition })
         res.status(200).send(response);
     }
     catch (error) {
