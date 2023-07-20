@@ -22,24 +22,11 @@ const values = [
 ]
 async function insert(data, entityName) {
     let obj = {}
-    let objectForLog = {
-        name: 'addPriceList',
-        description: 'insert in module',
-        dataThatRecived: data
-    }
-    logToFile(objectForLog)
+    obj['tableName'] = tableName
+    obj['values'] = {...data, disabled:false, addedDate:new Date().toISOString(), userName:'developer'}
     try {
-        const checkValidObj = values.find(({ entity }) => entityName === entity);
-        let newObj = checkValidObj.func(data)
-        if (checkValidObj) {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            data = newObj.values
-        }
-        obj.tableName = entityName
-        obj.columns = '*'
-        obj.values = data
         const result = await postData('/create/create', obj)
-        return result.data;
+        return result;
     }
     catch (error) {
         objectForLog.error = error.message
