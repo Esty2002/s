@@ -13,6 +13,7 @@ async function insertOneSupplier(object) {
             return res;
         }
         else {
+            
             throw new Error('validation')
         }
     }
@@ -92,7 +93,7 @@ async function deleteSupplier(object) {
         let obj = { entityName: 'Suppliers', values: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true }, condition: { Id: object.Id } }
         // console.log("obj", obj);
         const result = await deleteData('/delete/deleteone', obj);
-        console.log({result})
+        console.log({ result })
         if (result.status === 204) {
             obj = {
                 entityName: 'Branches',
@@ -100,7 +101,7 @@ async function deleteSupplier(object) {
                 condition: { SupplierCode: object.Id }
             }
             const branchResult = await deleteData('/delete/deletemany', obj);
-            console.log({branchresult_status:branchResult.status})
+            console.log({ branchresult_status: branchResult.status })
             return result
         }
         else {
@@ -131,7 +132,8 @@ function checkValid(object) {
 }
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
-    let resultSupplierCode = await getData(`/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
+    let resultSupplierCode = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierCode: code });
+    console.log({resultSupplierCode})
     if (resultSupplierCode.status === 200)
         return resultSupplierCode.data.length === 0
     else {
@@ -140,7 +142,7 @@ async function checkUniqueCode(code) {
 
 }
 async function checkUniqueName(name) {
-    let resultSuppliersName = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierName: name, Disabled: 0 });
+    let resultSuppliersName = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierName: name });
     if (resultSuppliersName.status === 200)
         return resultSuppliersName.data.length === 0
     else {

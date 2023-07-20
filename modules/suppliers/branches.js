@@ -48,10 +48,21 @@ async function getBranches(supplierid, disabled) {
         throw error
     }
 }
+
+async function getBranchById(query) {
+    console.log({query});
+    try {
+        const res = await getData(`/read/readOne/Branches`, query);
+        return res.data[0];
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
 ///////////////////////////////////////////////////////////////////
 async function getBranchesByCondition(query) {
     console.log({query});
-    console.log("getBranchesByCondition - module");
     try {
         const res = await getData(`/read/readMany/Branches`, query);
         return res.data;
@@ -73,11 +84,11 @@ async function updateDetail(code, setting) {
             }
         }
         let obj = {
-            entityName: 'tbl_Branches', values: {
+            entityName: 'Branches', values: {
                 SupplierCode: setting.SupplierCode, BranchName: setting.BranchName, Status: setting.Status,
                 Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
-            }, condition: `SupplierCode=${code} AND BranchName='${setting.OldBranchName}' AND Disabled = '0'`
+            }, condition: {SupplierCode:code, BranchName:setting.OldBranchName, Disabled : '0'}
         }
         const res = await postData("/update/update", obj);
         console.log(res);
@@ -124,4 +135,4 @@ async function checkUnique(object) {
     }
 }
 
-module.exports = { getAllBranches, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique, checkValid };
+module.exports = { getAllBranches,getBranchById, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique, checkValid };

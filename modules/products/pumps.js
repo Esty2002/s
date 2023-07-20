@@ -15,19 +15,11 @@
 //     obj.addedDate = new Date().toISOString()
 //     // obj.addition = obj.Addition ? 1 : 0
 
-<<<<<<< HEAD
-    const response = await postData('/create/createone', { entityName: SQL_PUMPS_TABLE, values: obj })
-    if (response.status === 201)
-        return true
-    else
-        return false
-=======
 //     const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
 //     if (response.status === 201)
 //         return true
 //     else
 //         return false
->>>>>>> 9750573c2d806e596eb20c49a5a48fc4caa7e9fb
 
 // }
 
