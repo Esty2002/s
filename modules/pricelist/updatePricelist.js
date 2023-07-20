@@ -3,7 +3,7 @@ const { PRICELIST, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFI
 
 async function deletePriceList({ id }) {
     const obj = {}
-    obj['tableName'] = PRICELIST
+    obj['entityName'] = PRICELIST
     obj['condition'] = `Id=${id}`
     obj['values'] = { 'Disabled': true }
     const result = await postData('/update/update', obj)
@@ -13,7 +13,7 @@ async function deletePriceList({ id }) {
         let res
         const answer = await Promise.all(table.map(async (t) => {
             // console.log({ obj })
-            obj['tableName'] = t
+            obj['entityName'] = t
             obj['condition'] = `PriceListId=${id}`
             obj['values'] = { 'Disabled': true }
             // console.log({ obj })
@@ -38,7 +38,7 @@ async function updateOne({ id, update }) {
     // _ = update.forEach(o => (newUpdate[o.columns] = o.values))   לכמה דברים לעדכון
     // console.log({ newUpdate });
     let obj = {}
-    obj['tableName'] = PRICELIST
+    obj['entityName'] = PRICELIST
     obj['condition'] = `Id= ${id}`
     obj['values'] = newUpdate
     console.log({ obj });
@@ -57,11 +57,11 @@ async function reedToUpdate({ tbName, id, update }) {
         record = [record].map(({ Id, ...rest }) => rest)
         const obj = {};
         _ = update.forEach(o => (record[0][o.columns] = o.values))
-        obj['tableName'] = `${tbName}`
+        obj['entityName'] = `${tbName}`
         obj['columns'] = '*'
         obj['values'] = record[0];
         console.log({ obj });
-        const result = await postData('/create/create', obj)
+        const result = await postData('/create/createone', obj)
         return result
     }
     else
@@ -92,12 +92,12 @@ async function deleteItems({ tbName, id, del, newname }) {
             }
         }
         const obj = {};
-        obj['tableName'] = PRICELIST;
+        obj['entityName'] = PRICELIST;
         obj['columns'] = '*';
         obj['values'] = newdata;
         console.log(newdata);
         // console.log({ obj },"obbbbbbj");
-        const result = await postData('/create/create', obj)
+        const result = await postData('/create/createone', obj)
         // console.log("before if");
         // console.log(Object.keys(result))
         // let { data } = result
@@ -117,11 +117,11 @@ async function deleteItems({ tbName, id, del, newname }) {
             newDataa = newDataa.map(({ Id, ...rest }) => rest)
             let obj = {}
             console.log({ newDataa });
-            obj['tableName'] = `${tbName}`
+            obj['entityName'] = `${tbName}`
             obj['columns'] = '*'
             obj['values'] = newDataa;
             // console.log({ obj });
-            const resultMany = await postData('/create/createManySql', obj)
+            const resultMany = await postData('/create/createmany', obj)
             console.log({ resultMany: resultMany.data });
             const dataMany = await getData(`/read/readAll/${tbName}/PriceListId=${pricelistId}`)
             console.log({dataMany});
@@ -176,11 +176,11 @@ async function updateItems({ tbName, id, update, newname }) {
     console.log(newData, " nnnnnnDDDDDD");
     let obj = {}
 
-    obj['tableName'] = `${tbName}`
+    obj['entityName'] = `${tbName}`
     obj['columns'] = '*'
     obj['values'] = newData;
     console.log({ obj });
-    const result = await postData('/create/createManySql', obj)
+    const result = await postData('/create/createmany', obj)
     return result
 }
 

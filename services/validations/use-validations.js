@@ -20,14 +20,9 @@ const checkObjectValidations = async (body, objName) => {
             if (v.require && !body[v.propertyName])
                 errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but not exist` }];
         }
-<<<<<<< HEAD
         if (errors.length > 0) {
             throw errors;
         }
-=======
-        if (errors.length > 0) 
-            throw errors
->>>>>>> products2
         return true;
     }
     catch (error) {

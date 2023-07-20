@@ -33,6 +33,13 @@ async function insertFinishProduct(obj) {
     }
     logToFile(objectForLog)
 
+    obj.enabled = true
+    obj.addedDate = new Date().toISOString()
+    const response = await postData('/create/createone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+    if (response.status === 201) {
+        return true
+    }
+
     const checkValidObj = values.find(({ entity }) => SQL_FINISH_PRODUCTS_TABLE === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
@@ -72,7 +79,7 @@ async function findFinishProduct(filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-    let condition ;
+    let condition;
     filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {
@@ -84,7 +91,7 @@ async function findFinishProduct(filter = {}) {
 
     try {
         const response = await getData(`/read/readMany/${SQL_FINISH_PRODUCTS_TABLE}`, condition)
-        
+
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)

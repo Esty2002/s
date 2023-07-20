@@ -5,7 +5,6 @@ const { checkObjectValidations } = require('../../services/validations/use-valid
 
 const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
 
-
 const values = [
     {
         entity: "UnitOfMeasure",
@@ -20,7 +19,6 @@ const values = [
         }
     }
 ]
-
 async function updateMeasure(condition, obj) {
     return (await postData('/update/update', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` })).data
 }
@@ -33,24 +31,32 @@ async function insertMeasure(name) {
         tableName: SQL_UNIT_OF_MEASURE_TABLE
     }
     logToFile(objectForLog)
+    const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
+    const { status, data } = exist
+    if (status === 200 && !data[0]) {
+        const checkValidObj = values.find(({ entity }) => SQL_UNIT_OF_MEASURE_TABLE === entity);
+        let newObj = checkValidObj.func({ Name: name })
+        if (checkValidObj) {
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+            name = newObj.values
+        }
 
-    const checkValidObj = values.find(({ entity }) => SQL_UNIT_OF_MEASURE_TABLE === entity);
-    let newObj = checkValidObj.func({ Name: name })
-    if (checkValidObj) {
-        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-        name = newObj.values
+        try {
+            const response = await postData('/create/createone', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
+            if (response.data)
+                return response
+        }
+        catch (error) {
+            objectForLog.error = error.message
+            logToFile(objectForLog)
+            throw error
+        }
+    }
+    else {
+        throw new Error(`data exist`)
     }
 
-    try {
-        const response = await postData('/create/createone', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
-        if (response.data)
-            return response
-    }
-    catch (error) {
-        objectForLog.error = error.message
-        logToFile(objectForLog)
-        throw error
-    }
+
 }
 
 async function deleteItem(object) {
@@ -68,7 +74,7 @@ async function getAll() {
     try {
         const response = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`)
         // if (response.data)
-            return response
+        return response
 
     }
     catch (error) {
@@ -87,7 +93,7 @@ async function findMeasureNumber(name) {
     logToFile(objectForLog)
     try {
         if (name) {
-            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`,{Measure:name})
+            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`, { Measure: name })
             if (res.data[0])
                 return res;
             else
@@ -112,7 +118,7 @@ async function findMeasureName(num) {
     logToFile(objectForLog)
     try {
         if (num && parseInt(num)) {
-            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`,{Id:num})
+            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`, { Id: num })
             if (res.data[0])
                 return res;
             else
@@ -126,7 +132,11 @@ async function findMeasureName(num) {
         logToFile(objectForLog)
         throw error
     }
+}
 
+async function deleteItem(object) {
+    const response = await postData('/update/update', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+    return response
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll, deleteItem }                

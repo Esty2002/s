@@ -74,13 +74,18 @@ const values = [
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
-        const entity = values.find(({ entityName }) => entityName === obj.entityName);
-        if (entity) {
-            const newObj = entity.func(obj.values);
+        const val = values.find(({ tableName }) => tableName === obj.tableName);
+        if (val) {
+            let newObj = {
+                entityName: val.tableName,
+                values: val.values
+            };
+            for (let key in newObj['values']) {
+                typeof newObj.values[key] === 'string' ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
+            }
 
             try {
-                _ = await checkObjectValidations(newObj.values, entity.entityName);
-                result = await postData('/create/createone', newObj);
+                result = await postData(sqlServer, '/create/createone', newObj);
                 return result;
             }
             catch (error) {
@@ -151,7 +156,7 @@ const deleteRecord = async (obj) => {
         if (table) {
             let result;
             const newObj = {
-                tableName: table.entityName,
+                entityName: table.entityName,
                 values: {
                     disable: 1,
                     deletingDate:new Date()

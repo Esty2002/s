@@ -68,19 +68,19 @@ async function insertArea(obj = {}) {
         }
         const result = await postData('/create/insertone',
             {
-                collection: "areas",
+                entityName: "areas",
                 data: obj
             });
         if (result.data) {
-            const resultToSql = await postData('/create/create',
+            const resultToSql = await postData('/create/createone',
                 {
-                    tableName: "tbl_Areas",
+                    entityName: "tbl_Areas",
                     values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
                 })
             if (resultToSql && resultToSql.status !== 201) {
                 const dropResult = await postData('/update/dropDocumentById',
                     {
-                        collection: "areas",
+                        entityName: "areas",
                         data: { _id: result.data }
                     })
                 return dropResult;
@@ -177,7 +177,7 @@ async function deleteArea(areaName) {
         if (result.data) {
             const resultSql = await postData('/update/update',
                 {
-                    tableName: 'tbl_Areas',
+                    entityName: 'tbl_Areas',
                     values: { Disabled: 'true' },
                     condition: { AreaName: areaName }
                 })

@@ -84,25 +84,18 @@ async function findPump(filter = {}) {
         logToFile(objForLog)
         throw error
     }
+    
 }
 
-// async function updatePump(obj) {
-
-// async function updatePump(obj, filter) {
-//     let string = ""
-//     for (let k in obj) {
-//         string += `${k}='${obj[k]}',`
-//     }
-//     string = string.slice(0, -1)
-//     return (await postData(  'update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-// }
-//     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
-//     console.log(response, 'in delete function');
-//     if (response)
-//         return true
-//     else
-//         return false
-// }
+async function updatePump(obj) {
+   
+    const response = await postData('/update/update', { entityName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
+    console.log(response, 'in delete function');
+    if (response)
+        return true
+    else
+        return false
+}
 
 async function updatePump(obj, filter) {
     let string = ""

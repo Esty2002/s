@@ -4,7 +4,7 @@ const { postData, getData } = require('../../services/axios');
 
 async function getRecordPriceList(entity, condition) {
     try {
-        const result = await getData(`/read/readAllEntity/${entity}`, condition)
+        const result = await getData(`/read/readMany/${entity}`, condition)
         return result
     }
     catch (error) {
@@ -16,7 +16,7 @@ async function getRecordPriceList(entity, condition) {
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
     try {
-        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
+        let obj = { entityName: SQL_DB_PRICELIST, columns: "*", condition: "Disabled=0" };
         const res = await postData("/read/readTopN", obj);
 
 
@@ -30,10 +30,10 @@ async function getAllPriceList() {
 async function getPriceListById(object) {
     //  ומחזירה את כל השורות בטבלאות שמחוברות אליו ID מקבלת 
     try {
-        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object}' AND  Disabled=0` };
-        // const res = await postData("/read/readandjoin", obj);
-        const res = await getData("/read/readAllEntity/PriceList", { Id: object.id, Disabled: 0 })
-        return res.data;
+            let obj = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object}' AND  Disabled=0` };
+            // const res = await postData("/read/readandjoin", obj);
+            const res = await getData("/read/readMany/PriceList", {Id:object.id, Disabled:0})
+            return res.data;
     }
     catch (error) {
         throw error;
@@ -42,7 +42,7 @@ async function getPriceListById(object) {
 // פונקצית חיפוש הצעת מחיר לפי תאריך הוספה
 async function getPriceListByAddedDate(object) {
     try {
-        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
+        let obj = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
         const res = await postData("/read/readTopN", obj);
         return res.data;
     }
@@ -53,7 +53,7 @@ async function getPriceListByAddedDate(object) {
 // פונקציית חיפוש על פי מוצר
 async function getPriceListbyProduct(object) {
     try {
-        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
+        let obj = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
         const res = await postData("/read/readTopN", obj);
         return res.data;
     }
@@ -64,7 +64,7 @@ async function getPriceListbyProduct(object) {
 // פונקציית חיפוש על פי קוד ספק או לקוח
 async function getPriceListbySupplierCodeOrClientCode(object) {
     try {
-        let obj = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "PriceListId", condition: `SupplierOrClient=${object}` };
+        let obj = { entityName: PRICESLISTBYSUPPLIERORCLIENT, columns: "PriceListId", condition: `SupplierOrClient=${object}` };
         const res = await postData("/read/readTopN", obj);
         console.log(res.data);
         arrTempPriceListId = []
@@ -73,7 +73,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
                 arrTempPriceListId.push(element.PriceListId)
             });
             console.log(arrTempPriceListId);
-            let obj2 = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `Id  in (${arrTempPriceListId})` };
+            let obj2 = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `Id  in (${arrTempPriceListId})` };
             const res2 = await postData("/read/readTopN", obj2);
             console.log(res2.data);
             return res2.data;
@@ -82,7 +82,31 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
 
         }
     }
-    catch(error){
+    catch (error) {
+        throw error;
+    }
+}
+// הפונקציה מקבלת ID אזור ומחזירה הצעת מחיר שקשורה אליו
+async function getPriceListByAreaId(object) {
+    try {
+        let obj = { entityName: PRICESLISTBYSUPPLIERORCLIENT, columns: "PriceListId", condition: `AreaId='${object}'` };
+        const res = await postData("/read/readTopN", obj);
+        arrTempPriceListId = []
+        if (res.data != undefined) {
+            res.data.forEach(element => {
+                arrTempPriceListId.push(element.PriceListId)
+            });
+            console.log(arrTempPriceListId);
+            let obj2 = { entityName: SQL_DB_PRICELIST, columns: "*", condition: `Id  in (${arrTempPriceListId})` };
+            const res2 = await postData("/read/readTopN", obj2);
+            console.log(res2.data);
+            return res2.data;
+        }
+        else {
+            throw new Error('can not found this city');
+        }
+    }
+    catch (error) {
         throw error;
     }
 }
@@ -90,7 +114,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
 async function getPriceListByIdSupplierOrClientCode(object) {
     console.log(object);
     try {
-        let obj = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
         console.log(res.data);
         return res.data;
@@ -102,7 +126,7 @@ async function getPriceListByIdSupplierOrClientCode(object) {
 async function getPriceListByIdPriceListId(object) {
     console.log(object);
     try {
-        let obj = { tableName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
         return res.data;
     }
@@ -114,7 +138,7 @@ async function getPriceListByIdPriceListId(object) {
 async function getNameOfProduvtsById(object) {
     console.log(object);
     try {
-        let obj = { tableName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: PRICElISTFORPRODUCTS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/foreignkeyvalue", obj);
         console.log(res.data);
         return res.data;
@@ -127,7 +151,7 @@ async function getNameOfProduvtsById(object) {
 async function getPriceListByAdditionsForDistance(object) {
     console.log(object);
     try {
-        let obj = { tableName: ADDITIONSFORDISTANCE, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: ADDITIONSFORDISTANCE, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
         console.log(res.data);
         return res.data;
@@ -140,7 +164,7 @@ async function getPriceListByAdditionsForDistance(object) {
 async function getPriceListByAdditionsForCities(object) {
     console.log(object);
     try {
-        let obj = { tableName: CITIESADDITIONS, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: CITIESADDITIONS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
         console.log(res.data);
         return res.data;
@@ -153,7 +177,7 @@ async function getPriceListByAdditionsForCities(object) {
 async function getPriceListByAdditionsForTime(object) {
     console.log(object);
     try {
-        let obj = { tableName: TIMEADDITIONS, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: TIMEADDITIONS, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
         console.log(res.data);
         return res.data;
@@ -166,7 +190,7 @@ async function getPriceListByAdditionsForTime(object) {
 async function getPriceListByAdditionsForTruckFill(object) {
     console.log(object);
     try {
-        let obj = { tableName: TRUCKFILL, columns: "*", condition: `PriceListId=${object}` };
+        let obj = { entityName: TRUCKFILL, columns: "*", condition: `PriceListId=${object}` };
         const res = await postData("/read/readTopN", obj);
         console.log(res.data);
         return res.data;
@@ -180,21 +204,21 @@ async function getPriceListByAdditionsForTruckFill(object) {
 
 async function getSupplierByNameProduct(nameTable, nameProduct) {
     try {
-        let obj = { tableName: nameTable, columns: "Id", condition: `Name='${nameProduct}'` };
+        let obj = { entityName: nameTable, columns: "Id", condition: `Name='${nameProduct}'` };
         const res = await postData("/read/readTopN", obj);
         arrTemp = []
         if (res.data != undefined) {
             res.data.forEach(element => {
                 arrTemp.push(element.Id)
             });
-            let obj2 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `ProductId  in (${arrTemp}) And TableName='${nameTable}'` };
+            let obj2 = { entityName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `ProductId  in (${arrTemp}) And TableName='${nameTable}'` };
             const res2 = await postData("/read/readTopN", obj2);
             arrTemp2 = []
             if (res2.data != undefined) {
                 res2.data.forEach(element => {
                     arrTemp2.push(element.PriceListId)
                 });
-                let obj3 = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${arrTemp2}) ` };
+                let obj3 = { entityName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${arrTemp2}) ` };
                 const res3 = await postData("/read/readTopN", obj3);
                 return res3.data;
             }
@@ -215,16 +239,16 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
     console.log({ nameTable });
     console.log({ nameProduct });
     try {
-        let obj = { tableName: BUYTONITEMS, columns: "*", condition: `ItemDescribe='${nameProduct}'` };
+        let obj = { entityName: BUYTONITEMS, columns: "*", condition: `ItemDescribe='${nameProduct}'` };
         const res = await postData("/read/readTopN", obj);
         if (res.data != undefined) {
-            let obj2 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonStrength' AND ProductId=${res.data[0].ItemStrength}` };
+            let obj2 = { entityName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonStrength' AND ProductId=${res.data[0].ItemStrength}` };
             const res2 = await postData("/read/readTopN", obj2);
-            let obj3 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonDegree' AND ProductId=${res.data[0].ItemDegreeExposure}` };
+            let obj3 = { entityName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonDegree' AND ProductId=${res.data[0].ItemDegreeExposure}` };
             const res3 = await postData("/read/readTopN", obj3);
-            let obj4 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonSomech' AND ProductId=${res.data[0].SomechBuyton}` };
+            let obj4 = { entityName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonSomech' AND ProductId=${res.data[0].SomechBuyton}` };
             const res4 = await postData("/read/readTopN", obj4);
-            let obj5 = { tableName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonGrain' AND ProductId=${res.data[0].ItemType}` };
+            let obj5 = { entityName: PRICElISTFORPRODUCTS, columns: "PriceListId", condition: `TableName='tbl_BuytonGrain' AND ProductId=${res.data[0].ItemType}` };
             const res5 = await postData("/read/readTopN", obj5);
             temp = checkValid(res2.data, res3.data)
             temp2 = checkValid(temp, res4.data)
@@ -234,7 +258,7 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
                 temp3.forEach(element => {
                     arrTemp2.push(element.PriceListId)
                 });
-                let obj3 = { tableName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${arrTemp2}) ` };
+                let obj3 = { entityName: PRICESLISTBYSUPPLIERORCLIENT, columns: "*", condition: `PriceListId  in (${arrTemp2}) ` };
                 const res3 = await postData("/read/readTopN", obj3);
                 console.log(res3.data + "            res3.data");
                 return res3.data;

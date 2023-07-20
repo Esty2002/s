@@ -94,12 +94,11 @@ async function findAddition(filter = {}) {
 }
 
 async function updateAddition(obj = {}, filter = {}) {
-    let string = ""
-    for (let k in obj) {
-        string += `${k}='${obj[k]}',`
-    }
-    string = string.slice(0, -1)
-    return (await postData('/update/update', { tableName: SQL_ADDITIONS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
+    const response = await postData('/update/update', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
+    if (response.data)
+        return true
+    else
+        return false
 }
 
 module.exports = { insertAddition, findAddition, updateAddition }

@@ -22,10 +22,11 @@ const values = [
 ]
 async function insert(data, entityName) {
     let obj = {}
-    obj['tableName'] = tableName
+    obj['entityName'] = tableName
     obj['values'] = {...data, disabled:false, addedDate:new Date().toISOString(), userName:'developer'}
+    console.log({obj})
     try {
-        const result = await postData('/create/create', obj)
+        const result = await postData('/create/createone', obj)
         return result;
     }
     catch (error) {
@@ -44,7 +45,7 @@ async function getProducts(tbName) {
     }
     logToFile(object)
     let obj = {}
-    obj['tableName'] = tbName
+    obj['entityName'] = tbName
     obj['columns'] = '*'
 
     const response = await postData('/read/readTopN', obj)

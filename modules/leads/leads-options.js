@@ -272,6 +272,7 @@ const deleteLead = async (id) => {
 const deleteOneLead = async (id) => {
     if (id) {
         const obj = {
+            entityName: 'leads',
             values: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()

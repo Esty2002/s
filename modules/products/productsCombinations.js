@@ -10,7 +10,7 @@ async function insertRow(object) {
         if (existResponse.data[0].Disable) {
             let rowId = existResponse.data[0].Id
             let updateObject = {
-                "tableName": SQL_PRODUCTS_COMBINATIONS_TABLE,
+                "entityName": SQL_PRODUCTS_COMBINATIONS_TABLE,
                 "condition": `Id=${rowId}`,
                 "values": { Disable: 'false' }
             }
