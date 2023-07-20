@@ -1,5 +1,5 @@
 
-const { postData, getData } = require('../../services/axios');
+const { postData, getData, putData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
 const { getRecord } = require('./tables');
 
@@ -37,7 +37,7 @@ const createNewLead = async (obj = null) => {
             }]
         }
         for (let item of vals) {
-            _ = await checkObjectValidations(item, 'leads');
+            _ = await checkObjectValidations(item, SQL_LEADS_TABLE);
         };
 
         let newObj = {
@@ -61,7 +61,7 @@ const createNewLead = async (obj = null) => {
 };
 
 const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
-    try { 
+    try {
         let morePorductsItems = [];
         items.forEach(mpi => {
             morePorductsItems = [...morePorductsItems, {
@@ -132,7 +132,7 @@ const readLead = async (filter) => {
 
 const readMoreProductsItems = async (filter) => {
 
-    try {     
+    try {
         let condition;
         filter ? condition = filter : null
 
@@ -153,55 +153,19 @@ const readMoreProductsItems = async (filter) => {
 
 };
 
-const readforeignkeyvalue = async (filter) => {
-    // const obj = {
-    //     tableName: "tbl_Leads",
-    //     columns: '*',
-    //     condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
-    // }
-    try {
-        const values = await getData(`read/foreignkeyvalue/${filter.tablename}/${filter.field}/${filter.id}`);
-        if (values) {
-            // let result = [];
-            // values.forEach(val => {
-            //     const sameRecord = values.filter(v => v.SupplyDate.toString() === val.SupplyDate.toString() && v.SupplyHour.toString() === val.SupplyHour.toString() &&
-            //         v.Address === val.Address && v.OrdererCode === val.OrdererCode);
-
-            //     const keys = Object.keys(sameRecord[0]);
-            //     const temp = {}
-            //     for (let key of keys) {
-            //         temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
-            //     }
-            //     result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
-            //         r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
-            // });
-            // return result;
-            return values.data;
-
-        }
-        else {
-            return false;
-        }
-    }
-    catch (error) {
-        throw error;
-    }
-
-};
-
 const updateLead = async (obj = null) => {
     try {
         if (obj.condition) {
-            const baseLead = await getData(`read/readMany/${SQL_LEADS_TABLE}`,obj.condition);
+            const baseLead = await getData(`read/readMany/${SQL_LEADS_TABLE}`, obj.condition);
             if (baseLead.data.length > 0) {
                 const newObj = {
-                    tableName: 'tbl_Leads',
+                    entityName: SQL_LEADS_TABLE,
                     values: obj.values,
-                    condition: `Address='${baseLead.data[0].Address}' AND OrdererCode=${baseLead.data[0].OrdererCode} AND SupplyDate='${baseLead.data[0].SupplyDate}' AND SupplyHour='${baseLead.data[0].SupplyHour}'`
+                    condition: { AND: [{ Address: baseLead.data[0].Address }, { OrdererCode: baseLead.data[0].OrdererCode }, { SupplyDate: baseLead.data[0].SupplyDate }, { SupplyHour: baseLead.data[0].SupplyHour }] }
                 };
-                const result = await postData('update/update', newObj);
-                if (result) {
-                    return result;
+                const result = await putData('update/updatemany', newObj);
+                if (result.status == 204) {
+                    return result.data;
                 }
                 else {
                     return false;
@@ -224,9 +188,9 @@ const updateLead = async (obj = null) => {
 const updateOneLead = async (obj = null) => {
     try {
         if (obj.condition) {
-            const result = await postData('update/updateOne', obj);
-            if (result) {
-                return result;
+            const result = await putData('update/updateone', obj);
+            if (result.status == 204) {
+                return result.data;
             }
             else {
                 return false;
@@ -249,7 +213,7 @@ const deleteLead = async (id) => {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()
             },
-            condition: `Id=${id}`
+            condition: { Id: id }
         }
         try {
             const result = await updateLead(obj);
@@ -272,12 +236,12 @@ const deleteLead = async (id) => {
 const deleteOneLead = async (id) => {
     if (id) {
         const obj = {
-            entityName: 'leads',
+            entityName: SQL_LEADS_TABLE,
             values: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()
             },
-            condition: `Id=${id}`
+            condition: { Id: id }
         }
         try {
             const result = await updateOneLead(obj);
@@ -297,4 +261,4 @@ const deleteOneLead = async (id) => {
     }
 };
 
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue, readMoreProductsItems, insertMoreProductsItems }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readMoreProductsItems, insertMoreProductsItems }

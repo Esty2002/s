@@ -1,4 +1,4 @@
-const { postData, getData } = require('../../services/axios');
+const { postData, getData, putData, deleteData } = require('../../services/axios');
 const { checkObjectValidations, checkValidationsUpdate } = require('../../services/validations/use-validations');
 
 const values = [
@@ -104,11 +104,11 @@ const newRecord = async (obj = null) => {
 
 const getRecord = async (entityName = "", prop = "") => {
     const entity = values.find((v) => v.entityName === entityName);
-    if (entity) {      
+    if (entity) {
         let condition;
         prop ? condition = prop : null
         try {
-            const result = await getData(`/read/readMany/${entity.entityName}`,condition);
+            const result = await getData(`/read/readMany/${entity.entityName}`, condition);
             return result;
         }
         catch (error) {
@@ -131,13 +131,13 @@ const updateRecord = async (obj = null) => {
                 condition: obj.condition
             };
             try {
-                // console.log({newObj});
                 // _ = await checkValidationsUpdate(newObj.values, entity.entityName);
-                result = await postData('/update/update', newObj);
-                return result;
+                result = await putData('/update/updateone', newObj);
+                if (result.status == 204)
+                    return result.data;
+                return false
             }
             catch (error) {
-                console.log({error});
                 throw error;
             }
         }
@@ -159,13 +159,15 @@ const deleteRecord = async (obj) => {
                 entityName: table.entityName,
                 values: {
                     disable: 1,
-                    deletingDate:new Date()
+                    deletingDate: new Date()
                 },
                 condition: obj.condition
             };
             try {
-                result = await postData('/update/update', newObj);
-                return result;
+                result = await deleteData('/delete/deleteone', newObj);
+                if (result.status == 204)
+                    return result.data;
+                return false
             }
             catch (error) {
                 throw error;

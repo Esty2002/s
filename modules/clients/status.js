@@ -26,4 +26,4 @@ async function getStatusNameById(id) {
     }
 };
 
-module.exports = { deleteOneStatus, getStatusNumber, getStatusNameById }
+module.exports = { getStatusNumber, getStatusNameById }
