@@ -70,9 +70,4 @@ const deleteData = async (url, body) => {
     }
 }
 module.exports = { getData, postData, putData , deleteData}
-// ----1
-// url====== /read/distinct
-// body====== { collection: 'areas', distinct: 'type' }
-// ----2
-// url====== /read/find
-// body====== { collection: 'areas', filter: { type: 'poligon' } }
+
