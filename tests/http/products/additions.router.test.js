@@ -13,13 +13,18 @@ jest.mock('../../../modules/products/additions', () => {
             if (obj.name == "error")
                 throw new Error('wow')
             else
-                return {status:201}
+                return { status: 201 }
         }),
         findAddition: jest.fn((obj) => {
+            if (obj == 'Array of Errors') {
+                let a = new Error('wow1')
+                let b = new Error('wow2')
+                throw [a.message, b.message]
+            }
             if (obj == "error")
                 throw new Error('wow')
             else
-            return {status:200}
+                return { status: 200 }
         })
     }
 })
@@ -88,6 +93,16 @@ describe('/additions/find', () => {
     it('should fali finding', async () => {
         const response = await request(app).post('/additions/find').send({ arr: "error" })
         expect(response.statusCode).toBe(500)
+    })
+    it('should fali finding because of validations', async () => {
+        let response = ''
+        try {
+            const response = await request(app).post('/additions/find').send({ arr: "Array of Errors" })
+            expect(response.statusCode).toBe(500)
+        }
+        catch (error) {
+            expect(error).toBeInstanceOf(Array)
+        }
     })
     it('should check the mock logToFile', async () => {
         const { logToFile } = jest.requireMock('../../../services/logger/logTxt')

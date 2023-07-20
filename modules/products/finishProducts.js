@@ -60,10 +60,10 @@ async function insertFinishProduct(obj, tableName) {
         throw error
     }
 }
-
 async function updateFinishProduct(obj) {
     
     const response = await postData('/update/update', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: obj.condition })
+
     if (response.data)
         return true
     else
@@ -96,6 +96,7 @@ async function findFinishProduct(project = [], filter = {},tableName) {
     // else{
     //     return false
     // }
+
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

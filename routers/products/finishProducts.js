@@ -30,17 +30,23 @@ router.post('/create', express.json(), async (req, res) => {
 })
 
 router.post('/update', express.json(), async (req, res) => {
-    console.log('router', req.body);
-    try {
-        const response = await updateFinishProduct({ data: req.body.update, condition: req.body.where })
-        if (response) {
-            res.status(200).send(response)
-        }
-        else {
-            res.status(500).send(response)
-        }
+    let objectForLog = {
+        name: 'update',
+        description: 'update finished product in router',
+        update: req.body.update,
+        where: req.body.where
     }
-    catch (error) { res.status(404).send(error.message) }
+    logToFile(objectForLog)
+    try {
+        const response = await updateFinishProduct({ data: req.body.update, condition: req.body.where }, 'FinishProducts')
+        if (response.status === 204)
+            res.status(204).send(true)
+        else
+            res.status(response.status).send(response)
+    }
+    catch (error) { 
+        res.status(500).send(error.message) 
+    }
 })
 
 router.post('/delete', express.json(), async (req, res) => {
@@ -63,8 +69,8 @@ router.post('/find', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await findFinishProduct(req.body.arr, req.body.where,'FinishProducts')
-        console.log(response.data,'response.data');
+        const response = await findFinishProduct(req.body.arr, req.body.where, 'FinishProducts')
+        console.log(response.data, 'response.data');
         if (response.status == 200)
             res.status(200).send(response.data)
         else
@@ -74,9 +80,9 @@ router.post('/find', express.json(), async (req, res) => {
         objectForLog.error = error.message
         logToFile(objectForLog)
         if (error instanceof Array)
-        res.status(500).send(error)
-    else
-        res.status(500).send(error.message)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
 
     }
 })
