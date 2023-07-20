@@ -91,8 +91,8 @@ router.post('/searchAreas', express.json(), async (req, res) => {
         let areas = [];
         const citys = await findAreas({ basicName: obj.city });
         const points = await findAreas({ point: obj.point, type: 'point' });
-        const radius = await findAreas({ type: 'radius' });
-        // const radius = await findInRadius({ point: obj.point,type: 'radius' });
+        // const radius = await findAreas({ type: 'radius' });
+        const radius = await findInRadius({ point: obj.point,type: 'radius' });
         // //--------------------------------------
         // db.getCollection('tA').aggregate([
         //     {
@@ -155,7 +155,6 @@ router.post('/searchAreas', express.json(), async (req, res) => {
 
         const polygon = await findInPolygon({ point: obj.point });
         areas = [...areas, ...citys, ...points, ...radius, ...polygon];
-        console.log('popopopo',radius);
         res.status(200).send(areas)
     }
     catch (error) {
@@ -175,7 +174,7 @@ router.post('/findAllTypes', express.json(), async (req, res) => {
         }
         logToFile(object)
         const result = await findByDistinct(req.body)
-        res.status(200).send(result.data)
+        res.status(200).send(result)
     }
     catch (err) {
         object.error = err.message
@@ -206,6 +205,7 @@ router.post('/updateArea', express.json(), async (req, res) => {
         res.status(500).send(error.message);
     }
 });
+
 router.post('/deleteArea', express.json(), async (req, res) => {
     let object;
     try {
