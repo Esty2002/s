@@ -20,7 +20,7 @@ const getData = async (url, query) => {
     return response;
 }
 
-const postData=async(url,body)=>{
+const postData = async (url, body) => {
     let response;
     try {
         response = await server.post(url, body);

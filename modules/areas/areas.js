@@ -165,6 +165,7 @@ async function checkPolygon(obj) {
             throw new Error("One of the places_id is uncorrect");
         }
     });
+    return true
 }
 
 async function checkRadius(obj) {
@@ -172,6 +173,7 @@ async function checkRadius(obj) {
     const checkValidationRadius = await checkObjectValidations(radiusObj, "areas_radius")
     if (checkValidationRadius) {
         console.log('Im correct lets continue');
+        return true
     }
     else {
         throw new Error("radius is uncorrect");
@@ -180,10 +182,10 @@ async function checkRadius(obj) {
 
 async function checkPointAndPlaceId(obj) {
     let pointValidation
-    const latPoint = { point: obj.point.lat }
+    const latPoint = { point: obj.point ? obj.point.lat : null }
     pointValidation = await checkObjectValidations(latPoint, "areas_point")
     if (pointValidation) {
-        const lngPoint = { point: obj.point.lng }
+        const lngPoint = { point: obj.point ? obj.point.lng : null }
         pointValidation = await checkObjectValidations(lngPoint, "areas_point")
         if (pointValidation) {
             console.log('Im correct lets continue');
@@ -203,19 +205,35 @@ async function checkPointAndPlaceId(obj) {
     else {
         throw new Error("the place_id is uncorrect");
     }
+    return true
 }
 
 async function insertArea(obj = {}) {
     console.log(obj);
     if (obj.type == 'polygon') {
-        await checkPolygon(obj)
+        const checkpolygon = await checkPolygon(obj)
+        if (checkpolygon) {
+            console.log('true');
+            await checkAndInsert(obj)
+        }
     }
     else {
-        await checkPointAndPlaceId(obj)
+        const checkpointandplaceId = await checkPointAndPlaceId(obj)
+        if (checkpointandplaceId) {
+            console.log('true');
+            await checkAndInsert(obj)
+        }
     }
     if (obj.type == 'radius') {
-        await checkRadius(obj)
+        const checkradius = await checkRadius(obj)
+        if (checkradius) {
+            console.log('true');
+            await checkAndInsert(obj)
+        }
     }
+}
+
+async function checkAndInsert(obj) {
 
     const mongoObj = { addedDate: obj.addedDate, disabled: obj.disabled, basicName: obj.basicName, name: obj.name, type: obj.type }
 
@@ -274,20 +292,31 @@ async function insertArea(obj = {}) {
     }
 };
 
-
 async function updateArea(obj = {}) {
-    let originalId = obj._id;
-    delete obj._id;
-
-    if (obj.type == 'polygon') {
-        await checkPolygon(obj)
+    const checkpolygon = await checkPolygon(obj)
+    if (checkpolygon) {
+        console.log('true');
+        await checkAndUpdate(obj)
     }
     else {
-        await checkPointAndPlaceId(obj)
+        const checkpointandplaceId = await checkPointAndPlaceId(obj)
+        if (checkpointandplaceId) {
+            console.log('true');
+            await checkAndUpdate(obj)
+        }
     }
     if (obj.type == 'radius') {
-        await checkRadius(obj)
+        const checkradius = await checkRadius(obj)
+        if (checkradius) {
+            console.log('true');
+            await checkAndUpdate(obj)
+        }
     }
+}
+
+async function checkAndUpdate(obj) {
+    let originalId = obj._id;
+    delete obj._id;
 
     const mongoObj = { addedDate: obj.addedDate, disabled: obj.disabled, basicName: obj.basicName, name: obj.name, type: obj.type }
 
