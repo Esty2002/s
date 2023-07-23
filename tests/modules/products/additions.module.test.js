@@ -18,13 +18,13 @@ jest.mock('../../../modules/products/measure', () => {
     return {
         findMeasureNumber: jest.fn((obj) => {
             if (obj == "error")
-                return { error: 'no matching unit of measure' }
-            return 1
+                throw new Error('no matching unit of measure')
+            return { data: [{ "Id": 1 }] }
         }),
         findMeasureName: jest.fn((obj) => {
             if (obj == "error")
-                return { error: 'no matching unit of measure' }
-            return "mmm"
+                throw new Error('no matching unit of measure')
+            return { data: [{ "measure": "mmm" }] }
         }),
     }
 });
@@ -33,7 +33,7 @@ jest.mock('../../../services/axios', () => {
         postData: jest.fn((obj, b) => {
             if (b.condition == "Name='error'")
                 return { data: [{ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }], status: 201 }
-            return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }] , status: 201}
+            return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 }
         }),
     }
 });
@@ -42,7 +42,7 @@ jest.mock('../../../services/axios', () => {
 const { insertAddition, findAddition } = require('../../../modules/products/additions');
 describe('function findAddition', () => {
     it('shuols success finding an addition', async () => {
-        const result = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        const result = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Additions");
         expect(result.data).toStrictEqual([{ BookkeepingCode: "BookkeepingCode", UnitOfMeasure: "mmm", Name: "Name" }])
         expect(result).toBeDefined()
     })
@@ -59,7 +59,7 @@ describe('function findAddition', () => {
     })
 
     it('shuols check the mock logToFile', async () => {
-        _ = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        _ = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Additions");
         const { logToFile } = jest.requireMock('../../../services/logger/logTxt');
         expect(logToFile).toHaveBeenCalled()
         expect(logToFile).toBeDefined()
@@ -67,7 +67,7 @@ describe('function findAddition', () => {
 
     it('shuols fail to findMeasureName', async () => {
         try {
-            const result = await findAddition([], { Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" });
+            const result = await findAddition([], { Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" }, "Additions");
         }
         catch (error) {
             expect(error.message).toBe('no matching unit of measure')
@@ -77,14 +77,14 @@ describe('function findAddition', () => {
     })
 
     it('shuols success to findMeasureName', async () => {
-        const result = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        const result = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Additions");
         const { findMeasureName } = jest.requireMock('../../../modules/products/measure');
         expect(findMeasureName).toHaveBeenCalled()
         expect(findMeasureName).toBeDefined()
     })
 
     it('shuols check the mock postData', async () => {
-        _ = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        _ = await findAddition([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Additions");
         const { postData } = jest.requireMock('../../../services/axios');
         expect(postData).toHaveBeenCalled()
         expect(postData).toBeDefined()
@@ -95,7 +95,7 @@ describe('function findAddition', () => {
 describe('function insertAddition', () => {
     it('shuols success inserting an addition', async () => {
         const result = await insertAddition({ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Additions");
-        expect(result).toStrictEqual({ data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }] , status: 201})
+        expect(result).toStrictEqual({ data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 })
         expect(result).toBeDefined()
     })
     it('shuols fail inserting an addition', async () => {

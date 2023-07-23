@@ -18,13 +18,13 @@ jest.mock('../../../modules/products/measure', () => {
     return {
         findMeasureNumber: jest.fn((obj) => {
             if (obj == "error")
-                return { error: 'no matching unit of measure' }
-            return 1
+                throw new Error('no matching unit of measure')
+            return { data: [{ "Id": 1 }] }
         }),
         findMeasureName: jest.fn((obj) => {
             if (obj == "error")
-                return { error: 'no matching unit of measure' }
-            return "mmm"
+                throw new Error('no matching unit of measure')
+            return { data: [{ "measure": "mmm" }] }
         }),
     }
 });
@@ -98,7 +98,7 @@ describe('function insertPump', () => {
 })
 describe('function findAddition', () => {
     it('shuols success finding a pump', async () => {
-        const result = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        const result = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Pumps");
         expect(result.data).toStrictEqual([{ BookkeepingCode: "BookkeepingCode", UnitOfMeasure: "mmm", Name: "Name" }])
         expect(result).toBeDefined()
     })
@@ -115,7 +115,7 @@ describe('function findAddition', () => {
     })
 
     it('shuols check the mock logToFile', async () => {
-        _ = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        _ = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Pumps");
         const { logToFile } = jest.requireMock('../../../services/logger/logTxt');
         expect(logToFile).toHaveBeenCalled()
         expect(logToFile).toBeDefined()
@@ -123,7 +123,7 @@ describe('function findAddition', () => {
 
     it('shuols fail to findMeasureName', async () => {
         try {
-            const result = await findPump([], { Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" } );
+            const result = await findPump([], { Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" }, "Pumps");
         }
         catch (error) {
             expect(error.message).toBe('no matching unit of measure')
@@ -133,14 +133,14 @@ describe('function findAddition', () => {
     })
 
     it('shuols success to findMeasureName', async () => {
-        const result = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        const result = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Pumps");
         const { findMeasureName } = jest.requireMock('../../../modules/products/measure');
         expect(findMeasureName).toHaveBeenCalled()
         expect(findMeasureName).toBeDefined()
     })
 
     it('shuols check the mock postData', async () => {
-        _ = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        _ = await findPump([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "Pumps");
         const { postData } = jest.requireMock('../../../services/axios');
         expect(postData).toHaveBeenCalled()
         expect(postData).toBeDefined()

@@ -107,7 +107,6 @@ async function findMeasureName(num) {
         logToFile(objectForLog)
         throw error
     }
-
 }
 
 async function deleteItem(object) {

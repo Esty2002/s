@@ -23,9 +23,7 @@ jest.mock('../../../services/axios', () => {
             return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 }
         }),
         getData: jest.fn((obj, b) => {
-            console.log(obj, 'gffffff');
             let arr = obj.split('/')
-            console.log(arr[arr.length - 1], 'aaaaarrrrr');
             if (arr[arr.length - 1] == 'Id=-1' || arr[arr.length-1]=="Measure='error'")
                 return { data: [] }
             return { data: [{ Id: 1, Measure: "mmm", Disable: true }, { Id: 2, Measure: "aaa", Disable: false }], status: 200 }
