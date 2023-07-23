@@ -68,7 +68,7 @@ const objectsForValidations = [
     },
 
     {
-        objectName: "tbl_Branches",
+        objectName: "Branches",
         values: [
             { propertyName: "BranchName", validation: [{ func: validation.type, arguments: "string" }], require: true },
             { propertyName: "City", validation: [{ func: validation.type, arguments: "string" }], require: true },

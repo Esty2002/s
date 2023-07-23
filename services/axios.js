@@ -21,10 +21,7 @@ const getData = async (url, query) => {
 
     try {
         response = await server.get(url);
-<<<<<<< HEAD
-=======
         return response;
->>>>>>> e45a66bed567be18de31875371d1e77f1e5cc7a6
     }
     catch (error) {
         console.log({ error: error.message })

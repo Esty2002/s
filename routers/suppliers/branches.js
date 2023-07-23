@@ -29,12 +29,7 @@ router.get('/getallbranches', async (req, res) => {
     }
 })
 
-<<<<<<< HEAD
 router.get('/getBranchesWithCondition/:condition/:value/:num', async (req, res) => {
-=======
-router.get('/getBranchesWithCondition/:condition/:value', async (req, res) => {
-
->>>>>>> e45a66bed567be18de31875371d1e77f1e5cc7a6
     try {
         const filter = {}
         filter[req.params.condition] = req.params.value

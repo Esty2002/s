@@ -16,7 +16,6 @@ jest.mock('../../../services/validations/use-validations', () => {
 jest.mock('../../../modules/suppliers/branches', () => {
     return {
         insertOneBranch: jest.fn((obj) => {
-            console.log("ooooooooops----", { obj })
             if (obj.isValid)
                 return { status: 201, data: "insert" }
             console.log({ valid: obj.isValid });

@@ -138,16 +138,12 @@ const validation = {
     specificLength: specificLength,
     bit: bit,
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
-<<<<<<< HEAD
     concretEmail: concretEmail,
     // theDateBeforToday:theDateBeforToday,
     theDateAfterToday:theDateAfterToday,
     EnglishLettersOrHebrewLetters:EnglishLettersOrHebrewLetters,
     betweenNumbers:betweenNumbers
     
-=======
-    concretEmail: concretEmail
->>>>>>> e45a66bed567be18de31875371d1e77f1e5cc7a6
 }
 
 module.exports = { validation }
