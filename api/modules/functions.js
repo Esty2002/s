@@ -100,6 +100,8 @@ async function enterRouter(router) {
             let allFunctions = allRoutersInCurrentDirectory.find(c => c.document == router.path.slice(1))
             allFunctions.functions.forEach(d => {
                 if (d.key === oldPathName.slice(1).split('/')[0]) {
+                    // console.log(d,'ddddddddddddddd');
+                    // console.log(d.arguments,'aaaaaaaargssss');
                     obj.arguments = d.arguments
                     obj.response = d.response
                 }
@@ -107,10 +109,9 @@ async function enterRouter(router) {
 
         }
         catch { console.log('didnt filter') }
-
-        // obj.response=''
         arr[i] = obj
     }
+    // console.log(arr[1]?arr[1]['apiRequest'][2]['arguments']:'','mmmmmmmmmmmmmmmmmmmmmuuuu');
     return arr;
 }
 

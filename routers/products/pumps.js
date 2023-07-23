@@ -1,47 +1,71 @@
 const express = require('express')
 const router = express.Router()
 const { findPump, insertPump, updatePump, findPumpName } = require('../../modules/products/pumps')
+const { logToFile } = require('../../services/logger/logTxt')
 
 
-router.get('/pumpNameById/:id', async (req, res) => {
-    try {
-        const response = await findPumpName(req.params.id)
-        if (response.status === 200) {
-            res.status(200).send(response.data)
-        }
-        else {
-            res.status(response.status).send(response.data)
-        }
-    }
-    catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+// router.get('/pumpNameById/:id', async (req, res) => {
+//     try {
+//         const response = await findPumpName(req.params.id)
+//         if (response.status === 200) {
+//             res.status(200).send(response.data)
+//         }
+//         else {
+//             res.status(response.status).send(response.data)
+//         }
+//     }
+//     catch (error) {
+//         res.status(500).send(error.message)
+//     }
+// })
 
 router.post('/create', express.json(), async (req, res) => {
-    console.log("-------------------------------pumps");
+    let objectForLog = {
+        name: 'create',
+        description: 'insert pump in router',
+        dataThatRecived: req.body
+    }
+    logToFile(objectForLog)
     try {
-        const response =await insertPump(req.body)
-        console.log({response})
-        if (response)
-            res.status(201).send(response.data)
-        else {
-            res.status(500).send(response.data)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
+        const response = await insertPump(req.body, 'Pumps')
+        if (response.status === 201)
+            res.status(201).send(true)
+        else
+            res.status(response.status).send(response)
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
     }
 })
 
 router.post('/find', express.json(), async (req, res) => {
-    try {
-        const response = await findPump(req.body.arr, req.body.where)
-         
-            res.status(response.status).send(response.data)
-        
+    let objectForLog = {
+        name: 'find',
+        description: 'find pumps in router',
+        arr: req.body.arr,
+        condition: req.body.where
     }
-    catch (error) { 
-        res.status(500).send(error.message) }
+    logToFile(objectForLog)
+    try {
+        const response = await findPump(req.body.arr, req.body.where, 'Pumps')
+        if (response.status == 200)
+            res.status(200).send(response.data)
+        else
+            res.status(response.status).send(response)
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
+    }
 })
 
 router.post('/update', express.json(), async (req, res) => {
