@@ -20,9 +20,7 @@ function parseObjectToText(object) {
 function logToFile(object) {
     let txt = ''
     let text = ''
-    console.log(object, ' object in start');
     for (let i in object) {
-        console.log(object[i], ' object[i]');
         if (typeof (object[i]) != 'string' && typeof (object[i]) != 'boolean' && typeof (object[i]) != 'number') {
             txt+= parseObjectToText(object[i])
         }
@@ -34,7 +32,6 @@ function logToFile(object) {
         ${'\n'}${i}: {${txt}}`
     }
 
-    console.log(text, ' text');
 
     if (!fs.existsSync(path.join(__dirname, '../services/logger'))) {
         fs.mkdirSync(path.join(__dirname, '../services/logger'))

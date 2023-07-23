@@ -5,12 +5,12 @@ const { SQL_PRODUCTS_COMBINATIONS_TABLE } = process.env
 
 
 async function insertRow(object) {
-    const existResponse = await postData('/read/readTopN', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, columns: '*', condition: `parentId= ${object.parent} and  childId = ${object.child}` })
+    const existResponse = await postData('/read/readTopN', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, columns: '*', condition: `parentId= ${object.parent} and  childId = ${object.child}` })
     if (existResponse.data.length > 0) {
         if (existResponse.data[0].Disable) {
             let rowId = existResponse.data[0].Id
             let updateObject = {
-                "tableName": SQL_PRODUCTS_COMBINATIONS_TABLE,
+                "entityName": SQL_PRODUCTS_COMBINATIONS_TABLE,
                 "condition": `Id=${rowId}`,
                 "values": {Disable:'false'}
             }
@@ -22,7 +22,7 @@ async function insertRow(object) {
             throw new Error('already exist')
     }
     else {
-        const response = await postData('/create/create', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
+        const response = await postData('/create/createone', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
 
         return response
     }
@@ -34,13 +34,13 @@ async function getAll() {
 }
 
 async function deleteItem(object) {
-    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: {Id:object.Id} })
+    const response = await postData('/update/update', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: {Id:object.Id} })
     return response
 }
 
 async function updateNames(object) {
 
-    const response = await postData('/update/update', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: {ParentId:object.idP, ChildId:object.idC} })
+    const response = await postData('/update/update', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: {ParentId:object.idP, ChildId:object.idC} })
     return response.data
 }
 // async function getChildrenByParent(parent) {

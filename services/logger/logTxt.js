@@ -4,26 +4,21 @@ let url = ''
 function newLine(url) {
     fs.appendFileSync(url, '\n')
 }
-function parseObjectToText(object) {
-    let txtObj = '\n';
-    for (let key in object) {
-        txtObj += `${key}: ${object[key]}, \n`
-    }
-    txtObj += `${'\n'}`
-    return txtObj;
-}
+
 let lastName = 'read'
 function logToFile(object) {
     let text = ''
-    for (let i in object) {
-        if (typeof (object[i]) != 'string' && typeof (object[i]) != 'boolean' && typeof (object[i]) != 'number') {
-            object[i] = parseObjectToText(object[i])
-        }
-        text = `last time login in the action '${object.name}' : ${new Date().toDateString()} - ${new Date().toLocaleTimeString()}  
-        ${'\n'}description: ${object.description}
-        ${'\n'}${i}: ${object[i]}`
-
+    let body = '';
+    let { name, description, ...rest } = object
+    for (let key in rest) {
+        if (typeof (object[key]) != 'string' && typeof (object[key]) != 'boolean' && typeof (object[key]) != 'number')
+            body += `${key} :${JSON.stringify(object[key])} \n`
+        else
+            body += `${key} :${object[key]} `
     }
+    text = `last time login in the action '${name}' : ${new Date().toDateString()} - ${new Date().toLocaleTimeString()}  
+        ${'\n'}description: ${description}
+        ${'\n'}data: {${body}}`
     if (!fs.existsSync(path.join(__dirname, 'loggerTxt'))) {
         fs.mkdirSync(path.join(__dirname, 'loggerTxt'))
         url = 'services/logger/loggerTxt/loggerTxt.txt'

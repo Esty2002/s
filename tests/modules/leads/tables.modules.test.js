@@ -10,7 +10,7 @@ jest.mock('../../../services/axios', () => {
                         throw new Error("the object lead is not correct");
                     }
                 case '/sql/update':
-                    if (obj.tableName&&typeof obj.values=='object'&&typeof obj.condition=='string') {
+                    if (obj.tableName && typeof obj.values == 'object' && typeof obj.condition == 'string') {
                         return "the object is correct";
                     }
                     else {
@@ -107,107 +107,107 @@ describe('check function getRecord', () => {
         }
     });
 
-    it('check that the function postData required in this function',async()=>{
-            const { postData } = jest.requireMock('../../../services/axios');
-            const result = await getRecord("orderers", "OrdererName", "none");
-            expect(result).toBeDefined();
-            expect(result).toBeTruthy();
-            expect(result).not.toBeNull();
-            expect(postData).toHaveBeenCalled();        
-      });
+    it('check that the function postData required in this function', async () => {
+        const { postData } = jest.requireMock('../../../services/axios');
+        const result = await getRecord("orderers", "OrdererName", "none");
+        expect(result).toBeDefined();
+        expect(result).toBeTruthy();
+        expect(result).not.toBeNull();
+        expect(postData).toHaveBeenCalled();
+    });
 
 });
 
 describe('check function updateRecord', () => {
     it('check that the functin return "the object is correct" when the obj is defined', async () => {
-        const result = await updateRecord({ tableName: "pouringsTypes",update:{PouringName:"גדר"},condition:"SerialNumber=1" });
+        const result = await updateRecord({ tableName: "pouringsTypes", update: { PouringName: "גדר" }, condition: "SerialNumber=1" });
         expect(result).toBeDefined();
         expect(result).toBe("the object is correct");
         expect(result.length).toBe(21);
     });
 
     it('check that the function return Error when the obj not correct', async () => {
-        let result ;
+        let result;
         try {
             result = await updateRecord({ serialNumber: 1 });
         }
-        catch(error){
+        catch (error) {
             expect(result).not.toBeDefined();
             expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
             expect(error.message).toBe("the obj.tableName or obj.values or obj.condition are not correct");
-        }       
+        }
     });
 
     it('check that the function return the object is null when the obj not defined', async () => {
-        let result ;
+        let result;
         try {
             result = await updateRecord();
         }
-        catch(error){
+        catch (error) {
             expect(result).not.toBeDefined();
             expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
             expect(error.message).toBe("the object is null");
-        }       
+        }
     });
 
-    it('check that the function require the mock postData',async()=>{
+    it('check that the function require the mock postData', async () => {
         const { postData } = jest.requireMock('../../../services/axios');
-        const result = await updateRecord({ tableName: "statusesLead",update:{OrdererPhone:"0504175184"},condition:"OrdererPhone='0504178963'" });
+        const result = await updateRecord({ tableName: "statusesLead", update: { OrdererPhone: "0504175184" }, condition: "OrdererPhone='0504178963'" });
 
-            expect(result).toBeDefined();
-            expect(result).toBeTruthy();
-            expect(result).not.toBeNull();
-            expect(postData).toHaveBeenCalled();    
+        expect(result).toBeDefined();
+        expect(result).toBeTruthy();
+        expect(result).not.toBeNull();
+        expect(postData).toHaveBeenCalled();
     });
 
 });
 
 describe('check function deleteRecord', () => {
     it('check that the function return "object is not defined" when all obj.set is defined', async () => {
-        const result = await deleteRecord({ tableName:"orderers",condition:"OrdererName='מיכל'"});
+        const result = await deleteRecord({ tableName: "orderers", condition: "OrdererName='מיכל'" });
         expect(result).toBeDefined();
         expect(result).toBe("the object is correct");
         expect(result.length).toBe(21);
         expect(result).not.toBeNull();
     });
 
-    it('check that the function require the mock getData',async()=>{
+    it('check that the function require the mock getData', async () => {
         const { postData } = jest.requireMock('../../../services/axios');
-        const result = await deleteRecord({ tableName:"statusesLead",condition:"StatusName='גדר'"});
+        const result = await deleteRecord({ tableName: "statusesLead", condition: "StatusName='גדר'" });
         expect(result).toBeDefined();
         expect(result).toBe("the object is correct");
         expect(result.length).toBe(21);
         expect(result).not.toBeNull();
-        expect(postData).toHaveBeenCalled();    
+        expect(postData).toHaveBeenCalled();
 
     })
-    
+
     it('check that the function return "object is not defined" when the obj.set not defined', async () => {
         let result;
-        try{
-           result = await deleteRecord("dfjhakdf");
+        try {
+            result = await deleteRecord("dfjhakdf");
         }
-        catch(error){
+        catch (error) {
             expect(result).not.toBeDefined();
             expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
             expect(error.message).toBe("the obj.tableName or obj.values or obj.condition are not correct");
-        }    
+        }
     });
 
     it('check that the function return "object is not defined" when the obj.set not defined', async () => {
         let result;
-        try{
-           result = await deleteRecord();
+        try {
+            result = await deleteRecord();
         }
-        catch(error){
+        catch (error) {
             expect(result).not.toBeDefined();
             expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
             expect(error.message).toBe("the object is null");
-        }    
+        }
     });
 
 })
