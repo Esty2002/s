@@ -38,7 +38,7 @@ const objectsForValidations = [
     },
 
     {
-        objectName: "tbl_Suppliers",
+        objectName: "Suppliers",
         values: [
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: false },
             { propertyName: "City", validation: [{ func: validation.type, arguments: "string" }], require: true },
