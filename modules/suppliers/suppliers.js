@@ -29,7 +29,6 @@ async function getAllSuppliers(query) {
         for (let item of res.data) {
             const res = await countRows({ SupplierCode: item.Id, ...query });
             if (res) {
-                console.log(item)
                 item.countBranches = res.countRows;
             }
             else {
@@ -117,7 +116,6 @@ async function deleteSupplier(object) {
     }
 
 }
-////////////////////////////////////////////////////////////////
 function checkValid(object) {
     let mustKeys = ["SupplierCode", "SupplierName", "LicensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
     let array = Object.keys(object);
@@ -130,7 +128,7 @@ function checkValid(object) {
     }
     return true;
 }
-////////////////////////////////////////////////////////////////
+
 async function checkUniqueCode(code) {
     let resultSupplierCode = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierCode: code });
     console.log({resultSupplierCode})
@@ -141,6 +139,7 @@ async function checkUniqueCode(code) {
     }
 
 }
+
 async function checkUniqueName(name) {
     let resultSuppliersName = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierName: name });
     if (resultSuppliersName.status === 200)

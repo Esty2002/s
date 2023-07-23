@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
 // const { setDate } = require('./functions');
-const { getData, postData,   } = require('../../services/axios');
+const { getData, postData, putData, deleteData,   } = require('../../services/axios');
 
 /////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
@@ -74,23 +74,24 @@ async function getBranchesByCondition(query) {
 
 
 ///////////////////////////////////////////////////////////////////
-async function updateDetail(code, setting) {
+async function updateDetail( setting) {
     try {
         console.log("updatadetails",setting.BranchName);
-        if (setting.OldBranchName !== setting.BranchName) {
-            const result = await getData(`/read/readAll/Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
-            if (result.data.length !== 0) {
-                return false;
-            }
-        }
+        console.log(setting.Id)
+        // if (setting.OldBranchName !== setting.BranchName) {
+        //     const result = await getData(`/read/readAll/Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
+        //     if (result.data.length !== 0) {
+        //         return false;
+        //     }
+        // }
         let obj = {
             entityName: 'Branches', values: {
-                SupplierCode: setting.SupplierCode, BranchName: setting.BranchName, Status: setting.Status,
+                SupplierCode: setting.SupplierCode.Id, BranchName: setting.BranchName, Status: setting.Status,
                 Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
-            }, condition: {SupplierCode:code, BranchName:setting.OldBranchName, Disabled : '0'}
+            }, condition: {Id:setting.Id}
         }
-        const res = await postData(  "/update/update",obj);
+        const res = await putData("/update/updateone",obj);
         console.log(res);
         return res;
     }
@@ -103,7 +104,7 @@ async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
         let obj = { entityName: 'Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: { Id: object.Id } };
-        const res = await postData("/update/update", obj);
+        const res = await deleteData("/delete/deleteone", obj);
         return res;
     }
     catch (error) {

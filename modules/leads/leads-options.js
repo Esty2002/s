@@ -39,25 +39,7 @@ const createNewLead = async (obj = null) => {
     }
     try {
 
-<<<<<<< HEAD
-};
-
-const readLead = async(filter)=>{
-    
-
-}
-
-const updateLead = async (obj = null) => {
-    if (obj) {
-        const newObj = {
-            entityName: 'leads',
-            values: obj.values,
-            condition: obj.condition
-        };
-        if (newObj) {
-=======
         for (let item of vals) {
->>>>>>> products2
             try {
                 _ = await checkObjectValidations(item, 'leads');
             }
@@ -274,10 +256,7 @@ const updateOneLead = async (obj = null) => {
 const deleteLead = async (id) => {
     if (id) {
         const obj = {
-<<<<<<< HEAD
             entityName: 'leads',
-=======
->>>>>>> products2
             values: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()

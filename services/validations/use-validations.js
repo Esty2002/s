@@ -22,10 +22,8 @@ const checkObjectValidations = async (body, objName, find=false) => {
                     }
                 }
             }
-            console.log(v.require,'v.require');
-            console.log(!body[v.propertyName],'!body[v.propertyName])');
             if (v.require && !body[v.propertyName])
-                errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but not exist` }];
+                errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but does not exist` }];
         }
         if (errors.length > 0) {
             throw errors

@@ -12,11 +12,7 @@ function logToFile(object) {
     let { name, description, ...rest } = object
     for (let key in rest) {
         if (typeof (object[key]) != 'string' && typeof (object[key]) != 'boolean' && typeof (object[key]) != 'number')
-<<<<<<< HEAD
-            body += `${key} :${JSON.stringify(object[key])} `
-=======
             body += `${key} :${JSON.stringify(object[key])} \n`
->>>>>>> pricelist3
         else
             body += `${key} :${object[key]} `
     }

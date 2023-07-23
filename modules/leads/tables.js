@@ -3,7 +3,6 @@ const { checkObjectValidations } = require('../../services/validations/use-valid
 
 const values = [
     {
-<<<<<<< HEAD
         entityName: "orderers",
         values: {
             OrdererName: "",
@@ -11,26 +10,10 @@ const values = [
             AddedDate: new Date(),
             Disable: 0,
             DeletingDate: null
-=======
-        entityName: "Orderers",
-        func: ({ ordererName = null, ordererPhone = null }) => {
-            return {
-                tableName: "Orderers",
-                values: {
-                    OrdererName: ordererName,
-                    OrdererPhone: ordererPhone,
-                    AddedDate: new Date().toISOString(),
-                    Disable: 'False',
-                    DeletingDate: null
-                }
-            }
-
->>>>>>> products2
         }
 
     },
     {
-<<<<<<< HEAD
         entityName: "pouringsTypes",
         values: {
             PouringName: "",
@@ -46,35 +29,6 @@ const values = [
             AddedDate: new Date(),
             Disable: 0,
             DeletingDate: null
-=======
-        entityName: "PouringsTypes",
-        func: ({ pouringName }) => {
-            return {
-                tableName: "PouringsTypes",
-                values: {
-                    PouringName: pouringName,
-                    AddedDate: new Date().toISOString(),
-                    Disable: 'False',
-                    DeletingDate: null
-                }
-            }
-        }
-
-    },
-    {
-
-        entityName: "StatusesLead",
-        func: ({ statusName }) => {
-            return {
-                tableName: "StatusesLead",
-                values: {
-                    StatusName: statusName,
-                    AddedDate: new Date().toISOString(),
-                    Disable: 'False',
-                    DeletingDate: null
-                }
-            }
->>>>>>> products2
         }
 
     },
@@ -85,21 +39,6 @@ const values = [
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
-<<<<<<< HEAD
-        const val = values.find(({ tableName }) => tableName === obj.tableName);
-        if (val) {
-            let newObj = {
-                entityName: val.tableName,
-                values: val.values
-            };
-            for (let key in newObj['values']) {
-                typeof newObj.values[key] === 'string' ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
-            }
-
-            try {
-                console.log(newObj,"newObj");
-                result = await postData(sqlServer, '/create/createone', newObj);
-=======
         const entity = values.find(({ entityName }) => entityName === obj.entityName);
         if (entity) {
             const newObj = entity.func(obj.values);
@@ -107,7 +46,6 @@ const newRecord = async (obj = null) => {
             try {
                 _ = await checkObjectValidations(newObj.values, entity.entityName);
                 result = await postData('/create/create', newObj);
->>>>>>> products2
                 return result;
             }
             catch (error) {
@@ -128,14 +66,9 @@ const getRecord = async (entityName = "", prop = "") => {
     const entity = values.find((v) => v.entityName === entityName);
     if (entity) {
         obj = {
-<<<<<<< HEAD
             entityName: tableName,
             columns: columns,
             condition: field !== 'none' ? field : `Disable=0`
-=======
-            entityName: entity.entityName,
-            condition: prop !== 'none' ? prop : `1=1`
->>>>>>> products2
         };
         try {
 
@@ -157,11 +90,7 @@ const updateRecord = async (obj = null) => {
         if (entity) {
             let result;
             const newObj = {
-<<<<<<< HEAD
-                entityName: val,
-=======
                 tableName: obj.entityName,
->>>>>>> products2
                 values: obj.update,
                 condition: obj.condition
             };
@@ -188,11 +117,7 @@ const deleteRecord = async (obj) => {
         if (table) {
             let result;
             const newObj = {
-<<<<<<< HEAD
                 entityName: val,
-=======
-                tableName: table.entityName,
->>>>>>> products2
                 values: {
                     disable: 1,
                     deletingDate:new Date()

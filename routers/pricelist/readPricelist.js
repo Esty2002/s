@@ -1,44 +1,20 @@
-<<<<<<< HEAD
 const express = require('express')
 const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
-
-const {
-    getRecordPriceList,
-    getAllPriceList,
-    getPriceListById,
-    getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
-    , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
 const { reqLogger } = require('../../services/logger/logger')
-=======
-<<<<<<< HEAD
-const express = require('express')
-const router = express.Router()
-=======
-const express=require('express')
-const router=express.Router()
->>>>>>> pricelist3
-const { logToFile } = require('../../services/logger/logTxt')
 
 const { getAllPriceList, getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
     , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
->>>>>>> Tovi
 
 
 router.use(reqLogger())
 router.get('/findAllPriceList', async (req, res) => {
-<<<<<<< HEAD
     objectLog = {
         name: 'findAllPriceList',
         description: 'findAllPriceList in router',
     }
     try {
         logToFile(objectLog)
-        const result = await getAllPriceList();
-        res.status(200).send(result);
-    }
-=======
-    try {
         const result = await getAllPriceList();
         res.status(200).send(result);
     }
@@ -74,36 +50,18 @@ router.get('/pricelistRecords/:entity/:id', async (req, res) => {
 
 // })
 // פונקציית חיפוש על פי מוצר
-<<<<<<< HEAD
-// router.get('/FindPriceListByProduct/product', async (req, res) => {
-//     try {
-//         const result = await getPriceListbyProduct(req.params.product);
-//             res.status(200).send(result);
-//     } 
-//     catch (error) {
-//         res.status(500).send(error);
-//     }
-
-// })
-=======
 router.get('/FindPriceListByProduct/:product', async (req, res) => {
     try {
         console.log(req.params.product,' req.params.product');
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);
     } 
->>>>>>> pricelist3
     catch (error) {
         objectLog.error = error.message
         logToFile(objectLog)
         res.status(500).send(error);
     }
 })
-<<<<<<< HEAD
-
-// // // חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
-=======
->>>>>>> Tovi
 // הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
 // router.get('/FindPriceListByAreaId/:area', async (req, res) => {
 //     console.log(req.params.area);
@@ -129,17 +87,13 @@ router.get('/FindPriceListByProduct/:product', async (req, res) => {
 //     }
 // })
 // חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
->>>>>>> pricelist3
 router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByIdSupplierOrClientCode',
         description: 'FindPriceListByIdSupplierOrClientCode in router',
     }
     try {
-<<<<<<< HEAD
         logToFile(objectLog)
-=======
->>>>>>> pricelist3
         const ans = await getPriceListByIdSupplierOrClientCode(req.params.id)
         res.status(200).send(ans)
     } catch (error) {
@@ -151,7 +105,6 @@ router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
 })
 //חיפוש מוצר על פי מספר  מחירון
 router.get('/FindPriceListByProduct/:id', async (req, res) => {
-<<<<<<< HEAD
     objectLog = {
         name: 'FindPriceListByProduct',
         description: 'FindPriceListByProduct in router',
@@ -159,11 +112,6 @@ router.get('/FindPriceListByProduct/:id', async (req, res) => {
     try {
         logToFile(objectLog)
         const ans = await getPriceListByIdPriceListId(req.params.id)
-=======
-    try {
-        const ans = await getPriceListByIdPriceListId(req.params.id)
-        console.log(ans);
->>>>>>> pricelist3
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message
@@ -179,10 +127,7 @@ router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
         description: 'FindPriceListByAdditionsForDistance in router',
     }
     try {
-<<<<<<< HEAD
         logToFile(objectLog)
-=======
->>>>>>> pricelist3
         const ans = await getPriceListByAdditionsForDistance(req.params.id)
         console.log(ans);
         res.status(200).send(ans)
@@ -200,10 +145,7 @@ router.get('/FindPriceListByAdditionsForCities/:id', async (req, res) => {
         description: 'FindPriceListByAdditionsForCities in router',
     }
     try {
-<<<<<<< HEAD
         logToFile(objectLog)
-=======
->>>>>>> pricelist3
         const ans = await getPriceListByAdditionsForCities(req.params.id)
         console.log(ans);
         res.status(200).send(ans)
@@ -221,10 +163,7 @@ router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
         description: 'FindPriceListByAdditionsForTime in router',
     }
     try {
-<<<<<<< HEAD
         logToFile(objectLog)
-=======
->>>>>>> pricelist3
         const ans = await getPriceListByAdditionsForTime(req.params.id)
         console.log(ans);
         res.status(200).send(ans)
@@ -242,11 +181,8 @@ router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
         description: 'FindPriceListByAdditionsForTruckFill in router',
     }
     try {
-<<<<<<< HEAD
         logToFile(objectLog)
 
-=======
->>>>>>> pricelist3
         const ans = await getPriceListByAdditionsForTruckFill(req.params.id)
         console.log(ans);
         res.status(200).send(ans)
@@ -265,11 +201,6 @@ router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res
         description: 'FindSupplierByNameProduct in router',
     }
     try {
-<<<<<<< HEAD
-=======
-        logToFile(objectLog)
-
->>>>>>> Tovi
         const ans = await getSupplierByNameProduct(req.params.nameTable, req.params.nameProduct)
         console.log(ans);
         res.status(200).send(ans)
@@ -287,13 +218,8 @@ router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (re
         description: 'FindSupplierByNameProductBuyton in router',
     }
     try {
-<<<<<<< HEAD
-        const ans = await getSupplierByNameProductBuyton(req.params.nameTable, req.params.nameProduct)
-        console.log(ans);
-=======
         logToFile(objectLog)
         const ans = await getSupplierByNameProductBuyton(req.params.nameTable, req.params.nameProduct)
->>>>>>> Tovi
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message
@@ -303,12 +229,4 @@ router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (re
     }
 })
 
-<<<<<<< HEAD
 module.exports = router;
-=======
-<<<<<<< HEAD
-module.exports = router;
-=======
-module.exports=router;
->>>>>>> pricelist3
->>>>>>> Tovi
