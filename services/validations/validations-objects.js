@@ -232,13 +232,13 @@ const createUpdateModulesValidations = [
         ]
     },
     {
-        objectName: "tbl_Clients",
+        objectName: "Clients",
         values: [
             {
                 propertyName: "ClientCode", validation: [
                     { func: validation.required, arguments: null },
                     { func: validation.onlyNumbersInString, arguments: null },
-                    { func: validation.clientCodeIsExistInSQL, arguments: { tableName: "tbl_Clients", field: "ClientCode" } }
+                    { func: validation.clientCodeIsExistInSQL, arguments: { entityName: "Clients", field: "ClientCode" }}
                 ]
             },
             { propertyName: "ClientName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
@@ -246,7 +246,7 @@ const createUpdateModulesValidations = [
             { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "DestinationBank", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "PaymentTermsFluent", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "PreferredPaymentDate", validation: [{ func: validation.dateType, arguments: null }, { func: validation.theDateAfterToday, arguments: null }] },
+            // { propertyName: "PreferredPaymentDate", validation: [{ func: validation.dateType, arguments: null }, { func: validation.theDateAfterToday, arguments: null }] },
             { propertyName: "Ovligo", validation: [{ func: validation.type, arguments: "number" },] },
             { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
             { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
@@ -261,7 +261,7 @@ const createUpdateModulesValidations = [
             { propertyName: "Telephone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "MobilePhone", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Fax", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
-            { propertyName: "Email", validation: [{ func: validation.required, arguments: null }, { func: validation.concretEmail, arguments: null }] },
+            { propertyName: "Email", validation: [{ func: validation.required, arguments: null }, { func: validation.correctEmail, arguments: null }] },
             { propertyName: "Comments", validation: [{ func: validation.notCheck, arguments: null }, { func: validation.type, arguments: "string" }] },
             // { propertyName: "CreationDate", validation: [{ func: validation.required, arguments: null}, ] },
             // { propertyName: "UserThatAdd", validation: [{ func: validation.required, arguments: null}, ] },

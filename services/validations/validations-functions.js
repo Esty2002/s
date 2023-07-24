@@ -51,6 +51,7 @@ const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
+    
     if (isNaN(value)) {
         if (arg == "string") {
             console.log('string@@@@');
@@ -104,7 +105,6 @@ const clientCodeIsExistInSQL = async (field, arg) => {
     let entityName1 = arg.entityName;
     let condition = {}
     condition[arg.field] = field;
-
     let ans = await getData(`/read/readMany/${entityName1}`, condition)
     if (ans.data.length == 0) {
         return true;
