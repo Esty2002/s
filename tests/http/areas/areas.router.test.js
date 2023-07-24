@@ -141,8 +141,6 @@ describe('Check request /areas/inserArea', () => {
 
 describe('Check request /areas/updateArea', () => {
     it('Should update a city/point if all the properties where sent and _Id was found', async () => {
-        // if (obj._id && obj.basicName && obj.name && obj.type && obj.disabled != null && obj.addedDate) {
-
         const response = await request(app).post('/areas/updateArea').send({
             _id: '156fse78GBl54klS58TZXSy45bdf85',
             addedDate: new Date(), disabled: false, name: 'אשדוד שלי', basicName: 'אשדוד',

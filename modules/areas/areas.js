@@ -95,15 +95,15 @@ async function findAreas(filter) {
     }
 };
 
-// async function serachByAreas(obj) {
-//     let areas = [];
-//     const citys = await findAreas({ basicName: obj.city });
-//     const points = await findAreas({ point: obj.point, type: 'point' });
-//     const radius = await findAreas({ type: 'radius' });
-//     const polygon = await findInPolygon({ point: obj.point });
-//     areas = [...areas, ...citys, ...points, ...radius, ...polygon];
-//     return areas;
-// };
+async function serachByAreas(obj) {
+    let areas = [];
+    const citys = await findAreas({ basicName: obj.city });
+    const points = await findAreas({ point: obj.point, type: 'point' });
+    const radius = await findAreas({ type: 'radius' });
+    const polygon = await findInPolygon({ point: obj.point });
+    areas = [...areas, ...citys, ...points, ...radius, ...polygon];
+    return areas;
+};
 
 async function findInPolygon(point) {
     let object = {
