@@ -23,7 +23,7 @@ async function insertRow(object) {
                 throw new Error('already exist')
         }
         else {
-            const response = await postData('/create/createone', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
+            const response = await postData('/create/createone', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable } })
             return response
         }
     }
@@ -47,7 +47,7 @@ async function getAll() {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+        const response = await deleteData('/delete/deleteone', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
         if (response.status == 204) {
             return response.data
         }
@@ -60,7 +60,7 @@ async function deleteItem(object) {
 
 async function updateNames(object) {
     try {
-        const response = await putData('/update/updateone', { tableName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC }})
+        const response = await putData('/update/updateone', { entityName: SQL_PRODUCTS_COMBINATIONS_TABLE, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC }})
         if (response.status == 204)
             return response.data
         return false

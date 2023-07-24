@@ -11,7 +11,7 @@ const values = [
         entity: "Pumps",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null,AddedDate=null ,Enabled=null,DeleteDate=null}) => {
             return {
-                tableName: "Pumps",
+                entityName: "Pumps",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -40,7 +40,7 @@ async function insertPump(obj) {
         name: 'create',
         description: 'insert pump in module',
         obj: obj,
-        tableName: SQL_PUMPS_TABLE
+        entityName: SQL_PUMPS_TABLE
     }
     logToFile(objectForLog)
     const checkValidObj = values.find(({ entity }) => SQL_PUMPS_TABLE === entity);
@@ -53,7 +53,7 @@ async function insertPump(obj) {
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     obj.UnitOfMeasure = measure.data[0].Id
     try {
-        const response = await postData('/create/createone', { tableName: SQL_PUMPS_TABLE, values: obj })
+        const response = await postData('/create/createone', { entityName: SQL_PUMPS_TABLE, values: obj })
         if (response.data)
             return response
     }
@@ -64,16 +64,12 @@ async function insertPump(obj) {
     }
 }
 
-<<<<<<< HEAD
 async function findPump(filter = {}) {
-=======
-async function findPump(project = [], filter = {},tableName) {
-    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    const checkValidObj = values.find(({ entity }) => SQL_PUMPS_TABLE === entity);
     let newObj = checkValidObj.func(filter)
     if (checkValidObj) 
         _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
 
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
@@ -89,18 +85,12 @@ async function findPump(project = [], filter = {},tableName) {
 
     const response = await getData(`/read/readMany/${SQL_PUMPS_TABLE}`, condition )
     try {
-<<<<<<< HEAD
         for (const finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)
                 finish['UnitOfMeasure'] = measureName
             }
         }
-=======
-        const response = await postData("/read/readTopN", { entityName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
-        console.log({ response }, 'in find');
-        // response.data
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         return response
     }
     catch (error) {
@@ -108,35 +98,15 @@ async function findPump(project = [], filter = {},tableName) {
         logToFile(objForLog)
         throw error
     }
-<<<<<<< HEAD
     
-=======
-    // if (response.length > 0) {
-    //     for (const finish of response) {
-    //         if (Object.keys(finish).includes('UnitOfMeasure')) {
-    //             finish.UnitOfMeasure = await findMeasureName(finish['UnitOfMeasure'])
-    //         }
-    //     }
-    //     return response
-    // }
-    // else {
-    //     return false
-    // }
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 }
 
 async function updatePump(obj) {
     try {
-        const response = await putData('/update/updateone', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition})
+        const response = await putData('/update/updateone', { entityName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition})
         if (response.status == 204)
             return response.data
         return false
-<<<<<<< HEAD
-=======
-}
-
-// async function updatePump(obj) {
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 
     } catch (error) {
         throw error;

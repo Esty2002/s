@@ -116,7 +116,7 @@ description: addPricelistForProducts in router
 dataThatRecived: {addPricelistForProducts in router
 PriceListId: 79, 
 ProductId: 9, 
-TableName: tbl_BuytonDegree, 
+entityName: tbl_BuytonDegree, 
 Price: 500, 
 Discount: 2, 
 AddedDate: 06/28/2023, 
@@ -678,7 +678,7 @@ description: addPricelistForProducts in router
 dataThatRecived: {addPricelistForProducts in router
 PriceListId: 84, 
 ProductId: 6, 
-TableName: tbl_BuytonDegree, 
+entityName: tbl_BuytonDegree, 
 Price: 456546, 
 Discount: 5, 
 AddedDate: 06/28/2023, 

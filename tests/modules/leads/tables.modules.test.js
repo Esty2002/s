@@ -30,15 +30,15 @@ jest.mock('../../../services/axios', () => {
                         return { status: 200, data: [{ url }] };
 =======
                 case '/sql/update':
-                    if (obj.tableName && typeof obj.values == 'object' && typeof obj.condition == 'string') {
+                    if (obj.entityName && typeof obj.values == 'object' && typeof obj.condition == 'string') {
                         return "the object is correct";
                     }
                     else {
-                        throw new Error("the obj.tableName or obj.values or obj.condition are not correct");
+                        throw new Error("the obj.entityName or obj.values or obj.condition are not correct");
                     }
                 case '/sql/readTop20':
 
-                    if (obj.tableName && obj.columns && obj.condition) {
+                    if (obj.entityName && obj.columns && obj.condition) {
                         return true;
 >>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
                     }
@@ -47,7 +47,7 @@ jest.mock('../../../services/axios', () => {
                     }
                 }
                 else {
-                    return { status: 500, message: "not exist tablename undefined" };
+                    return { status: 500, message: "not exist entityName undefined" };
                 }
             }
             else {
@@ -78,7 +78,7 @@ describe("Check functions in 'values' object Orderers", () => {
         const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'Orderers'), 'func');
         const result = values.find(({ entityName }) => entityName === 'Orderers').func({ name: "Test", phone: "0504789654" });
         expect(spy).toHaveBeenCalled();
-        expect(result.tableName).toBe("Orderers");
+        expect(result.entityName).toBe("Orderers");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.OrdererName).toBe("Test");
     });
@@ -102,7 +102,7 @@ describe("Check functions in 'values' object Orderers", () => {
         const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'Orderers'), 'func');
         const result = values.find(({ entityName }) => entityName === 'Orderers').func({});
         expect(spy).toHaveBeenCalled();
-        expect(result.tableName).toBe("Orderers");
+        expect(result.entityName).toBe("Orderers");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.OrdererName).toBeNull();
         expect(result.values.OrdererPhone).toBeNull();
@@ -114,7 +114,7 @@ describe('Check function in values object PouringsTypes', () => {
         const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
         const result = values.find(({ entityName }) => entityName === 'PouringsTypes').func({ name: "Pouring" });
         expect(spy).toHaveBeenCalled();
-        expect(result.tableName).toBe("PouringsTypes");
+        expect(result.entityName).toBe("PouringsTypes");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.PouringName).toBe("Pouring");
     });
@@ -137,7 +137,7 @@ describe('Check function in values object PouringsTypes', () => {
         const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'PouringsTypes'), 'func');
         result = values.find(({ entityName }) => entityName === 'PouringsTypes').func({});
         expect(spy).toHaveBeenCalled();
-        expect(result.tableName).toBe("PouringsTypes");
+        expect(result.entityName).toBe("PouringsTypes");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.PouringName).toBeNull();
     });
@@ -150,7 +150,7 @@ describe('Check function in values object StatusesLead', () => {
         const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
         const result = values.find(({ entityName }) => entityName === 'StatusesLead').func({ name: "status" });
         expect(spy).toHaveBeenCalled();
-        expect(result.tableName).toBe("StatusesLead");
+        expect(result.entityName).toBe("StatusesLead");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.StatusName).toBe("status");
     });
@@ -173,7 +173,7 @@ describe('Check function in values object StatusesLead', () => {
         const spy = jest.spyOn(values.find(({ entityName }) => entityName === 'StatusesLead'), 'func');
         result = values.find(({ entityName }) => entityName === 'StatusesLead').func({});
         expect(spy).toHaveBeenCalled();
-        expect(result.tableName).toBe("StatusesLead");
+        expect(result.entityName).toBe("StatusesLead");
         expect(result.values).toBeInstanceOf(Object);
         expect(result.values.StatusName).toBeNull();
     });
@@ -221,7 +221,7 @@ describe('Check function newRecord', () => {
 =======
 describe('check function updateRecord', () => {
     it('check that the functin return "the object is correct" when the obj is defined', async () => {
-        const result = await updateRecord({ tableName: "pouringsTypes", update: { PouringName: "גדר" }, condition: "SerialNumber=1" });
+        const result = await updateRecord({ entityName: "pouringsTypes", update: { PouringName: "גדר" }, condition: "SerialNumber=1" });
 >>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         expect(result).toBeDefined();
         expect(result).toBeInstanceOf(Object);
@@ -263,7 +263,7 @@ describe('check function updateRecord', () => {
             expect(result).not.toBeDefined();
             expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
-            expect(error.message).toBe("the obj.tableName or obj.values or obj.condition are not correct");
+            expect(error.message).toBe("the obj.entityName or obj.values or obj.condition are not correct");
         }
     });
 
@@ -290,7 +290,7 @@ describe('check function updateRecord', () => {
 
     it('check that the function require the mock postData', async () => {
         const { postData } = jest.requireMock('../../../services/axios');
-        const result = await updateRecord({ tableName: "statusesLead", update: { OrdererPhone: "0504175184" }, condition: "OrdererPhone='0504178963'" });
+        const result = await updateRecord({ entityName: "statusesLead", update: { OrdererPhone: "0504175184" }, condition: "OrdererPhone='0504178963'" });
 
         expect(result).toBeDefined();
         expect(result).toBeTruthy();
@@ -308,7 +308,7 @@ describe('Check function getRecord', () => {
 =======
 describe('check function deleteRecord', () => {
     it('check that the function return "object is not defined" when all obj.set is defined', async () => {
-        const result = await deleteRecord({ tableName: "orderers", condition: "OrdererName='מיכל'" });
+        const result = await deleteRecord({ entityName: "orderers", condition: "OrdererName='מיכל'" });
 >>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         expect(result).toBeDefined();
         expect(result).toBeInstanceOf(Object);
@@ -339,7 +339,7 @@ describe('check function deleteRecord', () => {
 =======
     it('check that the function require the mock getData', async () => {
         const { postData } = jest.requireMock('../../../services/axios');
-        const result = await deleteRecord({ tableName: "statusesLead", condition: "StatusName='גדר'" });
+        const result = await deleteRecord({ entityName: "statusesLead", condition: "StatusName='גדר'" });
         expect(result).toBeDefined();
         expect(result).toBe("the object is correct");
         expect(result.length).toBe(21);
@@ -357,7 +357,7 @@ describe('check function deleteRecord', () => {
             expect(result).not.toBeDefined();
             expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
-            expect(error.message).toBe("the obj.tableName or obj.values or obj.condition are not correct");
+            expect(error.message).toBe("the obj.entityName or obj.values or obj.condition are not correct");
         }
     });
 

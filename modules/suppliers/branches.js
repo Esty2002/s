@@ -70,13 +70,9 @@ async function getBranchesByCondition(query) {
     }
 }
 
-<<<<<<< HEAD
-async function updateDetail(code, setting) {
-=======
 
 ///////////////////////////////////////////////////////////////////
 async function updateDetail( setting) {
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     try {
         console.log("updatadetails",setting.BranchName);
         console.log(setting.Id)
@@ -93,11 +89,7 @@ async function updateDetail( setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: {Id:setting.Id}
         }
-<<<<<<< HEAD
-        const res = await postData("/update/update", obj);
-=======
         const res = await putData("/update/updateone",obj);
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         console.log(res);
         return res;
     }
@@ -132,13 +124,8 @@ function checkValid(object) {
 
 async function checkUnique(object) {
     try {
-<<<<<<< HEAD
-        const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { AND:[{ Id:object.SupplierCode} ,{ Disabled:0}]} );
-        const resultBranchName = await getData(`/read/readOne/${SQL_DB_BRANCHES}`, { AND:[{BranchName :object.BranchName},{SupplierCode:object.SupplierCode}, {Disabled:0}]});
-=======
         const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { Id:object.SupplierCode ,  Disabled:0});
         const resultBranchName = await getData(`/read/readOne/${SQL_DB_BRANCHES}`, {BranchName :object.BranchName , SupplierCode:object.SupplierCode,  Disabled:0});
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 
     }

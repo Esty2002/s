@@ -1,4 +1,4 @@
-const { postData } = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
 const { SQL_STATUS_TABLE } = process.env
 
 async function getStatusNumber() {

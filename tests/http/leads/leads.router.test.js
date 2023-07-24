@@ -37,7 +37,7 @@ jest.mock('../../../modules/leads/orderers', () => {
             }
         }),
         getOrderers: jest.fn(() => {
-            return { tablename: "test" };
+            return { entityName: "test" };
         }),
         getOrdererByPhone: jest.fn(({ phone }) => {
             if (phone) {
@@ -157,7 +157,7 @@ describe('/getorderers', () => {
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
         expect(response.notFound).toBeFalsy();
-        expect(response.text).toBe('{\"tablename\":\"test\"}');
+        expect(response.text).toBe('{\"entityName\":\"test\"}');
     })
     it('should the function return statusCode 404 if the params is exist', async () => {
         const response = await request(app).get('/leads/getorderers/0504178546');

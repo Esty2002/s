@@ -6,7 +6,7 @@ const createUpdateModulesValidations = [
         values: [
             { propertyName: "SupplyDate", validation: [{ func: validation.dateType, arguments: "date" }, { func: validation.dateInFuture, arguments: null }], require: true },
             { propertyName: "SupplyHour", validation: [{ func: validation.hourType, arguments: null }], require: false },
-            { propertyName: "OrdererCode", validation: [{ func: validation.required, arguments: null }, { func: validation.recordExistInTable, arguments: { tableName: "tbl_Orderers", field: "id", exist: true } }], require: true },
+            { propertyName: "OrdererCode", validation: [{ func: validation.required, arguments: null }, { func: validation.recordExistInTable, arguments: { entityName: "tbl_Orderers", field: "id", exist: true } }], require: true },
             { propertyName: "SupplyAddress", validation: [{ func: validation.type, arguments: 'string' }], require: false },
             { propertyName: "MapReferenceLongitude", validation: [{ func: validation.positiveNumber, arguments: null }], require: false },
             { propertyName: "MapReferenceLatitude", validation: [{ func: validation.positiveNumber, arguments: null }], require: false },

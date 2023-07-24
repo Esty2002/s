@@ -3,12 +3,11 @@ const { checkObjectValidations, checkValidationsUpdate } = require('../../servic
 
 const values = [
     {
-<<<<<<< HEAD
         entityName: "Orderers",
         func: ({ name = null, phone = null }) => {
             console.log({ name, phone });
             return {
-                tableName: "Orderers",
+                entityName: "Orderers",
                 values: {
                     OrdererName: name,
                     OrdererPhone: phone,
@@ -25,7 +24,7 @@ const values = [
         entityName: "PouringsTypes",
         func: ({ name = null }) => {
             return {
-                tableName: "PouringsTypes",
+                entityName: "PouringsTypes",
                 values: {
                     PouringName: name,
                     AddedDate: new Date().toISOString(),
@@ -33,25 +32,15 @@ const values = [
                     DeletingDate: null
                 }
             }
-=======
-        entityName: "orderers",
-        values: {
-            OrdererName: "",
-            OrdererPhone: "",
-            AddedDate: new Date(),
-            Disable: 0,
-            DeletingDate: null
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         }
 
     },
     {
-<<<<<<< HEAD
 
         entityName: "StatusesLead",
         func: ({ name = null }) => {
             return {
-                tableName: "StatusesLead",
+                entityName: "StatusesLead",
                 values: {
                     StatusName: name,
                     AddedDate: new Date().toISOString(),
@@ -59,32 +48,15 @@ const values = [
                     DeletingDate: null
                 }
             }
-=======
-        entityName: "pouringsTypes",
-        values: {
-            PouringName: "",
-            AddedDate: new Date(),
-            Disable: 0,
-            DeletingDate: null
-        }
-    }
-    , {
-        entityName: "statusesLead",
-        values: {
-            StatusName: "",
-            AddedDate: new Date(),
-            Disable: 0,
-            DeletingDate: null
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         }
 
     },
     {
 
-        entityName: "tbl_MoreProductsItems",
+        entityName: "MoreProductsItems",
         func: ({ leadNumber, product, amount }) => {
             return {
-                tableName: "moreProductsItems",
+                entityName: "MoreProductsItems",
                 values: {
                     LeadNumber: leadNumber,
                     Product: product,
@@ -102,20 +74,6 @@ const values = [
 const newRecord = async (obj = null) => {
     let result;
     if (obj) {
-<<<<<<< HEAD
-        const val = values.find(({ tableName }) => tableName === obj.tableName);
-        if (val) {
-            let newObj = {
-                entityName: val.tableName,
-                values: val.values
-            };
-            for (let key in newObj['values']) {
-                typeof newObj.values[key] === 'string' ? newObj.values[key] = obj.values[key] : newObj.values[key] = newObj.values[key];
-            }
-
-            try {
-                result = await postData(sqlServer, '/create/createone', newObj);
-=======
         const entity = values.find(({ entityName }) => entityName === obj.entityName);
         if (entity) {
             const newObj = entity.func(obj.values);
@@ -123,7 +81,6 @@ const newRecord = async (obj = null) => {
             try {
                 _ = await checkObjectValidations(newObj.values, entity.entityName);
                 result = await postData('/create/create', newObj);
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
                 return result;
             }
             catch (error) {
@@ -143,16 +100,8 @@ const newRecord = async (obj = null) => {
 const getRecord = async (entityName = "", prop = "") => {
     const entity = values.find((v) => v.entityName === entityName);
     if (entity) {
-<<<<<<< HEAD
         let condition;
         prop ? condition = prop : null
-=======
-        obj = {
-            entityName: tableName,
-            columns: columns,
-            condition: field !== 'none' ? field : `Disable=0`
-        };
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
         try {
             const result = await getData(`/read/readMany/${entity.entityName}`, condition);
             return result;
@@ -172,11 +121,7 @@ const updateRecord = async (obj = null) => {
         if (entity) {
             let result;
             const newObj = {
-<<<<<<< HEAD
                 entityName: entity.entityName,
-=======
-                tableName: obj.entityName,
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
                 values: obj.update,
                 condition: obj.condition
             };
@@ -206,11 +151,7 @@ const deleteRecord = async (obj) => {
         if (table) {
             let result;
             const newObj = {
-<<<<<<< HEAD
                 entityName: table.entityName,
-=======
-                entityName: val,
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
                 values: {
                     disable: 1,
                     deletingDate: new Date()

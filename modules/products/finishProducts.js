@@ -10,7 +10,7 @@ const values = [
         entity: "FinishProducts",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate=null,Enabled=null,DeleteDate=null,}) => {
             return {
-                tableName: "FinishProducts",
+                entityName: "FinishProducts",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -37,7 +37,7 @@ async function insertFinishProduct(obj) {
         name: 'create',
         description: 'insert  finished product in module',
         obj: obj,
-        tableName: SQL_FINISH_PRODUCTS_TABLE
+        entityName: SQL_FINISH_PRODUCTS_TABLE
     }
     logToFile(objectForLog)
 
@@ -57,7 +57,7 @@ async function insertFinishProduct(obj) {
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     obj.UnitOfMeasure = measure.data[0].Id
     try {
-        const response = await postData('/create/createone', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+        const response = await postData('/create/createone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
         if (response.data)
             return response
     }
@@ -68,11 +68,10 @@ async function insertFinishProduct(obj) {
     }
 }
 async function updateFinishProduct(obj) {
-<<<<<<< HEAD
     try {
         let condition;
         obj.condition ? condition[Object.keys(obj.condition)[0]] = Object.values(obj.condition)[0] : null
-        const response = await putData('/update/updateone', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: condition })
+        const response = await putData('/update/updateone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: condition })
         if (response.status == 204)
             return response.data
         else
@@ -84,23 +83,13 @@ async function updateFinishProduct(obj) {
 }
 
 async function findFinishProduct(filter = {}) {
-=======
     
-    const response = await postData('/update/update', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: obj.condition })
-
-    if (response.data)
-        return true
-    else
-        return false
-}
-
-async function findFinishProduct(project = [], filter = {},tableName) {
-    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    
+    const checkValidObj = values.find(({ entity }) => SQL_FINISH_PRODUCTS_TABLE === entity);
     let newObj = checkValidObj.func(filter)
     if (checkValidObj) 
         _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
 
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
@@ -114,7 +103,6 @@ async function findFinishProduct(project = [], filter = {},tableName) {
     }
     logToFile(objForLog)
 
-<<<<<<< HEAD
     try {
         const response = await getData(`/read/readMany/${SQL_FINISH_PRODUCTS_TABLE}`, condition)
 
@@ -131,17 +119,6 @@ async function findFinishProduct(project = [], filter = {},tableName) {
         logToFile(objForLog)
         throw error
     }
-=======
-    const response = await postData("/read/readTopN", { entityName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
-    if (response.status === 200)
-        return response.data
-    else
-        return false
-    // else{
-    //     return false
-    // }
-
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 }
 
 module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }

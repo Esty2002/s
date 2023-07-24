@@ -1,28 +1,13 @@
 const express = require('express')
 const router = express.Router()
-<<<<<<< HEAD
-const { logToFile } = require('../../services/loggerPnini')
-
-const { 
-    getRecordPriceList,
-    getAllPriceList,
-    getPriceListById,
-
-    getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
-=======
 const { logToFile } = require('../../services/logger/logTxt')
 const { reqLogger } = require('../../services/logger/logger')
 
 const { getAllPriceList, getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
 
 
-<<<<<<< HEAD
-    router.use(reqLogger())
-=======
 router.use(reqLogger())
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 router.get('/findAllPriceList', async (req, res) => {
     objectLog = {
         name: 'findAllPriceList',
@@ -65,18 +50,6 @@ router.get('/pricelistRecords/:entity/:id', async (req, res) => {
 
 // })
 // פונקציית חיפוש על פי מוצר
-<<<<<<< HEAD
-// router.get('/FindPriceListByProduct/product', async (req, res) => {
-//     try {
-//         const result = await getPriceListbyProduct(req.params.product);
-//             res.status(200).send(result);
-//     } 
-//     catch (error) {
-//         res.status(500).send(error);
-//     }
-
-// })
-=======
 router.get('/FindPriceListByProduct/:product', async (req, res) => {
     try {
         console.log(req.params.product,' req.params.product');
@@ -89,7 +62,6 @@ router.get('/FindPriceListByProduct/:product', async (req, res) => {
         res.status(500).send(error);
     }
 })
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 // הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
 // router.get('/FindPriceListByAreaId/:area', async (req, res) => {
 //     console.log(req.params.area);

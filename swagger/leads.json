@@ -29,9 +29,9 @@
                 "description": "dinamic response",
                 "example": "dinamic response"
             },
-            "tableName": {
+            "entityName": {
                 "type": "string",
-                "description": "TableName",
+                "description": "entityName",
                 "example": "tbl_Orderers"
             },
             "columnsNames": {
@@ -52,9 +52,9 @@
             "objectToCreateRecord": {
                 "type": "object",
                 "properties": {
-                    "tableName": {
+                    "entityName": {
                         "type": "string",
-                        "description": "TableName",
+                        "description": "entityName",
                         "example": "tbl_Orderers"
                     },
                     "values": {
@@ -77,9 +77,9 @@
             "objectToUpdateRecord": {
                 "type": "object",
                 "properties": {
-                    "tableName": {
+                    "entityName": {
                         "type": "string",
-                        "description": "TableName",
+                        "description": "entityName",
                         "example": "tbl_Orderers"
                     },
                     "update": {
@@ -102,9 +102,9 @@
             "objectToDeleteRecord": {
                 "type": "object",
                 "properties": {
-                    "tableName": {
+                    "entityName": {
                         "type": "string",
-                        "description": "TableName",
+                        "description": "entityName",
                         "example": "tbl_PouringsTypes"
                     },
                     "condition": {
@@ -256,9 +256,9 @@
             "Error": {
                 "type": "object",
                 "properties": {
-                    "TableName": {
+                    "entityName": {
                         "type": "string",
-                        "description": "TableName",
+                        "description": "entityName",
                         "example": "orderers"
                     },
                     "internal_code": {
@@ -283,7 +283,7 @@
                         "name": "table",
                         "in": "path",
                         "schema": {
-                            "$ref": "#/components/schemas/tableName"
+                            "$ref": "#/components/schemas/entityName"
                         },
                         "required": true,
                         "description": "Table name"
@@ -404,7 +404,7 @@
                 }
             }
         },
-        "/leads/deleterecord/{tablename}/{condition}": {
+        "/leads/deleterecord/{entityName}/{condition}": {
             "delete": {
                 "tags": [
                     "leads CRUD operations"
@@ -413,10 +413,10 @@
                 "operationId": "deleteRecord",
                 "parameters": [
                     {
-                        "name": "tablename",
+                        "name": "entityName",
                         "in": "path",
                         "schema": {
-                            "$ref": "#/components/schemas/tableName"
+                            "$ref": "#/components/schemas/entityName"
                         },
                         "required": true,
                         "description": "Table name"

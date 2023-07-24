@@ -12,11 +12,6 @@ router.post('/addPriceList', express.json(), async (req, res) => {
     }
     logToFile(object)
     try {
-<<<<<<< HEAD
-      const data = {...req.body, finish:false}
-        const result = await insert(data, 'tbl_PriceList')
-        res.status(result.status).send(result.data);
-=======
         object = {
             name: 'addPriceList',
             description: 'addPriceList in router- in try',
@@ -30,7 +25,6 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         else {
             res.status(result.status).send(result.data);
         }
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     }
     catch (error) {
         object.error = error.message

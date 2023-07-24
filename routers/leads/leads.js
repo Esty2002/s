@@ -41,10 +41,10 @@ router.get('/getmoreproductsitems/:condition', express.json(), async (req, res) 
         res.status(404).send(error);
     }
 });
-router.get('/getforeignkeyvalue/:tablename/:field/:id', express.json(), async (req, res) => {
+router.get('/getforeignkeyvalue/:entityName/:field/:id', express.json(), async (req, res) => {
 
     try {
-        const response = await readforeignkeyvalue({ tablename: req.params.tablename, field: req.params.field, id: req.params.id });
+        const response = await readforeignkeyvalue({ entityName: req.params.entityName, field: req.params.field, id: req.params.id });
         res.status(200).send(response);
     }
     catch (error) {
@@ -82,19 +82,15 @@ router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
         res.status(404).send(error);
     }
 });
-router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) => {
-    try {
-<<<<<<< HEAD
-        const response = await deleteOneLead(req.params.serialNumber);
-        res.status(200).send(response.data);
-=======
+// router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) => {
+//     try {
 
-    }
-    catch (error) {
-        res.status(404).send(error);
+//     }
+//     catch (error) {
+//         res.status(404).send(error);
 
-    }
-});
+//     }
+// });
 
 router.post('/insertrecord', express.json(), async (req, res) => {
     try {
@@ -116,11 +112,10 @@ router.put('/updaterecord', express.json(), async (req, res) => {
     }
 });
 
-router.delete('/deleterecord/:tablename/:condition', express.json(), async (req, res) => {
+router.delete('/deleterecord/:entityName/:condition', express.json(), async (req, res) => {
     try {
-        const response = await deleteRecord({ entityName: req.params.tablename, condition: req.params.condition })
+        const response = await deleteRecord({ entityName: req.params.entityName, condition: req.params.condition })
         res.status(200).send(response);
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     }
     catch (error) {
         res.status(404).send(error);
@@ -188,14 +183,8 @@ router.put('/updaterecord', express.json(), async (req, res) => {
 //         // }
 router.delete('/deleterecord/:entityname', express.json(), async (req, res) => {
     try {
-<<<<<<< HEAD
         const response = await deleteRecord({ entity: req.params.entityname, condition: req.query })
         if (response.status == 204) {
-=======
-        const response = await deleteRecord({ entity: req.params.entityname, condition: req.params.condition })
-        if (response.status == 200) {
-            console.log(response.data);
->>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
             res.status(204).send(response.data);
 
         }
