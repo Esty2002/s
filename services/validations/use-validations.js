@@ -2,7 +2,6 @@
 const { getValidationsModule } = require('./validations-objects')
 let i = 0;
 const checkObjectValidations = async (body, objName, find=false) => {
-    console.log("insert to use - validation");
     let errors=[]
     try {
         console.log(body, objName, 'bodyAndObjectname');
@@ -24,13 +23,16 @@ const checkObjectValidations = async (body, objName, find=false) => {
             }
             if (v.require && !body[v.propertyName])
                 errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but does not exist` }];
+                
         }
         if (errors.length > 0) {
             throw errors
         }
+        console.log("return true - validations");
         return true;
     }
     catch (error) {
+        console.log({error});
         throw error;
     }
 };

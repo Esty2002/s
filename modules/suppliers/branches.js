@@ -1,22 +1,28 @@
 require('dotenv').config();
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
 // const { setDate } = require('./functions');
-const { getData, postData, putData, deleteData,   } = require('../../services/axios');
+const { getData, postData, putData, deleteData, } = require('../../services/axios');
 
 /////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
+    console.log("-------- ---------",{object});
     try {
+        let ans = await checkObjectValidations(object, 'Branches')
         console.log("inmsertBranch - module");
-        if (checkValid(object) && await checkUnique(object)) {
-            console.log("inserttttttt");
-            object['CreationDate'] = new Date().toISOString();
-            let obj = { entityName: 'Branches', values: object };
-            const res = await postData("/create/createone", obj);
-            return res;
+        if (ans) {
+            if (checkValid(object) && await checkUnique(object)) {
+                console.log("inserttttttt");
+                object['CreationDate'] = new Date().toISOString();
+                let obj = { entityName: 'Branches', values: object };
+                const res = await postData("/create/createone", obj);
+                return res;
+            }
+            else {
+                return false;
+            }
         }
-        else {
-            return false;
-        }
+
     }
     catch (error) {
         console.log(error)
@@ -50,7 +56,7 @@ async function getBranches(supplierid, disabled) {
 }
 
 async function getBranchById(query) {
-    console.log({query});
+    console.log({ query });
     try {
         const res = await getData(`/read/readOne/Branches`, query);
         return res.data[0];
@@ -62,7 +68,7 @@ async function getBranchById(query) {
 
 ///////////////////////////////////////////////////////////////////
 async function getBranchesByCondition(query) {
-    console.log({query});
+    console.log({ query });
     try {
         const res = await getData(`/read/readMany/Branches`, query);
         return res.data;
@@ -74,9 +80,9 @@ async function getBranchesByCondition(query) {
 
 
 ///////////////////////////////////////////////////////////////////
-async function updateDetail( setting) {
+async function updateDetail(setting) {
     try {
-        console.log("updatadetails",setting.BranchName);
+        console.log("updatadetails", setting.BranchName);
         console.log(setting.Id)
         // if (setting.OldBranchName !== setting.BranchName) {
         //     const result = await getData(`/read/readAll/Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
@@ -89,9 +95,9 @@ async function updateDetail( setting) {
                 SupplierCode: setting.SupplierCode.Id, BranchName: setting.BranchName, Status: setting.Status,
                 Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
-            }, condition: {Id:setting.Id}
+            }, condition: { Id: setting.Id }
         }
-        const res = await putData("/update/updateone",obj);
+        const res = await putData("/update/updateone", obj);
         console.log(res);
         return res;
     }
@@ -126,8 +132,8 @@ function checkValid(object) {
 ///////////////////////////////////////////////////////////////////
 async function checkUnique(object) {
     try {
-        const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { Id:object.SupplierCode ,  Disabled:0});
-        const resultBranchName = await getData(`/read/readOne/${SQL_DB_BRANCHES}`, {BranchName :object.BranchName , SupplierCode:object.SupplierCode,  Disabled:0});
+        const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { Id: object.SupplierCode, Disabled: 0 });
+        const resultBranchName = await getData(`/read/readOne/${SQL_DB_BRANCHES}`, { BranchName: object.BranchName, SupplierCode: object.SupplierCode, Disabled: 0 });
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 
     }
@@ -136,4 +142,4 @@ async function checkUnique(object) {
     }
 }
 
-module.exports = { getAllBranches,getBranchById, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique, checkValid };
+module.exports = { getAllBranches, getBranchById, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique, checkValid };

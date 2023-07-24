@@ -1,21 +1,27 @@
 require('dotenv').config();
+const { checkObjectValidations } = require('../../services/validations/use-validations')
 // const { setDate } = require('./functions');
 const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 const { getData, postData, putData, deleteData } = require('../../services/axios');
 
 async function insertOneSupplier(object) {
+console.log("!!!!!!!!!!!!!!!!!!!!!",object,"!!!!!!!!!!!!!!!!!");
     try {
-        if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
-            object.CreationDate = new Date().toISOString();
-            let obj = { entityName: 'Suppliers', values: object };
-
-            const res = await postData("/create/createone", obj);
-            return res;
+        let ans = await checkObjectValidations(object, 'Suppliers')
+        if(ans){
+            if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
+                object.CreationDate = new Date().toISOString();
+                let obj = { entityName: 'Suppliers', values: object };
+    
+                const res = await postData("/create/createone", obj);
+                return res;
+            }
+            else {
+                
+                throw new Error('validation')
+            }
         }
-        else {
-            
-            throw new Error('validation')
-        }
+        
     }
     catch (error) {
         console.log({ error })
@@ -23,7 +29,7 @@ async function insertOneSupplier(object) {
     }
 }
 async function getAllSuppliers(query) {
-    console.log({ query })
+    console.log("###############",{ query })
     try {
         const res = await getData(`/read/readMany/Suppliers`, query);
         for (let item of res.data) {

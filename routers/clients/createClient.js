@@ -5,7 +5,7 @@ const {checkObjectValidations}=require('../../services/validations/use-validatio
 router.post('/add', express.json(), async (req, res) => {
     try {
         
-        let ans=await checkObjectValidations(req.body,'tbl_Clients')
+        let ans=await checkObjectValidations(req.body,'Clients')
         if(ans){
         
         const response =await addOneClient(req.body)

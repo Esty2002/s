@@ -64,8 +64,7 @@ router.get('/getBranchById/:id', async (req, res) => {
 
 router.post('/insertbranch', express.json(), async (req, res) => {
     try {
-        let ans = await checkObjectValidations(req.body, 'Branches')
-        console.log("---------------", { ans }, "----------------");
+       
         const response = await insertOneBranch(req.body)
         if (response)
             res.status(201).send(response.data)

@@ -201,7 +201,7 @@ describe('DELETEBRANCHES', () => {
 describe('GET SPESIFIC BRANCH',()=>{
     it('should be defined to be 1 to correct properties',async()=>{
         let response;
-        response = await getBranchesByCondition({"SupplierCode" : "1005"})
+        response = await getBranchesByCondition({ SupplierCode: 1234, Disabled: 0 })
         // const { getData } = jest.requireMock('../../../services/axios');
         // expect(getData).toHaveBeenCalled();
     })
