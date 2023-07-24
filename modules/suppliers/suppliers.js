@@ -29,7 +29,6 @@ async function getAllSuppliers(query) {
         for (let item of res.data) {
             const res = await countRows({ SupplierCode: item.Id, ...query });
             if (res) {
-                console.log(item)
                 item.countBranches = res.countRows;
             }
             else {
@@ -138,6 +137,7 @@ async function checkUniqueCode(code) {
     }
 
 }
+
 async function checkUniqueName(name) {
     let resultSuppliersName = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierName: name });
     if (resultSuppliersName.status === 200)

@@ -209,6 +209,10 @@ const updateOneLead = async (obj = null) => {
 const deleteLead = async (id) => {
     if (id) {
         const obj = {
+<<<<<<< HEAD
+=======
+            entityName: 'leads',
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
             values: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()

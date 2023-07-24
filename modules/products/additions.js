@@ -8,7 +8,7 @@ const { findMeasureName, findMeasureNumber } = require('./measure')
 const values = [
     {
         entity: "Additions",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null }) => {
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate=null ,Enabled=null,DeleteDate=null}) => {
             return {
                 tableName: "Additions",
                 values: {
@@ -18,6 +18,14 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     Enabled: true,
                     DeleteDate: null,
+                },
+                valuesFind: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    AddedDate: AddedDate,
+                    Enabled: Enabled,
+                    DeleteDate: DeleteDate,
                 }
             }
         }
@@ -33,7 +41,11 @@ async function insertAddition(obj) {
     }
     logToFile(objectForLog)
 
+<<<<<<< HEAD
     const checkValidObj = values.find(({ entity }) => SQL_ADDITIONS_TABLE === entity);
+=======
+    const checkValidObj = values.find(({ entity }) => tableName === entity);
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
@@ -41,7 +53,7 @@ async function insertAddition(obj) {
     }
 
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    obj.UnitOfMeasure = measure
+    obj.UnitOfMeasure = measure.data[0].Id
     try {
         const response = await postData('/create/createone', { tableName: SQL_ADDITIONS_TABLE, values: obj })
         if (response.data)
@@ -54,7 +66,16 @@ async function insertAddition(obj) {
     }
 }
 
+<<<<<<< HEAD
 async function findAddition(filter = {}) {
+=======
+async function findAddition(project = [], filter = {},tableName) {
+    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    let newObj = checkValidObj.func(filter)
+    if (checkValidObj) 
+        _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
+
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
@@ -67,12 +88,17 @@ async function findAddition(filter = {}) {
         filter: condition,
     }
     logToFile(objForLog)
+<<<<<<< HEAD
     const response = await getData(`/read/readMany/${SQL_ADDITIONS_TABLE}`, { condition })
+=======
+
+    const response = await postData("/read/readTopN", { tableName: SQL_ADDITIONS_TABLE, columns: columnsStr, condition: conditionStr })
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     try {
         for (let finish of response.data) {
             if (Object.keys(finish).includes('UnitOfMeasure')) {
                 const measureName = await findMeasureName(finish.UnitOfMeasure)
-                finish['UnitOfMeasure'] = measureName
+                finish['UnitOfMeasure'] = measureName.data[0].measure
             }
         }
         return response
@@ -93,6 +119,7 @@ async function findAddition(filter = {}) {
     // }
 }
 
+<<<<<<< HEAD
 async function updateAddition(obj = {}) {
     try {
         const response = await putData('/update/updateone', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
@@ -103,6 +130,14 @@ async function updateAddition(obj = {}) {
     } catch (error) {
         throw error;
     }
+=======
+async function updateAddition(obj = {}, filter = {}) {
+    const response = await postData('/update/update', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
+    if (response.data)
+        return true
+    else
+        return false
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 }
 
 module.exports = { insertAddition, findAddition, updateAddition }

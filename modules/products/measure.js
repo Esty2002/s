@@ -21,6 +21,7 @@ const values = [
 ]
 
 async function updateMeasure(condition, obj) {
+<<<<<<< HEAD
     try {
         const response = await putData('/update/updateone', { tableName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition })
         if (response.status == 204)
@@ -38,6 +39,22 @@ async function insertMeasure(name) {
         description: 'insert an unit of measure in module',
         obj: name,
         tableName: SQL_UNIT_OF_MEASURE_TABLE
+=======
+    return (await postData('/update/update', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition: `measure = '${condition}'` }))
+}
+
+async function insertMeasure(name) {
+    const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
+    console.log('after exist');
+    const { status, data } = exist
+    console.log({ status, data });
+    console.log(!data, '!');
+    if (status === 200 && !data[0]) {
+        console.log({ name });
+        const response = await postData('/create/createone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Measure: name, Disable: 0 } })
+        console.log(response + 'hjhfdefjhg');
+        return response
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     }
     logToFile(objectForLog)
     const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`)
@@ -78,6 +95,7 @@ async function deleteItem(object) {
     }
     catch (error) {
         throw error
+<<<<<<< HEAD
     }
 
 }
@@ -97,6 +115,8 @@ async function getAll() {
         objectForLog.error = error.message
         logToFile(objectForLog)
         throw error
+=======
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     }
 }
 
@@ -148,6 +168,32 @@ async function findMeasureName(num) {
         logToFile(objectForLog)
         throw error
     }
+<<<<<<< HEAD
+=======
+}
+
+async function deleteItem(object) {
+    const response = await postData('/update/update', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+    return response
+}
+async function getAll() {
+    let objectForLog = {
+        name: 'getAll',
+        description: 'get all unit of measure in module'
+    }
+    logToFile(objectForLog)
+
+    try {
+        const response = await getData(`/read/readAll/${SQL_UNIT_OF_MEASURE_TABLE}`)
+        if (response.data)
+            return response
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
 }
 
 module.exports = { updateMeasure, findMeasureNumber, findMeasureName, insertMeasure, getAll, deleteItem }                

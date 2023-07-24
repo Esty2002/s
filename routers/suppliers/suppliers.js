@@ -8,14 +8,14 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
         console.log('delete', new Date().toISOString())
         const response = await deleteSupplier(req.body)
         console.log(response.status)
-        if (response.status===204)
-            res.status(response.status).send({message:'deleted'})
+        if (response.status === 204)
+            res.status(response.status).send({ message: 'deleted' })
         // res.status(200).send(true);
         else {
-            res.status(500).send({message:'not deleted'})
+            res.status(500).send({ message: 'not deleted' })
         }
     } catch (error) {
-        console.log({error})
+        console.log({ error })
         res.status(500).send(error.message)
     }
 })
@@ -28,7 +28,6 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
         else {
             res.status(500).send(response.data)
         }
-        console.log("errrrrrrrrrrrrror");
     } catch (error) {
         console.log(error.message)
         res.status(500).send(error.message)
@@ -36,12 +35,11 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
 })
 
 router.post('/updatesupplier', express.json(), async (req, res) => {
-    console.log("req.bodyyyyy-----", req.body);
     try {
-        const response = await updateDetail( req.body)
+        const response = await updateDetail(req.body)
         if (response)
             res.status(response.status).send(response.data)
-      
+
     } catch (error) {
         res.status(500).send(error.message)
     }
@@ -96,6 +94,19 @@ router.get('/getallSuppliers', async (req, res) => {
             res.status(500).send(response.data)
         }
     } catch (error) {
+        res.status(500).send(error.message)
+    }
+})
+
+router.get('/getSupplierById/:id', async (req, res) => {
+    try {
+        const response = await getSupplier({ Id: req.params.id })
+        if (response)
+            res.status(200).send(response.data[0])
+        else
+            res.status(404).send({ message: 'supplier not found' })
+    }
+    catch (error) {
         res.status(500).send(error.message)
     }
 })

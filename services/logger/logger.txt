@@ -6048,6 +6048,7 @@ Disabled: false,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function create : Tue Jul 04 2023 - 19:35:10  
 description: addPriceList in router
         
@@ -6304,30 +6305,70 @@ name: יוני 2023,
 pumps: true, 
 beton: true, 
 addedDate: 07/02/2023, 
+=======
+last time login in the function create : Thu Jul 13 2023 - 14:28:25  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+name: tovilapehhhh, 
+pumps: true, 
+beton: false, 
+addedDate: 02/02/2023, 
+>>>>>>> Tovi
 userName: devloper, 
 finish: false, 
 disabled: false, 
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:01  
 description: getIdForPricelistName in router
         
 dataThatRecived: {getIdForPricelistName in router
 name: יוני 2023, 
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:25  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:25  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:25  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: tovilapehhhh, 
+>>>>>>> Tovi
 tbname: tbl_PriceList, 
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:01  
 description: getId in module
         
 dataThatRecived: {getId in module
 name: יוני 2023, 
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:25  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: tovilapehhhh, 
+>>>>>>> Tovi
 tbName: tbl_PriceList, 
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:01  
 description: getId after sending to db
         
@@ -6338,30 +6379,102 @@ description: getIdForPricelistName in router
         
 dataThatRecived: {getIdForPricelistName in router
 name: יוני 2023, 
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:25  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: detailsOfProfucts in router expect to get table name
+        
+dataThatRecived: {tbl_Pumps}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getProducts in module
+        
+dataThatRecived: {getProducts in module
+tbName: tbl_Pumps, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getId after sending to db
+        
+result: {103}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: tovilapehhhh, 
+>>>>>>> Tovi
 tbname: tbl_PriceList, 
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:01  
 description: getId in module
         
 dataThatRecived: {getId in module
 name: יוני 2023, 
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: tovilapehhhh, 
+>>>>>>> Tovi
 tbName: tbl_PriceList, 
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:01  
 description: getId after sending to db
         
 result: {1}
 ----------------------------------
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:26  
+description: getId after sending to db
+        
+result: {103}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6369,12 +6482,38 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: tovilapehhhh, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: tovilapehhhh, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6382,12 +6521,20 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6395,12 +6542,20 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:03  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6408,12 +6563,62 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:17  
+=======
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+description: getId after sending to db
+        
+result: {103}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: tovilapehhhh, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: tovilapehhhh, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Thu Jul 13 2023 - 14:28:48  
+description: getId after sending to db
+        
+result: {103}
+----------------------------------
+last time login in the function create : Sun Jul 16 2023 - 14:49:50  
+description: addPriceList in router
+        
+dataThatRecived: {addPriceList in router
+name: חיא, 
+pumps: true, 
+beton: false, 
+addedDate: 02/02/2023, 
+userName: devloper, 
+finish: false, 
+disabled: false, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Thu Jul 06 2023 - 22:18:17  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6421,6 +6626,7 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function create : Thu Jul 06 2023 - 23:46:50  
 description: addPriceList in router
         
@@ -6712,11 +6918,18 @@ Beton: false,
 }
 ----------------------------------
 last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6724,12 +6937,20 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Fri Jul 07 2023 - 2:23:15  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6737,12 +6958,20 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Fri Jul 07 2023 - 2:23:25  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: detailsOfProfucts in router expect to get table name
         
 dataThatRecived: {tbl_Pumps}
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Fri Jul 07 2023 - 2:23:25  
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+>>>>>>> Tovi
 description: getProducts in module
         
 dataThatRecived: {getProducts in module
@@ -6750,6 +6979,7 @@ tbName: tbl_Pumps,
 
 }
 ----------------------------------
+<<<<<<< HEAD
 last time login in the function read : Fri Jul 07 2023 - 2:23:25  
 description: detailsOfProfucts in router expect to get table name
         
@@ -7990,6 +8220,131 @@ description: getProducts in module
         
 dataThatRecived: {getProducts in module
 tbName: tbl_Pumps, 
+=======
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: חיא, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: חיא, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+description: getId after sending to db
+        
+result: {104}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+description: getIdForPricelistName in router
+        
+dataThatRecived: {getIdForPricelistName in router
+name: חיא, 
+tbname: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+description: getId in module
+        
+dataThatRecived: {getId in module
+name: חיא, 
+tbName: tbl_PriceList, 
+
+}
+----------------------------------
+last time login in the function read : Sun Jul 16 2023 - 14:49:51  
+description: getId after sending to db
+        
+result: {104}
+----------------------------------
+last time login in the function create : Wed Jul 19 2023 - 14:58:17  
+description: addPricesListBySupplierOrClient in router
+        
+dataThatRecived: {addPricesListBySupplierOrClient in router
+PriceListId: 10,10, 
+Credit: false, 
+AreaId: tttttttttttttt, 
+StartDate: 2023-07-14, 
+EndDate: 2023-06-27, 
+AddedDate: 2023-07-17, 
+UserName: rrrrrrrrrrrrrr, 
+Debit: true, 
+SupplierOrClient: 1000,1000, 
+
+}
+----------------------------------
+last time login in the function create : Wed Jul 19 2023 - 15:00:26  
+description: addPricesListBySupplierOrClient in router
+        
+dataThatRecived: {addPricesListBySupplierOrClient in router
+PriceListId: 10,10, 
+Credit: false, 
+AreaId: eeeee, 
+StartDate: 2023-07-20, 
+EndDate: 2023-07-11, 
+AddedDate: 2023-07-31, 
+UserName: eeeeee, 
+Debit: true, 
+SupplierOrClient: 1000,1000, 
+
+}
+----------------------------------
+last time login in the function create : Wed Jul 19 2023 - 15:09:17  
+description: addPricesListBySupplierOrClient in router
+        
+dataThatRecived: {addPricesListBySupplierOrClient in router
+PriceListId: 1,1, 
+Credit: false, 
+AreaId: ganiavne, 
+StartDate: 2023-07-07, 
+EndDate: 2023-07-06, 
+AddedDate: 2023-07-25, 
+UserName: gili, 
+Debit: true, 
+SupplierOrClient: 1000,1000, 
+
+}
+----------------------------------
+last time login in the function create : Wed Jul 19 2023 - 15:10:05  
+description: addPricesListBySupplierOrClient in router
+        
+dataThatRecived: {addPricesListBySupplierOrClient in router
+PriceListId: 1,1, 
+Credit: false, 
+AreaId: dimona, 
+StartDate: 2023-07-05, 
+EndDate: 2023-06-25, 
+AddedDate: 2023-07-23, 
+UserName: hadas, 
+Debit: true, 
+SupplierOrClient: 1001,1001, 
+
+}
+----------------------------------
+last time login in the function create : Wed Jul 19 2023 - 15:12:53  
+description: addPricesListBySupplierOrClient in router
+        
+dataThatRecived: {addPricesListBySupplierOrClient in router
+PriceListId: 1,1, 
+Credit: false, 
+AreaId: yyy, 
+StartDate: 2023-07-04, 
+EndDate: 2023-06-26, 
+AddedDate: 2023-07-19, 
+UserName: yyy, 
+Debit: true, 
+SupplierOrClient: 1001,1001, 
+>>>>>>> Tovi
 
 }
 ----------------------------------

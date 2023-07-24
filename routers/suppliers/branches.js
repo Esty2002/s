@@ -64,7 +64,7 @@ router.get('/getBranchById/:id', async (req, res) => {
 
 router.post('/insertbranch', express.json(), async (req, res) => {
     try {
-        let ans = await checkObjectValidations(req.body, 'tbl_Branches')
+        let ans = await checkObjectValidations(req.body, 'Branches')
         console.log("---------------", { ans }, "----------------");
         const response = await insertOneBranch(req.body)
         if (response)
@@ -74,21 +74,21 @@ router.post('/insertbranch', express.json(), async (req, res) => {
             res.status(500).send(response)
         }
     } catch (error) {
-        console.log("you cant insert this branch to the data:(");
+        console.log(error)
         res.status(500).send(error.message)
     }
 })
 
 router.post('/updatebranch', express.json(), async (req, res) => {
     try {
-        const response = await updateDetail(req.body.SupplierCode, req.body)
+        const response = await updateDetail( req.body)
         if (response)
             res.status(200).send(response.data)
         else {
             res.status(500).send(response)
         }
     } catch (error) {
-        console.log("cant update branch:(");
+        console.log(error)
         res.status(500).send(error.message)
     }
 })

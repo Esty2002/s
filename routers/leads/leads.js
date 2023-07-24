@@ -84,8 +84,43 @@ router.delete('/deletelead/:serialNumber', express.json(), async (req, res) => {
 });
 router.delete('/deleteonelead/:serialNumber', express.json(), async (req, res) => {
     try {
+<<<<<<< HEAD
         const response = await deleteOneLead(req.params.serialNumber);
         res.status(200).send(response.data);
+=======
+
+    }
+    catch (error) {
+        res.status(404).send(error);
+
+    }
+});
+
+router.post('/insertrecord', express.json(), async (req, res) => {
+    try {
+        const response = await newRecord(req.body);
+        res.status(200).send(response);
+    }
+    catch (error) {
+        res.status(404).send(error);
+    }
+});
+
+router.put('/updaterecord', express.json(), async (req, res) => {
+    try {
+        const response = await updateRecord(req.body)
+        res.status(200).send(response);
+    }
+    catch (error) {
+        res.status(404).send(error);
+    }
+});
+
+router.delete('/deleterecord/:tablename/:condition', express.json(), async (req, res) => {
+    try {
+        const response = await deleteRecord({ entityName: req.params.tablename, condition: req.params.condition })
+        res.status(200).send(response);
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
     }
     catch (error) {
         res.status(404).send(error);
@@ -153,8 +188,14 @@ router.put('/updaterecord', express.json(), async (req, res) => {
 //         // }
 router.delete('/deleterecord/:entityname', express.json(), async (req, res) => {
     try {
+<<<<<<< HEAD
         const response = await deleteRecord({ entity: req.params.entityname, condition: req.query })
         if (response.status == 204) {
+=======
+        const response = await deleteRecord({ entity: req.params.entityname, condition: req.params.condition })
+        if (response.status == 200) {
+            console.log(response.data);
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200
             res.status(204).send(response.data);
 
         }

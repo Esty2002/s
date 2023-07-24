@@ -10,6 +10,7 @@ jest.mock('../../../services/logger/logTxt', () => {
 jest.mock('../../../services/validations/use-validations', () => {
     return {
         checkObjectValidations: jest.fn((obj) => {
+            console.log('checkObjectValidations');
             return true
         }),
     }
@@ -18,20 +19,21 @@ jest.mock('../../../modules/products/measure', () => {
     return {
         findMeasureNumber: jest.fn((obj) => {
             if (obj == "error")
-                return { error: 'no matching unit of measure' }
-            return 1
+                throw new Error('no matching unit of measure')
+            return { data: [{ "Id": 1 }] }
         }),
         findMeasureName: jest.fn((obj) => {
+            console.log({ obj }, ']]]]]]]]]]]]]]]]]]]]]]]');
             if (obj == "error")
-                return { error: 'no matching unit of measure' }
-            return "mmm"
+                throw new Error('no matching unit of measure')
+            return { data: [{ "measure": "mmm" }] }
         }),
     }
 });
 jest.mock('../../../services/axios', () => {
     return {
-        postData: jest.fn((obj,b) => {
-            if (b.condition=="Name='error'")
+        postData: jest.fn((obj, b) => {
+            if (b.condition == "Name='error'")
                 return { data: [{ Name: "Name", UnitOfMeasure: "error", BookkeepingCode: "BookkeepingCode" }], status: 201 }
             return { data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 }
         }),
@@ -42,12 +44,12 @@ jest.mock('../../../services/axios', () => {
 const { insertFinishProduct, findFinishProduct } = require('../../../modules/products/finishProducts');
 describe('function findFinishProduct', () => {
     it('shuols success finding a finished product', async () => {
-        const result = await findFinishProduct([],{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
-        expect(result.data).toStrictEqual([{BookkeepingCode: "BookkeepingCode", UnitOfMeasure: "mmm" ,Name: "Name"}] )
+        const result = await findFinishProduct([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
+        expect(result.data).toStrictEqual([{ BookkeepingCode: "BookkeepingCode", UnitOfMeasure: "mmm", Name: "Name" }])
         expect(result).toBeDefined()
     })
     it('shuols fail finding a finished product', async () => {
-        let result =''
+        let result = ''
         try {
             result = await findFinishProduct();
         }
@@ -59,7 +61,7 @@ describe('function findFinishProduct', () => {
     })
 
     it('shuols check the mock logToFile', async () => {
-        _ = await findFinishProduct([],{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        _ = await findFinishProduct([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
         const { logToFile } = jest.requireMock('../../../services/logger/logTxt');
         expect(logToFile).toHaveBeenCalled()
         expect(logToFile).toBeDefined()
@@ -67,7 +69,7 @@ describe('function findFinishProduct', () => {
 
     it('shuols fail to findMeasureName', async () => {
         try {
-            const result = await findFinishProduct([],{ Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" });
+            const result = await findFinishProduct([], { Name: "error", UnitOfMeasure: "error", BookkeepingCode: "error" }, "FinishProducts");
         }
         catch (error) {
             expect(error.message).toBe('no matching unit of measure')
@@ -75,16 +77,16 @@ describe('function findFinishProduct', () => {
             expect(error).toBeDefined()
         }
     })
-    
+
     it('shuols success to findMeasureName', async () => {
-        const result = await findFinishProduct([],{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        const result = await findFinishProduct([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
         const { findMeasureName } = jest.requireMock('../../../modules/products/measure');
         expect(findMeasureName).toHaveBeenCalled()
         expect(findMeasureName).toBeDefined()
     })
 
     it('shuols check the mock postData', async () => {
-        _ = await findFinishProduct([],{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" });
+        _ = await findFinishProduct([], { Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
         const { postData } = jest.requireMock('../../../services/axios');
         expect(postData).toHaveBeenCalled()
         expect(postData).toBeDefined()
@@ -95,11 +97,11 @@ describe('function findFinishProduct', () => {
 describe('function insertFinishProduct', () => {
     it('shuols success inserting a finished product', async () => {
         const result = await insertFinishProduct({ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }, "FinishProducts");
-        expect(result).toStrictEqual({ data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }] , status: 201})
+        expect(result).toStrictEqual({ data: [{ Name: "Name", UnitOfMeasure: "UnitOfMeasure", BookkeepingCode: "BookkeepingCode" }], status: 201 })
         expect(result).toBeDefined()
     })
     it('shuols fail inserting a finished product', async () => {
-        let result =''
+        let result = ''
         try {
             result = await insertFinishProduct();
         }
