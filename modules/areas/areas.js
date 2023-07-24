@@ -400,5 +400,7 @@ module.exports = {
     getFromSql,
     getFromMongo,
     findInRadius,
-    startt
+    startt,
+    checkAndInsert,
+    checkAndUpdate
 }

@@ -13487,3 +13487,248 @@ disabled: false,
 
 }
 ----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 14:59:04  
+description: findByDistinct in module
+        
+error: {can't distinct data}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 14:59:38  
+description: findByDistinct in module
+        
+error: {can't distinct data}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:00:01  
+description: findByDistinct in module
+        
+error: {can't distinct data}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:03:27  
+description: findByDistinct in module
+        
+error: {can't distinct data}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:04:14  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:05:33  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:05:47  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:06:10  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:06:30  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:06:46  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:07:42  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:09:35  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:11:16  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:11:42  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:12:07  
+description: findByDistinct in module
+        
+error: {can't distinct data}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:12:19  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:13:03  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:19:31  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:19:49  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:51:25  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:53:07  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 15:56:23  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 16:04:08  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 16:35:02  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 16:35:42  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 16:35:54  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
+last time login in the function findByDistinct : Mon Jul 24 2023 - 16:39:19  
+description: findByDistinct in module
+        
+dataThatRecived: {findByDistinct in module
+collection: areas, 
+field: type, 
+filter: [object Object], 
+
+}
+----------------------------------
