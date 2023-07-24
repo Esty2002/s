@@ -26,6 +26,19 @@ const getData = async (url, query) => {
     }
 }
 
+const putData = async (url, body) => {
+    let response;
+    try {
+        console.log({ url, body: JSON.stringify(body) })
+        response = await server.put(url, body);
+        return response
+    }
+    catch (error) {
+        console.log({ error: error.message })
+        throw error;
+    }
+}
+
 const postData = async (url, body) => {
     let response;
     try {
@@ -37,5 +50,5 @@ const postData = async (url, body) => {
         throw error;
     }
 }
-module.exports = { getData, postData }
+module.exports = { getData, postData,putData }
 

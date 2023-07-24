@@ -681,151 +681,151 @@
                                 "ClientCode": {
                                     "type": "string",
                                     "example": "1144",
-                                    "required": "",
+                                    "required": true,
                                     "description": "clientcode"
                                 },
                                 "ClientName": {
                                     "type": "string",
                                     "example": "chana",
-                                    "required": "",
+                                    "required": true,
                                     "description": "the name of client"
                                 },
                                 "PrivaetCompanyNumber": {
                                     "type": "string",
                                     "example": "45864",
-                                    "required": "",
+                                    "required": true,
                                     "description": "PrivaetCompanyNumber"
                                 },
                                 "BookkeepingNumber": {
                                     "type": "string",
                                     "example": "2121",
-                                    "required": "",
+                                    "required": false,
                                     "description": "BookkeepingNumber"
                                 },
                                 "DestinationBank": {
                                     "type": "string",
                                     "example": "3256445",
-                                    "required": "",
+                                    "required": false,
                                     "description": "DestinationBank"
                                 },
                                 "PaymentTermsFluent": {
                                     "type": "string",
                                     "example": "45454",
-                                    "required": "",
+                                    "required": false,
                                     "description": "PaymentTermsFluent"
                                 },
                                 "PreferredPaymentDate": {
                                     "type": "date",
                                     "example": "01/02/2023",
-                                    "required": "",
+                                    "required": true,
                                     "description": "PreferredPaymentDate"
                                 },
                                 "Ovligo": {
                                     "type": "int",
-                                    "example": "3",
-                                    "required": "",
+                                    "example": 3,
+                                    "required": false,
                                     "description": "Ovligo"
                                 },
                                 "ReceiptIssueTerm": {
                                     "type": "string",
                                     "example": "78554",
-                                    "required": "",
+                                    "required": false,
                                     "description": "ReceiptIssueTerm"
                                 },
                                 "ReceiptCentralism": {
                                     "type": "string",
                                     "example": "42533",
-                                    "required": "",
+                                    "required": false,
                                     "description": "ReceiptCentralism"
                                 },
                                 "AccountantClassifiedCode": {
                                     "type": "int",
-                                    "example": "12",
-                                    "required": "",
+                                    "example": 12,
+                                    "required": false,
                                     "description": "AccountantClassifiedCode"
                                 },
                                 "Status": {
                                     "type": "int",
-                                    "example": "1",
-                                    "required": "",
+                                    "example": 1,
+                                    "required": true,
                                     "description": "status"
                                 },
                                 "Description": {
                                     "type": "string",
                                     "example": "the bank is:",
-                                    "required": "",
+                                    "required": false,
                                     "description": "Description"
                                 },
                                 "Street": {
                                     "type": "string",
                                     "example": "chalafta",
-                                    "required": "",
+                                    "required": true,
                                     "description": "street"
                                 },
                                 "House": {
                                     "type": "int",
                                     "example": 10,
-                                    "required": "",
+                                    "required": true,
                                     "description": "house"
                                 },
                                 "City": {
                                     "type": "string",
                                     "example": "ashdod",
-                                    "required": "",
+                                    "required": true,
                                     "description": "city"
                                 },
                                 "ZipCode": {
                                     "type": "string",
                                     "example": "12345",
-                                    "required": "",
+                                    "required": false,
                                     "description": "ZipCode"
                                 },
                                 "Telephone1": {
                                     "type": "string",
                                     "example": "0583286455",
-                                    "required": "",
+                                    "required": true,
                                     "description": "the telephone1 "
                                 },
                                 "Telephone2": {
                                     "type": "string",
                                     "example": "0533110452",
-                                    "required": "",
+                                    "required": false,
                                     "description": "the telephone2 "
                                 },
                                 "MobilePhone": {
                                     "type": "string",
                                     "example": "088647725",
-                                    "required": "",
+                                    "required": false,
                                     "description": "MobilePhone"
                                 },
                                 "Fax": {
                                     "type": "string",
-                                    "example": "",
-                                    "required": "",
+                                    "example": "088565874",
+                                    "required": false,
                                     "description": ""
                                 },
                                 "Email": {
                                     "type": "string",
                                     "example": "l088645254@gmail.com",
-                                    "required": "",
+                                    "required": false,
                                     "description": "email"
                                 },
                                 "Comments": {
                                     "type": "string",
-                                    "example": "g fg",
-                                    "required": "",
+                                    "example": "gfg",
+                                    "required": false,
                                     "description": "Comments"
                                 },
                                 "CreationDate": {
                                     "type": "string",
                                     "example": "01/05/2023",
-                                    "required": "",
+                                    "required": true,
                                     "description": "CreationDate"
                                 },
                                 "UserThatAdd": {
                                     "type": "string",
-                                    "example": "",
-                                    "required": "",
+                                    "example": "UserThatAdd",
+                                    "required": true,
                                     "description": "UserThatAdd"
                                 }
                             },
