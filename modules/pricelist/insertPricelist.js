@@ -1,111 +1,311 @@
-
 const { postData, getData } = require('../../services/axios')
-const { logToFile } = require('../../services/loggerPnini')
-async function insert(data, tableName) {
+const { logToFile } = require('../../services/logger/logTxt')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
+const values = [
+    {
+        entity: "PriceList",
+        func: ({ Name = null, Pumps = null, Beton = null, UserName = null }) => {
+            return {
+                tableName: "PriceList",
+                values: {
+                    Name: Name,
+                    Pumps: Pumps,
+                    Beton: Beton,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName,
+                    Finish: false,
+                    Disabled: false
+                }
+            }
+        }
+    },
+    {
+        entity: "CitiesAdditions",
+        func: ({ PriceListId = null, ProductId = null, AreaId = null, Price = null, CountPrecent = null, UserName = null }) => {
+            return {
+                tableName: "CitiesAdditions",
+                values: {
+                    PriceListId: PriceListId,
+                    ProductId: ProductId,
+                    AreaId: AreaId,
+                    Price: Price,
+                    CountPrecent: CountPrecent,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName
+                }
+            }
+        }
+    },
+    {
+        entity: "TimeAdditions",
+        func: ({ PriceListId = null, ProductId = null, Price = null, CountPrecent = null, DayOfWeek = null, StartDate = null, EndDate = null, UserName = null }) => {
+            return {
+                tableName: "TimeAdditions",
+                values: {
+                    PriceListId: PriceListId,
+                    ProductId: ProductId,
+                    Price: Price,
+                    CountPrecent: CountPrecent,
+                    DayOfWeek: DayOfWeek,
+                    StartDate: StartDate,
+                    EndDate: EndDate,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName
+                }
+            }
+        }
+    },
+    {
+        entity: "AdditionsForDistance",
+        func: ({ PriceListId = null, ProductId = null, Distance = null, Price = null, CountPrecent = null, UserName = null }) => {
+            return {
+                tableName: "AdditionsForDistance",
+                values: {
+                    PriceListId: PriceListId,
+                    ProductId: ProductId,
+                    Distance: Distance,
+                    Price: Price,
+                    CountPrecent: CountPrecent,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName
+                }
+            }
+        }
+    },
+    {
+        entity: "TruckFill",
+        func: ({ PriceListId = null, ProductId = null, AmountTransportDiff = null, MaxTransportDiff = null, Price = null }) => {
+            return {
+                tableName: "TruckFill",
+                values: {
+                    PriceListId: PriceListId,
+                    ProductId: ProductId,
+                    AmountTransportDiff: AmountTransportDiff,
+                    MaxTransportDiff: MaxTransportDiff,
+                    Price: Price,
+                    Disabled: false
+                }
+            }
+        }
+    },
+    {
+        entity: "PricesListBySupplierOrClient",
+        func: ({ PriceListId = null, SupplierOrClient = null, Debit = null, Credit = null, AreaId = null, StartDate = null, EndDate = null, UserName = null }) => {
+            return {
+                tableName: "PricesListBySupplierOrClient",
+                values: {
+                    PriceListId: PriceListId,
+                    SupplierOrClient: SupplierOrClient,
+                    Debit: Debit,
+                    Credit: Credit,
+                    AreaId: AreaId,
+                    StartDate: StartDate,
+                    EndDate: EndDate,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName
+                }
+            }
+        }
+    },
+    {
+        entity: "PricelistForProducts",
+        func: ({ PriceListId = null, ProductId = null, TableName = null, Price = null, Discount = null, UserName = null }) => {
+            return {
+                tableName: "PricelistForProducts",
+                values: {
+                    PriceListId: PriceListId,
+                    ProductId: ProductId,
+                    TableName: TableName,
+                    Price: Price,
+                    Discount: Discount,
+                    AddedDate: new Date().toISOString(),
+                    UserName: UserName,
+                    Disabled: false
+                }
+            }
+        }
+    },
+    {
+        entity: "FinishProducts",
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
+            return {
+                tableName: "FinishProducts",
+                values: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    AddedDate: new Date().toISOString(),
+                    Enabled: true,
+                    DeleteDate: DeleteDate
+                }
+            }
+        }
+    },
+    {
+        entity: "Additions",
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
+            return {
+                tableName: "Additions",
+                values: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    AddedDate: new Date().toISOString(),
+                    Enabled: true,
+                    DeleteDate: DeleteDate
+                }
+            }
+        }
+    }
+]
+async function insert(data, entityName) {
     let obj = {}
-    obj['tableName'] = tableName
-    obj['values'] = data
-    obj['columns'] = '*'
+    let objectForLog = {
+        name: entityName,
+        description: 'insert in module',
+        dataThatRecived: data
+    }
+    logToFile(objectForLog)
     try {
-        // let object = {
-        //     name: 'create',
-        //     description: ' insert in module',
-        //     dataThatRecived: data
-        // }
+        const checkValidObj = values.find(({ entity }) => entityName === entity);
+        let newObj = checkValidObj.func(data)
+        if (checkValidObj) {
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+            data = newObj.values
 
-        // logToFile(object)
+        }
+        obj.tableName = entityName
+        obj.columns = '*'
+        obj.values = data
         const result = await postData('/create/create', obj)
-        // let id = result.data[0].Id
-        // object = {
-        //     name: 'create',
-        //     description: ' insert in module, after sending to dbserver',
-        //     result: id
-        // }
-        // logToFile(object)
-        return result;
+        if (result.data)
+            return result;
+        else
+            throw new Error('data not found')
     }
     catch (error) {
-        let object = {
-            name: 'create',
-            description: 'create in module -you have an error!',
-            error: error.message,
-            dataThatRecived: data,
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
+}
+async function getProducts(tbName) {
+    let objForLog = {
+        name: 'detailsOfProfucts',
+        description: 'getProducts in module',
+        dataThatRecived: tbName
+    }
+    logToFile(objForLog)
+    try {
+        let obj = {
+            tableName: tbName,
+            columns: '*'
         }
-        logToFile(object)
+        const response = await postData('/read/readTopN', obj)
+        if (response.data)
+            return response;
+        else
+            throw new Error('data not found')
+    }
+    catch (error) {
+        objForLog.error = error.message
+        logToFile(objForLog)
         throw error
     }
 }
 
-async function getProducts(tbName) {
-    let params = { tbName }
-    let object = {
-        name: 'read',
-        description: 'getProducts in module',
-        dataThatRecived: params
+//i need to do validations for update field
+async function updateField(id, entityName, value) {
+    let objForLog;
+    objForLog = {
+        name: 'updateFieldInTable',
+        description: 'updateField in module', id, entityName, value
     }
-    logToFile(object)
+    logToFile(objForLog)
     let obj = {}
-    obj['tableName'] = tbName
-    obj['columns'] = '*'
+    try {
+        const checkValidObj = values.find(({ entity }) => entityName === entity);
+        let newObj = checkValidObj.func(value)
+        if (checkValidObj) {
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+            value = newObj.values
+        }
 
-    const response = await postData('/read/readTopN', obj)
-    return response.data;
-}
-
-async function updateField(id, tbName, value) {
-    let params = { id, tbName }
-    let object = {
-        name: 'update',
-        description: 'updateField in module',
-        dataThatRecived: params,
-        value
+        obj.tableName = entityName
+        obj.condition = {Id:id}
+        obj.values = value
+        const response = await postData('update/update', obj)
+        if (response){
+            return response
+        }
+        else
+            throw new Error('data not found')
     }
-    logToFile(object)
-    let obj = {
-        "tableName": tbName,
-        "condition": `Id=${id}`,
-        "values": value
+    catch (error) {
+      
+        objForLog.error = error.message
+        logToFile(objForLog)
+        throw error
     }
-    const response = await postData('update/update', obj)
-    if (response.data.rowsAffected[0] > 1)
-        return true
-    return false
 }
-
 async function getId(name, tbName) {
-    let params = { name, tbName }
-    let object = {
-        name: 'read',
+    let objForLog = {
+        name: 'getIdForPricelistName',
         description: 'getId in module',
-        dataThatRecived: params
+        pricelistName: name
     }
-    logToFile(object)
-    let condition = `Name='${name}'`
-    console.log({ condition });
-    const response = await getData(`/read/readAll/${tbName}/${condition}`)
-    object = {
-        name: 'read',
-        description: 'getId after sending to db',
-        result: response.data[0].Id
+    logToFile(objForLog)
+    try {
+        let condition = `Name='${name}'`
+        console.log({ condition });
+        const response = await getData(`/read/readAll/${tbName}/${condition}`)
+        if (response.data.length > 0){
+            return response
+        }
+        else{
+            throw new Error('data not found')
+        }
     }
-    logToFile(object)
-    return response.data[0].Id
+    catch (error) {
+        objForLog.error = error.message
+        logToFile(objForLog)
+        throw error
+    }
 }
 
 async function getIdForBuytonDescribe(name, tbName) {
-    let params = { name, tbName }
-    let object = {
+    let objForLog = {
         name: 'read',
         description: 'getIdForBuytonDescribe in module expects: name, tbname',
-        dataThatRecived: params
+        describe: name,
+        tbName
     }
-    logToFile(object)
-    let t = tbName.substring(10)
-    t = t + 'Describe'
-    let condition = `${t}='${name}'`
-    console.log('888888888888888888888888888888888888888888888',condition);
-    const response = await getData(`/read/readAll/${tbName}/${condition}`)
-    return response.data
+    logToFile(objForLog)
+    try {
+        let field = tbName.substring(10)
+        field = field + 'Describe'
+        let condition = `${field}='${name}'`
+        const response = await getData(`/read/readAll/${tbName}/${condition}`)
+        if (response.data.length > 0)
+            return response;
+        else
+            throw new Error('data not found')
+    }
+    catch (error) {
+        objForLog.error = error.message
+        logToFile(objForLog)
+        throw error
+    }
 }
 
-module.exports = { insert, getProducts, getId, getIdForBuytonDescribe, updateField }
+async function getNumber(object, tbName) {
+    object = object.data[0]
+    let number = tbName.substring(10) + 'Number'
+    let result = `${object[number]}`
+    if (result)
+        return result;
+    else
+        throw new Error('data not found')
+}
+
+module.exports = { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber }

@@ -39,9 +39,9 @@ async function getPriceListByAddedDate(object) {
     }
 }
 // פונקציית חיפוש על פי מוצר
-async function getPriceListbyProduct(object) {
+async function getPriceListbyProduct(id) {
     try {
-        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `id='${object.id}' AND  Disabled=0` };
+        let obj = { tableName: SQL_DB_PRICELIST, columns: "*", condition: `PriceListId='${id}' AND  Disabled=0` };
         const res = await postData("/read/readTopN", obj);
         return res.data;
     }
