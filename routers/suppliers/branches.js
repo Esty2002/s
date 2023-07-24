@@ -64,8 +64,7 @@ router.get('/getBranchById/:id', async (req, res) => {
 
 router.post('/insertbranch', express.json(), async (req, res) => {
     try {
-        let ans = await checkObjectValidations(req.body, 'Branches')
-        console.log("---------------", { ans }, "----------------");
+       
         const response = await insertOneBranch(req.body)
         if (response)
             res.status(201).send(response.data)
@@ -94,7 +93,6 @@ router.post('/updatebranch', express.json(), async (req, res) => {
 })
 
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
-    console.log("in chckUniqe");
     try {
         const response = await checkUnique({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname })
         if (response)
