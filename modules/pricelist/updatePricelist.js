@@ -1,94 +1,86 @@
-const { sqlServer, postData, getData } = require('../../services/axios')
-const { PRICELIST, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS } = process.env
+const { sqlServer, postData, getData } = require('../../services/axios');
+const { PRICELIST, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS } = process.env;
 
 async function deletePriceList({ id }) {
-    const obj = {}
-    obj['tableName'] = PRICELIST
-    obj['condition'] = `Id=${id}`
-    obj['values'] = { 'Disabled': true }
-    const result = await postData('/update/update', obj)
-    console.log('finish1')
+    const obj = {};
+    obj['tableName'] = PRICELIST;
+    obj['condition'] = `Id=${id}`;
+    obj['values'] = { 'Disabled': true };
+    const result = await postData('/update/update', obj);
+    console.log('finish1');
     if (result.data.rowsAffected[0] > 0) {
-        let table = [ADDITIONSFORDISTANCE, CITIESADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, TIMEADDITIONS, PRICElISTFORPRODUCTS]
-        let res
+        let table = [ADDITIONSFORDISTANCE, CITIESADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, TIMEADDITIONS, PRICElISTFORPRODUCTS];
+        let res;
         const answer = await Promise.all(table.map(async (t) => {
-            // console.log({ obj })
-            obj['tableName'] = t
-            obj['condition'] = `PriceListId=${id}`
-            obj['values'] = { 'Disabled': true }
-            // console.log({ obj })
-            // console.log(obj.tableName)
-            res = await postData('/update/update', obj)
-            return res
+            obj['tableName'] = t;
+            obj['condition'] = `PriceListId=${id}`;
+            obj['values'] = { 'Disabled': true };
+            res = await postData('/update/update', obj);
+            return res;
         }
         ))
-        // console.log(answer.length)
-        return true
+        return true;
     }
     else
-        return false
+        return false;
 
-}
+};
 
 async function updateOne({ id, update }) {
-    // let newUpdate =[]
-    let newUpdate = {}
-    // console.log({ update })
-    newUpdate[update.columns] = update.values
-    // _ = update.forEach(o => (newUpdate[o.columns] = o.values))   לכמה דברים לעדכון
-    // console.log({ newUpdate });
-    let obj = {}
-    obj['tableName'] = PRICELIST
-    obj['condition'] = `Id= ${id}`
-    obj['values'] = newUpdate
+    let newUpdate = {};
+    newUpdate[update.columns] = update.values;
+    let obj = {};
+    obj['tableName'] = PRICELIST;
+    obj['condition'] = `Id= ${id}`;
+    obj['values'] = newUpdate;
     console.log({ obj });
-    const result = await postData('/update/update', obj)
+    const result = await postData('/update/update', obj);
     if (result.data.rowsAffected[0] > 0) {
-        return true
+        return true;
     }
     else
-        return false
-}
+        return false;
+};
 
 async function reedToUpdate({ tbName, id, update }) {
-    const answer = await getData(`/read/readAll/${tbName}/Id=${id}`)
+    const answer = await getData(`/read/readAll/${tbName}/Id=${id}`);
     if (answer.data.length === 1) {
-        let record = answer.data[0]
-        record = [record].map(({ Id, ...rest }) => rest)
+        let record = answer.data[0];
+        record = [record].map(({ Id, ...rest }) => rest);
         const obj = {};
-        _ = update.forEach(o => (record[0][o.columns] = o.values))
-        obj['tableName'] = `${tbName}`
-        obj['columns'] = '*'
+        _ = update.forEach(o => (record[0][o.columns] = o.values));
+        obj['tableName'] = `${tbName}`;
+        obj['columns'] = '*';
         obj['values'] = record[0];
         console.log({ obj });
-        const result = await postData('/create/create', obj)
-        return result
+        const result = await postData('/create/create', obj);
+        return result;
     }
     else
-        return false
-}
+        return false;
+};
 
 async function deleteItems({ tbName, id, del, newname }) {
     try {
-        let newdata
-        const answer = await getData(`/read/readAll/${tbName}/PriceListId=${id}`)
+        let newdata;
+        const answer = await getData(`/read/readAll/${tbName}/PriceListId=${id}`);
         // let PriceListId=answer.data.PriceListId
-        let answerIdentity = answer.data.map(d => d.Id)
-        let deleteIdentity = []
-        deleteIdentity = answerIdentity.filter(i => !del.includes(i))
+        let answerIdentity = answer.data.map(d => d.Id);
+        let deleteIdentity = [];
+        deleteIdentity = answerIdentity.filter(i => !del.includes(i));
         if (!newname) {
             // newname = await changeName(id)
-            newdata = await changeName(id)
-            newname = newdata.Name
+            newdata = await changeName(id);
+            newname = newdata.Name;
             // console.log({newdata});
             // console.log({ newname });
         }
         else {
-            const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`)
+            const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`);
             if (answer.data.length === 1) {
                 newdata = answer.data[0];
                 newdata = [newdata].map(({ Id, ...rest }) => rest);
-                newdata.forEach(item => item.Name = newname)
+                newdata.forEach(item => item.Name = newname);
             }
         }
         const obj = {};
@@ -96,11 +88,7 @@ async function deleteItems({ tbName, id, del, newname }) {
         obj['columns'] = '*';
         obj['values'] = newdata;
         console.log(newdata);
-        // console.log({ obj },"obbbbbbj");
-        const result = await postData('/create/create', obj)
-        // console.log("before if");
-        // console.log(Object.keys(result))
-        // let { data } = result
+        const result = await postData('/create/create', obj);
         if (result.status === 201) {
             // console.log(Object.keys(result))
             // console.log("in if !!!!!!!!!!");
@@ -111,35 +99,34 @@ async function deleteItems({ tbName, id, del, newname }) {
             // console.log({ data })
             let pricelistId = result.data[0].Id;
             console.log({ pricelistId });
-            let newDataa = []
-            newDataa = answer.data.filter(an => deleteIdentity.includes(an.Id))
-            newDataa.forEach(item => item.PriceListId = pricelistId)
-            newDataa = newDataa.map(({ Id, ...rest }) => rest)
-            let obj = {}
+            let newDataa = [];
+            newDataa = answer.data.filter(an => deleteIdentity.includes(an.Id));
+            newDataa.forEach(item => item.PriceListId = pricelistId);
+            newDataa = newDataa.map(({ Id, ...rest }) => rest);
+            let obj = {};
             console.log({ newDataa });
-            obj['tableName'] = `${tbName}`
-            obj['columns'] = '*'
+            obj['tableName'] = `${tbName}`;
+            obj['columns'] = '*';
             obj['values'] = newDataa;
-            // console.log({ obj });
-            const resultMany = await postData('/create/createManySql', obj)
+            const resultMany = await postData('/create/createManySql', obj);
             console.log({ resultMany: resultMany.data });
-            const dataMany = await getData(`/read/readAll/${tbName}/PriceListId=${pricelistId}`)
-            console.log({dataMany});
-            return dataMany.data
+            const dataMany = await getData(`/read/readAll/${tbName}/PriceListId=${pricelistId}`);
+            console.log({ dataMany });
+            return dataMany.data;
         }
 
     }
     catch (error) {
-        console.log(error.message)
-        throw error
+        console.log(error.message);
+        throw error;
     }
-}
+};
 
 async function updateItems({ tbName, id, update, newname }) {
-    const answer = await getData(`/read/readAll/${tbName}/PriceListId=${id}`)
-    let answerIdentity = answer.data.map(d => d.Id)
-    let deleteIdentity = []
-    deleteIdentity = answerIdentity.filter(i => !del.includes(i))
+    const answer = await getData(`/read/readAll/${tbName}/PriceListId=${id}`);
+    let answerIdentity = answer.data.map(d => d.Id);
+    let deleteIdentity = [];
+    deleteIdentity = answerIdentity.filter(i => !del.includes(i));
     // if (!newname) {
     //     // newname = await changeName(id)
     //     newdata = await changeName(id)
@@ -166,27 +153,26 @@ async function updateItems({ tbName, id, update, newname }) {
     //     let newData = []
     //     newData = answer.data.filter(an => deleteIdentity.includes(an.Id))
     //     newData.forEach(item => item.PriceListId = pricelistId)
-    let newPricelistId = await changeName(id)
-    let newData = []
-    _ = update.forEach(o => (newData[o.columns] = o.values))
+    let newPricelistId = await changeName(id);
+    let newData = [];
+    _ = update.forEach(o => (newData[o.columns] = o.values));
 
-    newData = answer.data.filter(an => deleteIdentity.includes(an.Id))
-    newData.forEach(item => item.PriceListId = newPricelistId)
-    newData = newData.map(({ Id, ...rest }) => rest)
-    console.log(newData, " nnnnnnDDDDDD");
-    let obj = {}
+    newData = answer.data.filter(an => deleteIdentity.includes(an.Id));
+    newData.forEach(item => item.PriceListId = newPricelistId);
+    newData = newData.map(({ Id, ...rest }) => rest);
+    let obj = {};
 
-    obj['tableName'] = `${tbName}`
-    obj['columns'] = '*'
+    obj['tableName'] = `${tbName}`;
+    obj['columns'] = '*';
     obj['values'] = newData;
     console.log({ obj });
-    const result = await postData('/create/createManySql', obj)
-    return result
-}
+    const result = await postData('/create/createManySql', obj);
+    return result;
+};
 
 async function changeName(id) {
-    let newName
-    const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`)
+    let newName;
+    const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`);
     if (answer.data.length === 1) {
         let record = answer.data[0];
         record = [record].map(({ Id, ...rest }) => rest);
@@ -200,8 +186,8 @@ async function changeName(id) {
             version = 1;
             newName = record[0].Name += version;
         }
-        return record[0]
+        return record[0];
     }
 }
 
-module.exports = { deletePriceList, updateOne, reedToUpdate, deleteItems, updateItems }
+module.exports = { deletePriceList, updateOne, reedToUpdate, deleteItems, updateItems };

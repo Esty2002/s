@@ -14,7 +14,7 @@ const values = [
                     Disable: 'False',
                     DeletingDate: null
                 }
-            }
+            };
 
         }
 
@@ -30,7 +30,7 @@ const values = [
                     Disable: 'False',
                     DeletingDate: null
                 }
-            }
+            };
         }
 
     },
@@ -46,7 +46,7 @@ const values = [
                     Disable: 'False',
                     DeletingDate: null
                 }
-            }
+            };
         }
 
     },

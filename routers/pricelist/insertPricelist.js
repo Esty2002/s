@@ -1,7 +1,7 @@
-const express = require('express')
-const router = express.Router()
-const { logToFile } = require('../../services/logger/logTxt')
-const { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber } = require('../../modules/pricelist/insertPricelist')
+const express = require('express');
+const router = express.Router();
+const { logToFile } = require('../../services/logger/logTxt');
+const { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber } = require('../../modules/pricelist/insertPricelist');
 let object
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
@@ -10,9 +10,9 @@ router.post('/addPriceList', express.json(), async (req, res) => {
             name: 'addPriceList',
             description: 'addPriceList in router- in try',
             dataThatRecived: req.body,
-        }
-        logToFile(object)
-        const result = await insert(req.body, 'PriceList')
+        };
+        logToFile(object);
+        const result = await insert(req.body, 'PriceList');
         if (result.status === 201) {
             res.status(201).send(result.data);
         }
@@ -21,14 +21,15 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         }
     }
     catch (error) {
-        object.error = error.message
-        logToFile(object)
+        object.error = error.message;
+        logToFile(object);
         if (error instanceof Array)
-            res.status(500).send(error)
+            res.status(500).send(error);
         else
             res.status(500).send(error.message);
     }
-})
+});
+
 //tbl_CitiesAdditions
 router.post('/addCitiesAdditions', express.json(), async (req, res) => {
     let objForLog;
@@ -38,8 +39,8 @@ router.post('/addCitiesAdditions', express.json(), async (req, res) => {
             description: 'add cities additions in router',
             dataThatRecived: req.body,
         }
-        logToFile(objForLog)
-        const result = await insert(req.body, 'CitiesAdditions')
+        logToFile(objForLog);
+        const result = await insert(req.body, 'CitiesAdditions');
         if (result.status === 201)
             res.status(201).send(result.data);
         else
@@ -49,11 +50,11 @@ router.post('/addCitiesAdditions', express.json(), async (req, res) => {
         objForLog.error = error.message;
         logToFile(objForLog)
         if (error instanceof Array)
-            res.status(500).send(error)
+            res.status(500).send(error);
         else
-            res.status(500).send(error.message)
+            res.status(500).send(error.message);
     }
-})
+});
 
 //tbl_TimeAdditions
 router.post('/addTimeAdditions', express.json(), async (req, res) => {

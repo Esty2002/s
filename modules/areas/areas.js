@@ -1,32 +1,31 @@
-require('dotenv').config()
-const { getData, postData } = require('../../services/axios')
+require('dotenv').config();
+const { getData, postData } = require('../../services/axios');
 
 async function findAll(filter = undefined) {
-    console.log({ filter })
+    console.log({ filter });
     const found = await postData('/read/find', {
         collection: "areas",
         filter: { $and: [{ type: filter }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] }
-    }
-    )
+    });
     return found;
 }
 
 async function findInPolygon(point) {
-    console.log({ point })
+    console.log({ point });
     const found = await postData('/read/findpolygon', {
         collection: "areas",
         filter: { $and: [{ type: 'polygon' }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] },
         point
     }
-    )
-    console.log({ found: found.data })
+    );
+    console.log({ found: found.data });
     return found;
 }
 async function findByDistinct(collection, filter = undefined) {
     console.log({ collection });
     console.log({ filter });
 
-    const found = await getData(`/read/distinct/${collection}/${filter}`)
+    const found = await getData(`/read/distinct/${collection}/${filter}`);
     return found;
 }
 
@@ -35,36 +34,34 @@ async function findAllCities() {
     const found = await postData('/read/find', {
         collection: "areas",
         filter: { $and: [{ type: 'city' }, { $or: [{ disabled: { $exist: false } }, { disabled: false }] }] }
-    }
-    )
-    return found
+    });
+    return found;
 }
 
 async function insertArea(obj = {}) {
     try {
-        const find = await findArea({ name: obj.name })
+        const find = await findArea({ name: obj.name });
         if (find.data?.length > 0) {
-            return { status: 409, data: 'duplicated values' }
+            return { status: 409, data: 'duplicated values' };
         }
         if (obj.type === 'polygon') {
-            console.log({ obj })
-            let points = obj.points
-            let arraymap = []
+            console.log({ obj });
+            let points = obj.points;
+            let arraymap = [];
             for (let i = 0; i < points.length; i++) {
-                let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng)
+                let find = arraymap.find(p => p.point.lat === points[i].lat && p.point.lng === points[i].lng);
                 if (!find) {
-                    arraymap.push({ point: points[i], index: i })
+                    arraymap.push({ point: points[i], index: i });
                 }
                 else {
                     if (i != points.length - 1) {
-                        points.splice(i, 1)
-                        console.log(points.length)
-                        i--
+                        points.splice(i, 1);
+                        console.log(points.length);
+                        i--;
                     }
                 }
             }
-
-            console.log({ points })
+            console.log({ points });
         }
         const result = await postData('/create/insertone',
             {
@@ -76,17 +73,17 @@ async function insertArea(obj = {}) {
                 {
                     tableName: "tbl_Areas",
                     values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
-                })
+                });
             if (resultToSql && resultToSql.status !== 201) {
                 const dropResult = await postData('/update/dropDocumentById',
                     {
                         collection: "areas",
                         data: { _id: result.data }
-                    })
+                    });
                 return dropResult;
             }
             if (resultToSql.status === 201)
-                return resultToSql
+                return resultToSql;
             else
                 throw new Error("Can't insert area to mongo and sql DB");
 
@@ -97,8 +94,8 @@ async function insertArea(obj = {}) {
         }
     }
     catch (error) {
-        console.log(error.message)
-        throw error
+        console.log(error.message);
+        throw error;
     }
 
 }
@@ -110,13 +107,13 @@ async function updateArea(obj = {}) {
             filter: { supplierOrClientCode: obj.supplierOrClientCode },
             set: { $set: { 'areasList.$[u]': obj.area } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.area.areaName }] }
-        })
+        });
     if (result)
-        return result
+        return result;
     else
-        throw new Error('Not Found area to update')
+        throw new Error('Not Found area to update');
 
-}
+};
 
 async function updateLocation(obj) {
     console.log("updateLocation->", obj.code, obj.areaName, obj.coordination);
@@ -126,11 +123,11 @@ async function updateLocation(obj) {
             filter: { supplierOrClientCode: obj.code },
             set: { $set: { 'areas.$[u].location.coordinates': obj.coordination } },
             arrayFilters: { arrayFilters: [{ 'u.areaName': obj.areaName }] }
-        })
+        });
     if (result)
-        return result
+        return result;
     else
-        throw new Error('Not Found area to update')
+        throw new Error('Not Found area to update');
 };
 
 async function updatePointAndRadius(code, areaName, coordination, radius = 0) {
@@ -180,47 +177,39 @@ async function deleteArea(areaName) {
                     tableName: 'tbl_Areas',
                     values: { Disabled: 'true' },
                     condition: { AreaName: areaName }
-                })
-            return resultSql
+                });
+            return resultSql;
         }
-        // return result
         else {
-            throw new Error('cannot delete area')
+            throw new Error('cannot delete area');
         }
     }
     catch (error) {
-        throw error
+        throw error;
     }
-
-}
+};
 
 async function findArea(filter = {}) {
-    // let query = {}
-    // query[name] = value   
     const result = await postData('/read/find', {
         collection: "areas",
         filter
-    })
-
-    return result
-}
+    });
+    return result;
+};
 
 async function findSupplierOrClient(code) {
-    console.log(" in isExist module");
     const result = await postData('/read/find',
         {
             dbName: "Buyton",
             collection: "Areas",
             filter: { supplierOrClientCode: code },
             project: {}
-        })
-    console.log("result ", result);
+        });
     if (result)
-        return result
-
+        return result;
     else
-        throw new Error("not found supplier or client code")
-}
+        throw new Error("not found supplier or client code");
+};
 
 async function getTheDataOfTheArea(code, areaName) {
     console.log("getTheDataOfTheArea", code, areaName);
@@ -229,15 +218,13 @@ async function getTheDataOfTheArea(code, areaName) {
             collection: "Areas",
             filter: { supplierOrClientCode: code },
             project: { areas: { $elemMatch: { "areaName": areaName } } }
-
-        })
+        });
     console.log({ result });
     if (result)
-        return result
-
+        return result;
     else
-        throw new Error("not found supplier or client code")
-}
+        throw new Error("not found supplier or client code");
+};
 
 module.exports = {
     // findAreaByCode,
@@ -254,4 +241,4 @@ module.exports = {
     findByDistinct,
     findAllCities,
     findInPolygon
-}
+};

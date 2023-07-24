@@ -1,10 +1,10 @@
-require('dotenv').config()
-const { postData, } = require('../../services/axios')
-const { logToFile } = require('../../services/logger/logTxt')
-const { checkObjectValidations } = require('../../services/validations/use-validations')
-const { findMeasureNumber, findMeasureName } = require('./measure')
+require('dotenv').config();
+const { postData, } = require('../../services/axios');
+const { logToFile } = require('../../services/logger/logTxt');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { findMeasureNumber, findMeasureName } = require('./measure');
 
-const { SQL_PUMPS_TABLE } = process.env
+const { SQL_PUMPS_TABLE } = process.env;
 
 const values = [
     {
@@ -24,7 +24,7 @@ const values = [
             }
         }
     }
-]
+];
 
 async function insertPump(obj, tableName) {
 
@@ -33,61 +33,61 @@ async function insertPump(obj, tableName) {
         description: 'insert pump in module',
         obj: obj,
         tableName: tableName
-    }
-    logToFile(objectForLog)
+    };
+    logToFile(objectForLog);
 
     const checkValidObj = values.find(({ entity }) => tableName === entity);
-    let newObj = checkValidObj.func(obj)
+    let newObj = checkValidObj.func(obj);
     if (checkValidObj) {
-        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-        obj = newObj.values
+        _ = await checkObjectValidations(newObj.values, checkValidObj.entity);
+        obj = newObj.values;
     }
 
-    const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    const { error } = measure
+    const measure = await findMeasureNumber(obj['UnitOfMeasure']);
+    const { error } = measure;
     if (error)
         return error;
-    obj.UnitOfMeasure = measure
+    obj.UnitOfMeasure = measure;
     try {
-        const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
+        const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj });
         if (response.data)
-            return true
+            return true;
     }
     catch (error) {
-        objectForLog.error = error.message
-        logToFile(objectForLog)
-        throw error
+        objectForLog.error = error.message;
+        logToFile(objectForLog);
+        throw error;
     }
 }
 
 async function findPump(project = [], filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
-        filter.Enabled = 1
+        filter.Enabled = 1;
 
-    let columnsStr = project.length > 0 ? project.join(',') : '*'
-    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+    let columnsStr = project.length > 0 ? project.join(',') : '*';
+    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "";
 
     let objForLog = {
         name: "find",
         description: "find pumps in module",
         filter: conditionStr,
         project: columnsStr
-    }
-    logToFile(objForLog)
+    };
+    logToFile(objForLog);
 
-    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr });
     try {
         for (const finish of response.data)
             if (Object.keys(finish).includes('UnitOfMeasure'))
-                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
-        return response.data
+                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure);
+        return response.data;
     }
     catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
+        objForLog.error = error.message;
+        logToFile(objForLog);
+        throw error;
     }
-}
+};
 
 // async function updatePump(obj) {
 
@@ -99,13 +99,13 @@ async function findPump(project = [], filter = {}) {
 //         return false
 // }
 async function updatePump(obj, filter) {
-    let string = ""
+    let string = "";
     for (let k in obj) {
-        string += `${k}='${obj[k]}',`
+        string += `${k}='${obj[k]}',`;
     }
-    string = string.slice(0, -1)
-    return (await postData('update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
-}
+    string = string.slice(0, -1);
+    return (await postData('update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data;
+};
 
 
-module.exports = { updatePump, insertPump, findPump }
+module.exports = { updatePump, insertPump, findPump };

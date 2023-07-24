@@ -1,4 +1,3 @@
-
 const { postData, getData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
 const { getRecord } = require('./tables');
@@ -35,10 +34,9 @@ const createNewLead = async (obj = null) => {
             ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
             PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
             OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-        }]
+        }];
     }
     try {
-
         for (let item of vals) {
             try {
                 _ = await checkObjectValidations(item, 'leads');
@@ -81,8 +79,8 @@ const insertMoreProductsItems = async (obj, result) => {
             Amount: mpi.amount,
             LeadNumber: result[0].Id,
             AddedDate: new Date().toISOString()
-        }]
-    })
+        }];
+    });
     try {
         for (let item of morePorductsItems) {
             _ = checkObjectValidations(item, 'moreProductsItems');
@@ -98,17 +96,14 @@ const insertMoreProductsItems = async (obj, result) => {
 
     const res = await postData('create/createManySql', objMpi);
     return res;
+};
 
-
-}
-// let flag = false
 const readLead = async (filter, disable) => {
-
     const obj = {
         tableName: "tbl_Leads",
         columns: '*',
         condition: filter ? `${filter} AND Disable='${disable}'` : `Disable='${disable}'`
-    }
+    };
 
     try {
         const res = await postData('read/readTopN', obj);
@@ -134,12 +129,10 @@ const readLead = async (filter, disable) => {
         }
     }
     catch (error) {
-        throw error
+        throw error;
     }
+};
 
-
-
-}
 const readforeignkeyvalue = async (filter) => {
     // const obj = {
     //     tableName: "tbl_Leads",
@@ -174,8 +167,7 @@ const readforeignkeyvalue = async (filter) => {
     catch (error) {
         throw error;
     }
-
-}
+};
 
 
 const updateLead = async (obj = null) => {
@@ -207,8 +199,8 @@ const updateLead = async (obj = null) => {
     catch (error) {
         throw error;
     }
-
 };
+
 const updateOneLead = async (obj = null) => {
     // const obj = {
     //     values: {
@@ -227,10 +219,7 @@ const updateOneLead = async (obj = null) => {
             //     values: obj.values,
             //     condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
             // };
-            // console.log("newObj=-=-=-=-=-=====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=",newObj);
-            // console.log("oooooooooojjjjooooooooo");
             const result = await postData('update/updateOne', obj);
-            // console.log("resulttttttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyt",result);
             if (result) {
                 return result;
             }
@@ -249,7 +238,6 @@ const updateOneLead = async (obj = null) => {
     catch (error) {
         throw error;
     }
-
 };
 
 
@@ -278,7 +266,7 @@ const deleteLead = async (id) => {
     else {
         throw new Error('the serialNumber is not defined');
     }
-}
+};
 
 
 const deleteOneLead = async (id) => {
@@ -289,7 +277,7 @@ const deleteOneLead = async (id) => {
                 DeletingDate: new Date().toISOString()
             },
             condition: `Id=${id}`
-        }
+        };
         try {
             const result = await updateOneLead(obj);
             if (result) {
@@ -306,8 +294,8 @@ const deleteOneLead = async (id) => {
     else {
         throw new Error('the serialNumber is not defined');
     }
-}
+};
 
 
 
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue };

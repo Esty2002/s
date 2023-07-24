@@ -1,7 +1,7 @@
 require('dotenv').config();
 // const { setDate } = require('./functions');
 const { SQL_DB_SUPPLIERS } = process.env;
-const { getData, postData,   } = require('../../services/axios');
+const { getData, postData, } = require('../../services/axios');
 
 async function insertOneSupplier(object) {
     console.log("insrtSupplier - module", { object });
@@ -10,44 +10,43 @@ async function insertOneSupplier(object) {
             object.CreationDate = new Date().toISOString();
             let obj = { tableName: 'tbl_Suppliers', values: object };
 
-            console.log({obj})
-            const res = await postData(  "/create/create", obj);
+            console.log({ obj });
+            const res = await postData("/create/create", obj);
             return res.recordset;
         }
         else {
-            throw new Error('validation')
+            throw new Error('validation');
         }
     }
     catch (error) {
-        console.log({ error })
+        console.log({ error });
         throw error;
     }
     // /suppliers/getSuppliers/SupplierCode/${code}
-}
+};
+
 async function getAllSuppliers(query) {
-    console.log({ query })
+    console.log({ query });
     try {
         const res = await getData(`/read/readAllEntity/Suppliers`, query);
         for (let item of res.data) {
             const res = await countRows({ SupplierCode: item.Id, ...query });
-            console.log({ res })
+            console.log({ res });
             if (res) {
-                console.log(item)
+                console.log(item);
                 item.countBranches = res.countRows;
             }
             else {
-                item.countBranches = 0
+                item.countBranches = 0;
             }
         }
         return res;
     }
     catch (error) {
         console.log(error.message);
-        throw error
+        throw error;
     }
-}
-
-
+};
 
 async function getSupplier(query) {
     try {
@@ -57,12 +56,11 @@ async function getSupplier(query) {
     catch (error) {
         throw error;
     }
-}
+};
 
-async function updateDetail( setting) {
+async function updateDetail(setting) {
     try {
-        flag = true
-        console.log()
+        flag = true;
         if (setting.SupplierCode !== setting.OldSupplierCode) {
             if (!await checkUniqueCode(setting.SupplierCode))
                 flag = false;
@@ -82,14 +80,15 @@ async function updateDetail( setting) {
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: { Id: setting.Id }
         };
-        const result = await postData(  '/update/update', object);
+        const result = await postData('/update/update', object);
         return result.recordset;
     }
     catch (error) {
         console.log(error.message)
         throw new Error('can not update branch');
     }
-}
+};
+
 //////////////////////////////////////////////////////////////
 async function deleteSupplier(object) {
     try {
@@ -103,21 +102,18 @@ async function deleteSupplier(object) {
                 condition: { SupplierCode: object.Id }
             }
             const branchResult = await postData('/update/updateOne', obj);
-            return result
+            return result;
         }
         else {
-            return result
+            return result;
         }
-        // console.log("result", result);
-
-
     }
     catch (error) {
-        console.log(error.message)
-        throw error
+        console.log(error.message);
+        throw error;
     }
+};
 
-}
 ////////////////////////////////////////////////////////////////
 function checkValid(object) {
     let mustKeys = ["SupplierCode", "SupplierName", "LicensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
@@ -130,37 +126,39 @@ function checkValid(object) {
         }
     }
     return true;
-}
+};
+
 ////////////////////////////////////////////////////////////////
 async function checkUniqueCode(code) {
     let resultSupplierCode = await getData(`/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
     if (resultSupplierCode.status === 200)
-        return resultSupplierCode.data.length === 0
+        return resultSupplierCode.data.length === 0;
     else {
-        return false
+        return false;
     }
+};
 
-}
 async function checkUniqueName(name) {
     let resultSuppliersName = await getData(`/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
     if (resultSuppliersName.status === 200)
-        return resultSuppliersName.data.length === 0
+        return resultSuppliersName.data.length === 0;
     else {
-        return false
+        return false;
     }
-}
+};
 
 async function checkUnique(setting) {
     let resultSuppliersCode = checkUniqueCode(setting.SupplierCode);
     let resultSuppliersName = checkUniqueName(setting.SupplierName);
     // console.log(resultSuppliersCode && resultSuppliersName);
     return resultSuppliersCode && resultSuppliersName;
-}
+};
 
 async function countRows(condition) {
     const countRowesBranches = await postData(`read/countRows`, { tableName: SQL_DB_BRANCHES, condition })
     // console.log("countRowesBranches:", countRowesBranches.data.recordset);
-    console.log({ rows: countRowesBranches.data })
+    console.log({ rows: countRowesBranches.data });
     return countRowesBranches.data;
-}
+};
+
 module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countRows };

@@ -1,6 +1,6 @@
-const { postData, getData } = require('../../services/axios')
-const { logToFile } = require('../../services/logger/logTxt')
-const { checkObjectValidations } = require('../../services/validations/use-validations')
+const { postData, getData } = require('../../services/axios');
+const { logToFile } = require('../../services/logger/logTxt');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
 const values = [
     {
         entity: "PriceList",
@@ -16,7 +16,7 @@ const values = [
                     Finish: false,
                     Disabled: false
                 }
-            }
+            };
         }
     },
     {
@@ -33,7 +33,7 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     UserName: UserName
                 }
-            }
+            };
         }
     },
     {
@@ -52,7 +52,7 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     UserName: UserName
                 }
-            }
+            };
         }
     },
     {
@@ -69,7 +69,7 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     UserName: UserName
                 }
-            }
+            };
         }
     },
     {
@@ -85,7 +85,7 @@ const values = [
                     Price: Price,
                     Disabled: false
                 }
-            }
+            };
         }
     },
     {
@@ -104,7 +104,7 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     UserName: UserName
                 }
-            }
+            };
         }
     },
     {
@@ -122,7 +122,7 @@ const values = [
                     UserName: UserName,
                     Disabled: false
                 }
-            }
+            };
         }
     },
     {
@@ -138,7 +138,7 @@ const values = [
                     Enabled: true,
                     DeleteDate: DeleteDate
                 }
-            }
+            };
         }
     },
     {
@@ -154,65 +154,65 @@ const values = [
                     Enabled: true,
                     DeleteDate: DeleteDate
                 }
-            }
+            };
         }
     }
-]
+];
 async function insert(data, entityName) {
-    let obj = {}
+    let obj = {};
     let objectForLog = {
         name: entityName,
         description: 'insert in module',
         dataThatRecived: data
-    }
-    logToFile(objectForLog)
+    };
+    logToFile(objectForLog);
     try {
         const checkValidObj = values.find(({ entity }) => entityName === entity);
-        let newObj = checkValidObj.func(data)
+        let newObj = checkValidObj.func(data);
         if (checkValidObj) {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            data = newObj.values
-
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity);
+            data = newObj.values;
         }
-        obj.tableName = entityName
-        obj.columns = '*'
-        obj.values = data
-        const result = await postData('/create/create', obj)
+        obj.tableName = entityName;
+        obj.columns = '*';
+        obj.values = data;
+        const result = await postData('/create/create', obj);
         if (result.data)
             return result;
         else
-            throw new Error('data not found')
+            throw new Error('data not found');
     }
     catch (error) {
-        objectForLog.error = error.message
-        logToFile(objectForLog)
-        throw error
+        objectForLog.error = error.message;
+        logToFile(objectForLog);
+        throw error;
     }
-}
+};
+
 async function getProducts(tbName) {
     let objForLog = {
         name: 'detailsOfProfucts',
         description: 'getProducts in module',
         dataThatRecived: tbName
-    }
-    logToFile(objForLog)
+    };
+    logToFile(objForLog);
     try {
         let obj = {
             tableName: tbName,
             columns: '*'
-        }
-        const response = await postData('/read/readTopN', obj)
+        };
+        const response = await postData('/read/readTopN', obj);
         if (response.data)
             return response;
         else
-            throw new Error('data not found')
+            throw new Error('data not found');
     }
     catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
+        objForLog.error = error.message;
+        logToFile(objForLog);
+        throw error;
     }
-}
+};
 
 //i need to do validations for update field
 async function updateField(id, entityName, value) {
@@ -220,58 +220,58 @@ async function updateField(id, entityName, value) {
     objForLog = {
         name: 'updateFieldInTable',
         description: 'updateField in module', id, entityName, value
-    }
-    logToFile(objForLog)
-    let obj = {}
+    };
+    logToFile(objForLog);
+    let obj = {};
     try {
         const checkValidObj = values.find(({ entity }) => entityName === entity);
-        let newObj = checkValidObj.func(value)
+        let newObj = checkValidObj.func(value);
         if (checkValidObj) {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            value = newObj.values
+            _ = await checkObjectValidations(newObj.values, checkValidObj.entity);
+            value = newObj.values;
         }
-
-        obj.tableName = entityName
-        obj.condition = {Id:id}
-        obj.values = value
-        const response = await postData('update/update', obj)
-        if (response){
-            return response
+        obj.tableName = entityName;
+        obj.condition = { Id: id };
+        obj.values = value;
+        const response = await postData('update/update', obj);
+        if (response) {
+            return response;
         }
         else
-            throw new Error('data not found')
+            throw new Error('data not found');
     }
     catch (error) {
-      
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
+
+        objForLog.error = error.message;
+        logToFile(objForLog);
+        throw error;
     }
-}
+};
+
 async function getId(name, tbName) {
     let objForLog = {
         name: 'getIdForPricelistName',
         description: 'getId in module',
         pricelistName: name
-    }
-    logToFile(objForLog)
+    };
+    logToFile(objForLog);
     try {
-        let condition = `Name='${name}'`
+        let condition = `Name='${name}'`;
         console.log({ condition });
-        const response = await getData(`/read/readAll/${tbName}/${condition}`)
-        if (response.data.length > 0){
-            return response
+        const response = await getData(`/read/readAll/${tbName}/${condition}`);
+        if (response.data.length > 0) {
+            return response;
         }
-        else{
-            throw new Error('data not found')
+        else {
+            throw new Error('data not found');
         }
     }
     catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
+        objForLog.error = error.message;
+        logToFile(objForLog);
+        throw error;
     }
-}
+};
 
 async function getIdForBuytonDescribe(name, tbName) {
     let objForLog = {
@@ -279,33 +279,33 @@ async function getIdForBuytonDescribe(name, tbName) {
         description: 'getIdForBuytonDescribe in module expects: name, tbname',
         describe: name,
         tbName
-    }
-    logToFile(objForLog)
+    };
+    logToFile(objForLog);
     try {
-        let field = tbName.substring(10)
-        field = field + 'Describe'
-        let condition = `${field}='${name}'`
-        const response = await getData(`/read/readAll/${tbName}/${condition}`)
+        let field = tbName.substring(10);
+        field = field + 'Describe';
+        let condition = `${field}='${name}'`;
+        const response = await getData(`/read/readAll/${tbName}/${condition}`);
         if (response.data.length > 0)
             return response;
         else
-            throw new Error('data not found')
+            throw new Error('data not found');
     }
     catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
+        objForLog.error = error.message;
+        logToFile(objForLog);
+        throw error;
     }
-}
+};
 
 async function getNumber(object, tbName) {
-    object = object.data[0]
-    let number = tbName.substring(10) + 'Number'
-    let result = `${object[number]}`
+    object = object.data[0];
+    let number = tbName.substring(10) + 'Number';
+    let result = `${object[number]}`;
     if (result)
         return result;
     else
-        throw new Error('data not found')
+        throw new Error('data not found');
 }
 
-module.exports = { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber }
+module.exports = { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber };

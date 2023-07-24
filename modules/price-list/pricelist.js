@@ -1,27 +1,27 @@
-const { getData, postData } = require('../../services/axios')
-// const { checkObjectValidations, checkObjectForUpdate } = require("../../services/validations/use-validations")
-// const { objectsForValidations } = require('../../services/validations/validations-objects')
+const { getData, postData } = require('../../services/axios');
+// const { checkObjectValidations, checkObjectForUpdate } = require("../../services/validations/use-validations");
+// const { objectsForValidations } = require('../../services/validations/validations-objects');
 
 async function addPriceList(values, tableName) {
     console.log(values);
     // if (insertvalidation(tableName, data)) {
-        try {
-            const result = await postData( '/create',
-                {
-                    tableName: tableName,
-                    values: values
-                })
-            return result
-        }
-        catch (error) {
-            throw new Error('you cant insert this object');
-        }
+    try {
+        const result = await postData('/create',
+            {
+                tableName: tableName,
+                values: values
+            })
+        return result;
+    }
+    catch (error) {
+        throw new Error('you cant insert this object');
+    }
     // }
     // else {
     //     throw new Error("the datails is not match to the schem")
     // }
 
-}
+};
 
 
 async function deletePriceList(tableName, PriceListId, ProductId) {
@@ -30,10 +30,10 @@ async function deletePriceList(tableName, PriceListId, ProductId) {
         con = `Id='${parseInt(PriceListId)}'`;
     }
     else {
-        con = `PriceListId='${parseInt(PriceListId)}' and ProductId='${ProductId}'`
+        con = `PriceListId='${parseInt(PriceListId)}' and ProductId='${ProductId}'`;
     }
     try {
-        const result = await postData( '/update',
+        const result = await postData('/update',
             {
                 tableName: tableName,
                 values: { Disabled: false },
@@ -42,10 +42,9 @@ async function deletePriceList(tableName, PriceListId, ProductId) {
         return result;
     }
     catch (error) {
-        throw new Error('the object cant delete / delete already')
+        throw new Error('the object cant delete / delete already');
     }
-
-}
+};
 
 async function findPriceList(tableName, PriceListId, ProductId) {
     let con;
@@ -53,22 +52,20 @@ async function findPriceList(tableName, PriceListId, ProductId) {
         con = `Id='${parseInt(PriceListId)}'`;
     }
     else {
-        con = `PriceListId='${parseInt(PriceListId)}' and ProductId='${ProductId}'`
+        con = `PriceListId='${parseInt(PriceListId)}' and ProductId='${ProductId}'`;
     }
     try {
-        const result = await postData( '/readTopN',
+        const result = await postData('/readTopN',
             {
                 tableName: tableName,
                 columns: '*',
                 condition: con
-            })
+            });
         return result;
     }
     catch (error) {
-
     }
-}
-
+};
 
 async function insertvalidation(tableName, data) {
     // const obj = {
@@ -89,4 +86,4 @@ module.exports = {
     addPriceList,
     findPriceList,
     deletePriceList
-}
+};

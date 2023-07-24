@@ -1,9 +1,9 @@
-require('dotenv').config()
-const { getData, postData } = require('../../services/axios')
-const { SQL_FINISH_PRODUCTS_TABLE } = process.env
-const { findMeasureNumber, findMeasureName } = require('./measure')
-const { checkObjectValidations } = require('../../services/validations/use-validations')
-const { logToFile } = require('../../services/logger/logTxt')
+require('dotenv').config();
+const { getData, postData } = require('../../services/axios');
+const { SQL_FINISH_PRODUCTS_TABLE } = process.env;
+const { findMeasureNumber, findMeasureName } = require('./measure');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { logToFile } = require('../../services/logger/logTxt');
 
 const values = [
     {
@@ -22,7 +22,7 @@ const values = [
             }
         }
     }
-]
+];
 
 async function insertFinishProduct(obj, tableName) {
     let objectForLog = {
@@ -30,32 +30,32 @@ async function insertFinishProduct(obj, tableName) {
         description: 'insert  finished product in module',
         obj: obj,
         tableName: tableName
-    }
-    logToFile(objectForLog)
+    };
+    logToFile(objectForLog);
 
     const checkValidObj = values.find(({ entity }) => tableName === entity);
-    let newObj = checkValidObj.func(obj)
+    let newObj = checkValidObj.func(obj);
     if (checkValidObj) {
-        _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-        obj = newObj.values
+        _ = await checkObjectValidations(newObj.values, checkValidObj.entity);
+        obj = newObj.values;
     }
 
-    const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    const { error } = measure
+    const measure = await findMeasureNumber(obj['UnitOfMeasure']);
+    const { error } = measure;
     if (error)
         return error;
-    obj.UnitOfMeasure = measure
+    obj.UnitOfMeasure = measure;
     try {
-        const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+        const response = await postData('/create/create', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj });
         if (response.data)
-            return true
+            return true;
     }
     catch (error) {
-        objectForLog.error = error.message
-        logToFile(objectForLog)
-        throw error
+        objectForLog.error = error.message;
+        logToFile(objectForLog);
+        throw error;
     }
-}
+};
 
 async function updateFinishProduct(obj) {
     // console.log('upFiPr');
@@ -64,41 +64,41 @@ async function updateFinishProduct(obj) {
     //     string += `${k}='${data.update[k]}',`
     // }
     // string = string.slice(0, -1)
-    let conditionStr = data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : ""
-    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr })
+    let conditionStr = data.condition ? `${Object.keys(obj.condition)[0]}='${Object.values(obj.condition)[0]}'` : "";
+    const response = await postData('/update/update', { tableName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: conditionStr });
     if (response.data)
-        return true
+        return true;
     else
-        return false
-}
+        return false;
+};
 
 async function findFinishProduct(project = [], filter = {}) {
     if (!Object.keys(filter).includes('Enabled'))
-        filter.Enabled = 1
+        filter.Enabled = 1;
 
-    let columnsStr = project.length > 0 ? project.join(',') : '*'
-    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+    let columnsStr = project.length > 0 ? project.join(',') : '*';
+    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "";
 
     let objForLog = {
         name: "find",
         description: "find finish products in module",
         filter: conditionStr,
         project: columnsStr
-    }
-    logToFile(objForLog)
-    
-    const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr })
+    };
+    logToFile(objForLog);
+
+    const response = await postData("/read/readTopN", { tableName: SQL_FINISH_PRODUCTS_TABLE, columns: columnsStr, condition: conditionStr });
     try {
         for (const finish of response.data)
             if (Object.keys(finish).includes('UnitOfMeasure'))
-                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
-        return response.data
+                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure);
+        return response.data;
     }
     catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
+        objForLog.error = error.message;
+        logToFile(objForLog);
+        throw error;
     }
 }
 
-module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }
+module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct };
