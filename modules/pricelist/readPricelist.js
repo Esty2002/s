@@ -27,7 +27,7 @@ async function getAllPriceList() {
 // פונקציית חיפוש על פי מוצר
 async function getPriceListByIdPriceListId(object) {
     try {
-      let  objectLog = {
+        let objectLog = {
             name: 'getPriceListbyProduct',
             description: 'getPriceListbyProduct in module- in try',
         }
@@ -254,26 +254,26 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
             description: 'getSupplierByNameProductBuyton in module- in try',
         }
         logToFile(objectLog)
-        let temp = {  columns: "*", condition: { ItemDescribe: nameProduct } };
+        let temp = { columns: "*", condition: { ItemDescribe: nameProduct } };
         const resTemp = await postData(`/read/count/${BUYTONITEMS}`, obj);
-        let obj = {  columns: "*", condition: { ItemDescribe: nameProduct },topn:{resTemp} };
+        let obj = { columns: "*", condition: { ItemDescribe: nameProduct }, topn: { resTemp } };
         const res = await postData(`/read/readMany/${BUYTONITEMS}`, obj);
         console.log(res.data, '                           res.data');
         if (res.data != undefined) {
 
-            let temp2 = { columns: "PriceListId", condition: {1:1} };
+            let temp2 = { columns: "PriceListId", condition: { 1: 1 } };
             // /count/:entityName
 
             const count = await postData(`/read/count/${PRICElISTFORPRODUCTS}`, temp2);
-            let obj2 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonStrength' }, { ProductId: res.data[0].ItemStrength }] },topn:{count}};
+            let obj2 = { columns: "PriceListId", condition: { AND: [{ entityName: 'tbl_BuytonStrength' }, { ProductId: res.data[0].ItemStrength }] }, topn: { count } };
             // /count/:entityName
 
             const res2 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj2);
-            let obj3 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonDegree' }, { ProductId: res.data[0].ItemDegreeExposure }] },topn:{count} };
+            let obj3 = { columns: "PriceListId", condition: { AND: [{ entityName: 'tbl_BuytonDegree' }, { ProductId: res.data[0].ItemDegreeExposure }] }, topn: { count } };
             const res3 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj3);
-            let obj4 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonSomech' }, { ProductId: res.data[0].BuytonSomech }] },topn:{count} };
+            let obj4 = { columns: "PriceListId", condition: { AND: [{ entityName: 'tbl_BuytonSomech' }, { ProductId: res.data[0].BuytonSomech }] }, topn: { count } };
             const res4 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj4);
-            let obj5 = { columns: "PriceListId", condition: { AND: [{ TableName: 'tbl_BuytonGrain' }, { ProductId: res.data[0].ItemType }] },topn:{count} };
+            let obj5 = { columns: "PriceListId", condition: { AND: [{ entityName: 'tbl_BuytonGrain' }, { ProductId: res.data[0].ItemType }] }, topn: { count } };
             const res5 = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj5);
             temp = checkValid(res2.data, res3.data)
             temp2 = checkValid(temp, res4.data)
@@ -296,17 +296,17 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
         throw error;
     }
 }
-    function checkValid(arr1, arr2) {
-        arrTemp = []
-        arr1.forEach(b => {
-            arr2.forEach(c => {
-                if (b.PriceListId === c.PriceListId) {
-                    arrTemp.push(b)
-                }
-            });
+function checkValid(arr1, arr2) {
+    arrTemp = []
+    arr1.forEach(b => {
+        arr2.forEach(c => {
+            if (b.PriceListId === c.PriceListId) {
+                arrTemp.push(b)
+            }
         });
-        return arrTemp
-    }
+    });
+    return arrTemp
+}
 
 module.exports = {
     getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,

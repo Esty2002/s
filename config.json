@@ -1644,7 +1644,7 @@
                                     "required": "",
                                     "description": ""
                                 },
-                                "tablename": {
+                                "entityName": {
                                     "type": "string",
                                     "required": "",
                                     "description": ""
@@ -2540,7 +2540,7 @@
                             "response": ""
                         },
                         {
-                            "key": "/deleterecord/:tablename/:condition",
+                            "key": "/deleterecord/:entityName/:condition",
                             "arguments": "",
                             "response": ""
                         }

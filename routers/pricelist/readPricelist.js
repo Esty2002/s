@@ -27,7 +27,6 @@ router.get('/findAllPriceList', async (req, res) => {
 // חיפוש מחירון לפי ID
 router.get('/pricelistRecords/:entity/:id', async (req, res) => {
     try {
-        console.log(req.params)
         const result = await getPriceListById(req.params);
         res.status(200).send(result);
     }
@@ -52,7 +51,6 @@ router.get('/pricelistRecords/:entity/:id', async (req, res) => {
 // פונקציית חיפוש על פי מוצר
 router.get('/FindPriceListByProduct/:product', async (req, res) => {
     try {
-        console.log(req.params.product,' req.params.product');
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);
     } 
@@ -62,30 +60,7 @@ router.get('/FindPriceListByProduct/:product', async (req, res) => {
         res.status(500).send(error);
     }
 })
-// הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
-// router.get('/FindPriceListByAreaId/:area', async (req, res) => {
-//     console.log(req.params.area);
 
-//     try {
-//         const ans =await getPriceListByAreaId(req.params.area)
-//         res.status(200).send(ans)
-//     } catch (error) {
-//         res.status(500).send(error.message)
-
-//     }
-// })
-// הפונקציה מקבלת שם אזור ומחזירה מחירון שקשורה אליו
-// router.get('/FindPriceListBySupplerCodeOrClientCode/:code', async (req, res) => {
-//     console.log(req.params.code);
-//     try {
-//         const ans =await getPriceListbySupplierCodeOrClientCode(req.params.code)
-//         console.log(ans);
-//         res.status(200).send(ans)
-//     } catch (error) {
-//         res.status(404).send(error)
-
-//     }
-// })
 // חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
 router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
     objectLog = {
@@ -129,7 +104,6 @@ router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
     try {
         logToFile(objectLog)
         const ans = await getPriceListByAdditionsForDistance(req.params.id)
-        console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message
@@ -147,7 +121,6 @@ router.get('/FindPriceListByAdditionsForCities/:id', async (req, res) => {
     try {
         logToFile(objectLog)
         const ans = await getPriceListByAdditionsForCities(req.params.id)
-        console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message
@@ -165,13 +138,11 @@ router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
     try {
         logToFile(objectLog)
         const ans = await getPriceListByAdditionsForTime(req.params.id)
-        console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message
         logToFile(objectLog)
         res.status(500).send(error)
-console.log('llllllllllll');
     }
 })
 //  חיפוש מחירון לפי תוספת משאית
@@ -184,7 +155,6 @@ router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
         logToFile(objectLog)
 
         const ans = await getPriceListByAdditionsForTruckFill(req.params.id)
-        console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message
@@ -202,7 +172,6 @@ router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res
     }
     try {
         const ans = await getSupplierByNameProduct(req.params.nameTable, req.params.nameProduct)
-        console.log(ans);
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message

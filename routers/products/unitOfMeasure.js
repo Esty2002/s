@@ -53,7 +53,7 @@ router.post('/create', express.json(), async (req, res) => {
     logToFile(objectForLog)
 
     try {
-        const response = await insertMeasure(req.body.new, 'UnitOfMeasure')
+        const response = await insertMeasure(req.body.new)
         if (response.status === 201)
             res.status(201).send(true)
         else

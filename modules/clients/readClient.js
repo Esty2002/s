@@ -1,40 +1,57 @@
-const { postData, getData} = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
 
 async function getAllClient() {
-    
-    let query = {disabled:0}
-    const result= await getData('/read/readMany/Clients',query);
-    return result
+    try {
+        let query = { disabled: 0 }
+        const result = await getData('/read/readMany/Clients', query);
+        if (result.status == 200)
+            return result
+        else return false
+    }
+    catch (error) {
+        throw error
+    }
 }
 
 async function getAllDeletedClient() {
-    let query = {disabled:1}
-    const result= await getData('/read/readMany/Clients',query);
-    return result
+    try {
+        let query = { disabled: 1 };
+        const result = await getData('/read/readMany/Clients', query);
+        if (result.status == 200)
+            return result
+        else return false
+    }
+    catch (error) {
+        throw error
+    }
 }
 
 async function getClientsById(id) {
-    let obj={}
-    obj['entityName']='tbl_Clients'
-    obj['condition']=`id=${id}`
-    obj['columns']='*'
-    const result= await postData('/read/readTopN', obj);
-   console.log(result,' result');
-    if (result==undefined) 
-        return null
-    return result
+    try {
+        let query = { id: id }
+        const result = await getData('/read/readMany/Clients', query);
+        if (result.status == 200)
+            return result
+        else return false
+    }
+    catch (error) {
+        throw error
+    }
 }
-
 
 async function getClientsByField(field, value) {
-    let obj={}
-    obj['entityName']='tbl_Clients'
-    obj['condition']=`${field}=${value}`
-    obj['columns']='*'
-    const result= await postData('/read/readTopN', obj);
-    if (result==undefined)
-        return null
-    return result
+    try {
+        let query;
+        query[field] = value
+        const result = await postData('/read/readMany/Clients', query);
+        if (result.status == 200)
+            return result
+        else return false
+    }
+    catch (error) {
+        throw error
+    }
 }
+
 
 module.exports = { getAllClient, getClientsByField, getClientsById, getAllDeletedClient }

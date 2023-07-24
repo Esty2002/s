@@ -17,7 +17,7 @@ async function deletePriceList({ id }) {
             obj['condition'] = `PriceListId=${id}`
             obj['values'] = { 'Disabled': true }
             // console.log({ obj })
-            // console.log(obj.tableName)
+            // console.log(obj.entityName)
             res = await postData('/update/update', obj)
             return res
         }
@@ -154,7 +154,7 @@ async function updateItems({ tbName, id, update, newname }) {
     //     }
     // }
     // const obj = {};
-    // obj['tableName'] = PRICELIST;
+    // obj['entityName'] = PRICELIST;
     // obj['columns'] = '*';
     // obj['values'] = newdata;   
     //  console.log(obj.values,"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");

@@ -1,62 +1,84 @@
 
 jest.mock('../../../services/axios', () => {
     return {
-        getData: jest.fn((_, url) => {
+        checkObjectValidations: jest.fn((obj, entity) => {
 
-            if (url === '/mongo/countdocuments/leads')
+            if (typeof obj === 'object' && typeof entity === 'string') {
                 return true;
-            else
-                throw new Error("the url not correct");
-
-
-        }),
-        postData: jest.fn((_, url, obj) => {
-
-            switch (url) {
-                case '/mongo/insertone':
-                    if (obj.data && typeof obj.data.supplyDate == 'object' && typeof obj.data.SupplyAddress == 'object') {
-                        return true;
-                    }
-                    else {
-                        throw new Error("the object lead is not correct");
-                    }
-                case '/mongo/updateone':
-                    if (obj.set && obj.filter && obj.collection === 'leads') {
-                        return true;
-                    }
-                    else {
-                        throw new Error("the obj.set or obj.filter or obj.collection are not correct");
-                    }
-                case '/mongo/aggregate':
-
-                    if (obj.collection === "leads" && obj.aggregate.length == 5 && obj.aggregate[0].$match) {
-                        return true;
-                    }
-                    else {
-                        throw new Error("the collection or aggregation are not correct");
-                    }
-                default:
-                    throw new Error('the url not correct');
             }
-
-
-
+            else {
+                throw new Error(`The entity ${entity} is not exist`);
+            }
         })
+    }
+});
+
+jest.mock('../../../services/axios', () => {
+    return {
+        postData: jest.fn((url, body) => {
+            if (url.includes("/") && typeof body === "object") {
+                if (url.includes('create')) {
+                    let data = []
+                    if (body.values instanceof Array) {
+                        body.values.forEach((_, Id) => {
+                            data = [...data, { Id }]
+                        });
+                    }
+                    else {
+                        data = [{ Id: 1 }]
+                    }
+                    return { status: 201, data };
+                }
+                if (url.includes('read')) {
+                    return { status: 200, data: [{ Id: 15 }, { Id: 16 }] };
+                }
+            }
+            else {
+                throw new Error(`The url ${url} or body ${body} not correct`);
+            }
+        })
+
 
     }
 });
 
-jest.mock('../../../services/validations/use-validations', () => {
+jest.mock('../../../modules/leads/tables', () => {
     return {
+<<<<<<< HEAD
+        getRecord: jest.fn((name, condition) => {
+            if (typeof name == "string" && condition == null || (typeof condition === 'string' && condition.includes("="))) {
+                return { status: 200, data: [{ Id: 1 }] };
+            }
+            throw new Error(`The name ${name} or condtition ${condition} are not correct`);
+=======
         checkObjectValidations: jest.fn(() => {
             return true;
         }),
         checkObjectForUpdate: jest.fn(() => {
             return true;
+>>>>>>> products2
         })
     }
 });
 
+<<<<<<< HEAD
+// jest.mock('../../../modules/leads/leads-options', () => {
+//     const leads = jest.requireActual('../../../modules/leads/leads-options');
+//     return {
+//         ...leads,
+//         insertMoreProductsItems: jest.fn(async (mpi, id) => {
+//             if (mpi && mpi instanceof Array && id) {
+//                 let result = []
+//                 mpi.forEach((_, Id) => {
+//                     result = [...result, { Id }];
+//                 });
+//                 return result;
+//             }
+//             else {
+//                 throw new Error("morePoroductsItems or result not correct");
+//             }
+//         })
+=======
 const { createNewLead, updateLead, allLeadsDetails } = require('../../../modules/leads/leads-options');
 
 describe('CHECK FUNCTION CREATENEWLEAD', () => {
@@ -144,55 +166,64 @@ describe('CHECK FUNCTION CREATENEWLEAD', () => {
 //     })
 >>>>>>> Tovi:tests/modules/leads/leads-options.module.js
 
+>>>>>>> products2
 
-    })
-    it('should the function getData and function postData', async () => {
-        let result = await createNewLead({ phone: "088659365", supplyDate: new Date(), SupplyAddress: { city: "Ashdod", street: "Tarfon" } });
-        const { postData, getData } = jest.requireMock('../../../services/axios');
-        expect(result).toBeTruthy();
-        expect(postData).toHaveBeenCalled();
-        expect(getData).toHaveBeenCalled();
+//     }
+// })
+const { createNewLead, insertMoreProductsItems } = require('../../../modules/leads/leads-options');
+const leadsOptions = require('../../../modules/leads/leads-options');
 
-    })
-    it('should the function faild if the object not correct', async () => {
-        let result;
-        try {
-            result = await createNewLead({ phone: "088659365", supplyDate: new Date() });
-
-        }
-        catch (error) {
-            expect(error).toBeDefined();
-            expect(error.message).toBe('the object lead is not correct');
-            expect(error).toBeInstanceOf(Error);
-            expect(result).toBe(undefined);
-        }
-    })
-
-})
-describe('CHECK FUNCTION AllLeadsDetails', () => {
-
-    it('should return inserted id when succeded', async () => {
-        const result = await allLeadsDetails({ filetr: { name: "test" }, sort: { name: 1 }, skip: 0, limit: 0, project: { _id: 0, name: 1 } });
+describe("Check function createNewLead", () => {
+    it('should the function create a lead if all the data is correct', async () => {
+        const result = await createNewLead({
+            supplyDate: new Date(1, 1, 2030), supplyHour: "10:20", ordererCode: 1, address: "בייטון ישראל",
+            mapReferenceLongitude: 0, mapReferenceLatitude: 0, clientCode: 1, baseConcretProduct: [{
+                id: 1, tableReference: "tbl_FinishProducts", concretAmount: 15, pump: 1, pumpPipeLength: 12, pouringType: 1,
+                pouringTypesComments: ""
+            }], comments: "", morePorductsItems: [
+                { productCode: 1, amount: 45 },
+                { productCode: 5, amount: 20 }
+            ]
+        });
         expect(result).toBeDefined();
-        expect(result).toBeTruthy();
-        expect(result).toEqual(true);
+        expect(result).toBeInstanceOf(Object);
+        expect(result.status).toBe(201);
+        expect(result.data).toBeInstanceOf(Array);
+        expect(result.data.length).toBe(2)
 
     });
+<<<<<<< HEAD
+    it('Should the function create the lead if not all the data not null', async () => {
+        const result = await createNewLead({
+            supplyDate: new Date(1, 1, 2023), ordererCode: 1, baseConcretProduct: [{
+                id: "b1457", tableReference: "tbl_BuytonItems", concretAmount: 20, pouringType: 1,
+            }], morePorductsItems: [
+                { productCode: 2, amount: 25 },
+
+            ]
+        });
+=======
 
 
     it('should return inserted id when succeded', async () => {
         let result = await allLeadsDetails({ filetr: {}, sort: { name: 1 }, skip: 0, limit: 0, project: { _id: 0, name: 1 } });
+>>>>>>> products2
         expect(result).toBeDefined();
-        expect(result).toBeTruthy();
-        expect(result).toEqual(true);
-    });
-
-    it('should the postData is called', async () => {
+        const { insertMoreProductsItems } = jest.requireMock('../../../modules/leads/leads-options');
         const { postData } = jest.requireMock('../../../services/axios');
-        let result = await allLeadsDetails({ filetr: {}, sort: { name: 1 }, skip: 0, limit: 0, project: { _id: 0, name: 1 } });
-        expect(result).toBeTruthy();
+        const { getRecord } = jest.requireMock('../../../modules/leads/tables')
         expect(postData).toHaveBeenCalled();
+        expect(getRecord).toHaveBeenCalled();
+        // expect(insertMoreProductsItems).toHaveBeenCalled();
+        expect(getRecord).toHaveReturned();
+        expect(result).toBeInstanceOf(Object);
+        expect(result.status).toBe(201);
+        expect(result.data).toBeInstanceOf(Array);
+        expect(result.data.length).toBe(1);
+        expect(result.data[0].Id).toBe(0);
 
+<<<<<<< HEAD
+=======
     })
     it('should the function return error if the data is not correct', async () => {
         let result
@@ -209,36 +240,52 @@ describe('CHECK FUNCTION AllLeadsDetails', () => {
         }
     })
 })
+>>>>>>> products2
 
-describe('check the function updateLead', () => {
-    it('should return when the function succsed', async () => {
-        const result = await updateLead({ name: "testes", serialNumber: "123" }, {});
+    });
+    it('Should the function create a new lead if the more products items not exist', async () => {
+        const result = await createNewLead({
+            supplyDate: new Date(1, 1, 2023), ordererCode: 1, baseConcretProduct: [
+                { id: "b1457", tableReference: "tbl_BuytonItems", concretAmount: 20, pouringType: 1, },
+                { id: 3, tableReference: "tbl_FinishProducts", concretAmount: 55, },
+                { id: 8, tableReference: "tbl_FinishProducts" }]
+        });
+        const { checkObjectValidations } = jest.requireMock('../../../services/validations/use-validations');
         expect(result).toBeDefined();
-        expect(result).toBeTruthy();
-        expect(result).toEqual(true);
+        expect(checkObjectValidations).toHaveBeenCalled();
+        expect(checkObjectValidations).toHaveReturned();
+        expect(result).toBeInstanceOf(Object);
+        expect(result.data).toBeInstanceOf(Array);
+        expect(result.data.length).toBe(3);
+    });
 
-    })
-
-    it('should return when the function succsed with many elements', async () => {
-        const result = await updateLead({ name: "testes", serialNumber: "123" }, { name: "test2", serialNumber: "333" });
+    it('Should function create a new lead if the base concret product is an empty array', async () => {
+        const result = await createNewLead({
+            supplyDate: new Date(1, 1, 2023), ordererCode: 1, comments: ""
+        });
+        const { checkObjectValidations } = jest.requireMock('../../../services/validations/use-validations');
         expect(result).toBeDefined();
-        expect(result).toBeTruthy();
-        expect(result).toEqual(true);
+        expect(checkObjectValidations).toHaveBeenCalled();
+        expect(checkObjectValidations).toHaveReturned();
+        expect(result).toBeInstanceOf(Object);
+        expect(result.data).toBeInstanceOf(Array);
+        expect(result.data.length).toBe(1);
+    });
 
-    })
-
-
-
-    it('should return when the function dont get arguments', async () => {
+    it('Should function throw error if the body not exist', async () => {
         let result;
         try {
-            result = await updateLead();
-
+            result = await createNewLead();
         }
         catch (error) {
+            expect(error).toBeDefined();
             expect(error).toBeInstanceOf(Error);
-            expect(error.message).toBe("the obj or filter are not defined");
             expect(result).not.toBeDefined();
+<<<<<<< HEAD:tests/modules/leads/leads-options.module.test.js
+            const { getRecord } = jest.requireMock('../../../modules/leads/tables');
+            expect(getRecord).toHaveBeenCalled();
+            expect(error.message).toBe("Cannot read properties of null (reading 'baseConcretProduct')")
+=======
             expect(error).not.toBeNull();
         }
     })
@@ -254,7 +301,12 @@ describe('check the function updateLead', () => {
             expect(error.message).toBe("the obj or filter are not defined");
             expect(result).not.toBeDefined()
             expect(error).not.toBeNull();
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200:tests/modules/leads/leads-options.module.js
         }
+<<<<<<< HEAD
+    });
+});
+=======
 
 
 <<<<<<< HEAD:tests/modules/leads/leads-options.module.test.js
@@ -370,7 +422,11 @@ describe('check the function updateLead', () => {
 
 })
 <<<<<<< HEAD:tests/modules/leads/leads-options.module.test.js
+>>>>>>> products2
+=======
+<<<<<<< HEAD:tests/modules/leads/leads-options.module.test.js
 =======
 
 >>>>>>> Tovi:tests/modules/leads/leads-options.module.js
+>>>>>>> f5291c0209296599f25d5a979c5fd995441c5200:tests/modules/leads/leads-options.module.js
 

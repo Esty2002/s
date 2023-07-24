@@ -12,7 +12,7 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await insertFinishProduct(req.body, 'FinishProducts')
+        const response = await insertFinishProduct(req.body)
         if (response.status === 201)
             res.status(201).send(true)
         else

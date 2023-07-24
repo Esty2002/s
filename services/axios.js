@@ -10,6 +10,8 @@ const server = axios.create({
 const getData = async (url, query) => {
     console.log('in get data');
     let response;
+    console.log({query})
+    let condition = ''
     if (query) {
         condition = convertCondition(query)
         console.log({ condition })
@@ -37,7 +39,6 @@ const postData = async (url, body) => {
         throw error;
     }
 }
-
 
 const putData = async (url, body) => {
     let response;

@@ -1,32 +1,30 @@
-const request = require('supertest');
+const request = require('supertest')
 const { app } = require('../../../app');
+
 jest.mock('../../../modules/leads/leads-options', () => {
     return {
         createNewLead: jest.fn((obj) => {
-            if (obj.name && obj.phone)
-                return true;
+            if (obj.supplyDate && obj.ordererCode) {
+                if (typeof obj.ordererCode !== 'number') {
+                    return { status: 500, message: `cant insert a type ${typeof obj.ordererCode} to type Int` }
+                }
+                let data = [];
+                if (obj.baseConcretProduct) {
+                    obj.baseConcretProduct.forEach((_, Id) => {
+                        data = [...data, { Id }];
+                    });
+                }
+                else {
+                    data = [{ Id: 8 }];
+                }
+                return { status: 201, data };
+            }
             else {
-                throw new Error("the lead details are not correct");
+                throw new Error("One or more required properties are not exists");
             }
         }),
-        updateLead: jest.fn((filter, obj) => {
-            if (filter && obj)
-                return 'update the lead';
-            else
-                throw new Error("the filter or obj are not defined")
-        }),
-        allLeadsDetails: jest.fn(({ filter, project }) => {
-            if (filter && project)
-                return "success!!";
-            else {
-                throw new Error("the body is not defined")
-
-            }
-        })
-
     }
-
-})
+});
 
 jest.mock('../../../modules/leads/orderers', () => {
     return {
@@ -39,7 +37,7 @@ jest.mock('../../../modules/leads/orderers', () => {
             }
         }),
         getOrderers: jest.fn(() => {
-            return { tablename: "test" };
+            return { entityName: "test" };
         }),
         getOrdererByPhone: jest.fn(({ phone }) => {
             if (phone) {
@@ -159,7 +157,7 @@ describe('/getorderers', () => {
         expect(response.statusCode).toBe(200);
         expect(response.serverError).toBeFalsy();
         expect(response.notFound).toBeFalsy();
-        expect(response.text).toBe('{\"tablename\":\"test\"}');
+        expect(response.text).toBe('{\"entityName\":\"test\"}');
     })
     it('should the function return statusCode 404 if the params is exist', async () => {
         const response = await request(app).get('/leads/getorderers/0504178546');
@@ -350,7 +348,7 @@ describe('check function getleadsdetails', () => {
         const response = await request(app).post('/leads/getleadsdetails').send({ filter: "test" });
 
         expect(response).toBeDefined();
-        expect(response.statusCode).toBe(200);
+        expect(response.status).toBe(201);
         expect(response.serverError).toBeFalsy();
         expect(response.notFound).toBeFalsy();
         expect(response.text).toBe("[{\"phone\":\"0583286577\",\"supplyAddress\":\"chisda\"},{\"phone\":\"5555555555\",\"supplyAddress\":\"sss\"}]");
@@ -421,7 +419,7 @@ describe('/updateorderer', () => {
     it('should the request good without parmeters sended ', async () => {
         const response = await request(app).post('/leads/updateorderer');
         expect(response).toBeDefined();
-        expect(response.statusCode).toBe(404);
+        expect(response.status).toBe(201);
         expect(response.serverError).toBeFalsy();
         expect(response.notFound).toBeTruthy();
 
