@@ -3,7 +3,6 @@ const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
 // const { setDate } = require('./functions');
 const { getData, postData, putData, deleteData,   } = require('../../services/axios');
 
-/////////////////////////////////////////////////////////////////
 async function insertOneBranch(object) {
     try {
         console.log("inmsertBranch - module");
@@ -23,7 +22,6 @@ async function insertOneBranch(object) {
         throw new Error('can not insert branch');
     }
 }
-///////////////////////////////////////////////////////////////////
 async function getAllBranches() {
     try {
         const res = await getData(`/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
@@ -60,7 +58,7 @@ async function getBranchById(query) {
     }
 }
 
-///////////////////////////////////////////////////////////////////
+
 async function getBranchesByCondition(query) {
     console.log({query});
     try {
@@ -99,7 +97,7 @@ async function updateDetail( setting) {
         throw new Error('can not update branch');
     }
 }
-///////////////////////////////////////////////////////////////////
+
 async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
@@ -112,7 +110,7 @@ async function deleteBranches(object) {
         throw new Error('can not delete branch');
     }
 }
-///////////////////////////////////////////////////////////////////
+
 function checkValid(object) {
     let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1", "UserThatInsert"];
     let array = Object.keys(object);
@@ -123,7 +121,7 @@ function checkValid(object) {
     }
     return true;
 }
-///////////////////////////////////////////////////////////////////
+
 async function checkUnique(object) {
     try {
         const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { Id:object.SupplierCode ,  Disabled:0});

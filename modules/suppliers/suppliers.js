@@ -86,11 +86,9 @@ async function updateDetail(setting) {
         throw new Error('can not update branch');
     }
 }
-//////////////////////////////////////////////////////////////
 async function deleteSupplier(object) {
     try {
         let obj = { entityName: 'Suppliers', values: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true }, condition: { Id: object.Id } }
-        // console.log("obj", obj);
         const result = await deleteData('/delete/deleteone', obj);
         console.log({ result })
         if (result.status === 204) {
@@ -157,7 +155,6 @@ async function checkUnique(setting) {
 
 async function countRows(condition) {
     const countRowesBranches = await postData(`read/count/${SQL_DB_BRANCHES}`, { condition })
-    // console.log("countRowesBranches:", countRowesBranches.data.recordset);
     return countRowesBranches.data;
 }
 module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countRows };

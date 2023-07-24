@@ -21,8 +21,6 @@ const hourType = (data) => {
         return true;
     }
     throw new Error("the hour not correct")
-
-
 }
 const correctPhone = (number) => {
     if (/^0\d{8,9}$/.test(number) && number.length <= 10)
@@ -53,6 +51,7 @@ const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
+    
     if (isNaN(value)) {
         if (arg == "string") {
             console.log('string@@@@');
@@ -103,11 +102,10 @@ const specificLength = (value, len) => {
 }
 
 const clientCodeIsExistInSQL = async (field, arg) => {
-    let tableName1 = arg.tableName;
+    let entityName1 = arg.entityName;
     let condition = {}
     condition[arg.field] = field;
-
-    let ans = await getData(`/read/readMany/${tableName1}`, condition)
+    let ans = await getData(`/read/readMany/${entityName1}`, condition)
     if (ans.data.length == 0) {
         return true;
     }
@@ -117,10 +115,10 @@ const clientCodeIsExistInSQL = async (field, arg) => {
 }
 
 const recordExistInTable = async (value, arg) => {
-    const { tableName, field, exist } = arg;
+    const { entityName, field, exist } = arg;
     try {
-        console.log(tableName, field, exist, 'tableName, field, exist');
-        let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
+        console.log(entityName, field, exist, 'entityName, field, exist');
+        let ans = await getData(`read/exist/${entityName}/${field}/${value}`)
         console.log('recordExistInTable aaaaaa');
 
         if (exist) {
@@ -178,11 +176,11 @@ const dateInFuture = (value) => {
 const checkConcretItem = async (value) => {
     try {
         if (parseInt(value).toString() != 'NaN') {
-            recordExistInTable(value, { tableName: "FinishProducts", field: "id" });
+            recordExistInTable(value, { entityName: "FinishProducts", field: "id" });
         }
         else {
             console.log({ value });
-            recordExistInTable(`${value}`, { tableName: "BuytonItems", field: "itemcode" });
+            recordExistInTable(`${value}`, { entityName: "BuytonItems", field: "itemcode" });
         }
     }
     catch (error) {
