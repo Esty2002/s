@@ -39498,3 +39498,2261 @@ description: getIdForBuytonDescribe in router
         
 data: {describe :error tbname :error error :you didnt send name or name of preffer table name }
 ----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:00:45  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"priceList1","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:00:45  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"priceList1","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:00:45  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"priceList1","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:00:45  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"priceList1","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:03:28  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:03:28  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:03:28  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:03:28  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:03:59  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:03:59  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:03:59  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:03:59  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:04:59  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:04:59  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:04:59  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:04:59  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:05:29  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:05:29  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:05:29  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:05:29  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:07:21  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:07:21  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:07:21  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:07:21  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:07:49  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:07:49  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:07:49  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:07:49  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:08:34  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:08:34  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:08:34  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:08:34  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:08:55  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:08:55  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:08:55  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:08:55  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:09:13  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:09:13  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:09:13  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:09:13  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:09:36  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:09:36  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:09:36  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:09:36  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:09:58  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:09:58  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:09:58  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:09:58  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:10:22  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:10:22  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:10:22  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:10:22  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:11:17  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:11:17  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:11:17  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:11:17  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:11:34  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:11:34  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:11:34  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:11:34  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:11:48  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:11:48  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:11:48  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:11:48  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:12:07  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:12:07  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:12:07  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:12:07  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:12:18  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:12:18  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:12:18  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:12:18  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:12:44  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:12:44  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:12:44  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:12:44  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:13:01  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:13:01  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:13:01  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:13:01  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:13:15  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:13:15  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:13:15  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:13:15  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:13:54  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:13:54  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:13:54  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:13:54  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:14:47  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:14:47  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:14:47  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:14:47  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:17:54  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:17:54  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:17:54  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:17:54  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:18:38  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:18:38  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:18:38  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:18:38  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:19:14  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:19:14  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:19:58  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:19:58  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:19:58  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:19:58  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:21:00  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:21:00  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:21:00  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:21:00  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:21:14  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:21:14  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:21:15  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:21:15  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:21:42  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:21:42  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 14:21:42  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 14:21:42  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"yutu","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:25:02  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:25:02  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:25:02  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :entityName is not defined }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:26:13  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:26:13  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:26:13  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :entityName is not defined }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:27:10  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:27:10  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:27:10  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :entityName is not defined }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:27:54  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:27:54  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:27:54  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:28:38  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:28:38  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:28:38  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:30:18  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:30:18  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:30:18  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:30:55  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:30:55  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:30:55  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:31:34  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:31:34  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:31:34  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:36:35  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:36:35  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:36:35  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:37:08  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:37:08  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:37:08  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:39:53  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:39:53  
+        
+description: getId in module
+        
+data: {pricelistName :priceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:39:53  
+        
+description: getId in module
+        
+data: {pricelistName :priceList error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:05  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:05  
+        
+description: getId in module
+        
+data: {pricelistName :priceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:05  
+        
+description: getId in module
+        
+data: {pricelistName :priceList error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:44  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :PriceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:44  
+        
+description: getId in module
+        
+data: {pricelistName :PriceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:44  
+        
+description: getId in module
+        
+data: {pricelistName :PriceList error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:51  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :PriceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:51  
+        
+description: getId in module
+        
+data: {pricelistName :PriceList }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:40:51  
+        
+description: getId in module
+        
+data: {pricelistName :PriceList error :Request failed with status code 404 }
+----------------------------------
+next function:
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:42:59  
+        
+description: getIdForPricelistName in router
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+last time login in the action 'getIdForPricelistName' : Mon Jul 24 2023 - 14:42:59  
+        
+description: getId in module
+        
+data: {pricelistName :priceList1 }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:48:33  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:48:33  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:48:33  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:48:33  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:51:26  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:51:26  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:51:26  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:51:26  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:52:05  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:52:05  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:52:05  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:52:05  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:53:53  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:53:53  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:53:54  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:53:54  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:54:57  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:54:57  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:54:57  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:54:57  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:39  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:39  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:39  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:39  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:57  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:57  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:57  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:55:57  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:56:29  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:56:29  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:56:29  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:56:29  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:57:44  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:57:44  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:57:44  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:57:44  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:58:15  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:58:15  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:58:15  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:58:15  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:59:38  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:59:38  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:59:38  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 14:59:38  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:00:22  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:00:22  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:00:22  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:00:22  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:01:50  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:01:50  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:01:50  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:01:50  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:02:43  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:02:43  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:02:43  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:02:43  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:13  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:13  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:13  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:13  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:50  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:50  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:50  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:03:50  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:04:41  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:04:41  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:04:41  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:04:41  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :FinishProducts error :read ECONNRESET }
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:08:23  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Cannot destructure property 'name' of 'object' as it is undefined. }
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:09:11  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Cannot destructure property 'name' of 'object' as it is undefined. }
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:09:42  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:09:42  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:10:15  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:10:15  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:11:18  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:11:18  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:11:52  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"888888","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:12:06  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:12:47  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:12:47  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:12:47  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:12:47  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:15:31  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:15:31  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:15:31  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:15:31  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:17:36  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:17:36  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:17:36  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:17:36  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:18  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:18  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:18  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:18  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:55  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:55  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:55  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:19:55  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:13  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:13  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:13  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:13  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:24  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:24  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:24  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:24  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:59  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:59  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:59  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:20:59  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:12  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:12  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:12  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:12  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:38  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:38  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:38  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:38  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:56  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:56  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:56  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:21:56  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:22:21  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:22:21  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:22:21  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:22:21  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:24:58  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:24:58  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:24:58  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:24:58  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:25:16  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:25:17  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:25:17  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:25:17  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:26:20  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:26:20  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:26:20  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+error :Request failed with status code 404 }
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:26:20  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:29:54  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:29:54  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:30:37  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:30:37  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:31:17  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:31:17  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:31:34  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:31:34  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:31:52  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:31:53  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"cfgyhfy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:32:08  
+        
+description: updateFieldInTable in router, expect to get an id and a table name
+        
+data: {id :106 tbname :PriceList values :{"Name":"uyuy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+last time login in the action 'updateFieldInTable' : Mon Jul 24 2023 - 15:32:08  
+        
+description: updateField in module
+        
+data: {id :106 entityName :PriceList value :{"Name":"uyuy","Pumps":true,"Beton":true,"UserName":"tony"} 
+}
+----------------------------------
+next function:
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:36:20  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain }
+----------------------------------
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:36:20  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain error :tbName is not defined }
+----------------------------------
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:36:24  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain }
+----------------------------------
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:36:24  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain error :tbName is not defined }
+----------------------------------
+next function:
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:40:10  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain }
+----------------------------------
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:40:10  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain error :tbName is not defined }
+----------------------------------
+next function:
+last time login in the action 'getIdForBuytonDescribe' : Mon Jul 24 2023 - 15:40:27  
+        
+description: getIdForBuytonDescribe in router
+        
+data: {describe :פוליה tbname :tbl_BuytonGrain }
+----------------------------------
+next function:
+last time login in the action 'read' : Mon Jul 24 2023 - 15:40:27  
+        
+description: getIdForBuytonDescribe in module expects: name, tbname
+        
+data: {describe :פוליה entityName :tbl_BuytonGrain }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:50:09  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:50:09  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:50:42  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 15:50:42  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------

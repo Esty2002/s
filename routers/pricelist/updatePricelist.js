@@ -28,7 +28,7 @@ router.put('/updateOne', express.json(), async (req, res) => {
     }
 })
 
-router.post('/deleteItems', express.json(), async (req, res) => {
+router.get('/deleteItems', express.json(), async (req, res) => {
     try {
         const result = await deleteItems(req.body)
         console.log(result, " router");
