@@ -2,24 +2,24 @@ const request = require('supertest');
 const { app } = require('../../../app');
 jest.mock('../../../modules/leads/leads-options', () => {
     return {
-        createNewLead: jest.fn(({ name }) => {
-            if (name)
-                return '123456';
+        createNewLead: jest.fn((obj) => {
+            if (obj.name && obj.phone)
+                return true;
             else {
-                throw new Error("the lead details is not defined");
+                throw new Error("the lead details are not correct");
             }
         }),
-        updateLead: jest.fn(({ serialNumber }) => {
-            if (serialNumber)
-                return 'updateTheLead';
+        updateLead: jest.fn((filter, obj) => {
+            if (filter && obj)
+                return 'update the lead';
             else
-                throw new Error("the serialNumber is not defined")
+                throw new Error("the filter or obj are not defined")
         }),
-        allLeadsDetails: jest.fn(({ filter }) => {
-            if (filter)
-                return [{ "phone": "0583286577", "supplyAddress": "chisda" }, { "phone": "5555555555", "supplyAddress": "sss" }];
+        allLeadsDetails: jest.fn(({ filter, project }) => {
+            if (filter && project)
+                return "success!!";
             else {
-                throw new Error("the body is not defind")
+                throw new Error("the body is not defined")
 
             }
         })
