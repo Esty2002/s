@@ -21,6 +21,7 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
 })
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
+    console.log("insertSupplier in router:):):):):):)", req.body);
     try {
         const response = await insertOneSupplier(req.body)
         if (response)
@@ -28,8 +29,11 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
         else {
             res.status(500).send(response.data)
         }
+
     } catch (error) {
-        console.log(error.message)
+        if (error instanceof Array) {
+            res.status(500).send(error)
+        }
         res.status(500).send(error.message)
     }
 })
@@ -85,8 +89,8 @@ router.get('/checkUniqueName/:suppliername', async (req, res) => {
 })
 
 router.get('/getallSuppliers', async (req, res) => {
+    console.log(req.query);
     try {
-        console.log(req.query)
         const response = await getAllSuppliers(req.query)
         if (response)
             res.status(200).send(response.data)
@@ -120,7 +124,7 @@ router.get('/getSuppliers', async (req, res) => {
             res.status(500).send(response.data)
         }
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error)
     }
 })
 router.get('/insertCountBranches/:supplierCode/:isDisable', async (req, res) => {

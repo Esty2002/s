@@ -37,8 +37,10 @@ const positiveNumber = (number) => {
 const onlyLetters = (word) => {
     return true;
 }
-const EnglishLetters = (word) => {
-    return /^\w[a-z,A-Z]*$/.test(word)
+const EnglishLetters  = (word) => {
+    if( /^\w[a-z,A-Z]*$/.test(word))
+        return true
+    throw new Error(`the value ${word} not `)
 }
 
 const onlyNumbersInString = (numbersString) => {
@@ -93,7 +95,12 @@ const betweenLength = (value, arg) => {
         return true
     throw new Error(`the value ${value} is not betweenLength`)
 }
-
+const betweenNumbers = (value, arg) => {
+    if( value>arg.min&&value<arg.max)
+        return true
+    throw new Error(`the value ${value} not betweenNumbers `)
+    
+}
 const specificLength = (value, len) => {
     if (value.length == len) {
         return true;
