@@ -201,7 +201,7 @@ async function getProducts(entityName) {
     
         let obj = {}
         obj.columns = '*'
-        const response = await postData(`/read/readMany/${entityName}`, obj)
+        const response = await getData(`/read/readMany/${entityName}`)
         if (response.data)
             return response;
         else

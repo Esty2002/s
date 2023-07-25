@@ -265,7 +265,7 @@ router.post('/getIdForPricelistName/:name', async (req, res) => {
     //  [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 75
 })
 
-router.post('/detailsOfProfucts/:entityName', express.json(), async (req, res) => {
+router.get('/detailsOfProfucts/:entityName', express.json(), async (req, res) => {
     let objForLog
     try {
         objForLog = {

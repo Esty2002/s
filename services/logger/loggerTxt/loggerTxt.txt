@@ -41756,3 +41756,86 @@ description: getProducts in module
         
 data: {dataThatRecived :PricelistForProducts }
 ----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 16:55:38  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"Kjkj","Pumps":false,"Beton":true} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 16:55:38  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"Kjkj","Pumps":false,"Beton":true} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Mon Jul 24 2023 - 16:55:38  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"Kjkj","Pumps":false,"Beton":true} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Mon Jul 24 2023 - 16:55:38  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"Kjkj","Pumps":false,"Beton":true} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:47:32  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:47:32  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+next function:
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:50:54  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:50:54  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:52:05  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:52:05  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:52:19  
+        
+description: detailsOfProfucts in router expect to get a table name
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
+last time login in the action 'detailsOfProfucts' : Mon Jul 24 2023 - 17:52:19  
+        
+description: getProducts in module
+        
+data: {dataThatRecived :PricelistForProducts }
+----------------------------------
