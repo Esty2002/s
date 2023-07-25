@@ -9,7 +9,6 @@ const required = (value = null) => {
 
 const dateType = (date) => {
     let date1 = new Date(date)
-    console.log(date1,'ddddaaattee');
     if (date1 == 'Invalid Date')
         return false
     throw new Error(`the date ${date} not valid`)
@@ -17,11 +16,9 @@ const dateType = (date) => {
 };
 
 const correctPhone = (number) => {
-    console.log('concret phone');
     if (/^0\d{8,9}$/.test(number))
         return true
     throw new Error(`the number  not correctttt`)
-    // console.log('tttttttttttt');
 }
 
 const positiveNumber = (number) => {
@@ -34,7 +31,6 @@ const EnglishLetters = (word) => {
 const onlyNumbersInString = (numbersString) => {
 
     if( /^\d*$/.test(numbersString)){
-        console.log('&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&&')
         return true
     }
         
@@ -43,19 +39,15 @@ const onlyNumbersInString = (numbersString) => {
 const notCheck = () => {
     return true;
 }
-const type = (value, arg) => {
-    console.log(typeof value, arg, "llllllllllllllllllllllllllllllllllllllllllllllllll");
-     
+const type = (value, arg) => {     
     if( isNaN(value)){
         if(arg=="string"){
-            console.log('string@@@@');
             return true
         }
         throw new Error(`the value ${value} not typeof value`)
 
     }
     if(arg=="number"){
-        console.log('num@@@');
         return true
 
     }
@@ -100,20 +92,16 @@ const specificLength = (value, len) => {
     throw new Error(`the length of the ${value} not correct`);
 }
 const clientCodeIsExistInSQL = async (field, arg) => {
-    console.log(" in clientCodeIsExistInSQL ");
     let tableName1 = arg.tableName
     const val = arg.field
-    console.log(field, tableName1,arg, 'tableName1');
     let obj={}
     obj.condition={[val]:field}
     let ans = await postData(`read/readMany/${tableName1}`,obj)
-    console.log(ans.data, 'aaannnsss');
     if (ans.data.length == 0) {
         return true
 
     }
     else {
-        console.log('before error')
         throw new Error('the client is exists')
     }
 
@@ -121,10 +109,8 @@ const clientCodeIsExistInSQL = async (field, arg) => {
 }
 
 const concretEmail = (value) => {
-    console.log('qqqqqqqqq');
     if (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value))
         return true
-    // console.log('vvvvvfffffffffff');
     throw new Error('the email not concret')
 }
 const validation = {

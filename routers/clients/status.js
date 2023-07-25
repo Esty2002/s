@@ -7,7 +7,6 @@ const router = express.Router()
 router.post('/addStatus', express.json(), async (req, res) => {
     try {
         const response =await addOneStatus(req.body)
-        // console.log(response,'response');
         if (response)
             res.status(201).send(response.data)
         else {
@@ -39,7 +38,6 @@ router.post('/deleteOneStatus', express.json(), async (req, res) => {
 })
 
 router.get('/status', async (req, res) => {
-    console.log('status');
     try {
         const response = await getStatusNumber()
         if (response)

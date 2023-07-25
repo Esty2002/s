@@ -2,7 +2,6 @@ const express = require('express')
 const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
 const { addOneClient } = require('../../modules/clients/createClient')
-const { checkObjectValidations } = require('../../services/validations/use-validations')
 router.post('/add', express.json(), async (req, res) => {
     let object = {
         name: 'add',
@@ -12,11 +11,12 @@ router.post('/add', express.json(), async (req, res) => {
     try {
         logToFile(object)
         const response = await addOneClient(req.body, 'Clients')
+        console.log(response.status,' response.status');
         if (response.status === 201) {
             res.status(201).send(response.data)
         }
         else {
-            res.status(response.statusCode).send(response.data)
+            res.status(response.status).send(response.data)
         }
     }
     catch (error) {

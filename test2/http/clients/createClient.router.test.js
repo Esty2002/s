@@ -1,79 +1,48 @@
 const request = require('supertest');
 const { app } = require('../../../app');
 
-
-jest.mock('../../../services/validations/use-validations', () => {
-    return {
-        checkObjectValidations: jest.fn((obj) => {
-            // console.log(obj," =object========");
-            if(obj=={}){
-                // console.log(obj, "kkkkkkkkkkkkkkkkkkkkkk");
-            }
-            else{
-                // console.log(obj," undefined");
-            }
-            return obj
-        })
-    }
-})
 jest.mock('../../../modules/clients/createClient', () => {
     return {
         addOneClient: jest.fn((obj) => {
-            if (obj=={} ) {
-                // console.log(obj, "ew");
+            if (obj.name == 'error') {
+                throw new Error({ status: 500 })
             }
-            else {
-                // console.log(obj, "uuuuuuuuuuuuuuuu");
+            if (obj.name == 'invalid status') {
+                return { status: 500 }
             }
-            return obj
+            return { status: 201 }
         })
     }
 })
+
 describe('POST API', () => {
-    it('status should be 200 when delete the client from db , ', async () => {
+    it('status should be 201 when response return good', async () => {
         const response = await request(app).post('/createClient/add').send({ g: "hhhhh" });
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(201);
     })
 
-    it('status should be 200 when delete the client from db , ', async () => {
-        const response = await request(app).post('/createClient/add').send({null:null});
-        expect(response).toBeDefined();
-        expect(response.statusCode).toBe(201);
+    it('status should be 500 when response return but not good', async () => {
+        let response;
+        try {
+            response = await request(app).post('/createClient/add').send({ name: "error" });
+        }
+        catch (error) {
+            expect(error).toBeDefined()
+            expect(error).toBeInstanceOf(Error)
+            expect(response.statusCode).toBe(500);
+        }
     })
 
-    it('should execute deletedClientByCode once', async () => {
-       const response = await request(app).post('/createClient/add').send({ ClientCode: 1221, name: "yuti" });
-        const { addOneClient } = jest.requireMock('../../../modules/clients/createClient');
-        expect(addOneClient).toBeCalledTimes(3);
-        expect(response.statusCode).toBe(201);
+    it('status should be 500 when response return with name error, ', async () => {
+        let response;
+        response = await request(app).post('/createClient/add').send({ name: "error" });
+        expect(response.statusCode).toBe(500);
     })
 
-    // it('donst get something', async () => {
-    //     const response = await request(app).post('/createClient/add')
-    //     const { addOneClient } = jest.requireMock('../../../modules/clients/createClient');
-    //     expect(addOneClient).toBeCalled()
-    //     expect(response.statusCode).toBe(201);
-    // })
-    
-    it('donst get something', async () => {
-        const response = await request(app).post('/createClient/add').send({})
-        const { addOneClient } = jest.requireMock('../../../modules/clients/createClient');
-        expect(addOneClient).toBeCalled()
-        expect(response.statusCode).toBe(201);
+    it('status should be 500 when response return with name invalid status, ', async () => {
+        let response;
+        response = await request(app).post('/createClient/add').send({ name: "invalid status" });
+        expect(response.statusCode).toBe(500);
     })
-    // it('donst get something', async () => {
-    //     const response = await request(app).post('/createClient/add').send("4")
-    //     const { addOneClient } = jest.requireMock('../../../modules/clients/createClient');
-    //     expect(addOneClient).toBeCalled()
-    //     expect(response.statusCode).toBe(201);
-    // })
-    // it('should execute deletedClientByCode once', async () => {
-    //     const {checkObjectValidations} = await request(app).post('/createClient/add').send({ ClientCode: 1221, name: "yuti" });
-    //     _= jest.requireMock('../../../modules/clients/createClient');
-    //     // expect(checkObjectValidations).toBeCalled()
-    //     // expect(checkObjectValidations).toHaveBeenCalled();
-    //     expect(checkObjectValidations).toBeCalledTimes(2);
-    //     expect(response.statusCode).toBe(201);
-    // })
 })

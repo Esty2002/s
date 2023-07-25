@@ -3338,3 +3338,5109 @@ description: add in router
         
 error: the date 01/07/2023 not valid
 ----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 14:59:28  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 14:59:28  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 14:59:29  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 14:59:29  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:11:41  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:11:41  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:11:41  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:11:41  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:13:00  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:13:00  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:13:01  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:13:01  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:16:22  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:16:22  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:16:22  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:16:22  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:18:37  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:18:37  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:18:37  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:18:37  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:18:37  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:20:42  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:20:42  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:20:42  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:20:42  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:20:42  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:21:47  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:21:47  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:21:48  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:21:48  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:21:48  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:24:16  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:24:16  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:24:16  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:24:17  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:24:17  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:25:26  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:25:26  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:25:26  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:25:26  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:25:26  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:29:52  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:29:52  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:29:52  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:29:52  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:29:52  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:30:48  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:30:48  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:30:48  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:30:48  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:30:48  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:34:59  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:34:59  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:34:59  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:35:00  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:35:00  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:36:37  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:36:37  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:36:37  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:36:37  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:36:37  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:37:33  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:37:33  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:37:33  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:37:34  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:37:34  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:38:21  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:38:21  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:38:21  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:38:21  
+        
+description: addOneClient in modules
+        
+error: connect ECONNREFUSED 127.0.0.1:1313
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:38:21  
+        
+description: add in router
+        
+error: connect ECONNREFUSED 127.0.0.1:1313
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:38:33  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:38:33  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:38:33  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:38:33  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:38:33  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:43:36  
+        
+description: add in router
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:43:36  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+clientCode: 20, 
+clientName: ff, 
+privaetCompanyNumber: 11, 
+bookkeepingNumber: 999, 
+destinationBank: tfaot, 
+paymentTermsFluent: 4, 
+preferredPaymentDate: 20, 
+ovligo: 5000, 
+receiptIssueTerm: get, 
+receiptCentralism: stam, 
+accountantClassifiedCode: 54, 
+status: 2, 
+description: good, 
+street: rava, 
+house: 22, 
+city: Ashdod, 
+zipCode: 565675, 
+telephone1: 087654323, 
+telephone2: 088594095, 
+mobilePhone: 0527654343, 
+fax: 088888888, 
+email: 123@uy, 
+comments: nothing, 
+creationDate: 01/02/2022, 
+userThatAdd: you, 
+disabled: false, 
+deletionDate: null, 
+userThatDelete: notMe, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:43:36  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:43:37  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 500
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:43:37  
+        
+description: add in router
+        
+error: Request failed with status code 500
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:47:09  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:47:09  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:47:09  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:47:09  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:48:01  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:48:01  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:48:01  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:48:01  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:51:59  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:52:00  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:52:00  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:52:00  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:54:28  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:54:28  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:54:28  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:54:28  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:54:58  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:54:58  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:54:58  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:54:58  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:55:23  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:55:23  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:55:23  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:55:23  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+last time login in the action 'add' : Sun Jul 23 2023 - 15:56:39  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:57:32  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:57:32  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 1111, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+Disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 15:57:32  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 15:57:32  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 16:08:30  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 16:08:30  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: PrifgateCompanyNumber, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Sun Jul 23 2023 - 16:08:30  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Sun Jul 23 2023 - 16:08:30  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 12:01:33  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 12:01:33  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 12:01:34  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 12:01:34  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 12:10:03  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 12:10:03  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 12:10:06  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 12:10:06  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+dataThatRecived: 
+g: hhhhh, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+dataThatRecived: 
+null: null, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 1221, 
+name: yuti, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+dataThatRecived: 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:11:37  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+dataThatRecived: 
+g: hhhhh, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+dataThatRecived: 
+null: null, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 1221, 
+name: yuti, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+dataThatRecived: 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 12:13:54  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:25:56  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:25:56  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:25:57  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:25:57  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:27:22  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:27:22  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:27:23  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:27:23  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:27:42  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:27:42  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:27:42  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:27:42  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:28:10  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:28:10  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:28:10  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:28:10  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:28:30  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:28:30  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:28:30  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:28:30  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:28:49  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:28:49  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:28:50  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:28:50  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:29:14  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:29:14  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:29:14  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:29:14  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:29:39  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:29:39  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:29:39  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:29:39  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:29:52  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:29:52  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:29:53  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:29:53  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:30:04  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:30:04  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:30:04  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:30:04  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:30:19  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:30:19  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:30:19  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:30:20  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:35:42  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:35:42  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:35:43  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:35:43  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:36:04  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:36:04  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:36:04  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:36:04  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:36:26  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:36:26  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:36:26  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:36:26  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:36:37  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:36:37  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:36:37  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:36:37  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:38:06  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:38:06  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:38:06  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:38:06  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:38:23  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:38:23  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:38:23  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:38:23  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:39:05  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:39:05  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:39:05  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:39:05  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:39:23  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:39:23  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:39:23  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:39:23  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:39:35  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:39:35  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:39:35  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:39:35  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:40:46  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:40:46  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:40:46  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:40:46  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:45:38  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:45:38  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:45:39  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:45:39  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:46:01  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:46:01  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:46:02  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:46:02  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:46:33  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:46:33  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:46:34  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:46:34  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:48:07  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:48:07  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:48:07  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:48:07  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:48:42  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:48:42  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:48:43  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:48:43  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:49:03  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:49:03  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 13:49:04  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 13:49:04  
+        
+description: add in router
+        
+error: Request failed with status code 404
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 14:45:28  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 14:45:30  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 14:45:31  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 14:47:05  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 14:47:05  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 984666, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 14:47:05  
+        
+description: addOneClient in modules
+        
+error: the client is exists
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 14:47:05  
+        
+description: add in router
+        
+error: the client is exists
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:47:17  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 6598, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 14:47:17  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 6598, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 14:47:17  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:00  
+        
+description: add in router
+        
+dataThatRecived: 
+g: hhhhh, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+dataThatRecived: 
+null: null, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 1221, 
+name: yuti, 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+dataThatRecived: 
+
+
+----------------------------------
+last time login in the action 'add' : Mon Jul 24 2023 - 14:56:01  
+        
+description: add in router
+        
+error: Invalid status code: undefined
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 17:56:58  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 444, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 17:56:58  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 444, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 17:56:59  
+        
+description: addOneClient in modules
+        
+result: true
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 18:56:06  
+        
+description: add in router
+        
+dataThatRecived: 
+ClientCode: 444, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+next function:
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 18:56:07  
+        
+description: addOneClient in modules
+        
+dataThatRecived: 
+ClientCode: 444, 
+ClientName: ddstsd, 
+PrivateCompanyNumber: 4444, 
+BookkeepingNumber: 3322, 
+DestinationBank: 4323, 
+PaymentTermsFluent: 33, 
+PreferredPaymentDate: 01/07/2023, 
+Ovligo: 4, 
+ReceiptIssueTerm: 8, 
+ReceiptCentralism: 585, 
+AccountantClassifiedCode: 7, 
+Status: 1, 
+Description: Description, 
+Street: Street, 
+House: 6, 
+City: City, 
+ZipCode: 77777, 
+Telephone1: 045645879, 
+Telephone2: 045645878, 
+MobilePhone: 0589658956, 
+Fax: 089565874, 
+Email: 123@gmail.com, 
+Comments: Comments, 
+UserThatAdd: UserThatAdd, 
+disabled: false, 
+
+
+----------------------------------
+last time login in the action 'addOneClient' : Mon Jul 24 2023 - 18:56:08  
+        
+description: addOneClient in modules
+        
+error: Request failed with status code 516
+----------------------------------
+next function:
+last time login in the action 'add' : Mon Jul 24 2023 - 18:56:08  
+        
+description: add in router
+        
+error: Request failed with status code 516
+----------------------------------

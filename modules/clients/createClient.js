@@ -52,12 +52,13 @@ async function addOneClient(obj,entityname) {
     logToFile(objectForLog)
     try {
         const checkValidObj=values.find(({entity})=>entity===entityname)
+        console.log(checkValidObj," checkValidObj");
         let newObj=checkValidObj.func(obj)
         if(checkValidObj){
             _=await checkObjectValidations(newObj.values,checkValidObj.entity)
             obj=newObj.values
         }
-        let object = {}
+        // let object = {}
         // object.columns = '*'
         // object.condition = { ClientCode: obj.ClientCode }
 
@@ -65,15 +66,17 @@ async function addOneClient(obj,entityname) {
         // objectForLog.name = 'addOneClient'
         // objectForLog.description = 'check if the recived object is unique'
 
-        object = {}
+      let  object = {}
         object.entityName = 'Clients'
         object.values = obj
         // if (unique.data.length === 0) {
             objectForLog.result = true
             logToFile(objectForLog)
             const result = await postData('/create/createone', object)
-            if (result.data)
+            if (result.data){
+                console.log(result.data," result.data");
                 return result;
+            }
             else
                 throw new Error('data not found')
         // }

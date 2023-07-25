@@ -12,13 +12,11 @@ async function deleteOneStatus(statusName) {
 }
 
 async function getStatusNumber() {
-    console.log("module,server");
     let obj = {
         'tableName': 'tbl_Status',
         'columns': '*',
     }
     const result = await postData('/read/readTopN',obj);
-    console.log({result})
     return result;
 }
 
