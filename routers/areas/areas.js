@@ -46,9 +46,9 @@ router.post('/isExistPoint', express.json(), async (req, res) => {
     }
 })
 
-// o.k
 router.post('/insertArea', express.json(), async (req, res) => {
     try {
+        console.log(req.body)
         const result = await insertArea(req.body)
 
         res.status(result.status).send(result.data)

@@ -10,9 +10,8 @@ const required = (value = null) => {
 const dateType = (date) => {
     let date1 = new Date(date);
     if (date1 == 'Invalid Date')
-        throw new Error(`the date ${date} not valid`);
+        throw new Error(`the date ${date} is not valid`);
     return true
-
 };
 const hourType = (data) => {
     if (data.length === 5 && data.indexOf(":") == 2 && (((data.slice(0, 1) === '0') && (/\d$/.test(data.slice(1, 2))) ||
@@ -22,19 +21,17 @@ const hourType = (data) => {
         return true;
     }
     throw new Error("the hour not correct")
-
-
 }
 const correctPhone = (number) => {
     if (/^0\d{8,9}$/.test(number) && number.length <= 10)
         return true
-    throw new Error(`the number ${number}  not correct`)
+    throw new Error(`the phonenumber ${number} is not in correct format`)
 }
 
 const positiveNumber = (number) => {
     if (typeof number == 'number' && number > 0)
         return true;
-    throw new Error("the number not positive")
+    throw new Error(`the number:${number} is not positive`)
 }
 
 const onlyLetters = (word) => {
@@ -45,10 +42,9 @@ const EnglishLetters = (word) => {
 }
 
 const onlyNumbersInString = (numbersString) => {
-
     if (/^\d*$/.test(numbersString))
         return true
-    throw new Error(`the value ${numbersString} not only string`)
+    throw new Error(`the value ${numbersString} is not only string`)
 }
 
 const notCheck = () => {
@@ -60,7 +56,7 @@ const type = (value, arg) => {
             console.log('string@@@@');
             return true
         }
-        throw new Error(`the value ${value} not typeof value`)
+        throw new Error(`the value ${value} is not typeof value`)
 
     }
     if (arg == "number") {
@@ -68,46 +64,48 @@ const type = (value, arg) => {
         return true
 
     }
-    throw new Error(`the value ${value} not typeof value`)
+    throw new Error(`the value ${value} is not typeof value`)
 
 }
 
 const maxLength = (value, max) => {
     if (value.length < max)
         return true
-    throw new Error(`the value ${value} too long `)
+    throw new Error(`the value ${value} is too long`)
 
 }
 
 const bit = (value) => {
     if (value == 0 || value == 1 || value == 'True' || value == 'False')
         return true;
-    throw new Error(`the  ${value} it's not bit`);
+    throw new Error(`the ${value} is not bit`);
 }
 
 const minLength = (value, min) => {
     if (value.length > min)
         return true
-    throw new Error(`the value ${value} too short`)
+    throw new Error(`the value ${value} is too short`)
 }
 
 const betweenLength = (value, arg) => {
     if (value.length > arg.min && value.length < arg.max)
         return true
-    throw new Error(`the value ${value} not betweenLength`)
+    throw new Error(`the value ${value} is not betweenLength`)
 }
 
 const specificLength = (value, len) => {
     if (value.length == len) {
         return true;
     }
-    throw new Error(`the length of the ${value} not correct`);
+    throw new Error(`the length of the ${value} is not correct`);
 }
 
 const clientCodeIsExistInSQL = async (field, arg) => {
-    let tableName1 = arg.tableName;
-    let val = arg.field;
-    let ans = await getData(`/read/readAll/${tableName1}/${val}=${field}`)
+    let entityName1 = arg.entityName;
+    let condition = {}
+    condition[arg.field] = field;
+
+    let ans = await getData(`/read/readMany/${entityName1}`, condition)
     if (ans.data.length == 0) {
         return true;
     }
@@ -115,19 +113,38 @@ const clientCodeIsExistInSQL = async (field, arg) => {
         throw new Error(`the ${val}: ${field} is not unique`);
     }
 }
-const recordExistInTable = async (value, arg) => {
 
-    const { tableName, field } = arg;
-    let ans = await getData(`read/exist/${tableName}/${field}/${value}`)
-    if (ans.data) {
-        return true
+const recordExistInTable = async (value, arg) => {
+    const { entityName, field, exist } = arg;
+    try {
+        console.log(entityName, field, exist, 'entityName, field, exist');
+        let ans = await getData(`read/exist/${entityName}/${field}/${value}`)
+        console.log('recordExistInTable aaaaaa');
+
+        if (exist) {
+            if (ans.data.length > 0) {
+                return true
+            }
+            else {
+                throw new Error('The record does not exist');
+            }
+        }
+        else {
+            if (ans.data.length == 0) {
+                return true
+            }
+            else {
+                throw new Error('The record already exists');
+            }
+        }
     }
-    else {
-        throw new Error('the Record is not exist');
+    catch (error) {
+        throw error
     }
+
 };
 
-const corectEmail = (value) => {
+const correctEmail = (value) => {
     if (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value))
         return true
     throw new Error('the email not concret');
@@ -140,30 +157,30 @@ const dateInFuture = (value) => {
             if (today.getDate() < date.getDate()) {
                 return true;
             }
-            throw new Error("the date not correct")
+            throw new Error("the date is not correct")
         }
         else {
             if (today.getMonth() < date.getMonth())
                 return true;
-            throw new Error("the date not correct");
+            throw new Error("the date is not correct");
         }
     }
     else {
         if (today.getFullYear() < date.getFullYear()) {
             return true;
         }
-        throw new Error("the date not correct")
+        throw new Error("the date is not correct")
     }
 };
 
 const checkConcretItem = async (value) => {
     try {
         if (parseInt(value).toString() != 'NaN') {
-            recordExistInTable(value, { tableName: "tbl_FinishProducts", field: "id" });
+            recordExistInTable(value, { entityName: "FinishProducts", field: "id" });
         }
         else {
             console.log({ value });
-            recordExistInTable(`${value}`, { tableName: "tbl_BuytonItems", field: "itemcode" });
+            recordExistInTable(`${value}`, { entityName: "BuytonItems", field: "itemcode" });
         }
     }
     catch (error) {
@@ -172,18 +189,16 @@ const checkConcretItem = async (value) => {
 };
 
 const correctTable = async (value) => {
-    if (value === "tbl_FinishProducts" || value === "tbl_BuytonItems") {
+    if (value === "FinishProducts" || value === "BuytonItems") {
         return true;
     }
     throw new Error(`you cant connect to ${value} table`)
 }
 const theDateBeforToday = (value) => {
-    console.log('dateeeeeee');
     let date2 = new Date(value)
-    console.log(date2, new Date(), 'new date');
 
     if (date2 - new Date > 0) {
-        throw new Error('the date after today ')
+        throw new Error('the date is in the future while it has to be in the past')
     }
 
     console.log('yes date');
@@ -206,7 +221,7 @@ const validation = {
     correctPhone: correctPhone,
     type: type,
     positiveNumber: positiveNumber,
-    EnglishLetters:EnglishLetters,
+    EnglishLetters: EnglishLetters,
     onlyNumbersInString: onlyNumbersInString,
     notCheck: notCheck,
     maxLength: maxLength,
@@ -215,14 +230,15 @@ const validation = {
     specificLength: specificLength,
     bit: bit,
     clientCodeIsExistInSQL: clientCodeIsExistInSQL,
-    corectEmail: corectEmail,
+    correctEmail: correctEmail,
     dateInFuture: dateInFuture,
     hourType: hourType,
     checkConcretItem: checkConcretItem,
     recordExistInTable: recordExistInTable,
     correctTable: correctTable,
     onlyLetters: onlyLetters,
-    theDateAfterToday: theDateAfterToday
+    theDateAfterToday: theDateAfterToday,
+    theDateBeforToday: theDateBeforToday
 }
 
 module.exports = { validation }

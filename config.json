@@ -597,7 +597,7 @@
                             "arguments": {
                                 "name": {
                                     "type": "string",
-                                    "example": "Measure",
+                                    "example": "name=mmm",
                                     "required": true,
                                     "description": "Send as query string the Name wich it's Id you are looking for."
                                 }
@@ -1340,7 +1340,7 @@
                             },
                             "response": [
                                 {
-                                    "Id": 106
+                                    "Id": 291
                                 }
                             ]
                         },
@@ -1349,51 +1349,42 @@
                             "arguments": {
                                 "PriceListId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "ProductId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of product"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AreaId": {
                                     "type": "string",
-                                    "example": "Jerusalem",
-                                    "required": true,
-                                    "description": "Send area name"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Price": {
-                                    "type": "float",
-                                    "example": 9000,
-                                    "required": true,
-                                    "description": "Send the price of additions for city"
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "CountPrecent": {
-                                    "type": "float",
-                                    "example": 25,
-                                    "required": false,
-                                    "description": "Send a count of precent for price list "
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AddedDate": {
                                     "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "UserName": {
                                     "type": "string",
-                                    "example": "devloper",
-                                    "required": true,
-                                    "description": "Send the user name that added the price list"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
                             "response": [
-                                {
-                                    "Id": 2
-                                }
+                                "boolean"
                             ]
                         },
                         {
@@ -1401,63 +1392,52 @@
                             "arguments": {
                                 "PriceListId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "ProductId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of product"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Price": {
-                                    "type": "float",
-                                    "example": 9000,
-                                    "required": true,
-                                    "description": "Send the price of additions for time"
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "CountPrecent": {
-                                    "type": "float",
-                                    "example": 25,
-                                    "required": false,
-                                    "description": "Send a count of precent for price list "
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "DayOfWeek": {
                                     "type": "int",
-                                    "example": 2,
-                                    "required": true,
-                                    "description": "Send the day in the week  - the prefer working day"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "StartDate": {
                                     "type": "date",
-                                    "example": "07/02/2023",
-                                    "required": true,
-                                    "description": "Send the date of start work"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "EndDate": {
                                     "type": "date",
-                                    "example": "07/03/2023",
-                                    "required": true,
-                                    "description": "Send the date of start work"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AddedDate": {
                                     "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "UserName": {
                                     "type": "string",
-                                    "example": "devloper",
-                                    "required": true,
-                                    "description": "Send the user name that added the price list"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
                             "response": [
-                                {
-                                    "Id": 3
-                                }
+                                "boolean"
                             ]
                         },
                         {
@@ -1465,305 +1445,166 @@
                             "arguments": {
                                 "PriceListId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "ProductId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of product"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Distance": {
                                     "type": "float",
-                                    "example": 46,
-                                    "required": true,
-                                    "description": "Send a distance for price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Price": {
-                                    "type": "float",
-                                    "example": 9000,
-                                    "required": true,
-                                    "description": "Send the price of additions for distance"
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "CountPrecent": {
-                                    "type": "float",
-                                    "example": 25,
-                                    "required": false,
-                                    "description": "Send a count of precent for price list "
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AddedDate": {
                                     "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "UserName": {
                                     "type": "string",
-                                    "example": "devloper",
-                                    "required": true,
-                                    "description": "Send the user name that added the price list"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
-                            "response": [
-                                {
-                                    "Id": 1
-                                }
-                            ]
+                            "response": "boolean"
                         },
                         {
                             "key": "addTruckFill",
                             "arguments": {
                                 "PriceListId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "ProductId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of product"
+                                    "required": "",
+                                    "description": ""
                                 },
-                                "AmountTransportDiff": {
-                                    "type": "float",
-                                    "example": 20,
-                                    "required": true,
-                                    "description": "Send an amount of transport diff for truck"
+                                "TransportDiff": {
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "MaxTransportDiff": {
-                                    "type": "float",
-                                    "example": 22,
-                                    "required": true,
-                                    "description": "Send an amount of max transport diff for truck"
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
-                                "Price": {
-                                    "type": "float",
-                                    "example": 9000,
-                                    "required": true,
-                                    "description": "Send the price of additions for distance"
+                                "AddedDate": {
+                                    "type": "date",
+                                    "required": "",
+                                    "description": ""
                                 },
-                                "Disabled": {
-                                    "type": "boolean",
-                                    "example": false,
-                                    "required": true,
-                                    "description": "Send disabled of addition for truck"
+                                "UserName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
-                            "response": [
-                                {
-                                    "Id": 1002
-                                }
-                            ]
+                            "response": "boolean"
                         },
                         {
                             "key": "addPricesListBySupplierOrClient",
                             "arguments": {
                                 "PriceListId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "SupplierOrClient": {
                                     "type": "int",
-                                    "example": 1001,
-                                    "required": true,
-                                    "description": "Send code of the supplier"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Debit": {
                                     "type": "boolean",
-                                    "example": true,
-                                    "required": true,
-                                    "description": "Send if you want debit"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Credit": {
                                     "type": "boolean",
-                                    "example": true,
-                                    "required": true,
-                                    "description": "Send if you want credit"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AreaId": {
                                     "type": "string",
-                                    "example": "Jerusalem",
-                                    "required": true,
-                                    "description": "Send area name"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "StartDate": {
                                     "type": "date",
-                                    "example": "01/05/2023",
-                                    "required": true,
-                                    "description": "Send the date of start work"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "EndDate": {
                                     "type": "date",
-                                    "example": "01/06/2023",
-                                    "required": true,
-                                    "description": "Send the date of end working"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AddedDate": {
                                     "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "UserName": {
                                     "type": "string",
-                                    "example": "devloper",
-                                    "required": true,
-                                    "description": "Send the user name that added the price list"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
-                            "response": [
-                                {
-                                    "Id": 15
-                                }
-                            ]
+                            "response": "boolean"
                         },
                         {
                             "key": "addPricelistForProducts",
                             "arguments": {
                                 "PriceListId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "ProductId": {
                                     "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send id of product"
-                                },
-                                "TableName": {
-                                    "type": "string",
-                                    "example": "tbl_BuytonDegree",
-                                    "required": true,
-                                    "description": "Send a table name of the preffer product"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Price": {
-                                    "type": "float",
-                                    "example": 9000,
-                                    "required": true,
-                                    "description": "Send the price of additions for finish product"
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Discount": {
-                                    "type": "float",
-                                    "example": 15,
-                                    "required": false,
-                                    "description": "Send discount for price list"
+                                    "type": "int",
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "AddedDate": {
                                     "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "UserName": {
                                     "type": "string",
-                                    "example": "devloper",
-                                    "required": true,
-                                    "description": "Send the user name that added the price list"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "Disabled": {
                                     "type": "boolean",
-                                    "example": false,
-                                    "required": true,
-                                    "description": "Send if the product disabled or not"
-                                }
-                            },
-                            "response": [
-                                {
-                                    "Id": 3
-                                }
-                            ]
-                        },
-                        {
-                            "key": "addPricelistForFinishProducts",
-                            "arguments": {
-                                "Name": {
-                                    "type": "string",
-                                    "example": "t4",
-                                    "required": true,
-                                    "description": "Send the name of finish product"
-                                },
-                                "UnitOfMeasure": {
-                                    "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "send unit of measure"
-                                },
-                                "BookkeepingCode": {
-                                    "type": "string",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send a bookkeeiping code"
-                                },
-                                "AddedDate": {
-                                    "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
-                                },
-                                "Enabled": {
-                                    "type": "boolean",
-                                    "example": true,
-                                    "required": true,
-                                    "description": "Send enabled or not for finish product"
-                                },
-                                "DeleteDate": {
-                                    "type": "date",
-                                    "example": false,
-                                    "required": false,
-                                    "description": "Send date of deleted"
-                                }
-                            },
-                            "response": [
-                                {
-                                    "Id": 2
-                                }
-                            ]
-                        },
-                        {
-                            "key": "addAdditionsForPricelist",
-                            "arguments": {
-                                "Name": {
-                                    "type": "string",
-                                    "example": "t4",
-                                    "required": true,
-                                    "description": "Send the name of finish product"
-                                },
-                                "UnitOfMeasure": {
-                                    "type": "int",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "send unit of measure"
-                                },
-                                "BookkeepingCode": {
-                                    "type": "string",
-                                    "example": 1,
-                                    "required": true,
-                                    "description": "Send a bookkeeiping code"
-                                },
-                                "AddedDate": {
-                                    "type": "date",
-                                    "example": "01/02/2023",
-                                    "required": true,
-                                    "description": "Send date of added"
-                                },
-                                "Enabled": {
-                                    "type": "boolean",
-                                    "example": true,
-                                    "required": true,
-                                    "description": "Send enabled or not for finish product"
-                                },
-                                "DeleteDate": {
-                                    "type": "date",
-                                    "example": false,
-                                    "required": false,
-                                    "description": "Send date of deleted"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
                             "response": "boolean"
@@ -1773,86 +1614,44 @@
                             "arguments": {
                                 "tbname": {
                                     "type": "string",
-                                    "example": "tbl_BuytonDegree",
-                                    "required": true,
-                                    "description": "Send as params a preffer table name to see here details"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
-                            "response": [
-                                {
-                                    "Id": 2,
-                                    "PriceListId": 106,
-                                    "ProductId": 2,
-                                    "TableName": "BuytonGrain",
-                                    "Price": 2000,
-                                    "Discount": 3,
-                                    "AddedDate": "2023-03-03T00:00:00.000Z",
-                                    "UserName": "devloper",
-                                    "Disabled": false
-                                },
-                                {
-                                    "Id": 3,
-                                    "PriceListId": 1,
-                                    "ProductId": 2,
-                                    "TableName": "tbl_BuytonDegree",
-                                    "Price": 9000,
-                                    "Discount": 15,
-                                    "AddedDate": "2023-07-17T08:08:18.770Z",
-                                    "UserName": "devloper",
-                                    "Disabled": false
-                                }
-                            ]
+                            "response": ""
                         },
                         {
                             "key": "updateFieldInTable",
                             "arguments": {
                                 "id": {
                                     "type": "int",
-                                    "example": "2",
-                                    "required": true,
-                                    "description": "Send as params the id which you want to update"
+                                    "required": "",
+                                    "description": ""
                                 },
                                 "tbName": {
                                     "type": "string",
-                                    "example": "tbl_PriceList",
-                                    "required": true,
-                                    "description": "Send as params a table name, which you want to update"
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
                             "response": ""
-                        },
-                        {
-                            "key": "getIdForBuytonDescribe",
-                            "arguments": {
-                                "describe": {
-                                    "type": "string",
-                                    "example": "פוליה",
-                                    "required": true,
-                                    "description": "Send as params the describe of the product, to get him id. "
-                                },
-                                "tbName": {
-                                    "type": "string",
-                                    "example": "tbl_PriceList",
-                                    "required": true,
-                                    "description": "Send as params a table name to get an id of the describe"
-                                }
-                            },
-                            "response": {
-                                "id": "7"
-                            }
                         },
                         {
                             "key": "getIdForPricelistName",
                             "arguments": {
                                 "name": {
                                     "type": "string",
-                                    "example": "priceList1",
-                                    "required": true,
-                                    "description": "Send as params a name of price list"
+                                    "required": "",
+                                    "description": ""
+                                },
+                                "entityName": {
+                                    "type": "string",
+                                    "required": "",
+                                    "description": ""
                                 }
                             },
                             "response": {
-                                "id": 106
+                                "name": "string"
                             }
                         }
                     ]
@@ -2741,7 +2540,7 @@
                             "response": ""
                         },
                         {
-                            "key": "/deleterecord/:tablename/:condition",
+                            "key": "/deleterecord/:entityName/:condition",
                             "arguments": "",
                             "response": ""
                         }

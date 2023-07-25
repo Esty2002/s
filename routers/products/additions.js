@@ -11,11 +11,11 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await insertAddition(req.body, 'Additions')
-        if (response)
-            res.status(201).send(response)
+        const response = await insertAddition(req.body)
+        if (response.status == 201)
+            res.status(201).send(true)
         else {
-            res.status(500).send(response)
+            res.status(response.status).send(response)
         }
     }
     catch (error) {
@@ -59,18 +59,22 @@ router.post('/find', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find Addition in router',
-        arr: req.body.arr,
         condition: req.body.where
     }
     logToFile(objectForLog)
     try {
-        const response = await findAddition(req.body.arr, req.body.where)
-        res.status(200).send(response)
+        const response = await findAddition(req.body.where)
+        if (response.status == 200)
+            res.status(200).send(response.data)
+        else
+            res.status(response.status).send(response)
     } catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
-        console.log({ error }, 'in router find addition');
-        res.status(500).send(error.message)
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
     }
 })
 

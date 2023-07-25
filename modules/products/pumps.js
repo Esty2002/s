@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData, } = require('../../services/axios')
+const { postData, putData, } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
@@ -9,9 +9,9 @@ const { SQL_PUMPS_TABLE } = process.env
 const values = [
     {
         entity: "Pumps",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null }) => {
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null,AddedDate=null ,Enabled=null,DeleteDate=null}) => {
             return {
-                tableName: "Pumps",
+                entityName: "Pumps",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -20,23 +20,30 @@ const values = [
                     AddedDate: new Date().toISOString(),
                     Enabled: true,
                     DeleteDate: null,
+                },
+                valuesFind: {
+                    Name: Name,
+                    UnitOfMeasure: UnitOfMeasure,
+                    BookkeepingCode: BookkeepingCode,
+                    Addition: Addition,
+                    AddedDate: AddedDate,
+                    Enabled: Enabled,
+                    DeleteDate: DeleteDate,
                 }
             }
         }
     }
 ]
 
-async function insertPump(obj, tableName) {
-
+async function insertPump(obj) {
     let objectForLog = {
         name: 'create',
         description: 'insert pump in module',
         obj: obj,
-        tableName: tableName
+        entityName: SQL_PUMPS_TABLE
     }
     logToFile(objectForLog)
-
-    const checkValidObj = values.find(({ entity }) => tableName === entity);
+    const checkValidObj = values.find(({ entity }) => SQL_PUMPS_TABLE === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
@@ -44,14 +51,11 @@ async function insertPump(obj, tableName) {
     }
 
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
-    const { error } = measure
-    if (error)
-        return error;
-    obj.UnitOfMeasure = measure
+    obj.UnitOfMeasure = measure.data[0].Id
     try {
-        const response = await postData('/create/create', { tableName: SQL_PUMPS_TABLE, values: obj })
+        const response = await postData('/create/createone', { entityName: SQL_PUMPS_TABLE, values: obj })
         if (response.data)
-            return true
+            return response
     }
     catch (error) {
         objectForLog.error = error.message
@@ -60,52 +64,53 @@ async function insertPump(obj, tableName) {
     }
 }
 
-async function findPump(project = [], filter = {}) {
+async function findPump(filter = {}) {
+    const checkValidObj = values.find(({ entity }) => SQL_PUMPS_TABLE === entity);
+    let newObj = checkValidObj.func(filter)
+    if (checkValidObj) 
+        _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
+
     if (!Object.keys(filter).includes('Enabled'))
         filter.Enabled = 1
 
-    let columnsStr = project.length > 0 ? project.join(',') : '*'
-    let conditionStr = filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : ""
+    let condition ;
+     filter ? condition[Object.keys(filter)[0]] = Object.values(filter)[0] : null
 
     let objForLog = {
         name: "find",
         description: "find pumps in module",
-        filter: conditionStr,
-        project: columnsStr
+        filter: condition
     }
     logToFile(objForLog)
 
-    const response = await postData("/read/readTopN", { tableName: SQL_PUMPS_TABLE, columns: columnsStr, condition: conditionStr })
+    const response = await getData(`/read/readMany/${SQL_PUMPS_TABLE}`, condition )
     try {
-        for (const finish of response.data)
-            if (Object.keys(finish).includes('UnitOfMeasure'))
-                finish.UnitOfMeasure = await findMeasureName(finish.UnitOfMeasure)
-        return response.data
+        for (const finish of response.data) {
+            if (Object.keys(finish).includes('UnitOfMeasure')) {
+                const measureName = await findMeasureName(finish.UnitOfMeasure)
+                finish['UnitOfMeasure'] = measureName
+            }
+        }
+        return response
     }
     catch (error) {
         objForLog.error = error.message
         logToFile(objForLog)
         throw error
     }
+    
 }
 
-// async function updatePump(obj) {
+async function updatePump(obj) {
+    try {
+        const response = await putData('/update/updateone', { entityName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition})
+        if (response.status == 204)
+            return response.data
+        return false
 
-//     const response = await postData('/update/update', { tableName: SQL_PUMPS_TABLE, values: obj.data, condition: obj.condition })
-//     console.log(response, 'in delete function');
-//     if (response)
-//         return true
-//     else
-//         return false
-// }
-async function updatePump(obj, filter) {
-    let string = ""
-    for (let k in obj) {
-        string += `${k}='${obj[k]}',`
+    } catch (error) {
+        throw error;
     }
-    string = string.slice(0, -1)
-    return (await postData('update/update', { tableName: SQL_PUMPS_TABLE, values: obj, condition: filter ? `${Object.keys(filter)[0]}='${Object.values(filter)[0]}'` : "" })).data
 }
-
 
 module.exports = { updatePump, insertPump, findPump }

@@ -4,20 +4,20 @@ const { findPump, insertPump, updatePump, findPumpName } = require('../../module
 const { logToFile } = require('../../services/logger/logTxt')
 
 
-router.get('/pumpNameById/:id', async (req, res) => {
-    try {
-        const response = await findPumpName(req.params.id)
-        if (response.status === 200) {
-            res.status(200).send(response.data)
-        }
-        else {
-            res.status(response.status).send(response.data)
-        }
-    }
-    catch (error) {
-        res.status(500).send(error.message)
-    }
-})
+// router.get('/pumpNameById/:id', async (req, res) => {
+//     try {
+//         const response = await findPumpName(req.params.id)
+//         if (response.status === 200) {
+//             res.status(200).send(response.data)
+//         }
+//         else {
+//             res.status(response.status).send(response.data)
+//         }
+//     }
+//     catch (error) {
+//         res.status(500).send(error.message)
+//     }
+// })
 
 router.post('/create', express.json(), async (req, res) => {
     let objectForLog = {
@@ -27,11 +27,11 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await insertPump(req.body, 'Pumps')
-        if (response === true)
-            res.status(201).send(response)
+        const response = await insertPump(req.body)
+        if (response.status === 201)
+            res.status(201).send(true)
         else
-            res.status(500).send(response)
+            res.status(response.status).send(response)
     }
     catch (error) {
         objectForLog.error = error.message
@@ -40,26 +40,30 @@ router.post('/create', express.json(), async (req, res) => {
             res.status(500).send(error)
         else
             res.status(500).send(error.message)
-
-    }   
+    }
 })
 
 router.post('/find', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find pumps in router',
-        arr: req.body.arr,
         condition: req.body.where
     }
     logToFile(objectForLog)
     try {
-        const response = await findPump(req.body.arr, req.body.where)
-        res.status(200).send(response)
+        const response = await findPump(req.body.where)
+        if (response.status == 200)
+            res.status(200).send(response.data)
+        else
+            res.status(response.status).send(response)
     }
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
-        res.status(500).send(error.message)
+        if (error instanceof Array)
+            res.status(500).send(error)
+        else
+            res.status(500).send(error.message)
     }
 })
 

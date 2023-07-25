@@ -1,15 +1,22 @@
-const { postData , } = require('../../services/axios')
+const { putData } = require('../../services/axios')
+const { SQL_CLIENTS_TABLE } = process.env
+
 
 async function updateClient(obj) {
-    let clone ={...obj}
-    delete clone.Id
+    try {
+        let clone = { ...obj }
+        delete clone.Id
 
-    let object={
-        "tableName":"tbl_Clients",
-        "condition":{Id:obj.Id},
-        "values":clone
+        let object = {
+            entityName: SQL_CLIENTS_TABLE,
+            values: clone,
+            condition: { Id: obj.Id }
+        }
+        const response = await putData('/update/updateone', object)
+        return response
     }
-    _= await postData( '/update/update', object)
-   
+    catch (error) {
+        throw error;
+    }
 }
 module.exports = { updateClient } 

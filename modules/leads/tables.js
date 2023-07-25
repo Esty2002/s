@@ -1,15 +1,16 @@
-const { postData, getData } = require('../../services/axios');
-const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { postData, getData, putData, deleteData } = require('../../services/axios');
+const { checkObjectValidations, checkValidationsUpdate } = require('../../services/validations/use-validations');
 
 const values = [
     {
         entityName: "Orderers",
-        func: ({ ordererName = null, ordererPhone = null }) => {
+        func: ({ name = null, phone = null }) => {
+            console.log({ name, phone });
             return {
-                tableName: "Orderers",
+                entityName: "Orderers",
                 values: {
-                    OrdererName: ordererName,
-                    OrdererPhone: ordererPhone,
+                    OrdererName: name,
+                    OrdererPhone: phone,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -21,11 +22,11 @@ const values = [
     },
     {
         entityName: "PouringsTypes",
-        func: ({ pouringName }) => {
+        func: ({ name = null }) => {
             return {
-                tableName: "PouringsTypes",
+                entityName: "PouringsTypes",
                 values: {
-                    PouringName: pouringName,
+                    PouringName: name,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -37,11 +38,11 @@ const values = [
     {
 
         entityName: "StatusesLead",
-        func: ({ statusName }) => {
+        func: ({ name = null }) => {
             return {
-                tableName: "StatusesLead",
+                entityName: "StatusesLead",
                 values: {
-                    StatusName: statusName,
+                    StatusName: name,
                     AddedDate: new Date().toISOString(),
                     Disable: 'False',
                     DeletingDate: null
@@ -50,9 +51,25 @@ const values = [
         }
 
     },
+    {
+
+        entityName: "MoreProductsItems",
+        func: ({ leadNumber, product, amount }) => {
+            return {
+                entityName: "MoreProductsItems",
+                values: {
+                    LeadNumber: leadNumber,
+                    Product: product,
+                    Amount: amount,
+                    AddedDate: new Date().toISOString(),
+                    Disable: 'False',
+                    DeletingDate: null,
+                }
+            }
+        }
+
+    },
 ];
-
-
 
 const newRecord = async (obj = null) => {
     let result;
@@ -71,7 +88,7 @@ const newRecord = async (obj = null) => {
             }
         }
         else {
-            throw new Error("the entity name not exist");
+            throw new Error(`the entity name: ${obj.entityName} not exist`);
         }
 
     }
@@ -83,13 +100,10 @@ const newRecord = async (obj = null) => {
 const getRecord = async (entityName = "", prop = "") => {
     const entity = values.find((v) => v.entityName === entityName);
     if (entity) {
-        obj = {
-            entityName: entity.entityName,
-            condition: prop !== 'none' ? prop : `1=1`
-        };
+        let condition;
+        prop ? condition = prop : null
         try {
-
-            const result = await getData(`/read/readAll/${obj.entityName}/${obj.condition}`);
+            const result = await getData(`/read/readMany/${entity.entityName}`, condition);
             return result;
         }
         catch (error) {
@@ -97,7 +111,7 @@ const getRecord = async (entityName = "", prop = "") => {
         }
     }
     else {
-        throw new Error("the table name is not exist");
+        throw new Error(`the entity name: ${entityName} not exist`);
     }
 };
 
@@ -107,13 +121,16 @@ const updateRecord = async (obj = null) => {
         if (entity) {
             let result;
             const newObj = {
-                tableName: obj.entityName,
+                entityName: entity.entityName,
                 values: obj.update,
                 condition: obj.condition
             };
             try {
-                result = await postData('/update/update', newObj);
-                return result;
+                // _ = await checkValidationsUpdate(newObj.values, entity.entityName);
+                result = await putData('/update/updateone', newObj);
+                if (result.status == 204)
+                    return result.data;
+                return false
             }
             catch (error) {
                 throw error;
@@ -134,16 +151,18 @@ const deleteRecord = async (obj) => {
         if (table) {
             let result;
             const newObj = {
-                tableName: table.entityName,
+                entityName: table.entityName,
                 values: {
                     disable: 1,
-                    deletingDate:new Date()
+                    deletingDate: new Date()
                 },
                 condition: obj.condition
             };
             try {
-                result = await postData('/update/update', newObj);
-                return result;
+                result = await deleteData('/delete/deleteone', newObj);
+                if (result.status == 204)
+                    return result.data;
+                return false
             }
             catch (error) {
                 throw error;

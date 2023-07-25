@@ -5,6 +5,12 @@ const { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumb
 let object
 //tbl_PriceList
 router.post('/addPriceList', express.json(), async (req, res) => {
+    let object = {
+        name: 'create',
+        description: 'addPriceList in router',
+        dataThatRecived: req.body,
+    }
+    logToFile(object)
     try {
         object = {
             name: 'addPriceList',

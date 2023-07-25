@@ -9,7 +9,7 @@ jest.mock('../../../services/axios', () => {
                     return { data };
                 }
             }
-            if (url.includes('read') && (obj.columns && obj.tableName)) {
+            if (url.includes('read') && (obj.columns && obj.entityName)) {
                 return { data: 'true from read' }
             }
             throw new Error('there is no mathcing object')

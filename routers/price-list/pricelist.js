@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
 router.post('/insert', express.json(), async (req, res) => {
     console.log("in post ", req.body);
     try {
-        const result = await addPriceList(req.body.data, req.body.tableName)
+        const result = await addPriceList(req.body.data, req.body.entityName)
         res.status(200).send(result)
     }
     catch (error) {
@@ -22,7 +22,7 @@ router.post('/insert', express.json(), async (req, res) => {
 
 router.post('/find', express.json(), async (req, res) => {
     try {
-        const result = await findPriceList(req.body.data, req.body.tableName)
+        const result = await findPriceList(req.body.data, req.body.entityName)
         res.status(200).send(result)
     }
     catch (error) {
@@ -32,7 +32,7 @@ router.post('/find', express.json(), async (req, res) => {
 
 router.post('/delete', express.json(), async (req, res) => {
     try {
-        const result = await deletePriceList(req.body.data, req.body.tableName)
+        const result = await deletePriceList(req.body.data, req.body.entityName)
         res.status(200).send(result)
     }
     catch (error) {
