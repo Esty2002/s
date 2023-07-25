@@ -7,30 +7,55 @@ const server = axios.create({
 })
 
 
-const getData = async (url) => {
+const getData = async (url, query) => {
     let response;
     // console.log({url});
     try {
         response = await server.get(url);
-        console.log(response.data,"response");
+    }
+    catch (error) {
+        throw error;
+    }
+    // console.log(response.data,"response");
+    return response;
+}
+
+const postData = async (url, body) => {
+    let response;
+    try {
+        response = await server.post(url, body);
         return response;
     }
     catch (error) {
-        console.log({error:error.message})
+        console.log({ error: error.message })
         throw error;
     }
 }
 
-const postData=async(url,body)=>{
+const putData = async (url, body) => {
     let response;
     try {
-        response = await server.post(url, body);
-        console.log({response:response.data})
-        return response;
+        console.log({ url, body: JSON.stringify(body) })
+        response = await server.put(url, body);
+        return response
     }
     catch (error) {
-        console.log({error:error.message})
-        return error;
+        console.log({ error: error.message })
+        throw error;
     }
 }
-module.exports = {  getData, postData }
+
+const deleteData = async (url, body) => {
+    let response;
+    try {
+        console.log({ url, body: JSON.stringify(body) })
+        response = await server.delete(url, { data: body });
+        return response
+    }
+    catch (error) {
+        console.log({ error: error.message })
+        throw error;
+    }
+}
+module.exports = { getData, postData, putData, deleteData }
+

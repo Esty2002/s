@@ -1,22 +1,5 @@
 {
     "openapi": "3.0.3",
-    "info": {
-        "title": "Swagger Petstore - OpenAPI 3.0",
-        "description": "This is a sample Pet Store Server based on the OpenAPI 3.0 specification.  You can find out more about\nSwagger at [https://swagger.io](https://swagger.io). In the third iteration of the pet store, we've switched to the design first approach!\nYou can now help us improve the API whether it's by making changes to the definition itself or to the code.\nThat way, with time, we can improve the API in general, and expose some of the new features in OAS3.\n\n_If you're looking for the Swagger 2.0/OAS 2.0 version of Petstore, then click [here](                                                                          ). Alternatively, you can load via the `Edit > Load Petstore OAS 2.0` menu option!_\n\nSome useful links:\n- [The Pet Store repository](https://github.com/swagger-api/swagger-petstore)\n- [The source API definition for the Pet Store](https://github.com/swagger-api/swagger-petstore/blob/master/src/main/resources/openapi.yaml)",
-        "termsOfService": "http://swagger.io/terms/",
-        "contact": {
-            "email": "apiteam@swagger.io"
-        },
-        "license": {
-            "name": "Apache 2.0",
-            "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
-        },
-        "version": "1.0.11"
-    },
-    "externalDocs": {
-        "description": "Find out more about Swagger",
-        "url": "http://swagger.io"
-    },
     "servers": [
         {
             "url": "http://127.0.0.1:8081"
@@ -301,7 +284,7 @@
                                 "format": "date-time"
                             }
                         }
-                    }  
+                    }
                 },
                 "responses": {
                     "200": {
@@ -323,6 +306,262 @@
                         ]
                     }
                 ]
+            }
+        },
+        "/creatPricelist/addPricelistForFinishProducts": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert for pricelist of finish products ",
+                "description": "insert for pricelist of finish products",
+                "operationId": "insert for pricelist of finish products",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForFinishProducts",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/addAdditionsForPricelist": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "insert for pricelist some additions",
+                "description": "insert for pricelist some additions",
+                "operationId": "insert for pricelist some additions",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/PricelistForAdditions",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForInsert"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/getIdForPricelistName/{name}/{tbname}": {
+            "get": {
+                "tags": [
+                    "CRUD"
+                ],
+                "description": "Get todos",
+                "operationId": "getIdForPricelistName",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "201"
+                        },
+                        "required": true,
+                        "description": "name of pricelist"
+                    },
+                    {
+                        "name": "tbname",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_pricelist"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
+            }
+        },
+        "/creatPricelist/detailsOfProfucts/{tbname}": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "get detailsOfProfucts by table",
+                "description": "get detailsOfProfucts by table",
+                "operationId": "get detailsOfProfucts by table",
+                "parameters": [
+                    {
+                        "name": "tbname",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_Pumps"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseDetailsOfProducts"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/updateFieldInTable/{id}/{tbName}": {
+            "post": {
+                "tags": [
+                    "CRUD"
+                ],
+                "summary": "update Field In Table",
+                "description": "update Field In Table",
+                "operationId": "update Field In Table",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "schema": {
+                            "type": "integer",
+                            "example": "40"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    },
+                    {
+                        "name": "tbName",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_PriceList"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/components/schemas/updateFieldInTable",
+                                "format": "date-time"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "successful operation",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/components/schemas/ResponseForUpdateField"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "petstore_auth": [
+                            "write:pets",
+                            "read:pets"
+                        ]
+                    }
+                ]
+            }
+        },
+        "/creatPricelist/getIdForBuytonDescribe/{name}/{tbName}": {
+            "get": {
+                "tags": [
+                    "CRUD"
+                ],
+                "description": "Get todos",
+                "operationId": "getIdForPricelistName",
+                "parameters": [
+                    {
+                        "name": "name",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "ש5"
+                        },
+                        "required": true,
+                        "description": "name of pricelist"
+                    },
+                    {
+                        "name": "tbName",
+                        "in": "path",
+                        "schema": {
+                            "type": "string",
+                            "example": "tbl_BuytonSomech"
+                        },
+                        "required": true,
+                        "description": "name of table"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Todos were obtained"
+                    }
+                }
             }
         },
         "/user/login": {
@@ -663,13 +902,134 @@
                     "UserName": {
                         "type": "string",
                         "example": "Mali"
-                    }
-                    ,
+                    },
                     "Disabled": {
                         "type": "boolean",
                         "example": false
                     }
-                    
+                }
+            },
+            "PricelistForFinishProducts": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "zokini"
+                    },
+                    "unitOfMeasure": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "bookkeepingCode": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "08/08/2028"
+                    },
+                    "Enabled": {
+                        "type": "boolean",
+                        "example": true
+                    }
+                }
+            },
+            "PricelistForAdditions": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string",
+                        "example": "g2"
+                    },
+                    "unitOfMeasure": {
+                        "type": "integer",
+                        "example": "2"
+                    },
+                    "bookkeepingCode": {
+                        "type": "integer",
+                        "example": "1254"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "02/07/2028"
+                    },
+                    "Enabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                }
+            },
+            "updateFieldInTable": {
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string",
+                        "example": "dsa"
+                    },
+                    "Pumps": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Beton": {
+                        "type": "boolean",
+                        "example": false
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "09/06/2023"
+                    },
+                    "UserName": {
+                        "type": "string",
+                        "example": "pnini"
+                    },
+                    "Finish": {
+                        "type": "boolean",
+                        "example": true
+                    },
+                    "Disabled": {
+                        "type": "boolean",
+                        "example": false
+                    }
+                }
+            },
+            "ResponseDetailsOfProducts": {
+                "required": [],
+                "type": "object",
+                "properties": {
+                    "Name": {
+                        "type": "string",
+                        "example": "ssss"
+                    },
+                    "UnitOfMeasure": {
+                        "type": "integer",
+                        "example": "1"
+                    },
+                    "Addition": {
+                        "type": "boolean",
+                        "example": "true"
+                    },
+                    "BookkeepingCode": {
+                        "type": "integer",
+                        "example": "122"
+                    },
+                    "AddedDate": {
+                        "type": "string",
+                        "example": "01/03/2023"
+                    },
+                    "Enabled": {
+                        "type": "boolean",
+                        "example": "true"
+                    }
+                },
+                "xml": {
+                    "name": "ResponseDetailsOfProducts"
+                }
+            },
+            "ResponseForUpdateField": {
+                "required": [],
+                "type": "boolean",
+                "xml": {
+                    "name": "ResponseForUpdateField"
                 }
             },
             "ResponseForInsert": {
