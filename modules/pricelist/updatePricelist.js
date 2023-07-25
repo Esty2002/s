@@ -72,113 +72,69 @@ async function updateOne({ id, update }) {
 // }
 
 async function deleteItems({ entityName, id, del, newname }) {
-    // try {
-    let newdata
-    let query = { PriceListId: id }
-    // const answer = await getData(`/read/readAll/${entityName}/PriceListId=${id}`)
-    const answer = await getData(`/read/readMany/${entityName}`, query)
-    console.log(answer.data);
-    // console.log(ghg.data );
-    // let PriceListId=answer.data.PriceListId
-    let answerIdentity = answer.data.map(d => d.Id)
-    let deleteIdentity = []
-    deleteIdentity = answerIdentity.filter(i => !del.includes(i))
-    console.log("ert");
-    if (!newname) {
-        // newname = await changeName(id)
-        newdata = await changeName(id)
-        newname = newdata.Name
-        console.log({ newdata });
-        console.log({ newname });
-    }
-    else {
-        const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`)
-        if (answer.data.length === 1) {
-            newdata = answer.data[0];
-            newdata = [newdata].map(({ Id, ...rest }) => rest);
-            newdata.forEach(item => item.Name = newname)
+    try {
+        let newdata
+        let query = { PriceListId: id }
+        const answer = await getData(`/read/readMany/${entityName}`, query)
+        console.log({ answer: answer.data });
+        let answerIdentity = answer.data.map(d => d.Id)
+        let deleteIdentity = []
+        deleteIdentity = answerIdentity.filter(i => !del.includes(i))
+        if (!newname) {
+            newdata = await changeName(id)
+            newname = newdata.Name
+        }
+        else {
+            query = { Id: id }
+            const answer = await getData(`/read/readMany/${PRICELIST}`, query)
+            if (answer.data.length === 1) {
+                newdata = answer.data[0];
+                newdata = [newdata].map(({ Id, ...rest }) => rest);
+                newdata.forEach(item => item.Name = newname)
+            }
+        }
+        let obj = {};
+        obj.entityName = PRICELIST;
+        obj.values = newdata;
+        const result = await postData('/create/createone', obj)
+        if (result.status === 201) {
+            let pricelistId = result.data[0].Id;
+            let newData = []
+            newData = answer.data.filter(an => deleteIdentity.includes(an.Id))
+            newData.forEach(item => item.PriceListId = pricelistId)
+            newData = newData.map(({ Id, ...rest }) => rest)
+            let obj = {}
+            obj.entityName = `${entityName}`
+            obj.values = newData;
+            const resultMany = await postData('/create/createmany', obj)
+            return resultMany.data
         }
     }
-    // newname=checkName(newname)
-    let obj = {};
-    obj.entityName = PRICELIST;
-    obj.columns = '*';
-    obj.values = newdata;
-    console.log({ dddddddddddddddd: newdata });
-    console.log({ obj }, "obbbbbbj");
-    //  checkName(newname)
-    // if (checkName(newname)) {
-
-    // }
-    const result = await postData('/create/createone', obj)
-    // console.log("before if");
-    // console.log(Object.keys(result))
-    // let { data } = result
-    console.log({ result: result });
-    if (result.status === 201) {
-        // console.log(Object.keys(result))
-        // console.log("in if !!!!!!!!!!");
-        // console.log({res:result.data},'99999999999999999999999999');
-        // if (result.data.length > 0) {
-        //     const ans = await getData(`/read/readAll/${PRICELIST}/Name='${newname}'`)
-        //     let pricelistId = ans.data[0].Id;
-        // console.log({ data })
-        let pricelistId = result.data[0].Id;
-        console.log({ pricelistId });
-        let newData = []
-        newData = answer.data.filter(an => deleteIdentity.includes(an.Id))
-        newData.forEach(item => item.PriceListId = pricelistId)
-        newData = newData.map(({ Id, ...rest }) => rest)
-        let obj = {}
-        console.log({ newData });
-        obj.entityName = `${tbName}`
-        obj.columns = '*'
-        obj.values = newData;
-        console.log({ obj });
-        console.log("qqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqqq");
-        const resultMany = await postData('/create/createmany', obj)
-        console.log({ resultMany: resultMany.data });
-        query = { PriceListId: pricelistId }
-        const dataMany = await getData(`/read/readAll/${tbName}`,query)
-        console.log({ dataMany });
-        return dataMany.data
+    catch (error) {
+        throw error
     }
-    else {
-        console.log("למה????????????????????????????????????????????");
-    }
-
-    // }
-    // catch (error) {
-    //     console.log({ error: error.message })
-    //     throw error
-    // }
 }
 
-async function updateItems({ tbName, priceListId, id, update, newname }) {
-    console.log({ update });
-    const answer = await getData(`/read/readAll/${tbName}/PriceListId=${priceListId}`)
+async function updateItems({ entityName, priceListId, id, update, newname }) {
+    let query = { PriceListId: priceListId }
+    const answer = await getData(`/read/readAll/${entityName}`, query)
     let data = answer.data
-
     let objUpdate = data.filter(d => d.Id == id)
-    console.log({ objUpdate });
     objUpdate = objUpdate[0]
     let newUpdate = {}
-    _ = update.forEach(o => (newUpdate[o.columns] = o.values))
+    update.forEach(o => (newUpdate[o.columns] = o.values))
     objUpdate.Price = newUpdate.Price
     objUpdate.Discount = newUpdate.Discount
-    console.log({ objUpdate });
-
     let dataUpdate = data.filter(d => d.Id != id)
     dataUpdate.push(objUpdate)
-    console.log({ dataUpdate });
-
     if (!newname) {
         newdata = await changeName(priceListId)
         newname = newdata.Name
     }
 
     else {
-        const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`)
+        query={Id:id}
+        const answer = await getData(`/read/readAll/${PRICELIST}`,query)
         if (answer.data.length === 1) {
             newdata = answer.data[0];
             newdata = [newdata].map(({ Id, ...rest }) => rest);
@@ -188,28 +144,14 @@ async function updateItems({ tbName, priceListId, id, update, newname }) {
     }
     let obj = {}
     obj.entityName = PRICELIST;
-    obj.columns = '*';
     obj.values = newdata;
-    console.log({ dddddddddddddddd: newdata });
-    console.log({ obj }, "obbbbbbj");
-    // checkName(newname)
     const resultCreate = await postData('/create/createone', obj)
-    // console.log("before if");
-    // console.log(Object.keys(result))
-    // let { data } = result
     if (resultCreate.status === 201) {
         let newPricelistId = resultCreate.data[0].Id
         data.forEach(item => item.PriceListId = newPricelistId)
         data = data.map(({ Id, ...rest }) => rest)
-        console.log({ data });
-
-        // newData = newData.map(({ Id, ...rest }) => rest)
-        // console.log(newData, " nnnnnnDDDDDD");
-        // let obj = {}
-        obj.entityName = `${tbName}`
-        obj.columns = '*'
+        obj.entityName = `${entityName}`
         obj.values = data;
-        console.log({ obj });
         const result = await postData('/create/createmany', obj,)
         return result.data
     }
@@ -232,55 +174,43 @@ async function changeName(id) {
             record[0].Name += version;
         }
         console.log(record[0]);
-        // let tt = await checkName(record[0].Name)
-        // console.log({ tt });
+        let tt = await checkName(record[0].Name)
+        console.log({ tt });
         return record[0]
     }
 }
 
 async function checkName(name) {
     console.log("hello !!!");
-    const answer = await getData(`/read/readAll/${PRICELIST}/Name='${name}'`)
+    let query = { Name: name }
+    const answer = await getData(`/read/readMany/${PRICELIST}`, query)
     if (!(answer.data))
         return false
     else {
-        console.log("i good mornning ! ! !");
-        let newName = await lastName(name)
+        const newName = await lastName(name)
         console.log({ newName });
         return newName;
     }
 }
 
 async function lastName(name) {
-
     console.log("helo");
     let version = name.substring(name.length - 1);
     name = name.substring(0, name.length - 1)
-    console.log(!(version >= 0 && version <= 9))
-
     if (!(version >= 0 && version <= 9)) {
-        console.log(name, "aaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
-        const answer = await postData(`/read/readAll/${PRICELIST}/{Name LIKE '%${name}%'}`)
+        let query = { condition: { "STARTWITH": [{ "Name": name }] } }
+        const answer = await postData(`/read/readMany/${PRICELIST}`, query)
         console.log(answer.data, "qqqqqqqqqqqqqq");
-        return "abcd"
+        if (answer.data.length > 0) {
+            let length = answer.data.length
+            name = name + length
+            console.log({ name });
+            return name
+        }
     }
     else {
-        // console.log({name,version});
-        // i++;
-        // version = name.substring(name.length - i);
-        // name = name.substring(0,name.length - i)
-        // console.log(name);
         await lastName(name)
     }
 }
 
-async function read(name) {
-    console.log(name.name);
-   
-    let query= {"STARTSWITH":[{"Name":name.name}]}
-    console.log({PRICELIST})
-    const answer = await getData(`/read/readMany/${PRICELIST}`,query)
-    console.log(answer);
-}
-
-module.exports = { deletePriceList, updateOne, deleteItems, updateItems, read }
+module.exports = { deletePriceList, updateOne, deleteItems, updateItems }
