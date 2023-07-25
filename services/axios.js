@@ -23,18 +23,6 @@ const getData = async (url, query) => {
     }
 }
 
-const putData = async (url, body) => {
-    let response;
-    try {
-        console.log({ url, body: JSON.stringify(body) })
-        response = await server.put(url, body);
-        return response
-    }
-    catch (error) {
-        console.log({ error: error.message })
-        throw error;
-    }
-}
 
 const postData = async (url, body) => {
     let response;
@@ -47,5 +35,23 @@ const postData = async (url, body) => {
         throw error;
     }
 }
-module.exports = { getData, postData,putData }
 
+const putData = async (url, body) => {
+    let response;
+    try {
+        response = await server.put(url, body);
+        return response
+    }
+    catch (error) {
+        return error;
+    }
+
+}
+
+module.exports = { getData, postData, putData }
+// ----1
+// url====== /read/distinct
+// body====== { collection: 'areas', distinct: 'type' }
+// ----2
+// url====== /read/find
+// body====== { collection: 'areas', filter: { type: 'poligon' } }

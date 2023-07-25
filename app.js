@@ -27,6 +27,7 @@ const api_router = require('./api/routers/readFile');
 
 const readPriceList_router = require('./routers/pricelist/readPricelist')
 const creatPricelist_router = require('./routers/pricelist/insertPricelist');
+const updatePriceList_router = require('./routers/pricelist/updatePricelist');
 
 app.use(cors());
 app.use(express.json())
@@ -51,6 +52,8 @@ app.use('/leads',router_leads);
 
 app.use('/readpricelist', readPriceList_router)
 app.use('/creatPricelist', creatPricelist_router)
+app.use('/updatePriceList', updatePriceList_router);
+
 app.use('/pricesNew', pricelist_router);
 
 app.use('/areas', areas_router);
@@ -62,6 +65,8 @@ app.use('/readClient', readClient_router);
 app.use('/statusesClient', status_router);
 
 app.use('/auto_complete', auto_complete);
+
+
 
 app.use('/api', api_router);
 
