@@ -1,11 +1,16 @@
 
-const { objectsForValidations } = require('./validations-objects')
+const { getValidationsModule } = require('./validations-objects')
 let i = 0;
-const checkObjectValidations = async (body, objName) => {
+const checkObjectValidations = async (body, objName, find=false) => {
+    console.log("insert to use - validation");
+    let errors=[]
     try {
-        let errors = []
-        const values = objectsForValidations.find(({ objectName }) => objName === objectName).values;
+        console.log(body, objName, 'bodyAndObjectname');
+        const values = getValidationsModule(find).find(({ objectName }) => objName === objectName).values;
         for (let v of values) {
+            if (!v.require && !body[v.propertyName]){
+                continue
+            }
             i++
             for (let valid of v.validation) {
                 if (body[v.propertyName] || body[v.propertyName]===null ) {
@@ -18,7 +23,7 @@ const checkObjectValidations = async (body, objName) => {
                 }
             }
             if (v.require && !body[v.propertyName])
-                errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but not exist` }];
+                errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but does not exist` }];
         }
         if (errors.length > 0) {
             throw errors
@@ -30,5 +35,37 @@ const checkObjectValidations = async (body, objName) => {
     }
 };
 
+
+
+// יש לברר אם ניתן להשתמש בפונקצי הבאה
+
+// const checkValidationsUpdate = async (body, entityName) => {
+//     let errors = []
+//     try {
+//         const values = objectsForValidations.find(({ objectName }) => objectName === entityName).values;
+//         for (let item in body) {
+//             const validations = values.find(({ propertyName }) => propertyName === item);
+//             if (validations) {
+//                 try {
+//                     for (let valid of validations.validation) {
+//                         _ = await valid.func(body[item], valid.arguments);
+//                     }
+//                 }
+//                 catch (error) {
+//                     errors = [...errors, error.message];
+//                 }
+//             }
+//         }
+//         if (errors.length > 0) {
+//             throw errors;
+//         }
+//         else {
+//             return true;
+//         }
+//     }
+//     catch (error) {
+//         throw error;
+//     }
+// }
 
 module.exports = { checkObjectValidations };

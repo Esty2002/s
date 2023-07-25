@@ -1,29 +1,18 @@
-const { postData } = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
+const { SQL_CLIENTS_TABLE } = process.env
 
 async function addOneClient(obj) {
 
-   
-    const values = {...obj}
+    const values = { ...obj }
     delete values.Id
 
-    let newObj = {
-        'tableName': 'tbl_Clients',
-        'values': values
-    }
-    let object = {
-        'tableName': 'tbl_Clients',
-        'columns': '*',
-        'condition': `ClientCode=${obj.ClientCode}`
-    }
+    let unique = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: obj.ClientCode })
 
-    let unique = await postData('/read/readTopN', object)
     if (unique.data.length === 0) {
-        console.log(newObj, ' newObj in createClient');
-        const result = await postData('/create/create',newObj)
-        
+        const result = await postData('/create/createone', { entityName: SQL_CLIENTS_TABLE, values: values })
         return result;
     }
-    else{
+    else {
         return false
     }
 }

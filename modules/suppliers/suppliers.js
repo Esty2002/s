@@ -1,20 +1,19 @@
 require('dotenv').config();
 // const { setDate } = require('./functions');
-const { SQL_DB_SUPPLIERS } = process.env;
-const { getData, postData,   } = require('../../services/axios');
+const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
+const { getData, postData, putData, deleteData } = require('../../services/axios');
 
 async function insertOneSupplier(object) {
-    console.log("insrtSupplier - module", { object });
     try {
         if (checkValid(object) && await checkUniqueName(object.SupplierName) && await checkUniqueCode(object.SupplierCode)) {
             object.CreationDate = new Date().toISOString();
-            let obj = { tableName: 'tbl_Suppliers', values: object };
+            let obj = { entityName: 'Suppliers', values: object };
 
-            console.log({obj})
-            const res = await postData(  "/create/create", obj);
-            return res.recordset;
+            const res = await postData("/create/createone", obj);
+            return res;
         }
         else {
+            
             throw new Error('validation')
         }
     }
@@ -22,17 +21,14 @@ async function insertOneSupplier(object) {
         console.log({ error })
         throw error;
     }
-    // /suppliers/getSuppliers/SupplierCode/${code}
 }
 async function getAllSuppliers(query) {
     console.log({ query })
     try {
-        const res = await getData(`/read/readAllEntity/Suppliers`, query);
+        const res = await getData(`/read/readMany/Suppliers`, query);
         for (let item of res.data) {
             const res = await countRows({ SupplierCode: item.Id, ...query });
-            console.log({ res })
             if (res) {
-                console.log(item)
                 item.countBranches = res.countRows;
             }
             else {
@@ -51,7 +47,7 @@ async function getAllSuppliers(query) {
 
 async function getSupplier(query) {
     try {
-        const res = await getData(`/read/readAllEntity/Suppliers`, query);
+        const res = await getData(`/read/readMany/Suppliers`, query);
         return res;
     }
     catch (error) {
@@ -59,7 +55,7 @@ async function getSupplier(query) {
     }
 }
 
-async function updateDetail( setting) {
+async function updateDetail(setting) {
     try {
         flag = true
         console.log()
@@ -75,34 +71,34 @@ async function updateDetail( setting) {
             return false;
         }
         let object = {
-            tableName: SQL_DB_SUPPLIERS, values: {
+            entityName: SQL_DB_SUPPLIERS, values: {
                 SupplierCode: setting.SupplierCode, SupplierName: setting.SupplierName, LicensedDealerNumber: setting.LicensedDealerNumber, BookkeepingNumber: setting.BookkeepingNumber
                 , ObjectiveBank: setting.ObjectiveBank, ConditionGushyPayment: setting.ConditionGushyPayment, PreferredPaymentDate: setting.PreferredPaymentDate,
                 Ovligo: setting.Ovligo, Status: setting.Status, Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: { Id: setting.Id }
         };
-        const result = await postData(  '/update/update', object);
-        return result.recordset;
+        const result = await putData('/update/updateOne', object);
+        return result;
     }
     catch (error) {
         console.log(error.message)
         throw new Error('can not update branch');
     }
 }
-//////////////////////////////////////////////////////////////
 async function deleteSupplier(object) {
     try {
-        let obj = { tableName: 'tbl_Suppliers', values: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true }, condition: { Id: object.Id } }
-        // console.log("obj", obj);
-        const result = await postData('/update/updateOne', obj);
-        if (result.status === 200) {
+        let obj = { entityName: 'Suppliers', values: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true }, condition: { Id: object.Id } }
+        const result = await deleteData('/delete/deleteone', obj);
+        console.log({ result })
+        if (result.status === 204) {
             obj = {
-                tableName: 'tbl_Branches',
+                entityName: 'Branches',
                 values: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true },
                 condition: { SupplierCode: object.Id }
             }
-            const branchResult = await postData('/update/updateOne', obj);
+            const branchResult = await deleteData('/delete/deletemany', obj);
+            console.log({ branchresult_status: branchResult.status })
             return result
         }
         else {
@@ -118,7 +114,6 @@ async function deleteSupplier(object) {
     }
 
 }
-////////////////////////////////////////////////////////////////
 function checkValid(object) {
     let mustKeys = ["SupplierCode", "SupplierName", "LicensedDealerNumber", "Street", "HomeNumber", "City", "Phone1"];
     let array = Object.keys(object);
@@ -131,9 +126,10 @@ function checkValid(object) {
     }
     return true;
 }
-////////////////////////////////////////////////////////////////
+
 async function checkUniqueCode(code) {
-    let resultSupplierCode = await getData(`/read/readAll/${SQL_DB_SUPPLIERS}/SupplierCode='${code}' AND  Disabled='0'`);
+    let resultSupplierCode = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierCode: code });
+    console.log({resultSupplierCode})
     if (resultSupplierCode.status === 200)
         return resultSupplierCode.data.length === 0
     else {
@@ -141,8 +137,9 @@ async function checkUniqueCode(code) {
     }
 
 }
+
 async function checkUniqueName(name) {
-    let resultSuppliersName = await getData(`/read/readAll/${SQL_DB_SUPPLIERS}/SupplierName='${name}' AND  Disabled='0'`);
+    let resultSuppliersName = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { SupplierName: name });
     if (resultSuppliersName.status === 200)
         return resultSuppliersName.data.length === 0
     else {
@@ -153,14 +150,11 @@ async function checkUniqueName(name) {
 async function checkUnique(setting) {
     let resultSuppliersCode = checkUniqueCode(setting.SupplierCode);
     let resultSuppliersName = checkUniqueName(setting.SupplierName);
-    // console.log(resultSuppliersCode && resultSuppliersName);
     return resultSuppliersCode && resultSuppliersName;
 }
 
 async function countRows(condition) {
-    const countRowesBranches = await postData(`read/countRows`, { tableName: SQL_DB_BRANCHES, condition })
-    // console.log("countRowesBranches:", countRowesBranches.data.recordset);
-    console.log({ rows: countRowesBranches.data })
+    const countRowesBranches = await postData(`read/count/${SQL_DB_BRANCHES}`, { condition })
     return countRowesBranches.data;
 }
 module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkValid, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countRows };

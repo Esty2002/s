@@ -1,7 +1,10 @@
 
-const { postData, getData } = require('../../services/axios');
+const { postData, getData, putData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
 const { getRecord } = require('./tables');
+
+const { SQL_LEADS_TABLE, SQL_MOREPRODUCTSITEM_TABLE } = process.env
+
 const createNewLead = async (obj = null) => {
     let vals = [];
     let status;
@@ -13,53 +16,38 @@ const createNewLead = async (obj = null) => {
         else {
             throw new Error("not exist this status of leads");
         }
-    }
-    catch (error) {
-        throw error;
-    }
-    if (obj.baseConcretProduct.length > 0) {
-        obj.baseConcretProduct.forEach(bcp => {
-            vals = [...vals, {
+        if (obj.baseConcretProduct && obj.baseConcretProduct.length > 0) {
+            obj.baseConcretProduct.forEach(bcp => {
+                vals = [...vals, {
+                    SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
+                    Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
+                    ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: bcp.pumpPipeLength,
+                    PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+                    OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
+                }];
+            });
+        }
+        else {
+            vals = [{
                 SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
                 Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-                ClientCode: obj.clientCode, BaseConcretProduct: bcp.id, Tablename: bcp.tableReference, ConcretAmount: bcp.concretAmount, Pump: bcp.pump, PumpPipeLength: bcp.pumpPipeLength,
-                PouringType: bcp.pouringType, PouringTypesComments: bcp.pouringTypesComments, Comments: obj.comments, StatusLead: status,
+                ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
+                PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
                 OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-            }];
-        });
-    }
-    else {
-        vals = [{
-            SupplyDate: new Date(obj.supplyDate).toISOString(), SupplyHour: obj.supplyHour, OrdererCode: obj.ordererCode,
-            Address: obj.address, MapReferenceLongitude: obj.mapReferenceLongitude, MapReferenceLatitude: obj.mapReferenceLatitude,
-            ClientCode: obj.clientCode, BaseConcretProduct: null, Tablename: null, ConcretAmount: null, Pump: null, PumpPipeLength: null,
-            PouringType: null, PouringTypesComments: null, Comments: obj.comments, StatusLead: status,
-            OrderNumber: null, AddedDate: new Date().toISOString(), Disable: 'False', DeletingDate: null
-        }]
-    }
-    try {
-
+            }]
+        }
         for (let item of vals) {
-            try {
-                _ = await checkObjectValidations(item, 'leads');
-            }
-            catch (error) {
-                throw error;
-            }
+            _ = await checkObjectValidations(item, SQL_LEADS_TABLE);
         };
-    }
-    catch (error) {
-        throw error;
-    }
-    let newObj = {
-        tableName: 'Leads',
-        values: vals
-    };
 
-    try {
-        const result = await postData('create/createManySql', newObj);
-        if (result.status === 201 && obj.morePorductsItems) {
-            const result1 = await insertMoreProductsItems(obj, result.data);
+        let newObj = {
+            entityName: SQL_LEADS_TABLE,
+            values: vals
+        };
+
+        const result = await postData('create/createmany', newObj);
+        if (result.status === 201 && obj.morePorductsItems.length > 0) {
+            const result1 = await insertMoreProductsItems(obj.morePorductsItems, result.data[0].Id);
             return result1;
         }
         else {
@@ -72,62 +60,86 @@ const createNewLead = async (obj = null) => {
 
 };
 
-const insertMoreProductsItems = async (obj, result) => {
-    let morePorductsItems = [];
-
-    obj.morePorductsItems.forEach(mpi => {
-        morePorductsItems = [...morePorductsItems, {
-            Product: mpi.productCode,
-            Amount: mpi.amount,
-            LeadNumber: result[0].Id,
-            AddedDate: new Date().toISOString()
-        }]
-    })
+const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
     try {
+        let morePorductsItems = [];
+        items.forEach(mpi => {
+            morePorductsItems = [...morePorductsItems, {
+                Product: mpi.productCode,
+                Amount: mpi.amount,
+                LeadNumber,
+                AddedDate: new Date().toISOString()
+            }]
+        });
         for (let item of morePorductsItems) {
-            _ = checkObjectValidations(item, 'moreProductsItems');
+            _ = await checkObjectValidations(item, SQL_MOREPRODUCTSITEM_TABLE);
         };
+        objMpi = {
+            entityName: SQL_MOREPRODUCTSITEM_TABLE,
+            values: morePorductsItems
+        };
+        const res = await postData('create/createmany', objMpi);
+        return res;
+
+
     }
     catch (error) {
         throw error;
     }
-    objMpi = {
-        tableName: 'moreProductsItems',
-        values: morePorductsItems
-    };
-
-    const res = await postData('create/createManySql', objMpi);
-    return res;
 
 
-}
-// let flag = false
-const readLead = async (filter, disable) => {
+};
 
-    const obj = {
-        tableName: "tbl_Leads",
-        columns: '*',
-        condition: filter ? `${filter} AND Disable='${disable}'` : `Disable='${disable}'`
+const readLead = async (filter) => {
+    try {
+        let condition;
+        filter ? condition = filter : null
+
+        const res = await getData(`read/readMany/${SQL_LEADS_TABLE}`, condition);
+        if (res.status == 200) {
+            if (res.data.length > 0) {
+                const values = res.data;
+                let result = [];
+                for (let i = 0; i < values.length; i++) {
+                    const sameRecord = values.filter(v => v.SupplyDate.toString() === values[i].SupplyDate.toString() && v.SupplyHour.toString() === values[i].SupplyHour.toString() &&
+                        v.Address === values[i].Address && v.OrdererCode === values[i].OrdererCode);
+
+                    const keys = Object.keys(sameRecord[0]);
+                    const temp = {}
+                    for (let key of keys) {
+                        if (key !== "Disable")
+                            temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
+                        else {
+                            temp[key] = (sameRecord.map(sr => { return sr[key] }));
+                        }
+                    }
+                    result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
+                        r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
+                }
+                return { data: result, status: 200, message: "success" };
+            }
+            else {
+                return false;
+            }
+        }
     }
 
-    try {
-        const res = await postData('read/readTopN', obj);
-        if (res.data) {
-            const values = res.data;
-            let result = [];
-            for (let i = 0; i < values.length; i++) {
-                const sameRecord = values.filter(v => v.SupplyDate.toString() === values[i].SupplyDate.toString() && v.SupplyHour.toString() === values[i].SupplyHour.toString() &&
-                    v.Address === values[i].Address && v.OrdererCode === values[i].OrdererCode);
+    catch (error) {
+        throw error;
+    }
 
-                const keys = Object.keys(sameRecord[0]);
-                const temp = {}
-                for (let key of keys) {
-                    temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
-                }
-                result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
-                    r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
-            }
-            return { data: result, status: 200, message: "success" };
+};
+
+const readMoreProductsItems = async (filter) => {
+
+    try {
+        let condition;
+        filter ? condition = filter : null
+
+        const result = await postData(`read/readMany/${SQL_MOREPRODUCTSITEM_TABLE}`, condition);
+
+        if (result) {
+            return result;
         }
         else {
             throw new Error("one or more of the arguments are not valid");
@@ -139,58 +151,21 @@ const readLead = async (filter, disable) => {
 
 
 
-}
-const readforeignkeyvalue = async (filter) => {
-    // const obj = {
-    //     tableName: "tbl_Leads",
-    //     columns: '*',
-    //     condition: filter ? `${filter} AND Disable='False'` : "Disable='False'"
-    // }
-    console.log("filter", filter);
-    try {
-        const values = await getData(sqlServer, `read/foreignkeyvalue/${filter.tablename}/${filter.field}/${filter.id}`);
-        if (values) {
-            // let result = [];
-            // values.forEach(val => {
-            //     const sameRecord = values.filter(v => v.SupplyDate.toString() === val.SupplyDate.toString() && v.SupplyHour.toString() === val.SupplyHour.toString() &&
-            //         v.Address === val.Address && v.OrdererCode === val.OrdererCode);
-
-            //     const keys = Object.keys(sameRecord[0]);
-            //     const temp = {}
-            //     for (let key of keys) {
-            //         temp[key] = (sameRecord.map(sr => { return sr[key] })).reduce((state, next) => state.includes(next) ? [...state] : [...state, next], []);
-            //     }
-            //     result = result.filter(r => r.SupplyDate[0].toString() === temp.SupplyDate[0].toString() && r.SupplyHour[0].toString() === temp.SupplyHour[0].toString() &&
-            //         r.Address[0] === temp.Address[0] && r.OrdererCode[0] === temp.OrdererCode[0]).length == 0 ? [...result, temp] : [...result];
-            // });
-            // return result;
-            return values;
-
-        }
-        else {
-            return false;
-        }
-    }
-    catch (error) {
-        throw error;
-    }
-
-}
-
+};
 
 const updateLead = async (obj = null) => {
     try {
         if (obj.condition) {
-            const baseLead = await getData(`read/readAll/tbl_Leads/${obj.condition}`);
-            if (baseLead.length > 0) {
+            const baseLead = await getData(`read/readMany/${SQL_LEADS_TABLE}`, obj.condition);
+            if (baseLead.data.length > 0) {
                 const newObj = {
-                    tableName: 'tbl_Leads',
+                    entityName: SQL_LEADS_TABLE,
                     values: obj.values,
-                    condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
+                    condition: { AND: [{ Address: baseLead.data[0].Address }, { OrdererCode: baseLead.data[0].OrdererCode }, { SupplyDate: baseLead.data[0].SupplyDate }, { SupplyHour: baseLead.data[0].SupplyHour }] }
                 };
-                const result = await postData('update/update', newObj);
-                if (result) {
-                    return result;
+                const result = await putData('update/updatemany', newObj);
+                if (result.status == 204) {
+                    return result.data;
                 }
                 else {
                     return false;
@@ -209,38 +184,17 @@ const updateLead = async (obj = null) => {
     }
 
 };
+
 const updateOneLead = async (obj = null) => {
-    // const obj = {
-    //     values: {
-    //         Disable: 1,
-    //         DeletingDate: new Date().toISOString()
-    //     },
-    //     condition: `Id=${id}`
-    // }
     try {
         if (obj.condition) {
-            // const baseLead = await getData(sqlServer, `read/readAll/tbl_Leads/${obj.condition}`);
-            // console.log(baseLead, "baseLead");
-            // if (baseLead.length > 0) {
-            // const newObj = {
-            //     tableName: 'tbl_Leads',
-            //     values: obj.values,
-            //     condition: `Address='${baseLead[0].Address}' AND OrdererCode=${baseLead[0].OrdererCode} AND SupplyDate='${baseLead[0].SupplyDate}' AND SupplyHour='${baseLead[0].SupplyHour}'`
-            // };
-            // console.log("newObj=-=-=-=-=-=====-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=--=-=-=-=",newObj);
-            // console.log("oooooooooojjjjooooooooo");
-            const result = await postData('update/updateOne', obj);
-            // console.log("resulttttttttttttttttttttttttttttyyyyyyyyyyyyyyyyyyt",result);
-            if (result) {
-                return result;
+            const result = await putData('update/updateone', obj);
+            if (result.status == 204) {
+                return result.data;
             }
             else {
                 return false;
             }
-            // }
-            // else {
-            //     throw new Error("this id is not exist");
-            // }
         }
         else {
             throw new Error('the condition not exist');
@@ -252,15 +206,15 @@ const updateOneLead = async (obj = null) => {
 
 };
 
-
 const deleteLead = async (id) => {
     if (id) {
         const obj = {
+            entityName: 'leads',
             values: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()
             },
-            condition: `Id=${id}`
+            condition: { Id: id }
         }
         try {
             const result = await updateLead(obj);
@@ -278,17 +232,17 @@ const deleteLead = async (id) => {
     else {
         throw new Error('the serialNumber is not defined');
     }
-}
-
+};
 
 const deleteOneLead = async (id) => {
     if (id) {
         const obj = {
+            entityName: SQL_LEADS_TABLE,
             values: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()
             },
-            condition: `Id=${id}`
+            condition: { Id: id }
         }
         try {
             const result = await updateOneLead(obj);
@@ -306,8 +260,6 @@ const deleteOneLead = async (id) => {
     else {
         throw new Error('the serialNumber is not defined');
     }
-}
+};
 
-
-
-module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readforeignkeyvalue }
+module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readMoreProductsItems, insertMoreProductsItems }

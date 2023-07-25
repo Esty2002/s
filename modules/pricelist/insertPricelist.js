@@ -6,7 +6,7 @@ const values = [
         entity: "PriceList",
         func: ({ Name = null, Pumps = null, Beton = null, UserName = null }) => {
             return {
-                tableName: "PriceList",
+                entityName: "PriceList",
                 values: {
                     Name: Name,
                     Pumps: Pumps,
@@ -23,7 +23,7 @@ const values = [
         entity: "CitiesAdditions",
         func: ({ PriceListId = null, ProductId = null, AreaId = null, Price = null, CountPrecent = null, UserName = null }) => {
             return {
-                tableName: "CitiesAdditions",
+                entityName: "CitiesAdditions",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -40,7 +40,7 @@ const values = [
         entity: "TimeAdditions",
         func: ({ PriceListId = null, ProductId = null, Price = null, CountPrecent = null, DayOfWeek = null, StartDate = null, EndDate = null, UserName = null }) => {
             return {
-                tableName: "TimeAdditions",
+                entityName: "TimeAdditions",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -59,7 +59,7 @@ const values = [
         entity: "AdditionsForDistance",
         func: ({ PriceListId = null, ProductId = null, Distance = null, Price = null, CountPrecent = null, UserName = null }) => {
             return {
-                tableName: "AdditionsForDistance",
+                entityName: "AdditionsForDistance",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -76,7 +76,7 @@ const values = [
         entity: "TruckFill",
         func: ({ PriceListId = null, ProductId = null, AmountTransportDiff = null, MaxTransportDiff = null, Price = null }) => {
             return {
-                tableName: "TruckFill",
+                entityName: "TruckFill",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -92,7 +92,7 @@ const values = [
         entity: "PricesListBySupplierOrClient",
         func: ({ PriceListId = null, SupplierOrClient = null, Debit = null, Credit = null, AreaId = null, StartDate = null, EndDate = null, UserName = null }) => {
             return {
-                tableName: "PricesListBySupplierOrClient",
+                entityName: "PricesListBySupplierOrClient",
                 values: {
                     PriceListId: PriceListId,
                     SupplierOrClient: SupplierOrClient,
@@ -109,9 +109,9 @@ const values = [
     },
     {
         entity: "PricelistForProducts",
-        func: ({ PriceListId = null, ProductId = null, TableName = null, Price = null, Discount = null, UserName = null }) => {
+        func: ({ PriceListId = null, ProductId = null, entityName = null, Price = null, Discount = null, UserName = null }) => {
             return {
-                tableName: "PricelistForProducts",
+                entityName: "PricelistForProducts",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -129,7 +129,7 @@ const values = [
         entity: "FinishProducts",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
             return {
-                tableName: "FinishProducts",
+                entityName: "FinishProducts",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -145,7 +145,7 @@ const values = [
         entity: "Additions",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
             return {
-                tableName: "Additions",
+                entityName: "Additions",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -201,7 +201,7 @@ async function getProducts(entityName) {
     
         let obj = {}
         obj.columns = '*'
-        const response = await postData(`/read/readMany/${entityName}`, obj)
+        const response = await getData(`/read/readMany/${entityName}`)
         if (response.data)
             return response;
         else
@@ -214,7 +214,6 @@ async function getProducts(entityName) {
     }
 }
 
-//i need to do validations for update field
 async function updateField(id, entityName, value) {
     let objForLog;
     objForLog = {

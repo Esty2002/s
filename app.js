@@ -1,9 +1,9 @@
 const express = require('express');
 const app = express();
-const swaggerLeads = require('./swagger/leads.json');
+// const swaggerLeads = require('./swagger/leads.json');
 const cors = require('cors')
-const swaggerUi = require('swagger-ui-express');
-const swaggerDocument = require('./swagger/products.json');
+// const swaggerUi = require('swagger-ui-express');
+// const swaggerDocument = require('./swagger/products.json');
 const manageUnitOfMeasure = require('./routers/products/unitOfMeasure');
 const pumps_router = require('./routers/products/pumps');
 const manageAdditions = require('./routers/products/additions');
@@ -33,8 +33,8 @@ app.use(cors());
 app.use(express.json())
 app.use(reqLogger())
 
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
-app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
+// app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
+// app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
 
 
 app.use('/unitOfMeasure', manageUnitOfMeasure);
@@ -43,13 +43,26 @@ app.use('/pumps', pumps_router);
 app.use('/additions', manageAdditions);
 app.use('/productsCombinations', productsCombinations_router);
 app.use('/finishProducts', manageFinishProducts);
-app.use('/productsCombinations', productsCombinations_router);
-
-app.use('/branches', branches_router);
 app.use('/suppliers', suppliers_router);
+app.use('/branches', branches_router);
+app.use('/updateClient', updateClient_router);
 
 app.use('/leads',router_leads);
 
+app.use(cors());
+// app.use('/leads', router_leads);
+app.use('/pricesNew', pricelist_router)
+app.use('/updateClient',updateClient_router)
+// app.use('/createClient', createClient_router)
+app.use('/delete_client', delete_client_router);
+app.use('/statusesClient', status_router);
+app.use('/auto_complete', auto_complete);
+
+// app.use('/areas', areas_router);
+app.use('/api', api_router);
+// app.use('/delete_client', delete_client_router);
+// app.use('/readClient', readClient_router)
+app.use('/statusesClient', status_router)
 app.use('/readpricelist', readPriceList_router)
 app.use('/creatPricelist', creatPricelist_router)
 app.use('/updatePriceList', updatePriceList_router);

@@ -2,13 +2,13 @@ const { getData, postData } = require('../../services/axios')
 // const { checkObjectValidations, checkObjectForUpdate } = require("../../services/validations/use-validations")
 // const { objectsForValidations } = require('../../services/validations/validations-objects')
 
-async function addPriceList(values, tableName) {
+async function addPriceList(values, entityName) {
     console.log(values);
-    // if (insertvalidation(tableName, data)) {
+    // if (insertvalidation(entityName, data)) {
         try {
             const result = await postData( '/create',
                 {
-                    tableName: tableName,
+                    entityName: entityName,
                     values: values
                 })
             return result
@@ -24,9 +24,9 @@ async function addPriceList(values, tableName) {
 }
 
 
-async function deletePriceList(tableName, PriceListId, ProductId) {
+async function deletePriceList(entityName, PriceListId, ProductId) {
     let con;
-    if (tableName == "tbl_PriceList" || tableName == "tbl_PricesListBySupplierOrClient") {
+    if (entityName == "PriceList" || entityName == "PricesListBySupplierOrClient") {
         con = `Id='${parseInt(PriceListId)}'`;
     }
     else {
@@ -35,7 +35,7 @@ async function deletePriceList(tableName, PriceListId, ProductId) {
     try {
         const result = await postData( '/update',
             {
-                tableName: tableName,
+                entityName: entityName,
                 values: { Disabled: false },
                 condition: con
             })
@@ -47,9 +47,9 @@ async function deletePriceList(tableName, PriceListId, ProductId) {
 
 }
 
-async function findPriceList(tableName, PriceListId, ProductId) {
+async function findPriceList(entityName, PriceListId, ProductId) {
     let con;
-    if (tableName == "tbl_PriceList" || tableName == "tbl_PricesListBySupplierOrClient") {
+    if (entityName == "tbl_PriceList" || entityName == "tbl_PricesListBySupplierOrClient") {
         con = `Id='${parseInt(PriceListId)}'`;
     }
     else {
@@ -58,7 +58,7 @@ async function findPriceList(tableName, PriceListId, ProductId) {
     try {
         const result = await postData( '/readTopN',
             {
-                tableName: tableName,
+                entityName: entityName,
                 columns: '*',
                 condition: con
             })
@@ -70,7 +70,7 @@ async function findPriceList(tableName, PriceListId, ProductId) {
 }
 
 
-async function insertvalidation(tableName, data) {
+async function insertvalidation(entityName, data) {
     // const obj = {
     //     "tbl_PriceList": checkObjectValidations(data, objectsForValidations.PriceList),
     //     "tbl_Prices": checkObjectValidations(data, objectsForValidations.Prices),
@@ -80,7 +80,7 @@ async function insertvalidation(tableName, data) {
     //     "tbl_TruckFill": checkObjectValidations(data, objectsForValidations.TruckFill),
     //     "tbl_PricesListBySupplierOrClient": checkObjectValidations(data, objectsForValidations.PricesListBySupplierOrClient),
     // }
-    // let ans = obj[tableName];
+    // let ans = obj[entityName];
     // return ans
 }
 

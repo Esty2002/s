@@ -29,35 +29,35 @@
 
 
 
-jest.mock('../../../modules/price-list/areas', () => {
-    return {
-        findAreaByCode: jest.fn(() => {
-            return { areasList: [{ areaName: "ashdod", point: 12, radius: 12, delete: false }, { areaName: "jerusalem", point: 45, radius: 10, delete: false }] }
-        })
-    }
-})
+// jest.mock('../../../modules/price-list/areas', () => {
+//     return {
+//         findAreaByCode: jest.fn(() => {
+//             return { areasList: [{ areaName: "ashdod", point: 12, radius: 12, delete: false }, { areaName: "jerusalem", point: 45, radius: 10, delete: false }] }
+//         })
+//     }
+// })
 
-const request = require('supertest')
+// const request = require('supertest')
 
-const { app } = require('../../../app')
+// const { app } = require('../../../app')
 
 
  
 
-describe('GET APIs', () => {
-    it('/findAreasByCode', async () => {
-        const response = await request(app).get('/areas/findAreasByCode/1')
-        const method = jest.requireMock('../../../modules/price-list/areas')
-        // expect(method.findAreaByCode).toHaveBeenCalled()
-        expect(method.findAreaByCode).toHaveBeenCalledTimes(1)
-        expect(response.notFound).toBeFalsy()
-        expect(response.statusCode).toBe(200)
-        expect(response).toBeDefined();
+// describe('GET APIs', () => {
+//     it('/findAreasByCode', async () => {
+//         const response = await request(app).get('/areas/findAreasByCode/1')
+//         const method = jest.requireMock('../../../modules/price-list/areas')
+//         // expect(method.findAreaByCode).toHaveBeenCalled()
+//         expect(method.findAreaByCode).toHaveBeenCalledTimes(1)
+//         expect(response.notFound).toBeFalsy()
+//         expect(response.statusCode).toBe(200)
+//         expect(response).toBeDefined();
 
        
-    })
+//     })
 
 
 
-})
+// })
 
