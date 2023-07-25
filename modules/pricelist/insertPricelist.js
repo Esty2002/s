@@ -195,7 +195,7 @@ async function getProducts(tbName) {
         description: 'getProducts in module',
         dataThatRecived: tbName
     }
-    logToFile(object)
+    logToFile(objForLog)
     let obj = {}
     obj['entityName'] = tbName
     obj['columns'] = '*'
@@ -204,67 +204,6 @@ async function getProducts(tbName) {
     return response.data;
 }
 
-async function updateField(id, tbName, value) {
-    let params = { id, tbName }
-    let object = {
-        name: 'update',
-        description: 'updateField in module',
-        dataThatRecived: params,
-        value
-    }
-    logToFile(object)
-    let obj = {
-        "entityName": tbName,
-        "condition": `Id=${id}`,
-        "values": value
-    }
-    const response = await postData('update/update', obj)
-    if (response.data.rowsAffected[0] > 1)
-        return true
-    return false
-}
-
-async function getId(name, tbName) {
-    let params = { name, tbName }
-    let object = {
-        name: 'read',
-        description: 'getId in module',
-        dataThatRecived: params
-    }
-    logToFile(object)
-    let condition = `Name='${name}'`
-    console.log({ condition });
-    const response = await getData(`/read/readAll/${tbName}/${condition}`)
-    console.log(response, ' res');
-    object = {
-        name: 'read',
-        description: 'getId after sending to db',
-        result: response.data[0].Id
-    }
-    logToFile(object)
-    return response.data[0].Id
-}
-async function isFieldExistinTable(field, entityName, value) {
-    logToFile(objForLog)
-    try {
-        let obj = {
-            entityName: tbName,
-            columns: '*'
-        }
-        const response = await postData('/read/readTopN', obj)
-        if (response.data)
-            return response;
-        else
-            throw new Error('data not found')
-    }
-    catch (error) {
-        objForLog.error = error.message
-        logToFile(objForLog)
-        throw error
-    }
-}
-
-//i need to do validations for update field
 async function updateField(id, entityName, value) {
     let objForLog;
     objForLog = {
