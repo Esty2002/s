@@ -12,13 +12,19 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
+        console.log("in finish");
         const response = await insertFinishProduct(req.body)
-        if (response.status === 201)
+        console.log("after response", response);
+        if (response.status === 201) 
             res.status(201).send(true)
-        else
-            res.status(response.status).send(response)
+     
+        else{
+            console.log("in else",response);
+            res.status(200).send(response)
+        }
     }
     catch (error) {
+        console.log("catch");
         objectForLog.error = error.message
         logToFile(objectForLog)
         if (error instanceof Array)
@@ -44,8 +50,8 @@ router.post('/update', express.json(), async (req, res) => {
         else
             res.status(response.status).send(response)
     }
-    catch (error) { 
-        res.status(500).send(error.message) 
+    catch (error) {
+        res.status(500).send(error.message)
     }
 })
 

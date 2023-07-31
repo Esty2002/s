@@ -115,10 +115,15 @@ const clientCodeIsExistInSQL = async (field, arg) => {
 }
 
 const recordExistInTable = async (value, arg) => {
-    const { entityName, field, exist } = arg;
+    console.log("4444--", value, arg);
+    const { tableName, field, exist } = arg;
+    console.log("555", tableName);
     try {
-        console.log(entityName, field, exist, 'entityName, field, exist');
-        let ans = await getData(`read/exist/${entityName}/${field}/${value}`)
+        console.log(tableName, field, exist, 'entityName, field, exist');
+        let o ={}
+        o[field]=value
+        console.log({o});
+        let ans = await getData(`read/readOne/${tableName}`,o)
         console.log('recordExistInTable aaaaaa');
 
         if (exist) {

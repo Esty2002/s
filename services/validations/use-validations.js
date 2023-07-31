@@ -5,8 +5,9 @@ const checkObjectValidations = async (body, objName, find=false) => {
     console.log("insert to use - validation");
     let errors=[]
     try {
-        console.log(body, objName, 'bodyAndObjectname');
+        // console.log(body, objName, 'bodyAndObjectname');
         const values = getValidationsModule(find).find(({ objectName }) => objName === objectName).values;
+        console.log("111");
         for (let v of values) {
             if (!v.require && !body[v.propertyName]){
                 continue
@@ -15,11 +16,14 @@ const checkObjectValidations = async (body, objName, find=false) => {
             for (let valid of v.validation) {
                 if (body[v.propertyName] || body[v.propertyName]===null ) {
                     try {
+                        
                         _ = await valid.func(body[v.propertyName], valid.arguments);
+                        
                     }
                     catch (error) {
                         errors = [...errors, { propertyName: v.propertyName, error: error.message }];
                     }
+                   
                 }
             }
             if (v.require && !body[v.propertyName])
@@ -28,6 +32,7 @@ const checkObjectValidations = async (body, objName, find=false) => {
         if (errors.length > 0) {
             throw errors
         }
+        
         return true;
     }
     catch (error) {

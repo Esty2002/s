@@ -5,8 +5,8 @@ const {checkObjectValidations}=require('../../services/validations/use-validatio
 router.post('/add', express.json(), async (req, res) => {
     try {
         
-        let ans=await checkObjectValidations(req.body,'tbl_Clients')
-        if(ans){
+        // let ans=await checkObjectValidations(req.body,'Clients')
+        // if(ans){
         
         const response =await addOneClient(req.body)
         
@@ -15,7 +15,7 @@ router.post('/add', express.json(), async (req, res) => {
         else {
             res.status(response.status).send('')
         }
-       }
+    //   }
 
 } catch (error) {
     console.log(error.message)

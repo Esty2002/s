@@ -116,7 +116,7 @@ const createUpdateModulesValidations = [
         ]
     },
     {
-        objectName: "FinishProducts",
+        objectName: "finishProducts",
         values: [
             {
                 propertyName: "Name", validation: [
@@ -139,7 +139,7 @@ const createUpdateModulesValidations = [
         ], require: true
     },
     {
-        objectName: "Additions",
+        objectName: "additions",
         values: [
             {
                 propertyName: "Name", validation: [
@@ -162,7 +162,7 @@ const createUpdateModulesValidations = [
         ], require: true
     },
     {
-        objectName: "Pumps",
+        objectName: "pumps",
         values: [
             {
                 propertyName: "Name", validation: [
@@ -172,7 +172,7 @@ const createUpdateModulesValidations = [
             },
             {
                 propertyName: "UnitOfMeasure", validation: [
-                    { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                    { func: validation.recordExistInTable, arguments: { tableName: "unitOfMeasure", field: "Measure", exist: true } }
                 ], require: true
             },
             {
@@ -189,7 +189,7 @@ const createUpdateModulesValidations = [
         ]
     },
     {
-        objectName: "UnitOfMeasure",
+        objectName: "unitOfMeasure",
         values: [
             {
                 propertyName: "Measure", validation: [
@@ -232,7 +232,7 @@ const createUpdateModulesValidations = [
         ]
     },
     {
-        objectName: "tbl_Clients",
+        objectName: "Clients",
         values: [
             {
                 propertyName: "ClientCode", validation: [
@@ -360,7 +360,7 @@ const createUpdateModulesValidations = [
         ]
     },
     {
-        objectName: "FinishProducts",
+        objectName: "finishProducts",
         values: [
             { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
@@ -373,7 +373,7 @@ const createUpdateModulesValidations = [
 ]
 const findModulesValidations = [
     {
-        objectName: "FinishProducts",
+        objectName: "finishProducts",
         values: [
             {
                 propertyName: "Name",
@@ -386,7 +386,7 @@ const findModulesValidations = [
             {
                 propertyName: "UnitOfMeasure", validation:
                     [
-                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "measure", exist: true } }
+                        { func: validation.recordExistInTable, arguments: { tableName: "tbl_UnitOfMeasure", field: "Measure", exist: true } }
                     ], require: false
             },
             {
@@ -417,7 +417,7 @@ const findModulesValidations = [
         ]
     },
     {
-        objectName: "Additions",
+        objectName: "additions",
         values: [
             {
                 propertyName: "Name", validation: [
@@ -459,7 +459,7 @@ const findModulesValidations = [
         ]
     },
     {
-        objectName: "Pumps",
+        objectName: "pumps",
         values: [
             {
                 propertyName: "Name", validation: [
@@ -505,7 +505,7 @@ const findModulesValidations = [
         ]
     },
     {
-        objectName: "UnitOfMeasure",
+        objectName: "unitOfMeasure",
         values: [
             {
                 propertyName: "Measure", validation: [

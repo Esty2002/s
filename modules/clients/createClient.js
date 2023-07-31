@@ -5,8 +5,8 @@ async function addOneClient(obj) {
 
     const values = { ...obj }
     delete values.Id
-
-    let unique = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: obj.ClientCode })
+    console.log(SQL_CLIENTS_TABLE,'idddddddddddddddd');
+    let unique = await  (`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: obj.ClientCode })
 
     if (unique.data.length === 0) {
         const result = await postData('/create/createone', { entityName: SQL_CLIENTS_TABLE, values: values })

@@ -8,11 +8,13 @@ const server = axios.create({
 
 
 const getData = async (url, query) => {
-    console.log('in get data');
+    console.log("condition");
+    console.log(query);
+    console.log('in get data',url,query);
     let response;
     if (query) {
         condition = convertCondition(query)
-        console.log({ condition })
+        console.log("condition",{ condition })
         // url += Object.entries(query).reduce((q, i) => q = q == '?' ? `${q}${i[0]}=${i[1]}` : `${q}&${i[0]}=${i[1]}`, '?')
     }
 
@@ -27,8 +29,10 @@ const getData = async (url, query) => {
 }
 
 const postData = async (url, body) => {
+
     let response;
     try {
+        console.log("in postdata");
         console.log({ url, body: JSON.stringify(body) })
         response = await server.post(url, body);
         return response
@@ -41,6 +45,7 @@ const postData = async (url, body) => {
 const putData = async (url, body) => {
     let response;
     try {
+        console.log("hello put");
         console.log({ url, body: JSON.stringify(body) })
         response = await server.put(url, body);
         return response
@@ -81,7 +86,9 @@ function convertCondition(obj) {
     // let obj = { AND: [{ Ovligo: 4 }, { OR: [{ City: 'אשדוד' }, { City: 'בני-ברק' }] }], OR: [{ ZipCode: 77452 }, { ZipCode: 74522 }] }
     let str = '?'
     let i = 0;
+    console.log("666",obj);
     const getArgumentsStr = (arg) => {
+
         if (arg && arg.length == undefined) { //arg is object
             console.log(Object.keys(arg).length)
             for(let key in arg){
@@ -116,16 +123,18 @@ function convertCondition(obj) {
             // })
         }
         else { //arg is array
+           console.log("in else",arg);
             arg.forEach(element => {
                 str = getArgumentsStr(element, str)
             });
         }
+        console.log("555",str);
         return str
     }
     console.log({ obj })
-     getArgumentsStr(obj);
+    getArgumentsStr(obj);
     str = str.substring(0, str.length - 1)
-    console.log(str, "\n----------------------------------------------------------------------------------");
+    console.log( "str",str);
     return str;
 }
 

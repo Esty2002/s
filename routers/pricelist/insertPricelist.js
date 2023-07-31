@@ -3,8 +3,11 @@ const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
 const { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber } = require('../../modules/pricelist/insertPricelist')
 let object
-//tbl_PriceList
+//tbl_PriceList    
+
+
 router.post('/addPriceList', express.json(), async (req, res) => {
+    console.log("45452444444444");
     let object = {
         name: 'create',
         description: 'addPriceList in router',
@@ -18,6 +21,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
             dataThatRecived: req.body,
         }
         logToFile(object)
+        console.log("in pricelist");
         const result = await insert(req.body, 'PriceList')
         if (result.status === 201) {
             res.status(201).send(result.data);
@@ -37,7 +41,6 @@ router.post('/addPriceList', express.json(), async (req, res) => {
 })
 //tbl_CitiesAdditions
 router.post('/addCitiesAdditions', express.json(), async (req, res) => {
-    let objForLog;
     try {
         objForLog = {
             name: 'CitiesAdditions',
@@ -47,22 +50,22 @@ router.post('/addCitiesAdditions', express.json(), async (req, res) => {
         logToFile(objForLog)
         const result = await insert(req.body, 'CitiesAdditions')
         if (result.status === 201)
-            res.status(201).send(result.data);
+        res.status(201).send(result.data);
         else
-            res.status(result.status).send(result.data);
+        res.status(result.status).send(result.data);
     }
     catch (error) {
         objForLog.error = error.message;
         logToFile(objForLog)
         if (error instanceof Array)
-            res.status(500).send(error)
+        res.status(500).send(error)
         else
-            res.status(500).send(error.message)
+        res.status(500).send(error.message)
     }
 })
 
 //tbl_TimeAdditions
-router.post('/addTimeAdditions', express.json(), async (req, res) => {
+router.post('/addTimeAdditions', async (req, res) => {
     let objForLog;
     try {
         objForLog = {
@@ -142,6 +145,7 @@ router.post('/addTruckFill', express.json(), async (req, res) => {
 
 //tbl_PricesListBySupplierOrClient
 router.post('/addPricesListBySupplierOrClient', express.json(), async (req, res) => {
+    console.log('111111111111111');
     let objForLog;
     try {
         objForLog = {
