@@ -1,6 +1,6 @@
 const fs = require('fs')
 const path = require('path')
-const config = require('../../config.json')
+const config = require('../config.json')
 const { HOST, PORT } = process.env;
 
 // async function getArguments() {

@@ -50,27 +50,27 @@ const createUpdateModulesValidations = [
     {
         objectName: "Suppliers",
         values: [
-            { propertyName: "BookkeepingNumber", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: false },
+            { propertyName: "BookkeepingNumber", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: false },
             { propertyName: "City", validation: [{ func: validation.type, arguments: "string" }], require: true },
             { propertyName: "ConditionGushyPayment", validation: [{ func: validation.type, arguments: "string" },], require: false },
             { propertyName: "HomeNumber", validation: [{ func: validation.type, arguments: "number" }], require: true },
             { propertyName: "InsertUser", validation: [{ func: validation.type, arguments: "string" }], require: false },
-            { propertyName: "LicensedDealerNumber", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: true },
+            { propertyName: "LicensedDealerNumber", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: true },
             { propertyName: "ObjectiveBank", validation: [{ func: validation.notCheck, arguments: null }], require: false },
             { propertyName: "Ovligo", validation: [{ func: validation.type, arguments: "number" }], require: false },
             { propertyName: "Phone1", validation: [{ func: validation.correctPhone, arguments: null }], require: true },
             { propertyName: "Phone2", validation: [{ func: validation.correctPhone, arguments: null }], require: false },
             {
-                propertyName: "PreferredPaymentDate", validation: [{ func: validation.onlyNumbersInString, arguments: null },
+                propertyName: "PreferredPaymentDate", validation: [{ func: validation.onlyDigitsInString, arguments: null },
                 { func: validation.betweenNumbers, arguments: { "min": 1, "max": 30 } }], require: false
             },
             { propertyName: "Status", validation: [{ func: validation.type, arguments: "number" }], require: true },
             { propertyName: "Street", validation: [{ func: validation.type, arguments: "string" }], require: true },
-            { propertyName: "SupplierCode", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: true },
+            { propertyName: "SupplierCode", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: true },
             { propertyName: "SupplierName", validation: [{ func: validation.type, arguments: "string" }], require: true },
-            { propertyName: "ZipCode", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: false },
-            { propertyName: "Fax", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: false },
-            { propertyName: "Mail", validation: [{ func: validation.concretEmail, arguments: null }], require: false },
+            { propertyName: "ZipCode", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: false },
+            { propertyName: "Fax", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: false },
+            { propertyName: "Mail", validation: [{ func: validation.correctEmail, arguments: null }], require: false },
             { propertyName: "Notes", validation: [{ func: validation.notCheck, arguments: null }], require: false },
             { propertyName: "Mobile", validation: [{ func: validation.correctPhone, arguments: null }], require: false },
 
@@ -82,8 +82,8 @@ const createUpdateModulesValidations = [
         values: [
             { propertyName: "BranchName", validation: [{ func: validation.type, arguments: "string" }], require: true },
             { propertyName: "City", validation: [{ func: validation.type, arguments: "string" }], require: true },
-            { propertyName: "Fax", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: false },
-            { propertyName: "HomeNumber", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: true },
+            { propertyName: "Fax", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: false },
+            { propertyName: "HomeNumber", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: true },
             { propertyName: "Mail", validation: [{ func: validation.concretEmail, arguments: null }], require: false },
             { propertyName: "Mobile", validation: [{ func: validation.correctPhone, arguments: null }], require: false },
             { propertyName: "Notes", validation: [{ func: validation.required, arguments: null }], require: false },
@@ -91,9 +91,9 @@ const createUpdateModulesValidations = [
             { propertyName: "Phone2", validation: [{ func: validation.correctPhone, arguments: null }], require: false },
             { propertyName: "Status", validation: [{ func: validation.type, arguments: "number" }], require: true },
             { propertyName: "Street", validation: [{ func: validation.type, arguments: "string" }], require: true },
-            { propertyName: "SupplierCode", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: true },
+            { propertyName: "SupplierCode", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: true },
             { propertyName: "UserThatInsert", validation: [{ func: validation.type, arguments: "string" }], require: true },
-            { propertyName: "ZipCode", validation: [{ func: validation.onlyNumbersInString, arguments: null }], require: false },
+            { propertyName: "ZipCode", validation: [{ func: validation.onlyDigitsInString, arguments: null }], require: false },
 
         ],
     },
@@ -135,7 +135,7 @@ const createUpdateModulesValidations = [
             {
                 propertyName: "BookkeepingCode", validation: [
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }]
+                    { func: validation.onlyDigitsInString, arguments: null }]
             },
         ], require: true
     },
@@ -158,7 +158,7 @@ const createUpdateModulesValidations = [
             {
                 propertyName: "BookkeepingCode", validation: [
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }]
+                    { func: validation.onlyDigitsInString, arguments: null }]
             },
         ], require: true
     },
@@ -179,7 +179,7 @@ const createUpdateModulesValidations = [
             {
                 propertyName: "BookkeepingCode", validation: [
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }
+                    { func: validation.onlyDigitsInString, arguments: null }
                 ], require: true
             },
             {
@@ -204,8 +204,8 @@ const createUpdateModulesValidations = [
         objectName: "tbl_PricelistForProducts",
         values: [
 
-            { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "ProductId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
+            { propertyName: "ProductId", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
             { propertyName: "TableName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "Price", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
@@ -218,7 +218,7 @@ const createUpdateModulesValidations = [
     //         { propertyName: "Name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
     //         { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
     //         { propertyName: "Addition", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-    //         { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+    //         { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
     //         { propertyName: "Discount", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
 
     //     ]
@@ -238,26 +238,26 @@ const createUpdateModulesValidations = [
             {
                 propertyName: "ClientCode", validation: [
                     { func: validation.required, arguments: null },
-                    { func: validation.onlyNumbersInString, arguments: null },
+                    { func: validation.onlyDigitsInString, arguments: null },
                     { func: validation.clientCodeIsExistInSQL, arguments: { entityName: "Clients", field: "ClientCode" }}
                 ]
             },
             { propertyName: "ClientName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }, { func: validation.EnglishLettersOrHebrewLetters, arguments: null }] },
-            { propertyName: "PrivaetCompanyNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "DestinationBank", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "PaymentTermsFluent", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "PrivaetCompanyNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
+            { propertyName: "BookkeepingNumber", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
+            { propertyName: "DestinationBank", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
+            { propertyName: "PaymentTermsFluent", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
             // { propertyName: "PreferredPaymentDate", validation: [{ func: validation.dateType, arguments: null }, { func: validation.theDateAfterToday, arguments: null }] },
             { propertyName: "Ovligo", validation: [{ func: validation.type, arguments: "number" },] },
-            { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
-            { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "ReceiptIssueTerm", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
+            { propertyName: "ReceiptCentralism", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
             { propertyName: "AccountantClassifiedCode", validation: [{ func: validation.type, arguments: "number" },] },
             { propertyName: "Status", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "Description", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "Street", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
             { propertyName: "House", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "City", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyNumbersInString, arguments: null }] },
+            { propertyName: "ZipCode", validation: [{ func: validation.required, arguments: null }, { func: validation.onlyDigitsInString, arguments: null }] },
             { propertyName: "Telephone1", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "Telephone2", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
             { propertyName: "MobilePhone", validation: [{ func: validation.required, arguments: null }, { func: validation.correctPhone, arguments: null }] },
@@ -394,7 +394,7 @@ const findModulesValidations = [
             {
                 propertyName: "BookkeepingCode", validation: [
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }
+                    { func: validation.onlyDigitsInString, arguments: null }
                 ], require: false
             },
             {
@@ -436,7 +436,7 @@ const findModulesValidations = [
             {
                 propertyName: "BookkeepingCode", validation: [
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }
+                    { func: validation.onlyDigitsInString, arguments: null }
                 ], require: false
             },
             {
@@ -477,7 +477,7 @@ const findModulesValidations = [
             {
                 propertyName: "BookkeepingCode", validation: [
                     { func: validation.maxLength, arguments: 20 },
-                    { func: validation.onlyNumbersInString, arguments: null }
+                    { func: validation.onlyDigitsInString, arguments: null }
                 ], require: false
             },
             {

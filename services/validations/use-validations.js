@@ -1,11 +1,10 @@
 
+const { ErrorTypes } = require('../../utils/types');
 const { getValidationsModule } = require('./validations-objects')
 let i = 0;
 const checkObjectValidations = async (body, objName, find = false) => {
-    console.log("insert to use - validation");
     let errors = []
     try {
-        console.log(body, objName, 'bodyAndObjectname');
         const values = getValidationsModule(find).find(({ objectName }) => objName === objectName).values;
         for (let v of values) {
             if (!v.require && !body[v.propertyName]) {
@@ -24,17 +23,20 @@ const checkObjectValidations = async (body, objName, find = false) => {
             }
             if (v.require && !body[v.propertyName])
                 errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but does not exist` }];
-                
+
         }
         if (errors.length > 0) {
-            throw errors
+            const error = { type: ErrorTypes.VALIDATION }
+            error.data=errors
+            throw error
         }
         console.log("return true - validations");
-        return true;
+        return true
     }
     catch (error) {
-        console.log({error});
-        throw error;
+
+        console.log({ error });
+        throw error
     }
 };
 

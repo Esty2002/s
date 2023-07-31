@@ -43,10 +43,10 @@ const EnglishLetters  = (word) => {
     throw new Error(`the value ${word} not `)
 }
 
-const onlyNumbersInString = (numbersString) => {
+const onlyDigitsInString = (numbersString) => {
     if (/^\d*$/.test(numbersString))
         return true
-    throw new Error(`the value ${numbersString} is not only string`)
+    throw new Error(`the value ${numbersString} is required to be only digits`)
 }
 
 const notCheck = () => {
@@ -55,19 +55,12 @@ const notCheck = () => {
 const type = (value, arg) => {
     
     if (isNaN(value)) {
-        if (arg == "string") {
-            console.log('string@@@@');
-            return true
+        if (arg == "number") {
+            throw new Error(`the value ${value} is not typeof number`)
+    
         }
-        throw new Error(`the value ${value} is not typeof value`)
-
     }
-    if (arg == "number") {
-        console.log('num@@@');
-        return true
-
-    }
-    throw new Error(`the value ${value} is not typeof value`)
+    return true;
 
 }
 
@@ -212,14 +205,12 @@ const theDateBeforToday = (value) => {
     return true
 }
 const theDateAfterToday = (value) => {
-    console.log('dateeeeeee');
     let date3 = new Date(value)
     if ((date3 - new Date()) > 0) {
-        console.log('yyyuu date');
         return true
     }
 
-    throw new Error('the date befor today ')
+    throw new Error('the date is before today ')
 
 }
 const validation = {
@@ -229,7 +220,7 @@ const validation = {
     type: type,
     positiveNumber: positiveNumber,
     EnglishLetters: EnglishLetters,
-    onlyNumbersInString: onlyNumbersInString,
+    onlyDigitsInString: onlyDigitsInString,
     notCheck: notCheck,
     maxLength: maxLength,
     minLength: minLength,
@@ -245,7 +236,8 @@ const validation = {
     correctTable: correctTable,
     onlyLetters: onlyLetters,
     theDateAfterToday: theDateAfterToday,
-    theDateBeforToday: theDateBeforToday
+    theDateBeforToday: theDateBeforToday,
+    betweenNumbers:betweenNumbers
 }
 
 module.exports = { validation }

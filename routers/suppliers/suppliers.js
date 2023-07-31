@@ -2,50 +2,56 @@ const express = require('express');
 const router = express.Router();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { deleteSupplier, getAllSuppliers, insertOneSupplier, getSupplier, checkUnique, updateDetail, checkUniqueCode, checkUniqueName, countRowes } = require('../../modules/suppliers/suppliers');
+const { ErrorTypes } = require('../../utils/types');
 
 router.post('/deletesupplier', express.json(), async (req, res) => {
     try {
-        console.log('delete', new Date().toISOString())
         const response = await deleteSupplier(req.body)
-        console.log(response.status)
         if (response.status === 204)
-            res.status(response.status).send({ message: 'deleted' })
-        // res.status(200).send(true);
+            res.status(response.status).send({ message: 'deleted', data: {} })
         else {
-            res.status(500).send({ message: 'not deleted' })
+            res.status(500).send({ message: 'not deleted', dataL: {} })
         }
     } catch (error) {
-        console.log({ error })
         res.status(500).send(error.message)
     }
 })
 
 router.post('/insertsupplier', express.json(), async (req, res) => {
-    console.log("insertSupplier in router:):):):):):)", req.body);
     try {
         const response = await insertOneSupplier(req.body)
+        console.log({response})
         if (response)
-            res.status(201).send(response.data)
+            res.status(201).send({ message: '', data: response.data })
         else {
-            res.status(500).send(response.data)
+            res.status(500).send({ message: '', data: response.data })
         }
 
     } catch (error) {
-        if (error instanceof Array) {
-            res.status(500).send(error)
+        console.log({error})
+        if (error.type === ErrorTypes.VALIDATION) {
+            res.status(422).send(error)
         }
-        res.status(500).send(error.message)
+        else {
+            res.status(500).send({ message: 'server error', data: error.message })
+        }
     }
 })
 
 router.post('/updatesupplier', express.json(), async (req, res) => {
     try {
         const response = await updateDetail(req.body)
+
         if (response)
-            res.status(response.status).send(response.data)
+            res.status(response.status).send({ message: '', data: response.data })
 
     } catch (error) {
-        res.status(500).send(error.message)
+        if (error instanceof Array) {
+            res.status(422).send({ message: 'validation error', data: error })
+        }
+        else {
+            res.status(500).send({ message: 'server error', data: error.message })
+        }
     }
 })
 

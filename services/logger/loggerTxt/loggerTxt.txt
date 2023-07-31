@@ -83898,3 +83898,42 @@ description: all units of measure in router
         
 data: {error :Request failed with status code 404 }
 ----------------------------------
+next function:
+last time login in the action 'create' : Tue Jul 25 2023 - 1:27:29  
+        
+description: addPriceList in router
+        
+data: {dataThatRecived :{"Name":"akuo","Pumps":true,"Beton":false} 
+}
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Tue Jul 25 2023 - 1:27:29  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"akuo","Pumps":true,"Beton":false} 
+}
+----------------------------------
+next function:
+last time login in the action 'PriceList' : Tue Jul 25 2023 - 1:27:29  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"akuo","Pumps":true,"Beton":false} 
+}
+----------------------------------
+last time login in the action 'PriceList' : Tue Jul 25 2023 - 1:27:29  
+        
+description: insert in module
+        
+data: {dataThatRecived :{"Name":"akuo","Pumps":true,"Beton":false} 
+error :Request failed with status code 500 }
+----------------------------------
+next function:
+last time login in the action 'addPriceList' : Tue Jul 25 2023 - 1:27:29  
+        
+description: addPriceList in router- in try
+        
+data: {dataThatRecived :{"Name":"akuo","Pumps":true,"Beton":false} 
+error :Request failed with status code 500 }
+----------------------------------
