@@ -50,7 +50,6 @@ app.use('/updateClient', updateClient_router);
 
 app.use('/leads',router_leads);
 
-app.use(cors());
 // app.use('/leads', router_leads);
 app.use('/pricesNew', pricelist_router)
 app.use('/updateClient',updateClient_router)
@@ -80,9 +79,6 @@ app.use('/auto_complete', auto_complete);
 
 app.use('/api', api_router);
 
-app.get('/', (req, res) => {
-    res.status(200).send('hello buyton');
-});
 app.get('/*', (req, res) => {
     res.status(200).send('request not found');
 });

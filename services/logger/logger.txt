@@ -1,3 +1,997 @@
+<<<<<<< HEAD
+last time login in the function checkUnique : Tue Jul 11 2023 - 20:18:25  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+setting: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 11 2023 - 20:18:25  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 364545123451, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 11 2023 - 20:18:25  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {checkUniqueName in module - in try
+name: sgre, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Tue Jul 11 2023 - 20:19:58  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Tue Jul 11 2023 - 20:19:58  
+description: getallSuppliers in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function getallSuppliers : Tue Jul 11 2023 - 20:19:58  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Tue Jul 11 2023 - 20:19:58  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 11 2023 - 20:20:48  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+setting: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 11 2023 - 20:20:48  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 476511, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 11 2023 - 20:20:48  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {checkUniqueName in module - in try
+name: hgfhg, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 11 2023 - 20:23:07  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+setting: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 11 2023 - 20:23:07  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 5675611, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 11 2023 - 20:23:07  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {checkUniqueName in module - in try
+name: fdsg, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 11 2023 - 20:23:07  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 11 2023 - 20:23:07  
+description: insertsupplier in router - in try
+        
+error: {validation}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 11 2023 - 20:24:31  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+setting: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 11 2023 - 20:24:31  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 5436, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 11 2023 - 20:24:31  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {checkUniqueName in module - in try
+name: xdgfs, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 11 2023 - 20:24:31  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 11 2023 - 20:24:31  
+description: insertsupplier in router - in try
+        
+error: {validation}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:23:23  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 12:23:23  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: undefined, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 12:23:23  
+description: checkUnique in module - in try
+        
+error: {error is not defined}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:23:23  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:23:23  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:28:31  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 12:28:31  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: undefined, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 12:28:32  
+description: checkUnique in module - in try
+        
+error: {error is not defined}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:28:32  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:28:32  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:32:11  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 12:32:11  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: undefined, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 12:32:11  
+description: checkUnique in module - in try
+        
+error: {error is not defined}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:41:25  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:41:25  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:41:25  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 12:41:25  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:26:45  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 7648768, 
+SupplierName: fjuhgyj, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 12 2023 - 13:26:45  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 7648768, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 12 2023 - 13:26:45  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {fjuhgyj}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 12 2023 - 13:26:45  
+description: checkUniqueName in module - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:27:08  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 7648768, 
+SupplierName: fjuhgyj, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 12 2023 - 13:27:08  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 7648768, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 12 2023 - 13:27:08  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {fjuhgyj}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 13:27:33  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:27:33  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: undefined, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:27:33  
+description: checkUnique in module - in try
+        
+error: {error is not defined}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 13:27:33  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 13:27:33  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:39:23  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 66557, 
+SupplierName: gol, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 12 2023 - 13:39:23  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 66557, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 12 2023 - 13:39:23  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {gol}
+----------------------------------
+last time login in the function undefined : Wed Jul 12 2023 - 13:39:23  
+description: undefined
+        
+error: {checkObjectValidations is not defined}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:41:24  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 665543, 
+SupplierName: dfgh, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 12 2023 - 13:41:24  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 665543, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 12 2023 - 13:41:24  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {dfgh}
+----------------------------------
+last time login in the function undefined : Wed Jul 12 2023 - 13:41:24  
+description: undefined
+        
+error: {req is not defined}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:45:09  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 334432, 
+SupplierName: sdfg, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 12 2023 - 13:45:09  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 334432, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 12 2023 - 13:45:09  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {sdfg}
+----------------------------------
+last time login in the function undefined : Wed Jul 12 2023 - 13:45:09  
+description: undefined
+        
+error: {the value 34 not betweenNumbers }
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 13:49:33  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:49:33  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: undefined, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 12 2023 - 13:49:33  
+description: checkUnique in module - in try
+        
+error: {error is not defined}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 13:49:33  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Wed Jul 12 2023 - 13:49:33  
+description: getallSuppliers in router - in try
+        
+error: {connect ECONNREFUSED 127.0.0.1:1313}
+----------------------------------
+last time login in the function checkUnique : Sun Jul 16 2023 - 13:34:15  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 354, 
+SupplierName: fghfdg, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Sun Jul 16 2023 - 13:34:15  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 354, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Sun Jul 16 2023 - 13:34:15  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {fghfdg}
+----------------------------------
+last time login in the function undefined : Sun Jul 16 2023 - 13:34:15  
+description: undefined
+        
+error: {valid.func is not a function}
+----------------------------------
+last time login in the function undefined : Sun Jul 16 2023 - 14:04:38  
+description: undefined
+        
+error: {valid.func is not a function}
+----------------------------------
+last time login in the function undefined : Sun Jul 16 2023 - 14:51:24  
+description: undefined
+        
+error: {valid.func is not a function}
+----------------------------------
+last time login in the function insertsupplier : Sun Jul 16 2023 - 14:54:24  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Sun Jul 16 2023 - 14:58:08  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Sun Jul 16 2023 - 14:59:09  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 18 2023 - 13:14:27  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 5786, 
+SupplierName: ghj, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 18 2023 - 13:14:27  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 5786, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 13:14:27  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {ghj}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:14:27  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 18 2023 - 13:24:08  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 35454, 
+SupplierName: dgfh, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 18 2023 - 13:24:08  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 35454, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 13:24:08  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {dgfh}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:24:08  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function getallSuppliers : Tue Jul 18 2023 - 13:38:07  
+description: getallSuppliers in router - in try
+        
+dataThatRecived: {getallSuppliers in router - in try
+query: 0, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 18 2023 - 13:38:07  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: undefined, 
+
+}
+----------------------------------
+last time login in the function checkUnique : Tue Jul 18 2023 - 13:38:07  
+description: checkUnique in module - in try
+        
+error: {error is not defined}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:38:51  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:40:10  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:41:11  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:42:12  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:43:21  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:44:38  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:45:00  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:45:38  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:45:56  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:46:42  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:47:21  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:48:12  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 13:48:12  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {Nhama}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:48:12  
+description: insertsupplier in router - in try
+        
+error: {objectFile is not defined}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:50:32  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 13:50:32  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {Nhama}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:50:32  
+description: insertsupplier in router - in try
+        
+error: {objectFile is not defined}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:52:43  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 13:52:43  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {Nhama}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 18 2023 - 13:52:43  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 115546, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:52:43  
+description: insertsupplier in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:54:08  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 13:54:08  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {aaaaa}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 18 2023 - 13:54:08  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 894537, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 13:54:08  
+description: insertsupplier in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 15:43:40  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 15:43:40  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {aaaaa}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 18 2023 - 15:43:40  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 894537, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 15:43:40  
+description: insertsupplier in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 15:45:59  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Tue Jul 18 2023 - 15:45:59  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {aaaaa}
+----------------------------------
+last time login in the function checkUniqueCode : Tue Jul 18 2023 - 15:45:59  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 7865667, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Tue Jul 18 2023 - 15:45:59  
+description: insertsupplier in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function checkUnique : Wed Jul 19 2023 - 12:10:00  
+description: checkUnique in module - in try
+        
+dataThatRecived: {checkUnique in module - in try
+SupplierCode: 6476575, 
+SupplierName: fghj, 
+
+}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 19 2023 - 12:10:00  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 6476575, 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 19 2023 - 12:10:00  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {fghj}
+----------------------------------
+last time login in the function insertsupplier : Wed Jul 19 2023 - 12:10:00  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 19 2023 - 12:10:00  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {fghj}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 19 2023 - 12:10:00  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 6476575, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Wed Jul 19 2023 - 12:10:00  
+description: insertsupplier in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function insertsupplier : Wed Jul 19 2023 - 12:16:53  
+description: insertsupplier in router - in try
+        
+dataThatRecived: {insertsupplier in router - in try
+object: [object Object], 
+
+}
+----------------------------------
+last time login in the function checkUniqueName : Wed Jul 19 2023 - 12:16:53  
+description: checkUniqueName in module - in try
+        
+dataThatRecived: {goldy yosko}
+----------------------------------
+last time login in the function checkUniqueCode : Wed Jul 19 2023 - 12:16:53  
+description: checkUniqueCode in module - in try
+        
+dataThatRecived: {checkUniqueCode in module - in try
+code: 1448867, 
+
+}
+----------------------------------
+last time login in the function insertsupplier : Wed Jul 19 2023 - 12:16:53  
+description: insertsupplier in router - in try
+        
+error: {read ECONNRESET}
+----------------------------------
+last time login in the function undefined : Wed Jul 19 2023 - 12:24:41  
+description: undefined
+        
+error: {suppliers
+BookkeepingNumber: 65, 
+City: ghfd, 
+ConditionGushyPayment: ghf, 
+Disabled: 0, 
+Fax: 088987654, 
+HomeNumber: 6, 
+InsertUser: develop, 
+LicensedDealerNumber: 5364, 
+Mail: g@gmail.com, 
+Mobile: 0533112345, 
+Notes: i love you, 
+ObjectiveBank: gfh, 
+Ovligo: 45, 
+Phone1: 088987654, 
+Phone2: 088987654, 
+PreferredPaymentDate: 6, 
+Status: 1, 
+Street: gfd, 
+SupplierCode: 1448867, 
+SupplierName: goldy yosko, 
+ZipCode: 654, 
+
+
+
+}
+----------------------------------
+last time login in the function undefined : Wed Jul 19 2023 - 12:26:00  
+description: undefined
+        
+error: {Suppliers
+BookkeepingNumber: 65, 
+City: ghfd, 
+ConditionGushyPayment: ghf, 
+Disabled: 0, 
+Fax: 088987654, 
+HomeNumber: 6, 
+InsertUser: develop, 
+LicensedDealerNumber: 5364, 
+Mail: g@gmail.com, 
+Mobile: 0533112345, 
+Notes: i love you, 
+ObjectiveBank: gfh, 
+Ovligo: 45, 
+Phone1: 088987654, 
+Phone2: 088987654, 
+PreferredPaymentDate: 6, 
+Status: 1, 
+Street: gfd, 
+SupplierCode: 1448867, 
+SupplierName: goldy yosko, 
+ZipCode: 654, 
+
+
+
+}
+----------------------------------
+last time login in the function undefined : Wed Jul 19 2023 - 12:49:45  
+description: undefined
+        
+error: {Suppliers
+BookkeepingNumber: 65, 
+City: ghfd, 
+ConditionGushyPayment: ghf, 
+Disabled: 0, 
+Fax: 088987654, 
+HomeNumber: 6, 
+InsertUser: develop, 
+LicensedDealerNumber: 5364, 
+Mail: g@gmail.com, 
+Mobile: 0533112345, 
+Notes: i love you, 
+ObjectiveBank: gfh, 
+Ovligo: 45, 
+Phone1: 088987654, 
+Phone2: 088987654, 
+PreferredPaymentDate: 6, 
+Status: 1, 
+Street: gfd, 
+SupplierCode: 1448867, 
+SupplierName: goldy yosko, 
+ZipCode: 654, 
+
+
+=======
 last time login in the function create : Thu Jun 29 2023 - 15:02:42  
 description: addPriceList in router
         
@@ -8345,6 +9339,7 @@ UserName: yyy,
 Debit: true, 
 SupplierOrClient: 1001,1001, 
 >>>>>>> Tovi
+>>>>>>> 5529a858572555973b6af1d3fdb55be0dc4b5ce8
 
 }
 ----------------------------------

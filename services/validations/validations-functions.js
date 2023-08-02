@@ -38,33 +38,29 @@ const onlyLetters = (word) => {
     return true;
 }
 const EnglishLetters = (word) => {
-    return /^\w[a-z,A-Z]*$/.test(word)
+    if (/^\w[a-z,A-Z]*$/.test(word))
+        return true
+    throw new Error(`the value ${word} not `)
 }
 
-const onlyNumbersInString = (numbersString) => {
+const onlyDigitsInString = (numbersString) => {
     if (/^\d*$/.test(numbersString))
         return true
-    throw new Error(`the value ${numbersString} is not only string`)
+    throw new Error(`the value ${numbersString} is required to be only digits`)
 }
 
 const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
+
     if (isNaN(value)) {
-        if (arg == "string") {
-            console.log('string@@@@');
-            return true
+        if (arg == "number") {
+            throw new Error(`the value ${value} is not typeof number`)
+
         }
-        throw new Error(`the value ${value} is not typeof value`)
-
     }
-    if (arg == "number") {
-        console.log('num@@@');
-        return true
-
-    }
-    throw new Error(`the value ${value} is not typeof value`)
+    return true;
 
 }
 
@@ -92,7 +88,12 @@ const betweenLength = (value, arg) => {
         return true
     throw new Error(`the value ${value} is not betweenLength`)
 }
+const betweenNumbers = (value, arg) => {
+    if (value > arg.min && value < arg.max)
+        return true
+    throw new Error(`the value ${value} not betweenNumbers `)
 
+}
 const specificLength = (value, len) => {
     if (value.length == len) {
         return true;
@@ -100,32 +101,26 @@ const specificLength = (value, len) => {
     throw new Error(`the length of the ${value} is not correct`);
 }
 
-const clientCodeIsExistInSQL = async (field, arg) => {
-    let entityName1 = arg.entityName;
-    let condition = {}
-    condition[arg.field] = field;
+// const clientCodeIsExistInDB = async (field, arg) => {
+//     let entityName1 = arg.entityName;
+//     let condition = {}
+//     condition[arg.field] = field;
+//     let ans = await getData(`/read/readOne/${entityName1}`, condition)
+//     if (ans.data.length == 0) {
+//         return true;
+//     }
+//     else {
+//         throw new Error(`the ${val}: ${field} is not unique`);
+//     }
+// }
 
-    let ans = await getData(`/read/readMany/${entityName1}`, condition)
-    if (ans.data.length == 0) {
-        return true;
-    }
-    else {
-        throw new Error(`the ${val}: ${field} is not unique`);
-    }
-}
-
-const recordExistInTable = async (value, arg) => {
-    console.log("4444--", value, arg);
-    const { tableName, field, exist } = arg;
-    console.log("555", tableName);
+const recordExistInDB = async (value, arg) => {
+    const { entityName, field, exist } = arg;
     try {
-        console.log(tableName, field, exist, 'entityName, field, exist');
-        let o ={}
-        o[field]=value
-        console.log({o});
-        let ans = await getData(`read/readOne/${tableName}`,o)
-        console.log('recordExistInTable aaaaaa');
-
+        console.log(entityName, field, exist, 'entityName, field, exist');
+        const condition = {}
+        condition[arg.field] = value;
+        let ans = await getData(`/read/readOne/${entityName}`, condition)
         if (exist) {
             if (ans.data.length > 0) {
                 return true
@@ -146,7 +141,6 @@ const recordExistInTable = async (value, arg) => {
     catch (error) {
         throw error
     }
-
 };
 
 const correctEmail = (value) => {
@@ -210,40 +204,38 @@ const theDateBeforToday = (value) => {
     return true
 }
 const theDateAfterToday = (value) => {
-    console.log('dateeeeeee');
     let date3 = new Date(value)
     if ((date3 - new Date()) > 0) {
-        console.log('yyyuu date');
         return true
     }
 
-    throw new Error('the date befor today ')
+    throw new Error('the date is before today ')
 
 }
 const validation = {
-    required: required,
-    dateType: dateType,
-    correctPhone: correctPhone,
-    type: type,
-    positiveNumber: positiveNumber,
-    EnglishLetters: EnglishLetters,
-    onlyNumbersInString: onlyNumbersInString,
-    notCheck: notCheck,
-    maxLength: maxLength,
-    minLength: minLength,
-    betweenLength: betweenLength,
-    specificLength: specificLength,
-    bit: bit,
-    clientCodeIsExistInSQL: clientCodeIsExistInSQL,
-    correctEmail: correctEmail,
-    dateInFuture: dateInFuture,
-    hourType: hourType,
-    checkConcretItem: checkConcretItem,
-    recordExistInTable: recordExistInTable,
-    correctTable: correctTable,
-    onlyLetters: onlyLetters,
-    theDateAfterToday: theDateAfterToday,
-    theDateBeforToday: theDateBeforToday
+    required,
+    dateType,
+    correctPhone,
+    type,
+    positiveNumber,
+    EnglishLetters,
+    onlyDigitsInString,
+    notCheck,
+    maxLength,
+    minLength,
+    betweenLength,
+    specificLength,
+    bit,
+    correctEmail,
+    dateInFuture,
+    hourType,
+    checkConcretItem,
+    recordExistInDB,
+    correctTable,
+    onlyLetters,
+    theDateAfterToday,
+    theDateBeforToday,
+    betweenNumbers
 }
 
 module.exports = { validation }

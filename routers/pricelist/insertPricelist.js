@@ -245,7 +245,7 @@ router.post('/addAdditionsForPricelist', express.json(), async (req, res) => {
     }
 })
 
-router.get('/getIdForPricelistName/:name', async (req, res) => {
+router.post('/getIdForPricelistName/:name', async (req, res) => {
     let objForLog;
     try {
         let objForLog = {
@@ -254,7 +254,7 @@ router.get('/getIdForPricelistName/:name', async (req, res) => {
             pricelistName: req.params.name,
         }
         logToFile(objForLog)
-        const result = await getId(req.params.name, 'tbl_PriceList')
+        const result = await getId(req.params.name, 'PriceList')
         let obj = { id: result.data[0].Id }
         if (result.status === 200) {
             res.status(200).send(obj);
@@ -269,22 +269,18 @@ router.get('/getIdForPricelistName/:name', async (req, res) => {
         res.status(500).send(error.message)
     }
 
-    //if i send a prameter that it isn't an object it fell on mistake, because res.send can send onli object
-    //the mistake seem like this:
-    // ErrorCaptureStackTrace(err);
-    //  [ERR_HTTP_INVALID_STATUS_CODE]: Invalid status code: 75
 })
 
-router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
+router.get('/detailsOfProfucts/:entityName', express.json(), async (req, res) => {
     let objForLog
     try {
         objForLog = {
             name: 'detailsOfProfucts',
             description: 'detailsOfProfucts in router expect to get a table name',
-            dataThatRecived: req.params.tbname
+            dataThatRecived: req.params.entityName
         }
         logToFile(objForLog)
-        const result = await getProducts(req.params.tbname)
+        const result = await getProducts(req.params.entityName)
         if (result.status === 201)
             res.status(201).send(result.data)
         else
@@ -298,47 +294,49 @@ router.post('/detailsOfProfucts/:tbname', express.json(), async (req, res) => {
     }
 })
 
-router.post('/updateFieldInTable/:id/:tbName', express.json(), async (req, res) => {
+router.post('/updateFieldInTable/:id/:entityName', express.json(), async (req, res) => {
     let objForLog
     try {
-        console.log(req.params.id, req.params.tbName, req.body, ' req.params.id, req.params.tbName, req.body');
         objForLog = {
             name: 'updateFieldInTable',
             description: 'updateFieldInTable in router, expect to get an id and a table name',
             id: req.params.id,
-            tbname: req.params.tbName,
+            entityName: req.params.entityName,
             values: req.body
         }
-        logToFile(object)
-        const result = await updateField(req.params.id, req.params.tbName, req.body)
+        logToFile(objForLog)
+        const result = await updateField(req.params.id, req.params.entityName, req.body)
         if (result.status === 204)
-            res.status(204).send(true)
+            res.status(204).send({message:true})
         else
             res.status(result.status).send(false)
     }
     catch (error) {
-        objForLog.error = error.message
         logToFile(objForLog)
-        if (error instanceof Array)
+        if (error instanceof Array){
+            objForLog.error = error
             res.status(500).send(error)
-        else
+        }
+        else{
+            objForLog.error = error.message
             res.status(500).send(error.message);
+        }
 
     }
 })
 
-router.get('/getIdForBuytonDescribe/:name/:tbName', async (req, res) => {
+router.post('/getIdForBuytonDescribe/:name/:entityName', async (req, res) => {
     let objForLog
     try {
         objForLog = {
             name: 'getIdForBuytonDescribe',
             description: 'getIdForBuytonDescribe in router',
             describe: req.params.name,
-            tbname: req.params.tbName
+            entityName: req.params.entityName
         }
         logToFile(objForLog)
-        let response = await getIdForBuytonDescribe(req.params.name, req.params.tbName)
-        let result = await getNumber(response, req.params.tbName)
+        let response = await getIdForBuytonDescribe(req.params.name, req.params.entityName)
+        let result = await getNumber(response, req.params.entityName)
         let obj = { id: result }
         if (response.status == 201) {
             res.status(201).send(obj)

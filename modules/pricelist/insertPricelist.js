@@ -1,4 +1,4 @@
-const { postData, getData } = require('../../services/axios')
+const { postData, getData,putData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const values = [
@@ -6,7 +6,7 @@ const values = [
         entity: "PriceList",
         func: ({ Name = null, Pumps = null, Beton = null, UserName = null }) => {
             return {
-                entityName: "PriceList",
+                tableName: "PriceList",
                 values: {
                     Name: Name,
                     Pumps: Pumps,
@@ -23,7 +23,7 @@ const values = [
         entity: "CitiesAdditions",
         func: ({ PriceListId = null, ProductId = null, AreaId = null, Price = null, CountPrecent = null, UserName = null }) => {
             return {
-                entityName: "CitiesAdditions",
+                tableName: "CitiesAdditions",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -40,7 +40,7 @@ const values = [
         entity: "TimeAdditions",
         func: ({ PriceListId = null, ProductId = null, Price = null, CountPrecent = null, DayOfWeek = null, StartDate = null, EndDate = null, UserName = null }) => {
             return {
-                entityName: "TimeAdditions",
+                tableName: "TimeAdditions",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -59,7 +59,7 @@ const values = [
         entity: "AdditionsForDistance",
         func: ({ PriceListId = null, ProductId = null, Distance = null, Price = null, CountPrecent = null, UserName = null }) => {
             return {
-                entityName: "AdditionsForDistance",
+                tableName: "AdditionsForDistance",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -76,7 +76,7 @@ const values = [
         entity: "TruckFill",
         func: ({ PriceListId = null, ProductId = null, AmountTransportDiff = null, MaxTransportDiff = null, Price = null }) => {
             return {
-                entityName: "TruckFill",
+                tableName: "TruckFill",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -92,7 +92,7 @@ const values = [
         entity: "PricesListBySupplierOrClient",
         func: ({ PriceListId = null, SupplierOrClient = null, Debit = null, Credit = null, AreaId = null, StartDate = null, EndDate = null, UserName = null }) => {
             return {
-                entityName: "PricesListBySupplierOrClient",
+                tableName: "PricesListBySupplierOrClient",
                 values: {
                     PriceListId: PriceListId,
                     SupplierOrClient: SupplierOrClient,
@@ -109,9 +109,9 @@ const values = [
     },
     {
         entity: "PricelistForProducts",
-        func: ({ PriceListId = null, ProductId = null, entityName = null, Price = null, Discount = null, UserName = null }) => {
+        func: ({ PriceListId = null, ProductId = null, TableName = null, Price = null, Discount = null, UserName = null }) => {
             return {
-                entityName: "PricelistForProducts",
+                tableName: "PricelistForProducts",
                 values: {
                     PriceListId: PriceListId,
                     ProductId: ProductId,
@@ -129,7 +129,7 @@ const values = [
         entity: "FinishProducts",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
             return {
-                entityName: "FinishProducts",
+                tableName: "FinishProducts",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -145,7 +145,7 @@ const values = [
         entity: "Additions",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
             return {
-                entityName: "Additions",
+                tableName: "Additions",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -189,19 +189,27 @@ async function insert(data, entityName) {
         throw error
     }
 }
-async function getProducts(tbName) {
+async function getProducts(entityName) {
     let objForLog = {
         name: 'detailsOfProfucts',
         description: 'getProducts in module',
-        dataThatRecived: tbName
+        dataThatRecived: entityName
     }
     logToFile(objForLog)
-    let obj = {}
-    obj['entityName'] = tbName
-    obj['columns'] = '*'
-
-    const response = await postData('/read/readTopN', obj)
-    return response.data;
+    try {
+        let obj = {}
+        obj.columns = '*'
+        const response = await getData(`/read/readMany/${entityName}`)
+        if (response.data)
+            return response;
+        else
+            throw new Error('data not found')
+    }
+    catch (error) {
+        objForLog.error = error.message
+        logToFile(objForLog)
+        throw error
+    }
 }
 
 async function updateField(id, entityName, value) {
@@ -221,23 +229,23 @@ async function updateField(id, entityName, value) {
         }
 
         obj.entityName = entityName
-        obj.condition = {Id:id}
+        obj.condition = { Id: id }
         obj.values = value
-        const response = await postData('update/update', obj)
-        if (response){
+        const response = await putData('update/updateone', obj)
+        if (response) {
             return response
         }
         else
             throw new Error('data not found')
     }
     catch (error) {
-      
+
         objForLog.error = error.message
         logToFile(objForLog)
         throw error
     }
 }
-async function getId(name, tbName) {
+async function getId(name, entityName) {
     let objForLog = {
         name: 'getIdForPricelistName',
         description: 'getId in module',
@@ -245,13 +253,13 @@ async function getId(name, tbName) {
     }
     logToFile(objForLog)
     try {
-        let condition = `Name='${name}'`
-        console.log({ condition });
-        const response = await getData(`/read/readAll/${tbName}/${condition}`)
-        if (response.data.length > 0){
+        let obj = {}
+        obj.condition = { Name: name }
+        const response = await postData(`/read/readMany/${entityName}`, obj)
+        if (response.data.length > 0) {
             return response
         }
-        else{
+        else {
             throw new Error('data not found')
         }
     }
@@ -262,19 +270,22 @@ async function getId(name, tbName) {
     }
 }
 
-async function getIdForBuytonDescribe(name, tbName) {
+async function getIdForBuytonDescribe(name, entityName) {
     let objForLog = {
         name: 'read',
         description: 'getIdForBuytonDescribe in module expects: name, tbname',
         describe: name,
-        tbName
+        entityName
     }
     logToFile(objForLog)
     try {
-        let field = tbName.substring(10)
+        let obj = {}
+        let field = entityName.substring(10)
         field = field + 'Describe'
-        let condition = `${field}='${name}'`
-        const response = await getData(`/read/readAll/${tbName}/${condition}`)
+        // let condition = `${field}='${name}'`
+        obj.entityName = entityName
+        obj.condition = { [field]: name }
+        const response = await postData(`/read/readMany/${entityName}`, obj)
         if (response.data.length > 0)
             return response;
         else
