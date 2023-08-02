@@ -20,7 +20,6 @@ router.post('/deletesupplier', express.json(), async (req, res) => {
 router.post('/insertsupplier', express.json(), async (req, res) => {
     try {
         const response = await insertOneSupplier(req.body)
-        console.log({response})
         if (response)
             res.status(201).send({ message: '', data: response.data })
         else {
@@ -28,7 +27,6 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
         }
 
     } catch (error) {
-        console.log({error})
         if (error.type === ErrorTypes.VALIDATION) {
             res.status(422).send(error)
         }

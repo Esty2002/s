@@ -37,8 +37,8 @@ const positiveNumber = (number) => {
 const onlyLetters = (word) => {
     return true;
 }
-const EnglishLetters  = (word) => {
-    if( /^\w[a-z,A-Z]*$/.test(word))
+const EnglishLetters = (word) => {
+    if (/^\w[a-z,A-Z]*$/.test(word))
         return true
     throw new Error(`the value ${word} not `)
 }
@@ -53,11 +53,11 @@ const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
-    
+
     if (isNaN(value)) {
         if (arg == "number") {
             throw new Error(`the value ${value} is not typeof number`)
-    
+
         }
     }
     return true;
@@ -89,10 +89,10 @@ const betweenLength = (value, arg) => {
     throw new Error(`the value ${value} is not betweenLength`)
 }
 const betweenNumbers = (value, arg) => {
-    if( value>arg.min&&value<arg.max)
+    if (value > arg.min && value < arg.max)
         return true
     throw new Error(`the value ${value} not betweenNumbers `)
-    
+
 }
 const specificLength = (value, len) => {
     if (value.length == len) {
@@ -101,26 +101,26 @@ const specificLength = (value, len) => {
     throw new Error(`the length of the ${value} is not correct`);
 }
 
-const clientCodeIsExistInSQL = async (field, arg) => {
-    let entityName1 = arg.entityName;
-    let condition = {}
-    condition[arg.field] = field;
-    let ans = await getData(`/read/readMany/${entityName1}`, condition)
-    if (ans.data.length == 0) {
-        return true;
-    }
-    else {
-        throw new Error(`the ${val}: ${field} is not unique`);
-    }
-}
+// const clientCodeIsExistInDB = async (field, arg) => {
+//     let entityName1 = arg.entityName;
+//     let condition = {}
+//     condition[arg.field] = field;
+//     let ans = await getData(`/read/readOne/${entityName1}`, condition)
+//     if (ans.data.length == 0) {
+//         return true;
+//     }
+//     else {
+//         throw new Error(`the ${val}: ${field} is not unique`);
+//     }
+// }
 
-const recordExistInTable = async (value, arg) => {
+const recordExistInDB = async (value, arg) => {
     const { entityName, field, exist } = arg;
     try {
         console.log(entityName, field, exist, 'entityName, field, exist');
-        let ans = await getData(`read/exist/${entityName}/${field}/${value}`)
-        console.log('recordExistInTable aaaaaa');
-
+        const condition = {}
+        condition[arg.field] = value;
+        let ans = await getData(`/read/readOne/${entityName}`, condition)
         if (exist) {
             if (ans.data.length > 0) {
                 return true
@@ -141,7 +141,6 @@ const recordExistInTable = async (value, arg) => {
     catch (error) {
         throw error
     }
-
 };
 
 const correctEmail = (value) => {
@@ -214,30 +213,29 @@ const theDateAfterToday = (value) => {
 
 }
 const validation = {
-    required: required,
-    dateType: dateType,
-    correctPhone: correctPhone,
-    type: type,
-    positiveNumber: positiveNumber,
-    EnglishLetters: EnglishLetters,
-    onlyDigitsInString: onlyDigitsInString,
-    notCheck: notCheck,
-    maxLength: maxLength,
-    minLength: minLength,
-    betweenLength: betweenLength,
-    specificLength: specificLength,
-    bit: bit,
-    clientCodeIsExistInSQL: clientCodeIsExistInSQL,
-    correctEmail: correctEmail,
-    dateInFuture: dateInFuture,
-    hourType: hourType,
-    checkConcretItem: checkConcretItem,
-    recordExistInTable: recordExistInTable,
-    correctTable: correctTable,
-    onlyLetters: onlyLetters,
-    theDateAfterToday: theDateAfterToday,
-    theDateBeforToday: theDateBeforToday,
-    betweenNumbers:betweenNumbers
+    required,
+    dateType,
+    correctPhone,
+    type,
+    positiveNumber,
+    EnglishLetters,
+    onlyDigitsInString,
+    notCheck,
+    maxLength,
+    minLength,
+    betweenLength,
+    specificLength,
+    bit,
+    correctEmail,
+    dateInFuture,
+    hourType,
+    checkConcretItem,
+    recordExistInDB,
+    correctTable,
+    onlyLetters,
+    theDateAfterToday,
+    theDateBeforToday,
+    betweenNumbers
 }
 
 module.exports = { validation }

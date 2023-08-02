@@ -1,22 +1,27 @@
 const express = require('express')
 const router = express.Router()
 const { addOneClient } = require('../../modules/clients/createClient')
-const {checkObjectValidations}=require('../../services/validations/use-validations')
+const { checkObjectValidations } = require('../../services/validations/use-validations')
+const { ErrorTypes } = require('../../utils/types')
 router.post('/add', express.json(), async (req, res) => {
     try {
-        let ans=await checkObjectValidations(req.body,'Clients')
-        if(ans){
-        const response =await addOneClient(req.body)
-        if (response.status == 201)
-            res.status(201).send(response.data)
-        else {
-            res.status(response.status).send('')
+        let ans = await checkObjectValidations(req.body, 'Clients')
+        if (ans) {
+            const response = await addOneClient(req.body)
+            if (response.status == 201)
+                res.status(201).send(response.data)
+            else {
+                res.status(response.status).send('')
+            }
         }
-       }
 
-} catch (error) {
-    console.log(error.message)
-        res.status(500).send(error.message)
+    } catch (error) {
+        if (error.type === ErrorTypes.VALIDATION) {
+            res.status(422).send(error)
+        }
+        else {
+            res.status(500).send(error.message)
+        }
     }
 })
 
