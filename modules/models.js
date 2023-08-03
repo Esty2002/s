@@ -8,7 +8,7 @@ const types = {
 //clients
 const models = {
     measure: {
-        table: 'tbl_UnitOfMeasure',
+        entity: 'UnitOfMeasure',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -23,7 +23,7 @@ const models = {
         deleteUrl:'/unitOfMeasure/delete'
     },
     client: {
-        table: 'tbl_Clients',
+        entity: 'Clients',
         fields:
         {
 
@@ -65,7 +65,7 @@ const models = {
     },
     status: {
 
-        table: 'tbl_Status',
+        entity: 'Status',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -78,7 +78,7 @@ const models = {
     },
     //areas
     areas: {
-        table: 'tbl_Areas',
+        entity: 'Areas',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -92,7 +92,7 @@ const models = {
     },
     //priceList
     priceList: {
-        table: 'tbl_PriceList',
+        entity: 'PriceList',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -110,7 +110,7 @@ const models = {
         deleteUrl:''
     },
     price: {
-        table: 'tbl_Prices',
+        entity: 'Prices',
         fields:
         {
             //to check if it PriceListId or Id
@@ -127,7 +127,7 @@ const models = {
         updateUrl: ''
     },
     pricesListBySupplierOrClient: {
-        table: 'tbl_PricesListBySupplierOrClient',
+        entity: 'PricesListBySupplierOrClient',
         fields:
         {
 
@@ -148,7 +148,7 @@ const models = {
         deleteUrl:''
     },
     quotation: {
-        table: 'tbl_Quotation',
+        entity: 'Quotation',
         fields:
         {
             //to check
@@ -177,7 +177,7 @@ const models = {
         deleteUrl:''
     },
     suppliers: {
-        table: 'tbl_Suppliers',
+        entity: 'Suppliers',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -212,7 +212,7 @@ const models = {
         deleteUrl:''
     },
     branches: {
-        table: 'tbl_Branches',
+        entity: 'Branches',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -241,7 +241,7 @@ const models = {
         deleteUrl:'/branches/deletebranches'
     },
     finishProducts: {
-        table: 'tbl_FinishProducts',
+        entity: 'FinishProducts',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -258,7 +258,7 @@ const models = {
         deleteUrl:''
     },
     pumps: {
-        table: 'tbl_Pumps',
+        entity: 'Pumps',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -276,7 +276,7 @@ const models = {
         deleteUrl:''
     },
     additions: {
-        table: 'tbl_Additions',
+        entity: 'Additions',
         fields:
         {
             Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -294,7 +294,7 @@ const models = {
     },
     basicProducts: {
         //למה אין את הטבלה
-        table: 'tbl_BasicProducts',
+        entity: 'BasicProducts',
         fields:
         {
             KodParit: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -311,7 +311,7 @@ const models = {
     },
    
     // leads: {
-    //     table: 'tbl_Leads',
+    //     entity: 'Leads',
     //     fields:
     //     {
     //         Id: { type: types.INTEGER, insert: false, update: false, key: true, unique: true },
