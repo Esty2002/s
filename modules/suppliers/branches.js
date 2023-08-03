@@ -118,8 +118,9 @@ async function deleteBranches(object) {
 }
 
 function checkValid(object) {
-    let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1", "UserThatInsert"];
+    let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1"/*, "UserThatInsert"*/];
     let array = Object.keys(object);
+    console.log("must-----",array);
     for (let i = 0; i < mustKeys.length; i++) {
         if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && object[mustKeys[i]] === "")) {
             return false;

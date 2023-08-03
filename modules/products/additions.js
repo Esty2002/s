@@ -7,10 +7,10 @@ const { findMeasureName, findMeasureNumber } = require('./measure')
 
 const values = [
     {
-        entity: "Additions",
+        entity: "additions",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate=null ,Enabled=null,DeleteDate=null}) => {
             return {
-                entityName: "Additions",
+                entityName: "additions",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,

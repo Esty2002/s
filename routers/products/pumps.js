@@ -27,7 +27,9 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
+        console.log("im in pump");
         const response = await insertPump(req.body)
+        console.log("respoon",response);
         if (response.status === 201)
             res.status(201).send(true)
         else

@@ -23,6 +23,8 @@ const areas_router = require('./routers/areas/areas');
 const createClient_router=require('./routers/clients/createClient');
 const { reqLogger } = require('./services/logger/logger');
 
+const models=require('./routers/models')
+
 const api_router = require('./api/routers/readFile');
 
 const readPriceList_router = require('./routers/pricelist/readPricelist')
@@ -34,7 +36,7 @@ app.use(reqLogger())
 
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
-
+app.use('/models',models)
 
 app.use('/unitOfMeasure', manageUnitOfMeasure);
 app.use('/basicProducts', manageBasicProducts);

@@ -30,6 +30,7 @@ const checkObjectValidations = async (entity, objName, find = false) => {
                     catch (error) {
                         errors = [...errors, { propertyName: v.propertyName, error: error.message }];
                     }
+                   
                 }
             }
 

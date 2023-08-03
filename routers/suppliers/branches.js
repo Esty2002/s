@@ -66,6 +66,7 @@ router.post('/insertbranch', express.json(), async (req, res) => {
     try {
        
         const response = await insertOneBranch(req.body)
+        console.log("after");
         if (response)
             res.status(201).send(response.data)
         else {

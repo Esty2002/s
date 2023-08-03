@@ -8,8 +8,9 @@ const { SQL_PUMPS_TABLE } = process.env
 
 const values = [
     {
-        entity: "Pumps",
+        entity: "pumps",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null,AddedDate=null ,Enabled=null,DeleteDate=null}) => {
+            console.log("in func");
             return {
                 entityName: "Pumps",
                 values: {
@@ -43,17 +44,21 @@ async function insertPump(obj) {
         entityName: SQL_PUMPS_TABLE
     }
     logToFile(objectForLog)
+    console.log("in check",values);
     const checkValidObj = values.find(({ entity }) => SQL_PUMPS_TABLE === entity);
+    console.log("im in",checkValidObj);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+        console.log("after validation");
         obj = newObj.values
     }
-
+    
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
     obj.UnitOfMeasure = measure.data[0].Id
     try {
         const response = await postData('/create/createone', { entityName: SQL_PUMPS_TABLE, values: obj })
+        console.log("kjfdhytr",response);
         if (response.data)
             return response
     }

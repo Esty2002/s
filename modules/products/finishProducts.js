@@ -7,10 +7,10 @@ const { logToFile } = require('../../services/logger/logTxt')
 
 const values = [
     {
-        entity: "FinishProducts",
+        entity: "finishProducts",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate=null,Enabled=null,DeleteDate=null,}) => {
             return {
-                entityName: "FinishProducts",
+                entityName: "finishProducts",
                 values: {
                     Name: Name,
                     UnitOfMeasure: UnitOfMeasure,
@@ -41,17 +41,21 @@ async function insertFinishProduct(obj) {
     }
     logToFile(objectForLog)
 
-    obj.enabled = true
-    obj.addedDate = new Date().toISOString()
-    const response = await postData('/create/createone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
-    if (response.status === 201) {
-        return true
-    }
+    // obj.enabled = true
+    // obj.addedDate = new Date().toISOString()
+    // const response = await postData('/create/createone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+    // console.log("after post");
+    // if (response.status === 201) {
+    //     console.log("in status");
+    //     return true
+    // }
 
     const checkValidObj = values.find(({ entity }) => SQL_FINISH_PRODUCTS_TABLE === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
+        console.log("before validation");
         _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
+        console.log("after validation");
         obj = newObj.values
     }
     const measure = await findMeasureNumber(obj['UnitOfMeasure'])
