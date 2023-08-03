@@ -6,7 +6,6 @@ const { getValidationsModule } = require('./validations-objects')
 
 const checkObjectValidations = async (entity, objName, find = false) => {
     let errors = []
-    console.log({ entity })
     try {
         const values = getValidationsModule(find).find(({ objectName }) => objName === objectName).values;
         console.log({ values })
