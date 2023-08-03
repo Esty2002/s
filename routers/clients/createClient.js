@@ -1,9 +1,15 @@
 const express = require('express')
 const router = express.Router()
+const { logToFile } = require('../../services/logger/logTxt')
 const { addOneClient } = require('../../modules/clients/createClient')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { ErrorTypes } = require('../../utils/types')
 router.post('/add', express.json(), async (req, res) => {
+    let object = {
+        name: 'add',
+        description: 'add in router',
+        dataThatRecived: req.body
+    }
     try {
         let ans = await checkObjectValidations(req.body, 'Clients')
         if (ans) {
@@ -24,9 +30,4 @@ router.post('/add', express.json(), async (req, res) => {
         }
     }
 })
-
-
 module.exports = router
-
-
-

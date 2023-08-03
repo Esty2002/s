@@ -118,4 +118,4 @@ async function updateAddition(obj = {}) {
     }
 }
 
-module.exports = { insertAddition, findAddition, updateAddition }
+module.exports = { updateAddition }

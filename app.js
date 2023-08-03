@@ -1,4 +1,4 @@
-const express = require('express');
+const express = require('express');     
 const app = express();
 // const swaggerLeads = require('./swagger/leads.json');
 const cors = require('cors')
@@ -53,7 +53,7 @@ app.use('/leads',router_leads);
 // app.use('/leads', router_leads);
 app.use('/pricesNew', pricelist_router)
 app.use('/updateClient',updateClient_router)
-// app.use('/createClient', createClient_router)
+app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
 app.use('/statusesClient', status_router);
 app.use('/auto_complete', auto_complete);
