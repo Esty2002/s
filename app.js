@@ -18,7 +18,7 @@ const status_router = require('./routers/clients/status')
 const router_leads=require('./routers/leads/leads')
 const auto_complete=require('./routers/utils/auto_complete')
 const productsCombinations_router = require('./routers/products/productsCombinations')
-const pricelist_router = require('./routers/price-list/pricelist')
+// const pricelist_router = require('./routers/price-list/pricelist')
 const areas_router = require('./routers/areas/areas');
 const createClient_router=require('./routers/clients/createClient');
 const { reqLogger } = require('./services/logger/logger');
@@ -51,7 +51,7 @@ app.use('/updateClient', updateClient_router);
 app.use('/leads',router_leads);
 
 // app.use('/leads', router_leads);
-app.use('/pricesNew', pricelist_router)
+// app.use('/pricesNew', pricelist_router)
 app.use('/updateClient',updateClient_router)
 app.use('/createClient', createClient_router)
 app.use('/delete_client', delete_client_router);
@@ -65,7 +65,6 @@ app.use('/api', api_router);
 app.use('/statusesClient', status_router)
 app.use('/readpricelist', readPriceList_router)
 app.use('/creatPricelist', creatPricelist_router)
-app.use('/pricesNew', pricelist_router);
 
 app.use('/areas', areas_router);
 

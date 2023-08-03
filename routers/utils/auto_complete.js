@@ -3,9 +3,9 @@ const router = express.Router();
 
 const { findAuto } = require('../../modules/utils/auto_complete');
 
-router.get('/autocomplete/:table/:column/:word/:condition', async (req, res) => {
+router.get('/autocomplete/:entity/:column/:word', async (req, res) => {
     try {
-        const result = await findAuto(req.params.table, req.params.column, req.params.word, req.params.condition);
+        const result = await findAuto(req.params.entity, req.params.column, req.params.word, req.query);
         if (result.status === 200) {
             res.status(200).send(result.data);
         }

@@ -101163,3 +101163,117 @@ description: find Addition in router
 data: {condition :undefined 
 error :Invalid status code: undefined }
 ----------------------------------
+next function:
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:26  
+        
+description: find finished product in router
+        
+data: {arr :undefined 
+condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:27  
+        
+description: find finished product in router
+        
+data: {arr :undefined 
+condition :undefined 
+error :Cannot set properties of undefined (setting 'Enabled') }
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:27  
+        
+description: find finished product in router
+        
+data: {arr :undefined 
+condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:27  
+        
+description: find finished product in router
+        
+data: {arr :undefined 
+condition :undefined 
+error :Cannot set properties of undefined (setting 'Enabled') }
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:28  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:28  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+error :findAddition is not a function }
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:30  
+        
+description: find pumps in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 03 2023 - 23:29:30  
+        
+description: find pumps in router
+        
+data: {condition :undefined 
+error :Cannot read properties of undefined (reading 'func') }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 03 2023 - 23:29:34  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 03 2023 - 23:29:34  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Thu Aug 03 2023 - 23:29:34  
+        
+description: get all unit of measure in module
+        
+data: {error :Request failed with status code 516 }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 03 2023 - 23:29:34  
+        
+description: all units of measure in router
+        
+data: {error :Request failed with status code 516 }
+----------------------------------
+last time login in the action 'all' : Thu Aug 03 2023 - 23:29:34  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 03 2023 - 23:29:34  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Thu Aug 03 2023 - 23:29:35  
+        
+description: get all unit of measure in module
+        
+data: {error :Request failed with status code 516 }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 03 2023 - 23:29:35  
+        
+description: all units of measure in router
+        
+data: {error :Request failed with status code 516 }
+----------------------------------

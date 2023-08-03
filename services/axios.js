@@ -17,7 +17,6 @@ const getData = async (url, query) => {
     if (query) {
         condition = convertCondition(query)
         console.log("condition",{ condition })
-        // url += Object.entries(query).reduce((q, i) => q = q == '?' ? `${q}${i[0]}=${i[1]}` : `${q}&${i[0]}=${i[1]}`, '?')
     }
 
     try {
@@ -74,7 +73,7 @@ const deleteData = async (url, body) => {
 
 
 const queryTypes = {
-    AND:'AND', OR:'OR', BETWEEN:'BETWEEN', STARTWITH:'STARTWITH', ENDWIDTH:'ENDWITH'
+    AND:'AND', OR:'OR', BETWEEN:'BETWEEN', STARTWITH:'STARTWITH', ENDWIDTH:'ENDWITH', INCLUDES:'INCLUDES'
 }
 
 const checkQueryType= (type)=>{
@@ -89,7 +88,6 @@ function convertCondition(obj) {
     // let obj = { AND: [{ Ovligo: 4 }, { OR: [{ City: 'אשדוד' }, { City: 'בני-ברק' }] }], OR: [{ ZipCode: 77452 }, { ZipCode: 74522 }] }
     let str = '?'
     let i = 0;
-    console.log("666",obj);
     const getArgumentsStr = (arg) => {
 
         if (arg && arg.length == undefined) { //arg is object
@@ -98,13 +96,13 @@ function convertCondition(obj) {
                 console.log({key})
                 console.log(arg[key])
                 if(checkQueryType(key)){
-                    str += `start${i++}=${key}&`
+                    str += `start_${i++}=${key}&`
                     str = getArgumentsStr(arg[key])
-                    str += `end${i++}=${key}&`
+                    str += `end_${i++}=${key}&`
                 }
                 else{
                     console.log({str})
-                     str += `${key}${i++}=${arg[key]}&`
+                     str += `${key}_${i++}=${arg[key]}&`
                 }
             }
             // if (Object.keys(arg).length == 1 && typeof (arg[Object.keys(arg)[0]]) != 'object') { // arg is simple object
@@ -129,9 +127,9 @@ function convertCondition(obj) {
            console.log("in else",arg);
             arg.forEach(element => {
                 str = getArgumentsStr(element, str)
+                console.log(str)
             });
         }
-        console.log("555",str);
         return str
     }
     console.log({ obj })
@@ -142,5 +140,5 @@ function convertCondition(obj) {
 }
 
 
-module.exports = { getData, postData, putData, deleteData }
+module.exports = { getData, postData, putData, deleteData, queryTypes }
 
