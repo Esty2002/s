@@ -19,8 +19,6 @@ jest.mock('../../../services/axios', () => {
 
         }),
         postData: jest.fn((url, body) => {
-            console.log("url-----", url);
-            console.log("body----", body);
             if (body) {
                 switch (url) {
                     case '/create/create':

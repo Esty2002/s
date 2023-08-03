@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 const { getData } = require("../axios");
-=======
-const { getData, sqlServer, postData } = require("../axios");
->>>>>>> yutisTest
 
 const required = (value = null) => {
     if (value) {
@@ -12,11 +8,7 @@ const required = (value = null) => {
 };
 
 const dateType = (date) => {
-<<<<<<< HEAD
     let date1 = new Date(date);
-=======
-    let date1 = new Date(date)
->>>>>>> yutisTest
     if (date1 == 'Invalid Date')
         throw new Error(`the date ${date} is not valid`);
     return true
@@ -31,15 +23,9 @@ const hourType = (data) => {
     throw new Error("the hour not correct")
 }
 const correctPhone = (number) => {
-<<<<<<< HEAD
     if (/^0\d{8,9}$/.test(number) && number.length <= 10)
         return true
     throw new Error(`the phonenumber ${number} is not in correct format`)
-=======
-    if (/^0\d{8,9}$/.test(number))
-        return true
-    throw new Error(`the number  not correctttt`)
->>>>>>> yutisTest
 }
 
 const positiveNumber = (number) => {
@@ -52,22 +38,9 @@ const onlyLetters = (word) => {
     return true;
 }
 const EnglishLetters = (word) => {
-<<<<<<< HEAD
     if (/^\w[a-z,A-Z]*$/.test(word))
         return true
     throw new Error(`the value ${word} not `)
-=======
-    return /^\w[a-z,A-Z]*$/.test(word)
-}
-
-const onlyNumbersInString = (numbersString) => {
-
-    if( /^\d*$/.test(numbersString)){
-        return true
-    }
-        
-    throw new Error(`the value ${numbersString} not only string`)
->>>>>>> yutisTest
 }
 
 const onlyDigitsInString = (numbersString) => {
@@ -79,27 +52,15 @@ const onlyDigitsInString = (numbersString) => {
 const notCheck = () => {
     return true;
 }
-<<<<<<< HEAD
 const type = (value, arg) => {
 
     if (isNaN(value)) {
         if (arg == "number") {
             throw new Error(`the value ${value} is not typeof number`)
 
-=======
-const type = (value, arg) => {     
-    if( isNaN(value)){
-        if(arg=="string"){
-            return true
->>>>>>> yutisTest
         }
     }
-<<<<<<< HEAD
     return true;
-=======
-    if(arg=="number"){
-        return true
->>>>>>> yutisTest
 
 }
 
@@ -137,7 +98,6 @@ const specificLength = (value, len) => {
     if (value.length == len) {
         return true;
     }
-<<<<<<< HEAD
     throw new Error(`the length of the ${value} is not correct`);
 }
 
@@ -251,31 +211,6 @@ const theDateAfterToday = (value) => {
 
     throw new Error('the date is before today ')
 
-=======
-    throw new Error(`the length of the ${value} not correct`);
-}
-const clientCodeIsExistInSQL = async (field, arg) => {
-    let tableName1 = arg.tableName
-    const val = arg.field
-    let obj={}
-    obj.condition={[val]:field}
-    let ans = await postData(`read/readMany/${tableName1}`,obj)
-    if (ans.data.length == 0) {
-        return true
-
-    }
-    else {
-        throw new Error('the client is exists')
-    }
-
-
-}
-
-const concretEmail = (value) => {
-    if (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value))
-        return true
-    throw new Error('the email not concret')
->>>>>>> yutisTest
 }
 const validation = {
     required,

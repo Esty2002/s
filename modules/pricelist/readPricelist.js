@@ -95,7 +95,7 @@ async function getPriceListByIdSupplierOrClientCode(object) {
         throw new Error('can not get getPriceListByIdSupplierOrClientCode');
     }
 }
-async function getPriceListByIdPriceListId(object) {
+async function getPriceListById(object) {
     console.log(object);
     try {
         objectLog = {
@@ -309,6 +309,7 @@ function checkValid(arr1, arr2) {
 }
 
 module.exports = {
+    getPriceListById,
     getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
     getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId
 };
