@@ -66,16 +66,15 @@ router.post('/delete', express.json(), async (req, res) => {
     catch (error) { res.status(500).send(error.message) }
 })
 
-router.post('/find', express.json(), async (req, res) => {
+router.get('/find',  async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find finished product in router',
-        arr: req.body.arr,
-        condition: req.body.where
+        condition: req.query.condition
     }
     logToFile(objectForLog)
     try {
-        const response = await findFinishProduct(req.body.arr, req.body.where, 'FinishProducts')
+        const response = await findFinishProduct(req.query)
         console.log(response.data, 'response.data');
         if (response.status == 200)
             res.status(200).send(response.data)
@@ -83,6 +82,7 @@ router.post('/find', express.json(), async (req, res) => {
             res.status(response.status).send(response)
     }
     catch (error) {
+        console.log({error})
         objectForLog.error = error.message
         logToFile(objectForLog)
         if (error instanceof Array)

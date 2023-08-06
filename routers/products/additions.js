@@ -55,7 +55,7 @@ router.post('/update', express.json(), async (req, res) => {
     catch (error) { res.status(404).send(error.message) }
 })
 
-router.post('/find', express.json(), async (req, res) => {
+router.get('/find',  async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find Addition in router',
@@ -63,7 +63,7 @@ router.post('/find', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        const response = await findAddition(req.body.where)
+        const response = await findAddition(req.query)
         if (response.status == 200)
             res.status(200).send(response.data)
         else
