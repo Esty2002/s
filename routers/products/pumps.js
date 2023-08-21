@@ -86,7 +86,7 @@ router.post('/update', express.json(), async (req, res) => {
 router.post('/delete', express.json(), async (req, res) => {
 
     try {
-        const response = await updatePump({ data: { Enabled: 0, DeleteDate: new Date() }, condition: req.body })
+        const response = await updatePump({ data: { Disabled: 1, DisabledDate: new Date() }, condition: req.body })
         if (response)
             res.status(200).send(response)
         else

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { findFinishProduct, insertFinishProduct, updateFinishProduct } = require('../../modules/products/finishProducts')
+const { findFinishProduct, insertFinishProduct, updateFinishProduct , deleteFinishProduct} = require('../../modules/products/finishProducts')
 const { logToFile } = require('../../services/logger/logTxt')
 
 
@@ -57,7 +57,8 @@ router.post('/update', express.json(), async (req, res) => {
 
 router.post('/delete', express.json(), async (req, res) => {
     try {
-        const response = await updateFinishProduct({ data: { Enabled: 0, DeleteDate: new Date() }, condition: req.body })
+        // const response = await deleteFinishProduct({ data: { Enabled: 0, DeleteDate: new Date() }, condition: req.body })
+        const response = await deleteFinishProduct({ condition: req.body })
         if (response)
             res.status(200).send(response)
         else

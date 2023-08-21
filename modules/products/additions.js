@@ -16,16 +16,18 @@ const values = [
                     UnitOfMeasure,
                     BookkeepingCode,
                     AddedDate: new Date().toISOString(),
-                    Enabled: true,
-                    DeleteDate: null,
+                    Disabled: false,
+                    DisabledDate: DeleteDate,
+                    DisableUser:undefined
                 },
                 valuesFind: {
                     Name,
                     UnitOfMeasure,
                     BookkeepingCode,
                     AddedDate,
-                    Enabled,
-                    DeleteDate,
+                    Disabled,
+                    DisabledDate,
+                    DisabledUser,
                 }
             }
         }
@@ -69,8 +71,8 @@ async function findAddition(filter = {}) {
         try {
             _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
 
-            if (!Object.keys(filter).includes('Enabled'))
-                filter.Enabled = 1
+            if (!Object.keys(filter).includes('Disabled'))
+                filter.Disabled = 0
 
             let condition = filter;
 

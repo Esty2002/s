@@ -8,7 +8,8 @@ const checkObjectValidations = async (entity, objName, find = false) => {
     let errors = []
     console.log({objName})
     try {
-        const values = getValidationsModule(find).find(({ objectName }) => objName === objectName).values;
+        const module = getValidationsModule(find).find(({ objectName }) => objName === objectName)
+        const values = module.values;
         console.log({ values })
         for (let v of values) {
             if (!v.require && !entity[v.propertyName]) {

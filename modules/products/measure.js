@@ -7,10 +7,10 @@ const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
 
 const values = [
     {
-        entity: "unitOfMeasure",
+        entity: "UnitOfMeasure",
         func: ({ Name = null }) => {
             return {
-                entityName: "unitOfMeasure",
+                entityName: "UnitOfMeasure",
                 values: {
                     Measure: Name,
                     Disable: false,
@@ -22,7 +22,6 @@ const values = [
 
 async function updateMeasure(condition, obj) {
     try {
-        console.log("hello updateMeasure",condition,obj);
         const response = await putData('/update/updateone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition })
         if (response.status == 204)
             return response.data
@@ -45,24 +44,24 @@ async function insertMeasure(name) {
     console.log("im in get");
     // const { status, data } = exist
     // if (status === 200 && !data[0]) {
-        const checkValidObj = values.find(({ entity }) => SQL_UNIT_OF_MEASURE_TABLE === entity);
-        console.log();
+    try {
+        const checkValidObj = values.find(({ entity }) => SQL_UNIT_OF_MEASURE_TABLE === "UnitOfMeasure");
         let newObj = checkValidObj.func({ Name: name })
         if (checkValidObj) {
             _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
             name = newObj.values
         }
 
-        try {
-            const response = await postData('/create/createone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
-            if (response.data)
-                return response
-        }
-        catch (error) {
-            objectForLog.error = error.message
-            logToFile(objectForLog)
-            throw error
-        }
+
+        const response = await postData('/create/createone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
+        if (response.data)
+            return response
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
+    }
     // }
     // else {
     //     throw new Error(`data exist`)

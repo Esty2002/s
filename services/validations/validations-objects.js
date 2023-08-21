@@ -190,7 +190,7 @@ const createUpdateModulesValidations = [
         ]
     },
     {
-        objectName: "unitOfMeasure",
+        objectName: "UnitOfMeasure",
         values: [
             {
                 propertyName: "Measure", validation: [
@@ -364,8 +364,8 @@ const createUpdateModulesValidations = [
             { propertyName: "UnitOfMeasure", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "BookkeepingCode", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
             { propertyName: "AddedDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
-            { propertyName: "Enabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
-            { propertyName: "DeleteDate", validation: [{ func: validation.dateType, arguments: null }] },
+            { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
+            { propertyName: "DisabledDate", validation: [{ func: validation.dateType, arguments: null }] },
         ]
     }
 ]
@@ -401,13 +401,13 @@ const findModulesValidations = [
                 ], require: false
             },
             {
-                propertyName: "Enabled", validation: [
+                propertyName: "Disabled", validation: [
                     { func: validation.bit, arguments: null },
                 ], require: false
             },
 
             {
-                propertyName: "DeleteDate", validation: [
+                propertyName: "DeisabledDate", validation: [
                     { func: validation.dateType, arguments: null },
                     { func: validation.theDateBeforToday, arguments: null },
 
@@ -443,13 +443,13 @@ const findModulesValidations = [
                 ], require: false
             },
             {
-                propertyName: "Enabled", validation: [
+                propertyName: "Disabled", validation: [
                     { func: validation.bit, arguments: null },
                 ], require: false
             },
 
             {
-                propertyName: "DeleteDate", validation: [
+                propertyName: "DisabledDate", validation: [
                     { func: validation.dateType, arguments: null },
                     { func: validation.theDateBeforToday, arguments: null },
 
@@ -489,13 +489,13 @@ const findModulesValidations = [
                 ], require: false
             },
             {
-                propertyName: "Enabled", validation: [
+                propertyName: "Disabled", validation: [
                     { func: validation.bit, arguments: null },
                 ], require: false
             },
 
             {
-                propertyName: "DeleteDate", validation: [
+                propertyName: "DisabledDate", validation: [
                     { func: validation.dateType, arguments: null },
                     { func: validation.theDateBeforToday, arguments: null },
 
@@ -504,14 +504,14 @@ const findModulesValidations = [
         ]
     },
     {
-        objectName: "unitOfMeasure",
+        objectName: "UnitOfMeasure",
         values: [
             {
                 propertyName: "Measure", validation: [
                     { func: validation.type, arguments: "string" },
                     { func: validation.maxLength, arguments: 20 },
                     { func: validation.recordExistInDB, arguments: { entityName: "UnitOfMeasure", field: "measure", exist: false } }
-                ], require: false
+                ], require: true
             },
             {
                 propertyName: "Disable", validation: [

@@ -135,8 +135,9 @@ const values = [
                     UnitOfMeasure: UnitOfMeasure,
                     BookkeepingCode: BookkeepingCode,
                     AddedDate: new Date().toISOString(),
-                    Enabled: true,
-                    DeleteDate: DeleteDate
+                    Disabled: false,
+                    DisabledDate: DeleteDate,
+                    DisableUser:undefined
                 }
             }
         }
@@ -151,8 +152,9 @@ const values = [
                     UnitOfMeasure: UnitOfMeasure,
                     BookkeepingCode: BookkeepingCode,
                     AddedDate: new Date().toISOString(),
-                    Enabled: true,
-                    DeleteDate: DeleteDate
+                    Disabled: false,
+                    DisabledDate: DeleteDate,
+                    DisableUser:undefined
                 }
             }
         }

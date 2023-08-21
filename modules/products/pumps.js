@@ -18,8 +18,9 @@ const values = [
                     BookkeepingCode,
                     Addition,
                     AddedDate: new Date().toISOString(),
-                    Enabled: true,
-                    DeleteDate: null,
+                    Disabled: false,
+                    DisableUser:undefined,
+                    DisabledDate: null,
                 },
                 valuesFind: {
                     Name,
@@ -27,8 +28,9 @@ const values = [
                     BookkeepingCode,
                     Addition,
                     AddedDate,
-                    Enabled,
-                    DeleteDate,
+                    Disabled,
+                    DisabledDate,
+                    DisableUser
                 }
             }
         }
@@ -68,8 +70,8 @@ async function findPump(filter = {}) {
     if (checkValidObj)
         _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
 
-    if (!Object.keys(filter).includes('Enabled'))
-        filter.Enabled = 1
+    if (!Object.keys(filter).includes('Disabled'))
+        filter.Disabled = 0
 
     let condition = filter
 

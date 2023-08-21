@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 
 const { findMeasureNumber, findMeasureName, insertMeasure, updateMeasure, getAll, deleteItem } = require('../../modules/products/measure')
+const { ErrorTypes } = require('../../utils/types');
 const { logToFile } = require('../../services/logger/logTxt')
 
 router.get('/findMeasureName/:id', async (req, res) => {
@@ -53,7 +54,8 @@ router.post('/create', express.json(), async (req, res) => {
     logToFile(objectForLog)
 
     try {
-        const response = await insertMeasure(req.body.Measure)
+        console.log(req.body)
+        const response = await insertMeasure(req.body)
         if (response.status === 201)
             res.status(201).send(true)
         else
@@ -62,8 +64,9 @@ router.post('/create', express.json(), async (req, res) => {
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
-        if (error instanceof Array)
-            res.status(500).send(error)
+        if (error.type === ErrorTypes.VALIDATION) {
+            res.status(422).send(error)
+        }
         else
             res.status(500).send(error.message)
     }

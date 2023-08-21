@@ -249,8 +249,10 @@ const models = {
             UnitOfMeasure: { type: types.STRING, insert: true, update: true, key: false, unique: false },
             BookkeepingCode: { type: types.STRING, insert: true, update: true, key: false, unique: false },
             AddedDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
-            Enabled: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DeletedDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
+            Disabled: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            DisabledDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DisabledUser:{type: types.STRING, insert:false, update:false, key:false, unique:false}
+
         }
         ,
         insertUrl: '/finishProducts/create',
@@ -267,8 +269,9 @@ const models = {
             Addition: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             BookkeepingCode: { type: types.STRING, insert: true, update: true, key: false, unique: false },
             AddedDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
-            Enabled: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DeletedDate: { type: types.DATE, insert: true, update: true, key: false, unique: false }
+            Disabled: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            DisabledDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DisabledUser:{type: types.STRING, insert:false, update:false, key:false, unique:false}
         }
         ,
         insertUrl: '/pumps/create',
@@ -284,8 +287,9 @@ const models = {
             UnitOfMeasure: { type: types.STRING, insert: true, update: true, key: false, unique: true },
             BookkeepingCode: { type: types.STRING, insert: true, update: true, key: false, unique: true },
             AddedDate: { type: types.DATE, insert: false, update: false, key: false, unique: false },
-            Enabled: { type: types.BOOLEAN, insert: false, update: false, key: false, unique: false },
-            DeletedDate: { type: types.DATE, insert: false, update: false, key: false, unique: false }
+            Disabled: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            DisabledDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DisabledUser:{type: types.STRING, insert:false, update:false, key:false, unique:false}
         }
         ,
         insertUrl: '/additions/create',

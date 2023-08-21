@@ -118,8 +118,10 @@ const recordExistInDB = async (value, arg) => {
     const { entityName, field, exist } = arg;
     try {
         console.log(entityName, field, exist, 'entityName, field, exist');
-        const condition = {}
-        condition[arg.field] = value;
+        const condition = value 
+        //{}
+        // condition[arg.field] = value;
+        console.log(condition)
         let ans = await getData(`/read/readOne/${entityName}`, condition)
         if (exist) {
             if (ans.data.length > 0) {

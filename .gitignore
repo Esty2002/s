@@ -4,6 +4,7 @@
 envfile.md
 /coverage
 /services/logger/loggerTxt
+/services/logger
 
 
 

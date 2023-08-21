@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData, putData, getData } = require('../../services/axios')
+const { postData, putData, getData, deleteData } = require('../../services/axios')
 const { SQL_FINISH_PRODUCTS_TABLE } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
@@ -8,7 +8,7 @@ const { logToFile } = require('../../services/logger/logTxt')
 const values = [
     {
         entity: "FinishProducts",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate = null, Enabled = null, DeleteDate = null, }) => {
+        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate = null, Disabled = null, DisabledDate = null,DisableUser=null }) => {
             return {
                 entityName: "FinishProducts",
                 values: {
@@ -16,16 +16,18 @@ const values = [
                     UnitOfMeasure,
                     BookkeepingCode,
                     AddedDate: new Date().toISOString(),
-                    Enabled: true,
-                    DeleteDate: null,
+                    Disabled: false,
+                    DisabledDate: null,
+                    DisableUser:null
                 },
                 valuesFind: {
                     Name,
                     UnitOfMeasure,
                     BookkeepingCode,
                     AddedDate,
-                    Enabled,
-                    DeleteDate,
+                    Disabled,
+                    DisabledDate,
+                    DisableUser
                 }
             }
         }
@@ -63,9 +65,22 @@ async function insertFinishProduct(obj) {
 }
 async function updateFinishProduct(obj) {
     try {
-        let condition;
-        obj.condition ? condition[Object.keys(obj.condition)[0]] = Object.values(obj.condition)[0] : null
-        const response = await putData('/update/updateone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj.data, condition: condition })
+        const {condition, data} = obj
+        const response = await putData('/update/updateone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: data, condition })
+        if (response.status == 204)
+            return response.data
+        else
+            return false
+
+    } catch (error) {
+        throw error;
+    }
+}
+
+async function deleteFinishProduct({condition}){
+    try {
+        
+        const response = await deleteData('/delete/deleteone', { entityName: SQL_FINISH_PRODUCTS_TABLE,values:{Disabled:true, DisableUser:'developer', DisabledDate:new Date()}, condition })
         if (response.status == 204)
             return response.data
         else
@@ -83,8 +98,8 @@ async function findFinishProduct(filter = {}) {
     let newObj = checkValidObj.func(filter)
     if (checkValidObj)
         _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
-    if (!Object.keys(filter).includes('Enabled'))
-        filter.Enabled = 1
+    if (!Object.keys(filter).includes('Disabled'))
+        filter.Disabled = 0
     let condition = filter;
     let objForLog = {
         name: "find",
@@ -111,4 +126,4 @@ async function findFinishProduct(filter = {}) {
     }
 }
 
-module.exports = { insertFinishProduct, updateFinishProduct, findFinishProduct }
+module.exports = { insertFinishProduct, updateFinishProduct,deleteFinishProduct, findFinishProduct }

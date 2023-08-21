@@ -106188,3 +106188,4114 @@ description: find Addition in module
 data: {filter :{"Enabled":"0"} 
 }
 ----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:01  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:12:02  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:37:41  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:37:41  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:37:41  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:37:41  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:08  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:12  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:12  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:12  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:12  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:15  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:15  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:15  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:15  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:16  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:16  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:16  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:16  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:25  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:25  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:25  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:25  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:27  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:27  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:27  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:39:27  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:17  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:17  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:17  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:17  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:26  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:26  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:26  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:26  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:34  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:34  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:34  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:34  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:45  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:45  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:45  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:45  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:49  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:49  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:50  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 8:40:50  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+next function:
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:18  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:18  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:19  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:19  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 17:23:19  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+error :objForLog is not defined }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:10  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:10  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:23  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:23  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:23  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:23  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:23  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:23  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:24  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:24  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:26  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:26  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:26  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:26  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:28  
+        
+description: find pumps in router
+        
+data: {condition :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:28  
+        
+description: find pumps in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:28  
+        
+description: find pumps in router
+        
+data: {condition :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:28  
+        
+description: find pumps in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:31  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:31  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:31  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:45:31  
+        
+description: find Addition in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:48:37  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:48:37  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:48:38  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 07 2023 - 18:48:38  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"0"} 
+}
+----------------------------------
+next function:
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:41  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:15:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:02  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:02  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:02  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:03  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:03  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:03  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:03  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:03  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:40  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:40  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:40  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:40  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:45  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:45  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:45  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:45  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:48  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:48  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:48  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:48  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:21:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:08  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:08  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:08  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:08  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:20  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:20  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:20  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:20  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:23  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:23  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:23  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:23  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:26  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:26  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:26  
+        
+description: find finish products in module
+        
+data: {filter :{"Enabled":"1"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:26  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:49  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:49  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:49  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:49  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:56  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:56  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:56  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:56  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:56  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:56  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:57  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:22:57  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:10  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:10  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:10  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:10  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:13  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:13  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:13  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:13  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:23:58  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:25:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:30:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:33:40  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:41  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:41  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:41  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:42  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:42  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:55:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 1:59:42  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Tue Aug 08 2023 - 2:00:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:42:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:49:59  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:52:07  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:53:11  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:56:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:58:51  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:21  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:21  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 19:59:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:00:17  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:55  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:12:56  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :Request failed with status code 519 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 20:25:43  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 21:59:53  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:38  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:38  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:38  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:38  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:38  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:38  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:39  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:03:39  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:14  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:14  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:15  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 22:04:15  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+next function:
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:08  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:08  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :read ECONNRESET }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:09  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:09  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:52  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:52  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:53  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:53  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:42:53  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:21  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:21  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:43:50  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:36  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:36  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:36  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:36  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:37  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:37  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:37  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:44:37  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:45:04  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Wed Aug 09 2023 - 23:47:28  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:04  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:06:06  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:07:46  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:08:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:21  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:21  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:22  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:22  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:09:33  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Thu Aug 10 2023 - 0:10:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:11:33  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:11:33  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:11:33  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:11:33  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:11:39  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:11:39  
+        
+description: insert an unit of measure in module
+        
+data: {obj :undefined 
+entityName :UnitOfMeasure }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:11:39  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"new":"קוב"} 
+error :Cannot read properties of undefined (reading 'func') }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:26:10  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:26:10  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:26:10  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:26:10  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:26:16  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:26:16  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:26:16  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:28:37  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:28:37  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:28:37  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:28:37  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:28:42  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:28:42  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:28:42  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:28:42  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :Cannot read properties of undefined (reading 'values') }
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:31:06  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:31:06  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:31:06  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:31:06  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:31:11  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:31:11  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:31:11  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:31:11  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:32:42  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:32:42  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:32:42  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:32:42  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:32:45  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:32:45  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:32:45  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:32:45  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:34:08  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:34:08  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:34:08  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:34:08  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:34:11  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:34:11  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:34:11  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:34:11  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:36:52  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:36:52  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:36:52  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:36:52  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:36:56  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:36:56  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:36:56  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:36:56  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:37:53  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:37:53  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:37:53  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:37:53  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:40:35  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:40:35  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:40:35  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:40:35  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:40:38  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:40:38  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:40:38  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:40:38  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:40:53  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:40:53  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:40:53  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:40:53  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:43:47  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:43:47  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:43:47  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:43:47  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:46:22  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:46:22  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'all' : Thu Aug 10 2023 - 0:46:22  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Thu Aug 10 2023 - 0:46:22  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:46:30  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+}
+----------------------------------
+next function:
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:46:30  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure }
+----------------------------------
+last time login in the action 'insertMeasure' : Thu Aug 10 2023 - 0:46:30  
+        
+description: insert an unit of measure in module
+        
+data: {obj :{"Measure":"קוב"} 
+entityName :UnitOfMeasure error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'create' : Thu Aug 10 2023 - 0:46:30  
+        
+description: insert a unit of measure in router
+        
+data: {dataThatRecived :{"Measure":"קוב"} 
+error :undefined 
+}
+----------------------------------
+next function:
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finished product in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:35  
+        
+description: find finish products in module
+        
+data: {filter :{"Disabled":"1"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:36  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:36  
+        
+description: find Addition in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:36  
+        
+description: find Addition in router
+        
+data: {condition :undefined 
+error :objForLog is not defined }
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:38  
+        
+description: find pumps in router
+        
+data: {condition :{"Disabled":"0"} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:38  
+        
+description: find pumps in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+}
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:38  
+        
+description: find pumps in module
+        
+data: {filter :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'find' : Mon Aug 21 2023 - 13:31:38  
+        
+description: find pumps in router
+        
+data: {condition :{"Disabled":"0","Enabled":1} 
+error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+next function:
+last time login in the action 'all' : Mon Aug 21 2023 - 13:31:41  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Mon Aug 21 2023 - 13:31:41  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Mon Aug 21 2023 - 13:31:41  
+        
+description: get all unit of measure in module
+        
+data: {error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+next function:
+last time login in the action 'all' : Mon Aug 21 2023 - 13:31:41  
+        
+description: all units of measure in router
+        
+data: {error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+last time login in the action 'all' : Mon Aug 21 2023 - 13:31:41  
+        
+description: all units of measure in router
+        
+data: {}
+----------------------------------
+next function:
+last time login in the action 'getAll' : Mon Aug 21 2023 - 13:31:41  
+        
+description: get all unit of measure in module
+        
+data: {}
+----------------------------------
+last time login in the action 'getAll' : Mon Aug 21 2023 - 13:31:41  
+        
+description: get all unit of measure in module
+        
+data: {error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
+next function:
+last time login in the action 'all' : Mon Aug 21 2023 - 13:31:41  
+        
+description: all units of measure in router
+        
+data: {error :connect ECONNREFUSED 127.0.0.1:1313 }
+----------------------------------
