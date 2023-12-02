@@ -263,4 +263,10 @@ const deleteOneLead = async (id) => {
     }
 };
 
+<<<<<<< HEAD
 module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readMoreProductsItems, insertMoreProductsItems }
+=======
+
+
+// module.exports = { createNewLead, updateLead, deleteLead, readLead }
+>>>>>>> 459b67c540bda832f5ef043854683ed06b858677

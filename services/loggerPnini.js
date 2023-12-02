@@ -6,11 +6,11 @@ function newLine(url) {
 
 function parseObjectToText(object) {
 
-    console.log(object, 'llll');
+    // console.log(object, 'llll');
     let txtObj = '\n';
     for (let key in object) {
         txtObj += `${key}: ${object[key]}, \n`
-        console.log(txtObj, ' txtObj');
+        // console.log(txtObj, ' txtObj');
 
     }
     txtObj+=`${'\n'}`

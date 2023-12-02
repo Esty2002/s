@@ -1,11 +1,17 @@
 const router = require('express').Router()
-const express = require('express')
+const { cache } = require('ejs')
+const express = require('express');
+const { object } = require('webidl-conversions');
 
-const { insertArea, findSupplierOrClient, findArea,
-    deleteSupplierOrClient, deleteArea, updateArea, findAllCities,
-    getTheDataOfTheArea, updateLocation, updatePointAndRadius, findAll, findByDistinct,findInPolygon } = require('../../modules/areas/areas')
+const { insertArea, startt, updateArea, deleteArea, findAreas, findByDistinct, getFromSql, getFromMongo, findInPolygon, findInRadius } = require('../../modules/areas/areas');
+const { logToFile } = require('../../services/loggerPnini');
 
+// router.get('/', async (req, res) => {
+//     const r = await startt()
+//     res.send(r.data)
+// });
 
+<<<<<<< HEAD
 
 router.get('/', async (req, res) => {
     res.send("areas---")
@@ -46,144 +52,160 @@ router.post('/isExistPoint', express.json(), async (req, res) => {
     }
 })
 
+=======
+>>>>>>> 459b67c540bda832f5ef043854683ed06b858677
 router.post('/insertArea', express.json(), async (req, res) => {
+    let object;
     try {
-        console.log(req.body)
-        const result = await insertArea(req.body)
-
-        res.status(result.status).send(result.data)
-
+        object = {
+            name: 'insertArea',
+            description: 'insertArea in router- in try',
+        }
+        logToFile(object)
+        const result = await insertArea(req.body);
+        if (result.status == 201) {
+            res.status(201).send(result);
+        }
+        else {
+            res.status(result.status).send(result.data);
+        }
     }
     catch (error) {
-        console.log(error)
+        object.error = error.message
+        logToFile(object)
+        res.status(500).send(error.message);
+    }
+});
+
+router.post('/findAreas', express.json(), async (req, res) => {
+    let object;
+    try {
+        object = {
+            name: 'findAreas',
+            description: 'findAreas in router- in try',
+            dataThatRecived: req.body
+        }
+        logToFile(object)
+        const result = await findAreas(req.body);
+        res.status(200).send(result);
+    }
+    catch (err) {
+        object.error = err.message
+        logToFile(object)
+        res.status(500).send(err);
+    }
+});
+
+//temporary router
+router.get('/readFromSql', async (req, res) => {
+    try {
+        const result = await getFromSql();
+        res.status(200).send(JSON.stringify(result));
+    }
+    catch (err) {
+        res.status(404).send(err);
+    }
+});
+
+//temporary router
+router.get('/readFromMongo', async (req, res) => {
+    try {
+        const result = await getFromMongo();
+        res.status(200).send(JSON.stringify(result));
+    }
+    catch (err) {
+        res.status(404).send(err);
+    }
+});
+
+router.post('/searchAreas', express.json(), async (req, res) => {
+    let obj = req.body;
+    let object;
+    try {
+        object = {
+            name: 'searchAreas',
+            description: 'searchAreas in router- in try',
+            dataThatRecived: req.body
+        }
+        logToFile(object)
+        let areas = [];
+        const citys = await findAreas({ basicName: obj.city });
+        const points = await findAreas({ point: obj.point, type: 'point' });
+        const radius = await findInRadius({ point: obj.point, type: 'radius' });
+        const polygon = await findInPolygon({ point: obj.point });
+        areas = [...areas, ...citys, ...points,...radius, ...polygon];
+        res.status(200).send(areas);
+    }
+    catch (error) {
+        object.error = error.message
+        logToFile(object)
         res.status(500).send(error)
     }
-})
+});
 
-router.post('/dropArea', express.json(), async (req, res) => {
+router.post('/findAllTypes', express.json(), async (req, res) => {
+    let object;
     try {
-        const response = await deleteSupplierOrClient(req.body.phone)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
+        object = {
+            name: 'findAllTypes',
+            description: 'findAllTypes in router- in try',
+            dataThatRecived: req.body
         }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-
-})
-
-
-router.get('/findAll/:filter', async (req, res) => {
-    let filter = req.params.filter
-    console.log("filter", filter);
-    try {
-        const result = await findAll(filter)
-        // console.log('***********************', result.data);
-        res.status(200).send(result.data)
+        logToFile(object)
+        const result = await findByDistinct(req.body)
+        res.status(200).send(result)
     }
     catch (err) {
+        object.error = err.message
+        logToFile(object)
         res.status(500).send(err)
     }
-})
-
-router.post('/findInPolygon' ,express.json(), async (req, res) => {
-   console.log({findInPolygon:req.body})
-    try {
-        const result = await findInPolygon(req.body)
-        // console.log('***********************', result.data);
-        res.status(200).send(result.data)
-    }
-    catch (err) {
-        res.status(500).send(err)
-    }
-})
-
-router.get('/findAllTypes/:collection', async (req, res) => {
-    let collection = req.params.collection;
-    let filter = req.query.filter
-    try {
-        const result = await findByDistinct(collection, filter)
-        // console.log('***********************', result.data);
-        console.log({result})
-        res.status(200).send(result.data)
-    }
-    catch (err) {
-        res.status(500).send(err)
-    }
-})
-
-router.post('/deleteArea', express.json(), async (req, res) => {
-    try {
-        const areaName = req.body.name
-        console.log('aaaaaaaaa', areaName);
-        const response = await deleteArea(areaName)
-        if (response)
-            res.status(200).send(response.data)
-        else {
-            res.status(500).send(response.data)
-        }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-
-})
+});
 
 router.post('/updateArea', express.json(), async (req, res) => {
+    let object;
     try {
-        const response = await updateArea(req.body)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
+        object = {
+            name: 'updateArea',
+            description: 'updateArea in router- in try',
+            dataThatRecived: req.body
         }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
-router.post('/updatePointsInArea', express.json(), async (req, res) => {
-    try {
-        const response = await updateLocation(req.body)
-        if (response)
-            res.status(200).send(response)
+        logToFile(object)
+        const response = await updateArea(req.body);
+        if (response.status == 204)
+            res.status(204).send(response);
         else {
-            res.status(500).send(response)
+            res.status(response.status).send(response.data);
         }
-    } catch (error) {
-        res.status(500).send(error.message)
-    }
-})
 
-router.post('/updatePointsAndRadiusInArea', express.json(), async (req, res) => {
-    try {
-        const response = await updatePointAndRadius(req.body)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
-        }
     } catch (error) {
-        res.status(500).send(error.message)
+        object.error = error.message
+        logToFile(object)
+        res.status(500).send(error.message);
     }
-})
+});
 
-
-//giti...
-router.get('/findPointArray/:code/:areaName', async (req, res) => {
+router.post('/deleteArea', express.json(), async (req, res) => {
+    let object;
     try {
-        const response = await getTheDataOfTheArea(parseInt(req.params.code), req.params.areaName)
-        if (response)
-            res.status(200).send(response)
-        else {
-            res.status(500).send(response)
+        object = {
+            name: 'deleteArea',
+            description: 'deleteArea in router- in try',
+            dataThatRecived: req.body
         }
+        logToFile(object);
+        const response = await deleteArea(req.body);
+        if (response)
+            res.status(200).send(response);
+        else {
+            res.status(500).send(response);
+        }
+
     } catch (error) {
-        res.status(500).send(error.message)
+        object.error = error.message
+        logToFile(object)
+        res.status(500).send(error.message);
     }
 })
 
-
-
-
-module.exports = router
+module.exports = router;
