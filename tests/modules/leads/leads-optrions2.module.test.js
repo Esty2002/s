@@ -33,7 +33,7 @@ jest.mock('../../../services/validations/use-validations', () => {
                 return true;
             }
             else {
-                throw new Error(`The entity ${entity} is not exist`);
+                throw new Error(`The entity ${entity} does not exist`);
             }
         })
     }
@@ -42,8 +42,8 @@ jest.mock('../../../services/validations/use-validations', () => {
 const { insertMoreProductsItems } = require('../../../modules/leads/leads-options');
 
 describe("Check function insertMoreProductItems", () => {
-    it('Should function create moreProductItems if its get array and id', async () => {
-        const result = await insertMoreProductsItems([{ productCode: 5, amount: 12 }, { productCode: 40, amount: 82 }, { productCode: 9, amount: 20 }, { productCode: 9, amount: 82 }, { productCode: 9, amount: 65 }], 5);
+    it('Should function create moreProductItems if it gets array and id', async () => {
+        const result = await insertMoreProductsItems([{ productCode: 5, amount: 12 }, { productCode: 40, amount: 82 }, { productCode: 9, amount: 20 }, { productCode: 9, amount: 82 }, { productCode: 9, amount: 65 }], 'entity');
         expect(result).toBeDefined();
         expect(result).toBeInstanceOf(Object);
         expect(result.data).toBeInstanceOf(Array);

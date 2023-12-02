@@ -19,12 +19,12 @@ jest.mock('../../../modules/pricelist/insertPricelist', () => {
             }
         }),
         getId: jest.fn((name) => {
-            if (name == 'status not found') {
-                let result = { data: [5], status: 500 }
+            if (name == 'status_not_found') {
+                let result = { status: 500 }
                 return result;
             }
             if (name != 'error') {
-                let result = { data: [5], status: 200 }
+                let result = { data: [{id:5}], status: 200 }
                 return result
             }
             else {
@@ -689,7 +689,7 @@ describe('get id for Pricelist Name', () => {
     })
 
     it('should return an error for object with another status ', async () => {
-        const response = await request(app).get('/creatPricelist/getIdForPricelistName/status not found');
+        const response = await request(app).get('/creatPricelist/getIdForPricelistName/status_not_found');
         expect(response).toBeDefined();
         expect(response.statusCode).toBe(500);
     })

@@ -2,7 +2,6 @@ require('dotenv').config()
 const { getData, postData } = require('../../services/axios')
 
 async function findAll(filter = undefined) {
-    console.log({ filter })
     const found = await postData('/read/find', {
         collection: "areas",
         filter: { $and: [{ type: filter }, { $or: [{ disabled: { $exists: false } }, { disabled: false }] }] }

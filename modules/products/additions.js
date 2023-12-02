@@ -2,32 +2,32 @@ require('dotenv').config()
 const { postData, putData, getData } = require("../../services/axios");
 const { logToFile } = require('../../services/logger/logTxt');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
-const { SQL_ADDITIONS_TABLE } = process.env
+const { models } = require('../../services/schemas')
 const { findMeasureName, findMeasureNumber } = require('./measure')
 
 const values = [
     {
-        entity: "Additions",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate = null, Enabled = null, DeleteDate = null }) => {
+        entity: "additions",
+        func: ({ name = null, unitOfMeasure = null, bookKeepingCode = null, addedDate = null, disabled=false, disableUser=undefined, disabledDate=undefined }) => {
             return {
-                entityName: "Additions",
+                entityName: "additions",
                 values: {
-                    Name,
-                    UnitOfMeasure,
-                    BookkeepingCode,
-                    AddedDate: new Date().toISOString(),
-                    Disabled: false,
-                    DisabledDate: DeleteDate,
-                    DisableUser:undefined
+                    name,
+                    unitOfMeasure,
+                    bookKeepingCode,
+                    addedDate: new Date().toISOString(),
+                    disabled: false,
+                    disabledDate:undefined,
+                    disableUser: undefined
                 },
                 valuesFind: {
-                    Name,
-                    UnitOfMeasure,
-                    BookkeepingCode,
-                    AddedDate,
-                    Disabled,
-                    DisabledDate,
-                    DisabledUser,
+                    name,
+                    unitOfMeasure,
+                    bookKeepingCode,
+                    addedDate,
+                    disabled,
+                    disabledDate,
+                    disableUser,
                 }
             }
         }
@@ -43,7 +43,7 @@ async function insertAddition(obj) {
     }
     logToFile(objectForLog)
 
-    const checkValidObj = values.find(({ entity }) => entity==='Additions'  );
+    const checkValidObj = values.find(({ entity }) => entity === models.ADDITIONS.entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         try {
@@ -52,7 +52,7 @@ async function insertAddition(obj) {
 
 
 
-            const response = await postData('/create/createone', { entityName: SQL_ADDITIONS_TABLE, values: obj })
+            const response = await postData('/create/createone', { entityName: models.ADDITIONS.entity, values: obj })
             if (response.data)
                 return response
         }
@@ -65,38 +65,42 @@ async function insertAddition(obj) {
 }
 
 async function findAddition(filter = {}) {
-    const checkValidObj = values.find(({ entity }) => SQL_ADDITIONS_TABLE === entity);
-    let newObj = checkValidObj.func(filter)
-    if (checkValidObj)
-        try {
+    try {
+        const checkValidObj = values.find(({ entity }) => models.ADDITIONS.entity === entity);
+        console.log({ checkValidObj })
+        let newObj = checkValidObj.func(filter)
+        console.log({ newObj })
+        if (checkValidObj)
+
             _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
 
-            if (!Object.keys(filter).includes('Disabled'))
-                filter.Disabled = 0
+        if (!Object.keys(filter).includes('disabled'))
+            filter.Disabled = 0
 
-            let condition = filter;
+        let condition = filter;
 
-            let objForLog = {
-                name: "find",
-                description: "find Addition in module",
-                filter: condition,
-            }
-            logToFile(objForLog)
-            const response = await getData(`/read/readMany/${SQL_ADDITIONS_TABLE}`, condition)
-
-            // for (let finish of response.data) {
-            //     if (Object.keys(finish).includes('UnitOfMeasure')) {
-            //         const measureName = await findMeasureName(finish.UnitOfMeasure)
-            //         finish['UnitOfMeasure'] = measureName.data[0].measure
-            //     }
-            // }
-            return response
+        let objForLog = {
+            name: "find",
+            description: "find Addition in module",
+            filter: condition,
         }
-        catch (error) {
-            objForLog.error = error.message
-            logToFile(objForLog)
-            throw error
-        }
+        logToFile(objForLog)
+        const response = await getData(`/read/readMany/${models.ADDITIONS.entity}`, condition)
+
+        // for (let finish of response.data) {
+        //     if (Object.keys(finish).includes('UnitOfMeasure')) {
+        //         const measureName = await findMeasureName(finish.UnitOfMeasure)
+        //         finish['UnitOfMeasure'] = measureName.data[0].measure
+        //     }
+        // }
+        return response
+    }
+    catch (error) {
+        objForLog.error = error.message
+        logToFile(objForLog)
+        console.log({error})
+        throw error
+    }
 
 
     // filter['enabled'] = 1
@@ -110,7 +114,7 @@ async function findAddition(filter = {}) {
 
 async function updateAddition(obj = {}) {
     try {
-        const response = await putData('/update/updateone', { entityName: SQL_ADDITIONS_TABLE, values: obj.data, condition: obj.condition })
+        const response = await putData('/update/updateone', { entityName: ADDITIONS_ENTITY, values: obj.data, condition: obj.condition })
         if (response.status == 204)
             return response.data
         else

@@ -8,7 +8,7 @@ const server = axios.create({
 
 
 const getData = async (url, query) => {
-    console.log('in get data',url,query);
+    console.log('in get data', url, query);
     let response;
     let condition = ''
     if (query) {
@@ -32,10 +32,11 @@ const postData = async (url, body) => {
         console.log("in postdata");
         console.log({ url, body: JSON.stringify(body) })
         response = await server.post(url, body);
-        console.log({response});
+        console.log({ response });
         return response
     }
     catch (error) {
+        console.log({ error })
         throw error;
     }
 }
@@ -69,10 +70,10 @@ const deleteData = async (url, body) => {
 
 
 const queryTypes = {
-    AND:'AND', OR:'OR', BETWEEN:'BETWEEN', STARTWITH:'STARTWITH', ENDWIDTH:'ENDWITH', INCLUDES:'INCLUDES'
+    AND: 'AND', OR: 'OR', BETWEEN: 'BETWEEN', STARTWITH: 'STARTWITH', ENDWIDTH: 'ENDWITH', INCLUDES: 'INCLUDES'
 }
 
-const checkQueryType= (type)=>{
+const checkQueryType = (type) => {
     return Object.values(queryTypes).includes(type)
 }
 
@@ -85,22 +86,38 @@ function convertCondition(obj) {
     let str = '?'
     let i = 0;
     const getArgumentsStr = (arg) => {
-
-        if (arg && arg.length == undefined) { //arg is object
-            console.log(Object.keys(arg).length)
-            for(let key in arg){
-                console.log({key})
-                console.log(arg[key])
-                if(checkQueryType(key)){
-                    str += `start_${i++}=${key}&`
-                    str = getArgumentsStr(arg[key])
-                    str += `end_${i++}=${key}&`
-                }
-                else{
-                    console.log({str})
-                     str += `${key}_${i++}=${arg[key]}&`
+        console.log({ arg, length: arg.length })
+        if(arg){
+            console.log(typeof(arg)==='object')
+            console.log(Array.isArray(arg))
+            if(Array.isArray(arg)){
+                console.log("in else", arg);
+                arg.forEach(element => {
+                    str = getArgumentsStr(element, str)
+                    console.log(str)
+                });
+            }
+            else{
+                if(typeof(arg)==='object'){
+                    console.log(Object.keys(arg).length)
+                    for (let key in arg) {
+                        console.log({ key })
+                        console.log(arg[key])
+                        if (checkQueryType(key)) {
+                            str += `start_${i++}=${key}&`
+                            str = getArgumentsStr(arg[key])
+                            str += `end_${i++}=${key}&`
+                        }
+                        else {
+                            console.log({ str })
+                            str += `${key}_${i++}=${arg[key]}&`
+                        }
+                    }
                 }
             }
+        }
+       
+           
             // if (Object.keys(arg).length == 1 && typeof (arg[Object.keys(arg)[0]]) != 'object') { // arg is simple object
             //     let objKey = Object.keys(arg)[0]
             //     console.log({ objKey })
@@ -118,20 +135,14 @@ function convertCondition(obj) {
             //     }
 
             // })
-        }
-        else { //arg is array
-           console.log("in else",arg);
-            arg.forEach(element => {
-                str = getArgumentsStr(element, str)
-                console.log(str)
-            });
-        }
+        
+        console.log({str})
         return str
     }
     console.log({ obj })
     getArgumentsStr(obj);
     str = str.substring(0, str.length - 1)
-    console.log( "str",str);
+    console.log("str", str);
     return str;
 }
 

@@ -4,6 +4,7 @@ const { logToFile } = require('../../services/logger/logTxt')
 const { addOneClient } = require('../../modules/clients/createClient')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { ErrorTypes } = require('../../utils/types')
+
 router.post('/add', express.json(), async (req, res) => {
     let object = {
         name: 'add',
@@ -11,7 +12,7 @@ router.post('/add', express.json(), async (req, res) => {
         dataThatRecived: req.body
     }
     try {
-        let ans = await checkObjectValidations(req.body, 'Clients')
+        let ans = await checkObjectValidations(req.body, 'clients')
         if (ans) {
             const response = await addOneClient(req.body)
             if (response.status == 201)

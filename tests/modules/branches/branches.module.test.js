@@ -4,9 +4,9 @@ jest.mock('../../../services/axios', () => {
             if (url) {
                 if (typeof query == "object") {
                     switch (url) {
-                        case '/read/readAll/tbl_Branches':
+                        case '/read/readAll/branches':
                             return { data: [] }
-                        case '/read/readAll/tbl_Suppliers':
+                        case '/read/readAll/suppliers':
                             return { data: [{ supplierCode: 2222, SupplierName: 'aaaa' }] }
                         default:
                             break;

@@ -31,7 +31,7 @@ router.post('/create', express.json(), async (req, res) => {
 
 router.post('/delete', express.json(), async (req, res) => {
     try {
-        const response = await updateAddition({ data: { Disabled: 1, DisableUser: new Date() }, condition: req.body })
+        const response = await updateAddition({ data: { disabled: 1, disableUser: new Date() }, condition: req.body })
         if (response)
             res.status(200).send(response)
         else {

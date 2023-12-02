@@ -2339,7 +2339,7 @@
                                     "required": true,
                                     "description": "Send the house number of the supplier"
                                 },
-                                "InsertUser": {
+                                "userName": {
                                     "type": "string",
                                     "example": "develpo",
                                     "required": true,
@@ -2539,7 +2539,7 @@
                                     "required": false,
                                     "description": "Send notes of the supplier"
                                 },
-                                "InsertUser": {
+                                "userName": {
                                     "type": "string",
                                     "example": "develpo",
                                     "required": false,
@@ -2647,7 +2647,7 @@
                                     "Mail": null,
                                     "Notes": null,
                                     "CreationDate": "2023-07-04T16:59:53.560Z",
-                                    "InsertUser": "develop",
+                                    "userName": "develop",
                                     "Disabled": false,
                                     "DisabledDate": null,
                                     "DisableUser": null
@@ -2687,7 +2687,7 @@
                                     "Mail": "h@g.iuykji",
                                     "Notes": "3",
                                     "CreationDate": "2023-06-25T17:29:51.000Z",
-                                    "InsertUser": "develop",
+                                    "userName": "develop",
                                     "Disabled": true,
                                     "DisabledDate": "Jul  2 2023  2:21PM",
                                     "DisableUser": "hgf",

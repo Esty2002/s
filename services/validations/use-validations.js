@@ -4,33 +4,32 @@ const { getValidationsModule } = require('./validations-objects')
 
 
 
-const checkObjectValidations = async (entity, objName, find = false) => {
+const checkObjectValidations = async (entity, objName, create = false) => {
     let errors = []
     console.log({objName})
     try {
-        const module = getValidationsModule(find).find(({ objectName }) => objName === objectName)
-        const values = module.values;
-        console.log({ values })
-        for (let v of values) {
-            if (!v.require && !entity[v.propertyName]) {
+        const module = getValidationsModule(objName, create)
+        // const values = module.values;
+        for (let val of module) {
+            if (!val.require && !entity[val.propertyName]) {
                 continue
             }
-            if (v.require) {
-                console.log(v.propertyName)
-                const { type } = v
-                const isEmpty = checkEmptyValue({ type, value: entity[v.propertyName] })
+            console.log(val.require)
+            if (val.require) {
+                const { type } = val
+                const isEmpty = checkEmptyValue({ type, value: entity[val.propertyName] })
                 if (isEmpty) {
-                    errors = [...errors, { propertyName: v.propertyName, error: `the ${v.propertyName} is required but ${isEmpty}` }];
+                    errors = [...errors, { propertyName: val.propertyName, error: `the ${val.propertyName} is required but ${isEmpty}` }];
                     continue
                 }
             }
-            for (let valid of v.validation) {
-                if (entity[v.propertyName] || entity[v.propertyName] === null) {
+            for (let valid of val.validation) {
+                if (entity[val.propertyName] || entity[val.propertyName] === null) {
                     try {
-                        _ = await valid.func(entity[v.propertyName], valid.arguments);
+                        _ = await valid.func(entity[val.propertyName], valid.arguments);
                     }
                     catch (error) {
-                        errors = [...errors, { propertyName: v.propertyName, error: error.message }];
+                        errors = [...errors, { propertyName: val.propertyName, error: error.message }];
                     }
                    
                 }

@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { checkObjectValidations } = require('../../services/validations/use-validations')
 
 
 const { getAllBranches, getBranchById, insertOneBranch, updateDetail, deleteBranches, checkUnique, getBranchesByCondition } = require('../../modules/suppliers/branches');

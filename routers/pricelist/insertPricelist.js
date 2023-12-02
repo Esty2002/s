@@ -7,7 +7,6 @@ let object
 
 
 router.post('/addPriceList', express.json(), async (req, res) => {
-    console.log("45452444444444");
     let object = {
         name: 'create',
         description: 'addPriceList in router',
@@ -50,17 +49,17 @@ router.post('/addCitiesAdditions', express.json(), async (req, res) => {
         logToFile(objForLog)
         const result = await insert(req.body, 'CitiesAdditions')
         if (result.status === 201)
-        res.status(201).send(result.data);
+            res.status(201).send(result.data);
         else
-        res.status(result.status).send(result.data);
+            res.status(result.status).send(result.data);
     }
     catch (error) {
         objForLog.error = error.message;
         logToFile(objForLog)
         if (error instanceof Array)
-        res.status(500).send(error)
+            res.status(500).send(error)
         else
-        res.status(500).send(error.message)
+            res.status(500).send(error.message)
     }
 })
 
@@ -254,14 +253,14 @@ router.post('/getIdForPricelistName/:name', async (req, res) => {
             pricelistName: req.params.name,
         }
         logToFile(objForLog)
-        const result = await getId(req.params.name, 'PriceList')
+        const result = await getId(req.params.name, 'pricelist')
         let obj = { id: result.data[0].Id }
         if (result.status === 200) {
             res.status(200).send(obj);
         }
         else
-        res.status(500).send(obj);
-        
+            res.status(500).send(obj);
+
     }
     catch (error) {
         objForLog.error = error.message
@@ -307,17 +306,17 @@ router.post('/updateFieldInTable/:id/:entityName', express.json(), async (req, r
         logToFile(objForLog)
         const result = await updateField(req.params.id, req.params.entityName, req.body)
         if (result.status === 204)
-            res.status(204).send({message:true})
+            res.status(204).send({ message: true })
         else
             res.status(result.status).send(false)
     }
     catch (error) {
         logToFile(objForLog)
-        if (error instanceof Array){
+        if (error instanceof Array) {
             objForLog.error = error
             res.status(500).send(error)
         }
-        else{
+        else {
             objForLog.error = error.message
             res.status(500).send(error.message);
         }

@@ -2,18 +2,19 @@
 const { postData, getData, putData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
+const { modelNames } = require('../../services/schemas')
 
-const { SQL_UNIT_OF_MEASURE_TABLE } = process.env
+const { UNITOFMEASURE_ENTITY } = process.env
 
 const values = [
     {
-        entity: "UnitOfMeasure",
-        func: ({ Name = null }) => {
+        entity: "unitOfMeasure",
+        func: ({ Measure }) => {
             return {
-                entityName: "UnitOfMeasure",
+                entityName: "unitOfMeasure",
                 values: {
-                    Measure: Name,
-                    Disable: false,
+                    Measure,
+                    Disabled: false,
                 }
             }
         }
@@ -22,7 +23,7 @@ const values = [
 
 async function updateMeasure(condition, obj) {
     try {
-        const response = await putData('/update/updateone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { measure: obj }, condition })
+        const response = await putData('/update/updateone', { entityName: UNITOFMEASURE_ENTITY, values: { measure: obj }, condition })
         if (response.status == 204)
             return response.data
         return false
@@ -32,12 +33,12 @@ async function updateMeasure(condition, obj) {
     }
 }
 
-async function insertMeasure(name) {
+async function insertMeasure(Measure) {
     let objectForLog = {
         name: 'insertMeasure',
         description: 'insert an unit of measure in module',
-        obj: name,
-        entityName: SQL_UNIT_OF_MEASURE_TABLE
+        obj: Measure,
+        entityName: modelNames.MEASURES
     }
     logToFile(objectForLog)
     // const exist = await getData(`/read/exist/${SQL_UNIT_OF_MEASURE_TABLE}/measure/${name}`,name)
@@ -45,15 +46,15 @@ async function insertMeasure(name) {
     // const { status, data } = exist
     // if (status === 200 && !data[0]) {
     try {
-        const checkValidObj = values.find(({ entity }) => SQL_UNIT_OF_MEASURE_TABLE === "UnitOfMeasure");
-        let newObj = checkValidObj.func({ Name: name })
+        const checkValidObj = values.find(({ entity }) => UNITOFMEASURE_ENTITY === entity);
         if (checkValidObj) {
+            let newObj = checkValidObj.func(Measure)
             _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
             name = newObj.values
         }
 
 
-        const response = await postData('/create/createone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: name })
+        const response = await postData('/create/createone', { entityName: UNITOFMEASURE_ENTITY, values: name })
         if (response.data)
             return response
     }
@@ -72,7 +73,7 @@ async function insertMeasure(name) {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { entityName: SQL_UNIT_OF_MEASURE_TABLE, values: { Disable: true }, condition: { Id: object.Id } })
+        const response = await deleteData('/delete/deleteone', { entityName: UNITOFMEASURE_ENTITY, values: { disable: true }, condition: { id: object.Id } })
         if (response.status == 204) {
             return response.data
         }
@@ -92,7 +93,7 @@ async function getAll() {
     logToFile(objectForLog)
 
     try {
-        const response = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`)
+        const response = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`)
         return response
     }
     catch (error) {
@@ -111,7 +112,7 @@ async function findMeasureNumber(name) {
     logToFile(objectForLog)
     try {
         if (name) {
-            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`, { Measure: name })
+            let res = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`, { Measure: name })
             if (res.data[0])
                 return res;
             else
@@ -136,7 +137,7 @@ async function findMeasureName(num) {
     logToFile(objectForLog)
     try {
         if (num && parseInt(num)) {
-            let res = await getData(`/read/readMany/${SQL_UNIT_OF_MEASURE_TABLE}`, { Id: num })
+            let res = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`, { Id: num })
             if (res.data[0])
                 return res;
             else

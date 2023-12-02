@@ -597,6 +597,7 @@
     "z-schema": "^3.25.1"
   },
   "devDependencies": {
+    "eslint": "^8.54.0",
     "jest": "^29.6.1",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^6.2.8",
@@ -606,7 +607,9 @@
     "test": "jest",
     "test:coverage": "npm test -- --coverage",
     "start": "node server.js",
-    "dev": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "lint": "eslint",
+    "lint:fix": "npm run lint -- --fix"
   },
   "repository": {
     "type": "git",

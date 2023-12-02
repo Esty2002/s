@@ -1,10 +1,10 @@
 const request = require('supertest');
-const { app } = require('../../../../app')
+const { app } = require('../../../app')
 
 
 
 // const { insert} = require('../../modules/pricelist/insertPricelist')
-jest.mock('../../modules/pricelist/insertPricelist', () => {
+jest.mock('../../../modules/pricelist/insertPricelist', () => {
     return {
         insert: jest.fn((obj) => {
             console.log({ obj })
@@ -151,7 +151,7 @@ describe('POST',()=>{
     })
 
     //////////////////////////////////////addPricelistForProducts
-    it('shuold insert the object to db', async () => {
+    it('should insert the object to db', async () => {
         const res = await request(app).post('/creatPricelist/addPricelistForProducts').send({ name: "tamy", customerCode: 1000 })
         expect(res.statusCode).toBe(200)
         expect(res).toBeDefined()

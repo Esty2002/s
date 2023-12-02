@@ -21,8 +21,10 @@ router.post('/insertRow', express.json(), async (req, res) => {
     try {
         const response = await insertRow(req.body)
          console.log(response.status);
+         console.log(response.data)
         if (response.status === 201 || response.status===204)
-            res.status(response.status).send(response.data)
+
+            res.status(response.status).send(response.data[0])
         else {
             res.status(500).send(false)
         }

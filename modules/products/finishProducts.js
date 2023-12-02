@@ -1,16 +1,16 @@
 require('dotenv').config()
 const { postData, putData, getData, deleteData } = require('../../services/axios')
-const { SQL_FINISH_PRODUCTS_TABLE } = process.env
+const { FINISH_PRODUCTS_ENTITY } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { logToFile } = require('../../services/logger/logTxt')
 
 const values = [
     {
-        entity: "FinishProducts",
+        entity: "finishProducts",
         func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, AddedDate = null, Disabled = null, DisabledDate = null,DisableUser=null }) => {
             return {
-                entityName: "FinishProducts",
+                entityName: "finishProducts",
                 values: {
                     Name,
                     UnitOfMeasure,
@@ -44,7 +44,7 @@ async function insertFinishProduct(obj) {
     logToFile(objectForLog)
 
 
-    const checkValidObj = values.find(({ entity }) => SQL_FINISH_PRODUCTS_TABLE === entity);
+    const checkValidObj = values.find(({ entity }) => FINISH_PRODUCTS_ENTITY === entity);
     let newObj = checkValidObj.func(obj)
     if (checkValidObj) {
         try {
@@ -52,7 +52,7 @@ async function insertFinishProduct(obj) {
             obj = newObj.values
 
 
-            const response = await postData('/create/createone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: obj })
+            const response = await postData('/create/createone', { entityName: FINISH_PRODUCTS_ENTITY, values: obj })
             if (response.data)
                 return response
         }
@@ -66,7 +66,7 @@ async function insertFinishProduct(obj) {
 async function updateFinishProduct(obj) {
     try {
         const {condition, data} = obj
-        const response = await putData('/update/updateone', { entityName: SQL_FINISH_PRODUCTS_TABLE, values: data, condition })
+        const response = await putData('/update/updateone', { entityName: FINISH_PRODUCTS_ENTITY, values: data, condition })
         if (response.status == 204)
             return response.data
         else
@@ -80,7 +80,7 @@ async function updateFinishProduct(obj) {
 async function deleteFinishProduct({condition}){
     try {
         
-        const response = await deleteData('/delete/deleteone', { entityName: SQL_FINISH_PRODUCTS_TABLE,values:{Disabled:true, DisableUser:'developer', DisabledDate:new Date()}, condition })
+        const response = await deleteData('/delete/deleteone', { entityName: FINISH_PRODUCTS_ENTITY,values:{Disabled:true, DisableUser:'developer', DisabledDate:new Date()}, condition })
         if (response.status == 204)
             return response.data
         else
@@ -92,15 +92,14 @@ async function deleteFinishProduct({condition}){
 }
 
 async function findFinishProduct(filter = {}) {
-
-
-    const checkValidObj = values.find(({ entity }) => SQL_FINISH_PRODUCTS_TABLE === "FinishProducts");
+    const checkValidObj = values.find(({ entity }) => entity === FINISH_PRODUCTS_ENTITY);
     let newObj = checkValidObj.func(filter)
     if (checkValidObj)
         _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
     if (!Object.keys(filter).includes('Disabled'))
         filter.Disabled = 0
     let condition = filter;
+    console.log({filter})
     let objForLog = {
         name: "find",
         description: "find finish products in module",
@@ -109,7 +108,7 @@ async function findFinishProduct(filter = {}) {
     logToFile(objForLog)
 
     try {
-        const response = await getData(`/read/readMany/${SQL_FINISH_PRODUCTS_TABLE}`, condition)
+        const response = await getData(`/read/readMany/${FINISH_PRODUCTS_ENTITY}`, condition)
         console.log(response.data)
         // for (const finish of response.data) {
         //     if (Object.keys(finish).includes('UnitOfMeasure')) {

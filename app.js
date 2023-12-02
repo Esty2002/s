@@ -58,10 +58,6 @@ app.use('/delete_client', delete_client_router);
 app.use('/statusesClient', status_router);
 app.use('/auto_complete', auto_complete);
 
-// app.use('/areas', areas_router);
-app.use('/api', api_router);
-// app.use('/delete_client', delete_client_router);
-// app.use('/readClient', readClient_router)
 app.use('/statusesClient', status_router)
 app.use('/readpricelist', readPriceList_router)
 app.use('/creatPricelist', creatPricelist_router)

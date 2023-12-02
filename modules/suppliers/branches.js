@@ -1,17 +1,14 @@
 require('dotenv').config();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
-const { SQL_DB_BRANCHES, SQL_DB_SUPPLIERS } = process.env;
-// const { setDate } = require('./functions');
 const { getData, postData, putData, deleteData, } = require('../../services/axios');
+const { modelNames } = require('../../services/schemas');
 
 async function insertOneBranch(object) {
-    console.log("-------- ---------",{object});
     try {
         let ans = await checkObjectValidations(object, 'Branches')
         console.log("inmsertBranch - module");
         if (ans) {
             if (checkValid(object) && await checkUnique(object)) {
-                console.log("inserttttttt");
                 object['CreationDate'] = new Date().toISOString();
                 let obj = { entityName: 'Branches', values: object };
                 const res = await postData("/create/createone", obj);
@@ -30,7 +27,7 @@ async function insertOneBranch(object) {
 }
 async function getAllBranches() {
     try {
-        const res = await getData(`/read/readAll/${SQL_DB_BRANCHES}/Disabled = '0'`);
+        const res = await getData(`/read/readAll/${modelNames.BRANCHES}`, {Disabled : '0'});
         return res.data;
     }
     catch (error) {
@@ -56,7 +53,7 @@ async function getBranches(supplierid, disabled) {
 async function getBranchById(query) {
     console.log({ query });
     try {
-        const res = await getData(`/read/readOne/Branches`, query);
+        const res = await getData(`/read/readOne/branches`, query);
         return res.data[0];
     }
     catch (error) {
@@ -68,7 +65,7 @@ async function getBranchById(query) {
 async function getBranchesByCondition(query) {
     console.log({ query });
     try {
-        const res = await getData(`/read/readMany/Branches`, query);
+        const res = await getData(`/read/readMany/branches`, query);
         return res.data;
     }
     catch (error) {
@@ -77,7 +74,6 @@ async function getBranchesByCondition(query) {
 }
 
 
-///////////////////////////////////////////////////////////////////
 async function updateDetail(setting) {
     try {
         console.log("updatadetails", setting.BranchName);
@@ -89,8 +85,8 @@ async function updateDetail(setting) {
         //     }
         // }
         let obj = {
-            entityName: 'Branches', values: {
-                SupplierCode: setting.SupplierCode.Id, BranchName: setting.BranchName, Status: setting.Status,
+            entityName: modelNames.BRANCHES, values: {
+                supplierCode: setting.supplierCode.id, BranchName: setting.BranchName, Status: setting.Status,
                 Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
             }, condition: { Id: setting.Id }
@@ -107,7 +103,7 @@ async function updateDetail(setting) {
 async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
-        let obj = { entityName: 'Branches', values: { DisableUser: `${object.DisableUser}`, Disabled: '1', DisabledDate: newDate }, condition: { Id: object.Id } };
+        let obj = { entityName: modelNames.BRANCHES, values: { disableUser: `${object.disableUser}`, disabled: true, disabledDate: newDate }, condition: { id: object.id } };
         const res = await deleteData("/delete/deleteone", obj);
         return res;
     }
@@ -118,7 +114,7 @@ async function deleteBranches(object) {
 }
 
 function checkValid(object) {
-    let mustKeys = ["SupplierCode", "BranchName", "Street", "HomeNumber", "City", "Phone1"/*, "UserThatInsert"*/];
+    let mustKeys = ["supplierCode", "branchName", "street", "homeNumber", "city", "phone1"/*, "UserThatInsert"*/];
     let array = Object.keys(object);
     console.log("must-----",array);
     for (let i = 0; i < mustKeys.length; i++) {
@@ -131,8 +127,8 @@ function checkValid(object) {
 
 async function checkUnique(object) {
     try {
-        const resultSupplierExist = await getData(`/read/readOne/${SQL_DB_SUPPLIERS}`, { Id: object.SupplierCode, Disabled: 0 });
-        const resultBranchName = await getData(`/read/readOne/${SQL_DB_BRANCHES}`, { BranchName: object.BranchName, SupplierCode: object.SupplierCode, Disabled: 0 });
+        const resultSupplierExist = await getData(`/read/readOne/${modelNames.SUPPLIERS}`, { Id: object.SupplierCode, Disabled: 0 });
+        const resultBranchName = await getData(`/read/readOne/${modelNames.BRANCHES}`, { branchName: object.branchName, supplierCode: object.supplierCode, disabled: false });
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 
     }

@@ -1,6 +1,7 @@
 
 const { postData, getData, putData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { modelNames } = require('../../services/schemas');
 const { getRecord } = require('./tables');
 
 const { SQL_LEADS_TABLE, SQL_MOREPRODUCTSITEM_TABLE } = process.env
@@ -72,10 +73,10 @@ const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
             }]
         });
         for (let item of morePorductsItems) {
-            _ = await checkObjectValidations(item, SQL_MOREPRODUCTSITEM_TABLE);
+            _ = await checkObjectValidations(item, 'moreproductsitems');
         };
         objMpi = {
-            entityName: SQL_MOREPRODUCTSITEM_TABLE,
+            entityName:'moreproductsitems',
             values: morePorductsItems
         };
         const res = await postData('create/createmany', objMpi);

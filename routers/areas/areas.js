@@ -100,9 +100,9 @@ router.post('/findInPolygon' ,express.json(), async (req, res) => {
     }
 })
 
-router.get('/findAllTypes/:collection/:filter', async (req, res) => {
+router.get('/findAllTypes/:collection', async (req, res) => {
     let collection = req.params.collection;
-    let filter = req.params.filter
+    let filter = req.query.filter
     try {
         const result = await findByDistinct(collection, filter)
         // console.log('***********************', result.data);

@@ -4,13 +4,13 @@ const { SQL_CLIENTS_TABLE } = process.env
 
 async function deletedClientByCode(clientCode, userName) {
     try {
-        const exist = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { ClientCode: clientCode })
+        const exist = await getData(`/read/readMany/${SQL_CLIENTS_TABLE}`, { clientCode })
         if (exist.status == 200) {
             let result;
 
             let obj = {
                 entityName: SQL_CLIENTS_TABLE,
-                values: { Disabled: true, deletionDate: new Date(), userThatDelete: userName },
+                values: { disabled: true, deletionDate: new Date(), userThatDelete: userName },
                 condition: { clientCode }
             }
 

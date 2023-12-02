@@ -49,7 +49,7 @@ router.get('/pricelistRecords/:entity/:id', async (req, res) => {
 
 // })
 // פונקציית חיפוש על פי מוצר
-router.get('/FindPriceListByProduct/:product', async (req, res) => {
+router.get('/findPriceListByProduct/:product', async (req, res) => {
     try {
         const result = await getPriceListbyProduct(req.params.product);
             res.status(200).send(result);
@@ -62,7 +62,7 @@ router.get('/FindPriceListByProduct/:product', async (req, res) => {
 })
 
 // חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
-router.get('/FindPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
+router.get('/findPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByIdSupplierOrClientCode',
         description: 'FindPriceListByIdSupplierOrClientCode in router',

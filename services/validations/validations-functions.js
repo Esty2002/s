@@ -116,11 +116,14 @@ const specificLength = (value, len) => {
 
 const recordExistInDB = async (value, arg) => {
     const { entityName, field, exist } = arg;
+    const {condition} = arg
+    console.log({value})
+    console.log(condition)
     try {
         console.log(entityName, field, exist, 'entityName, field, exist');
-        const condition = value 
+        const condition = {} 
         //{}
-        // condition[arg.field] = value;
+         condition[arg.field] = value;
         console.log(condition)
         let ans = await getData(`/read/readOne/${entityName}`, condition)
         if (exist) {
@@ -195,14 +198,12 @@ const correctTable = async (value) => {
     }
     throw new Error(`you cant connect to ${value} table`)
 }
-const theDateBeforToday = (value) => {
+const theDateBeforeToday = (value) => {
     let date2 = new Date(value)
 
-    if (date2 - new Date > 0) {
+    if (date2 - new Date() > 0) {
         throw new Error('the date is in the future while it has to be in the past')
     }
-
-    console.log('yes date');
     return true
 }
 const theDateAfterToday = (value) => {
@@ -236,7 +237,7 @@ const validation = {
     correctTable,
     onlyLetters,
     theDateAfterToday,
-    theDateBeforToday,
+    theDateBeforeToday,
     betweenNumbers
 }
 

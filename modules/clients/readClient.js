@@ -3,7 +3,7 @@ const { postData, getData } = require('../../services/axios')
 async function getAllClient() {
     try {
         let query = { disabled: 0 }
-        const result = await getData('/read/readMany/Clients', query);
+        const result = await getData('/read/readMany/clients', query);
         if (result.status == 200)
             return result
         else return false
@@ -16,7 +16,7 @@ async function getAllClient() {
 async function getAllDeletedClient() {
     try {
         let query = { disabled: 1 };
-        const result = await getData('/read/readMany/Clients', query);
+        const result = await getData('/read/readMany/clients', query);
         if (result.status == 200)
             return result
         else return false
@@ -29,7 +29,7 @@ async function getAllDeletedClient() {
 async function getClientsById(id) {
     try {
         let query = { id: id }
-        const result = await getData('/read/readMany/Clients', query);
+        const result = await getData('/read/readMany/clients', query);
         if (result.status == 200)
             return result
         else return false
@@ -43,7 +43,7 @@ async function getClientsByField(field, value) {
     try {
         let query;
         query[field] = value
-        const result = await postData('/read/readMany/Clients', query);
+        const result = await postData('/read/readMany/clients', query);
         if (result.status == 200)
             return result
         else return false
