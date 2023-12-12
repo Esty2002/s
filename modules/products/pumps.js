@@ -1,41 +1,8 @@
-require('dotenv').config()
 const { postData, putData, getData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
+const { modelNames } = require('../utils/schemas')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
-
-const { PUMPS_ENTITY } = process.env
-
-const values = [
-    {
-        entity: "pumps",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, Addition = null, AddedDate = null, Disabled = false, DisabledDate = null, DisableUser = undefined }) => {
-            return {
-                entityName: "pumps",
-                values: {
-                    Name,
-                    UnitOfMeasure,
-                    BookkeepingCode,
-                    Addition,
-                    AddedDate: new Date().toISOString(),
-                    Disabled: false,
-                    DisableUser: undefined,
-                    DisabledDate: null,
-                },
-                valuesFind: {
-                    Name,
-                    UnitOfMeasure,
-                    BookkeepingCode,
-                    Addition,
-                    AddedDate,
-                    Disabled,
-                    DisabledDate,
-                    DisableUser
-                }
-            }
-        }
-    }
-]
 
 async function insertPump(obj) {
     let objectForLog = {
@@ -45,45 +12,39 @@ async function insertPump(obj) {
         entityName: SQL_PUMPS_TABLE
     }
     logToFile(objectForLog)
-    const checkValidObj = values.find(({ entity }) => PUMPS_ENTITY === entity);
-    let newObj = checkValidObj.func(obj)
-    if (checkValidObj) {
-        try {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            obj = newObj.values
+    try {
+        _ = await checkObjectValidations(obj, modelNames.PUMPS, true)
+        obj = newObj.values
 
-            const response = await postData('/create/createone', { entityName: SQL_PUMPS_TABLE, values: obj })
-            if (response.data)
-                return response
-        }
-        catch (error) {
-            objectForLog.error = error.message
-            logToFile(objectForLog)
-            throw error
-        }
+        const response = await postData('/create/createone', { entityName: modelNames.PUMPS, values: obj })
+        if (response.data)
+            return response
+    }
+    catch (error) {
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
     }
 }
 
 async function findPump(filter = {}) {
-    const checkValidObj = values.find(({ entity }) => PUMPS_ENTITY === entity);
-    let newObj = checkValidObj.func(filter)
-    if (checkValidObj)
-        _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
-
-    if (!Object.keys(filter).includes('Disabled'))
-        filter.Disabled = 0
-
-    let condition = filter
-
-    let objForLog = {
-        name: "find",
-        description: "find pumps in module",
-        filter: condition
-    }
-    logToFile(objForLog)
 
     try {
-        const response = await getData(`/read/readMany/${PUMPS_ENTITY}`, condition)
+        _ = await checkObjectValidations(filter, modelNames.PUMPS, )
+
+        if (!Object.keys(filter).includes('disabled'))
+            filter.disabled = 0
+
+        let condition = filter
+
+        let objForLog = {
+            name: "find",
+            description: "find pumps in module",
+            filter: condition
+        }
+        logToFile(objForLog)
+
+        const response = await getData(`/read/readMany/${modelNames.PUMPS}`, condition)
 
         return response
     }
@@ -98,7 +59,7 @@ async function findPump(filter = {}) {
 
 async function updatePump(obj) {
     try {
-        const response = await putData('/update/updateone', { entityName: PUMPS_ENTITY, values: obj.data, condition: obj.condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, values: obj.data, condition: obj.condition })
         if (response.status == 204)
             return response.data
         return false

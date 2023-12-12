@@ -1,16 +1,16 @@
 require('dotenv').config();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { getData, postData, putData, deleteData, } = require('../../services/axios');
-const { modelNames } = require('../../services/schemas');
+const { modelNames } = require('../utils/schemas');
 
-async function insertOneBranch(object) {
+async function insertOneBranch(object, entityName = modelNames.BRANCHES) {
     try {
-        let ans = await checkObjectValidations(object, 'Branches')
+        let ans = await checkObjectValidations(object, entityName)
         console.log("inmsertBranch - module");
         if (ans) {
             if (checkValid(object) && await checkUnique(object)) {
-                object['CreationDate'] = new Date().toISOString();
-                let obj = { entityName: 'Branches', values: object };
+                object.addedDate = new Date().toISOString();
+                let obj = { entityName, values: object };
                 const res = await postData("/create/createone", obj);
                 return res;
             }
@@ -27,7 +27,7 @@ async function insertOneBranch(object) {
 }
 async function getAllBranches() {
     try {
-        const res = await getData(`/read/readAll/${modelNames.BRANCHES}`, {Disabled : '0'});
+        const res = await getData(`/read/readAll/${modelNames.BRANCHES}`, { Disabled: '0' });
         return res.data;
     }
     catch (error) {
@@ -114,9 +114,9 @@ async function deleteBranches(object) {
 }
 
 function checkValid(object) {
-    let mustKeys = ["supplierCode", "branchName", "street", "homeNumber", "city", "phone1"/*, "UserThatInsert"*/];
+    let mustKeys = ["supplierCode", "branchName", "street", "homeNumber", "city", "phone1"/*, "userName"*/];
     let array = Object.keys(object);
-    console.log("must-----",array);
+    console.log("must-----", array);
     for (let i = 0; i < mustKeys.length; i++) {
         if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && object[mustKeys[i]] === "")) {
             return false;
@@ -127,7 +127,7 @@ function checkValid(object) {
 
 async function checkUnique(object) {
     try {
-        const resultSupplierExist = await getData(`/read/readOne/${modelNames.SUPPLIERS}`, { Id: object.SupplierCode, Disabled: 0 });
+        const resultSupplierExist = await getData(`/read/readOne/${modelNames.SUPPLIERS}`, { id: object.SupplierCode, disabled: 0 });
         const resultBranchName = await getData(`/read/readOne/${modelNames.BRANCHES}`, { branchName: object.branchName, supplierCode: object.supplierCode, disabled: false });
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 

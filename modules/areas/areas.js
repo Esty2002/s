@@ -1,12 +1,12 @@
 require('dotenv').config()
 const { getData, postData, deleteData, putData } = require('../../services/axios');
 const { logToFile } = require('../../services/loggerPnini');
+const { models } = require('../utils/schemas');
 
 // mongoשל ה id את ה sqlואין לs mongo נכנס לפני sql-מסודר לפי הטרנזקציה החדשה אך הטרנזקציה לא טובה סופית כיון ש
 async function insertArea(obj = {}) {
-    console.log({ objjjjjjjjjj: obj });
     try {
-        const find = await findAreas({ name: obj.name })
+        const find = await findAreas({ areaName: obj.name })
         console.log({ finddd: find });
         if (find?.length > 0) {
             return { status: 409, data: 'duplicated values' }
@@ -30,66 +30,31 @@ async function insertArea(obj = {}) {
             }
             console.log({ points })
         }
-        // const result = await postData('/create/createManyEntities',
-        //     [
-        //         {
-        //             entityName: "areas_object",
-        //             values: obj
-        //         },
-        //         {
-        //             entityName: "Areas",
-        //             values: { AreaName: obj.name, Disabled: 'false' }
-        //         }
-        //     ])
-        // if (result.status === 201)
-        //     return result;
-        // else
-        //     throw new Error("Can't insert area to mongo and/or sql DB");
+
+        obj.areaName = obj.name
         const result = await postData('/create/createone',
             {
-                entityName: 'areas_object',
-                values: obj
+                entityName: 'areas',
+
+                values: { ...obj, addedDate: new Date(), username: 'develop', disabled: false }
             });
-
-        if (result.data) {
-            const result2 = await postData('/create/createone',
-                {
-                    entityName: "Areas",
-                    values: { AreaIdFromMongo: result.data, AreaName: obj.name, Disabled: 'false' }
-                })
-            console.log('result2', result2.status);
-            if (result2 && result2.status !== 201) {
-                const dropResult = await deleteData('/delete/deleteone',
-                    {
-                        entityName: "areas_object",
-                        data: { _id: result.data }
-                    })
-                return dropResult;
-            }
-            if (result2.status === 201)
-                return result2
-            else
-                throw new Error("Can't insert area to mongo and sql DB");
-
-        }
-        else {
-            throw new Error("Can't insert area");
-        }
+        return result
     }
     catch (error) {
         console.log(error.message)
-        throw error
+
+        throw { status: 500, message: error.message }
     }
 
 }
-// עובד!!!!!!!!!
-async function findByDistinct(obj) {
+
+async function findDistinctAreaTypes(obj) {
     let object = {
-        name: "findByDistinct",
-        description: 'findByDistinct in module',
+        name: "findDistinctAreaTypes",
+        description: 'findDistinctAreaTypes in module',
         dataThatRecived: obj
     };
-    const found = await postData('/read/readMany/areas_object', obj)
+    const found = await postData('/read/readMany/areas', { fields: [models.AREAS.fields.TYPE.name] })
     if (found.data) {
         const types = [...new Set(found.data.map(a => a.type))]
         logToFile(types)
@@ -103,41 +68,9 @@ async function findByDistinct(obj) {
 };
 //craeatIndex וכן יש בעיה עם ה aggregate עדיין לא מסודר לפי המבנה של DBSERVER לא עובד כיון ש 
 async function findInRadius(filter) {
-    const response = await postData('/read/readMany/areas_object',
+    const response = await postData('/read/readMany/areas',
         {
-            // condition: [
-            //     {
-            //         GEO_NEAR:
-            //             [{
-            //                 near:
-            //                 {
-            //                     type: "Point",
-            //                     coordinates: filter.point
-            //                 },
-            //                 distanceField: "calculatedDist",
-            //                 maxDistance: 4500,
-            //                 spherical: true
-            //             }]
-            //     },
-            //     {
-            //         MATCH: [{ EXPR: [{ GTE: ['$radius', '$calculatedDist'] }], type: filter.type }]
-            //     }
-            // ]
-            //----------------שבדוקר mongo זה מה שהיה קודם- זוהי פונקציה שעבדה מצוין ב 
-            aggregate: [{
-                $geoNear: {
-                    near: {
-                        type: "Point",
-                        coordinates: filter.point
-                    },
-                    distanceField: "calculatedDist",
-                    maxDistance: 4500,
-                    spherical: true
-                }
-            },
-            {
-                $match: { $expr: { $gte: ['$radius', '$calculatedDist'] }, type: filter.type }
-            }]
+            condition:{...filter}
         }
     )
     if (response.data) {
@@ -154,9 +87,9 @@ async function findAreas(filter) {
         description: 'findAreas in module',
         dataThatRecived: filter
     };
-    const found = await postData('/read/readMany/areas_object', {
-        condition: { AND: [filter, { OR: [{ disabled: undefined }, { disabled: true }] }] }
-    });
+    const found = await postData('/read/readMany/areas',
+        { condition: { ...filter, disabled: false } }
+    );
 
     if (found.data) {
         logToFile(object)
@@ -175,8 +108,8 @@ async function findInPolygon(point) {
         description: 'findInPolygon in module',
         dataThatRecived: point
     };
-    const found = await postData('/read/readMany/areas_object', {
-        filter: { AND: [{ type: 'polygon' }, { OR: [{ disabled: undefined }, { disabled: false }] }] },
+    const found = await postData('/read/readMany/areas', {
+        condition: { type: 'polygon', ...point, disabled:false },
         point
     });
     if (found.data) {
@@ -203,7 +136,7 @@ async function updateArea(obj) {
     };
     const result = await putData('/update/updateone',
         {
-            entityName: "areas_object",
+            entityName: "areas",
             condition: [{ AND: [obj.condition, { OR: [{ disabled: undefined }, { disabled: false }] }] }],
             values: obj.set
         })
@@ -230,22 +163,6 @@ async function updateArea(obj) {
         throw new Error("can't update area")
     }
 }
-<<<<<<< HEAD
-
-async function findArea(filter = {}) {
-    // let query = {}
-    // query[name] = value   
-    const result = await postData('/read/find', {
-        collection: "areas",
-        filter
-    })
-
-    return result
-}
-
-async function findSupplierOrClient(code) {
-    const result = await postData(server, '/read/find',
-=======
 // אמור להיות בטרנזקציה שרותי רז באמצע לעשות!!!!!!!!!!!!!!!!!!!!
 async function deleteArea(obj) {
     console.log({ objjjjjj: obj });
@@ -255,23 +172,15 @@ async function deleteArea(obj) {
         dataThatRecived: obj
     };
     const result = await putData('/update/updateone',
->>>>>>> 459b67c540bda832f5ef043854683ed06b858677
         {
-            entityName: "areas_object",
+            entityName: "areas",
             condition: { AND: [obj.filter, { OR: [{ disabled: null }, { disabled: false }] }] },
             values: obj.set
         })
-<<<<<<< HEAD
-    if (result)
-        return result
-
-    else
-        throw new Error("not found supplier or client code")
-=======
     if (result.data) {
         const resultDB = await putData('/update/updateone',
             {
-                entityName: 'Areas',
+                entityName: 'areas',
                 values: { Disabled: true },
                 condition: { Disabled: false, AreaName: obj.filter.name }
             })
@@ -290,40 +199,15 @@ async function deleteArea(obj) {
         logToFile(object)
         throw new Error("can't delete area")
     }
->>>>>>> 459b67c540bda832f5ef043854683ed06b858677
 }
 
-async function getFromSql() {
-    // .............sql פונקציה זו שייכת לרי"ף - אין שם 
-    const response = await getData('/read/readMany/Areas')
-    console.log('response-------------', response.data);
-    return response.data;
-}
-
-<<<<<<< HEAD
-        })
-    if (result)
-        return result
-
-    else
-        throw new Error("not found supplier or client code")
-=======
-async function getFromMongo() {
-    // .............mongo פונקציה זו שייכת לרי"ף - אין שם 
-    const response = await getData('/read/readMany/areas_object')
-    console.log('response-------------', response.data);
-    return response.data;
->>>>>>> 459b67c540bda832f5ef043854683ed06b858677
-}
 
 module.exports = {
     insertArea,
     updateArea,
-    findByDistinct,
+    findDistinctAreaTypes,
     findAreas,
     findInPolygon,
-    getFromSql,
-    getFromMongo,
     deleteArea,
     findInRadius,
     startt

@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { getModel } = require('../services/schemas')
+const { getModel } = require('../modules/utils/schemas')
 
 
 

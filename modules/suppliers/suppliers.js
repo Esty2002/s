@@ -1,10 +1,10 @@
 require('dotenv').config();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 // const { setDate } = require('./functions');
-const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
+// const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 const { getData, postData, putData, deleteData } = require('../../services/axios');
 const { ErrorTypes } = require('../../utils/types');
-const { getModel, models } = require('../../services/schemas');
+const { getModel, models, modelNames } = require('../utils/schemas');
 
 async function insertOneSupplier(object) {
    
@@ -14,6 +14,7 @@ async function insertOneSupplier(object) {
         if(ans){
             const uniquename = await checkUniqueName(object.supplierName)
             const uniquecode = await checkUniqueCode(object.supplierCode)
+            console.log(uniquecode, uniquename)
             if ( uniquename && uniquecode) {
                 object.addedDate = new Date().toISOString();
                 object.userName = 'developer';
@@ -27,10 +28,10 @@ async function insertOneSupplier(object) {
                 const error = {type:ErrorTypes.VALIDATION}
                 error.data=[]
                 if(!uniquename){
-                    error.data.push({propertyName: 'supplierName', error: `Supplier's name ${object.supplierName} is not unique.` })
+                    error.data.push({propertyName: 'supplierName', error: `Supplier's name '${object.supplierName}' is not unique.` })
                 }
                 if(!uniquecode){
-                    error.data.push({propertyName: 'supplierCode', error: `Supplier's code ${object.supplierCode} is not unique.` })
+                    error.data.push({propertyName: 'supplierCode', error: `Supplier's code '${object.supplierCode}' is not unique.` })
                 }
                 throw error
             }
@@ -44,9 +45,9 @@ async function insertOneSupplier(object) {
 }
 async function getAllSuppliers(query) {
     try {
-        const res = await getData(`/read/readMany/suppliers`, query);
+        const res = await getData(`/read/readMany/${modelNames.SUPPLIERS}`, query);
         for (let item of res.data) {
-            const res = await countRows({ supplierCode: item.Id, ...query });
+            const res = await countBranches({ supplierCode: item.Id, ...query });
             if (res) {
                 item.countBranches = res.countRows;
             }
@@ -148,10 +149,8 @@ async function checkUnique(setting) {
     return resultSuppliersCode && resultSuppliersName;
 }
 
-async function countRows(condition) {
-    console.log({SQL_DB_BRANCHES})
-    // const countRowesBranches = await postData(`read/count/${SQL_DB_BRANCHES}`, { condition })
-    const countRowesBranches = await postData(`read/count/branches`, { condition })
+async function countBranches(condition) {
+    const countRowesBranches = await postData(`read/count/${modelNames.BRANCHES}`, { condition })
     return countRowesBranches.data;
 }
-module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier,  checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countRows };
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier,  checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countBranches };

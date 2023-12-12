@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { insertRow, getAll, updateNames, deleteItem } = require('../../modules/products/productsCombinations')
+const { insert, getAll, updateNames, deleteItem } = require('../../modules/products/productsCombinations')
 const { findPump } = require('../../modules/products/pumps');
 
 
@@ -19,7 +19,7 @@ const { findPump } = require('../../modules/products/pumps');
 
 router.post('/insertRow', express.json(), async (req, res) => {
     try {
-        const response = await insertRow(req.body)
+        const response = await insert(req.body)
          console.log(response.status);
          console.log(response.data)
         if (response.status === 201 || response.status===204)

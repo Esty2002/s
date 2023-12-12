@@ -1,5 +1,5 @@
 const { postData, getData } = require('../../services/axios')
-const { modelNames } = require('../../services/schemas')
+const { modelNames } = require('../utils/schemas')
 
 async function addOneClient(entity) {
     entity.addedDate = new Date()
@@ -7,7 +7,7 @@ async function addOneClient(entity) {
     const values = { ...entity }
     delete values.id
     let unique = await getData(`/read/readMany/${modelNames.CLIENTS}`, { clientCode: entity.clientCode })
-
+    console.log({ values })
     if (unique.data.length === 0) {
         const result = await postData('/create/createone', { entityName: modelNames.CLIENTS, values: values })
         return result;

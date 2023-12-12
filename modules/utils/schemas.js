@@ -6,7 +6,7 @@ const types = {
     FLOAT: 'float'
 }
 const modelNames = {
-    ADDITION: 'addition',
+    ADDITION: 'additions',
     AREAS: 'areas',
     BASIC_PRODUCTS: 'basicProducts',
     BRANCHES: 'branches',
@@ -32,8 +32,8 @@ const models = {
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
-            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: false, update: false, key: false, unique: false },
+            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
@@ -46,9 +46,13 @@ const models = {
         fields:
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
-            AREA_MONGO_ID: {name:'areaIdFromMongo', type: types.STRING, insert: true, update: true, key: false, unique: true },
+            AREA_MONGO_ID: { name: 'areaIdFromMongo', type: types.STRING, insert: true, update: true, key: false, unique: true },
             AREA_NAME: { name: 'areaName', type: types.STRING, insert: true, update: true, key: false, unique: true },
+            TYPE: { name: 'type', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            BASIC_NAME: { name: 'basicName', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
+
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
@@ -96,14 +100,14 @@ const models = {
             NOTES: { name: 'notes', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
-            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: false, update: true, key: false, unique: false },
+            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: false, update: true, key: false, unique: false },
             DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/branches/insertbranch',
         updateUrl: '/branches/updatebranch',
-        deleteUrl: '/branches/deletebranches'
+        deleteUrl: '/branches/deletebranch'
     },
     CLIENTS: {
         entity: modelNames.CLIENTS,
@@ -136,8 +140,8 @@ const models = {
             COMMENT: { name: 'comment', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
-            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: false, update: true, key: false, unique: false },
+            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: false, update: true, key: false, unique: false },
             DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
 
         },
@@ -148,7 +152,7 @@ const models = {
     },
 
     FINISH_PRODUCTS: {
-        entity:modelNames.FINISH_PRODUCTS,
+        entity: modelNames.FINISH_PRODUCTS,
         fields:
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -173,8 +177,9 @@ const models = {
         fields:
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
-            MEASURE: { name: 'id', type: types.STRING, insert: true, update: true, key: false, unique: true },
+            MEASURE: { name: 'measure', type: types.STRING, insert: true, update: true, key: false, unique: true },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
+            ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
             DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
@@ -231,10 +236,10 @@ const models = {
             PRODUCT: {
                 entity: [modelNames.ADDITION,
                 modelNames.BASIC_PRODUCTS,
-                modelNames.FINISH_PRODUCTS, 
-                modelNames.PUMPS], type:types.STRING, insert:true, update:true, key:false, unique:false
+                modelNames.FINISH_PRODUCTS,
+                modelNames.PUMPS], type: types.STRING, insert: true, update: true, key: false, unique: false
             },
-            
+
         }
     },
     PUMPS: {
@@ -319,7 +324,7 @@ const models = {
         deleteUrl: ''
     },
     QUATATION: {
-        entity:  'Quotation',
+        entity: 'Quotation',
         fields:
         {
             //to check
@@ -356,7 +361,7 @@ const models = {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             SUPPLIER_CODE: { name: 'supplierCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             SUPPLIER_NAME: { name: 'supplierName', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            LICENSED_DEALER_NUMBER : {name:"licensedDealerNumber", type: types.STRING, insert: true, update: true, key: false, unique: false },
+            LICENSED_DEALER_NUMBER: { name: "licensedDealerNumber", type: types.STRING, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookKeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             OBJECTIVE_BANK: { name: 'objectiveBank', type: types.STRING, insert: true, update: true, key: false, unique: false },
             CONDITION_GUSHY_PAYMANT: { name: 'conditionGushyPayment', type: types.STRING, insert: true, update: true, key: false, unique: false },
@@ -424,7 +429,7 @@ const models = {
 //     return ans
 // }
 
- function getModel(name) {
+function getModel(name) {
     for (let n in models) {
         if (n == name)
             ans = models[n]
@@ -432,4 +437,4 @@ const models = {
     return ans
 }
 
-module.exports = { getModel, models , modelNames}
+module.exports = { getModel, models, modelNames }

@@ -1,12 +1,23 @@
 const ErrorTypes = {
-    VALIDATION:'validation'
+    VALIDATION: 'validation'
 }
 
 const ValueTypes = {
-    STRING:'string', 
-    NUMBER:'number', 
-    DATE:'date',
-    BIT:'bit'
+    STRING: 'string',
+    NUMBER: 'number',
+    DATE: 'date',
+    BIT: 'bit'
 }
 
-module.exports = {ErrorTypes, ValueTypes}
+const AppStatusTypes = {
+    PRODUCTION: 'production',
+    DEVELOP: 'develop'
+}
+
+const ModelStatusTypes = {
+    CREATE: 'create',
+    UPDATE: 'update',
+    DELETE: 'delete'
+}
+
+module.exports = { ErrorTypes, ValueTypes, AppStatusTypes, ModelStatusTypes }

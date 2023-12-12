@@ -816,17 +816,17 @@
                                     "required": "",
                                     "description": "Comments"
                                 },
-                                "CreationDate": {
+                                "addedDate": {
                                     "type": "string",
                                     "example": "01/05/2023",
                                     "required": "",
-                                    "description": "CreationDate"
+                                    "description": "addedDate"
                                 },
-                                "UserThatAdd": {
+                                "userName": {
                                     "type": "string",
                                     "example": "",
                                     "required": "",
-                                    "description": "UserThatAdd"
+                                    "description": "userName"
                                 }
                             },
                             "response": {
@@ -1131,17 +1131,17 @@
                                     "required": "",
                                     "description": "Comments"
                                 },
-                                "CreationDate": {
+                                "addedDate": {
                                     "type": "string",
                                     "example": "01/05/2023",
                                     "required": "",
-                                    "description": "CreationDate"
+                                    "description": "addedDate"
                                 },
-                                "UserThatAdd": {
+                                "userName": {
                                     "type": "string",
                                     "example": "",
                                     "required": "",
-                                    "description": "UserThatAdd"
+                                    "description": "userName"
                                 }
                             },
                             "response": {
@@ -1969,7 +1969,7 @@
                                     "Fax": "435435",
                                     "Mail": "43534@4qwr.sfdg",
                                     "Notes": null,
-                                    "CreationDate": "2023-07-04T13:04:10.747Z",
+                                    "addedDate": "2023-07-04T13:04:10.747Z",
                                     "UserThatInsert": "develop",
                                     "Disabled": false,
                                     "DisabledDate": null,
@@ -2015,7 +2015,7 @@
                                     "Fax": null,
                                     "Mail": "464646@etr.jhgh",
                                     "Notes": null,
-                                    "CreationDate": "2023-06-29T13:00:45.880Z",
+                                    "addedDate": "2023-06-29T13:00:45.880Z",
                                     "UserThatInsert": "develop",
                                     "Disabled": true,
                                     "DisabledDate": "2023-07-02T12:01:58.283Z",
@@ -2445,7 +2445,7 @@
                                     "Fax": null,
                                     "Mail": null,
                                     "Notes": null,
-                                    "CreationDate": "2023-07-04T16:59:53.560Z",
+                                    "addedDate": "2023-07-04T16:59:53.560Z",
                                     "userName": "develop",
                                     "Disabled": false,
                                     "DisabledDate": null,
@@ -2485,7 +2485,7 @@
                                     "Fax": "3",
                                     "Mail": "h@g.iuykji",
                                     "Notes": "3",
-                                    "CreationDate": "2023-06-25T17:29:51.000Z",
+                                    "addedDate": "2023-06-25T17:29:51.000Z",
                                     "userName": "develop",
                                     "Disabled": true,
                                     "DisabledDate": "Jul  2 2023  2:21PM",

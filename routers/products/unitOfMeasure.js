@@ -14,7 +14,7 @@ router.get('/findMeasureName/:id', async (req, res) => {
     try {
         const response = await findMeasureName(req.params.id)
         if (response.status == 200)
-            res.status(200).send(JSON.stringify(response.data[0].Measure))
+            res.status(200).send(JSON.stringify(response.data[0].measure))
         else
             res.status(response.status).send(response)
     }
@@ -34,7 +34,7 @@ router.get('/findMeasureId', async (req, res) => {
     try {
         const response = await findMeasureNumber(req.query.name)
         if (response.status == 200)
-            res.status(200).send(JSON.stringify(response.data[0].Id))
+            res.status(200).send(JSON.stringify(response.data[0].id))
         else
             res.status(response.status).send(response)
     }

@@ -2,28 +2,14 @@
 const { postData, getData, putData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
-const { modelNames } = require('../../services/schemas')
+const { modelNames } = require('../utils/schemas')
 
-const { UNITOFMEASURE_ENTITY } = process.env
 
-const values = [
-    {
-        entity: "unitOfMeasure",
-        func: ({ Measure }) => {
-            return {
-                entityName: "unitOfMeasure",
-                values: {
-                    Measure,
-                    Disabled: false,
-                }
-            }
-        }
-    }
-]
+
 
 async function updateMeasure(condition, obj) {
     try {
-        const response = await putData('/update/updateone', { entityName: UNITOFMEASURE_ENTITY, values: { measure: obj }, condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, values: { measure: obj }, condition })
         if (response.status == 204)
             return response.data
         return false
@@ -33,11 +19,11 @@ async function updateMeasure(condition, obj) {
     }
 }
 
-async function insertMeasure(Measure) {
+async function insertMeasure(obj) {
     let objectForLog = {
         name: 'insertMeasure',
         description: 'insert an unit of measure in module',
-        obj: Measure,
+        obj,
         entityName: modelNames.MEASURES
     }
     logToFile(objectForLog)
@@ -46,15 +32,8 @@ async function insertMeasure(Measure) {
     // const { status, data } = exist
     // if (status === 200 && !data[0]) {
     try {
-        const checkValidObj = values.find(({ entity }) => UNITOFMEASURE_ENTITY === entity);
-        if (checkValidObj) {
-            let newObj = checkValidObj.func(Measure)
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            name = newObj.values
-        }
-
-
-        const response = await postData('/create/createone', { entityName: UNITOFMEASURE_ENTITY, values: name })
+        _ = await checkObjectValidations(obj, modelNames.MEASURES)
+        const response = await postData('/create/createone', { entityName: modelNames.MEASURES, values: obj })
         if (response.data)
             return response
     }
@@ -73,7 +52,7 @@ async function insertMeasure(Measure) {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { entityName: UNITOFMEASURE_ENTITY, values: { disable: true }, condition: { id: object.Id } })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.MEASURES, values: { disable: true }, condition: { id: object.id } })
         if (response.status == 204) {
             return response.data
         }
@@ -93,7 +72,7 @@ async function getAll() {
     logToFile(objectForLog)
 
     try {
-        const response = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`)
+        const response = await getData(`/read/readMany/${modelNames.MEASURES}`)
         return response
     }
     catch (error) {
@@ -112,7 +91,7 @@ async function findMeasureNumber(name) {
     logToFile(objectForLog)
     try {
         if (name) {
-            let res = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`, { Measure: name })
+            let res = await getData(`/read/readMany/${modelNames.MEASURES}`, { Measure: name })
             if (res.data[0])
                 return res;
             else

@@ -1,21 +1,20 @@
-require('dotenv').config();
 const { postData, getData, putData } = require('../../services/axios');
-const { PRODUCTS_COMBINATION_ENTITY } = process.env
+const { modelNames } = require('../utils/schemas');
 
 
 
-async function insertRow(object) {
+async function insert(object) {
     try {
         console.log({object})
-        const existResponse = await getData(`/read/readMany/${PRODUCTS_COMBINATION_ENTITY}`, { AND: [{ parentId: object.parent }, { childId: object.child }] })
+        const existResponse = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`, { AND: [{ parentId: object.parent }, { childId: object.child }] })
         if (existResponse.data.length > 0) {
             if (existResponse.data[0].Disabled) {
-                let rowId = existResponse.data[0].Id
+                let rowId = existResponse.data[0].id
 
                 let updateObject = {
-                    entityName: PRODUCTS_COMBINATION_ENTITY,
-                    values: { Disable: 'false' },
-                    condition: { Id: rowId }
+                    entityName: modelNames.PRODUCTS_COMBINATIONS,
+                    values: { disabled: 'false' },
+                    condition: { id: rowId }
                 }
                 const updateResponse = await putData('/update/updateone', updateObject)
                 return updateResponse
@@ -24,7 +23,7 @@ async function insertRow(object) {
                 throw new Error('already exist')
         }
         else {
-            const response = await postData('/create/createone', { entityName: PRODUCTS_COMBINATION_ENTITY, values: { parentId: object.parent, childId: object.child, disabled: object.disabled } })
+            const response = await postData('/create/createone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { parentId: object.parent, childId: object.child, disabled: object.disabled } })
             return response
         }
     }
@@ -35,7 +34,7 @@ async function insertRow(object) {
 
 async function getAll() {
     try {
-        const response = await getData(`/read/readMany/${PRODUCTS_COMBINATION_ENTITY}`)
+        const response = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`)
         if (response.status == 200)
             return response.data
         else
@@ -48,7 +47,7 @@ async function getAll() {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { entityName: PRODUCTS_COMBINATION_ENTITY, values: { Disable: true }, condition: { Id: object.Id } })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { Disable: true }, condition: { Id: object.Id } })
         if (response.status == 204) {
             return response.data
         }
@@ -61,7 +60,7 @@ async function deleteItem(object) {
 
 async function updateNames(object) {
     try {
-        const response = await putData('/update/updateone', { entityName: PRODUCTS_COMBINATION_ENTITY, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC }})
+        const response = await putData('/update/updateone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC }})
         if (response.status == 204)
             return response.data
         return false
@@ -71,4 +70,4 @@ async function updateNames(object) {
     }
 }
 
-module.exports = { insertRow, getAll, updateNames, deleteItem }
+module.exports = { insert, getAll, updateNames, deleteItem }

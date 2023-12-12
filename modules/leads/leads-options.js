@@ -1,7 +1,7 @@
 
 const { postData, getData, putData } = require('../../services/axios');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
-const { modelNames } = require('../../services/schemas');
+const { modelNames } = require('../utils/schemas');
 const { getRecord } = require('./tables');
 
 const { SQL_LEADS_TABLE, SQL_MOREPRODUCTSITEM_TABLE } = process.env
@@ -263,10 +263,4 @@ const deleteOneLead = async (id) => {
     }
 };
 
-<<<<<<< HEAD
 module.exports = { createNewLead, updateLead, updateOneLead, deleteOneLead, deleteLead, readLead, readMoreProductsItems, insertMoreProductsItems }
-=======
-
-
-// module.exports = { createNewLead, updateLead, deleteLead, readLead }
->>>>>>> 459b67c540bda832f5ef043854683ed06b858677

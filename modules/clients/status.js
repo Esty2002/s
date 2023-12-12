@@ -1,9 +1,9 @@
-const {  getData } = require('../../services/axios')
-const { SQL_STATUS_TABLE } = process.env
+const {  getData } = require('../../services/axios');
+const { modelNames } = require('../utils/schemas');
 
 async function getStatusNumber() {
     try {
-        const result = await getData(`/read/readMany/${SQL_STATUS_TABLE}`);
+        const result = await getData(`/read/readMany/${modelNames.STATUS}`);
         if (result.status == 200)
             return result
         else return false
@@ -16,7 +16,7 @@ async function getStatusNumber() {
 
 async function getStatusNameById(id) {
     try {
-        const result = await getData(`/read/readMany/${SQL_STATUS_TABLE}`, { Id: id });
+        const result = await getData(`/read/readMany/${modelNames.STATUS}`, {  id });
         if (result.status == 200)
             return result
         else return false

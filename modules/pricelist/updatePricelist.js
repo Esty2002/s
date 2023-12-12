@@ -4,25 +4,16 @@ const { PRICELIST, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFI
 async function deletePriceList({ id }) {
     const obj = {}
     obj['entityName'] = PRICELIST
-    obj['condition'] = `Id=${id}`
-    obj['values'] = { 'Disabled': true }
+    obj['condition'] = `id=${id}`
+    obj['values'] = { 'disabled': true }
     const result = await postData('/update/update', obj)
     if (result.data.rowsAffected[0] > 0) {
         let table = [ADDITIONSFORDISTANCE, CITIESADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, TIMEADDITIONS, PRICElISTFORPRODUCTS]
         let res
         const answer = await Promise.all(table.map(async (t) => {
-<<<<<<< HEAD
-            // console.log({ obj })
-            obj['entityName'] = t
-            obj['condition'] = `PriceListId=${id}`
-            obj['values'] = { 'Disabled': true }
-            // console.log({ obj })
-            // console.log(obj.entityName)
-=======
             obj['tableName'] = t
-            obj['condition'] = `PriceListId=${id}`
-            obj['values'] = { 'Disabled': true }
->>>>>>> yutisTest
+            obj['condition'] = `priceListId=${id}`
+            obj['values'] = { 'disabled': true }
             res = await postData('/update/update', obj)
             return res
         }))

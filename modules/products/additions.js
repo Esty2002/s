@@ -2,80 +2,40 @@ require('dotenv').config()
 const { postData, putData, getData } = require("../../services/axios");
 const { logToFile } = require('../../services/logger/logTxt');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
-const { models } = require('../../services/schemas')
+const { models, modelNames } = require('../utils/schemas')
 const { findMeasureName, findMeasureNumber } = require('./measure')
 
-const values = [
-    {
-        entity: "additions",
-        func: ({ name = null, unitOfMeasure = null, bookKeepingCode = null, addedDate = null, disabled=false, disableUser=undefined, disabledDate=undefined }) => {
-            return {
-                entityName: "additions",
-                values: {
-                    name,
-                    unitOfMeasure,
-                    bookKeepingCode,
-                    addedDate: new Date().toISOString(),
-                    disabled: false,
-                    disabledDate:undefined,
-                    disableUser: undefined
-                },
-                valuesFind: {
-                    name,
-                    unitOfMeasure,
-                    bookKeepingCode,
-                    addedDate,
-                    disabled,
-                    disabledDate,
-                    disableUser,
-                }
-            }
-        }
-    }
-]
 
 async function insertAddition(obj) {
     let objectForLog = {
         name: 'create',
         description: 'insert addition in module',
         obj: obj,
-        entityName: SQL_ADDITIONS_TABLE
+        entityName: modelNames.ADDITION
     }
     logToFile(objectForLog)
-
-    const checkValidObj = values.find(({ entity }) => entity === models.ADDITIONS.entity);
-    let newObj = checkValidObj.func(obj)
-    if (checkValidObj) {
-        try {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            obj = newObj.values
-
-
-
-            const response = await postData('/create/createone', { entityName: models.ADDITIONS.entity, values: obj })
-            if (response.data)
-                return response
-        }
-        catch (error) {
-            objectForLog.error = error.message
-            logToFile(objectForLog)
-            throw error
-        }
+    try {
+        _ = await checkObjectValidations(newObj.values, checkValidObj.entity, true)
+        obj = newObj.values
+        const response = await postData('/create/createone', { entityName: models.ADDITIONS.entity, values: obj })
+        if (response.data)
+            return response
+    }
+    catch (error) {
+        console.log({error})
+        objectForLog.error = error.message
+        logToFile(objectForLog)
+        throw error
     }
 }
 
 async function findAddition(filter = {}) {
     try {
-        const checkValidObj = values.find(({ entity }) => models.ADDITIONS.entity === entity);
-        console.log({ checkValidObj })
-        let newObj = checkValidObj.func(filter)
-        console.log({ newObj })
-        if (checkValidObj)
-
-            _ = await checkObjectValidations(newObj.valuesFind, checkValidObj.entity, true)
+        console.log({filter})
+        _ = await checkObjectValidations(filter, modelNames.ADDITION, false)
 
         if (!Object.keys(filter).includes('disabled'))
-            filter.Disabled = 0
+            filter.disabled = false
 
         let condition = filter;
 
@@ -85,7 +45,7 @@ async function findAddition(filter = {}) {
             filter: condition,
         }
         logToFile(objForLog)
-        const response = await getData(`/read/readMany/${models.ADDITIONS.entity}`, condition)
+        const response = await getData(`/read/readMany/${modelNames.ADDITION}`, condition)
 
         // for (let finish of response.data) {
         //     if (Object.keys(finish).includes('UnitOfMeasure')) {
@@ -98,7 +58,7 @@ async function findAddition(filter = {}) {
     catch (error) {
         objForLog.error = error.message
         logToFile(objForLog)
-        console.log({error})
+        console.log({ error })
         throw error
     }
 
@@ -114,7 +74,7 @@ async function findAddition(filter = {}) {
 
 async function updateAddition(obj = {}) {
     try {
-        const response = await putData('/update/updateone', { entityName: ADDITIONS_ENTITY, values: obj.data, condition: obj.condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.ADDITION, values: obj.data, condition: obj.condition })
         if (response.status == 204)
             return response.data
         else

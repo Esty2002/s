@@ -93,9 +93,9 @@
                         "description": "Notes of the branch",
                         "example": "important"
                     },
-                    "CreationDate": {
+                    "addedDate": {
                         "type": "Date",
-                        "description": "CreationDate of the branch",
+                        "description": "addedDate of the branch",
                         "example": "03/05/2023"
                     },
                     "UserThatInsert": {

@@ -3,7 +3,7 @@ const { cache } = require('ejs')
 const express = require('express');
 const { object } = require('webidl-conversions');
 
-const { insertArea, startt, updateArea, deleteArea, findAreas, findByDistinct, getFromSql, getFromMongo, findInPolygon, findInRadius } = require('../../modules/areas/areas');
+const { insertArea, startt, updateArea, deleteArea, findAreas, findDistinctAreaTypes, getFromSql, getFromMongo, findInPolygon, findInRadius } = require('../../modules/areas/areas');
 const { logToFile } = require('../../services/loggerPnini');
 
 // router.get('/', async (req, res) => {
@@ -11,7 +11,6 @@ const { logToFile } = require('../../services/loggerPnini');
 //     res.send(r.data)
 // });
 
-<<<<<<< HEAD
 
 router.get('/', async (req, res) => {
     res.send("areas---")
@@ -52,8 +51,6 @@ router.post('/isExistPoint', express.json(), async (req, res) => {
     }
 })
 
-=======
->>>>>>> 459b67c540bda832f5ef043854683ed06b858677
 router.post('/insertArea', express.json(), async (req, res) => {
     let object;
     try {
@@ -64,7 +61,7 @@ router.post('/insertArea', express.json(), async (req, res) => {
         logToFile(object)
         const result = await insertArea(req.body);
         if (result.status == 201) {
-            res.status(201).send(result);
+            res.status(result.status).send(result.data);
         }
         else {
             res.status(result.status).send(result.data);
@@ -129,11 +126,11 @@ router.post('/searchAreas', express.json(), async (req, res) => {
         }
         logToFile(object)
         let areas = [];
-        const citys = await findAreas({ basicName: obj.city });
+        const citys = await findAreas({ basicName: obj.city, type:'city' });
         const points = await findAreas({ point: obj.point, type: 'point' });
-        const radius = await findInRadius({ point: obj.point, type: 'radius' });
-        const polygon = await findInPolygon({ point: obj.point });
-        areas = [...areas, ...citys, ...points,...radius, ...polygon];
+        const radius = await findAreas({ point: obj.point, type: 'radius' });
+        const polygon = await findAreas({ point: obj.point, type:'polygon' });
+        areas = [ ...citys, ...points,...radius, ...polygon];
         res.status(200).send(areas);
     }
     catch (error) {
@@ -143,16 +140,15 @@ router.post('/searchAreas', express.json(), async (req, res) => {
     }
 });
 
-router.post('/findAllTypes', express.json(), async (req, res) => {
+router.get('/findAllTypes', express.json(), async (req, res) => {
     let object;
     try {
         object = {
             name: 'findAllTypes',
             description: 'findAllTypes in router- in try',
-            dataThatRecived: req.body
         }
         logToFile(object)
-        const result = await findByDistinct(req.body)
+        const result = await findDistinctAreaTypes()
         res.status(200).send(result)
     }
     catch (err) {

@@ -12,7 +12,6 @@ const manageFinishProducts = require('./routers/products/finishProducts');
 const branches_router = require('./routers/suppliers/branches');
 const suppliers_router = require('./routers/suppliers/suppliers');
 const delete_client_router = require('./routers/clients/deleteClients');
-<<<<<<< HEAD
 const readClient_router = require('./routers/clients/readClient')
 const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
@@ -25,30 +24,7 @@ const createClient_router=require('./routers/clients/createClient');
 const { reqLogger } = require('./services/logger/logger');
 
 const models=require('./routers/models')
-=======
-// const createClient_router = require('./routers/clients/createClient')
-// const readClient_router = require('./routers/clients/readClient')
-const updateClient_router = require('./routers/clients/updateClient')
-const status_router = require('./routers/clients/status')
-const auto_complete=require('./routers/utils/auto_complete')
-const productsCombinations_router = require('./routers/products/productsCombinations')
-const pricelist_router=require('./routers/price-list/pricelist')
-// const areas_router = require('./routers/areas/areas');
-
-// const areas_router = require('./routers/areas/areas');
-// const api_router = require('./api/routers/readFile');
-// const areas_router = require('./routers/areas/areas')
-const router_leads=require('./routers/leads/leads')
-const createClient_router = require('./routers/clients/createClient');
-const readClient_router = require('./routers/clients/readClient');
-// const updateClient_router = require('./routers/clients/updateClient');
-// const status_router = require('./routers/clients/status');
-// const auto_complete=require('./routers/utils/auto_complete');
-// const productsCombinations_router = require('./routers/products/productsCombinations');
-// const pricelist_router=require('./routers/price-list/pricelist');
-const areas_router = require('./routers/areas/areas');
-const {  reqLogger } = require('./services/logger/logger');
->>>>>>> 459b67c540bda832f5ef043854683ed06b858677
+const pricelist_router=require('./routers/pricelist/updatePricelist')
 
 const api_router = require('./api/routers/readFile');
 
