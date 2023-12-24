@@ -1,26 +1,29 @@
-const { postData, putData, getData } = require('../../services/axios')
+const { postData, putData, getData, deleteData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { modelNames } = require('../utils/schemas')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
+const { ModelStatusTypes } = require('../../utils/types')
+const { getAll } = require('./productsCombinations')
 
 async function insertPump(obj) {
     let objectForLog = {
         name: 'create',
         description: 'insert pump in module',
         obj: obj,
-        entityName: SQL_PUMPS_TABLE
+        entityName: modelNames.PUMPS
     }
     logToFile(objectForLog)
     try {
-        _ = await checkObjectValidations(obj, modelNames.PUMPS, true)
-        obj = newObj.values
-
-        const response = await postData('/create/createone', { entityName: modelNames.PUMPS, values: obj })
-        if (response.data)
-            return response
+        const isValid = await checkObjectValidations(obj, modelNames.PUMPS, ModelStatusTypes.CREATE)
+        if (isValid) {
+            const response = await postData('/create/createone', { entityName: modelNames.PUMPS, values: obj })
+            if (response.data)
+                return response
+        }
     }
     catch (error) {
+        console.log(error)
         objectForLog.error = error.message
         logToFile(objectForLog)
         throw error
@@ -28,24 +31,19 @@ async function insertPump(obj) {
 }
 
 async function findPump(filter = {}) {
-
+    let objForLog = {
+        name: "find",
+        description: "find pumps in module",
+        filter
+    }
+    logToFile(objForLog)
     try {
-        _ = await checkObjectValidations(filter, modelNames.PUMPS, )
-
+        const validation = await checkObjectValidations(filter, modelNames.PUMPS, ModelStatusTypes.UPDATE)
+        console.log({ validation })
         if (!Object.keys(filter).includes('disabled'))
-            filter.disabled = 0
-
+            filter.disabled = false
         let condition = filter
-
-        let objForLog = {
-            name: "find",
-            description: "find pumps in module",
-            filter: condition
-        }
-        logToFile(objForLog)
-
         const response = await getData(`/read/readMany/${modelNames.PUMPS}`, condition)
-
         return response
     }
     catch (error) {
@@ -57,16 +55,38 @@ async function findPump(filter = {}) {
 
 }
 
-async function updatePump(obj) {
+async function isPumpAddition({ condition }) {
     try {
-        const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, values: obj.data, condition: obj.condition })
-        if (response.status == 204)
-            return response.data
-        return false
+        const response = await getData(`/read/readMany/${modelNames.ADDITION}`, condition)
+        const list = response.data
+        return list.every(({ addition }) => addition)
+    }
+    catch (error) {
+        throw error
+    }
+}
 
+async function updatePump({ data = {}, condition = {} }) {
+    try {
+            _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.UPDATE)
+
+        const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, values: data, condition: condition })
+        return response
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = { updatePump, insertPump, findPump }
+async function deletePump({ data = {}, condition = {} }) {
+    try {
+            _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.DELETE)
+          
+
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PUMPS, values: data, condition: condition })
+        return response
+    } catch (error) {
+        throw error;
+    }
+}
+
+module.exports = { updatePump, insertPump, findPump, deletePump }

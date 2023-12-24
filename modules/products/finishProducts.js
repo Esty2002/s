@@ -5,21 +5,20 @@ const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { logToFile } = require('../../services/logger/logTxt')
 const { modelNames } = require('../utils/schemas')
+const { ModelStatusTypes } = require('../../utils/types')
 
 
 
 async function insertFinishProduct(obj) {
     let objectForLog = {
         name: 'create',
-        description: 'insert  finished product in module',
-        obj: obj,
+        description: 'insert finished product in module',
+        obj,
         entityName: modelNames.FINISH_PRODUCTS
     }
     logToFile(objectForLog)
     try {
-        _ = await checkObjectValidations(obj, modelNames.FINISH_PRODUCTS, true)
-        obj = newObj.values
-
+        const isValid = await checkObjectValidations(obj, modelNames.FINISH_PRODUCTS, ModelStatusTypes.CREATE)
 
         const response = await postData('/create/createone', { entityName: modelNames.FINISH_PRODUCTS, values: obj })
         if (response.data)
@@ -31,28 +30,23 @@ async function insertFinishProduct(obj) {
         throw error
     }
 }
-async function updateFinishProduct(obj) {
+async function updateFinishProduct({ data = {}, condition = {} }) {
     try {
-        const { condition, data } = obj
+        _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.UPDATE)
         const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS, values: data, condition })
-        if (response.status == 204)
-            return response.data
-        else
-            return false
+        return response
 
     } catch (error) {
         throw error;
     }
 }
 
-async function deleteFinishProduct({ condition }) {
-    try {
 
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS, values: { disabled: true, disableUser: 'developer', disabledDate: new Date() }, condition })
-        if (response.status == 204)
-            return response.data
-        else
-            return false
+async function deleteFinishProduct({ data = {}, condition = {} }) {
+    try {
+        _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.DELETE)
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS, values: data, condition })
+        return response
 
     } catch (error) {
         throw error;
@@ -60,17 +54,18 @@ async function deleteFinishProduct({ condition }) {
 }
 
 async function findFinishProduct(filter = {}) {
+    let objForLog = {
+        name: "find",
+        description: "find finish products in module",
+
+    }
     try {
         _ = await checkObjectValidations(filter, modelNames.FINISH_PRODUCTS, false)
         if (!Object.keys(filter).includes('disabled'))
             filter.disabled = false
         let condition = filter;
-        console.log({ filter })
-        let objForLog = {
-            name: "find",
-            description: "find finish products in module",
-            filter: condition
-        }
+        objForLog.filter = condition
+
         logToFile(objForLog)
 
 

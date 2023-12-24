@@ -44,7 +44,6 @@ const postData = async (url, body) => {
 const putData = async (url, body) => {
     let response;
     try {
-        console.log("hello put");
         console.log({ url, body: JSON.stringify(body) })
         response = await server.put(url, body);
         return response
@@ -86,30 +85,21 @@ function convertCondition(obj) {
     let str = '?'
     let i = 0;
     const getArgumentsStr = (arg) => {
-        console.log({ arg, length: arg.length })
         if(arg){
-            console.log(typeof(arg)==='object')
-            console.log(Array.isArray(arg))
             if(Array.isArray(arg)){
-                console.log("in else", arg);
                 arg.forEach(element => {
                     str = getArgumentsStr(element, str)
-                    console.log(str)
                 });
             }
             else{
                 if(typeof(arg)==='object'){
-                    console.log(Object.keys(arg).length)
                     for (let key in arg) {
-                        console.log({ key })
-                        console.log(arg[key])
                         if (checkQueryType(key)) {
                             str += `start_${i++}=${key}&`
                             str = getArgumentsStr(arg[key])
                             str += `end_${i++}=${key}&`
                         }
                         else {
-                            console.log({ str })
                             str += `${key}_${i++}=${arg[key]}&`
                         }
                     }

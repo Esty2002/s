@@ -1,7 +1,8 @@
 require('dotenv').config()
-const { postData, putData, getData } = require("../../services/axios");
+const { postData, putData, getData, deleteData } = require("../../services/axios");
 const { logToFile } = require('../../services/logger/logTxt');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { ModelStatusTypes } = require('../../utils/types');
 const { models, modelNames } = require('../utils/schemas')
 const { findMeasureName, findMeasureNumber } = require('./measure')
 
@@ -10,19 +11,20 @@ async function insertAddition(obj) {
     let objectForLog = {
         name: 'create',
         description: 'insert addition in module',
-        obj: obj,
+        obj,
         entityName: modelNames.ADDITION
     }
     logToFile(objectForLog)
     try {
-        _ = await checkObjectValidations(newObj.values, checkValidObj.entity, true)
-        obj = newObj.values
-        const response = await postData('/create/createone', { entityName: models.ADDITIONS.entity, values: obj })
-        if (response.data)
-            return response
+        const isValid = await checkObjectValidations(obj, modelNames.ADDITION, ModelStatusTypes.CREATE)
+        if (isValid) {
+            const response = await postData('/create/createone', { entityName: modelNames.ADDITION, values: obj })
+            if (response.data)
+                return response
+        }
     }
     catch (error) {
-        console.log({error})
+        console.log({ error })
         objectForLog.error = error.message
         logToFile(objectForLog)
         throw error
@@ -31,8 +33,8 @@ async function insertAddition(obj) {
 
 async function findAddition(filter = {}) {
     try {
-        console.log({filter})
-        _ = await checkObjectValidations(filter, modelNames.ADDITION, false)
+        console.log({ filter })
+        _ = await checkObjectValidations(filter, modelNames.ADDITION, ModelStatusTypes.UPDATE)
 
         if (!Object.keys(filter).includes('disabled'))
             filter.disabled = false
@@ -72,16 +74,26 @@ async function findAddition(filter = {}) {
     // }
 }
 
-async function updateAddition(obj = {}) {
+async function updateAddition({ data = {}, condition = {} }) {
     try {
-        const response = await putData('/update/updateone', { entityName: modelNames.ADDITION, values: obj.data, condition: obj.condition })
-        if (response.status == 204)
-            return response.data
-        else
-            return false
+            _ =await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.UPDATE)
+        const response = await putData('/update/updateone', { entityName: modelNames.ADDITION, values: data, condition })
+        return response
     } catch (error) {
         throw error;
     }
 }
 
-module.exports = { updateAddition, findAddition, insertAddition }
+async function deleteAddition({ data = {}, condition = {} }) {
+    try {
+        _ = await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.DELETE)
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.ADDITION, values: data, condition })
+        return response
+
+    } catch (error) {
+
+        throw error;
+    }
+}
+
+module.exports = { updateAddition, findAddition, insertAddition, deleteAddition }

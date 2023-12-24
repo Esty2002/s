@@ -12,25 +12,21 @@ router.post('/create', express.json(), async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        console.log("in finish");
         const response = await insertFinishProduct(req.body)
-        console.log("after response", response);
         if (response.status === 201) 
-            res.status(201).send(true)
+            res.status(201).send(response.data)
      
         else{
-            console.log("in else",response);
-            res.status(200).send(response)
+            res.status(response.status).send(response.data)
         }
     }
     catch (error) {
-        console.log("catch");
         objectForLog.error = error.message
         logToFile(objectForLog)
         if (error instanceof Array)
             res.status(500).send(error)
         else
-            res.status(500).send(error.message)
+            res.status(500).send(error)
 
     }
 })
@@ -59,10 +55,7 @@ router.post('/delete', express.json(), async (req, res) => {
     try {
         // const response = await deleteFinishProduct({ data: { Enabled: 0, DeleteDate: new Date() }, condition: req.body })
         const response = await deleteFinishProduct({ condition: req.body })
-        if (response)
-            res.status(200).send(response)
-        else
-            res.status(500).send(response)
+       res.status(response.status).send(response.data)
     }
     catch (error) { res.status(500).send(error.message) }
 })

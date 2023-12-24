@@ -16,7 +16,7 @@ function logToFile(object) {
         else
             body += `${key} :${object[key]} `
     }
-    text = `last time login in the action '${name}' : ${new Date().toDateString()} - ${new Date().toLocaleTimeString()}  
+    text = `last time login in the action '${name}' : ${new Date().toISOString()}  
         ${'\n'}description: ${description}
         ${'\n'}data: {${body}}`
     if (!fs.existsSync(path.join(__dirname, 'loggerTxt'))) {

@@ -116,37 +116,49 @@ const specificLength = (value, len) => {
 
 const recordExistInDB = async (value, arg) => {
     const { entityName, field, exist } = arg;
-    const {condition} = arg
-    console.log({value})
-    console.log(condition)
+    let { condition } = arg
     try {
-        console.log(entityName, field, exist, 'entityName, field, exist');
-        const condition = {} 
-        //{}
-         condition[arg.field] = value;
-        console.log(condition)
+        if (condition === undefined) {
+            condition = {}
+        }
+        condition[field] = value;
         let ans = await getData(`/read/readOne/${entityName}`, condition)
         if (exist) {
             if (ans.data.length > 0) {
                 return true
             }
             else {
-                throw new Error('The record does not exist');
+                throw new Error(`The record ${value} does not exist  in ${entityName}`);
             }
         }
         else {
-            if (ans.data.length == 0) {
+            if (ans.data.length === 0) {
                 return true
             }
             else {
-                throw new Error('The record already exists');
+                throw new Error(`The record ${value} exists in ${entityName}`);
             }
         }
     }
     catch (error) {
+       
         throw error
     }
 };
+
+const recordExistInMultipleDB = async (value, arg) => {
+   console.log('recordExistInMultipleDB');
+    try {
+        const response = await Promise.all(arg.map(async (dbItem) => await recordExistInDB(value, { ...dbItem })))
+        return true
+    }
+    catch (error) {
+       
+        throw error
+    }
+};
+
+
 
 const correctEmail = (value) => {
     if (/[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/.test(value))
@@ -193,7 +205,7 @@ const checkConcretItem = async (value) => {
 };
 
 const correctTable = async (value) => {
-    if (value === "FinishProducts" || value === "BuytonItems") {
+    if (value === "finishProducts" || value === "buytonItems") {
         return true;
     }
     throw new Error(`you cant connect to ${value} table`)
@@ -215,6 +227,9 @@ const theDateAfterToday = (value) => {
     throw new Error('the date is before today ')
 
 }
+
+
+
 const validation = {
     required,
     dateType,
@@ -234,6 +249,7 @@ const validation = {
     hourType,
     checkConcretItem,
     recordExistInDB,
+    recordExistInMultipleDB,
     correctTable,
     onlyLetters,
     theDateAfterToday,
@@ -241,4 +257,11 @@ const validation = {
     betweenNumbers
 }
 
-module.exports = { validation }
+const getFunctionArguments = (name)=>{
+    console.log(Object.keys(validation))
+    const keys = Object.keys(validation)
+    console.log(validation[name].toString())
+    console.log(Object.getPrototypeOf(validation[name]))
+}
+
+module.exports = { validation, getFunctionArguments }

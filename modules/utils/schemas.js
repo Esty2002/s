@@ -28,13 +28,13 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNITOFMEASURE: { name: 'unitOfMeasure', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            UNITOFMEASURE: { name: 'unitOfMeasure', type: types.INT, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: false, update: false, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/additions/create',
@@ -56,7 +56,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         },
 
         insertUrl: '/areas/insertArea',
@@ -102,7 +102,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: false, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: false, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/branches/insertbranch',
@@ -142,7 +142,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: false, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: false, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
 
         },
         insertUrl: '/createClient/add',
@@ -157,13 +157,13 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNIT_OF_MEASURE: { entity: modelNames.MEASURES, name: 'unitOfMeasure', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            UNIT_OF_MEASURE: { entity: modelNames.MEASURES, name: 'unitOfMeasure', type: types.INT, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
 
         }
         ,
@@ -182,7 +182,7 @@ const models = {
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/unitOfMeasure/create',
@@ -202,7 +202,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false },
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false },
 
         }
         ,
@@ -221,7 +221,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
 
         }
         ,
@@ -248,14 +248,14 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNIT_OF_MEASURE: { name: 'unitOfMeasure', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            UNIT_OF_MEASURE: { name: 'unitOfMeasure', type: types.INT, insert: true, update: true, key: false, unique: false },
             ADDITION: { name: 'addition', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            BOOKKEEPING_CODE: { name: 'bookKeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/pumps/create',
@@ -293,7 +293,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '',
@@ -316,7 +316,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/insertPricelist/addPricesListBySupplierOrClient',
@@ -347,7 +347,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '',
@@ -362,7 +362,7 @@ const models = {
             SUPPLIER_CODE: { name: 'supplierCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             SUPPLIER_NAME: { name: 'supplierName', type: types.STRING, insert: true, update: true, key: false, unique: true },
             LICENSED_DEALER_NUMBER: { name: "licensedDealerNumber", type: types.STRING, insert: true, update: true, key: false, unique: false },
-            BOOKKEEPING_CODE: { name: 'bookKeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             OBJECTIVE_BANK: { name: 'objectiveBank', type: types.STRING, insert: true, update: true, key: false, unique: false },
             CONDITION_GUSHY_PAYMANT: { name: 'conditionGushyPayment', type: types.STRING, insert: true, update: true, key: false, unique: false },
             PREFERRED_PAYMWNT_DATE: { name: 'preferredPaymentDate', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
@@ -382,7 +382,7 @@ const models = {
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disabledUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
         }
         ,
         insertUrl: '/suppliers/insertsupplier',
@@ -429,12 +429,17 @@ const models = {
 //     return ans
 // }
 
+function getModelKey(modelName)
+{
+    const model = getModel(modelName);
+    const fields = Object.values(model.fields)
+    const key = fields.find(({key})=>key ===true)
+    return key.name
+}
 function getModel(name) {
-    for (let n in models) {
-        if (n == name)
-            ans = models[n]
-    }
-    return ans
+    const allmodels = Object.values(models)
+    const model = allmodels.find(({entity})=>entity === name)
+   return model
 }
 
-module.exports = { getModel, models, modelNames }
+module.exports = { getModel,getModelKey, models, modelNames }

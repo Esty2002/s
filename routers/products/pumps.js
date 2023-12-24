@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const { findPump, insertPump, updatePump, findPumpName } = require('../../modules/products/pumps')
+const { findPump, insertPump, updatePump, findPumpName, deletePump } = require('../../modules/products/pumps')
 const { logToFile } = require('../../services/logger/logTxt')
 
 
@@ -31,9 +31,9 @@ router.post('/create', express.json(), async (req, res) => {
         const response = await insertPump(req.body)
         console.log("respoon",response);
         if (response.status === 201)
-            res.status(201).send(true)
+            res.status(201).send(response.data)
         else
-            res.status(response.status).send(response)
+            res.status(response.status).send(response.data)
     }
     catch (error) {
         objectForLog.error = error.message
@@ -41,7 +41,7 @@ router.post('/create', express.json(), async (req, res) => {
         if (error instanceof Array)
             res.status(500).send(error)
         else
-            res.status(500).send(error.message)
+            res.status(500).send(error)
     }
 })
 
@@ -53,6 +53,7 @@ router.get('/find', async (req, res) => {
     }
     logToFile(objectForLog)
     try {
+        console.log({query:req.query})
         const response = await findPump(req.query)
         if (response.status == 200)
             res.status(200).send(response.data)
@@ -74,23 +75,20 @@ router.post('/update', express.json(), async (req, res) => {
         console.log(req.body.where);
         const response = await updatePump({ data: req.body.update, condition: req.body.where })
         if (response)
-            res.status(200).send(response)
+            res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            res.status(500).send(response.data)
         }
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error)
     }
 })
 
 router.post('/delete', express.json(), async (req, res) => {
 
     try {
-        const response = await updatePump({ data: { Disabled: 1, DisabledDate: new Date() }, condition: req.body })
-        if (response)
-            res.status(200).send(response)
-        else
-            res.status(500).send(response)
+        const response = await deletePump({ condition: req.body })
+        res.status(response.status).send(response.data)
     }
     catch (error) { res.status(500).send(error.message) }
 })

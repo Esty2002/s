@@ -565,6 +565,7 @@
     "uid-safe": "^2.1.5",
     "unbox-primitive": "^1.0.2",
     "undefsafe": "^2.0.5",
+    "unexposed": "^1.0.0",
     "unicode-properties": "^1.4.1",
     "unicode-trie": "^2.0.0",
     "union-value": "^1.0.1",
@@ -600,6 +601,7 @@
   "devDependencies": {
     "eslint": "^8.54.0",
     "jest": "^29.6.1",
+    "jest-when": "^3.6.0",
     "swagger": "^0.7.5",
     "swagger-jsdoc": "^6.2.8",
     "swagger-ui-express": "^4.6.2"

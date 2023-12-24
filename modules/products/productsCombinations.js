@@ -1,29 +1,36 @@
-const { postData, getData, putData } = require('../../services/axios');
+const { postData, getData, putData, deleteData } = require('../../services/axios');
+const { checkObjectValidations } = require('../../services/validations/use-validations');
+const { ModelStatusTypes } = require('../../utils/types');
 const { modelNames } = require('../utils/schemas');
 
 
 
 async function insert(object) {
+    console.log({ object })
     try {
-        console.log({object})
-        const existResponse = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`, { AND: [{ parentId: object.parent }, { childId: object.child }] })
+        const existResponse = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`, object)
+        
+        const isValid = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.UPDATE)
         if (existResponse.data.length > 0) {
-            if (existResponse.data[0].Disabled) {
-                let rowId = existResponse.data[0].id
+            if (existResponse.data[0].disabled) {
+                let id = existResponse.data[0].id
 
                 let updateObject = {
                     entityName: modelNames.PRODUCTS_COMBINATIONS,
-                    values: { disabled: 'false' },
-                    condition: { id: rowId }
+                    values: { disabled: false },
+                    condition: { id }
                 }
                 const updateResponse = await putData('/update/updateone', updateObject)
                 return updateResponse
             }
-            else
-                throw new Error('already exist')
+            else {
+                throw new Error('resource exists')
+            }
         }
         else {
-            const response = await postData('/create/createone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { parentId: object.parent, childId: object.child, disabled: object.disabled } })
+            const isValid = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.CREATE)
+            console.log({ object })
+            const response = await postData('/create/createone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: object })
             return response
         }
     }
@@ -32,13 +39,10 @@ async function insert(object) {
     }
 }
 
-async function getAll() {
+async function getAll(condition={}) {
     try {
-        const response = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`)
-        if (response.status == 200)
-            return response.data
-        else
-            return false
+        const response = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`, condition)
+        return response
     }
     catch (error) {
         throw error
@@ -47,11 +51,10 @@ async function getAll() {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { Disable: true }, condition: { Id: object.Id } })
-        if (response.status == 204) {
-            return response.data
-        }
-        return false
+        _ = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.DELETE)
+        console.log(object)
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: object, condition: { id: object.id } })
+        return response
     }
     catch (error) {
         throw error
@@ -60,7 +63,7 @@ async function deleteItem(object) {
 
 async function updateNames(object) {
     try {
-        const response = await putData('/update/updateone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC }})
+        const response = await putData('/update/updateone', { entityName: modelNames.PRODUCTS_COMBINATIONS, values: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC } })
         if (response.status == 204)
             return response.data
         return false

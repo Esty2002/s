@@ -17,39 +17,42 @@ const { findPump } = require('../../modules/products/pumps');
 //     }
 // })
 
-router.post('/insertRow', express.json(), async (req, res) => {
+router.post('/create', express.json(), async (req, res) => {
     try {
         const response = await insert(req.body)
-         console.log(response.status);
-         console.log(response.data)
-        if (response.status === 201 || response.status===204)
-
-            res.status(response.status).send(response.data[0])
+        if (response.status === 201 || response.status === 204)
+            res.status(response.status).send(response.data)
         else {
-            res.status(500).send(false)
+            res.status(500).send(response.data)
         }
     } catch (error) {
-        res.status(500).send(error.message)
+        if (error.message === 'resource exists') {
+            res.status(409).send(error.message)
+        }
+        else
+            res.status(500).send(error)
     }
 })
 
 router.get('/readAll', async (req, res) => {
     try {
         const response = await getAll()
-        if (response)
-            res.status(200).send(response)
+        if (response.status === 200)
+            res.status(200).send(response.data)
         else {
-            res.status(500).send(response)
+            console.log(response.status, response.data)
+            res.status(500).send(response.data)
         }
     } catch (error) {
-        res.status(500).send(error.message)
+        console.log(error)
+        res.status(500).send(error)
     }
 })
 
 router.post('/deleteItem', express.json(), async (req, res) => {
     try {
         const response = await deleteItem(req.body)
-        console.log({status:response.status})
+        console.log({ status: response.status })
         if (response.status === 200) {
             res.status(200).send(response.data)
         }
@@ -58,7 +61,7 @@ router.post('/deleteItem', express.json(), async (req, res) => {
         }
     }
     catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error)
     }
 })
 
@@ -72,7 +75,7 @@ router.post('/updateNames', express.json(), async (req, res) => {
             res.status(500).send(false)
         }
     } catch (error) {
-        res.status(500).send(error.message)
+        res.status(500).send(error)
     }
 })
 //!
