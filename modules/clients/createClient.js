@@ -4,12 +4,11 @@ const { modelNames } = require('../utils/schemas')
 async function addOneClient(entity) {
     entity.addedDate = new Date()
     entity.disabled = false
-    const values = { ...entity }
-    delete values.id
+    const data= { ...entity }
+    delete data.id
     let unique = await getData(`/read/readMany/${modelNames.CLIENTS}`, { clientCode: entity.clientCode })
-    console.log({ values })
     if (unique.data.length === 0) {
-        const result = await postData('/create/createone', { entityName: modelNames.CLIENTS, values: values })
+        const result = await postData('/create/createone', { entityName: modelNames.CLIENTS, data })
         return result;
     }
     else {

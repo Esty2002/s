@@ -19,7 +19,6 @@ describe('GET ALL_CONTACT ROUTER', () => {
         expect(response).toBeDefined();
         expect(response).toBeTruthy();
         expect(response.serverError).toBeFalsy();
-        console.log("rrrrrrrrrrrrr");
     })
 
     it('get(`/`) in the router',async()=>{

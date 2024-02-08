@@ -7,12 +7,10 @@ const { models } = require('../utils/schemas');
 async function insertArea(obj = {}) {
     try {
         const find = await findAreas({ areaName: obj.name })
-        console.log({ finddd: find });
         if (find?.length > 0) {
             return { status: 409, data: 'duplicated values' }
         }
         if (obj.type === 'polygon') {
-            console.log({ obj })
             let points = obj.points
             let arraymap = [];
             for (let i = 0; i < points.length; i++) {
@@ -23,12 +21,10 @@ async function insertArea(obj = {}) {
                 else {
                     if (i != points.length - 1) {
                         points.splice(i, 1)
-                        console.log(points.length)
                         i--
                     }
                 }
             }
-            console.log({ points })
         }
 
         obj.areaName = obj.name
@@ -36,7 +32,7 @@ async function insertArea(obj = {}) {
             {
                 entityName: 'areas',
 
-                values: { ...obj, addedDate: new Date(), username: 'develop', disabled: false }
+                data: { ...obj, addedDate: new Date(), username: 'develop', disabled: false }
             });
         return result
     }
@@ -138,14 +134,14 @@ async function updateArea(obj) {
         {
             entityName: "areas",
             condition: [{ AND: [obj.condition, { OR: [{ disabled: undefined }, { disabled: false }] }] }],
-            values: obj.set
+            data: obj.set
         })
     if (result.data) {
         const result2 = await putData('/update/updateone',
             {
                 entityName: 'Areas',
-                condition: { Disabled: false, AreaName: obj.filter.name },
-                values: { Disabled: true }
+                condition: { disabled: false, areaName: obj.filter.name },
+                data: { disabled: true }
             })
         if (result2) {
             logToFile(object)
@@ -165,7 +161,6 @@ async function updateArea(obj) {
 }
 // אמור להיות בטרנזקציה שרותי רז באמצע לעשות!!!!!!!!!!!!!!!!!!!!
 async function deleteArea(obj) {
-    console.log({ objjjjjj: obj });
     let object = {
         name: "deleteArea",
         description: 'deleteArea in module',
@@ -175,14 +170,14 @@ async function deleteArea(obj) {
         {
             entityName: "areas",
             condition: { AND: [obj.filter, { OR: [{ disabled: null }, { disabled: false }] }] },
-            values: obj.set
+            data: obj.set
         })
     if (result.data) {
         const resultDB = await putData('/update/updateone',
             {
                 entityName: 'areas',
-                values: { Disabled: true },
-                condition: { Disabled: false, AreaName: obj.filter.name }
+                data: { disabled: true },
+                condition: { disabled: false, areaName: obj.filter.name }
             })
         if (resultDB) {
             logToFile(object)

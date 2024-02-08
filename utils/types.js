@@ -17,7 +17,8 @@ const AppStatusTypes = {
 const ModelStatusTypes = {
     CREATE: 'create',
     UPDATE: 'update',
-    DELETE: 'delete'
+    DELETE: 'delete',
+    ADD:'add'
 }
 
 module.exports = { ErrorTypes, ValueTypes, AppStatusTypes, ModelStatusTypes }

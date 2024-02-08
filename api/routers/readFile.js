@@ -10,14 +10,7 @@ router.get('/readsappapis/:filename', async (req, res) => {
 
         const response = await readFile(filepath)
 
-        // console.log(response,"response");
         if (response) {
-            response.forEach(r => {
-                r.apiRequests.forEach(a => {
-                    console.log(a.arguments)
-                })
-            })
-
             res.status(201).send(response)
         }
         else {

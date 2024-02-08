@@ -122,6 +122,11 @@ const recordExistInDB = async (value, arg) => {
             condition = {}
         }
         condition[field] = value;
+        if(typeof(value)==='object'){
+            if(value[field]){
+                condition[field] = value[field]
+            }
+        }
         let ans = await getData(`/read/readOne/${entityName}`, condition)
         if (exist) {
             if (ans.data.length > 0) {
@@ -147,7 +152,6 @@ const recordExistInDB = async (value, arg) => {
 };
 
 const recordExistInMultipleDB = async (value, arg) => {
-   console.log('recordExistInMultipleDB');
     try {
         const response = await Promise.all(arg.map(async (dbItem) => await recordExistInDB(value, { ...dbItem })))
         return true
@@ -195,7 +199,6 @@ const checkConcretItem = async (value) => {
             recordExistInTable(value, { entityName: "FinishProducts", field: "id" });
         }
         else {
-            console.log({ value });
             recordExistInTable(`${value}`, { entityName: "BuytonItems", field: "itemcode" });
         }
     }
@@ -258,10 +261,7 @@ const validation = {
 }
 
 const getFunctionArguments = (name)=>{
-    console.log(Object.keys(validation))
     const keys = Object.keys(validation)
-    console.log(validation[name].toString())
-    console.log(Object.getPrototypeOf(validation[name]))
 }
 
 module.exports = { validation, getFunctionArguments }

@@ -10,7 +10,7 @@ async function deletedClientByCode(clientCode, userName) {
 
             let obj = {
                 entityName: SQL_CLIENTS_TABLE,
-                values: { disabled: true, disabledDate: new Date(), disableUser: userName },
+                data: { disabled: true, disabledDate: new Date(), disableUser: userName },
                 condition: { clientCode }
             }
 

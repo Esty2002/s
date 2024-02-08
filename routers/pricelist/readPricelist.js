@@ -3,13 +3,15 @@ const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
 const { reqLogger } = require('../../services/logger/logger')
 
-const { getAllPriceList, getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
-    , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
+const { getPriceListById, getAllPriceList, getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
+    , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime,
+    getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
+const { getProductsTypeNameForPricelist, getProductsListByType } = require('../../modules/pricelist/pricelist-products')
 
 
 router.use(reqLogger())
 router.get('/findAllPriceList', async (req, res) => {
-    objectLog = {
+   let objectLog = {
         name: 'findAllPriceList',
         description: 'findAllPriceList in router',
     }
@@ -24,11 +26,31 @@ router.get('/findAllPriceList', async (req, res) => {
 
 
 })
-// חיפוש מחירון לפי ID
-router.get('/pricelistRecords/:entity/:id', async (req, res) => {
+
+router.get('/producttypes', (req, res) => {
+    const query = req.query
+    const pricelistTypes = Object.keys(query).filter(key => query[key] === 'true')
+    const types = getProductsTypeNameForPricelist(pricelistTypes)
+    res.status(200).send(types)
+})
+
+router.get('/productslist/:category', async(req, res) => {
     try {
-        const result = await getPriceListById(req.params);
-        res.status(200).send(result);
+        const response =await getProductsListByType(req.params.category)
+        res.status(200).send(response)
+    }
+    catch (error) {
+        console.log({ error })
+        res.status(500).send(error)
+    }
+})
+
+// חיפוש מחירון לפי ID
+router.get('/pricelist/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const result = await getPriceListById(id);
+        res.status(result.status).send(result.data);
     }
     catch (error) {
         res.status(500).send(error);
@@ -36,6 +58,8 @@ router.get('/pricelistRecords/:entity/:id', async (req, res) => {
 
 
 })
+
+
 // פונקצית חיפוש מחירון לפי תאריך הוספה
 // router.get('/FindPriceListByAddedDate/date', async (req, res) => {
 //     try {
@@ -49,11 +73,11 @@ router.get('/pricelistRecords/:entity/:id', async (req, res) => {
 
 // })
 // פונקציית חיפוש על פי מוצר
-router.get('/findPriceListByProduct/:product', async (req, res) => {
+router.get('/findPriceListProducts/:product', async (req, res) => {
     try {
         const result = await getPriceListbyProduct(req.params.product);
-            res.status(200).send(result);
-    } 
+        res.status(200).send(result);
+    }
     catch (error) {
         objectLog.error = error.message
         logToFile(objectLog)

@@ -19,7 +19,7 @@ async function insertOneSupplier(object) {
                 object.addedDate = new Date().toISOString();
                 object.userName = 'developer';
                 object.disabled = false
-                let obj = { entityName: models.SUPPLIERS.entity, values: object };
+                let obj = { entityName: models.SUPPLIERS.entity, data: object };
     
                 const res = await postData("/create/createone", obj);
                 return res;
@@ -79,7 +79,7 @@ async function updateDetail(setting) {
     try {
         flag = true
         let object = {
-            entityName: SQL_DB_SUPPLIERS, values: {
+            entityName: SQL_DB_SUPPLIERS, data: {
                 ...setting
             }, condition: { Id: setting.Id }
         };
@@ -93,13 +93,13 @@ async function updateDetail(setting) {
 }
 async function deleteSupplier(object) {
     try {
-        let obj = { entityName: 'suppliers', values: { disableUser: object.DisableUser, disabledDate: new Date().toISOString(), disabled: true }, condition: { id: object.Id } }
+        let obj = { entityName: 'suppliers', data: { disableUser: object.DisableUser, disabledDate: new Date().toISOString(), disabled: true }, condition: { id: object.Id } }
         const result = await deleteData('/delete/deleteone', obj);
         console.log({ result })
         if (result.status === 204) {
             obj = {
                 entityName: 'Branches',
-                values: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true },
+                data: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true },
                 condition: { SupplierCode: object.Id }
             }
             const branchResult = await deleteData('/delete/deletemany', obj);
@@ -109,9 +109,6 @@ async function deleteSupplier(object) {
         else {
             return result
         }
-        // console.log("result", result);
-
-
     }
     catch (error) {
 
@@ -121,17 +118,13 @@ async function deleteSupplier(object) {
 
 }
 
-
 async function checkUniqueCode(code) {
     let resultSupplierCode = await getData(`/read/readOne/suppliers`, { supplierCode: code });
-    console.log({resultSupplierCode})
-    console.log({data:resultSupplierCode.data})
     if (resultSupplierCode.status === 200)
         return resultSupplierCode.data.length === 0
     else {
         return false
     }
-
 }
 
 async function checkUniqueName(name) {

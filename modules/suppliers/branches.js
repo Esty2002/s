@@ -10,7 +10,7 @@ async function insertOneBranch(object, entityName = modelNames.BRANCHES) {
         if (ans) {
             if (checkValid(object) && await checkUnique(object)) {
                 object.addedDate = new Date().toISOString();
-                let obj = { entityName, values: object };
+                let obj = { entityName, data: object };
                 const res = await postData("/create/createone", obj);
                 return res;
             }
@@ -85,7 +85,7 @@ async function updateDetail(setting) {
         //     }
         // }
         let obj = {
-            entityName: modelNames.BRANCHES, values: {
+            entityName: modelNames.BRANCHES, data: {
                 supplierCode: setting.supplierCode.id, BranchName: setting.BranchName, Status: setting.Status,
                 Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
                 Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
@@ -103,7 +103,7 @@ async function updateDetail(setting) {
 async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
-        let obj = { entityName: modelNames.BRANCHES, values: { disableUser: `${object.disableUser}`, disabled: true, disabledDate: newDate }, condition: { id: object.id } };
+        let obj = { entityName: modelNames.BRANCHES, data: { disableUser: `${object.disableUser}`, disabled: true, disabledDate: newDate }, condition: { id: object.id } };
         const res = await deleteData("/delete/deleteone", obj);
         return res;
     }

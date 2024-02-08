@@ -1,12 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
-const { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber } = require('../../modules/pricelist/insertPricelist')
+const { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber, addCustomerAndArea } = require('../../modules/pricelist/insertPricelist')
 let object
-//tbl_PriceList    
+//tbl_PriceList  
 
 
-router.post('/addPriceList', express.json(), async (req, res) => {
+router.post('/create', express.json(), async (req, res) => {
     let object = {
         name: 'create',
         description: 'addPriceList in router',
@@ -14,14 +14,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
     }
     logToFile(object)
     try {
-        object = {
-            name: 'addPriceList',
-            description: 'addPriceList in router- in try',
-            dataThatRecived: req.body,
-        }
-        logToFile(object)
-        console.log("in pricelist");
-        const result = await insert(req.body, 'PriceList')
+        const result = await insert(req.body)
         if (result.status === 201) {
             res.status(201).send(result.data);
         }
@@ -35,7 +28,7 @@ router.post('/addPriceList', express.json(), async (req, res) => {
         if (error instanceof Array)
             res.status(500).send(error)
         else
-            res.status(500).send(error.message);
+            res.status(500).send(error);
     }
 })
 //tbl_CitiesAdditions
@@ -137,23 +130,22 @@ router.post('/addTruckFill', express.json(), async (req, res) => {
         if (error instanceof Array)
             res.status(500).send(error)
         else
-            res.status(500).send(error.message)
+            res.status(500).send(error)
     }
 
 })
 
 //tbl_PricesListBySupplierOrClient
-router.post('/addPricesListBySupplierOrClient', express.json(), async (req, res) => {
-    console.log('111111111111111');
+router.post('/addCustomerAndArea', express.json(), async (req, res) => {
     let objForLog;
     try {
         objForLog = {
-            name: 'PricesListBySupplierOrClient',
-            description: 'addPricesListBySupplierOrClient in router',
+            name: 'addCustomerAndArea',
+            description: 'addCustomerAndArea in router',
             dataThatRecived: req.body,
         }
         logToFile(objForLog)
-        const result = await insert(req.body, 'PricesListBySupplierOrClient')
+        const result = await addCustomerAndArea(req.body)
         if (result.status === 201)
             res.status(201).send(result.data);
         else
@@ -169,7 +161,7 @@ router.post('/addPricesListBySupplierOrClient', express.json(), async (req, res)
     }
 })
 //tbl_PricelistForProducts
-router.post('/addPricelistForProducts', express.json(), async (req, res) => {
+router.post('/addProducts', express.json(), async (req, res) => {
     let objForLog;
     try {
         objForLog = {
@@ -301,7 +293,7 @@ router.post('/updateFieldInTable/:id/:entityName', express.json(), async (req, r
             description: 'updateFieldInTable in router, expect to get an id and a table name',
             id: req.params.id,
             entityName: req.params.entityName,
-            values: req.body
+            data: req.body
         }
         logToFile(objForLog)
         const result = await updateField(req.params.id, req.params.entityName, req.body)

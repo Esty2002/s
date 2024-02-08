@@ -1,165 +1,9 @@
-const { postData, getData,putData } = require('../../services/axios')
+const { postData, getData, putData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
-const values = [
-    {
-        entity: "PriceList",
-        func: ({ Name = null, Pumps = null, Beton = null, UserName = null }) => {
-            return {
-                tableName: "PriceList",
-                values: {
-                    Name: Name,
-                    Pumps: Pumps,
-                    Beton: Beton,
-                    AddedDate: new Date().toISOString(),
-                    UserName: UserName,
-                    Finish: false,
-                    Disabled: false
-                }
-            }
-        }
-    },
-    {
-        entity: "CitiesAdditions",
-        func: ({ PriceListId = null, ProductId = null, AreaId = null, Price = null, CountPrecent = null, UserName = null }) => {
-            return {
-                tableName: "CitiesAdditions",
-                values: {
-                    PriceListId: PriceListId,
-                    ProductId: ProductId,
-                    AreaId: AreaId,
-                    Price: Price,
-                    CountPrecent: CountPrecent,
-                    AddedDate: new Date().toISOString(),
-                    UserName: UserName
-                }
-            }
-        }
-    },
-    {
-        entity: "TimeAdditions",
-        func: ({ PriceListId = null, ProductId = null, Price = null, CountPrecent = null, DayOfWeek = null, StartDate = null, EndDate = null, UserName = null }) => {
-            return {
-                tableName: "TimeAdditions",
-                values: {
-                    PriceListId: PriceListId,
-                    ProductId: ProductId,
-                    Price: Price,
-                    CountPrecent: CountPrecent,
-                    DayOfWeek: DayOfWeek,
-                    StartDate: StartDate,
-                    EndDate: EndDate,
-                    AddedDate: new Date().toISOString(),
-                    UserName: UserName
-                }
-            }
-        }
-    },
-    {
-        entity: "AdditionsForDistance",
-        func: ({ PriceListId = null, ProductId = null, Distance = null, Price = null, CountPrecent = null, UserName = null }) => {
-            return {
-                tableName: "AdditionsForDistance",
-                values: {
-                    PriceListId: PriceListId,
-                    ProductId: ProductId,
-                    Distance: Distance,
-                    Price: Price,
-                    CountPrecent: CountPrecent,
-                    AddedDate: new Date().toISOString(),
-                    UserName: UserName
-                }
-            }
-        }
-    },
-    {
-        entity: "TruckFill",
-        func: ({ PriceListId = null, ProductId = null, AmountTransportDiff = null, MaxTransportDiff = null, Price = null }) => {
-            return {
-                tableName: "TruckFill",
-                values: {
-                    PriceListId: PriceListId,
-                    ProductId: ProductId,
-                    AmountTransportDiff: AmountTransportDiff,
-                    MaxTransportDiff: MaxTransportDiff,
-                    Price: Price,
-                    Disabled: false
-                }
-            }
-        }
-    },
-    {
-        entity: "PricesListBySupplierOrClient",
-        func: ({ PriceListId = null, SupplierOrClient = null, Debit = null, Credit = null, AreaId = null, StartDate = null, EndDate = null, UserName = null }) => {
-            return {
-                tableName: "PricesListBySupplierOrClient",
-                values: {
-                    PriceListId: PriceListId,
-                    SupplierOrClient: SupplierOrClient,
-                    Debit: Debit,
-                    Credit: Credit,
-                    AreaId: AreaId,
-                    StartDate: StartDate,
-                    EndDate: EndDate,
-                    AddedDate: new Date().toISOString(),
-                    UserName: UserName
-                }
-            }
-        }
-    },
-    {
-        entity: "PricelistForProducts",
-        func: ({ PriceListId = null, ProductId = null, TableName = null, Price = null, Discount = null, UserName = null }) => {
-            return {
-                tableName: "PricelistForProducts",
-                values: {
-                    PriceListId: PriceListId,
-                    ProductId: ProductId,
-                    TableName: TableName,
-                    Price: Price,
-                    Discount: Discount,
-                    AddedDate: new Date().toISOString(),
-                    UserName: UserName,
-                    Disabled: false
-                }
-            }
-        }
-    },
-    {
-        entity: "FinishProducts",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
-            return {
-                tableName: "FinishProducts",
-                values: {
-                    Name: Name,
-                    UnitOfMeasure: UnitOfMeasure,
-                    BookkeepingCode: BookkeepingCode,
-                    AddedDate: new Date().toISOString(),
-                    Disabled: false,
-                    DisabledDate: DeleteDate,
-                    DisableUser:undefined
-                }
-            }
-        }
-    },
-    {
-        entity: "Additions",
-        func: ({ Name = null, UnitOfMeasure = null, BookkeepingCode = null, DeleteDate = null }) => {
-            return {
-                tableName: "Additions",
-                values: {
-                    Name: Name,
-                    UnitOfMeasure: UnitOfMeasure,
-                    BookkeepingCode: BookkeepingCode,
-                    AddedDate: new Date().toISOString(),
-                    Disabled: false,
-                    DisabledDate: DeleteDate,
-                    DisableUser:undefined
-                }
-            }
-        }
-    }
-]
+const { ModelStatusTypes, ErrorTypes } = require('../../utils/types')
+const { modelNames } = require('../utils/schemas')
+
 async function insert(data, entityName) {
     let obj = {}
     let objectForLog = {
@@ -169,21 +13,13 @@ async function insert(data, entityName) {
     }
     logToFile(objectForLog)
     try {
-        const checkValidObj = values.find(({ entity }) => entityName === entity);
-        let newObj = checkValidObj.func(data)
-        if (checkValidObj) {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            data = newObj.values
 
-        }
-        obj.entityName = entityName
-        obj.columns = '*'
-        obj.values = data
-        const result = await postData('/create/createone', obj)
+        data = await checkObjectValidations(data, modelNames.PRICELIST)
+        const result = await postData('/create/createone', { entityName: modelNames.PRICELIST, data })
         if (result.data)
             return result;
         else
-            throw new Error('data not found')
+            throw new Error('object was not created')
     }
     catch (error) {
         objectForLog.error = error.message
@@ -191,6 +27,34 @@ async function insert(data, entityName) {
         throw error
     }
 }
+
+async function addCustomerAndArea(data) {
+    try {
+        const startDate = new Date(data.startDate)
+        if (data.endDate === undefined) {
+            data.endDate = new Date(startDate.setFullYear(startDate.getFullYear() + 1))
+        }
+        else {
+            const endDate = new Date(data.endDate)
+            if (endDate < startDate) {
+                // const error = { type: ErrorTypes.VALIDATION }
+                // error.data = [{ propertyName: 'endDate', error: 'endDate must be after startDate' }]
+                // throw error
+                data.endDate = new Date(startDate.setFullYear(startDate.getFullYear() + 1))
+            }
+        }
+
+        data = await checkObjectValidations(data, modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, ModelStatusTypes.CREATE)
+        console.log({data});
+            const response = await postData('/create/createOne', { entityName: modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, data })
+            return response.data
+    }
+    catch (error) {
+        console.log({ error });
+        throw error;
+    }
+}
+
 async function getProducts(entityName) {
     let objForLog = {
         name: 'detailsOfProfucts',
@@ -199,8 +63,6 @@ async function getProducts(entityName) {
     }
     logToFile(objForLog)
     try {
-        let obj = {}
-        obj.columns = '*'
         const response = await getData(`/read/readMany/${entityName}`)
         if (response.data)
             return response;
@@ -221,18 +83,9 @@ async function updateField(id, entityName, value) {
         description: 'updateField in module', id, entityName, value
     }
     logToFile(objForLog)
-    let obj = {}
     try {
-        const checkValidObj = values.find(({ entity }) => entityName === entity);
-        let newObj = checkValidObj.func(value)
-        if (checkValidObj) {
-            _ = await checkObjectValidations(newObj.values, checkValidObj.entity)
-            value = newObj.values
-        }
+        _ = await checkObjectValidations(value, modelNames.PRICELIST)
 
-        obj.entityName = entityName
-        obj.condition = { Id: id }
-        obj.values = value
         const response = await putData('update/updateone', obj)
         if (response) {
             return response
@@ -310,4 +163,8 @@ async function getNumber(object, tbName) {
         throw new Error('data not found')
 }
 
-module.exports = { insert, getProducts, getId, getIdForBuytonDescribe, updateField, getNumber }
+module.exports = {
+    insert,
+    addCustomerAndArea,
+    getProducts, getId, getIdForBuytonDescribe, updateField, getNumber
+}

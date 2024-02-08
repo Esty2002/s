@@ -9,7 +9,7 @@ const { modelNames } = require('../utils/schemas')
 
 async function updateMeasure(condition, obj) {
     try {
-        const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, values: { measure: obj }, condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: { measure: obj }, condition })
         if (response.status == 204)
             return response.data
         return false
@@ -33,7 +33,7 @@ async function insertMeasure(obj) {
     // if (status === 200 && !data[0]) {
     try {
         _ = await checkObjectValidations(obj, modelNames.MEASURES)
-        const response = await postData('/create/createone', { entityName: modelNames.MEASURES, values: obj })
+        const response = await postData('/create/createone', { entityName: modelNames.MEASURES, data: obj })
         if (response.data)
             return response
     }
@@ -52,7 +52,7 @@ async function insertMeasure(obj) {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.MEASURES, values: { disable: true }, condition: { id: object.id } })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.MEASURES, data: { disable: true }, condition: { id: object.id } })
         if (response.status == 204) {
             return response.data
         }

@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { getTraits } = require('../../modules/products/basicProducts')
+const { getCementTraits } = require('../../modules/products/basicProducts')
 
-router.post('/find', express.json(), async (req, res) => {
+router.post('/findcombinations', express.json(), async (req, res) => {
     try {
-        const response =await getTraits(req.body.where)
+        const response =await getCementTraits(req.body)
         if (response.status == 200)
             res.status(200).send(response.data)
         else {

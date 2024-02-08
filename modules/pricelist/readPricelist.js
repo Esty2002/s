@@ -1,7 +1,8 @@
 require('dotenv').config();
 const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PUMPS, BUYTONITEMS } = process.env;
 const { postData, getData, putData, deleteData } = require('../../services/axios');
-const { logToFile } = require('../../services/logger/logTxt')
+const { logToFile } = require('../../services/logger/logTxt');
+const { modelNames, models, getModelKey } = require('../utils/schemas');
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
     objectLog = {
@@ -10,8 +11,8 @@ async function getAllPriceList() {
     }
     try {
         logToFile(objectLog)
-        let obj = { columns: "*", condition: { Disabled: 0 } };
-        const res = await postData(`/read/readMany/${SQL_DB_PRICELIST}`, obj);
+        let obj = { condition: { disabled: 0 } };
+        const res = await postData(`/read/readMany/${modelNames.PRICELIST}`, obj);
 
 
         return res.data;
@@ -22,6 +23,8 @@ async function getAllPriceList() {
         throw new Error('can not get all pricelist');
     }
 }
+
+
 
 
 // פונקציית חיפוש על פי מוצר
@@ -44,6 +47,7 @@ async function getPriceListByIdPriceListId(object) {
 }
 // פונקציית חיפוש על פי קוד ספק או לקוח
 async function getPriceListbySupplierCodeOrClientCode(object) {
+    let objectLog
     try {
         objectLog = {
             name: 'getPriceListbySupplierCodeOrClientCode',
@@ -52,17 +56,14 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
         logToFile(objectLog)
         let obj = { columns: "PriceListId", condition: { SupplierOrClient: object } }
         const res = await postData(`/read/readMany/${PRICESLISTBYSUPPLIERORCLIENT}`, obj);
-        console.log(res.data);
         arrTempPriceListId = []
         if (res.data != undefined) {
             res.data.forEach(element => {
                 arrTempPriceListId.push(element.PriceListId)
             });
-            console.log(arrTempPriceListId);
             let obj2 = { columns: "*", condition: { IN: [{ Id: arrTempPriceListId }] } };
 
             const res2 = await postData(`/read/readMany/${SQL_DB_PRICELIST}`, obj2);
-            console.log(res2.data);
             return res2.data;
 
         }
@@ -78,6 +79,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
 }
 
 async function getPriceListByIdSupplierOrClientCode(object) {
+    let objectLog
     try {
         objectLog = {
             name: 'getPriceListByIdSupplierOrClientCode',
@@ -86,7 +88,6 @@ async function getPriceListByIdSupplierOrClientCode(object) {
         logToFile(objectLog)
         let obj = { columns: "*", condition: { PriceListId: object } };
         const res = await postData(`/read/readMany/${PRICESLISTBYSUPPLIERORCLIENT}`, obj);
-        console.log(res.data);
         return res.data;
     }
     catch (error) {
@@ -95,17 +96,18 @@ async function getPriceListByIdSupplierOrClientCode(object) {
         throw new Error('can not get getPriceListByIdSupplierOrClientCode');
     }
 }
-async function getPriceListById(object) {
-    console.log(object);
+async function getPriceListById(id) {
+    let objectLog
     try {
         objectLog = {
             name: 'getPriceListByIdPriceListId',
             description: 'getPriceListByIdPriceListId in module- in try',
         }
         logToFile(objectLog)
-        let obj = { columns: "*", condition: { PriceListId: object } };
-        const res = await postData(`/read/readMany/${PRICElISTFORPRODUCTS}`, obj);
-        return res.data;
+
+        let obj = { condition: { entityName: modelNames.PRICELIST, property: getModelKey(modelNames.PRICELIST) , value:id } };
+        const res = await postData(`/read/readOneDetails/${modelNames.PRICELIST}`, obj);
+        return res;
     }
     catch (error) {
         objectLog.error = error.message
@@ -116,7 +118,7 @@ async function getPriceListById(object) {
 
 // פונקציה שמחזירה תוספת לפי מרחק
 async function getPriceListByAdditionsForDistance(object) {
-    console.log(object);
+    let objectLog
     try {
         objectLog = {
             name: 'getPriceListByAdditionsForDistance',
@@ -125,7 +127,6 @@ async function getPriceListByAdditionsForDistance(object) {
         logToFile(objectLog)
         let obj = { columns: "*", condition: { PriceListId: object } };
         const res = await postData(`/read/readMany/${ADDITIONSFORDISTANCE}`, obj);
-        console.log(res.data);
         return res.data;
     }
     catch (error) {
@@ -136,7 +137,7 @@ async function getPriceListByAdditionsForDistance(object) {
 }
 // פונקציה שמחזירה תוספת לפי עיר
 async function getPriceListByAdditionsForCities(object) {
-    console.log(object);
+    let objectLog
     try {
         objectLog = {
             name: 'getPriceListByAdditionsForCities',
@@ -145,7 +146,6 @@ async function getPriceListByAdditionsForCities(object) {
         logToFile(objectLog)
         let obj = { columns: "*", condition: { PriceListId: object } };
         const res = await postData(`/read/readMany/${CITIESADDITIONS}`, obj);
-        console.log(res.data);
         return res.data;
     }
     catch (error) {
@@ -156,7 +156,7 @@ async function getPriceListByAdditionsForCities(object) {
 }
 // פונקציה שמחזירה תוספת לפי יום או שעה
 async function getPriceListByAdditionsForTime(object) {
-    console.log(object);
+    let objectLog
     try {
         objectLog = {
             name: 'getPriceListByAdditionsForTime',
@@ -166,7 +166,6 @@ async function getPriceListByAdditionsForTime(object) {
         let obj = { entityName: TIMEADDITIONS, columns: "*", condition: { PriceListId: object } };
 
         const res = await postData(`/read/readMany/${TIMEADDITIONS}`, obj);
-        console.log(res.data);
         return res.data;
     }
     catch (error) {
@@ -177,7 +176,7 @@ async function getPriceListByAdditionsForTime(object) {
 }
 //  פונקציה שמחזירה תוספת לפי משאית 
 async function getPriceListByAdditionsForTruckFill(object) {
-    objectLog = {
+    let objectLog = {
         name: 'getPriceListByAdditionsForTruckFill',
         description: 'getPriceListByAdditionsForTruckFill in module- in try',
         arguments: JSON.stringify(object)
@@ -187,7 +186,6 @@ async function getPriceListByAdditionsForTruckFill(object) {
         logToFile(objectLog)
         let obj = { columns: "*", condition: { PriceListId: object } };
         const res = await postData(`/read/readMany/${TRUCKFILL}`, obj);
-        console.log(res.data);
         return res.data;
     }
     catch (error) {
@@ -200,15 +198,13 @@ async function getPriceListByAdditionsForTruckFill(object) {
 // חיפוש בטבלת מוצרים וספקים לפי שם טבלה ותאור מוצר
 
 async function getSupplierByNameProduct(nameTable, nameProduct) {
-    console.log({ nameTable });
-    console.log({ nameProduct });
-    try {
-        objectLog = {
-            name: 'getSupplierByNameProduct',
-            description: 'getSupplierByNameProduct in module- in try',
-        }
-        logToFile(objectLog)
 
+    let objectLog = {
+        name: 'getSupplierByNameProduct',
+        description: 'getSupplierByNameProduct in module- in try',
+    }
+    logToFile(objectLog)
+    try {
         let obj = { columns: "Id", condition: { Name: nameProduct } };
         const res = await postData(`/read/readMany/${nameTable}`, obj);
         arrTemp = []
@@ -246,19 +242,18 @@ async function getSupplierByNameProduct(nameTable, nameProduct) {
 }
 // חיפוש בטבלת מוצרים וספקים לפי טבלת מוצרי בטון ולפי שם המוצר
 async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
-    console.log({ nameTable });
-    console.log({ nameProduct });
+
+
+    let objectLog = {
+        name: 'getSupplierByNameProductBuyton',
+        description: 'getSupplierByNameProductBuyton in module- in try',
+    }
+    logToFile(objectLog)
     try {
-        objectLog = {
-            name: 'getSupplierByNameProductBuyton',
-            description: 'getSupplierByNameProductBuyton in module- in try',
-        }
-        logToFile(objectLog)
         let temp = { columns: "*", condition: { ItemDescribe: nameProduct } };
         const resTemp = await postData(`/read/count/${BUYTONITEMS}`, obj);
         let obj = { columns: "*", condition: { ItemDescribe: nameProduct }, topn: { resTemp } };
         const res = await postData(`/read/readMany/${BUYTONITEMS}`, obj);
-        console.log(res.data, '                           res.data');
         if (res.data != undefined) {
 
             let temp2 = { columns: "PriceListId", condition: { 1: 1 } };
@@ -279,7 +274,7 @@ async function getSupplierByNameProductBuyton(nameTable, nameProduct) {
             temp2 = checkValid(temp, res4.data)
             temp3 = checkValid(temp2, res5.data)
             arrTemp2 = []
-            if (temp3 != undefined) {
+            if (temp3 !== undefined) {
                 temp3.forEach(element => {
                     arrTemp2.push(element.PriceListId)
                 });

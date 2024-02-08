@@ -18,7 +18,7 @@ async function insertAddition(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.ADDITION, ModelStatusTypes.CREATE)
         if (isValid) {
-            const response = await postData('/create/createone', { entityName: modelNames.ADDITION, values: obj })
+            const response = await postData('/create/createone', { entityName: modelNames.ADDITION, data: obj })
             if (response.data)
                 return response
         }
@@ -33,7 +33,6 @@ async function insertAddition(obj) {
 
 async function findAddition(filter = {}) {
     try {
-        console.log({ filter })
         _ = await checkObjectValidations(filter, modelNames.ADDITION, ModelStatusTypes.UPDATE)
 
         if (!Object.keys(filter).includes('disabled'))
@@ -77,7 +76,7 @@ async function findAddition(filter = {}) {
 async function updateAddition({ data = {}, condition = {} }) {
     try {
             _ =await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.UPDATE)
-        const response = await putData('/update/updateone', { entityName: modelNames.ADDITION, values: data, condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.ADDITION,  data, condition })
         return response
     } catch (error) {
         throw error;
@@ -87,7 +86,7 @@ async function updateAddition({ data = {}, condition = {} }) {
 async function deleteAddition({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.ADDITION, values: data, condition })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.ADDITION,  data, condition })
         return response
 
     } catch (error) {

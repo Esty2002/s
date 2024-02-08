@@ -43,7 +43,7 @@ const createNewLead = async (obj = null) => {
 
         let newObj = {
             entityName: SQL_LEADS_TABLE,
-            values: vals
+            data: vals
         };
 
         const result = await postData('create/createmany', newObj);
@@ -77,7 +77,7 @@ const insertMoreProductsItems = async (items = [], LeadNumber = null) => {
         };
         objMpi = {
             entityName:'moreproductsitems',
-            values: morePorductsItems
+            data: morePorductsItems
         };
         const res = await postData('create/createmany', objMpi);
         return res;
@@ -161,7 +161,7 @@ const updateLead = async (obj = null) => {
             if (baseLead.data.length > 0) {
                 const newObj = {
                     entityName: SQL_LEADS_TABLE,
-                    values: obj.values,
+                    data: obj.values,
                     condition: { AND: [{ Address: baseLead.data[0].Address }, { OrdererCode: baseLead.data[0].OrdererCode }, { SupplyDate: baseLead.data[0].SupplyDate }, { SupplyHour: baseLead.data[0].SupplyHour }] }
                 };
                 const result = await putData('update/updatemany', newObj);
@@ -211,7 +211,7 @@ const deleteLead = async (id) => {
     if (id) {
         const obj = {
             entityName: 'leads',
-            values: {
+            data: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()
             },
@@ -239,7 +239,7 @@ const deleteOneLead = async (id) => {
     if (id) {
         const obj = {
             entityName: SQL_LEADS_TABLE,
-            values: {
+            data: {
                 Disable: 1,
                 DeletingDate: new Date().toISOString()
             },

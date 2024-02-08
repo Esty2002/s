@@ -20,7 +20,7 @@ async function insertFinishProduct(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.FINISH_PRODUCTS, ModelStatusTypes.CREATE)
 
-        const response = await postData('/create/createone', { entityName: modelNames.FINISH_PRODUCTS, values: obj })
+        const response = await postData('/create/createone', { entityName: modelNames.FINISH_PRODUCTS, data: obj })
         if (response.data)
             return response
     }
@@ -33,7 +33,7 @@ async function insertFinishProduct(obj) {
 async function updateFinishProduct({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.UPDATE)
-        const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS, values: data, condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS,  data, condition })
         return response
 
     } catch (error) {
@@ -45,7 +45,7 @@ async function updateFinishProduct({ data = {}, condition = {} }) {
 async function deleteFinishProduct({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS, values: data, condition })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS,  data, condition })
         return response
 
     } catch (error) {

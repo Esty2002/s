@@ -1,11 +1,14 @@
 const { sqlServer, postData, getData } = require('../../services/axios')
 const { PRICELIST, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS } = process.env
 
+
+
+
 async function deletePriceList({ id }) {
     const obj = {}
     obj['entityName'] = PRICELIST
     obj['condition'] = `id=${id}`
-    obj['values'] = { 'disabled': true }
+    obj['data'] = { 'disabled': true }
     const result = await postData('/update/update', obj)
     if (result.data.rowsAffected[0] > 0) {
         let table = [ADDITIONSFORDISTANCE, CITIESADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, TIMEADDITIONS, PRICElISTFORPRODUCTS]
@@ -13,7 +16,7 @@ async function deletePriceList({ id }) {
         const answer = await Promise.all(table.map(async (t) => {
             obj['tableName'] = t
             obj['condition'] = `priceListId=${id}`
-            obj['values'] = { 'disabled': true }
+            obj['data'] = { 'disabled': true }
             res = await postData('/update/update', obj)
             return res
         }))
@@ -26,15 +29,11 @@ async function deletePriceList({ id }) {
 async function updateOne({ id, update }) {
     // let newUpdate =[]
     let newUpdate = {}
-    // console.log({ update })
     newUpdate[update.columns] = update.values
-    // _ = update.forEach(o => (newUpdate[o.columns] = o.values))   לכמה דברים לעדכון
-    // console.log({ newUpdate });
     let obj = {}
     obj['entityName'] = PRICELIST
     obj['condition'] = `Id= ${id}`
-    obj['values'] = newUpdate
-    console.log({ obj });
+    obj['data'] = newUpdate
     const result = await postData('/update/update', obj)
     if (result.data.rowsAffected[0] > 0) {
         return true
@@ -52,8 +51,7 @@ async function reedToUpdate({ tbName, id, update }) {
         _ = update.forEach(o => (record[0][o.columns] = o.values))
         obj['entityName'] = `${tbName}`
         obj['columns'] = '*'
-        obj['values'] = record[0];
-        console.log({ obj });
+        obj['data'] = record[0];
         const result = await postData('/create/createone', obj)
         return result
     }
@@ -73,8 +71,6 @@ async function deleteItems({ tbName, id, del, newname }) {
             // newname = await changeName(id)
             newdata = await changeName(id)
             newname = newdata.Name
-            // console.log({newdata});
-            // console.log({ newname });
         }
         else {
             const answer = await getData(`/read/readAll/${PRICELIST}/Id=${id}`)
@@ -87,37 +83,20 @@ async function deleteItems({ tbName, id, del, newname }) {
         const obj = {};
         obj['entityName'] = PRICELIST;
         obj['columns'] = '*';
-        obj['values'] = newdata;
-        console.log(newdata);
-        // console.log({ obj },"obbbbbbj");
+        obj['data'] = newdata;
         const result = await postData('/create/createone', obj)
-        // console.log("before if");
-        // console.log(Object.keys(result))
-        // let { data } = result
         if (result.status === 201) {
-            // console.log(Object.keys(result))
-            // console.log("in if !!!!!!!!!!");
-            // console.log({res:result.data},'99999999999999999999999999');
-            // if (result.data.length > 0) {
-            //     const ans = await getData(`/read/readAll/${PRICELIST}/Name='${newname}'`)
-            //     let pricelistId = ans.data[0].Id;
-            // console.log({ data })
             let pricelistId = result.data[0].Id;
-            console.log({ pricelistId });
             let newDataa = []
             newDataa = answer.data.filter(an => deleteIdentity.includes(an.Id))
             newDataa.forEach(item => item.PriceListId = pricelistId)
             newDataa = newDataa.map(({ Id, ...rest }) => rest)
             let obj = {}
-            console.log({ newDataa });
             obj['entityName'] = `${tbName}`
             obj['columns'] = '*'
-            obj['values'] = newDataa;
-            // console.log({ obj });
+            obj['data'] = newDataa;
             const resultMany = await postData('/create/createmany', obj)
-            console.log({ resultMany: resultMany.data });
             const dataMany = await getData(`/read/readAll/${tbName}/PriceListId=${pricelistId}`)
-            console.log({ dataMany });
             return dataMany.data
         }
 
@@ -150,9 +129,7 @@ async function updateItems({ tbName, id, update, newname }) {
     // obj['entityName'] = PRICELIST;
     // obj['columns'] = '*';
     // obj['values'] = newdata;   
-    //  console.log(obj.values,"bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb");
     // const result = await postData('/create/create', obj)
-    // console.log(result,"reeeeeeeeeeeeeeeeeeeeeeeeeeeeee");
     // if (result.data.length > 0) {
     //     const ans = await getData(`/read/readAll/${PRICELIST}/Name='${newname}'`)
     //     let pricelistId = ans.data[0].Id;
@@ -166,13 +143,11 @@ async function updateItems({ tbName, id, update, newname }) {
     newData = answer.data.filter(an => deleteIdentity.includes(an.Id))
     newData.forEach(item => item.PriceListId = newPricelistId)
     newData = newData.map(({ Id, ...rest }) => rest)
-    console.log(newData, " nnnnnnDDDDDD");
     let obj = {}
 
     obj['entityName'] = `${tbName}`
     obj['columns'] = '*'
-    obj['values'] = newData;
-    console.log({ obj });
+    obj['data'] = newData;
     const result = await postData('/create/createmany', obj)
     return result
 }

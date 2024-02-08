@@ -74,6 +74,27 @@ router.post('/insertArea', express.json(), async (req, res) => {
     }
 });
 
+router.get('/findenabledAreas/:type', async(req, res)=>{
+    let object;
+    try {
+        const {type} = req.params;
+        object = {
+            name: 'findAreas',
+            description: 'findAreas in router- in try',
+            dataThatRecived: {type}
+        }
+        logToFile(object)
+        const result = await findAreas({type});
+        res.status(200).send(result);
+    }
+    catch (err) {
+        object.error = err.message
+        logToFile(object)
+        res.status(500).send(err);
+    }
+})
+
+
 router.post('/findAreas', express.json(), async (req, res) => {
     let object;
     try {

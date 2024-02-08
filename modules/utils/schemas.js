@@ -1,19 +1,28 @@
 const types = {
-    INTEGER: 'integer',
-    STRING: 'string',
-    DATE: 'date',
-    BOOLEAN: 'bool',
-    FLOAT: 'float'
+    INTEGER: { name: 'integer', referenceType: false },
+    STRING: { name: 'string', referenceType: false },
+    DATE: { name: 'date', referenceType: false },
+    BOOLEAN: { name: 'bool', referenceType: false },
+    FLOAT: { name: 'float', referenceType: false },
+    ENTITY: { name: 'entity', referenceType: true },
+    ARRAY: { name: 'array', referenceType: true },
 }
+
 const modelNames = {
     ADDITION: 'additions',
     AREAS: 'areas',
     BASIC_PRODUCTS: 'basicProducts',
     BRANCHES: 'branches',
+    CEMENT_DEGREE: 'cementDegree',
+    CEMENT_GRAIN: 'cementGrain',
+    CEMENT_SOMECH: 'cementSomech',
+    CEMENT_STRENGTH: 'cementStrength',
     CLIENTS: 'clients',
+    DISTANCEADDITIONS: 'distanceAdditions',
     FINISH_PRODUCTS: 'finishProducts',
     MEASURES: 'unitOfMeasure',
     PRICELIST: 'priceList',
+    PRICELIST_FOR_BUYTON_CUSTOMERS: 'priceListForBuytonCustomers',
     PRODUCTS_COMBINATIONS: 'productsCombinations',
     PRODUCTS_PRICE_LIST: 'productsPricelist',
     PUMPS: 'pumps',
@@ -28,7 +37,7 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNITOFMEASURE: { name: 'unitOfMeasure', type: types.INT, insert: true, update: true, key: false, unique: false },
+            UNITOFMEASURE: { name: 'unitOfMeasure', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
@@ -50,7 +59,7 @@ const models = {
             AREA_NAME: { name: 'areaName', type: types.STRING, insert: true, update: true, key: false, unique: true },
             TYPE: { name: 'type', type: types.STRING, insert: true, update: true, key: false, unique: false },
             BASIC_NAME: { name: 'basicName', type: types.STRING, insert: true, update: true, key: false, unique: false },
-            
+
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
 
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
@@ -68,12 +77,12 @@ const models = {
         entity: modelNames.BASIC_PRODUCTS,
         fields:
         {
-            KOD_PARIT: { name: 'code', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
-            TEUR_PARIT: { name: 'description', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            SUG_BETON: { name: 'sugBeton', type: types.STRING, insert: true, update: true, key: false, unique: false },
-            CHOZEK: { name: 'chozek', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
-            DARGATCHASHIFA: { name: 'dargatChashifa', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
-            SOMECH_BETON: { name: 'somechBeton', type: types.INTEGER, insert: true, update: true, key: false, unique: false }
+            KOD_PARIT: { name: 'itemCode', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
+            TEUR_PARIT: { name: 'itemDescribe', type: types.STRING, insert: true, update: true, key: false, unique: true },
+            SUG_BETON: { name: 'itemType', type: types.STRING, insert: true, update: true, key: false, unique: false },
+            CHOZEK: { name: 'itemStrength', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            DARGATCHASHIFA: { name: 'itemDegreeExposure', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            SOMECH_BETON: { name: 'itemSomech', type: types.INTEGER, insert: true, update: true, key: false, unique: false }
         }
         ,
         insertUrl: '../../modules/products/basicProducts',
@@ -117,7 +126,7 @@ const models = {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             CLIENT_CODE: { name: 'clientCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             CLIENT_NAME: { name: 'clientName', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            PRIVATE_COMPANY_NUMBER: { name: 'PrivateCompanyNumber', type: types.STRING, insert: true, update: true, key: false, unique: true },
+            PRIVATE_COMPANY_NUMBER: { name: 'privateCompanyNumber', type: types.STRING, insert: true, update: true, key: false, unique: true },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             DESTINATION_BANK: { name: 'destinationBank', type: types.STRING, insert: true, update: true, key: false, unique: false },
             PAYMENT_TERMS_FLUENT: { name: 'paymentTermsFluent', type: types.STRING, insert: true, update: true, key: false, unique: false },
@@ -151,13 +160,60 @@ const models = {
 
     },
 
+    CEMENT_DEGREE: {
+        entity: modelNames.CEMENT_DEGREE,
+        fields: {
+            CODE: { name: 'degreeCode' },
+            DESCRIPTION: { name: 'degreeDescribe' },
+            NUMBER: { name: 'degreeNumber' },
+        }
+    },
+    CEMENT_GRAIN: {
+        entity: modelNames.CEMENT_GRAIN,
+        fields: {
+            CODE: { name: 'grainCode' },
+            DESCRIPTION: { name: 'grainDescribe' },
+            NUMBER: { name: 'grainNumber' },
+        }
+    },
+    CEMENT_SOMECH: {
+        entity: modelNames.CEMENT_SOMECH,
+        fields: {
+            CODE: { name: 'somechCode' },
+            DESCRIPTION: { name: 'somechDescribe' },
+            NUMBER: { name: 'somechNumber' },
+        }
+    },
+    CEMENT_STRENGTH: {
+        entity: modelNames.CEMENT_STRENGTH,
+        fields: {
+            CODE: { name: 'strengthCode' },
+            DESCRIPTION: { name: 'strengthDescribe' },
+            NUMBER: { name: 'strengthNumber' },
+        }
+    },
+    DISTANCE_ADDITIONS: {
+        entity: modelNames.DISTANCEADDITIONS,
+        fields: {
+            ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
+            PRODUCT: { name: 'productId', entity: modelNames.PRODUCTS_PRICE_LIST, type: types.INTEGER, insert: false, update: false, key: false, unique: false },
+            MIN_DISTANCE: { name: 'minDistance', type: types.FLOAT, insert: true, update: true, key: false, unique: false },
+            PRICE: { name: 'price', type: types.FLOAT, insert: true, update: true, key: false, unique: false },
+            ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
+            USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
+            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+        }
+    },
+
     FINISH_PRODUCTS: {
         entity: modelNames.FINISH_PRODUCTS,
         fields:
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNIT_OF_MEASURE: { entity: modelNames.MEASURES, name: 'unitOfMeasure', type: types.INT, insert: true, update: true, key: false, unique: false },
+            UNIT_OF_MEASURE: { entity: modelNames.MEASURES, type: types.INTEGER, name: 'unitOfMeasure', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
@@ -190,14 +246,47 @@ const models = {
         updateUrl: '/unitOfMeasure/update',
         deleteUrl: '/unitOfMeasure/delete'
     },
+    // PRICELIST:{
+    //     entity:modelNames.PRICELIST, 
+    //     fields:{
+    //         TITLE:{name:'title', type:types.ENTITY, entityName:modelNames.PRICELIST},
+    //         PRODUCTS:{name:'products', type:types.ARRAY, entityName:modelNames.PRODUCTS_PRICE_LIST}
+    //     }
+    // },
     PRICELIST: {
-        entity: 'priceList',
+        entity: modelNames.PRICELIST,
         fields:
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            PUMPS: { namae: 'pumps', type: types.BOOLEAN, insert: true, update: true, key: false, unique: true },
-            BETON: { name: 'beton', type: types.BOOLEAN, insert: true, update: true, key: false, unique: true },
+            PUMPS: { name: 'pumps', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            CEMENT: { name: 'cement', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            FINISH: { name: 'finish', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
+            USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
+            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false },
+            PRODUCTS: { name: modelNames.PRODUCTS_PRICE_LIST, type: types.ARRAY, entityName: modelNames.PRODUCTS_PRICE_LIST }
+
+        }
+        ,
+        insertUrl: '/insertPricelist/addPriceList',
+        updateUrl: '/updatePricelist/update',
+        deleteUrl: ''
+    },
+    PRICELIST_FOR_BUYTON_CUSTOMERS: {
+        entity: modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS,
+        fields: {
+            ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
+            PRICELIST: { entity: modelNames.PRICELIST, name: 'priceList', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            SUPPLIER: { entity: modelNames.SUPPLIERS, name: 'supplier', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            CLIENT: { entity: modelNames.CLIENTS, name: 'client', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            DEBIT: { name: 'debit', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            CREDIT: { name: 'credit', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            AREA: {name:'area', entity: modelNames.AREAS, type: types.STRING, insert: true, update: true, key: false, unique: false },
+            START_DATE: { name: 'startDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            END_DATE: { name: 'endDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
             DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
@@ -205,10 +294,7 @@ const models = {
             DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false },
 
         }
-        ,
-        insertUrl: '/insertPricelist/addPriceList',
-        updateUrl: '/updatePricelist/update',
-        deleteUrl: ''
+
     },
     PRODUCTS_COMBINATIONS: {
         entity: modelNames.PRODUCTS_COMBINATIONS,
@@ -232,13 +318,27 @@ const models = {
     PRODUCTS_PRICE_LIST: {
         entity: modelNames.PRODUCTS_PRICE_LIST, fields: {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
-            PRICELIST: { entity: modelNames.PRICELIST, type: types.INTEGER, insert: true, update: false, key: false, unique: false },
+            PRICELIST: { name: 'priceList', entity: modelNames.PRICELIST, type: types.INTEGER, insert: true, update: false, key: false, unique: false },
             PRODUCT: {
+                name: 'product',
                 entity: [modelNames.ADDITION,
                 modelNames.BASIC_PRODUCTS,
                 modelNames.FINISH_PRODUCTS,
                 modelNames.PUMPS], type: types.STRING, insert: true, update: true, key: false, unique: false
             },
+            PRODUCT_TYPE: {
+                name: 'entity', type: types.STRING, insert: true, update: false, key: false, unique: false
+            }, PRICE: {
+                name: 'price', type: types.FLOAT, insert: true, update: true, key: false, unique: false
+            },
+            DISCOUNT: {
+                name: 'discount', type: types.FLOAT, insert: true, update: true, key: false, unique: false
+            },
+            ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
+            USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
+            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
 
         }
     },
@@ -248,7 +348,7 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNIT_OF_MEASURE: { name: 'unitOfMeasure', type: types.INT, insert: true, update: true, key: false, unique: false },
+            UNIT_OF_MEASURE: { name: 'unitOfMeasure', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             ADDITION: { name: 'addition', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
@@ -279,50 +379,30 @@ const models = {
 
     //priceList
 
-    PRICELIST: {
-        entity: modelNames.PRICELIST,
-        fields:
-        {
+    // PRICELIST: {
+    //     entity: modelNames.PRICELIST,
+    //     fields:
+    //     {
 
-            //to check if it PriceListId or Id
-            PriceListId: { type: types.INTEGER, insert: true, update: true, key: false, unique: false },
-            ProductId: { type: types.INTEGER, insert: true, update: true, key: false, unique: true },
-            Price: { type: types.FLOAT, insert: true, update: true, key: false, unique: false },
-            Discount: { type: types.FLOAT, insert: true, update: true, key: false, unique: false },
-            ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
-            USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
-            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
-        }
-        ,
-        insertUrl: '',
-        updateUrl: ''
-    },
-    PRICELIST: {
-        entity: 'PricesListBySupplierOrClient',
-        fields:
-        {
-
-            Id: { type: types.INTEGER, insert: true, update: true, key: false, unique: true },
-            PriceListId: { type: types.INTEGER, insert: true, update: true, key: false, unique: true },
-            SupplierOrClient: { type: types.INTEGER, insert: true, update: true, key: false, unique: false },
-            Debit: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            Credit: { type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            AreaId: { type: types.STRING, insert: true, update: true, key: false, unique: true },
-            StartDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
-            EndDate: { type: types.DATE, insert: true, update: true, key: false, unique: false },
-            ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
-            USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
-            DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
-            DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
-            DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
-        }
-        ,
-        insertUrl: '/insertPricelist/addPricesListBySupplierOrClient',
-        updateUrl: '/insertPricelist/',
-        deleteUrl: ''
-    },
+    //         //to check if it PriceListId or Id
+    //         PriceListId: { type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+    //         ProductId: { type: types.INTEGER, insert: true, update: true, key: false, unique: true },
+    //         Price: { type: types.FLOAT, insert: true, update: true, key: false, unique: false },
+    //         Discount: { type: types.FLOAT, insert: true, update: true, key: false, unique: false },
+    //         ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
+    //         USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
+    //         DISABLED: { name: 'disabled', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
+    //         DISABLED_DATE: { name: 'disabledDate', type: types.DATE, insert: true, update: true, key: false, unique: false },
+    //         DISABLE_USER: { name: 'disableUser', type: types.STRING, insert: false, update: false, key: false, unique: false }
+    //     }
+    //     ,
+    //     insertUrl: '',
+    //     updateUrl: ''
+    // },
+    //     insertUrl: '/insertPricelist/addPricesListBySupplierOrClient',
+    //     updateUrl: '/insertPricelist/',
+    //     deleteUrl: ''
+    // },
     QUATATION: {
         entity: 'Quotation',
         fields:
@@ -429,17 +509,22 @@ const models = {
 //     return ans
 // }
 
-function getModelKey(modelName)
-{
+function getModelKey(modelName) {
     const model = getModel(modelName);
     const fields = Object.values(model.fields)
-    const key = fields.find(({key})=>key ===true)
+    const key = fields.find(({ key }) => key === true)
     return key.name
 }
 function getModel(name) {
     const allmodels = Object.values(models)
-    const model = allmodels.find(({entity})=>entity === name)
-   return model
+    const model = allmodels.find(({ entity }) => entity === name)
+    return model
 }
 
-module.exports = { getModel,getModelKey, models, modelNames }
+function getObjectModel(object, model) {
+    const objectKeys = Object.keys(object)
+    const fields = Object.values(model.fields).map(({ name }) => name)
+    return objectKeys.every(f => fields.includes(f))
+
+}
+module.exports = { getModel, getModelKey, getObjectModel, models, modelNames, types }

@@ -17,7 +17,7 @@ async function insertPump(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.PUMPS, ModelStatusTypes.CREATE)
         if (isValid) {
-            const response = await postData('/create/createone', { entityName: modelNames.PUMPS, values: obj })
+            const response = await postData('/create/createone', { entityName: modelNames.PUMPS, data: obj })
             if (response.data)
                 return response
         }
@@ -70,7 +70,7 @@ async function updatePump({ data = {}, condition = {} }) {
     try {
             _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.UPDATE)
 
-        const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, values: data, condition: condition })
+        const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, data: data, condition: condition })
         return response
     } catch (error) {
         throw error;
@@ -82,7 +82,7 @@ async function deletePump({ data = {}, condition = {} }) {
             _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.DELETE)
           
 
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PUMPS, values: data, condition: condition })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PUMPS, data: data, condition: condition })
         return response
     } catch (error) {
         throw error;

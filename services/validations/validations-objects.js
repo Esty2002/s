@@ -1,7 +1,6 @@
 const { ValueTypes, AppStatusTypes, ModelStatusTypes } = require('../../utils/types');
 const { validation } = require('./validations-functions');
 const { models, modelNames, getModelKey } = require('../../modules/utils/schemas');
-const { clone } = require('../../modules/utils/code');
 
 const conditionOperators = {
     AND: 'and', OR: 'or'
@@ -103,6 +102,7 @@ const moduleValidations = [
             {
                 propertyName: models.ADDITIONS.fields.ADDED_DATE.name,
                 type: models.ADDITIONS.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -141,6 +141,7 @@ const moduleValidations = [
             {
                 propertyName: models.ADDITIONS.fields.DISABLED_DATE.name,
                 type: models.ADDITIONS.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -279,6 +280,7 @@ const moduleValidations = [
             {
                 propertyName: models.BRANCHES.fields.ADDED_DATE.name,
                 type: models.BRANCHES.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -317,6 +319,7 @@ const moduleValidations = [
             {
                 propertyName: models.BRANCHES.fields.DISABLED_DATE.name,
                 type: models.BRANCHES.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -386,8 +389,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.BOOKKEEPING_CODE.name,
                 type: models.CLIENTS.fields.BOOKKEEPING_CODE.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE],func: validation.onlyDigitsInString, arguments: null }
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }
                     ,
                 {
                     modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInMultipleDB, arguments:
@@ -431,8 +434,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.DESTINATION_BANK.name,
                 type: models.CLIENTS.fields.DESTINATION_BANK.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -443,7 +446,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.PAYMENT_TERMS_FLUENT.name,
                 type: models.CLIENTS.fields.PAYMENT_TERMS_FLUENT.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                 {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -465,7 +468,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.RECEIPT_ISSUE_TERM.name,
                 type: models.CLIENTS.fields.RECEIPT_ISSUE_TERM.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                 {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -497,7 +500,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.STATUS.name,
                 type: models.CLIENTS.fields.STATUS.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                 {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -507,8 +510,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.DESCRIPTION.name,
                 type: models.CLIENTS.fields.DESCRIPTION.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -518,8 +521,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.STREET.name,
                 type: models.CLIENTS.fields.STREET.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -529,8 +532,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.HOUSE.name,
                 type: models.CLIENTS.fields.HOUSE.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -540,8 +543,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.CITY.name,
                 type: models.CLIENTS.fields.CITY.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -552,7 +555,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.ZIP_CODE.name,
                 type: models.CLIENTS.fields.ZIP_CODE.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                 {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -562,8 +565,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.PHONE1.name,
                 type: models.CLIENTS.fields.PHONE1.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -574,7 +577,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.PHONE2.name,
                 type: models.CLIENTS.fields.PHONE2.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                 {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -585,7 +588,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.MOBILE.name,
                 type: models.CLIENTS.fields.MOBILE.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                 {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -595,8 +598,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.FAX.name,
                 type: models.CLIENTS.fields.FAX.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctPhone, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -606,8 +609,8 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.MAIL.name,
                 type: models.CLIENTS.fields.MAIL.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null }, 
-                {modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctEmail, arguments: null }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.correctEmail, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -618,7 +621,7 @@ const moduleValidations = [
                 propertyName: models.CLIENTS.fields.COMMENT.name,
                 type: models.CLIENTS.fields.COMMENT.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.notCheck, arguments: null },
-               { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE],func: validation.type, arguments: "string" }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -628,6 +631,7 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.ADDED_DATE.name,
                 type: models.CLIENTS.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -666,6 +670,7 @@ const moduleValidations = [
             {
                 propertyName: models.CLIENTS.fields.DISABLED_DATE.name,
                 type: models.CLIENTS.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -770,6 +775,7 @@ const moduleValidations = [
             {
                 propertyName: models.FINISH_PRODUCTS.fields.ADDED_DATE.name,
                 type: models.FINISH_PRODUCTS.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -808,6 +814,7 @@ const moduleValidations = [
             {
                 propertyName: models.FINISH_PRODUCTS.fields.DISABLED_DATE.name,
                 type: models.FINISH_PRODUCTS.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -845,13 +852,14 @@ const moduleValidations = [
                             ]
                     }],
                 require: [
-                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => new Date() } },
+                    { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
                     { status: ModelStatusTypes.DELETE, require: false }
                 ], type: models.MEASURES.fields.MEASURE.type
             },
             {
                 propertyName: models.MEASURES.fields.ADDED_DATE.name,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -890,6 +898,7 @@ const moduleValidations = [
             {
                 propertyName: models.MEASURES.fields.DISABLED_DATE.name,
                 type: models.MEASURES.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -901,6 +910,293 @@ const moduleValidations = [
             },
         ]
     },
+    // {
+    //     objectName: modelNames.PRICELIST,
+    //     values: [
+    //         {
+    //             propertyName: models.PRICELIST.fields.TITLE.name,
+    //             type:models.PRICELIST.fields.TITLE.type,
+    //           entityName : models.PRICELIST.fields.TITLE.entityName,
+    //             require:[
+    //                 { status: ModelStatusTypes.CREATE, require: true },
+    //                 { status: ModelStatusTypes.UPDATE, require: true },
+    //                 { status: ModelStatusTypes.DELETE, require: true }
+    //             ]
+    //         },
+    //         {
+    //             propertyName: models.PRICELIST.fields.PRODUCTS.name,
+    //             type:models.PRICELIST.fields.PRODUCTS.type,
+    //             entityName : models.PRICELIST.fields.PRODUCTS.entityName,
+    //             require:[
+    //                 { status: ModelStatusTypes.CREATE, require: true },
+    //                 { status: ModelStatusTypes.UPDATE, require: true },
+    //                 { status: ModelStatusTypes.DELETE, require: true }
+    //             ]
+    //         }
+    //     ]
+    // },
+    {
+        objectName: modelNames.PRICELIST,
+        values: [
+            {
+                propertyName: models.PRICELIST.fields.NAME.name,
+                type: models.PRICELIST.fields.NAME.type,
+                validation: [
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
+                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: false } },
+                    {
+                        modelStatus: [ModelStatusTypes.UPDATE],
+                        func: validation.recordExistInDB,
+                        arguments:
+                            [
+                                {
+                                    operator: conditionOperators.OR, arguments: [{
+                                        entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: true,
+                                        condition: { key: getModelKey(modelNames.PRICELIST) }
+                                    },
+                                    {
+                                        entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: false,
+                                    }]
+                                }
+                            ]
+                    }],
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRICELIST.fields.PUMPS.name,
+                type: models.PRICELIST.fields.PUMPS.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRICELIST.fields.CEMENT.name,
+                type: models.PRICELIST.fields.CEMENT.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRICELIST.fields.FINISH.name,
+                type: models.PRICELIST.fields.FINISH.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRICELIST.fields.ADDED_DATE.name,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
+                validation: [
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => new Date() } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ], type: models.PRICELIST.fields.ADDED_DATE.type
+            },
+            {
+                propertyName: models.PRICELIST.fields.USERNAME.name,
+                type: models.PRICELIST.fields.USERNAME.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRICELIST.fields.DISABLED.name,
+                type: models.PRICELIST.fields.DISABLED.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => true } }
+                ],
+            }, {
+                propertyName: models.PRICELIST.fields.DISABLE_USER.name,
+                type: models.PRICELIST.fields.DISABLE_USER.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } }
+                ],
+            },
+            {
+                propertyName: models.PRICELIST.fields.DISABLED_DATE.name,
+                type: models.PRICELIST.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
+                validation: [
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => new Date() } }
+                ]
+            },
+            {
+                propertyName: models.PRICELIST.fields.PRODUCTS.name,
+                type: models.PRICELIST.fields.PRODUCTS.type,
+                entityName: models.PRICELIST.fields.PRODUCTS.entityName,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true },
+                    { status: ModelStatusTypes.UPDATE, require: true },
+                    { status: ModelStatusTypes.DELETE, require: true }
+                ]
+            }
+        ]
+    },
+
+
+    {
+
+        objectName: modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS,
+        values: [{
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.PRICELIST.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.PRICELIST.type,
+            validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.ID.name, exist: true } }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.SUPPLIER.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.SUPPLIER.type,
+            validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.ID.name, exist: true } }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: false },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        }
+            , {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.CLIENT.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.CLIENT.type,
+            validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.ID.name, exist: true } }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: false },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DEBIT.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DEBIT.type,
+            validation: [],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true, default: { initValue: (item) => item.client ? false : true } },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.CREDIT.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.CREDIT.type,
+            validation: [],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true, default: { initValue: (item) => item.client ? true : false } },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.AREA.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.AREA.type,
+            validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.AREAS, field: models.AREAS.fields.AREA_MONGO_ID.name, exist: true } }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        }, {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.START_DATE.name,
+            validation: [
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => new Date() } },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ], type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.START_DATE.type
+        }, {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.END_DATE.name,
+            validation: [
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null }],
+            require: [
+                {
+                    status: ModelStatusTypes.CREATE, require: true, default: {
+                        initValue: () => new Date()
+                    }
+                },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ], type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.END_DATE.type
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.ADDED_DATE.name,
+            initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
+            validation: [
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => new Date() } },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ], type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.ADDED_DATE.type
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.USERNAME.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.USERNAME.type,
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: false }
+            ]
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DISABLED.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DISABLED.type,
+            require: [
+                { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => true } }
+            ],
+        }, {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DISABLE_USER.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DISABLE_USER.type,
+            require: [
+                { status: ModelStatusTypes.CREATE, require: false },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } }
+            ],
+        },
+        {
+            propertyName: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DISABLED_DATE.name,
+            type: models.PRICELIST_FOR_BUYTON_CUSTOMERS.fields.DISABLED_DATE.type,
+            initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
+            validation: [
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
+            require: [
+                { status: ModelStatusTypes.CREATE, require: false },
+                { status: ModelStatusTypes.UPDATE, require: false },
+                { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => new Date() } }
+            ]
+        }
+        ]
+    },
+
     {
         objectName: modelNames.PRODUCTS_COMBINATIONS,
         values: [
@@ -930,6 +1226,7 @@ const moduleValidations = [
             {
                 propertyName: models.PRODUCTS_COMBINATIONS.fields.ADDED_DATE.name,
                 type: models.PRODUCTS_COMBINATIONS.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -968,6 +1265,119 @@ const moduleValidations = [
             {
                 propertyName: models.PRODUCTS_COMBINATIONS.fields.DISABLED_DATE.name,
                 type: models.PRODUCTS_COMBINATIONS.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
+                validation: [
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => new Date() } }
+                ],
+            },
+        ]
+    },
+    {
+        objectName: modelNames.PRODUCTS_PRICE_LIST,
+        values: [
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.PRICELIST.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.PRICELIST.type,
+                validation: [
+                    { modelStatus: [ModelStatusTypes.ADD, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.ID.name, exist: true } },
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }
+                ], require: [
+                    { status: ModelStatusTypes.ADD, require: true },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.PRODUCT.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.PRODUCT.type,
+                validation: [
+                ], require: [
+                    { status: ModelStatusTypes.CREATE, require: true },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.PRODUCT_TYPE.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.PRODUCT_TYPE.type,
+                validation: [
+
+                ], require: [
+                    { status: ModelStatusTypes.CREATE, require: true },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.PRICE.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.PRICE.type,
+                validation: [
+
+                ], require: [
+                    { status: ModelStatusTypes.CREATE, require: true },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.DISCOUNT.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.DISCOUNT.type,
+                validation: [
+
+                ], require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => 0 } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.ADDED_DATE.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
+                validation: [
+                    { modelStatus: [ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
+                    { modelStatus: [ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => new Date() } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.USERNAME.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.USERNAME.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
+                ]
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.DISABLED.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.DISABLED.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => true } }
+                ],
+            }, {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.DISABLE_USER.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.DISABLE_USER.type,
+                require: [
+                    { status: ModelStatusTypes.CREATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } }
+                ],
+            },
+            {
+                propertyName: models.PRODUCTS_PRICE_LIST.fields.DISABLED_DATE.name,
+                type: models.PRODUCTS_PRICE_LIST.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -1079,7 +1489,9 @@ const moduleValidations = [
             },
             {
                 propertyName: models.PUMPS.fields.ADDED_DATE.name,
+
                 type: models.PUMPS.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -1118,6 +1530,7 @@ const moduleValidations = [
             {
                 propertyName: models.PUMPS.fields.DISABLED_DATE.name,
                 type: models.PUMPS.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -1268,7 +1681,7 @@ const moduleValidations = [
             {
                 propertyName: models.SUPPLIERS.fields.STATUS.name,
                 type: models.SUPPLIERS.fields.STATUS.type,
-                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1278,7 +1691,7 @@ const moduleValidations = [
             {
                 propertyName: models.SUPPLIERS.fields.STREET.name,
                 type: models.SUPPLIERS.fields.STREET.type,
-                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }], require: [
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
                     { status: ModelStatusTypes.DELETE, require: false }
@@ -1287,7 +1700,7 @@ const moduleValidations = [
             {
                 propertyName: models.SUPPLIERS.fields.SUPPLIER_CODE.name,
                 type: models.SUPPLIERS.fields.SUPPLIER_CODE.type,
-                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1333,7 +1746,8 @@ const moduleValidations = [
             },
             {
                 propertyName: models.SUPPLIERS.fields.FAX.name,
-                type: models.SUPPLIERS.fields.FAX.type, validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
+                type: models.SUPPLIERS.fields.FAX.type,
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1370,6 +1784,7 @@ const moduleValidations = [
             {
                 propertyName: models.SUPPLIERS.fields.ADDED_DATE.name,
                 type: models.SUPPLIERS.fields.ADDED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -1408,6 +1823,7 @@ const moduleValidations = [
             {
                 propertyName: models.SUPPLIERS.fields.DISABLED_DATE.name,
                 type: models.SUPPLIERS.fields.DISABLED_DATE.type,
+                initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.theDateBeforeToday, arguments: null }],
@@ -1489,8 +1905,6 @@ const moduleValidations = [
         ]
     },
 
-
-
     {
         objectName: "pricelistForProducts",
         values: [
@@ -1509,19 +1923,6 @@ const moduleValidations = [
             { propertyName: "Product", validation: [{ func: validation.recordExistInDB, arguments: { entityName: "Additions", field: "id", exist: true } },], require: false },
             { propertyName: "Amount", validation: [{ func: validation.type, arguments: 'number' }, { func: validation.positiveNumber, arguments: null }], require: false },
             { propertyName: "AddedDate", validation: [{ func: validation.dateType, arguments: null }], require: true }
-        ]
-    },
-
-    {
-        objectName: "priceList",
-        values: [
-            { propertyName: "name", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }], require: true, tye: ValueTypes.STRING },
-            { propertyName: "pumps", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
-            { propertyName: "beton", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
-            { propertyName: "sddedDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
-            { propertyName: "userName", validation: [{ func: validation.required, arguments: null }, { func: validation.EnglishLetters, arguments: null }] },
-            { propertyName: "finish", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
-            { propertyName: "disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
         ]
     },
     {
@@ -1576,20 +1977,6 @@ const moduleValidations = [
         ]
     },
     {
-        objectName: "pricesListBySupplierOrClient",
-        values: [
-            { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "SupplierOrClient", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
-            { propertyName: "Debit", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
-            { propertyName: "Credit", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] },
-            { propertyName: "AreaId", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-            { propertyName: "StartDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
-            { propertyName: "EndDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
-            { propertyName: "AddedDate", validation: [{ func: validation.required, arguments: null }, { func: validation.dateType, arguments: null }] },
-            { propertyName: "UserName", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "string" }] },
-        ]
-    },
-    {
         objectName: "pricelistForProducts",
         values: [
             { propertyName: "PriceListId", validation: [{ func: validation.required, arguments: null }, { func: validation.type, arguments: "number" }] },
@@ -1602,17 +1989,19 @@ const moduleValidations = [
             { propertyName: "Disabled", validation: [{ func: validation.required, arguments: null }, { func: validation.bit, arguments: null }] }
         ]
     },
-
 ]
 
 
 
-function getValidationsModule(object, modelstatus) {
+function getValidationsModule({ object, modelstatus }) {
+    console.log({ modelstatus, object })
     const model = moduleValidations.find(({ objectName }) => objectName === object)
-    const validation = model.values.map(({ propertyName, type, validation, require }) =>
+    const validation = model.values.map(({ propertyName, type, entityName, validation, require, initValue }) =>
     ({
         propertyName, type,
-        validation: validation ? validation.filter(({ modelStatus }) => modelStatus.includes(modelstatus)).map(({ modelStatus, ...rest }) => rest) : validation,
+        initValue: initValue ? initValue.modelStatus.find(item => item === modelstatus) ? initValue.initValue : undefined : undefined,
+        validation: validation ? validation.filter(({ modelStatus }) => modelStatus.includes(modelstatus)).map(({ modelStatus, ...rest }) => rest) : undefined,
+        entityName: entityName ?? undefined,
         require: require.find(({ status }) => status === modelstatus)
     }))
     return validation

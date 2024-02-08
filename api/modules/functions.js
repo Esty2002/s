@@ -6,7 +6,6 @@ const { HOST, PORT } = process.env;
 // async function getArguments() {
 //     config.obj.forEach(a => {
 //         a.documnts.forEach(b => {
-//             // console.log(b.functions.arguments);
 //             return b.functions.arguments
 //         })
 //     })
@@ -17,7 +16,6 @@ async function pathForRouter(filename) {
     // let useArr = await filterBasisArr(filename, "app.use('/")
     const answer = fs.readFileSync(filename)
 
-    // console.log(answer.toString())
 
     const arr = answer.toString().split(';')
 
@@ -44,7 +42,6 @@ async function pathForRouter(filename) {
         r = { path: path, router: router }
         return r;
     })
-    // console.log(useArr, "element");
 
     return useArr;
 }
@@ -52,7 +49,6 @@ async function pathForRouter(filename) {
 async function fullRouterPath(filename, arrObjects) {
     const answer = fs.readFileSync(filename)
 
-    // console.log(answer.toString())
 
     const arr = answer.toString().split(';')
 
@@ -72,9 +68,6 @@ async function fullRouterPath(filename, arrObjects) {
         return element
     });
 
-    // arrObjects.forEach(element => {
-    //     console.log(element,"elemnt");
-    // });
 
     return arrObjects;
 }
@@ -100,8 +93,6 @@ async function enterRouter(router) {
             let allFunctions = allRoutersInCurrentDirectory.find(c => c.document == router.path.slice(1))
             allFunctions.functions.forEach(d => {
                 if (d.key === oldPathName.slice(1).split('/')[0]) {
-                    // console.log(d,'ddddddddddddddd');
-                    // console.log(d.arguments,'aaaaaaaargssss');
                     obj.arguments = d.arguments
                     obj.response = d.response
                 }
@@ -111,14 +102,11 @@ async function enterRouter(router) {
         catch { console.log('didnt filter') }
         arr[i] = obj
     }
-    // console.log(arr[1]?arr[1]['apiRequest'][2]['arguments']:'','mmmmmmmmmmmmmmmmmmmmmuuuu');
     return arr;
 }
 
 async function filterBasisArr(filename, string) {
     const answer = fs.readFileSync(filename)
-
-    // console.log(answer.toString())
 
     const arr = answer.toString().split(';')
 
