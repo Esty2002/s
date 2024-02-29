@@ -449,7 +449,7 @@ const models = {
             OVLIGO: { name: 'ovligo', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             STATUS: { name: 'status', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             STREET: { name: 'street', type: types.STRING, insert: true, update: true, key: false, unique: false },
-            HOME_NUMBER: { name: 'homeNumber', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            HOME_NUMBER: { name: 'homeNumber', type: types.STRING, insert: true, update: true, key: false, unique: false },
             CITY: { name: 'city', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ZIPCODE: { name: 'zipCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             PHONE1: { name: 'phone1', type: types.STRING, insert: true, update: true, key: false, unique: false },

@@ -1,7 +1,5 @@
 require('dotenv').config();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
-// const { setDate } = require('./functions');
-// const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 const { getData, postData, putData, deleteData } = require('../../services/axios');
 const { ErrorTypes, ModelStatusTypes } = require('../../utils/types');
 const { models, modelNames } = require('../utils/schemas');
@@ -40,8 +38,8 @@ async function insertOneSupplier(object) {
     }
     catch (error) {
         console.log({ error })
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;
@@ -81,6 +79,7 @@ async function getSupplier(query) {
 
 async function updateDetail(setting) {
     try {
+        await checkObjectValidations(setting, modelNames.SUPPLIERS, ModelStatusTypes.UPDATE);
         flag = true
         let object = {
             entityName: modelNames.SUPPLIERS, data: {
@@ -97,18 +96,18 @@ async function updateDetail(setting) {
 }
 async function deleteSupplier(object) {
     try {
-      object = await checkObjectValidations(object, models.SUPPLIERS.entity, ModelStatusTypes.DELETE)
+        object = await checkObjectValidations(object, models.SUPPLIERS.entity, ModelStatusTypes.DELETE)
         console.log({ object });
         let obj = { entityName: 'suppliers', data: object, condition: { id: object.id } }
         const result = await deleteData('/delete/deleteone', obj);
         return result
     }
     catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
-        
+
         throw error
     }
 

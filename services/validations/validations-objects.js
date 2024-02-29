@@ -1614,7 +1614,7 @@ const moduleValidations = [
             {
                 propertyName: models.SUPPLIERS.fields.HOME_NUMBER.name,
                 type: models.SUPPLIERS.fields.HOME_NUMBER.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }],
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
