@@ -27,6 +27,10 @@ async function insertAddition(obj) {
         console.log({ error })
         objectForLog.error = error.message
         logToFile(objectForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }
@@ -60,6 +64,10 @@ async function findAddition(filter = {}) {
         objForLog.error = error.message
         logToFile(objForLog)
         console.log({ error })
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 
@@ -79,6 +87,10 @@ async function updateAddition({ data = {}, condition = {} }) {
         const response = await putData('/update/updateone', { entityName: modelNames.ADDITION,  data, condition })
         return response
     } catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -90,7 +102,10 @@ async function deleteAddition({ data = {}, condition = {} }) {
         return response
 
     } catch (error) {
-
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }

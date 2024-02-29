@@ -49,7 +49,7 @@ jest.mock('../../../modules/pricelist/readPricelist', () => {
             }
         }),
 
-        getPriceListByIdSupplierOrClientCode: jest.fn((id) => {
+        getCustomersAndAreasForPriceList: jest.fn((id) => {
             if (id == 1) {
                 return 'true';
             }
@@ -202,15 +202,15 @@ describe(('GET FindPriceListByAdditionsForTime'), () => {
 describe(('GET FindPriceListByIdSupplierOrClientCode'), () => {
     it('readpricelist by product id', async () => {
         const response = await request(app).get('/readPricelist/FindPriceListByIdSupplierOrClientCode/1');
-        const { getPriceListByIdSupplierOrClientCode } = jest.requireMock('../../../modules/pricelist/readPricelist');
-        expect(getPriceListByIdSupplierOrClientCode).toHaveBeenCalled()
+        const { getCustomersAndAreasForPriceList } = jest.requireMock('../../../modules/pricelist/readPricelist');
+        expect(getCustomersAndAreasForPriceList).toHaveBeenCalled()
         expect(response.statusCode).toBe(200);
         expect(response.notFound).toBeFalsy();
     })
     it('readpricelist by product id', async () => {
         const response = await request(app).get('/readPricelist/FindPriceListByIdSupplierOrClientCode/tovi');
-        const { getPriceListByIdSupplierOrClientCode } = jest.requireMock('../../../modules/pricelist/readPricelist');
-        expect(getPriceListByIdSupplierOrClientCode).toBeCalled();
+        const { getCustomersAndAreasForPriceList } = jest.requireMock('../../../modules/pricelist/readPricelist');
+        expect(getCustomersAndAreasForPriceList).toBeCalled();
         expect(response.statusCode).toBe(500);
         expect(response.notFound).toBeFalsy();
     })

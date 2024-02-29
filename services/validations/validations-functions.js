@@ -43,7 +43,11 @@ const EnglishLetters = (word) => {
     throw new Error(`the value ${word} not `)
 }
 
-const onlyDigitsInString = (numbersString) => {
+const onlyDigitsInString = (numbersString, arg) => {
+    if (typeof numbersString === 'object') {
+        let obj = numbersString[arg]
+        return onlyDigitsInString(obj)
+    }
     if (/^\d*$/.test(numbersString))
         return true
     throw new Error(`the value ${numbersString} is required to be only digits`)
@@ -53,7 +57,13 @@ const notCheck = () => {
     return true;
 }
 const type = (value, arg) => {
-
+    if (typeof value === 'object') {
+        if (arg.field) {
+            const checkType = arg.type
+            let obj = value[arg.field]
+            return type(obj, checkType)
+        }
+    }
     if (isNaN(value)) {
         if (arg == "number") {
             throw new Error(`the value ${value} is not typeof number`)
@@ -122,8 +132,8 @@ const recordExistInDB = async (value, arg) => {
             condition = {}
         }
         condition[field] = value;
-        if(typeof(value)==='object'){
-            if(value[field]){
+        if (typeof (value) === 'object') {
+            if (value[field]) {
                 condition[field] = value[field]
             }
         }
@@ -146,7 +156,7 @@ const recordExistInDB = async (value, arg) => {
         }
     }
     catch (error) {
-       
+
         throw error
     }
 };
@@ -157,7 +167,7 @@ const recordExistInMultipleDB = async (value, arg) => {
         return true
     }
     catch (error) {
-       
+
         throw error
     }
 };
@@ -260,7 +270,7 @@ const validation = {
     betweenNumbers
 }
 
-const getFunctionArguments = (name)=>{
+const getFunctionArguments = (name) => {
     const keys = Object.keys(validation)
 }
 

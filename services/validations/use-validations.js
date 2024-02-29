@@ -68,15 +68,16 @@ const getValidationAnswer = async ({ value, operator, validation }) => {
 }
 
 const validateEntity = async ({ entity, validationModule }) => {
+
     let errors = []
-    const entityKeys = validationModule.map(({ propertyName }) => propertyName)
-    const removeKeys = Object.keys(entity).filter((key) => entityKeys.includes(key) === false)
-    entity = removeKeysFromObject(entity, removeKeys)
+    // const entityKeys = validationModule.map(({ propertyName }) => propertyName)
+    // const removeKeys = Object.keys(entity).filter((key) => entityKeys.includes(key) === false)
+    // entity = removeKeysFromObject(entity, removeKeys)
     for (let val of validationModule) {
         if (!val.require && !entity[val.propertyName]) {
             continue
         }
-        if(val.initValue){
+        if (val.initValue) {
             entity[val.propertyName] = val.initValue(entity)
         }
         if (val.require) {
@@ -161,7 +162,7 @@ const checkObjectValidations = async (entity, objName, modelStatus = ModelStatus
         const regularProperties = validationModule.filter(({ type }) => !type.referenceType)
         for (let prop of referenceProperties) {
             if (prop.type.name === types.ARRAY.name) {
-                entity[prop.propertyName] =   await Promise.all(entity[prop.propertyName].map(async (item) => await checkObjectValidations(item, prop.entityName, modelStatus)))
+                entity[prop.propertyName] = await Promise.all(entity[prop.propertyName].map(async (item) => await checkObjectValidations(item, prop.entityName, modelStatus)))
             }
             else {
                 entity[prop.propertyName] = await checkObjectValidations(entity[prop.propertyName], prop.entityName, modelStatus)

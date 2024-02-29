@@ -36,6 +36,10 @@ async function insert(object) {
     }
     catch (error) {
         console.log({error})
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -58,6 +62,10 @@ async function deleteItem(object) {
         return response
     }
     catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }

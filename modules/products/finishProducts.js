@@ -5,7 +5,7 @@ const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { logToFile } = require('../../services/logger/logTxt')
 const { modelNames } = require('../utils/schemas')
-const { ModelStatusTypes } = require('../../utils/types')
+const { ModelStatusTypes, ErrorTypes } = require('../../utils/types')
 
 
 
@@ -27,6 +27,10 @@ async function insertFinishProduct(obj) {
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }
@@ -37,6 +41,10 @@ async function updateFinishProduct({ data = {}, condition = {} }) {
         return response
 
     } catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -49,6 +57,10 @@ async function deleteFinishProduct({ data = {}, condition = {} }) {
         return response
 
     } catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -82,6 +94,10 @@ async function findFinishProduct(filter = {}) {
     catch (error) {
         objForLog.error = error.message
         logToFile(objForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }

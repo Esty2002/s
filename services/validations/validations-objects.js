@@ -187,7 +187,6 @@ const moduleValidations = [
             {
                 propertyName: models.BRANCHES.fields.HOME_NUMBER.name,
                 type: models.BRANCHES.fields.HOME_NUMBER.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -243,7 +242,10 @@ const moduleValidations = [
             {
                 propertyName: models.BRANCHES.fields.STATUS.name,
                 type: models.BRANCHES.fields.STATUS.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" }], require: [
+                validation: [
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: { type: "number", field: models.BRANCHES.fields.STATUS.connecteProperty } },
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.STATUS, field: models.STATUS.fields.ID.name, exist: true } }],
+                require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
                     { status: ModelStatusTypes.DELETE, require: false }
@@ -254,16 +256,18 @@ const moduleValidations = [
                 type: models.BRANCHES.fields.STREET.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" }], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
-                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: true },
                     { status: ModelStatusTypes.DELETE, require: false }
                 ]
             },
             {
                 propertyName: models.BRANCHES.fields.SUPPLIER_CODE.name,
                 type: models.BRANCHES.fields.SUPPLIER_CODE.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }], require: [
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments:  models.BRANCHES.fields.SUPPLIER_CODE.connecteProperty },
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.ID.name, exist: true } }
+                ], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
-                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: true },
                     { status: ModelStatusTypes.DELETE, require: false }
                 ]
             },

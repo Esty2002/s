@@ -65,7 +65,6 @@ router.post('/insertbranch', express.json(), async (req, res) => {
     try {
        
         const response = await insertOneBranch(req.body)
-        console.log("after");
         if (response)
             res.status(201).send(response.data)
         else {
@@ -94,7 +93,7 @@ router.post('/updatebranch', express.json(), async (req, res) => {
 
 router.get('/checkUnique/:supplierCode/:branchname', async (req, res) => {
     try {
-        const response = await checkUnique({ SupplierCode: req.params.supplierCode, BranchName: req.params.branchname })
+        const response = await checkUnique({ supplierCode: req.params.supplierCode, branchName: req.params.branchname })
         if (response)
             res.status(200).send(response)
         else {

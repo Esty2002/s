@@ -1,5 +1,4 @@
 require('dotenv').config();
-const { SQL_DB_PRICELIST, PRICESLISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PUMPS, BUYTONITEMS } = process.env;
 const { postData, getData, putData, deleteData } = require('../../services/axios');
 const { logToFile } = require('../../services/logger/logTxt');
 const { modelNames, models, getModelKey } = require('../utils/schemas');
@@ -36,7 +35,7 @@ async function getPriceListByIdPriceListId(object) {
         }
         logToFile(objectLog)
         let obj = { columns: "*", condition: { AND: [{ Disabled: 0 }, { Id: object.id }] } };
-        const res = await postData(`/read/readMany/${SQL_DB_PRICELIST}`, obj);
+        const res = await postData(`/read/readMany/${modelNames.PRICELIST}`, obj);
         return res.data;
     }
     catch (error) {
@@ -63,7 +62,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
             });
             let obj2 = { columns: "*", condition: { IN: [{ Id: arrTempPriceListId }] } };
 
-            const res2 = await postData(`/read/readMany/${SQL_DB_PRICELIST}`, obj2);
+            const res2 = await postData(`/read/readMany/${modelNames.PRICELIST}`, obj2);
             return res2.data;
 
         }
@@ -78,22 +77,22 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
     }
 }
 
-async function getPriceListByIdSupplierOrClientCode(object) {
+async function getCustomersAndAreasForPriceList(object) {
     let objectLog
     try {
         objectLog = {
-            name: 'getPriceListByIdSupplierOrClientCode',
-            description: 'getPriceListByIdSupplierOrClientCode in module- in try',
+            name: 'getCustomersAndAreasForPriceList',
+            description: 'getCustomersAndAreasForPriceList in module- in try',
         }
         logToFile(objectLog)
         let obj = { columns: "*", condition: { PriceListId: object } };
-        const res = await postData(`/read/readMany/${PRICESLISTBYSUPPLIERORCLIENT}`, obj);
+        const res = await postData(`/read/readMany/${modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS}`, obj);
         return res.data;
     }
     catch (error) {
         objectLog.error = error.message
         logToFile(objectLog)
-        throw new Error('can not get getPriceListByIdSupplierOrClientCode');
+        throw new Error('can not get getCustomersAndAreasForPriceList');
     }
 }
 async function getPriceListById(id) {
@@ -306,7 +305,7 @@ function checkValid(arr1, arr2) {
 module.exports = {
     getPriceListById,
     getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
-    getPriceListByIdSupplierOrClientCode, getAllPriceList, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId
+    getCustomersAndAreasForPriceList, getAllPriceList, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId
 };
 
 

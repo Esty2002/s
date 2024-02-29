@@ -84,6 +84,7 @@ const newRecord = async (obj = null) => {
                 return result;
             }
             catch (error) {
+                
                 throw error;
             }
         }

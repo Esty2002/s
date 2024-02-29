@@ -3,43 +3,47 @@ const { checkObjectValidations } = require('../../services/validations/use-valid
 // const { setDate } = require('./functions');
 // const { SQL_DB_SUPPLIERS, SQL_DB_BRANCHES } = process.env;
 const { getData, postData, putData, deleteData } = require('../../services/axios');
-const { ErrorTypes } = require('../../utils/types');
-const { getModel, models, modelNames } = require('../utils/schemas');
+const { ErrorTypes, ModelStatusTypes } = require('../../utils/types');
+const { models, modelNames } = require('../utils/schemas');
 
 async function insertOneSupplier(object) {
-   
+
     try {
         let ans = await checkObjectValidations(object, models.SUPPLIERS.entity)
-        
-        if(ans){
+
+        if (ans) {
             const uniquename = await checkUniqueName(object.supplierName)
             const uniquecode = await checkUniqueCode(object.supplierCode)
             console.log(uniquecode, uniquename)
-            if ( uniquename && uniquecode) {
+            if (uniquename && uniquecode) {
                 object.addedDate = new Date().toISOString();
                 object.userName = 'developer';
                 object.disabled = false
                 let obj = { entityName: models.SUPPLIERS.entity, data: object };
-    
+
                 const res = await postData("/create/createone", obj);
                 return res;
             }
             else {
-                const error = {type:ErrorTypes.VALIDATION}
-                error.data=[]
-                if(!uniquename){
-                    error.data.push({propertyName: 'supplierName', error: `Supplier's name '${object.supplierName}' is not unique.` })
+                const error = { type: ErrorTypes.VALIDATION }
+                error.data = []
+                if (!uniquename) {
+                    error.data.push({ propertyName: 'supplierName', error: `Supplier's name '${object.supplierName}' is not unique.` })
                 }
-                if(!uniquecode){
-                    error.data.push({propertyName: 'supplierCode', error: `Supplier's code '${object.supplierCode}' is not unique.` })
+                if (!uniquecode) {
+                    error.data.push({ propertyName: 'supplierCode', error: `Supplier's code '${object.supplierCode}' is not unique.` })
                 }
                 throw error
             }
         }
-        
+
     }
     catch (error) {
         console.log({ error })
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -47,7 +51,7 @@ async function getAllSuppliers(query) {
     try {
         const res = await getData(`/read/readMany/${modelNames.SUPPLIERS}`, query);
         for (let item of res.data) {
-            const res = await countBranches({ supplierCode: item.Id, ...query });
+            const res = await countBranches({ supplierCode: item.id, ...query });
             if (res) {
                 item.countBranches = res.countRows;
             }
@@ -79,9 +83,9 @@ async function updateDetail(setting) {
     try {
         flag = true
         let object = {
-            entityName: SQL_DB_SUPPLIERS, data: {
+            entityName: modelNames.SUPPLIERS, data: {
                 ...setting
-            }, condition: { Id: setting.Id }
+            }, condition: { id: setting.Id }
         };
         const result = await putData('/update/updateOne', object);
         return result;
@@ -93,26 +97,18 @@ async function updateDetail(setting) {
 }
 async function deleteSupplier(object) {
     try {
-        let obj = { entityName: 'suppliers', data: { disableUser: object.DisableUser, disabledDate: new Date().toISOString(), disabled: true }, condition: { id: object.Id } }
+      object = await checkObjectValidations(object, models.SUPPLIERS.entity, ModelStatusTypes.DELETE)
+        console.log({ object });
+        let obj = { entityName: 'suppliers', data: object, condition: { id: object.id } }
         const result = await deleteData('/delete/deleteone', obj);
-        console.log({ result })
-        if (result.status === 204) {
-            obj = {
-                entityName: 'Branches',
-                data: { DisableUser: object.DisableUser, DisabledDate: new Date().toISOString(), Disabled: true },
-                condition: { SupplierCode: object.Id }
-            }
-            const branchResult = await deleteData('/delete/deletemany', obj);
-            console.log({ branchresult_status: branchResult.status })
-            return result
-        }
-        else {
-            return result
-        }
+        return result
     }
     catch (error) {
-
-        console.log(error.message)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
+        
         throw error
     }
 
@@ -143,7 +139,7 @@ async function checkUnique(setting) {
 }
 
 async function countBranches(condition) {
-    const countRowesBranches = await postData(`read/count/${modelNames.BRANCHES}`, { condition })
-    return countRowesBranches.data;
+    const countRowsBranches = await postData(`read/count/${modelNames.BRANCHES}`, { condition })
+    return countRowsBranches.data;
 }
-module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier,  checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countBranches };
+module.exports = { deleteSupplier, getAllSuppliers, insertOneSupplier, checkUnique, getSupplier, updateDetail, checkUniqueCode, checkUniqueName, countBranches };

@@ -24,6 +24,10 @@ async function insert(data, entityName) {
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }
@@ -45,12 +49,16 @@ async function addCustomerAndArea(data) {
         }
 
         data = await checkObjectValidations(data, modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, ModelStatusTypes.CREATE)
-        console.log({data});
-            const response = await postData('/create/createOne', { entityName: modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, data })
-            return response.data
+        console.log({ data });
+        const response = await postData('/create/createOne', { entityName: modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, data })
+        return response.data
     }
     catch (error) {
         console.log({ error });
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -90,13 +98,18 @@ async function updateField(id, entityName, value) {
         if (response) {
             return response
         }
-        else
+        else{
             throw new Error('data not found')
+        }
     }
     catch (error) {
 
         objForLog.error = error.message
         logToFile(objForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }

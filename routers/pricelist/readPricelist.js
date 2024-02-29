@@ -3,7 +3,7 @@ const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
 const { reqLogger } = require('../../services/logger/logger')
 
-const { getPriceListById, getAllPriceList, getPriceListByIdSupplierOrClientCode, getPriceListByIdPriceListId
+const { getPriceListById, getAllPriceList, getCustomersAndAreasForPriceList, getPriceListByIdPriceListId
     , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime,
     getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
 const { getProductsTypeNameForPricelist, getProductsListByType } = require('../../modules/pricelist/pricelist-products')
@@ -86,14 +86,14 @@ router.get('/findPriceListProducts/:product', async (req, res) => {
 })
 
 // חיפוש הצעת מחיר עפ מספר מחירון  לפי ספק 
-router.get('/findPriceListByIdSupplierOrClientCode/:id', async (req, res) => {
+router.get('/getCustomersAreasForPriceList/:priceListId', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByIdSupplierOrClientCode',
         description: 'FindPriceListByIdSupplierOrClientCode in router',
     }
     try {
         logToFile(objectLog)
-        const ans = await getPriceListByIdSupplierOrClientCode(req.params.id)
+        const ans = await getCustomersAndAreasForPriceList(req.params.priceListId)
         res.status(200).send(ans)
     } catch (error) {
         objectLog.error = error.message

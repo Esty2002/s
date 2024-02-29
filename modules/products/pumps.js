@@ -26,6 +26,10 @@ async function insertPump(obj) {
         console.log(error)
         objectForLog.error = error.message
         logToFile(objectForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 }
@@ -50,6 +54,10 @@ async function findPump(filter = {}) {
         console.log({ error })
         objForLog.error = error.message
         logToFile(objForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
 
@@ -73,6 +81,10 @@ async function updatePump({ data = {}, condition = {} }) {
         const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, data: data, condition: condition })
         return response
     } catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }
@@ -85,6 +97,10 @@ async function deletePump({ data = {}, condition = {} }) {
         const response = await deleteData('/delete/deleteone', { entityName: modelNames.PUMPS, data: data, condition: condition })
         return response
     } catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error;
     }
 }

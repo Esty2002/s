@@ -146,10 +146,10 @@ router.post('/addCustomerAndArea', express.json(), async (req, res) => {
         }
         logToFile(objForLog)
         const result = await addCustomerAndArea(req.body)
-        if (result.status === 201)
-            res.status(201).send(result.data);
+        if (result)
+            res.status(201).send(result);
         else
-            res.status(result.status).send(result.data);
+            res.status(500).send(result);
     }
     catch (error) {
         objForLog.error = error.message

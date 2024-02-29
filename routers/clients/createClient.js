@@ -24,7 +24,7 @@ router.post('/add', express.json(), async (req, res) => {
 
     } catch (error) {
         if (error.type === ErrorTypes.VALIDATION) {
-            res.status(422).send(error)
+                     res.status(422).send(error)
         }
         else {
             res.status(500).send(error.message)

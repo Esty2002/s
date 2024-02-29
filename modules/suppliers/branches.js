@@ -2,13 +2,14 @@ require('dotenv').config();
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { getData, postData, putData, deleteData, } = require('../../services/axios');
 const { modelNames } = require('../utils/schemas');
+const { ErrorTypes } = require('../../utils/types');
 
 async function insertOneBranch(object, entityName = modelNames.BRANCHES) {
     try {
         let ans = await checkObjectValidations(object, entityName)
         console.log("inmsertBranch - module");
         if (ans) {
-            if (checkValid(object) && await checkUnique(object)) {
+            if (await checkUnique(object)) {
                 object.addedDate = new Date().toISOString();
                 let obj = { entityName, data: object };
                 const res = await postData("/create/createone", obj);
@@ -22,6 +23,10 @@ async function insertOneBranch(object, entityName = modelNames.BRANCHES) {
     }
     catch (error) {
         console.log(error)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw new Error('can not insert branch');
     }
 }
@@ -76,8 +81,9 @@ async function getBranchesByCondition(query) {
 
 async function updateDetail(setting) {
     try {
-        console.log("updatadetails", setting.BranchName);
-        console.log(setting.Id)
+        console.log("updatadetails", setting);
+        console.log(setting.id)
+      await  checkObjectValidations(setting, modelNames.BRANCHES);
         // if (setting.OldBranchName !== setting.BranchName) {
         //     const result = await getData(`/read/readAll/Branches/BranchName ='${setting.BranchName}' AND SupplierCode=${code} AND Disabled='0'`);
         //     if (result.data.length !== 0) {
@@ -85,17 +91,17 @@ async function updateDetail(setting) {
         //     }
         // }
         let obj = {
-            entityName: modelNames.BRANCHES, data: {
-                supplierCode: setting.supplierCode.id, BranchName: setting.BranchName, Status: setting.Status,
-                Street: setting.Street, HomeNumber: setting.HomeNumber, City: setting.City, ZipCode: setting.ZipCode, Phone1: setting.Phone1,
-                Phone2: setting.Phone2, Mobile: setting.Mobile, Fax: setting.Fax, Mail: setting.Mail, Notes: setting.Notes
-            }, condition: { Id: setting.Id }
+            entityName: modelNames.BRANCHES, data: {...setting}, condition: { id: setting.id }
         }
         const res = await putData("/update/updateone", obj);
         console.log(res);
         return res;
     }
-    catch {
+    catch (error) {
+        if(error.type === ErrorTypes.VALIDATION){
+            const errorMessage = error.data.reduce((message, {error})=>[...message, error], []).join(',')
+            throw new Error(errorMessage)
+         }
         throw new Error('can not update branch');
     }
 }
@@ -113,21 +119,11 @@ async function deleteBranches(object) {
     }
 }
 
-function checkValid(object) {
-    let mustKeys = ["supplierCode", "branchName", "street", "homeNumber", "city", "phone1"/*, "userName"*/];
-    let array = Object.keys(object);
-    console.log("must-----", array);
-    for (let i = 0; i < mustKeys.length; i++) {
-        if (!array.includes(mustKeys[i]) || (array.includes(mustKeys[i]) && object[mustKeys[i]] === "")) {
-            return false;
-        }
-    }
-    return true;
-}
+
 
 async function checkUnique(object) {
     try {
-        const resultSupplierExist = await getData(`/read/readOne/${modelNames.SUPPLIERS}`, { id: object.SupplierCode, disabled: 0 });
+        const resultSupplierExist = await getData(`/read/readOne/${modelNames.SUPPLIERS}`, { id: object.supplierCode, disabled: 0 });
         const resultBranchName = await getData(`/read/readOne/${modelNames.BRANCHES}`, { branchName: object.branchName, supplierCode: object.supplierCode, disabled: false });
         return (resultBranchName.data.length === 0 && (resultSupplierExist.data.length !== 0));
 
@@ -137,4 +133,4 @@ async function checkUnique(object) {
     }
 }
 
-module.exports = { getAllBranches, getBranchById, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique, checkValid };
+module.exports = { getAllBranches, getBranchById, insertOneBranch, updateDetail, deleteBranches, getBranchesByCondition, checkUnique };

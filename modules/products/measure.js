@@ -40,6 +40,10 @@ async function insertMeasure(obj) {
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
+        if(error.type === ErrorTypes.VALIDATION){
+            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+            throw new Error(errorMessage);
+        }
         throw error
     }
     // }
