@@ -164,6 +164,7 @@ const recordExistInDB = async (value, arg) => {
 const recordExistInMultipleDB = async (value, arg) => {
     try {
         const response = await Promise.all(arg.map(async (dbItem) => await recordExistInDB(value, { ...dbItem })))
+        console.log({response});
         return true
     }
     catch (error) {

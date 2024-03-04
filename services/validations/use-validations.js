@@ -31,6 +31,7 @@ const getArgumentTypeForValidationFunction = (name, argument) => {
 const getValidationAnswer = async ({ value, operator, validation }) => {
     let response = false
     console.log({ value, operator })
+    console.log(validation.arguments);
     switch (operator) {
         case conditionOperators.OR: {
             for (let argument of validation.arguments) {
