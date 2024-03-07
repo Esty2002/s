@@ -76,7 +76,7 @@ router.post('/update', express.json(), async (req, res) => {
         const response = await updateMeasure({ obj: req.body })
         console.log({response});
         if (response)
-            res.status(200).send(response)
+            res.status(204).send(response)
         else {
             res.status(500).send(response)
         }
