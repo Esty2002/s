@@ -24,18 +24,16 @@ async function getAllPriceList() {
 }
 
 
-
-
 // פונקציית חיפוש על פי מוצר
-async function getPriceListByIdPriceListId(object) {
+async function getPriceListForProduct(object) {
+    let objectLog = {
+        name: 'getPriceListbyProduct',
+        description: 'getPriceListbyProduct in module- in try',
+    }
     try {
-        let objectLog = {
-            name: 'getPriceListbyProduct',
-            description: 'getPriceListbyProduct in module- in try',
-        }
         logToFile(objectLog)
-        let obj = { columns: "*", condition: { AND: [{ Disabled: 0 }, { Id: object.id }] } };
-        const res = await postData(`/read/readMany/${modelNames.PRICELIST}`, obj);
+        let obj = { condition: { id: object.id, disabled: false } };
+        const res = await postData(`/read/readMany/${modelNames.PRODUCTS_PRICE_LIST}`, obj);
         return res.data;
     }
     catch (error) {
@@ -104,7 +102,7 @@ async function getPriceListById(id) {
         }
         logToFile(objectLog)
 
-        let obj = { condition: { entityName: modelNames.PRICELIST, property: getModelKey(modelNames.PRICELIST) , value:id } };
+        let obj = { condition: { entityName: modelNames.PRICELIST, property: getModelKey(modelNames.PRICELIST), value: id } };
         const res = await postData(`/read/readOneDetails/${modelNames.PRICELIST}`, obj);
         return res;
     }
@@ -304,8 +302,16 @@ function checkValid(arr1, arr2) {
 
 module.exports = {
     getPriceListById,
-    getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime, getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
-    getCustomersAndAreasForPriceList, getAllPriceList, getPriceListbySupplierCodeOrClientCode, getPriceListByIdPriceListId
+    getPriceListByAdditionsForDistance,
+    getPriceListByAdditionsForCities,
+    getPriceListByAdditionsForTime,
+    getPriceListByAdditionsForTruckFill,
+    getSupplierByNameProduct,
+    getSupplierByNameProductBuyton,
+    getCustomersAndAreasForPriceList,
+    getAllPriceList,
+    getPriceListbySupplierCodeOrClientCode,
+    getPriceListForProduct
 };
 
 

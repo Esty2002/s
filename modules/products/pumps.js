@@ -26,8 +26,8 @@ async function insertPump(obj) {
         console.log(error)
         objectForLog.error = error.message
         logToFile(objectForLog)
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error
@@ -43,7 +43,6 @@ async function findPump(filter = {}) {
     logToFile(objForLog)
     try {
         const validation = await checkObjectValidations(filter, modelNames.PUMPS, ModelStatusTypes.UPDATE)
-        console.log({ validation })
         if (!Object.keys(filter).includes('disabled'))
             filter.disabled = false
         let condition = filter
@@ -51,11 +50,10 @@ async function findPump(filter = {}) {
         return response
     }
     catch (error) {
-        console.log({ error })
         objForLog.error = error.message
         logToFile(objForLog)
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error
@@ -76,13 +74,21 @@ async function isPumpAddition({ condition }) {
 
 async function updatePump({ data = {}, condition = {} }) {
     try {
-            _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.UPDATE)
+        _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.UPDATE)
 
         const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, data: data, condition: condition })
+        if (response.status == 204) {
+            const location = JSON.parse(response.headers['content-location'])
+            const { condition, rowsAffected } = location
+            if (rowsAffected === 1) {
+                const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
+                return updateData.data
+            }
+        }
         return response
     } catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;
@@ -91,14 +97,12 @@ async function updatePump({ data = {}, condition = {} }) {
 
 async function deletePump({ data = {}, condition = {} }) {
     try {
-            _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.DELETE)
-          
-
+        _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.DELETE)
         const response = await deleteData('/delete/deleteone', { entityName: modelNames.PUMPS, data: data, condition: condition })
         return response
     } catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;

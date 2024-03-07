@@ -6,11 +6,10 @@ const { modelNames } = require('../utils/schemas');
 
 
 async function insert(object) {
-    console.log({ object })
     try {
         const existResponse = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`, object)
-        
-         object = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.UPDATE)
+
+        object = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.UPDATE)
         if (existResponse.data.length > 0) {
             if (existResponse.data[0].disabled) {
                 let id = existResponse.data[0].id
@@ -28,23 +27,23 @@ async function insert(object) {
             }
         }
         else {
-             object = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.CREATE)
+            object = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.CREATE)
             console.log({ object })
             const response = await postData('/create/createone', { entityName: modelNames.PRODUCTS_COMBINATIONS, data: object })
             return response
         }
     }
     catch (error) {
-        console.log({error})
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        console.log({ error })
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;
     }
 }
 
-async function getAll(condition={}) {
+async function getAll(condition = {}) {
     try {
         const response = await getData(`/read/readMany/${modelNames.PRODUCTS_COMBINATIONS}`, condition)
         return response
@@ -62,8 +61,8 @@ async function deleteItem(object) {
         return response
     }
     catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error
