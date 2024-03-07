@@ -2,6 +2,7 @@
 const { postData, getData, putData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
+const { ModelStatusTypes } = require('../../utils/types')
 const { modelNames } = require('../utils/schemas')
 
 
@@ -9,16 +10,13 @@ const { modelNames } = require('../utils/schemas')
 
 async function updateMeasure({ condition = {}, obj }) {
     try {
+        _ = checkObjectValidations(obj, modelNames.MEASURES, ModelStatusTypes.UPDATE)
         const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: obj, condition })
-        console.log(response);
         if (response.status == 204) {
             const location = JSON.parse(response.headers['content-location'])
-            console.log({location});
             const { condition, rowsAffected } = location
-            console.log(rowsAffected);
             if (rowsAffected === 1) {
                 const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
-
                 return updateData.data
             }
         }
