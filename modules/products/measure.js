@@ -7,11 +7,21 @@ const { modelNames } = require('../utils/schemas')
 
 
 
-async function updateMeasure(condition, obj) {
+async function updateMeasure({ condition = {}, obj }) {
     try {
-        const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: { measure: obj }, condition })
-        if (response.status == 204)
-            return response.data
+        const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: obj, condition })
+        console.log(response);
+        if (response.status == 204) {
+            const location = JSON.parse(response.headers['content-location'])
+            console.log({location});
+            const { condition, rowsAffected } = location
+            console.log(rowsAffected);
+            if (rowsAffected === 1) {
+                const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
+
+                return updateData.data
+            }
+        }
         return false
 
     } catch (error) {
@@ -40,8 +50,8 @@ async function insertMeasure(obj) {
     catch (error) {
         objectForLog.error = error.message
         logToFile(objectForLog)
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error
@@ -95,7 +105,7 @@ async function findMeasureNumber(name) {
     logToFile(objectForLog)
     try {
         if (name) {
-            let res = await getData(`/read/readMany/${modelNames.MEASURES}`, { Measure: name })
+            let res = await getData(`/read/readMany/${modelNames.MEASURES}`, { measure: name })
             if (res.data[0])
                 return res;
             else
@@ -120,7 +130,7 @@ async function findMeasureName(num) {
     logToFile(objectForLog)
     try {
         if (num && parseInt(num)) {
-            let res = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`, { Id: num })
+            let res = await getData(`/read/readMany/${UNITOFMEASURE_ENTITY}`, { id: num })
             if (res.data[0])
                 return res;
             else
