@@ -2,6 +2,10 @@ const { ValueTypes, AppStatusTypes, ModelStatusTypes } = require('../../utils/ty
 const { validation } = require('./validations-functions');
 const { models, modelNames, getModelKey } = require('../../modules/utils/schemas');
 
+
+//TODO: change the recordExistInMultipleDB arguments
+
+
 const conditionOperators = {
     AND: 'and', OR: 'or'
 }
@@ -60,36 +64,8 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                     {
-                        modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInMultipleDB, arguments:
-                            [
-                                { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            ]
-
-                    }
-                    ,
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                            [
-                                { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.ADDITION) }
-                                    },
-                                    {
-                                        entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false,
-                                    }]
-                                }
-                                ,
-                                { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            ]
-
+                        modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
+                        { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false }
                     }
                 ],
 
@@ -397,37 +373,11 @@ const moduleValidations = [
                 { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null }
                     ,
                 {
-                    modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInMultipleDB, arguments:
-                        [
-                            { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                        ]
-
+                    modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
+                    { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false }
                 }
-                    ,
-                {
-                    modelStatus: [ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                        [
-                            { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            {
-                                operator: conditionOperators.OR, arguments: [{
-                                    entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: true,
-                                    condition: { key: getModelKey(modelNames.CLIENTS) }
-                                },
-                                {
-                                    entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false,
-                                }]
-                            }
-                            ,
-                            { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                        ]
-
-                }
+                   
+                
                 ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
@@ -723,7 +673,6 @@ const moduleValidations = [
                 type: models.FINISH_PRODUCTS.fields.UNIT_OF_MEASURE.type,
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
-                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.MEASURES, field: models.MEASURES.fields.ID.name, exist: true } }],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
@@ -738,37 +687,11 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" },
                     {
-                        modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInMultipleDB, arguments:
-                            [
-                                { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            ]
+                        modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
+                        { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false }
 
                     }
-                    ,
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                            [
-                                { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.FINISH_PRODUCTS) }
-                                    },
-                                    {
-                                        entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false,
-                                    }]
-                                }
-                                ,
-                                { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            ]
-
-                    }],
+                    ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -830,6 +753,7 @@ const moduleValidations = [
             },
         ]
     },
+    // FIXME: can update to an existing name
     {
         objectName: modelNames.MEASURES,
         values: [
@@ -1443,37 +1367,11 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                     {
-                        modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInMultipleDB, arguments:
-                            [
-                                { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            ]
-
+                        modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
+                        { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false }
+                          
                     }
-                    ,
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                            [
-                                { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.PUMPS) }
-                                    },
-                                    {
-                                        entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false,
-                                    }]
-                                }
-                                ,
-                                { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                                { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            ]
-
-                    }
+                   
                 ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
@@ -1554,37 +1452,11 @@ const moduleValidations = [
                 type: models.SUPPLIERS.fields.BOOKKEEPING_CODE.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                 {
-                    modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInMultipleDB, arguments:
-                        [
-                            { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false },
-                        ]
+                    modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
+                    { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false }
 
                 }
-                    ,
-                {
-                    modelStatus: [ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                        [
-                            { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            {
-                                operator: conditionOperators.OR, arguments: [{
-                                    entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: true,
-                                    condition: { key: getModelKey(modelNames.SUPPLIERS) }
-                                },
-                                {
-                                    entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false,
-                                }]
-                            }
-                            ,
-                            { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false },
-                            { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false },
-                        ]
-
-                }],
+                   ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },

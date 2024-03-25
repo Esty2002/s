@@ -73,6 +73,7 @@ router.post('/create', express.json(), async (req, res) => {
 
 router.post('/update', express.json(), async (req, res) => {
     try {
+        console.log(req.body);
         const response = await updateMeasure({ obj: req.body })
         console.log({response});
         if (response)

@@ -10,7 +10,7 @@ const { modelNames } = require('../utils/schemas')
 
 async function updateMeasure({ condition = {}, obj }) {
     try {
-        obj = checkObjectValidations(obj, modelNames.MEASURES, ModelStatusTypes.UPDATE)
+         checkObjectValidations(obj, modelNames.MEASURES, ModelStatusTypes.UPDATE)
         const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: obj, condition })
         if (response.status == 204) {
             const location = JSON.parse(response.headers['content-location'])

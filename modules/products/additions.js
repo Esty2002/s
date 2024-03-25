@@ -2,8 +2,8 @@ require('dotenv').config()
 const { postData, putData, getData, deleteData } = require("../../services/axios");
 const { logToFile } = require('../../services/logger/logTxt');
 const { checkObjectValidations } = require('../../services/validations/use-validations');
-const { ModelStatusTypes } = require('../../utils/types');
-const { models, modelNames } = require('../utils/schemas')
+const { ModelStatusTypes, ErrorTypes } = require('../../utils/types');
+const { models, modelNames, getModelKey, compareObjects } = require('../utils/schemas')
 const { findMeasureName, findMeasureNumber } = require('./measure')
 
 
@@ -27,8 +27,8 @@ async function insertAddition(obj) {
         console.log({ error })
         objectForLog.error = error.message
         logToFile(objectForLog)
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error
@@ -64,8 +64,8 @@ async function findAddition(filter = {}) {
         objForLog.error = error.message
         logToFile(objForLog)
         console.log({ error })
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error
@@ -83,12 +83,28 @@ async function findAddition(filter = {}) {
 
 async function updateAddition({ data = {}, condition = {} }) {
     try {
-            _ =await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.UPDATE)
-        const response = await putData('/update/updateone', { entityName: modelNames.ADDITION,  data, condition })
-        return response
+        const key = getModelKey(modelNames.ADDITION);
+        const origin = await getData(`/read/readone/${modelNames.ADDITION}/${data[key]}`)
+        if (origin.data) {
+            const originObj = origin.data
+            const updatedata = compareObjects({data,origin: originObj,modelname: modelNames.ADDITION})
+            _ = await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.UPDATE)
+            const response = await putData('/update/updateone', { entityName: modelNames.ADDITION, data, condition })
+            if (response.status == 204) {
+                const location = JSON.parse(response.headers['content-location'])
+                const { condition, rowsAffected } = location
+                console.log({ condition, rowsAffected });
+                if (rowsAffected === 1) {
+                    const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
+                    console.log(updateData.data);
+                    return updateData.data
+                }
+            }
+        }
+        return false
     } catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;
@@ -98,12 +114,12 @@ async function updateAddition({ data = {}, condition = {} }) {
 async function deleteAddition({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.ADDITION,  data, condition })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.ADDITION, data, condition })
         return response
 
     } catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;

@@ -1,5 +1,5 @@
 
-const { removeKeysFromObject } = require('../../modules/utils/code');
+const { removeKeysFromObject } = require('../../modules/utils/object-code');
 const { types } = require('../../modules/utils/schemas');
 const { ErrorTypes, ValueTypes, ModelStatusTypes } = require('../../utils/types');
 const { getValidationsModule, conditionOperators } = require('./validations-objects')
@@ -172,6 +172,7 @@ const checkObjectValidations = async (entity, objName, modelStatus = ModelStatus
         if (regularProperties.length > 0) {
             entity = await validateEntity({ entity, validationModule })
         }
+        console.log({entity});
         return entity
     }
     catch (error) {
@@ -200,7 +201,6 @@ const checkEmptyValue = ({ type, value }) => {
     return false
 
 }
-
 
 
 module.exports = { checkObjectValidations };

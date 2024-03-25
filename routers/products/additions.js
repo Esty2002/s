@@ -20,6 +20,7 @@ router.post('/create', express.json(), async (req, res) => {
     }
     catch (error) {
         objectForLog.error = error.message
+        console.log({error});
         logToFile(objectForLog)
         if (error instanceof Array)
             res.status(500).send(error)
@@ -42,12 +43,12 @@ router.post('/delete', express.json(), async (req, res) => {
 
 router.post('/update', express.json(), async (req, res) => {
     try {
-        const response = await updateAddition({ data: req.body.update, condition: req.body.where })
+        const response = await updateAddition({ data: req.body })
         if (response) {
-            res.status(204).send(response.data)
+            res.status(204).send(response)
         }
         else {
-            res.status(500).send(response.data)
+            res.status(500).send(response)
         }
     }
     catch (error) { 

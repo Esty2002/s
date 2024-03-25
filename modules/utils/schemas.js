@@ -37,7 +37,7 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNITOFMEASURE: { name: 'unitOfMeasure', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            UNITOFMEASURE: { name: 'unitOfMeasure', entity: modelNames.MEASURES, connecteProperty: 'id', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: true },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
             USERNAME: { name: 'userName', type: types.STRING, insert: false, update: false, key: false, unique: false },
@@ -96,7 +96,7 @@ const models = {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             SUPPLIER_CODE: { entity: modelNames.SUPPLIERS, connecteProperty: 'id', name: 'supplierCode', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             BRANCH_NAME: { name: 'branchName', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            STATUS: { name: 'status', entity:modelNames.STATUS, connecteProperty:'id', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            STATUS: { name: 'status', entity: modelNames.STATUS, connecteProperty: 'id', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             STREET: { name: 'street', type: types.STRING, insert: true, update: true, key: false, unique: false },
             HOME_NUMBER: { name: 'homeNumber', type: types.STRING, insert: true, update: true, key: false, unique: false },
             CITY: { name: 'city', type: types.STRING, insert: true, update: true, key: false, unique: false },
@@ -527,4 +527,39 @@ function getObjectModel(object, model) {
     return objectKeys.every(f => fields.includes(f))
 
 }
-module.exports = { getModel, getModelKey, getObjectModel, models, modelNames, types }
+
+//TODO: add check different entity connection value
+//[ ] : start finding the innermodule 
+function compareObjects({ data, origin, modelname }) {
+    console.log({data})
+    console.log({origin})
+    const dataKeys = Object.keys(data)
+    const originKeys = Object.keys(origin);
+    const filteredOriginkeys = originKeys.filter(k => dataKeys.includes(k))
+    console.log(filteredOriginkeys)
+    const updateObject = filteredOriginkeys.reduce((obj, key) => {
+        console.log(obj);
+        if (key === getModelKey(modelname)) {
+            obj[key] = data[key]
+            return obj;
+        }
+        if (typeof origin[key] !== 'object') {
+            if (data[key] !== origin[key]) {
+                obj[key] = data[key]
+            }
+        }
+        else{
+
+            console.log({key});
+            const myModel = getModel(modelname)
+            const modelFields = Object.values(myModel.fields)
+            const innerModel = modelFields.find(f=>f.name === key).entity
+            console.log({innerModel});
+        }
+        return obj
+    }, {})
+    console.log({ updateObject })
+    return updateObject;
+}
+
+module.exports = { getModel, getModelKey, getObjectModel, compareObjects, models, modelNames, types }

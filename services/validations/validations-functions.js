@@ -160,12 +160,34 @@ const recordExistInDB = async (value, arg) => {
         throw error
     }
 };
-
+// [ ]: get unique data from dbserver
+// [x]: get unique data from dbserver
 const recordExistInMultipleDB = async (value, arg) => {
+    let { field, entityName, exist } = arg
     try {
-        const response = await Promise.all(arg.map(async (dbItem) => await recordExistInDB(value, { ...dbItem })))
-        console.log({response});
-        return true
+        let condition = {}
+        condition[field] = value;
+        if (typeof (value) === 'object') {
+            if (value[field]) {
+                condition[field] = value[field]
+            }
+        }
+        let response = await getData(`/read/uniqueInDB/${entityName}`, condition)
+        const { data } = response;
+        const dataItem = data.find(item => Object.keys(item)[0] === field)
+        if (exist) {
+            if (dataItem[field].length > 0)
+                return true
+            else
+                throw new Error(`the record ${condition[field]} does not exist in db`)
+        }
+        else {
+            if (dataItem[field].length === 0)
+                return true;
+            else{
+                throw new Error(`the record ${condition[field]} exists in db`)
+            }
+        }
     }
     catch (error) {
 
