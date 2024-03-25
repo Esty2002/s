@@ -73,16 +73,23 @@ router.post('/create', express.json(), async (req, res) => {
 
 router.post('/update', express.json(), async (req, res) => {
     try {
-        console.log(req.body);
-        const response = await updateMeasure({ obj: req.body })
-        console.log({response});
+        const { data, condition } = req.body
+        const response = await updateMeasure({ data, condition })
+        console.log({ response });
         if (response)
-            res.status(204).send(response)
+            res.status(204).send(response).end()
+        else if (response === false) {
+            res.status(304).end()
+        }
         else {
             res.status(500).send(response)
         }
     } catch (error) {
-        res.status(500).send(error.message)
+        if (error.type === ErrorTypes.VALIDATION) {
+            res.status(422).send(error)
+        }
+        else
+            res.status(500).send(error.message)
     }
 })
 
@@ -100,9 +107,9 @@ router.get('/all', async (req, res) => {
             res.status(response.status).send(response)
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
-        res.status(500).send(error.message)
+        res.status(500).send(error)
     }
 })
 

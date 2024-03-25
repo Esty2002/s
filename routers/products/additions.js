@@ -1,6 +1,7 @@
 const express = require('express')
 const { insertAddition, updateAddition, findAddition, deleteAddition } = require('../../modules/products/additions')
 const { logToFile } = require('../../services/logger/logTxt')
+const { ErrorTypes } = require('../../utils/types')
 const router = express.Router()
 
 router.post('/create', express.json(), async (req, res) => {
@@ -19,11 +20,10 @@ router.post('/create', express.json(), async (req, res) => {
         }
     }
     catch (error) {
-        objectForLog.error = error.message
-        console.log({error});
+        objectForLog.error = error
         logToFile(objectForLog)
-        if (error instanceof Array)
-            res.status(500).send(error)
+        if (error.type && error.type === ErrorTypes.VALIDATION)
+            res.status(422).send(error)
         else
             res.status(500).send(error)
 
@@ -43,17 +43,21 @@ router.post('/delete', express.json(), async (req, res) => {
 
 router.post('/update', express.json(), async (req, res) => {
     try {
-        const response = await updateAddition({ data: req.body })
+        const { data, condition } = req.body
+        const response = await updateAddition({ data, condition })
         if (response) {
             res.status(204).send(response)
         }
-        else {
-            res.status(500).send(response)
+        if (response === false) {
+            res.status(304).send()
         }
     }
-    catch (error) { 
-        console.log(error)
-        res.status(404).send(error) }
+    catch (error) {
+        if (error.type && error.type === ErrorTypes.VALIDATION)
+            res.status(422).send(error)
+        else
+            res.status(500).send(error)
+    }
 })
 
 router.get('/find', async (req, res) => {

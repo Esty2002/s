@@ -3,25 +3,41 @@ const { postData, getData, putData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { ModelStatusTypes } = require('../../utils/types')
-const { modelNames } = require('../utils/schemas')
+const { isEmptyObject } = require('../utils/object-code')
+const { modelNames, compareObjects, getModelKey } = require('../utils/schemas')
 
 
 
 
-async function updateMeasure({ condition = {}, obj }) {
+async function updateMeasure({ condition = {}, data }) {
     try {
-         checkObjectValidations(obj, modelNames.MEASURES, ModelStatusTypes.UPDATE)
-        const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: obj, condition })
-        if (response.status == 204) {
-            const location = JSON.parse(response.headers['content-location'])
-            const { condition, rowsAffected } = location
-            if (rowsAffected === 1) {
-                const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
-                return updateData.data
-            }
+        let origin;
+        if (isEmptyObject(condition)) {
+            const key = getModelKey(modelNames.MEASURES);
+            condition[key] = data[key]
+            origin = await getData(`/read/readone/${modelNames.MEASURES}/${data[key]}`)
         }
-        return false
-
+        else {
+            origin = await getData(`/read/readMany/${modelNames.MEASURES}`, condition)
+        }
+        if (origin.data) {
+            const originObj = origin.data
+            const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.FINISH_PRODUCTS })
+            if (!isEmptyObject(updatedata)) {
+                _ = await checkObjectValidations(updatedata, modelNames.MEASURES, ModelStatusTypes.UPDATE)
+                const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: updatedata, condition })
+                if (response.status == 204) {
+                    const location = JSON.parse(response.headers['content-location'])
+                    const { condition, rowsAffected } = location
+                    console.log(rowsAffected);
+                    if (rowsAffected === 1) {
+                        const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
+                        return updateData.data
+                    }
+                }
+            }
+            return false;
+        }
     } catch (error) {
         throw error;
     }
@@ -46,20 +62,10 @@ async function insertMeasure(obj) {
             return response
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
-        if (error.type === ErrorTypes.VALIDATION) {
-            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
-            throw new Error(errorMessage);
-        }
         throw error
     }
-    // }
-    // else {
-    //     throw new Error(`data exist`)
-    // }
-
-
 }
 
 async function deleteItem(object) {
@@ -88,7 +94,7 @@ async function getAll() {
         return response
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
         throw error
     }
@@ -113,7 +119,7 @@ async function findMeasureNumber(name) {
             throw new Error('The name of the unit of measure is reuired')
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
         throw error
     }
@@ -138,7 +144,7 @@ async function findMeasureName(num) {
             throw new Error('The id of the unit of measure is reuired with type int')
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
         throw error
     }

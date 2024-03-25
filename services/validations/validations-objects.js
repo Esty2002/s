@@ -3,8 +3,6 @@ const { validation } = require('./validations-functions');
 const { models, modelNames, getModelKey } = require('../../modules/utils/schemas');
 
 
-//TODO: change the recordExistInMultipleDB arguments
-
 
 const conditionOperators = {
     AND: 'and', OR: 'or'
@@ -19,23 +17,8 @@ const moduleValidations = [
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: models.ADDITIONS.fields.NAME.type },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
-                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.NAME.name, exist: false } },
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE],
-                        func: validation.recordExistInDB,
-                        arguments:
-                            [
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.NAME.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.ADDITION) }
-                                    },
-                                    {
-                                        entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.NAME.name, exist: false,
-                                    }]
-                                }
-                            ]
-                    }],
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.NAME.name, exist: false } },
+                   ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -320,23 +303,8 @@ const moduleValidations = [
                 type: models.CLIENTS.fields.CLIENT_CODE.type, validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
-                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.CLIENT_CODE.name, exist: false } },
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE],
-                        func: validation.recordExistInDB,
-                        arguments:
-                            [
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.CLIENT_CODE.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.CLIENTS) }
-                                    },
-                                    {
-                                        entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.CLIENT_CODE.name, exist: false,
-                                    }]
-                                }
-                            ]
-                    }],
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.CLIENT_CODE.name, exist: false } },
+                   ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -645,23 +613,8 @@ const moduleValidations = [
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
-                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.NAME.name, exist: false } },
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE],
-                        func: validation.recordExistInDB,
-                        arguments:
-                            [
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.NAME.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.FINISH_PRODUCTS) }
-                                    },
-                                    {
-                                        entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.NAME.name, exist: false,
-                                    }]
-                                }
-                            ]
-                    }],
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.NAME.name, exist: false } },
+                   ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -762,23 +715,8 @@ const moduleValidations = [
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
-                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.MEASURES, field: models.MEASURES.fields.MEASURE.name, exist: false } },
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE],
-                        func: validation.recordExistInDB,
-                        arguments:
-                            [
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.MEASURES, field: models.MEASURES.fields.MEASURE.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.MEASURES) }
-                                    },
-                                    {
-                                        entityName: modelNames.MEASURES, field: models.MEASURES.fields.MEASURE.name, exist: false,
-                                    }]
-                                }
-                            ]
-                    }],
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.MEASURES, field: models.MEASURES.fields.MEASURE.name, exist: false } },
+                   ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -871,23 +809,8 @@ const moduleValidations = [
                 type: models.PRICELIST.fields.NAME.type,
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
-                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: false } },
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE],
-                        func: validation.recordExistInDB,
-                        arguments:
-                            [
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.PRICELIST) }
-                                    },
-                                    {
-                                        entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: false,
-                                    }]
-                                }
-                            ]
-                    }],
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: false } },
+                    ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1326,24 +1249,7 @@ const moduleValidations = [
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
-                    { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PUMPS, field: models.PUMPS.fields.NAME.name, exist: false } },
-                    {
-                        modelStatus: [ModelStatusTypes.UPDATE],
-                        func: validation.recordExistInDB,
-                        arguments:
-                            [
-                                {
-                                    operator: conditionOperators.OR, arguments: [{
-                                        entityName: modelNames.PUMPS, field: models.PUMPS.fields.NAME.name, exist: true,
-                                        condition: { key: getModelKey(modelNames.PUMPS) }
-                                    },
-                                    {
-                                        entityName: modelNames.PUMPS, field: models.PUMPS.fields.NAME.name, exist: false,
-                                    }]
-                                }
-                            ]
-                    }
-                    ,
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PUMPS, field: models.PUMPS.fields.NAME.name, exist: false } },
                 ], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1587,23 +1493,8 @@ const moduleValidations = [
                 propertyName: models.SUPPLIERS.fields.SUPPLIER_NAME.name,
                 type: models.SUPPLIERS.fields.SUPPLIER_NAME.type,
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
-                { modelStatus: [ModelStatusTypes.CREATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.SUPPLIER_NAME.name, exist: false } },
-                {
-                    modelStatus: [ModelStatusTypes.UPDATE],
-                    func: validation.recordExistInDB,
-                    arguments:
-                        [
-                            {
-                                operator: conditionOperators.OR, arguments: [{
-                                    entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.SUPPLIER_NAME.name, exist: true,
-                                    condition: { key: getModelKey(modelNames.SUPPLIERS) }
-                                },
-                                {
-                                    entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.SUPPLIER_NAME.name, exist: false,
-                                }]
-                            }
-                        ]
-                }],
+                { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.SUPPLIER_NAME.name, exist: false } },
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },

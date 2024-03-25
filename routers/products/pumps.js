@@ -2,6 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { findPump, insertPump, updatePump, findPumpName, deletePump } = require('../../modules/products/pumps')
 const { logToFile } = require('../../services/logger/logTxt')
+const { ErrorTypes } = require('../../utils/types')
 
 
 // router.get('/pumpNameById/:id', async (req, res) => {
@@ -29,17 +30,18 @@ router.post('/create', express.json(), async (req, res) => {
     try {
         console.log("im in pump");
         const response = await insertPump(req.body)
-        console.log("respoon",response);
+        console.log("respoon", response);
         if (response.status === 201)
             res.status(201).send(response.data)
         else
             res.status(response.status).send(response.data)
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
-        if (error instanceof Array)
-            res.status(500).send(error)
+        if (error.type === ErrorTypes.VALIDATION) {
+            res.status(422).send(error)
+        }
         else
             res.status(500).send(error)
     }
@@ -53,7 +55,7 @@ router.get('/find', async (req, res) => {
     }
     logToFile(objectForLog)
     try {
-        console.log({query:req.query})
+        console.log({ query: req.query })
         const response = await findPump(req.query)
         if (response.status == 200)
             res.status(200).send(response.data)
@@ -61,26 +63,33 @@ router.get('/find', async (req, res) => {
             res.status(response.status).send(response)
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
-        if (error instanceof Array)
-            res.status(500).send(error)
+        if (error.type === ErrorTypes.VALIDATION) {
+            res.status(422).send(error)
+        }
         else
-            res.status(500).send(error.message)
+            res.status(500).send(error)
     }
 })
 
 router.post('/update', express.json(), async (req, res) => {
     try {
-        console.log(req.body.where);
-        const response = await updatePump({ data: req.body.update, condition: req.body.where })
+        const { data, condition } = req.body
+        const response = await updatePump({ data, condition })
         if (response)
-            res.status(200).send(response.data)
+            res.status(204).send(response)
+        else if (response === false) {
+            res.statusCode(304).end()
+        }
         else {
-            res.status(500).send(response.data)
+            res.status(500).send(response)
         }
     } catch (error) {
-        res.status(500).send(error)
+        if (error.type && error.type === ErrorTypes.VALIDATION)
+            res.status(422).send(error)
+        else
+            res.status(500).send(error)
     }
 })
 

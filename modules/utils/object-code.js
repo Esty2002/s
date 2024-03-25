@@ -9,6 +9,16 @@ const removeKeysFromObject = (origin, keys) => {
     return newObject
 }
 
+const isEmptyObject = (object) => {
+    if(object===undefined || object===null){
+        return true;
+    }
+    if (object instanceof Object) {
+        return Object.keys(object).length === 0;
+    }
+    throw new Error('object must be an object or undefined or null')
+}
+
 
 function cloneArray(array) {
     let arr = [...array]
@@ -57,4 +67,4 @@ function clone(item) {
 
 
 
-module.exports = { removeKeysFromObject, clone, cloneObject }
+module.exports = {isEmptyObject, removeKeysFromObject, clone, cloneObject }

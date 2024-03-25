@@ -160,8 +160,6 @@ const recordExistInDB = async (value, arg) => {
         throw error
     }
 };
-// [ ]: get unique data from dbserver
-// [x]: get unique data from dbserver
 const recordExistInMultipleDB = async (value, arg) => {
     let { field, entityName, exist } = arg
     try {

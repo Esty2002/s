@@ -540,7 +540,7 @@ function compareObjects({ data, origin, modelname }) {
     const updateObject = filteredOriginkeys.reduce((obj, key) => {
         console.log(obj);
         if (key === getModelKey(modelname)) {
-            obj[key] = data[key]
+            // obj[key] = data[key]
             return obj;
         }
         if (typeof origin[key] !== 'object') {

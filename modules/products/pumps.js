@@ -1,10 +1,11 @@
 const { postData, putData, getData, deleteData } = require('../../services/axios')
 const { logToFile } = require('../../services/logger/logTxt')
-const { modelNames } = require('../utils/schemas')
+const { modelNames, compareObjects, getModelKey } = require('../utils/schemas')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { ModelStatusTypes } = require('../../utils/types')
 const { getAll } = require('./productsCombinations')
+const { isEmptyObject } = require('../utils/object-code')
 
 async function insertPump(obj) {
     let objectForLog = {
@@ -23,13 +24,9 @@ async function insertPump(obj) {
         }
     }
     catch (error) {
-        console.log(error)
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
-        if (error.type === ErrorTypes.VALIDATION) {
-            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
-            throw new Error(errorMessage);
-        }
+        
         throw error
     }
 }
@@ -52,10 +49,7 @@ async function findPump(filter = {}) {
     catch (error) {
         objForLog.error = error.message
         logToFile(objForLog)
-        if (error.type === ErrorTypes.VALIDATION) {
-            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
-            throw new Error(errorMessage);
-        }
+       
         throw error
     }
 
@@ -74,23 +68,37 @@ async function isPumpAddition({ condition }) {
 
 async function updatePump({ data = {}, condition = {} }) {
     try {
-        _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.UPDATE)
-
-        const response = await putData('/update/updateone', { entityName: modelNames.PUMPS, data: data, condition: condition })
-        if (response.status == 204) {
-            const location = JSON.parse(response.headers['content-location'])
-            const { condition, rowsAffected } = location
-            if (rowsAffected === 1) {
-                const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
-                return updateData.data
+        let origin;
+        if (isEmptyObject(condition)) {
+            const key = getModelKey(modelNames.PUMPS);
+            condition[key] = data[key]
+            origin = await getData(`/read/readone/${modelNames.PUMPS}/${data[key]}`)
+        }
+        else {
+            origin = await getData(`/read/readMany/${modelNames.PUMPS}`, condition)
+        }
+        if (origin.data) {
+            const originObj = origin.data
+            const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.PUMPS })
+            if (!isEmptyObject(updatedata)) {
+                _ = await checkObjectValidations(updatedata, modelNames.PUMPS, ModelStatusTypes.UPDATE)
+                const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS, data: updatedata, condition })
+                if (response.status == 204) {
+                    const location = JSON.parse(response.headers['content-location'])
+                    const { condition, rowsAffected } = location
+                    console.log({ condition, rowsAffected });
+                    if (rowsAffected === 1) {
+                        const updateData = await getData(`/read/readOne/${modelNames.PUMPS}`, condition)
+                        console.log(updateData.data);
+                        return updateData.data
+                    }
+                }
             }
+            return false;
         }
-        return response
+
     } catch (error) {
-        if (error.type === ErrorTypes.VALIDATION) {
-            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
-            throw new Error(errorMessage);
-        }
+       
         throw error;
     }
 }

@@ -4,8 +4,9 @@ const { FINISH_PRODUCTS_ENTITY } = process.env
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { logToFile } = require('../../services/logger/logTxt')
-const { modelNames } = require('../utils/schemas')
+const { modelNames, getModelKey, compareObjects } = require('../utils/schemas')
 const { ModelStatusTypes, ErrorTypes } = require('../../utils/types')
+const { isEmptyObject } = require('../utils/object-code')
 
 
 
@@ -25,26 +26,43 @@ async function insertFinishProduct(obj) {
             return response
     }
     catch (error) {
-        objectForLog.error = error.message
+        objectForLog.error = error
         logToFile(objectForLog)
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
-            throw new Error(errorMessage);
-        }
         throw error
     }
 }
 async function updateFinishProduct({ data = {}, condition = {} }) {
     try {
-        _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.UPDATE)
-        const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS,  data, condition })
-        return response
+        let origin;
+        if (isEmptyObject(condition)) {
+            const key = getModelKey(modelNames.FINISH_PRODUCTS);
+            condition[key] = data[key]
+            origin = await getData(`/read/readone/${modelNames.FINISH_PRODUCTS}/${data[key]}`)
+        }
+        else {
+            origin = await getData(`/read/readMany/${modelNames.FINISH_PRODUCTS}`, condition)
+        }
+        if (origin.data) {
+            const originObj = origin.data
+            const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.FINISH_PRODUCTS })
+            if (!isEmptyObject(updatedata)) {
+                _ = await checkObjectValidations(updatedata, modelNames.FINISH_PRODUCTS, ModelStatusTypes.UPDATE)
+                const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS, data: updatedata, condition })
+                if (response.status == 204) {
+                    const location = JSON.parse(response.headers['content-location'])
+                    const { condition, rowsAffected } = location
+                    console.log({ condition, rowsAffected });
+                    if (rowsAffected === 1) {
+                        const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
+                        console.log(updateData.data);
+                        return updateData.data
+                    }
+                }
+            }
+            return false;
+        }
 
     } catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
-            throw new Error(errorMessage);
-        }
         throw error;
     }
 }
@@ -53,12 +71,12 @@ async function updateFinishProduct({ data = {}, condition = {} }) {
 async function deleteFinishProduct({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS,  data, condition })
+        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS, data, condition })
         return response
 
     } catch (error) {
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
+        if (error.type === ErrorTypes.VALIDATION) {
+            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
             throw new Error(errorMessage);
         }
         throw error;
@@ -77,27 +95,13 @@ async function findFinishProduct(filter = {}) {
             filter.disabled = false
         let condition = filter;
         objForLog.filter = condition
-
         logToFile(objForLog)
-
-
         const response = await getData(`/read/readMany/${modelNames.FINISH_PRODUCTS}`, condition)
-        console.log(response.data)
-        // for (const finish of response.data) {
-        //     if (Object.keys(finish).includes('UnitOfMeasure')) {
-        //         const measureName = await findMeasureName(finish.UnitOfMeasure)
-        //         finish['UnitOfMeasure'] = measureName
-        //     }
-        // }
         return response
     }
     catch (error) {
-        objForLog.error = error.message
+        objForLog.error = error
         logToFile(objForLog)
-        if(error.type === ErrorTypes.VALIDATION){
-            let errorMessage = error.data.reduce((message, {error})=>[...message, error], [] ).join(',')
-            throw new Error(errorMessage);
-        }
         throw error
     }
 }
