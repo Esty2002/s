@@ -706,7 +706,6 @@ const moduleValidations = [
             },
         ]
     },
-    // FIXME: can update to an existing name
     {
         objectName: modelNames.MEASURES,
         values: [
