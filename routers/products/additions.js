@@ -41,12 +41,13 @@ router.post('/delete', express.json(), async (req, res) => {
     }
 })
 
-router.post('/update', express.json(), async (req, res) => {
+router.put('/update', express.json(), async (req, res) => {
     try {
         const { data, condition } = req.body
         const response = await updateAddition({ data, condition })
         if (response) {
-            res.status(204).send(response)
+            res.setHeader('content-location', `${JSON.stringify(response)}`)
+            res.status(204).end()
         }
         if (response === false) {
             res.status(304).send()

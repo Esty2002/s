@@ -3,7 +3,7 @@ const { updateClient } = require('../../modules/clients/updateClient')
 const router = express.Router();
 
 
-router.post('/update', express.json(), async (req, res) => {
+router.put('/update', express.json(), async (req, res) => {
     try {
         const response = await updateClient(req.body);
         if (response)

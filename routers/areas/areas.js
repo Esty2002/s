@@ -179,7 +179,7 @@ router.get('/findAllTypes', express.json(), async (req, res) => {
     }
 });
 
-router.post('/updateArea', express.json(), async (req, res) => {
+router.put('/updateArea', express.json(), async (req, res) => {
     let object;
     try {
         object = {

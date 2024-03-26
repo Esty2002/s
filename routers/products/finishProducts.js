@@ -32,7 +32,7 @@ router.post('/create', express.json(), async (req, res) => {
     }
 })
 
-router.post('/update', express.json(), async (req, res) => {
+router.put('/update', express.json(), async (req, res) => {
     let objectForLog = {
         name: 'update',
         description: 'update finished product in router',

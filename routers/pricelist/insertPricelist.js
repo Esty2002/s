@@ -285,7 +285,7 @@ router.get('/detailsOfProfucts/:entityName', express.json(), async (req, res) =>
     }
 })
 
-router.post('/updateFieldInTable/:id/:entityName', express.json(), async (req, res) => {
+router.put('/updateFieldInTable/:id/:entityName', express.json(), async (req, res) => {
     let objForLog
     try {
         objForLog = {

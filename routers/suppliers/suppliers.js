@@ -36,7 +36,7 @@ router.post('/insertsupplier', express.json(), async (req, res) => {
     }
 })
 
-router.post('/updatesupplier', express.json(), async (req, res) => {
+router.put('/updatesupplier', express.json(), async (req, res) => {
     try {
         const response = await updateDetail(req.body)
 

@@ -77,7 +77,7 @@ router.post('/insertbranch', express.json(), async (req, res) => {
     }
 })
 
-router.post('/updatebranch', express.json(), async (req, res) => {
+router.put('/updatebranch', express.json(), async (req, res) => {
     try {
         const response = await updateDetail( req.body)
         if (response)
