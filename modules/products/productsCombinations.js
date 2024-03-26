@@ -15,11 +15,10 @@ async function insert(object) {
                 let id = existResponse.data[0].id
 
                 let updateObject = {
-                    entityName: modelNames.PRODUCTS_COMBINATIONS,
                     data: { disabled: false },
                     condition: { id }
                 }
-                const updateResponse = await putData('/update/updateone', updateObject)
+                const updateResponse = await putData(`/update/updateone/${modelNames.PRODUCTS_COMBINATIONS}`, updateObject)
                 return updateResponse
             }
             else {
@@ -29,7 +28,7 @@ async function insert(object) {
         else {
             object = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.CREATE)
             console.log({ object })
-            const response = await postData('/create/createone', { entityName: modelNames.PRODUCTS_COMBINATIONS, data: object })
+            const response = await postData(`/create/createone/${modelNames.PRODUCTS_COMBINATIONS}`, {  data: object })
             return response
         }
     }
@@ -57,7 +56,7 @@ async function deleteItem(object) {
     try {
         _ = await checkObjectValidations(object, modelNames.PRODUCTS_COMBINATIONS, ModelStatusTypes.DELETE)
         console.log(object)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PRODUCTS_COMBINATIONS, data: object, condition: { id: object.id } })
+        const response = await deleteData(`/delete/deleteone/${modelNames.PRODUCTS_COMBINATIONS}`, {  data: object, condition: { id: object.id } })
         return response
     }
     catch (error) {
@@ -71,7 +70,7 @@ async function deleteItem(object) {
 
 async function updateNames(object) {
     try {
-        const response = await putData('/update/updateone', { entityName: modelNames.PRODUCTS_COMBINATIONS, data: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC } })
+        const response = await putData(`/update/updateone/${modelNames.PRODUCTS_COMBINATIONS}`, {  data: { parentId: object.parent, childId: object.child, disable: object.disable }, condition: { ParentId: object.idP, ChildId: object.idC } })
         if (response.status == 204)
             return response.data
         return false

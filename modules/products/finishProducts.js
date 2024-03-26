@@ -21,7 +21,7 @@ async function insertFinishProduct(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.FINISH_PRODUCTS, ModelStatusTypes.CREATE)
 
-        const response = await postData('/create/createone', { entityName: modelNames.FINISH_PRODUCTS, data: obj })
+        const response = await postData(`/create/createone/${modelNames.FINISH_PRODUCTS}`, {  data: obj })
         if (response.data)
             return response
     }
@@ -47,16 +47,17 @@ async function updateFinishProduct({ data = {}, condition = {} }) {
             const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.FINISH_PRODUCTS })
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.FINISH_PRODUCTS, ModelStatusTypes.UPDATE)
-                const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS, data: updatedata, condition })
+                const response = await putData(`/update/updateone/${modelNames.FINISH_PRODUCTS}`, { data: updatedata, condition })
                 if (response.status == 204) {
                     const location = JSON.parse(response.headers['content-location'])
-                    const { condition, rowsAffected } = location
-                    console.log({ condition, rowsAffected });
-                    if (rowsAffected === 1) {
-                        const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
-                        console.log(updateData.data);
-                        return updateData.data
-                    }
+                    // const { condition, count } = location
+                    // console.log({ condition, count });
+                    // if (count === 1) {
+                    //     const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
+                    //     console.log(updateData.data);
+                    //     return updateData.data
+                    // }
+                    return location
                 }
             }
             return false;
@@ -71,7 +72,7 @@ async function updateFinishProduct({ data = {}, condition = {} }) {
 async function deleteFinishProduct({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.FINISH_PRODUCTS, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.FINISH_PRODUCTS, data, condition })
+        const response = await deleteData(`/delete/deleteone/${modelNames.FINISH_PRODUCTS}`, { data, condition })
         return response
 
     } catch (error) {

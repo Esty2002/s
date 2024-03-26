@@ -82,11 +82,11 @@ async function updateDetail(setting) {
         await checkObjectValidations(setting, modelNames.SUPPLIERS, ModelStatusTypes.UPDATE);
         flag = true
         let object = {
-            entityName: modelNames.SUPPLIERS, data: {
+            data: {
                 ...setting
             }, condition: { id: setting.Id }
         };
-        const result = await putData('/update/updateOne', object);
+        const result = await putData(`/update/updateone/${modelNames.SUPPLIERS}`, object);
         return result;
     }
     catch (error) {
@@ -98,16 +98,12 @@ async function deleteSupplier(object) {
     try {
         object = await checkObjectValidations(object, models.SUPPLIERS.entity, ModelStatusTypes.DELETE)
         console.log({ object });
-        let obj = { entityName: 'suppliers', data: object, condition: { id: object.id } }
-        const result = await deleteData('/delete/deleteone', obj);
+        let obj = { data: object, condition: { id: object.id } }
+        const result = await deleteData(`/delete/deleteone/${modelNames.SUPPLIERS}`, obj);
         return result
     }
     catch (error) {
-        if (error.type === ErrorTypes.VALIDATION) {
-            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
-            throw new Error(errorMessage);
-        }
-
+       
         throw error
     }
 

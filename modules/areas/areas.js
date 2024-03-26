@@ -1,7 +1,7 @@
 require('dotenv').config()
 const { getData, postData, deleteData, putData } = require('../../services/axios');
 const { logToFile } = require('../../services/loggerPnini');
-const { models } = require('../utils/schemas');
+const { models, modelNames } = require('../utils/schemas');
 
 // mongoשל ה id את ה sqlואין לs mongo נכנס לפני sql-מסודר לפי הטרנזקציה החדשה אך הטרנזקציה לא טובה סופית כיון ש
 async function insertArea(obj = {}) {
@@ -28,10 +28,8 @@ async function insertArea(obj = {}) {
         }
 
         obj.areaName = obj.name
-        const result = await postData('/create/createone',
+        const result = await postData(`/create/createone/${modelNames.AREAS}`,
             {
-                entityName: 'areas',
-
                 data: { ...obj, addedDate: new Date(), username: 'develop', disabled: false }
             });
         return result
@@ -130,16 +128,14 @@ async function updateArea(obj) {
         description: 'updateArea in module',
         dataThatRecived: obj
     };
-    const result = await putData('/update/updateone',
+    const result = await putData(`/update/updateone/${modelNames.AREAS}`,
         {
-            entityName: "areas",
             condition: [{ AND: [obj.condition, { OR: [{ disabled: undefined }, { disabled: false }] }] }],
             data: obj.set
         })
     if (result.data) {
-        const result2 = await putData('/update/updateone',
+        const result2 = await putData('/update/updateone/Areas',
             {
-                entityName: 'Areas',
                 condition: { disabled: false, areaName: obj.filter.name },
                 data: { disabled: true }
             })
@@ -166,16 +162,14 @@ async function deleteArea(obj) {
         description: 'deleteArea in module',
         dataThatRecived: obj
     };
-    const result = await putData('/update/updateone',
+    const result = await putData(`/update/updateone/${modelNames.AREAS}`,
         {
-            entityName: "areas",
             condition: { AND: [obj.filter, { OR: [{ disabled: null }, { disabled: false }] }] },
             data: obj.set
         })
     if (result.data) {
-        const resultDB = await putData('/update/updateone',
+        const resultDB = await putData(`/update/updateone/${modelNames.AREAS}`,
             {
-                entityName: 'areas',
                 data: { disabled: true },
                 condition: { disabled: false, areaName: obj.filter.name }
             })

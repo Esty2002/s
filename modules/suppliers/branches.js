@@ -91,9 +91,9 @@ async function updateDetail(setting) {
         //     }
         // }
         let obj = {
-            entityName: modelNames.BRANCHES, data: {...setting}, condition: { id: setting.id }
+             data: {...setting}, condition: { id: setting.id }
         }
-        const res = await putData("/update/updateone", obj);
+        const res = await putData(`/update/updateone/${ modelNames.BRANCHES}`, obj);
         console.log(res);
         return res;
     }
@@ -109,8 +109,8 @@ async function updateDetail(setting) {
 async function deleteBranches(object) {
     try {
         const newDate = new Date().toISOString();
-        let obj = { entityName: modelNames.BRANCHES, data: { disableUser: `${object.disableUser}`, disabled: true, disabledDate: newDate }, condition: { id: object.id } };
-        const res = await deleteData("/delete/deleteone", obj);
+        let obj = { data: { disableUser: `${object.disableUser}`, disabled: true, disabledDate: newDate }, condition: { id: object.id } };
+        const res = await deleteData(`/delete/deleteone/${modelNames.BRANCHES}`, obj);
         return res;
     }
     catch (error) {

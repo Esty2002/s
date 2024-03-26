@@ -13,7 +13,7 @@ async function updateClient(obj) {
             data: clone,
             condition: { Id: obj.Id }
         }
-        const response = await putData('/update/updateone', object)
+        const response = await putData(`/update/updateone/${modelNames.CLIENTS}`, object)
         return response
     }
     catch (error) {

@@ -1,4 +1,5 @@
 const { sqlServer, postData, getData } = require('../../services/axios')
+const { modelNames } = require('../utils/schemas')
 const { PRICELIST, ADDITIONSFORDISTANCE, CITIESADDITIONS, TIMEADDITIONS, TRUCKFILL, PRICELISTBYSUPPLIERORCLIENT, PRICElISTFORPRODUCTS } = process.env
 
 
@@ -52,7 +53,7 @@ async function reedToUpdate({ tbName, id, update }) {
         obj['entityName'] = `${tbName}`
         obj['columns'] = '*'
         obj['data'] = record[0];
-        const result = await postData('/create/createone', obj)
+        const result = await postData(`/create/createone`, obj)
         return result
     }
     else
@@ -84,7 +85,7 @@ async function deleteItems({ tbName, id, del, newname }) {
         obj['entityName'] = PRICELIST;
         obj['columns'] = '*';
         obj['data'] = newdata;
-        const result = await postData('/create/createone', obj)
+        const result = await postData(`/create/createone/${modelNames.PRICELIST}`, obj)
         if (result.status === 201) {
             let pricelistId = result.data[0].Id;
             let newDataa = []

@@ -19,7 +19,7 @@ async function insertAddition(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.ADDITION, ModelStatusTypes.CREATE)
         if (isValid) {
-            const response = await postData('/create/createone', { entityName: modelNames.ADDITION, data: obj })
+            const response = await postData(`/create/createone/${modelNames.ADDITION}`, {  data: obj })
             if (response.data)
                 return response
         }
@@ -95,16 +95,17 @@ async function updateAddition({ data = {}, condition = {} }) {
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.ADDITION, ModelStatusTypes.UPDATE)
 
-                const response = await putData('/update/updateone', { entityName: modelNames.ADDITION, data: updatedata, condition })
+                const response = await putData(`/update/updateone/${modelNames.ADDITION}`, { data: updatedata, condition })
                 if (response.status == 204) {
                     const location = JSON.parse(response.headers['content-location'])
-                    const { condition, rowsAffected } = location
-                    console.log({ condition, rowsAffected });
-                    if (rowsAffected === 1) {
-                        const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
-                        console.log(updateData.data);
-                        return updateData.data
-                    }
+                    // const { condition, rowsAffected } = location
+                    // console.log({ condition, rowsAffected });
+                    // if (rowsAffected === 1) {
+                    //     const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
+                    //     console.log(updateData.data);
+                    //     return updateData.data
+                    // }
+                    return location;
                 }
             }
             return false
@@ -117,7 +118,7 @@ async function updateAddition({ data = {}, condition = {} }) {
 async function deleteAddition({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.ADDITION, data, condition })
+        const response = await deleteData(`/delete/deleteone/${ modelNames.ADDITION}`, {  data, condition })
         return response
 
     } catch (error) {

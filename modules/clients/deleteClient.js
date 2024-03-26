@@ -1,4 +1,5 @@
-const { getData, deleteData } = require('../../services/axios')
+const { getData, deleteData } = require('../../services/axios');
+const { modelNames } = require('../utils/schemas');
 const { SQL_CLIENTS_TABLE } = process.env
 
 
@@ -9,12 +10,12 @@ async function deletedClientByCode(clientCode, userName) {
             let result;
 
             let obj = {
-                entityName: SQL_CLIENTS_TABLE,
+                
                 data: { disabled: true, disabledDate: new Date(), disableUser: userName },
                 condition: { clientCode }
             }
 
-            result = await deleteData('/delete/deleteone', obj)
+            result = await deleteData(`/delete/deleteone/${modelNames.CLIENTS}`, obj)
             return result.data;
         }
 

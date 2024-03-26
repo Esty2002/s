@@ -25,15 +25,16 @@ async function updateMeasure({ condition = {}, data }) {
             const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.FINISH_PRODUCTS })
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.MEASURES, ModelStatusTypes.UPDATE)
-                const response = await putData('/update/updateone', { entityName: modelNames.MEASURES, data: updatedata, condition })
+                const response = await putData(`/update/updateone${modelNames.MEASURES}`, {  data: updatedata, condition })
                 if (response.status == 204) {
                     const location = JSON.parse(response.headers['content-location'])
-                    const { condition, rowsAffected } = location
-                    console.log(rowsAffected);
-                    if (rowsAffected === 1) {
-                        const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
-                        return updateData.data
-                    }
+                    // const { condition, rowsAffected } = location
+                    // console.log(rowsAffected);
+                    // if (rowsAffected === 1) {
+                    //     const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
+                    //     return updateData.data
+                    // }
+                    return location
                 }
             }
             return false;
@@ -57,7 +58,7 @@ async function insertMeasure(obj) {
     // if (status === 200 && !data[0]) {
     try {
         _ = await checkObjectValidations(obj, modelNames.MEASURES)
-        const response = await postData('/create/createone', { entityName: modelNames.MEASURES, data: obj })
+        const response = await postData(`/create/createone/${modelNames.MEASURES}`, {  data: obj })
         if (response.data)
             return response
     }
@@ -70,7 +71,7 @@ async function insertMeasure(obj) {
 
 async function deleteItem(object) {
     try {
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.MEASURES, data: { disable: true }, condition: { id: object.id } })
+        const response = await deleteData(`/delete/deleteone/${modelNames.MEASURES}`, { data: { disable: true }, condition: { id: object.id } })
         if (response.status == 204) {
             return response.data
         }

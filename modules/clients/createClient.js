@@ -8,7 +8,7 @@ async function addOneClient(entity) {
     delete data.id
     let unique = await getData(`/read/readMany/${modelNames.CLIENTS}`, { clientCode: entity.clientCode })
     if (unique.data.length === 0) {
-        const result = await postData('/create/createone', { entityName: modelNames.CLIENTS, data })
+        const result = await postData(`/create/createone/${modelNames.CLIENTS}`, {  data })
         return result;
     }
     else {

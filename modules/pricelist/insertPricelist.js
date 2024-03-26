@@ -15,7 +15,7 @@ async function insert(data, entityName) {
     try {
 
         data = await checkObjectValidations(data, modelNames.PRICELIST)
-        const result = await postData('/create/createone', { entityName: modelNames.PRICELIST, data })
+        const result = await postData(`/create/createone/${modelNames.PRICELIST}`, {  data })
         if (result.data)
             return result;
         else
@@ -50,7 +50,7 @@ async function addCustomerAndArea(data) {
 
         data = await checkObjectValidations(data, modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, ModelStatusTypes.CREATE)
         console.log({ data });
-        const response = await postData('/create/createOne', { entityName: modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS, data })
+        const response = await postData(`/create/createone/${ modelNames.PRICELIST_FOR_BUYTON_CUSTOMERS}`, {  data })
         return response.data
     }
     catch (error) {

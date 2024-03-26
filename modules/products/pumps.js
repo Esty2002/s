@@ -18,7 +18,7 @@ async function insertPump(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.PUMPS, ModelStatusTypes.CREATE)
         if (isValid) {
-            const response = await postData('/create/createone', { entityName: modelNames.PUMPS, data: obj })
+            const response = await postData(`/create/createone/${modelNames.PUMPS}`, { data: obj })
             if (response.data)
                 return response
         }
@@ -26,7 +26,7 @@ async function insertPump(obj) {
     catch (error) {
         objectForLog.error = error
         logToFile(objectForLog)
-        
+
         throw error
     }
 }
@@ -49,7 +49,7 @@ async function findPump(filter = {}) {
     catch (error) {
         objForLog.error = error.message
         logToFile(objForLog)
-       
+
         throw error
     }
 
@@ -82,23 +82,24 @@ async function updatePump({ data = {}, condition = {} }) {
             const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.PUMPS })
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.PUMPS, ModelStatusTypes.UPDATE)
-                const response = await putData('/update/updateone', { entityName: modelNames.FINISH_PRODUCTS, data: updatedata, condition })
+                const response = await putData(`/update/updateone/${modelNames.FINISH_PRODUCTS}`, { data: updatedata, condition })
                 if (response.status == 204) {
                     const location = JSON.parse(response.headers['content-location'])
-                    const { condition, rowsAffected } = location
-                    console.log({ condition, rowsAffected });
-                    if (rowsAffected === 1) {
-                        const updateData = await getData(`/read/readOne/${modelNames.PUMPS}`, condition)
-                        console.log(updateData.data);
-                        return updateData.data
-                    }
+                    // const { condition, rowsAffected } = location
+                    // console.log({ condition, rowsAffected });
+                    // if (rowsAffected === 1) {
+                    //     const updateData = await getData(`/read/readOne/${modelNames.PUMPS}`, condition)
+                    //     console.log(updateData.data);
+                    //     return updateData.data
+                    // }
+                    return location
                 }
             }
             return false;
         }
 
     } catch (error) {
-       
+
         throw error;
     }
 }
@@ -106,7 +107,7 @@ async function updatePump({ data = {}, condition = {} }) {
 async function deletePump({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.PUMPS, ModelStatusTypes.DELETE)
-        const response = await deleteData('/delete/deleteone', { entityName: modelNames.PUMPS, data: data, condition: condition })
+        const response = await deleteData(`/delete/deleteone/${modelNames.PUMPS}`, { data: data, condition: condition })
         return response
     } catch (error) {
         if (error.type === ErrorTypes.VALIDATION) {

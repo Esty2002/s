@@ -348,7 +348,7 @@ const models = {
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
             NAME: { name: 'name', type: types.STRING, insert: true, update: true, key: false, unique: true },
-            UNIT_OF_MEASURE: { name: 'unitOfMeasure', type: types.INTEGER, insert: true, update: true, key: false, unique: false },
+            UNIT_OF_MEASURE: { name: 'unitOfMeasure',entity:modelNames.MEASURES, type: types.INTEGER, insert: true, update: true, key: false, unique: false },
             ADDITION: { name: 'addition', type: types.BOOLEAN, insert: true, update: true, key: false, unique: false },
             BOOKKEEPING_CODE: { name: 'bookkeepingCode', type: types.STRING, insert: true, update: true, key: false, unique: false },
             ADDED_DATE: { name: 'addedDate', type: types.DATE, insert: false, update: false, key: false, unique: false },
@@ -529,14 +529,11 @@ function getObjectModel(object, model) {
 }
 
 //TODO: decide what to do when the origin object gets an array 
-//[ ] : start finding the innermodule 
+//[x] : start finding the innermodule 
 function compareObjects({ data, origin, modelname }) {
-    console.log({ data })
-    console.log({ origin })
     const dataKeys = Object.keys(data)
     const originKeys = Object.keys(origin);
     const filteredOriginkeys = originKeys.filter(k => dataKeys.includes(k))
-    console.log(filteredOriginkeys)
     const updateObject = filteredOriginkeys.reduce((obj, key) => {
         console.log(obj);
         if (key === getModelKey(modelname)) {
@@ -572,7 +569,6 @@ function compareObjects({ data, origin, modelname }) {
         }
         return obj
     }, {})
-    console.log({ updateObject })
     return updateObject;
 }
 

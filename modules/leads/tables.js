@@ -152,7 +152,6 @@ const deleteRecord = async (obj) => {
         if (table) {
             let result;
             const newObj = {
-                entityName: table.entityName,
                 values: {
                     disable: 1,
                     deletingDate: new Date()
@@ -160,7 +159,7 @@ const deleteRecord = async (obj) => {
                 condition: obj.condition
             };
             try {
-                result = await deleteData('/delete/deleteone', newObj);
+                result = await deleteData(`/delete/deleteone/${table.entityName}`, newObj);
                 if (result.status == 204)
                     return result.data;
                 return false
