@@ -23,7 +23,7 @@ const modelNames = {
     MEASURES: 'unitOfMeasure',
     PRICELIST: 'priceList',
     PRICELIST_FOR_BUYTON_CUSTOMERS: 'priceListForBuytonCustomers',
-    PRODUCTS_COMBINATIONS: 'productsCombinations',
+    PUMPS_COMBINATIONS: 'pumpsCombinations',
     PRODUCTS_PRICE_LIST: 'productsPricelist',
     PUMPS: 'pumps',
     STATUS: 'status',
@@ -296,8 +296,8 @@ const models = {
         }
 
     },
-    PRODUCTS_COMBINATIONS: {
-        entity: modelNames.PRODUCTS_COMBINATIONS,
+    PUMPS_COMBINATIONS: {
+        entity: modelNames.PUMPS_COMBINATIONS,
         fields:
         {
             ID: { name: 'id', type: types.INTEGER, insert: false, update: false, key: true, unique: true },
@@ -529,7 +529,6 @@ function getObjectModel(object, model) {
 }
 
 //TODO: decide what to do when the origin object gets an array 
-//[x] : start finding the innermodule 
 function compareObjects({ data, origin, modelname }) {
     const dataKeys = Object.keys(data)
     const originKeys = Object.keys(origin);

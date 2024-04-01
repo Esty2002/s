@@ -18,7 +18,7 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: models.ADDITIONS.fields.NAME.type },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.NAME.name, exist: false } },
-                   ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -48,7 +48,7 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                     {
                         modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                        { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false }
+                            { entityName: modelNames.ADDITION, field: models.ADDITIONS.fields.BOOKKEEPING_CODE.name, exist: false }
                     }
                 ],
 
@@ -222,7 +222,7 @@ const moduleValidations = [
             {
                 propertyName: models.BRANCHES.fields.SUPPLIER_CODE.name,
                 type: models.BRANCHES.fields.SUPPLIER_CODE.type,
-                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments:  models.BRANCHES.fields.SUPPLIER_CODE.connecteProperty },
+                validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: models.BRANCHES.fields.SUPPLIER_CODE.connecteProperty },
                 { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.ID.name, exist: true } }
                 ], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
@@ -304,7 +304,7 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.CLIENT_CODE.name, exist: false } },
-                   ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -342,10 +342,10 @@ const moduleValidations = [
                     ,
                 {
                     modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                    { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false }
+                        { entityName: modelNames.CLIENTS, field: models.CLIENTS.fields.BOOKKEEPING_CODE.name, exist: false }
                 }
-                   
-                
+
+
                 ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
@@ -614,7 +614,7 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.required, arguments: null },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.NAME.name, exist: false } },
-                   ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -641,10 +641,10 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "number" },
                     {
                         modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                        { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false }
+                            { entityName: modelNames.FINISH_PRODUCTS, field: models.FINISH_PRODUCTS.fields.BOOKKEEPING_CODE.name, exist: false }
 
                     }
-                    ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -715,7 +715,7 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.maxLength, arguments: 20 },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.MEASURES, field: models.MEASURES.fields.MEASURE.name, exist: false } },
-                   ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -809,7 +809,7 @@ const moduleValidations = [
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.type, arguments: "string" },
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PRICELIST, field: models.PRICELIST.fields.NAME.name, exist: false } },
-                    ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1046,15 +1046,15 @@ const moduleValidations = [
         }
         ]
     },
-
     {
-        objectName: modelNames.PRODUCTS_COMBINATIONS,
+        objectName: modelNames.PUMPS_COMBINATIONS,
         values: [
             {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.PARENT.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.PARENT.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.PARENT.name,
+                type: models.PUMPS_COMBINATIONS.fields.PARENT.type,
                 validation: [
-                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PUMPS, field: models.PUMPS.fields.ID.name, exist: true } }
+                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PUMPS, field: models.PUMPS.fields.ID.name, exist: true,
+                         condition: [{ key: models.PUMPS.fields.ADDITION.name, value: false }, { key: models.PUMPS.fields.DISABLED.name, value: false }] } },
                 ], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1062,10 +1062,16 @@ const moduleValidations = [
                 ]
             },
             {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.CHILD.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.CHILD.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.CHILD.name,
+                type: models.PUMPS_COMBINATIONS.fields.CHILD.type,
                 validation: [
-                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PUMPS, field: models.PUMPS.fields.ID.name, exist: true } }
+                    {
+                        modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: {
+                            entityName: modelNames.PUMPS, field: models.PUMPS.fields.ID.name, exist: true
+                            , condition: [{ key: models.PUMPS.fields.ADDITION.name, value: true }, { key: models.PUMPS.fields.DISABLED.name, value: false }]
+                        }
+                    }
+
                 ], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1074,8 +1080,8 @@ const moduleValidations = [
             },
 
             {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.ADDED_DATE.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.ADDED_DATE.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.ADDED_DATE.name,
+                type: models.PUMPS_COMBINATIONS.fields.ADDED_DATE.type,
                 initValue: { modelStatus: [ModelStatusTypes.CREATE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
@@ -1087,8 +1093,8 @@ const moduleValidations = [
                 ],
             },
             {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.USERNAME.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.USERNAME.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.USERNAME.name,
+                type: models.PUMPS_COMBINATIONS.fields.USERNAME.type,
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true, default: { status: AppStatusTypes.DEVELOP, initValue: () => 'develop' } },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1096,16 +1102,16 @@ const moduleValidations = [
                 ]
             },
             {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.DISABLED.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.DISABLED.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.DISABLED.name,
+                type: models.PUMPS_COMBINATIONS.fields.DISABLED.type,
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true, default: { initValue: () => false } },
                     { status: ModelStatusTypes.UPDATE, require: false },
                     { status: ModelStatusTypes.DELETE, require: true, default: { initValue: () => true } }
                 ],
             }, {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.DISABLE_USER.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.DISABLE_USER.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.DISABLE_USER.name,
+                type: models.PUMPS_COMBINATIONS.fields.DISABLE_USER.type,
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },
@@ -1113,8 +1119,8 @@ const moduleValidations = [
                 ],
             },
             {
-                propertyName: models.PRODUCTS_COMBINATIONS.fields.DISABLED_DATE.name,
-                type: models.PRODUCTS_COMBINATIONS.fields.DISABLED_DATE.type,
+                propertyName: models.PUMPS_COMBINATIONS.fields.DISABLED_DATE.name,
+                type: models.PUMPS_COMBINATIONS.fields.DISABLED_DATE.type,
                 initValue: { modelStatus: [ModelStatusTypes.DELETE], initValue: () => new Date() },
                 validation: [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.dateType, arguments: null },
@@ -1273,10 +1279,10 @@ const moduleValidations = [
                     { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                     {
                         modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                        { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false }
-                          
+                            { entityName: modelNames.PUMPS, field: models.PUMPS.fields.BOOKKEEPING_CODE.name, exist: false }
+
                     }
-                   
+
                 ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: true },
@@ -1358,10 +1364,10 @@ const moduleValidations = [
                 validation: [{ modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.onlyDigitsInString, arguments: null },
                 {
                     modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInMultipleDB, arguments:
-                    { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false }
+                        { entityName: modelNames.SUPPLIERS, field: models.SUPPLIERS.fields.BOOKKEEPING_CODE.name, exist: false }
 
                 }
-                   ],
+                ],
                 require: [
                     { status: ModelStatusTypes.CREATE, require: false },
                     { status: ModelStatusTypes.UPDATE, require: false },

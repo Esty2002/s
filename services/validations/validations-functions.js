@@ -111,45 +111,30 @@ const specificLength = (value, len) => {
     throw new Error(`the length of the ${value} is not correct`);
 }
 
-// const clientCodeIsExistInDB = async (field, arg) => {
-//     let entityName1 = arg.entityName;
-//     let condition = {}
-//     condition[arg.field] = field;
-//     let ans = await getData(`/read/readOne/${entityName1}`, condition)
-//     if (ans.data.length == 0) {
-//         return true;
-//     }
-//     else {
-//         throw new Error(`the ${val}: ${field} is not unique`);
-//     }
-// }
-
 const recordExistInDB = async (value, arg) => {
     const { entityName, field, exist } = arg;
+    console.log(arg);
     let { condition } = arg
+    console.log(condition);
     try {
         if (condition === undefined) {
             condition = {}
         }
+
         condition[field] = value;
         if (typeof (value) === 'object') {
             if (value[field]) {
                 condition[field] = value[field]
             }
         }
-        let ans = await getData(`/read/readOne/${entityName}`, condition)
-        if (exist) {
-            if (ans.data.length > 0) {
-                return true
-            }
-            else {
-                throw new Error(`The record ${value} does not exist  in ${entityName}`);
-            }
+        let ans = await getData(`/read/exists/${entityName}`, condition)
+
+        if (ans === exist) {
+            return true
         }
         else {
-            if (ans.data.length === 0) {
-                return true
-            }
+            if (exist)
+                throw new Error(`The record ${value} does not exist  in ${entityName}`);
             else {
                 throw new Error(`The record ${value} exists in ${entityName}`);
             }
@@ -182,7 +167,7 @@ const recordExistInMultipleDB = async (value, arg) => {
         else {
             if (dataItem[field].length === 0)
                 return true;
-            else{
+            else {
                 throw new Error(`the record ${condition[field]} exists in db`)
             }
         }

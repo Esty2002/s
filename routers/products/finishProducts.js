@@ -44,7 +44,7 @@ router.put('/update', express.json(), async (req, res) => {
         const { data, condition } = req.body
         const response = await updateFinishProduct({ data, condition })
         if (response)
-            res.status(204).send(true)
+            res.status(204).end()
         else if (response === false) {
             res.status(304).end()
         }

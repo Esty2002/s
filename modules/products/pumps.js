@@ -4,7 +4,7 @@ const { modelNames, compareObjects, getModelKey } = require('../utils/schemas')
 const { checkObjectValidations } = require('../../services/validations/use-validations')
 const { findMeasureNumber, findMeasureName } = require('./measure')
 const { ModelStatusTypes } = require('../../utils/types')
-const { getAll } = require('./productsCombinations')
+const { getAll } = require('./pumpsCombinations')
 const { isEmptyObject } = require('../utils/object-code')
 
 async function insertPump(obj) {
@@ -57,7 +57,7 @@ async function findPump(filter = {}) {
 
 async function isPumpAddition({ condition }) {
     try {
-        const response = await getData(`/read/readMany/${modelNames.ADDITION}`, condition)
+        const response = await getData(`/read/readMany/${modelNames.PUMPS}`, condition)
         const list = response.data
         return list.every(({ addition }) => addition)
     }
@@ -79,21 +79,12 @@ async function updatePump({ data = {}, condition = {} }) {
         }
         if (origin.data) {
             const originObj = origin.data
+            console.log({originObj});
             const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.PUMPS })
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.PUMPS, ModelStatusTypes.UPDATE)
-                const response = await putData(`/update/updateone/${modelNames.FINISH_PRODUCTS}`, { data: updatedata, condition })
-                if (response.status == 204) {
-                    const location = JSON.parse(response.headers['content-location'])
-                    // const { condition, rowsAffected } = location
-                    // console.log({ condition, rowsAffected });
-                    // if (rowsAffected === 1) {
-                    //     const updateData = await getData(`/read/readOne/${modelNames.PUMPS}`, condition)
-                    //     console.log(updateData.data);
-                    //     return updateData.data
-                    // }
-                    return location
-                }
+                const response = await putData(`/update/updateone/${modelNames.PUMPS}`, { data: updatedata, condition })
+               return response ;
             }
             return false;
         }

@@ -1,5 +1,5 @@
 require('dotenv').config()
-const { postData } = require('../../services/axios')
+const { postData, getData } = require('../../services/axios')
 const { modelNames, getModel, getObjectModel } = require('../utils/schemas')
 const { SQL_PRODUCTS_TABLE } = process.env
 
@@ -63,7 +63,7 @@ return combination
 async function getCementTraits(basicproducts) {
     try {
         console.log({ basicproducts })
-        const response = await postData(`/read/readMany/${basicproducts}`)
+        const response = await getData(`/read/readMany/${modelNames.BASIC_PRODUCTS}`)
         if (response.status === 200)
             return response
         else

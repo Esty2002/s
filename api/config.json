@@ -262,7 +262,7 @@
                     ]
                 },
                 {
-                    "document": "productsCombinations",
+                    "document": "pumpsCombinations",
                     "functions": [
                         {
                             "key": "insertRow",

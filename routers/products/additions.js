@@ -46,11 +46,10 @@ router.put('/update', express.json(), async (req, res) => {
         const { data, condition } = req.body
         const response = await updateAddition({ data, condition })
         if (response) {
-            res.setHeader('content-location', `${JSON.stringify(response)}`)
             res.status(204).end()
         }
         if (response === false) {
-            res.status(304).send()
+            res.status(304).end()
         }
     }
     catch (error) {
@@ -65,7 +64,7 @@ router.get('/find', async (req, res) => {
     let objectForLog = {
         name: 'find',
         description: 'find Addition in router',
-        condition: req.body.where
+        condition: req.query
     }
     logToFile(objectForLog)
     try {
@@ -75,10 +74,11 @@ router.get('/find', async (req, res) => {
         else
             res.status(response.status).send(response)
     } catch (error) {
+        console.log({error});
         objectForLog.error = error.message
         logToFile(objectForLog)
-        if (error instanceof Array)
-            res.status(500).send(error)
+        if (error.type && error.type === ErrorTypes.VALIDATION)
+            res.status(422).send(error)
         else
             res.status(500).send(error.message)
     }

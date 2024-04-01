@@ -17,7 +17,6 @@ const updateClient_router = require('./routers/clients/updateClient')
 const status_router = require('./routers/clients/status')
 const router_leads=require('./routers/leads/leads')
 const auto_complete=require('./routers/utils/auto_complete')
-const productsCombinations_router = require('./routers/products/productsCombinations')
 // const pricelist_router = require('./routers/price-list/pricelist')
 const areas_router = require('./routers/areas/areas');
 const createClient_router=require('./routers/clients/createClient');
@@ -43,7 +42,6 @@ app.use('/unitOfMeasure', manageUnitOfMeasure);
 app.use('/basicProducts', manageBasicProducts);
 app.use('/pumps', pumps_router);
 app.use('/additions', manageAdditions);
-app.use('/productsCombinations', productsCombinations_router);
 app.use('/finishProducts', manageFinishProducts);
 app.use('/suppliers', suppliers_router);
 app.use('/branches', branches_router);

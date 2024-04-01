@@ -25,17 +25,8 @@ async function updateMeasure({ condition = {}, data }) {
             const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.FINISH_PRODUCTS })
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.MEASURES, ModelStatusTypes.UPDATE)
-                const response = await putData(`/update/updateone${modelNames.MEASURES}`, {  data: updatedata, condition })
-                if (response.status == 204) {
-                    const location = JSON.parse(response.headers['content-location'])
-                    // const { condition, rowsAffected } = location
-                    // console.log(rowsAffected);
-                    // if (rowsAffected === 1) {
-                    //     const updateData = await getData(`/read/readOne/${modelNames.MEASURES}`, condition)
-                    //     return updateData.data
-                    // }
-                    return location
-                }
+                const response = await putData(`/update/updateone/${modelNames.MEASURES}`, {  data: updatedata, condition })
+                return response;
             }
             return false;
         }

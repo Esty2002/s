@@ -19,7 +19,7 @@ async function insertAddition(obj) {
     try {
         const isValid = await checkObjectValidations(obj, modelNames.ADDITION, ModelStatusTypes.CREATE)
         if (isValid) {
-            const response = await postData(`/create/createone/${modelNames.ADDITION}`, {  data: obj })
+            const response = await postData(`/create/createone/${modelNames.ADDITION}`, { data: obj })
             if (response.data)
                 return response
         }
@@ -32,38 +32,28 @@ async function insertAddition(obj) {
 }
 
 async function findAddition(filter = {}) {
+    let objForLog = {
+        name: "find",
+        description: "find Addition in module",
+        filter,
+    }
     try {
-        _ = await checkObjectValidations(filter, modelNames.ADDITION, ModelStatusTypes.UPDATE)
+        // _ = await checkObjectValidations(filter, modelNames.ADDITION, ModelStatusTypes.UPDATE)
 
         if (!Object.keys(filter).includes('disabled'))
             filter.disabled = false
 
         let condition = filter;
 
-        let objForLog = {
-            name: "find",
-            description: "find Addition in module",
-            filter: condition,
-        }
         logToFile(objForLog)
         const response = await getData(`/read/readMany/${modelNames.ADDITION}`, condition)
 
-        // for (let finish of response.data) {
-        //     if (Object.keys(finish).includes('UnitOfMeasure')) {
-        //         const measureName = await findMeasureName(finish.UnitOfMeasure)
-        //         finish['UnitOfMeasure'] = measureName.data[0].measure
-        //     }
-        // }
         return response
     }
     catch (error) {
         objForLog.error = error.message
         logToFile(objForLog)
         console.log({ error })
-        if (error.type === ErrorTypes.VALIDATION) {
-            let errorMessage = error.data.reduce((message, { error }) => [...message, error], []).join(',')
-            throw new Error(errorMessage);
-        }
         throw error
     }
 
@@ -76,8 +66,6 @@ async function findAddition(filter = {}) {
     //     }
     // }
 }
-// [ ]: update data after reading data from dbserver
-// [x]: update data after reading data from dbserver
 async function updateAddition({ data = {}, condition = {} }) {
     try {
         let origin;
@@ -96,17 +84,8 @@ async function updateAddition({ data = {}, condition = {} }) {
                 _ = await checkObjectValidations(updatedata, modelNames.ADDITION, ModelStatusTypes.UPDATE)
 
                 const response = await putData(`/update/updateone/${modelNames.ADDITION}`, { data: updatedata, condition })
-                if (response.status == 204) {
-                    const location = JSON.parse(response.headers['content-location'])
-                    // const { condition, rowsAffected } = location
-                    // console.log({ condition, rowsAffected });
-                    // if (rowsAffected === 1) {
-                    //     const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
-                    //     console.log(updateData.data);
-                    //     return updateData.data
-                    // }
-                    return location;
-                }
+                return response;
+
             }
             return false
         }
@@ -118,7 +97,7 @@ async function updateAddition({ data = {}, condition = {} }) {
 async function deleteAddition({ data = {}, condition = {} }) {
     try {
         _ = await checkObjectValidations(data, modelNames.ADDITION, ModelStatusTypes.DELETE)
-        const response = await deleteData(`/delete/deleteone/${ modelNames.ADDITION}`, {  data, condition })
+        const response = await deleteData(`/delete/deleteone/${modelNames.ADDITION}`, { data, condition })
         return response
 
     } catch (error) {

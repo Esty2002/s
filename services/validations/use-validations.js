@@ -4,11 +4,22 @@ const { types } = require('../../modules/utils/schemas');
 const { ErrorTypes, ValueTypes, ModelStatusTypes } = require('../../utils/types');
 const { getValidationsModule, conditionOperators } = require('./validations-objects')
 
+//FIXME:error build when condition is array
 const buildArgumentCondition = (argument, entity) => {
     let { condition, ...rest } = argument
-    const { key } = condition
-    condition = removeKeysFromObject(condition, ['key'])
-    condition[key] = entity[key]
+    console.log({ condition });
+    if (condition instanceof Array) {
+        condition = condition.reduce((obj, { key, value }) => {
+            obj[key] = value
+            return obj;
+        }, {})
+    }
+    else if (condition.key) {
+        const { key } = condition
+        condition = removeKeysFromObject(condition, ['key'])
+        condition[key] = entity[key]
+    }
+    console.log({ condition });
     return { ...rest, condition }
 }
 
@@ -69,7 +80,6 @@ const getValidationAnswer = async ({ value, operator, validation }) => {
 }
 
 const validateEntity = async ({ entity, validationModule }) => {
-
     let errors = []
     // const entityKeys = validationModule.map(({ propertyName }) => propertyName)
     // const removeKeys = Object.keys(entity).filter((key) => entityKeys.includes(key) === false)
@@ -98,6 +108,7 @@ const validateEntity = async ({ entity, validationModule }) => {
         }
         if (val.validation) {
             for (let valid of val.validation) {
+                console.log({ valid })
                 if (entity[val.propertyName] || entity[val.propertyName] === null) {
                     try {
                         if (valid.arguments) {
@@ -172,7 +183,7 @@ const checkObjectValidations = async (entity, objName, modelStatus = ModelStatus
         if (regularProperties.length > 0) {
             entity = await validateEntity({ entity, validationModule })
         }
-        console.log({entity});
+        console.log({ entity });
         return entity
     }
     catch (error) {

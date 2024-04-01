@@ -33,6 +33,7 @@ async function insertFinishProduct(obj) {
 }
 async function updateFinishProduct({ data = {}, condition = {} }) {
     try {
+        console.log({data, condition});
         let origin;
         if (isEmptyObject(condition)) {
             const key = getModelKey(modelNames.FINISH_PRODUCTS);
@@ -48,17 +49,7 @@ async function updateFinishProduct({ data = {}, condition = {} }) {
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.FINISH_PRODUCTS, ModelStatusTypes.UPDATE)
                 const response = await putData(`/update/updateone/${modelNames.FINISH_PRODUCTS}`, { data: updatedata, condition })
-                if (response.status == 204) {
-                    const location = JSON.parse(response.headers['content-location'])
-                    // const { condition, count } = location
-                    // console.log({ condition, count });
-                    // if (count === 1) {
-                    //     const updateData = await getData(`/read/readOne/${modelNames.ADDITION}`, condition)
-                    //     console.log(updateData.data);
-                    //     return updateData.data
-                    // }
-                    return location
-                }
+               return response;
             }
             return false;
         }
