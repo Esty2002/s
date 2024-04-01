@@ -1053,8 +1053,13 @@ const moduleValidations = [
                 propertyName: models.PUMPS_COMBINATIONS.fields.PARENT.name,
                 type: models.PUMPS_COMBINATIONS.fields.PARENT.type,
                 validation: [
-                    { modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: { entityName: modelNames.PUMPS, field: models.PUMPS.fields.ID.name, exist: true,
-                         condition: [{ key: models.PUMPS.fields.ADDITION.name, value: false }, { key: models.PUMPS.fields.DISABLED.name, value: false }] } },
+                    {
+                        modelStatus: [ModelStatusTypes.CREATE, ModelStatusTypes.UPDATE], func: validation.recordExistInDB, arguments: {
+                            entityName: modelNames.PUMPS, field: models.PUMPS.fields.ID.name, exist: true,
+                            condition: [{ key: models.PUMPS.fields.ADDITION.name, value: false },
+                                 { key: models.PUMPS.fields.DISABLED.name, value: false }]
+                        }
+                    },
                 ], require: [
                     { status: ModelStatusTypes.CREATE, require: true },
                     { status: ModelStatusTypes.UPDATE, require: false },

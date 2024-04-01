@@ -58,7 +58,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
             res.data.forEach(element => {
                 arrTempPriceListId.push(element.PriceListId)
             });
-            let obj2 = { columns: "*", condition: { IN: [{ Id: arrTempPriceListId }] } };
+            let obj2 = {  condition: { IN: [{ Id: arrTempPriceListId }] } };
 
             const res2 = await postData(`/read/readMany/${modelNames.PRICELIST}`, obj2);
             return res2.data;

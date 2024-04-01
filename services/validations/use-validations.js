@@ -108,7 +108,6 @@ const validateEntity = async ({ entity, validationModule }) => {
         }
         if (val.validation) {
             for (let valid of val.validation) {
-                console.log({ valid })
                 if (entity[val.propertyName] || entity[val.propertyName] === null) {
                     try {
                         if (valid.arguments) {

@@ -128,8 +128,7 @@ const recordExistInDB = async (value, arg) => {
             }
         }
         let ans = await getData(`/read/exists/${entityName}`, condition)
-
-        if (ans === exist) {
+        if (ans.data.exists === exist) {
             return true
         }
         else {

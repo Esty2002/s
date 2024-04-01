@@ -81,6 +81,7 @@ async function updatePump({ data = {}, condition = {} }) {
             const originObj = origin.data
             console.log({originObj});
             const updatedata = compareObjects({ data, origin: originObj, modelname: modelNames.PUMPS })
+            console.log({updatedata})
             if (!isEmptyObject(updatedata)) {
                 _ = await checkObjectValidations(updatedata, modelNames.PUMPS, ModelStatusTypes.UPDATE)
                 const response = await putData(`/update/updateone/${modelNames.PUMPS}`, { data: updatedata, condition })
