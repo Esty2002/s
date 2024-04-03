@@ -123,6 +123,7 @@ router.post('/delete', express.json(), async (req, res) => {
 
 router.post('/combinations/create', express.json(), async (req, res) => {
     try {
+        console.log(req.body);
         const response = await insert(req.body)
         if (response) {
             if (response.status === 201)
