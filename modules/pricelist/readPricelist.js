@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { postData, getData, putData, deleteData } = require('../../services/axios');
 const { logToFile } = require('../../services/logger/logTxt');
+const { basicProductsModels, buildBasicCementCombinations, addPropertiesToCementCombinations } = require('../products/basicProducts');
 const { modelNames, models, getModelKey } = require('../utils/schemas');
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
@@ -58,7 +59,7 @@ async function getPriceListbySupplierCodeOrClientCode(object) {
             res.data.forEach(element => {
                 arrTempPriceListId.push(element.PriceListId)
             });
-            let obj2 = {  condition: { IN: [{ Id: arrTempPriceListId }] } };
+            let obj2 = { condition: { IN: [{ Id: arrTempPriceListId }] } };
 
             const res2 = await postData(`/read/readMany/${modelNames.PRICELIST}`, obj2);
             return res2.data;
@@ -93,6 +94,7 @@ async function getCustomersAndAreasForPriceList(object) {
         throw new Error('can not get getCustomersAndAreasForPriceList');
     }
 }
+
 async function getPriceListById(id) {
     let objectLog
     try {
@@ -104,9 +106,25 @@ async function getPriceListById(id) {
 
         let obj = { condition: { entityName: modelNames.PRICELIST, property: getModelKey(modelNames.PRICELIST), value: id } };
         const res = await postData(`/read/readOneDetails/${modelNames.PRICELIST}`, obj);
+        if (res.data.productsPricelist) {
+            const basicCementItems = res.data.productsPricelist.filter(({ entity }) => basicProductsModels.includes(entity))
+            if (basicCementItems.length > 0) {
+                let basicCementombinations = buildBasicCementCombinations(basicCementItems.map(({ product }) => product))
+                basicCementombinations = basicCementombinations.map(item => item.map(({ model, ...rest }) => ({ ...rest, entity: model.entity })))
+                basicCementombinations = basicCementombinations.map(item=>({combination:item}))
+                console.log(basicCementombinations[0])
+                basicCementombinations = addPropertiesToCementCombinations({
+                    originList: basicCementItems,
+                    combinationList: basicCementombinations,
+                    props: [models.PRODUCTS_PRICE_LIST.fields.PRICE.name, models.PRODUCTS_PRICE_LIST.fields.DISCOUNT.name]
+                })
+                res.data.basicCementombinations = basicCementombinations
+            }
+        }
         return res;
     }
     catch (error) {
+        console.log({ error })
         objectLog.error = error.message
         logToFile(objectLog)
         throw new Error('can not get getPriceListByIdPriceListId');

@@ -10,7 +10,7 @@ const removeKeysFromObject = (origin, keys) => {
 }
 
 const isEmptyObject = (object) => {
-    if(object===undefined || object===null){
+    if (object === undefined || object === null) {
         return true;
     }
     if (object instanceof Object) {
@@ -66,5 +66,12 @@ function clone(item) {
 }
 
 
+function compareExactArrayValues(arr1, arr2) {
+    const condition1 = arr1.every(val => arr2.includes(val))
+    const condition2 = arr2.every(val => arr1.includes(val))
+    return condition1 && condition2
+}
 
-module.exports = {isEmptyObject, removeKeysFromObject, clone, cloneObject }
+
+
+module.exports = { isEmptyObject, removeKeysFromObject, clone, cloneObject, compareExactArrayValues }

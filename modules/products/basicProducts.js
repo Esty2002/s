@@ -1,7 +1,11 @@
 require('dotenv').config()
 const { postData, getData } = require('../../services/axios')
+const { compareExactArrayValues } = require('../utils/object-code')
 const { modelNames, getModel, getObjectModel } = require('../utils/schemas')
 const { SQL_PRODUCTS_TABLE } = process.env
+
+const basicProductsModels = [modelNames.CEMENT_DEGREE, modelNames.CEMENT_GRAIN, modelNames.CEMENT_SOMECH, modelNames.CEMENT_STRENGTH]
+
 
 function combineOptions(lists) {
     if (lists.length === 2) {
@@ -55,10 +59,33 @@ function buildBasicCementCombinations(list) {
         return grouplist
     }, [])
     const combination = combineOptions(groups.map(({ items }) => items))
-    
-return combination
+
+    return combination
 }
 
+function addPropertiesToCementCombinations({ originList, combinationList, props }) {
+    for (let item of originList) {
+        for (let prop of props) {
+            if (item[prop]) {
+                let val = item[prop]
+                const filter = combinationList.filter(({ combination }) => combination.find(({ entity, ...rest }) => entity === item.entity &&
+                    compareExactArrayValues(Object.keys(rest), Object.keys(item.product)) && compareExactArrayValues(Object.values(rest), Object.values(item.product))))
+                filter.forEach(combination => {
+                    if (combination[prop]) {
+                        combination[prop] += val
+                    }
+                    else {
+                        combination[prop] = val
+                    }
+
+                });
+
+            }
+        }
+    }
+
+    return combinationList
+}
 
 async function getCementTraits(basicproducts) {
     try {
@@ -78,4 +105,4 @@ async function getCementTraits(basicproducts) {
 
 
 
-module.exports = { getCementTraits, combineOptions, buildBasicCementCombinations }
+module.exports = { basicProductsModels, getCementTraits, combineOptions, buildBasicCementCombinations, addPropertiesToCementCombinations }
