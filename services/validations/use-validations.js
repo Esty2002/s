@@ -173,7 +173,9 @@ const checkObjectValidations = async (entity, objName, modelStatus = ModelStatus
         const regularProperties = validationModule.filter(({ type }) => !type.referenceType)
         for (let prop of referenceProperties) {
             if (prop.type.name === types.ARRAY.name) {
-                entity[prop.propertyName] = await Promise.all(entity[prop.propertyName].map(async (item) => await checkObjectValidations(item, prop.entityName, modelStatus)))
+                if (entity[prop.propertyName] && entity[prop.propertyName].length > 0) {
+                    entity[prop.propertyName] = await Promise.all(entity[prop.propertyName].map(async (item) => await checkObjectValidations(item, prop.entityName, modelStatus)))
+                }
             }
             else {
                 entity[prop.propertyName] = await checkObjectValidations(entity[prop.propertyName], prop.entityName, modelStatus)

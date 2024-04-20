@@ -1,7 +1,7 @@
 require('dotenv').config();
 const { postData, getData, putData, deleteData } = require('../../services/axios');
 const { logToFile } = require('../../services/logger/logTxt');
-const { basicProductsModels, buildBasicCementCombinations, addPropertiesToCementCombinations } = require('../products/basicProducts');
+const { basicProductsModels, buildBasicCementCombinations, addPropertiesToCementCombinations, getBasicCementItemName } = require('../products/basicProducts');
 const { modelNames, models, getModelKey } = require('../utils/schemas');
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
@@ -109,17 +109,19 @@ async function getPriceListById(id) {
         if (res.data.productsPricelist) {
             const basicCementItems = res.data.productsPricelist.filter(({ entity }) => basicProductsModels.includes(entity))
             if (basicCementItems.length > 0) {
-                let basicCementombinations = buildBasicCementCombinations(basicCementItems.map(({ product }) => product))
-                basicCementombinations = basicCementombinations.map(item => item.map(({ model, ...rest }) => ({ ...rest, entity: model.entity })))
-                basicCementombinations = basicCementombinations.map(item=>({combination:item}))
-                console.log(basicCementombinations[0])
-                basicCementombinations = addPropertiesToCementCombinations({
+                let basicCementCombinations = buildBasicCementCombinations(basicCementItems.map(({ product }) => product))
+                basicCementCombinations = basicCementCombinations.map(item => item.map(({ model, ...rest }) => ({ ...rest, entity: model.entity })))
+                basicCementCombinations = basicCementCombinations.map(item => ({
+                    combination: item, name: item.reduce((name, it) => [...name, getBasicCementItemName(it)], []).join(' '), entity:'basicProducts'
+                }))
+                basicCementCombinations = addPropertiesToCementCombinations({
                     originList: basicCementItems,
-                    combinationList: basicCementombinations,
+                    combinationList: basicCementCombinations,
                     props: [models.PRODUCTS_PRICE_LIST.fields.PRICE.name, models.PRODUCTS_PRICE_LIST.fields.DISCOUNT.name]
                 })
-                res.data.basicCementombinations = basicCementombinations
+                res.data.basicCementCombinations = basicCementCombinations
             }
+
         }
         return res;
     }

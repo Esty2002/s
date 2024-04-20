@@ -65,6 +65,29 @@ function clone(item) {
     return item
 }
 
+function compareExactObjectsValues(ob1, ob2) {
+    if (!compareExactArrayValues(Object.keys(ob1), Object.keys(ob2)))
+        return false
+    const allEntries = [...Object.entries(ob1), ...Object.entries(ob2)]
+    const e = allEntries.reduce((arr, item) => {
+        if (arr.length === 0) {
+            return [[item]]
+        }
+        let find = arr.find(a => a.length === 1 && a[0][0] === item[0])
+        if (find) {
+            find.push(item)
+        }
+        else {
+            arr = [...arr, [item]]
+        }
+        return arr
+    }, [])
+
+    const response = e.every(arr => compareExactArrayValues(arr[0], arr[1]))
+    return response
+
+}
+
 
 function compareExactArrayValues(arr1, arr2) {
     const condition1 = arr1.every(val => arr2.includes(val))
@@ -74,4 +97,4 @@ function compareExactArrayValues(arr1, arr2) {
 
 
 
-module.exports = { isEmptyObject, removeKeysFromObject, clone, cloneObject, compareExactArrayValues }
+module.exports = { isEmptyObject, removeKeysFromObject, clone, cloneObject, compareExactArrayValues, compareExactObjectsValues }

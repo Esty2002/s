@@ -899,9 +899,9 @@ const moduleValidations = [
                 type: models.PRICELIST.fields.PRODUCTS.type,
                 entityName: models.PRICELIST.fields.PRODUCTS.entityName,
                 require: [
-                    { status: ModelStatusTypes.CREATE, require: true },
-                    { status: ModelStatusTypes.UPDATE, require: true },
-                    { status: ModelStatusTypes.DELETE, require: true }
+                    { status: ModelStatusTypes.CREATE, require: false },
+                    { status: ModelStatusTypes.UPDATE, require: false },
+                    { status: ModelStatusTypes.DELETE, require: false }
                 ]
             }
         ]

@@ -1,10 +1,10 @@
 require('dotenv').config()
 const { postData, getData } = require('../../services/axios')
-const { compareExactArrayValues } = require('../utils/object-code')
+const { compareExactArrayValues, compareExactObjectsValues } = require('../utils/object-code')
 const { modelNames, getModel, getObjectModel } = require('../utils/schemas')
 const { SQL_PRODUCTS_TABLE } = process.env
 
-const basicProductsModels = [modelNames.CEMENT_DEGREE, modelNames.CEMENT_GRAIN, modelNames.CEMENT_SOMECH, modelNames.CEMENT_STRENGTH]
+const basicProductsModels = [modelNames.CEMENT_STRENGTH, modelNames.CEMENT_GRAIN, modelNames.CEMENT_SOMECH, modelNames.CEMENT_DEGREE]
 
 
 function combineOptions(lists) {
@@ -34,13 +34,28 @@ function combineOptions(lists) {
 
 }
 
+function getBasicCementItemName(item) {
+    let nameProp = Object.keys(item).find(key => key.toLowerCase().indexOf('describe'))
+    return item[nameProp]
+}
+
+function orderCombination(combination) {
+    let order = combination.reduce((combine, item) => {
+        const { model } = item
+        combine[basicProductsModels.indexOf(model.entity)] = item
+        return combine
+    }, [])
+
+    return order
+}
+
 
 function buildBasicCementCombinations(list) {
     const optionModels = [
-        getModel(modelNames.CEMENT_DEGREE),
+        getModel(modelNames.CEMENT_STRENGTH),
         getModel(modelNames.CEMENT_GRAIN),
         getModel(modelNames.CEMENT_SOMECH),
-        getModel(modelNames.CEMENT_STRENGTH)
+        getModel(modelNames.CEMENT_DEGREE)
     ]
     list = list.map(item => ({ ...item, model: optionModels.find(model => getObjectModel(item, model)) }))
     const groups = list.reduce((grouplist, item) => {
@@ -58,8 +73,8 @@ function buildBasicCementCombinations(list) {
         }
         return grouplist
     }, [])
-    const combination = combineOptions(groups.map(({ items }) => items))
-
+    let combination = combineOptions(groups.map(({ items }) => items))
+    combination = combination.map(item => orderCombination(item))
     return combination
 }
 
@@ -69,7 +84,7 @@ function addPropertiesToCementCombinations({ originList, combinationList, props 
             if (item[prop]) {
                 let val = item[prop]
                 const filter = combinationList.filter(({ combination }) => combination.find(({ entity, ...rest }) => entity === item.entity &&
-                    compareExactArrayValues(Object.keys(rest), Object.keys(item.product)) && compareExactArrayValues(Object.values(rest), Object.values(item.product))))
+                    compareExactObjectsValues(rest, item.product)))
                 filter.forEach(combination => {
                     if (combination[prop]) {
                         combination[prop] += val
@@ -105,4 +120,11 @@ async function getCementTraits(basicproducts) {
 
 
 
-module.exports = { basicProductsModels, getCementTraits, combineOptions, buildBasicCementCombinations, addPropertiesToCementCombinations }
+module.exports = {
+    basicProductsModels,
+    getCementTraits,
+    combineOptions,
+    getBasicCementItemName,
+    buildBasicCementCombinations,
+    addPropertiesToCementCombinations
+}
