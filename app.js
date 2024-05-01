@@ -6,6 +6,7 @@ const cors = require('cors')
 // const swaggerDocument = require('./swagger/products.json');
 const manageUnitOfMeasure = require('./routers/products/unitOfMeasure');
 const pumps_router = require('./routers/products/pumps');
+const all_products_router = require('./routers/products/allProducts')
 const manageAdditions = require('./routers/products/additions');
 const manageBasicProducts = require('./routers/products/basicProducts');
 const manageFinishProducts = require('./routers/products/finishProducts');
@@ -37,10 +38,11 @@ app.use(reqLogger())
 // app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 // app.use('/swagger-leads', swaggerUi.serveFiles(swaggerLeads), swaggerUi.setup(swaggerLeads))
 app.use('/models',models)
-
+app.use('/products/all', all_products_router)
 app.use('/unitOfMeasure', manageUnitOfMeasure);
 app.use('/basicProducts', manageBasicProducts);
 app.use('/pumps', pumps_router);
+
 app.use('/additions', manageAdditions);
 app.use('/finishProducts', manageFinishProducts);
 app.use('/suppliers', suppliers_router);

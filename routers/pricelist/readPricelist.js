@@ -3,15 +3,18 @@ const router = express.Router()
 const { logToFile } = require('../../services/logger/logTxt')
 const { reqLogger } = require('../../services/logger/logger')
 
-const { getPriceListById, getAllPriceList, getCustomersAndAreasForPriceList, getPriceListByIdPriceListId
+const { getPriceListById, getAllPriceList, getCustomersAndAreasForPriceList, getPriceListTypesById
     , getPriceListByAdditionsForDistance, getPriceListByAdditionsForCities, getPriceListByAdditionsForTime,
-    getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton } = require('../../modules/pricelist/readPricelist')
-const { getProductsTypeNameForPricelist, getProductsListByType } = require('../../modules/pricelist/pricelist-products')
+    getPriceListByAdditionsForTruckFill, getSupplierByNameProduct, getSupplierByNameProductBuyton,
+    getPriceListProducts,
+    getNoPricelistProducts } = require('../../modules/pricelist/readPricelist')
+const { getProductsTypeNameForPricelist } = require('../../modules/pricelist/pricelist-products')
+const { getProductsListByType } = require('../../modules/products/allProducts')
 
 
 router.use(reqLogger())
 router.get('/findAllPriceList', async (req, res) => {
-   let objectLog = {
+    let objectLog = {
         name: 'findAllPriceList',
         description: 'findAllPriceList in router',
     }
@@ -34,16 +37,13 @@ router.get('/producttypes', (req, res) => {
     res.status(200).send(types)
 })
 
-router.get('/productslist/:category', async(req, res) => {
-    try {
-        const response =await getProductsListByType(req.params.category)
-        res.status(200).send(response)
-    }
-    catch (error) {
-        console.log({ error })
-        res.status(500).send(error)
-    }
+router.get('/producttypes/:id', async (req, res) => {
+    const { id } = req.params
+    const types = await getPriceListTypesById(id)
+    res.status(200).send(types)
 })
+
+
 
 // חיפוש מחירון לפי ID
 router.get('/pricelist/:id', async (req, res) => {
@@ -57,6 +57,30 @@ router.get('/pricelist/:id', async (req, res) => {
     }
 
 
+})
+
+router.get('/pricelistproducts/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        const { type } = req.query
+        const result = await getPriceListProducts({ id, type })
+        res.status(200).send(result);
+    }
+    catch (error) {
+        res.status(500).send(error)
+    }
+})
+
+router.get('/nopricelistproducts/:id/:type', async (req, res) => {
+    try {
+        const { id, type } = req.params
+        const result = await getNoPricelistProducts({ id, type })
+        res.status(200).send(result);
+    }
+    catch (error) {
+        console.log({ error });
+        res.status(500).send(error)
+    }
 })
 
 
@@ -103,7 +127,7 @@ router.get('/getCustomersAreasForPriceList/:priceListId', async (req, res) => {
     }
 })
 //חיפוש מוצר על פי מספר  מחירון
-router.get('/FindPriceListByProduct/:id', async (req, res) => {
+router.get('/findPriceListByProduct/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByProduct',
         description: 'FindPriceListByProduct in router',
@@ -120,7 +144,7 @@ router.get('/FindPriceListByProduct/:id', async (req, res) => {
     }
 })
 //  חיפוש מחירון לפי תוספת לפי מרחק
-router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
+router.get('/findPriceListByAdditionsForDistance/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByAdditionsForDistance',
         description: 'FindPriceListByAdditionsForDistance in router',
@@ -137,7 +161,7 @@ router.get('/FindPriceListByAdditionsForDistance/:id', async (req, res) => {
     }
 })
 // חיפוש מחירון לפי תוספת לפי עיר
-router.get('/FindPriceListByAdditionsForCities/:id', async (req, res) => {
+router.get('/findPriceListByAdditionsForCities/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByAdditionsForCities',
         description: 'FindPriceListByAdditionsForCities in router',
@@ -154,7 +178,7 @@ router.get('/FindPriceListByAdditionsForCities/:id', async (req, res) => {
     }
 })
 // חיפוש מחירון לפי תוספת יום או שעה
-router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
+router.get('/findPriceListByAdditionsForTime/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByAdditionsForTime',
         description: 'FindPriceListByAdditionsForTime in router',
@@ -170,7 +194,7 @@ router.get('/FindPriceListByAdditionsForTime/:id', async (req, res) => {
     }
 })
 //  חיפוש מחירון לפי תוספת משאית
-router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
+router.get('/findPriceListByAdditionsForTruckFill/:id', async (req, res) => {
     objectLog = {
         name: 'FindPriceListByAdditionsForTruckFill',
         description: 'FindPriceListByAdditionsForTruckFill in router',
@@ -189,7 +213,7 @@ router.get('/FindPriceListByAdditionsForTruckFill/:id', async (req, res) => {
 })
 
 // חיפוש ספק ואזור לפי מוצר
-router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res) => {
+router.get('/findSupplierByNameProduct/:nameTable/:nameProduct', async (req, res) => {
     objectLog = {
         name: 'FindSupplierByNameProduct',
         description: 'FindSupplierByNameProduct in router',
@@ -205,7 +229,7 @@ router.get('/FindSupplierByNameProduct/:nameTable/:nameProduct', async (req, res
     }
 })
 
-router.get('/FindSupplierByNameProductBuyton/:nameTable/:nameProduct', async (req, res) => {
+router.get('/findSupplierByNameProductBuyton/:nameTable/:nameProduct', async (req, res) => {
     objectLog = {
         name: 'FindSupplierByNameProductBuyton',
         description: 'FindSupplierByNameProductBuyton in router',

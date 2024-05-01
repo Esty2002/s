@@ -45,7 +45,6 @@ function orderCombination(combination) {
         combine[basicProductsModels.indexOf(model.entity)] = item
         return combine
     }, [])
-
     return order
 }
 
@@ -102,10 +101,23 @@ function addPropertiesToCementCombinations({ originList, combinationList, props 
     return combinationList
 }
 
+async function getBasicProducts() {
+    try {
+        const response = await getData(`/read/readMany/${modelNames.BASIC_PRODUCTS}`);
+        if (response.status === 200) {
+            return response
+        }
+        return []
+    }
+    catch (error) {
+        throw error;
+    }
+}
+
 async function getCementTraits(basicproducts) {
     try {
         console.log({ basicproducts })
-        const response = await getData(`/read/readMany/${modelNames.BASIC_PRODUCTS}`)
+        const response = await getData(`/read/readMany/${basicproducts}`)
         if (response.status === 200)
             return response
         else
@@ -122,6 +134,7 @@ async function getCementTraits(basicproducts) {
 
 module.exports = {
     basicProductsModels,
+    getBasicProducts,
     getCementTraits,
     combineOptions,
     getBasicCementItemName,

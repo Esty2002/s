@@ -1,10 +1,10 @@
 const express = require('express')
 const router = express.Router()
-const { getCementTraits, basicProductsModels } = require('../../modules/products/basicProducts')
+const { getBasicProducts, basicProductsModels } = require('../../modules/products/basicProducts')
 
 router.get('/allcombination', async (req, res) => {
     try {
-        const response = await getCementTraits()
+        const response = await getBasicProducts()
         if (response.status == 200)
             res.status(200).send(response.data)
         else {
