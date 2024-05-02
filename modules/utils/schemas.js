@@ -165,7 +165,7 @@ const models = {
         fields: {
             CODE: { name: 'degreeCode' },
             DESCRIPTION: { name: 'degreeDescribe' },
-            NUMBER: { name: 'degreeNumber' },
+            NUMBER: { name: 'degreeNumber',  key: true },
         }
     },
     CEMENT_GRAIN: {
@@ -173,7 +173,7 @@ const models = {
         fields: {
             CODE: { name: 'grainCode' },
             DESCRIPTION: { name: 'grainDescribe' },
-            NUMBER: { name: 'grainNumber' },
+            NUMBER: { name: 'grainNumber',  key: true },
         }
     },
     CEMENT_SOMECH: {
@@ -181,7 +181,7 @@ const models = {
         fields: {
             CODE: { name: 'somechCode' },
             DESCRIPTION: { name: 'somechDescribe' },
-            NUMBER: { name: 'somechNumber' },
+            NUMBER: { name: 'somechNumber' ,  key: true},
         }
     },
     CEMENT_STRENGTH: {
@@ -189,7 +189,7 @@ const models = {
         fields: {
             CODE: { name: 'strengthCode' },
             DESCRIPTION: { name: 'strengthDescribe' },
-            NUMBER: { name: 'strengthNumber' },
+            NUMBER: { name: 'strengthNumber' ,  key: true},
         }
     },
     DISTANCE_ADDITIONS: {
