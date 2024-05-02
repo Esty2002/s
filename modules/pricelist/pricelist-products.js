@@ -1,4 +1,5 @@
-const { modelNames } = require("../utils/schemas");
+const { buildBasicCementCombinations, getBasicCementItemName, addPropertiesToCementCombinations } = require("../products/basicProducts");
+const { modelNames, models } = require("../utils/schemas");
 
 
 const priceListType = [
@@ -16,4 +17,22 @@ function getProductsTypeNameForPricelist(types) {
     return response
 }
 
-module.exports = {  getProductsTypeNameForPricelist }
+ function combineBasicProducts(basicCementItems){
+    let basicCementCombinations = buildBasicCementCombinations(basicCementItems.map(({ product }) => product))
+    basicCementCombinations = basicCementCombinations.filter(combination => !combination.includes(undefined))
+    if (basicCementCombinations.length > 0) {
+        basicCementCombinations = basicCementCombinations.map(item => item.map(({ model, ...rest }) => ({ ...rest, entity: model.entity })))
+        basicCementCombinations = basicCementCombinations.map(item => ({
+            combination: item, name: item.reduce((name, it) => [...name, getBasicCementItemName(it)], []).join(' '), entity: 'basicProducts'
+        }))
+        basicCementCombinations = addPropertiesToCementCombinations({
+            originList: basicCementItems,
+            combinationList: basicCementCombinations,
+            props: [models.PRODUCTS_PRICE_LIST.fields.PRICE.name, models.PRODUCTS_PRICE_LIST.fields.DISCOUNT.name]
+        })
+
+    }
+    return basicCementCombinations;
+}
+
+module.exports = {  getProductsTypeNameForPricelist, combineBasicProducts }

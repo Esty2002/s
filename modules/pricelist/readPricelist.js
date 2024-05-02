@@ -1,10 +1,10 @@
 require('dotenv').config();
 const { postData, getData, putData, deleteData } = require('../../services/axios');
 const { logToFile } = require('../../services/logger/logTxt');
-const { basicProductsModels, buildBasicCementCombinations, addPropertiesToCementCombinations, getBasicCementItemName } = require('../products/basicProducts');
+const { basicProductsModels } = require('../products/basicProducts');
 const { modelNames, models, getModelKey } = require('../utils/schemas');
-const {  getProductsTypeNameForPricelist } = require('./pricelist-products');
-const {getProductsListByType} = require('../products/allProducts')
+const { getProductsTypeNameForPricelist, combineBasicProducts } = require('./pricelist-products');
+const { getProductsListByType } = require('../products/allProducts')
 //פונקציית חיפוש שמביאה את כל ההצעות מחיר
 async function getAllPriceList() {
     objectLog = {
@@ -131,20 +131,10 @@ async function getPriceListById(id) {
         if (res.data.productsPricelist) {
             const basicCementItems = res.data.productsPricelist.filter(({ entity }) => basicProductsModels.includes(entity))
             if (basicCementItems.length > 0) {
-                let basicCementCombinations = buildBasicCementCombinations(basicCementItems.map(({ product }) => product))
-                basicCementCombinations = basicCementCombinations.filter(combination => !combination.includes(undefined))
-                if (basicCementCombinations.length > 0) {
-                    basicCementCombinations = basicCementCombinations.map(item => item.map(({ model, ...rest }) => ({ ...rest, entity: model.entity })))
-                    basicCementCombinations = basicCementCombinations.map(item => ({
-                        combination: item, name: item.reduce((name, it) => [...name, getBasicCementItemName(it)], []).join(' '), entity: 'basicProducts'
-                    }))
-                    basicCementCombinations = addPropertiesToCementCombinations({
-                        originList: basicCementItems,
-                        combinationList: basicCementCombinations,
-                        props: [models.PRODUCTS_PRICE_LIST.fields.PRICE.name, models.PRODUCTS_PRICE_LIST.fields.DISCOUNT.name]
-                    })
-                    res.data.basicCementCombinations = basicCementCombinations
-                }
+                const combinations = combineBasicProducts(basicCementItems)
+
+                res.data.basicCementCombinations = combinations.length > 0 ? combinations : undefined;
+
             }
 
         }
@@ -163,9 +153,10 @@ async function getPriceListProducts({ id, type }) {
     condition[models.PRODUCTS_PRICE_LIST.fields.PRICELIST.name] = id
     if (type) {
         if (type === modelNames.BASIC_PRODUCTS) {
-           
+            condition.OR = basicProductsModels.map(item => ({ entity: item }))
         }
-        condition[models.PRODUCTS_PRICE_LIST.fields.PRODUCT_TYPE.name] = type
+        else
+            condition[models.PRODUCTS_PRICE_LIST.fields.PRODUCT_TYPE.name] = type
     }
     try {
         const response = await getData(`/read/readmany/${modelNames.PRODUCTS_PRICE_LIST}`, condition)
@@ -183,13 +174,27 @@ async function getNoPricelistProducts({ id, type }) {
     try {
         const products = await getPriceListProducts({ id, type });
         const all = await getProductsListByType(type);
-        const productsData = products;
-        const allData = all;
-        productsData.forEach(item => {
-            const index = allData.findIndex(({ id }) => id.toString() === item.product);
-            allData.splice(index, 1);
-        })
-        return allData;
+
+        if (type === modelNames.BASIC_PRODUCTS) {
+            const productsData = products.map(({ product, entity }) => ({ product, entity }))
+            productsData.forEach(product => {
+                const entity = all.find(({ title }) => title === product.entity)
+                if (entity) {
+                    const entityKey = getModelKey(product.entity);
+                    const index = entity.items.findIndex((item) =>item[entityKey].toString() === product.product);
+                    entity.items.splice(index, 1)
+                }
+            })
+        }
+        else {
+            const productsData = products;
+            productsData.forEach(item => {
+                const index = all.findIndex(({ id }) => id.toString() === item.product);
+                all.splice(index, 1);
+            })
+        }
+
+        return all;
     }
     catch (error) {
         throw error
